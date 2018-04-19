@@ -2,7 +2,7 @@
 //  UIButton+Common.m
 //  TinyShoppingCenter
 //
-//  Created by 庞宏侠 on 17/7/19.
+//  Created by 二壮 on 17/7/19.
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 

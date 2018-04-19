@@ -2,7 +2,7 @@
 //  TTAttibuteLabel.m
 //  TT_Project
 //
-//  Created by 庞宏侠 on 16/11/11.
+//  Created by 二壮 on 16/11/11.
 //  Copyright © 2016年 Apple. All rights reserved.
 //
 

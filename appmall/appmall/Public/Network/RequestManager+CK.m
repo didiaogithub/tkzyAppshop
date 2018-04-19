@@ -2,7 +2,7 @@
 //  RequestManager+CK.m
 //  CKYSPlatform
 //
-//  Created by 忘仙 on 2017/6/1.
+//  Created by 二壮 on 2017/6/1.
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 

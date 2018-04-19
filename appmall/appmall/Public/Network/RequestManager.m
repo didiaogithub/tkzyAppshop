@@ -2,7 +2,7 @@
 //  RequestManager.m
 //  CKYSPlatform
 //
-//  Created by 忘仙 on 2017/5/24.
+//  Created by 二壮 on 2017/5/24.
 //  Copyright © 2017年 ForgetFairy. All rights reserved.
 //
 

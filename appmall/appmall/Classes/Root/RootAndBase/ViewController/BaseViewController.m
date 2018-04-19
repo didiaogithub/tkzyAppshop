@@ -2,7 +2,7 @@
 //  BaseViewController.m
 //  ShoppingCentre
 //
-//  Created by 庞宏侠 on 16/7/12.
+//  Created by 二壮 on 16/7/12.
 //  Copyright © 2016年 ckys. All rights reserved.
 //
 

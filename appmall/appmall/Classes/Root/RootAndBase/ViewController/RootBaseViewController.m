@@ -2,7 +2,7 @@
 //  RootBaseViewController.m
 //  CKYSPlatform
 //
-//  Created by 忘仙 on 2017/6/15.
+//  Created by 二壮 on 2017/6/15.
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 

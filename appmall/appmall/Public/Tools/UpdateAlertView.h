@@ -2,7 +2,7 @@
 //  UpdateAlertView.h
 //  TinyShoppingCenter
 //
-//  Created by 忘仙 on 2017/9/3.
+//  Created by 二壮 on 2017/9/3.
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 

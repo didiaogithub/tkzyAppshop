@@ -2,7 +2,7 @@
 //  common.h
 //  MoveShoppingMall
 //
-//  Created by 庞宏侠 on 17/2/7.
+//  Created by 二壮 on 17/2/7.
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 #define common_h

@@ -1,7 +1,7 @@
 
 //  CKC_CustomProgressView.h
 
-//  Created by 庞宏侠 on 16/6/30.
+//  Created by 二壮 on 16/6/30.
 //  Copyright © 2016年 link. All rights reserved.
 //
 

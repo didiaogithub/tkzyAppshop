@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  appmall
 //
-//  Created by majun on 2018/4/14.
+//  Created by 二壮 on 2018/4/14.
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 

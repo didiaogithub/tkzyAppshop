@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>itemTitle</key>
+		<string>口蹄疫疫苗</string>
+		<key>itemImage</key>
+		<string>fengkuangjingcai</string>
+	</dict>
+	<dict>
+		<key>itemTitle</key>
+		<string>布氏菌病疫苗</string>
+		<key>itemImage</key>
+		<string>yuyuefangan</string>
+	</dict>
+	<dict>
+		<key>itemTitle</key>
+		<string>小反兽疫</string>
+		<key>itemImage</key>
+		<string>yucezhanji</string>
+	</dict>
+	<dict>
+		<key>itemTitle</key>
+		<string>猪瘟蓝耳</string>
+		<key>itemImage</key>
+		<string>bifenzhibo</string>
+	</dict>
+</array>
+</plist>

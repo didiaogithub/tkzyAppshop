@@ -1,0 +1,19 @@
+
+platform:ios,’8.0’
+
+inhibit_all_warnings! #忽略第三方代码警告
+
+target 'appmall' do
+
+  pod 'AFNetworking', '~> 3.1.0'
+  pod 'SDWebImage', '~> 3.7.2'
+  pod 'MJExtension'
+  pod 'IQKeyboardManager'
+  pod 'JPush-iOS-SDK'
+  pod 'JGProgressHUD'
+  pod 'Realm'
+  pod 'Masonry'
+    pod 'MJRefresh'
+  
+
+end

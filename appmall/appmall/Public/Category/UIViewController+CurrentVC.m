@@ -3,7 +3,7 @@
 //  TinyShoppingCenter
 //
 //  Created by 二壮 on 17/7/20.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "UIViewController+CurrentVC.h"

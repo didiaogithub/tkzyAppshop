@@ -2,8 +2,8 @@
 //  SCSCConfirmOrderViewController.h
 //  TinyShoppingCenter
 //
-//  Created by ForgetFairy on 2017/9/28.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Created by 二壮 on 2017/9/28.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 //  从购物车进去的确认订单页面
 

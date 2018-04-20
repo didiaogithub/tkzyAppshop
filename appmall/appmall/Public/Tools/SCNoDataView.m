@@ -3,7 +3,7 @@
 //  TinyShoppingCenter
 //
 //  Created by 二壮 on 2017/9/9.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "SCNoDataView.h"
@@ -36,8 +36,8 @@
 
 -(UIImageView *)imageV {
     if (_imageV == nil) {
-        _imageV = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.5 -30, self.frame.size.height/2-70, 60, 60)];
-        _imageV.layer.cornerRadius = 30.0f;
+        _imageV = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.5 -60, self.frame.size.height/2-110,120,100)];
+//        _imageV.layer.cornerRadius = 30.0f;
         _imageV.layer.masksToBounds = YES;
         _imageV.image = [UIImage imageNamed:@"defaultnodata"];
     }

@@ -3,7 +3,7 @@
 //  CKYSPlatform
 //
 //  Created by 二壮 on 2017/5/24.
-//  Copyright © 2017年 ForgetFairy. All rights reserved.
+//  Copyright © 2017年 二壮. All rights reserved.
 //
 
 #import "RequestManager.h"

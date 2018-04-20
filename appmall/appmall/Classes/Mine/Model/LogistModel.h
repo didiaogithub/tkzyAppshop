@@ -2,8 +2,8 @@
 //  LogistModel.h
 //  CKYSPlatform
 //
-//  Created by 庞宏侠 on 16/12/8.
-//  Copyright © 2016年 ckys. All rights reserved.
+//  Created by 二壮 on 16/12/8.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "BaseEncodeModel.h"

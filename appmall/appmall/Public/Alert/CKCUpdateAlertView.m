@@ -2,8 +2,8 @@
 //  CKCUpdateAlertView.m
 //  CKYSPlatform
 //
-//  Created by ForgetFairy on 2017/12/20.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Created by 二壮 on 2017/12/20.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "CKCUpdateAlertView.h"

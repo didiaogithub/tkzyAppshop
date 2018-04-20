@@ -3,7 +3,7 @@
 //  TinyShoppingCenter
 //
 //  Created by 二壮 on 2017/9/6.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "SCBannerActiveGDVC.h"

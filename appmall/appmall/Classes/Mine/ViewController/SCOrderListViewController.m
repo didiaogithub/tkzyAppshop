@@ -2,8 +2,8 @@
 //  SCOrderListViewController.m
 //  TinyShoppingCenter
 //
-//  Created by ForgetFairy on 2017/10/9.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Created by 二壮 on 2017/10/9.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "SCOrderListViewController.h"
@@ -272,7 +272,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }];
     float buttonH = 50;
     _statusBtnArr = [NSMutableArray array];
-    NSArray *titleArr = @[@"待付款", @"待收货", @"待评价", @"退货", @"全部"];
+    NSArray *titleArr = @[@"待付款", @"待发货", @"待收货", @"使用反馈", @"全部"];
     
     for (NSInteger i = 0; i < titleArr.count; i++) {
         UIButton *btn = [self createOrderButtonWithframe:CGRectMake((SCREEN_WIDTH/5)*i, 0, SCREEN_WIDTH/5, buttonH) andTag:140+i andAction:@selector(clickOrderButton:) andtitle:titleArr[i]];

@@ -2,13 +2,13 @@
 //  SCMineTableViewCell.m
 //  TinyShoppingCenter
 //
-//  Created by ForgetFairy on 2017/9/27.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Created by 二壮 on 2017/9/27.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "SCMineTableViewCell.h"
 #import "SCUserInfoModel.h"
-
+#import "UIButton+XN.h"
 @implementation SCMineTableViewCell
 
 - (void)awakeFromNib {
@@ -168,8 +168,6 @@
 
 
 @interface SCMineOrderCell ()
-/**订单图片*/
-@property (nonatomic, strong) UIImageView *orderImageView;
 /**我的订单*/
 @property (nonatomic, strong) UILabel *orderLable;
 /**查看全部订单*/
@@ -197,24 +195,14 @@
 }
 
 -(void)createUI {
-    //订单图标
-    _orderImageView = [[UIImageView alloc] init];
-    [self.contentView addSubview:_orderImageView];
-    _orderImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_orderImageView setImage:[UIImage imageNamed:@"order"]];
-    
-    [_orderImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(10);
-        make.left.mas_offset(15);
-        make.size.mas_offset(CGSizeMake(25, 25));
-    }];
+   
     //我的订单  lable
     _orderLable = [UILabel configureLabelWithTextColor:[UIColor darkGrayColor] textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_orderLable];
     _orderLable.text = @"我的订单";
     [_orderLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_orderImageView.mas_top).offset(5);
-        make.left.equalTo(_orderImageView.mas_right).offset(10);
+        make.top.mas_offset(10);
+        make.left.mas_offset(15);
     }];
     //右箭头
     _rightImageView = [[UIImageView alloc] init];
@@ -230,7 +218,7 @@
     //查看全部订单
     _checkAllMyOrderLable = [UILabel configureLabelWithTextColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_checkAllMyOrderLable];
-    _checkAllMyOrderLable.text = @"查看全部订单";
+    _checkAllMyOrderLable.text = @"查看全部>";
     [_checkAllMyOrderLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_rightImageView.mas_centerY);
         make.right.equalTo(_rightImageView.mas_left).offset(-3);
@@ -256,21 +244,27 @@
     [self.contentView addSubview:_lineLable];
     [_lineLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
-        make.top.equalTo(_orderImageView.mas_bottom).offset(10);
+        make.top.equalTo(_orderLable.mas_bottom).offset(10);
         make.height.mas_equalTo(1);
     }];
     
     
     
-    NSArray *imageArr = @[@"fukuan", @"shouhuo", @"pingjia", @"tuihuo"];
+    NSArray *imageArr = @[@"待付款", @"待发货", @"待收货", @"使用反馈"];
+    NSArray *titleArr = @[@"待付款", @"待发货", @"待收货", @"使用反馈"];
     float spaceW = (SCREEN_WIDTH - 10)/4; //宽
     
     for (int i = 0; i<4; i++) {
         
         UIImage *stutsImage = [UIImage imageNamed:imageArr[i]];
         _statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+       
         [self.contentView addSubview:_statusButton];
+        
         [_statusButton setImage:stutsImage forState:UIControlStateNormal];
+        [_statusButton setTitle:titleArr[i] forState:UIControlStateNormal];
+        [_statusButton setTitleColor:TitleColor forState:UIControlStateNormal];
+        _statusButton.titleLabel.font = MAIN_TITLE_FONT;
         [_statusButton setBackgroundColor:[UIColor clearColor]];
         [_statusButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_lineLable.mas_bottom);
@@ -278,6 +272,7 @@
             make.height.mas_offset(70);
             make.width.mas_offset(spaceW);
         }];
+        [_statusButton layoutButtonWithEdgeInsetsStyle:XNButtonEdgeInsetsStyleTop imageTitleSpace:10];
         _statusButton.tag = 20+i;
         [_statusButton addTarget:self action:@selector(clickStatusButton:) forControlEvents:UIControlEventTouchUpInside];
         

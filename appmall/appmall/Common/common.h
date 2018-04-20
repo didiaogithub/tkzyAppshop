@@ -3,7 +3,7 @@
 //  MoveShoppingMall
 //
 //  Created by 二壮 on 17/2/7.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 #define common_h
 
@@ -156,7 +156,7 @@
 //#define OpenidForRegist @"00016ks000AwjUdpUfkYCwbkDt5G-voP-L000"
 
 /**请求的参数openid */
-#define USER_OPENID  [KUserdefaults objectForKey:@"USER_OPENID"]
+#define USER_OPENID   @""//[KUserdefaults objectForKey:@"USER_OPENID"]
 
 /**域名配置*/
 #define WebServiceAPI [[DefaultValue shareInstance] domainName]

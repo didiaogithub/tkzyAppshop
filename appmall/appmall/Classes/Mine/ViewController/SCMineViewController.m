@@ -2,8 +2,8 @@
 //  SCMineViewController.m
 //  TinyShoppingCenter
 //
-//  Created by ForgetFairy on 2017/9/27.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Created by 二壮 on 2017/9/27.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "SCMineViewController.h"
@@ -118,22 +118,10 @@
 
     NSMutableArray *titleArray = [NSMutableArray array];
     NSMutableArray *imageArray = [NSMutableArray array];
-    NSString *mallintegralshow = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:MallintegralShowOrNot]];
-    if ([mallintegralshow isEqualToString:@"ture"] || [mallintegralshow isEqualToString:@"1"]) {
-        [titleArray addObjectsFromArray:@[@"我的收藏", @"我的积分", @"推荐有奖", @"积分商城", @"我的地址", @"问题帮助", @"关于我们", @"设置"]];
-        [imageArray addObjectsFromArray:@[@"collected", @"score", @"recommondReward", @"minemall", @"addressred",  @"minehelp", @"ckysred", @"minesetup"]];
-    }else{
-        [titleArray addObjectsFromArray:@[@"我的收藏", @"我的积分", @"推荐有奖", @"我的地址", @"问题帮助", @"关于我们", @"设置"]];
-        [imageArray addObjectsFromArray:@[@"collected", @"score", @"recommondReward", @"addressred",  @"minehelp", @"ckysred", @"minesetup"]];
-        
-    }
-    //控制消息中心显示不显示  0:不显示，1：显示
-    NSString *msgshow = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_msgShow"]];
-    if ([msgshow isEqualToString:@"ture"] || [msgshow isEqualToString:@"1"]) {
-        [titleArray insertObject:@"消息中心" atIndex:1];
-        [imageArray insertObject:@"messageCenter" atIndex:1];
-    }
-    
+  
+    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理", @"分期还款", @"发票管理",@"收货地址"]];
+    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款", @"dkw_还款", @"发票",  @"地址(1)"]];
+   
     for (NSInteger i = 0; i < titleArray.count; i++) {
         CellModel *functionM = [self createCellModel:[SCMineFunctionCell class] userInfo:@{@"title":titleArray[i], @"image": imageArray[i]} height:55];
         SectionModel *section2 = [self createSectionModel:@[functionM] headerHeight:0.1 footerHeight:0.1];
@@ -238,21 +226,10 @@
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"YSMemberPointViewController",
                                          @"SCRecommendRewardVC",
-                                         @"ChangeMyAddressViewController",
                                          @"WebDetailViewController",
                                          @"WebDetailViewController",
-                                         @"SetUpViewController"]];
-    
-    
-    NSString *mallintegralshow = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:MallintegralShowOrNot]];
-    if ([mallintegralshow isEqualToString:@"ture"] || [mallintegralshow isEqualToString:@"1"]) {
-        [vcNameArray insertObject:@"SCIntegralMallViewController" atIndex:3];
-    }
-    
-    NSString *msgshow = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_msgShow"]];
-    if ([msgshow isEqualToString:@"ture"] || [msgshow isEqualToString:@"1"]) {
-        [vcNameArray insertObject:@"SCMessageListViewController" atIndex:1];
-    }
+                                         @"ChangeMyAddressViewController"]];
+
 
     if (indexPath.section > 1) {
         if(indexPath.section == vcNameArray.count-1){//问题帮助

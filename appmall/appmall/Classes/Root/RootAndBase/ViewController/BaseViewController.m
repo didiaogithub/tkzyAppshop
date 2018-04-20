@@ -3,7 +3,7 @@
 //  ShoppingCentre
 //
 //  Created by 二壮 on 16/7/12.
-//  Copyright © 2016年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "BaseViewController.h"

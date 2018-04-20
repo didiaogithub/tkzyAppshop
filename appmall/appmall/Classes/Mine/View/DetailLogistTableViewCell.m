@@ -2,8 +2,8 @@
 //  LogistTableViewCell.m
 //  CKYSPlatform
 //
-//  Created by 庞宏侠 on 16/11/21.
-//  Copyright © 2016年 ckys. All rights reserved.
+//  Created by 二壮 on 16/11/21.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "DetailLogistTableViewCell.h"

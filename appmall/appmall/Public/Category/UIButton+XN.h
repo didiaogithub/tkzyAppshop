@@ -2,7 +2,7 @@
 //  UIButton+XN.h
 //  BESTKEEP
 //
-//  Created by ForgetFairy on 2016/11/17.
+//  Created by 二壮 on 2016/11/17.
 //  Copyright © 2016年 YISHANG. All rights reserved.
 //
 

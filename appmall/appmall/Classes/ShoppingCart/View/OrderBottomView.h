@@ -2,8 +2,8 @@
 //  OrderBottomView.h
 //  TinyShoppingCenter
 //
-//  Created by 庞宏侠 on 16/8/10.
-//  Copyright © 2016年 ckys. All rights reserved.
+//  Created by 二壮 on 16/8/10.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,7 +2,7 @@
 //  CKRealnameIdentifyView.h
 //  CKYSPlatform
 //
-//  Created by ForgetFairy on 2018/3/14.
+//  Created by 二壮 on 2018/3/14.
 //  Copyright © 2018年 ckys. All rights reserved.
 //
 

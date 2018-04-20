@@ -3,7 +3,7 @@
 //  TinyShoppingCenter
 //
 //  Created by 二壮 on 2017/5/19.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "YSCollectionViewController.h"
@@ -39,7 +39,8 @@
 -(SCNoDataView *)noDataView {
     if (_noDataView == nil) {
         _noDataView = [[SCNoDataView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
-        _noDataView.nodataLabel.text = @"暂无收藏信息";
+        _noDataView.imageV.image = [UIImage imageNamed:@"我的收藏默认"];
+        _noDataView.nodataLabel.text = @"还没有任何收藏呢";
     }
     return _noDataView;
 }

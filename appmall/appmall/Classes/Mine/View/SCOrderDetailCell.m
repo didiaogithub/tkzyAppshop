@@ -2,7 +2,7 @@
 //  SCOrderDetailCell.m
 //  TinyShoppingCenter
 //
-//  Created by ForgetFairy on 2018/1/24.
+//  Created by 二壮 on 2018/1/24.
 //  Copyright © 2018年 ckys. All rights reserved.
 //
 

@@ -3,7 +3,7 @@
 //  TinyShoppingCenter
 //
 //  Created by 二壮 on 2017/8/22.
-//  Copyright © 2017年 ckys. All rights reserved.
+//  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
 #import "RootTabBarController.h"
@@ -89,20 +89,20 @@
     tabAttrs[@"itemNormal"] = @"首页-未选中";
     tabAttrs[@"itemSelected"] = @"首页";
     tabAttrs[@"rootVC"] = @"HomeViewController";
-    UINavigationController *homeNavVC = [self tabNavVCWithAttr: tabAttrs];
+    RootNavigationController *homeNavVC = [self tabNavVCWithAttr: tabAttrs];
     tabAttrs[@"title"] = @"天康学院";
     tabAttrs[@"tabTitle"] = @"天康学院";
     tabAttrs[@"itemNormal"] = @"天康学院-未选中";
     tabAttrs[@"itemSelected"] = @"天康学院";
     tabAttrs[@"rootVC"] = @"CollegeViewController";
-    UINavigationController *collegeNavVC = [self tabNavVCWithAttr: tabAttrs];
+    RootNavigationController *collegeNavVC = [self tabNavVCWithAttr: tabAttrs];
     
     tabAttrs[@"tabTitle"] = @"社区";
     tabAttrs[@"title"] = @"社区";
     tabAttrs[@"itemNormal"] = @"社区-未选中";
     tabAttrs[@"itemSelected"] = @"社区";
     tabAttrs[@"rootVC"] = @"CommunityViewController";
-    UINavigationController *communityNavVC = [self tabNavVCWithAttr: tabAttrs];
+    RootNavigationController *communityNavVC = [self tabNavVCWithAttr: tabAttrs];
     
     
     tabAttrs[@"tabTitle"] = @"购物车";
@@ -110,21 +110,21 @@
     tabAttrs[@"itemNormal"] = @"购物车-未选中";
     tabAttrs[@"itemSelected"] = @"购物车";
     tabAttrs[@"rootVC"] = @"SCShoppingCarViewController";
-    UINavigationController *shoppingNavVC = [self tabNavVCWithAttr: tabAttrs];
+    RootNavigationController *shoppingNavVC = [self tabNavVCWithAttr: tabAttrs];
     
     tabAttrs[@"tabTitle"] = @"我的";
     tabAttrs[@"title"] = @"我的";
     tabAttrs[@"itemNormal"] = @"我-未选中";
     tabAttrs[@"itemSelected"] = @"我";
-    tabAttrs[@"rootVC"] = @"RootBaseViewController";
-    UINavigationController *mineNavVC = [self tabNavVCWithAttr: tabAttrs];
+    tabAttrs[@"rootVC"] = @"SCMineViewController";
+    RootNavigationController *mineNavVC = [self tabNavVCWithAttr: tabAttrs];
         self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
         self.tabBar.backgroundColor =   RGBCOLOR(245, 245, 245);;
         self.tabBar.barTintColor =   RGBCOLOR(245, 245, 245);
 }
 
 
-- (UINavigationController *) tabNavVCWithAttr: (NSDictionary*) attrs {
+- (RootNavigationController *) tabNavVCWithAttr: (NSDictionary*) attrs {
     UIImage *normalImage = [[UIImage imageNamed: attrs[@"itemNormal"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selectedImage = [[UIImage imageNamed: attrs[@"itemSelected"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
@@ -139,14 +139,11 @@
     UIViewController *rootVC = [[NSClassFromString(rootVCClassName) alloc] init];
     
     rootVC.title = attrs[@"title"];
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController: rootVC];
+    RootNavigationController *navVC = [[RootNavigationController alloc] initWithRootViewController: rootVC];
     navVC.navigationBar.barTintColor = RGBCOLOR(245, 245, 245);
     
     navVC.tabBarItem = tabBarItem;
-    
-    
-    navVC.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:18]};
-    navVC.navigationBar.tintColor = [UIColor whiteColor];
+
     return navVC;
 }
 

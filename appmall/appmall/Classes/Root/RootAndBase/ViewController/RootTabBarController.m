@@ -109,14 +109,14 @@
     tabAttrs[@"title"] = @"购物车";
     tabAttrs[@"itemNormal"] = @"购物车-未选中";
     tabAttrs[@"itemSelected"] = @"购物车";
-    tabAttrs[@"rootVC"] = @"ShoppingCartViewController";
+    tabAttrs[@"rootVC"] = @"SCShoppingCarViewController";
     UINavigationController *shoppingNavVC = [self tabNavVCWithAttr: tabAttrs];
     
     tabAttrs[@"tabTitle"] = @"我的";
     tabAttrs[@"title"] = @"我的";
     tabAttrs[@"itemNormal"] = @"我-未选中";
     tabAttrs[@"itemSelected"] = @"我";
-    tabAttrs[@"rootVC"] = @"MineViewController";
+    tabAttrs[@"rootVC"] = @"RootBaseViewController";
     UINavigationController *mineNavVC = [self tabNavVCWithAttr: tabAttrs];
         self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
         self.tabBar.backgroundColor =   RGBCOLOR(245, 245, 245);;
@@ -136,7 +136,7 @@
     [tabBarItem setTitleTextAttributes: selectedAttributes forState:UIControlStateSelected];
     NSString *rootVCClassName = attrs[@"rootVC"];
     
-    UIViewController *rootVC = [[NSClassFromString(rootVCClassName) alloc] initWithNibName: rootVCClassName bundle: nil];
+    UIViewController *rootVC = [[NSClassFromString(rootVCClassName) alloc] init];
     
     rootVC.title = attrs[@"title"];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController: rootVC];

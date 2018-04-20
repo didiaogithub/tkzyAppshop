@@ -2,8 +2,8 @@
 //  XWAlterVeiw.h
 //  XWAleratView
 //
-//  Created by 温仲斌 on 15/12/25.
-//  Copyright © 2015年 温仲斌. All rights reserved.
+//  Created by 二壮 on 15/12/25.
+//  Copyright © 2015年 二壮. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

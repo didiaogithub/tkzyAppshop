@@ -9,40 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Home/ViewController/HomeViewController.m"
-            timestampString = "545729511.615099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-setMenu"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.1101331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.1104521"
+            timestampString = "545883046.077967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -57,12 +25,12 @@
                   symbolName = "-[AppDelegate appLaunchType]"
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangbo/Desktop/AppMall/appmall/appmall/Appdelegate/AppDelegate.m"
-                  timestampString = "545727911.878933"
+                  urlString = "file:///Users/wangbo/Documents/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/Appmall/appmall/appmall/Appdelegate/AppDelegate.m"
+                  timestampString = "545885803.145817"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
                   offsetFromSymbolStart = "491">
                </Location>
                <Location
@@ -72,12 +40,12 @@
                   symbolName = "__28-[AppDelegate appLaunchType]_block_invoke"
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangbo/Desktop/AppMall/appmall/appmall/Appdelegate/AppDelegate.m"
-                  timestampString = "545727911.881542"
+                  urlString = "file:///Users/wangbo/Documents/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/Appmall/appmall/appmall/Appdelegate/AppDelegate.m"
+                  timestampString = "545885803.1478029"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
                   offsetFromSymbolStart = "47">
                </Location>
                <Location
@@ -87,12 +55,12 @@
                   symbolName = "__destroy_helper_block_"
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangbo/Desktop/AppMall/appmall/appmall/Appdelegate/AppDelegate.m"
-                  timestampString = "545727911.8842601"
+                  urlString = "file:///Users/wangbo/Documents/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/Appmall/appmall/appmall/Appdelegate/AppDelegate.m"
+                  timestampString = "545885803.149864"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -105,7 +73,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.110642"
+            timestampString = "545883046.078422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -121,7 +89,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.1108201"
+            timestampString = "545883046.0786999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
@@ -137,7 +105,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.111003"
+            timestampString = "545883046.078964"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
@@ -153,7 +121,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.111184"
+            timestampString = "545883046.079375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "187"
@@ -179,51 +147,13 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Root/RootAndBase/ViewController/BaseViewController.m"
-            timestampString = "545728934.46531"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-showNoticeView:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.111411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-checkAppDoesOnCheck"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "545747321.111645"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-checkAppDoesOnCheck"
-            landmarkType = "7">
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

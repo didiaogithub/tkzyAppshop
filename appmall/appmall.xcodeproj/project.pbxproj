@@ -13,8 +13,6 @@
 		2D0723DF2082FDD00030996F /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0723DE2082FDD00030996F /* UIImage+ImageWithColor.m */; };
 		2D0723E32082FEB30030996F /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0723E12082FEB30030996F /* CommunityViewController.m */; };
 		2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0723E22082FEB30030996F /* CommunityViewController.xib */; };
-		2D0723E82082FEC10030996F /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0723E62082FEC10030996F /* MineViewController.m */; };
-		2D0723E92082FEC10030996F /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0723E72082FEC10030996F /* MineViewController.xib */; };
 		2D0723ED2082FED20030996F /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0723EB2082FED20030996F /* ShoppingCartViewController.m */; };
 		2D0723EE2082FED20030996F /* ShoppingCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0723EC2082FED20030996F /* ShoppingCartViewController.xib */; };
 		2D0723F22082FEE40030996F /* CollegeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0723F02082FEE40030996F /* CollegeViewController.m */; };
@@ -125,6 +123,127 @@
 		2D20DE81208629E700095032 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE7A208629E500095032 /* TAPageControl.m */; };
 		2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE862086367B00095032 /* CommonLoginViewController.m */; };
 		2D20DE8B2086367C00095032 /* SCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE872086367B00095032 /* SCLoginViewController.m */; };
+		2D20DE8E2088C7BE00095032 /* SCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE8D2088C7BE00095032 /* SCCategoryViewController.m */; };
+		2D20DEA22088C80D00095032 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE912088C80B00095032 /* UIView+ZJFrame.m */; };
+		2D20DEA32088C80D00095032 /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE922088C80B00095032 /* UIViewController+ZJScrollPageController.m */; };
+		2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE932088C80B00095032 /* ZJCollectionView.m */; };
+		2D20DEA52088C80D00095032 /* ZJContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE972088C80C00095032 /* ZJContentView.m */; };
+		2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE982088C80C00095032 /* ZJScrollSegmentView.m */; };
+		2D20DEA72088C80D00095032 /* ZJScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE9D2088C80C00095032 /* ZJScrollPageView.m */; };
+		2D20DEA82088C80D00095032 /* ZJTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE9E2088C80C00095032 /* ZJTitleView.m */; };
+		2D20DEA92088C80D00095032 /* ZJSegmentStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEA12088C80D00095032 /* ZJSegmentStyle.m */; };
+		2D20DEAC2088C82600095032 /* SCCategoryChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEAA2088C82500095032 /* SCCategoryChildVC.m */; };
+		2D20DEAF2088C88700095032 /* SCCategoryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEAD2088C88600095032 /* SCCategoryTableCell.m */; };
+		2D20DEB22088C8B800095032 /* SCGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEB12088C8B800095032 /* SCGoodsDetailViewController.m */; };
+		2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEB32088C92200095032 /* SCGoodsDetailModel.m */; };
+		2D20DEB82088C97E00095032 /* SCShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEB62088C97E00095032 /* SCShoppingCarViewController.m */; };
+		2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEB92088C9A800095032 /* SCGDCommentViewController.m */; };
+		2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEBD2088C9B700095032 /* SCGoodsDetailBottomView.m */; };
+		2D20DEC12088C9FE00095032 /* GoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEC02088C9FE00095032 /* GoodModel.m */; };
+		2D20DEC42088CA1500095032 /* SCShoppingCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEC32088CA1500095032 /* SCShoppingCarCell.m */; };
+		2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEC62088CA2A00095032 /* OrderBottomView.m */; };
+		2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEC82088CA3600095032 /* SCSCConfirmOrderViewController.m */; };
+		2D20DECD2088CA9B00095032 /* SCConfirmOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DECB2088CA9A00095032 /* SCConfirmOrderVC.m */; };
+		2D20DED12088CAD400095032 /* CKShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED02088CAD400095032 /* CKShareManager.m */; };
+		2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED22088CAE800095032 /* SCGoodsDetailCell.m */; };
+		2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED62088CB2E00095032 /* XLImageViewer.m */; };
+		2D20DEDD2088CB2F00095032 /* XLImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED72088CB2E00095032 /* XLImageContainer.m */; };
+		2D20DEDE2088CB2F00095032 /* XLImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEDA2088CB2F00095032 /* XLImageLoading.m */; };
+		2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE02088CB4100095032 /* SCDownloadCKAPPWebVC.m */; };
+		2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE32088CB6200095032 /* SCFirstPageModel.m */; };
+		2D20DEE72088CBBB00095032 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE52088CBBB00095032 /* AddressModel.m */; };
+		2D20DEEA2088CC4F00095032 /* BaseEncodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE92088CC4F00095032 /* BaseEncodeModel.m */; };
+		2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEEB2088CC7700095032 /* MoneyCountView.m */; };
+		2D20DEF02088CC8C00095032 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEEE2088CC8B00095032 /* AddAddressViewController.m */; };
+		2D20DEF32088CCD400095032 /* ChangeMyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEF22088CCD400095032 /* ChangeMyAddressViewController.m */; };
+		2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEF52088CD2500095032 /* SCPayViewController.mm */; };
+		2D20DEFC2088CD2600095032 /* SCPaymentTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEF72088CD2500095032 /* SCPaymentTableCell.m */; };
+		2D20DEFD2088CD2600095032 /* SCPayMoneyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEFA2088CD2500095032 /* SCPayMoneyTableCell.m */; };
+		2D20DF002088CD4400095032 /* AddAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEFE2088CD4400095032 /* AddAddressTableViewCell.m */; };
+		2D20DF032088CD6300095032 /* SCGoodsDetailConfirmOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF012088CD6300095032 /* SCGoodsDetailConfirmOrderCell.m */; };
+		2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF042088CD8300095032 /* SCShoppingCarConfirmOrderCell.m */; };
+		2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF082088CD9000095032 /* SCConfirmOrderAddressCell.m */; };
+		2D20DF0C2088CDAE00095032 /* SCUseCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF0B2088CDAE00095032 /* SCUseCouponViewController.m */; };
+		2D20DF0F2088CDC900095032 /* TopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF0E2088CDC900095032 /* TopTipView.m */; };
+		2D20DF122088CDE300095032 /* CKRealnameIdentifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF112088CDE300095032 /* CKRealnameIdentifyView.m */; };
+		2D20DF172088CE6A00095032 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF142088CE6A00095032 /* CellModel.m */; };
+		2D20DF182088CE6A00095032 /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF152088CE6A00095032 /* SectionModel.m */; };
+		2D20DF202088CEAE00095032 /* CacheData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF1C2088CEAE00095032 /* CacheData.m */; };
+		2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF1D2088CEAE00095032 /* XNArchiverManager.m */; };
+		2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF1E2088CEAE00095032 /* XNKeychain.m */; };
+		2D20DF282088CEC400095032 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF262088CEC400095032 /* PPNetworkCache.m */; };
+		2D20DF292088CEC400095032 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF272088CEC400095032 /* PPNetworkHelper.m */; };
+		2D20DF332088CEDF00095032 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF2B2088CEDE00095032 /* YYCache.m */; };
+		2D20DF342088CEDF00095032 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF2C2088CEDF00095032 /* YYMemoryCache.m */; };
+		2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF2D2088CEDF00095032 /* YYDiskCache.m */; };
+		2D20DF362088CEDF00095032 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF312088CEDF00095032 /* YYKVStorage.m */; };
+		2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF372088D0D200095032 /* SCCommentListCell.m */; };
+		2D20DF3C2088D0F300095032 /* SCCommentListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF3B2088D0F300095032 /* SCCommentListHeaderView.m */; };
+		2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF3E2088D10E00095032 /* SCCommentModel.m */; };
+		2D20DF422088D12700095032 /* SCBannerActiveGDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF412088D12700095032 /* SCBannerActiveGDVC.m */; };
+		2D20DF452088D15A00095032 /* StarEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF442088D15A00095032 /* StarEvaluateView.m */; };
+		2D20DF482088D2A600095032 /* SCCategoryGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF462088D2A500095032 /* SCCategoryGoodsModel.m */; };
+		2D20DF4B2088D3D300095032 /* PaySuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF492088D3D200095032 /* PaySuccessViewController.m */; };
+		2D20DF4E2088D48500095032 /* FFTipAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF4D2088D48500095032 /* FFTipAlertView.m */; };
+		2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF512088D4B700095032 /* TTTAttributedLabel.m */; };
+		2D20DF562088D4B800095032 /* MLEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF542088D4B800095032 /* MLEmojiLabel.m */; };
+		2D20DF592088D4E600095032 /* SCCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF572088D4E500095032 /* SCCouponCanUseCell.m */; };
+		2D20DF5C2088D54000095032 /* SCCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF5A2088D53F00095032 /* SCCouponModel.m */; };
+		2D20DF5F2088D56500095032 /* MyAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF5D2088D56400095032 /* MyAddressTableViewCell.m */; };
+		2D20DF622088D5B100095032 /* SCCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF612088D5B000095032 /* SCCouponDetailViewController.m */; };
+		2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF642088D5C300095032 /* SCCouponCannotUseCell.m */; };
+		2D20DF682088D5DC00095032 /* DashLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF672088D5DC00095032 /* DashLineView.m */; };
+		2D20DF6B2088D6D300095032 /* SelectedProviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF6A2088D6D300095032 /* SelectedProviceViewController.m */; };
+		2D20DF6E2088D6EA00095032 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF6C2088D6E900095032 /* CityViewController.m */; };
+		2D20DF712088D6F600095032 /* SelecteAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF6F2088D6F600095032 /* SelecteAreaModel.m */; };
+		2D20DF742088D71100095032 /* DistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF722088D71000095032 /* DistrictViewController.m */; };
+		2D20DF772088D84800095032 /* PaySuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF752088D84800095032 /* PaySuccessView.m */; };
+		2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF792088D87900095032 /* SCOrderDetailViewController.m */; };
+		2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF7C2088D89700095032 /* SCMyOrderModel.m */; };
+		2D20DF802088D8BB00095032 /* DetailLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF7E2088D8BB00095032 /* DetailLogisticsViewController.m */; };
+		2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF822088D8E300095032 /* OrderFooterView.m */; };
+		2D20DF862088D90700095032 /* LogistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF842088D90700095032 /* LogistModel.m */; };
+		2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */; };
+		2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF8A2088D92800095032 /* LogistFirstTableViewCell.m */; };
+		2D20DF8F2088D94800095032 /* SCOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF8D2088D94700095032 /* SCOrderDetailModel.m */; };
+		2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF902088D95600095032 /* SCOrderDetailCell.m */; };
+		2D20DF952088D96B00095032 /* CKCLogisticsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF942088D96B00095032 /* CKCLogisticsDetailVC.m */; };
+		2D20DF982088D98800095032 /* CKCLogisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF962088D98800095032 /* CKCLogisticsModel.m */; };
+		2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF992088D99B00095032 /* SCLogisticsDetailCell.m */; };
+		2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF9D2088D9B900095032 /* ReturnGoodsViewController.m */; };
+		2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF9F2088D9D400095032 /* SCCommentOrderViewController.m */; };
+		2D20DFA42088D9F400095032 /* ReturnContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFA32088D9F400095032 /* ReturnContentTableViewCell.m */; };
+		2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFA52088DA1400095032 /* SCCommentGoodsCell.m */; };
+		2D20DFAA2088DA2200095032 /* SCRefundReasonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFA92088DA2200095032 /* SCRefundReasonModel.m */; };
+		2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFAB2088DA4D00095032 /* JSTextView.m */; };
+		2D20DFB02088DA8F00095032 /* SCCouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFAF2088DA8F00095032 /* SCCouponDetailCell.m */; };
+		2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB22088DAB200095032 /* SCCouponDetailModel.m */; };
+		2D20DFB62088DD0D00095032 /* SCReleaseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB42088DD0D00095032 /* SCReleaseCommentCell.m */; };
+		2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB82089898A00095032 /* SCMineViewController.m */; };
+		2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBA2089899E00095032 /* SCOrderListViewController.m */; };
+		2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBE208989AE00095032 /* YSCollectionViewController.m */; };
+		2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC0208989B900095032 /* YSMemberPointViewController.m */; };
+		2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC4208989C800095032 /* WebDetailViewController.m */; };
+		2D20DFC920898A0800095032 /* CleanCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC720898A0800095032 /* CleanCache.m */; };
+		2D20DFCC20898A1A00095032 /* SCMineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFCA20898A1900095032 /* SCMineInfoViewController.m */; };
+		2D20DFCF20898A2800095032 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFCD20898A2800095032 /* SetUpViewController.m */; };
+		2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFD020898A3600095032 /* SCMineTableViewCell.m */; };
+		2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFD420898A4600095032 /* SCUserInfoModel.m */; };
+		2D20DFD820898A7800095032 /* SCOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFD620898A7700095032 /* SCOrderListCell.m */; };
+		2D20DFDB20898AAB00095032 /* SCWaitReleaseCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */; };
+		2D20DFDE20898AC700095032 /* SearchTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFDD20898AC700095032 /* SearchTopView.m */; };
+		2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFDF20898AEF00095032 /* YSCollectionCell.m */; };
+		2D20DFE420898B0E00095032 /* YSCollectionEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFE220898B0D00095032 /* YSCollectionEditCell.m */; };
+		2D20DFE720898B1900095032 /* SCMyCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFE520898B1900095032 /* SCMyCollectionModel.m */; };
+		2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFE920898B2E00095032 /* SCDeleteView.m */; };
+		2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFEB20898B3F00095032 /* SCCollectBottomView.m */; };
+		2D20DFF020898B6000095032 /* YSPointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFEF20898B6000095032 /* YSPointCell.m */; };
+		2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFF120898B7000095032 /* SCIntegraModel.m */; };
+		2D20DFF620898B7F00095032 /* SCPointExplainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFF420898B7F00095032 /* SCPointExplainCell.m */; };
+		2D20DFF920898BA100095032 /* SCCanCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFF820898BA100095032 /* SCCanCommentCell.m */; };
+		2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFFB20898CC900095032 /* WYGenderPickerView.m */; };
+		2D20DFFF20898CD900095032 /* WYBirthdayPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFFD20898CD900095032 /* WYBirthdayPickerView.m */; };
+		2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20E00120898CF900095032 /* YSMemberPointCell.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
@@ -163,9 +282,6 @@
 		2D0723E02082FEB30030996F /* CommunityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		2D0723E12082FEB30030996F /* CommunityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 		2D0723E22082FEB30030996F /* CommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
-		2D0723E52082FEC10030996F /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
-		2D0723E62082FEC10030996F /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		2D0723E72082FEC10030996F /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		2D0723EA2082FED20030996F /* ShoppingCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
 		2D0723EB2082FED20030996F /* ShoppingCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		2D0723EC2082FED20030996F /* ShoppingCartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartViewController.xib; sourceTree = "<group>"; };
@@ -368,6 +484,249 @@
 		2D20DE872086367B00095032 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
 		2D20DE882086367C00095032 /* CommonLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLoginViewController.h; sourceTree = "<group>"; };
 		2D20DE892086367C00095032 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoginViewController.h; sourceTree = "<group>"; };
+		2D20DE8C2088C7BE00095032 /* SCCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCategoryViewController.h; sourceTree = "<group>"; };
+		2D20DE8D2088C7BE00095032 /* SCCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCategoryViewController.m; sourceTree = "<group>"; };
+		2D20DE912088C80B00095032 /* UIView+ZJFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJFrame.m"; sourceTree = "<group>"; };
+		2D20DE922088C80B00095032 /* UIViewController+ZJScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZJScrollPageController.m"; sourceTree = "<group>"; };
+		2D20DE932088C80B00095032 /* ZJCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCollectionView.m; sourceTree = "<group>"; };
+		2D20DE942088C80B00095032 /* ZJScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollSegmentView.h; sourceTree = "<group>"; };
+		2D20DE952088C80C00095032 /* ZJScrollPageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageViewDelegate.h; sourceTree = "<group>"; };
+		2D20DE962088C80C00095032 /* ZJTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTitleView.h; sourceTree = "<group>"; };
+		2D20DE972088C80C00095032 /* ZJContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJContentView.m; sourceTree = "<group>"; };
+		2D20DE982088C80C00095032 /* ZJScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollSegmentView.m; sourceTree = "<group>"; };
+		2D20DE992088C80C00095032 /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
+		2D20DE9A2088C80C00095032 /* ZJContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJContentView.h; sourceTree = "<group>"; };
+		2D20DE9B2088C80C00095032 /* ZJScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageView.h; sourceTree = "<group>"; };
+		2D20DE9C2088C80C00095032 /* ZJSegmentStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentStyle.h; sourceTree = "<group>"; };
+		2D20DE9D2088C80C00095032 /* ZJScrollPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollPageView.m; sourceTree = "<group>"; };
+		2D20DE9E2088C80C00095032 /* ZJTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTitleView.m; sourceTree = "<group>"; };
+		2D20DE9F2088C80D00095032 /* UIViewController+ZJScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZJScrollPageController.h"; sourceTree = "<group>"; };
+		2D20DEA02088C80D00095032 /* ZJCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCollectionView.h; sourceTree = "<group>"; };
+		2D20DEA12088C80D00095032 /* ZJSegmentStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentStyle.m; sourceTree = "<group>"; };
+		2D20DEAA2088C82500095032 /* SCCategoryChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCategoryChildVC.m; sourceTree = "<group>"; };
+		2D20DEAB2088C82500095032 /* SCCategoryChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCategoryChildVC.h; sourceTree = "<group>"; };
+		2D20DEAD2088C88600095032 /* SCCategoryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCategoryTableCell.m; sourceTree = "<group>"; };
+		2D20DEAE2088C88600095032 /* SCCategoryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCategoryTableCell.h; sourceTree = "<group>"; };
+		2D20DEB02088C8B800095032 /* SCGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailViewController.h; sourceTree = "<group>"; };
+		2D20DEB12088C8B800095032 /* SCGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailViewController.m; sourceTree = "<group>"; };
+		2D20DEB32088C92200095032 /* SCGoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailModel.m; sourceTree = "<group>"; };
+		2D20DEB42088C92300095032 /* SCGoodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailModel.h; sourceTree = "<group>"; };
+		2D20DEB62088C97E00095032 /* SCShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShoppingCarViewController.m; sourceTree = "<group>"; };
+		2D20DEB72088C97E00095032 /* SCShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShoppingCarViewController.h; sourceTree = "<group>"; };
+		2D20DEB92088C9A800095032 /* SCGDCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGDCommentViewController.m; sourceTree = "<group>"; };
+		2D20DEBA2088C9A800095032 /* SCGDCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGDCommentViewController.h; sourceTree = "<group>"; };
+		2D20DEBC2088C9B700095032 /* SCGoodsDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailBottomView.h; sourceTree = "<group>"; };
+		2D20DEBD2088C9B700095032 /* SCGoodsDetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailBottomView.m; sourceTree = "<group>"; };
+		2D20DEBF2088C9FE00095032 /* GoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodModel.h; sourceTree = "<group>"; };
+		2D20DEC02088C9FE00095032 /* GoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodModel.m; sourceTree = "<group>"; };
+		2D20DEC22088CA1500095032 /* SCShoppingCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShoppingCarCell.h; sourceTree = "<group>"; };
+		2D20DEC32088CA1500095032 /* SCShoppingCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShoppingCarCell.m; sourceTree = "<group>"; };
+		2D20DEC52088CA2A00095032 /* OrderBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderBottomView.h; sourceTree = "<group>"; };
+		2D20DEC62088CA2A00095032 /* OrderBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderBottomView.m; sourceTree = "<group>"; };
+		2D20DEC82088CA3600095032 /* SCSCConfirmOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSCConfirmOrderViewController.m; sourceTree = "<group>"; };
+		2D20DEC92088CA3600095032 /* SCSCConfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSCConfirmOrderViewController.h; sourceTree = "<group>"; };
+		2D20DECB2088CA9A00095032 /* SCConfirmOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConfirmOrderVC.m; sourceTree = "<group>"; };
+		2D20DECC2088CA9A00095032 /* SCConfirmOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConfirmOrderVC.h; sourceTree = "<group>"; };
+		2D20DECF2088CAD400095032 /* CKShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKShareManager.h; sourceTree = "<group>"; };
+		2D20DED02088CAD400095032 /* CKShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKShareManager.m; sourceTree = "<group>"; };
+		2D20DED22088CAE800095032 /* SCGoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailCell.m; sourceTree = "<group>"; };
+		2D20DED32088CAE800095032 /* SCGoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailCell.h; sourceTree = "<group>"; };
+		2D20DED62088CB2E00095032 /* XLImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageViewer.m; sourceTree = "<group>"; };
+		2D20DED72088CB2E00095032 /* XLImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageContainer.m; sourceTree = "<group>"; };
+		2D20DED82088CB2F00095032 /* XLImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageContainer.h; sourceTree = "<group>"; };
+		2D20DED92088CB2F00095032 /* XLImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageLoading.h; sourceTree = "<group>"; };
+		2D20DEDA2088CB2F00095032 /* XLImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageLoading.m; sourceTree = "<group>"; };
+		2D20DEDB2088CB2F00095032 /* XLImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageViewer.h; sourceTree = "<group>"; };
+		2D20DEDF2088CB4000095032 /* SCDownloadCKAPPWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDownloadCKAPPWebVC.h; sourceTree = "<group>"; };
+		2D20DEE02088CB4100095032 /* SCDownloadCKAPPWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDownloadCKAPPWebVC.m; sourceTree = "<group>"; };
+		2D20DEE22088CB6200095032 /* SCFirstPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFirstPageModel.h; sourceTree = "<group>"; };
+		2D20DEE32088CB6200095032 /* SCFirstPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFirstPageModel.m; sourceTree = "<group>"; };
+		2D20DEE52088CBBB00095032 /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		2D20DEE62088CBBB00095032 /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		2D20DEE82088CC4F00095032 /* BaseEncodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEncodeModel.h; sourceTree = "<group>"; };
+		2D20DEE92088CC4F00095032 /* BaseEncodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEncodeModel.m; sourceTree = "<group>"; };
+		2D20DEEB2088CC7700095032 /* MoneyCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCountView.m; sourceTree = "<group>"; };
+		2D20DEEC2088CC7700095032 /* MoneyCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCountView.h; sourceTree = "<group>"; };
+		2D20DEEE2088CC8B00095032 /* AddAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
+		2D20DEEF2088CC8B00095032 /* AddAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
+		2D20DEF12088CCD400095032 /* ChangeMyAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeMyAddressViewController.h; sourceTree = "<group>"; };
+		2D20DEF22088CCD400095032 /* ChangeMyAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeMyAddressViewController.m; sourceTree = "<group>"; };
+		2D20DEF52088CD2500095032 /* SCPayViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCPayViewController.mm; sourceTree = "<group>"; };
+		2D20DEF62088CD2500095032 /* SCPaymentTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPaymentTableCell.h; sourceTree = "<group>"; };
+		2D20DEF72088CD2500095032 /* SCPaymentTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPaymentTableCell.m; sourceTree = "<group>"; };
+		2D20DEF82088CD2500095032 /* SCPayMoneyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPayMoneyTableCell.h; sourceTree = "<group>"; };
+		2D20DEF92088CD2500095032 /* SCPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPayViewController.h; sourceTree = "<group>"; };
+		2D20DEFA2088CD2500095032 /* SCPayMoneyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPayMoneyTableCell.m; sourceTree = "<group>"; };
+		2D20DEFE2088CD4400095032 /* AddAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressTableViewCell.m; sourceTree = "<group>"; };
+		2D20DEFF2088CD4400095032 /* AddAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressTableViewCell.h; sourceTree = "<group>"; };
+		2D20DF012088CD6300095032 /* SCGoodsDetailConfirmOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailConfirmOrderCell.m; sourceTree = "<group>"; };
+		2D20DF022088CD6300095032 /* SCGoodsDetailConfirmOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailConfirmOrderCell.h; sourceTree = "<group>"; };
+		2D20DF042088CD8300095032 /* SCShoppingCarConfirmOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShoppingCarConfirmOrderCell.m; sourceTree = "<group>"; };
+		2D20DF052088CD8400095032 /* SCShoppingCarConfirmOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShoppingCarConfirmOrderCell.h; sourceTree = "<group>"; };
+		2D20DF072088CD9000095032 /* SCConfirmOrderAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConfirmOrderAddressCell.h; sourceTree = "<group>"; };
+		2D20DF082088CD9000095032 /* SCConfirmOrderAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConfirmOrderAddressCell.m; sourceTree = "<group>"; };
+		2D20DF0A2088CDAE00095032 /* SCUseCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUseCouponViewController.h; sourceTree = "<group>"; };
+		2D20DF0B2088CDAE00095032 /* SCUseCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUseCouponViewController.m; sourceTree = "<group>"; };
+		2D20DF0D2088CDC900095032 /* TopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTipView.h; sourceTree = "<group>"; };
+		2D20DF0E2088CDC900095032 /* TopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTipView.m; sourceTree = "<group>"; };
+		2D20DF102088CDE300095032 /* CKRealnameIdentifyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRealnameIdentifyView.h; sourceTree = "<group>"; };
+		2D20DF112088CDE300095032 /* CKRealnameIdentifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRealnameIdentifyView.m; sourceTree = "<group>"; };
+		2D20DF132088CE6900095032 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		2D20DF142088CE6A00095032 /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
+		2D20DF152088CE6A00095032 /* SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionModel.m; sourceTree = "<group>"; };
+		2D20DF162088CE6A00095032 /* SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionModel.h; sourceTree = "<group>"; };
+		2D20DF1A2088CEAD00095032 /* CacheData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheData.h; sourceTree = "<group>"; };
+		2D20DF1B2088CEAD00095032 /* XNArchiverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNArchiverManager.h; sourceTree = "<group>"; };
+		2D20DF1C2088CEAE00095032 /* CacheData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheData.m; sourceTree = "<group>"; };
+		2D20DF1D2088CEAE00095032 /* XNArchiverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNArchiverManager.m; sourceTree = "<group>"; };
+		2D20DF1E2088CEAE00095032 /* XNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNKeychain.m; sourceTree = "<group>"; };
+		2D20DF1F2088CEAE00095032 /* XNKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNKeychain.h; sourceTree = "<group>"; };
+		2D20DF242088CEC300095032 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
+		2D20DF252088CEC300095032 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
+		2D20DF262088CEC400095032 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
+		2D20DF272088CEC400095032 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
+		2D20DF2B2088CEDE00095032 /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
+		2D20DF2C2088CEDF00095032 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
+		2D20DF2D2088CEDF00095032 /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
+		2D20DF2E2088CEDF00095032 /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
+		2D20DF2F2088CEDF00095032 /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
+		2D20DF302088CEDF00095032 /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
+		2D20DF312088CEDF00095032 /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
+		2D20DF322088CEDF00095032 /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
+		2D20DF372088D0D200095032 /* SCCommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCommentListCell.m; sourceTree = "<group>"; };
+		2D20DF382088D0D200095032 /* SCCommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCommentListCell.h; sourceTree = "<group>"; };
+		2D20DF3A2088D0F300095032 /* SCCommentListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCommentListHeaderView.h; sourceTree = "<group>"; };
+		2D20DF3B2088D0F300095032 /* SCCommentListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCommentListHeaderView.m; sourceTree = "<group>"; };
+		2D20DF3D2088D10D00095032 /* SCCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCommentModel.h; sourceTree = "<group>"; };
+		2D20DF3E2088D10E00095032 /* SCCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCommentModel.m; sourceTree = "<group>"; };
+		2D20DF402088D12600095032 /* SCBannerActiveGDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBannerActiveGDVC.h; sourceTree = "<group>"; };
+		2D20DF412088D12700095032 /* SCBannerActiveGDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBannerActiveGDVC.m; sourceTree = "<group>"; };
+		2D20DF432088D15A00095032 /* StarEvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarEvaluateView.h; sourceTree = "<group>"; };
+		2D20DF442088D15A00095032 /* StarEvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarEvaluateView.m; sourceTree = "<group>"; };
+		2D20DF462088D2A500095032 /* SCCategoryGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCategoryGoodsModel.m; sourceTree = "<group>"; };
+		2D20DF472088D2A500095032 /* SCCategoryGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCategoryGoodsModel.h; sourceTree = "<group>"; };
+		2D20DF492088D3D200095032 /* PaySuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaySuccessViewController.m; sourceTree = "<group>"; };
+		2D20DF4A2088D3D300095032 /* PaySuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaySuccessViewController.h; sourceTree = "<group>"; };
+		2D20DF4C2088D48400095032 /* FFTipAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTipAlertView.h; sourceTree = "<group>"; };
+		2D20DF4D2088D48500095032 /* FFTipAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTipAlertView.m; sourceTree = "<group>"; };
+		2D20DF512088D4B700095032 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		2D20DF522088D4B800095032 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		2D20DF532088D4B800095032 /* MLEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLEmojiLabel.h; sourceTree = "<group>"; };
+		2D20DF542088D4B800095032 /* MLEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLEmojiLabel.m; sourceTree = "<group>"; };
+		2D20DF572088D4E500095032 /* SCCouponCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponCanUseCell.m; sourceTree = "<group>"; };
+		2D20DF582088D4E600095032 /* SCCouponCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponCanUseCell.h; sourceTree = "<group>"; };
+		2D20DF5A2088D53F00095032 /* SCCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponModel.m; sourceTree = "<group>"; };
+		2D20DF5B2088D54000095032 /* SCCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponModel.h; sourceTree = "<group>"; };
+		2D20DF5D2088D56400095032 /* MyAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressTableViewCell.m; sourceTree = "<group>"; };
+		2D20DF5E2088D56500095032 /* MyAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressTableViewCell.h; sourceTree = "<group>"; };
+		2D20DF602088D5B000095032 /* SCCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponDetailViewController.h; sourceTree = "<group>"; };
+		2D20DF612088D5B000095032 /* SCCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponDetailViewController.m; sourceTree = "<group>"; };
+		2D20DF632088D5C300095032 /* SCCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponCannotUseCell.h; sourceTree = "<group>"; };
+		2D20DF642088D5C300095032 /* SCCouponCannotUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponCannotUseCell.m; sourceTree = "<group>"; };
+		2D20DF662088D5DB00095032 /* DashLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashLineView.h; sourceTree = "<group>"; };
+		2D20DF672088D5DC00095032 /* DashLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashLineView.m; sourceTree = "<group>"; };
+		2D20DF692088D6D300095032 /* SelectedProviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedProviceViewController.h; sourceTree = "<group>"; };
+		2D20DF6A2088D6D300095032 /* SelectedProviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedProviceViewController.m; sourceTree = "<group>"; };
+		2D20DF6C2088D6E900095032 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		2D20DF6D2088D6E900095032 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		2D20DF6F2088D6F600095032 /* SelecteAreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelecteAreaModel.m; sourceTree = "<group>"; };
+		2D20DF702088D6F600095032 /* SelecteAreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelecteAreaModel.h; sourceTree = "<group>"; };
+		2D20DF722088D71000095032 /* DistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictViewController.m; sourceTree = "<group>"; };
+		2D20DF732088D71000095032 /* DistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictViewController.h; sourceTree = "<group>"; };
+		2D20DF752088D84800095032 /* PaySuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaySuccessView.m; sourceTree = "<group>"; };
+		2D20DF762088D84800095032 /* PaySuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaySuccessView.h; sourceTree = "<group>"; };
+		2D20DF782088D87900095032 /* SCOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailViewController.h; sourceTree = "<group>"; };
+		2D20DF792088D87900095032 /* SCOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailViewController.m; sourceTree = "<group>"; };
+		2D20DF7B2088D89700095032 /* SCMyOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMyOrderModel.h; sourceTree = "<group>"; };
+		2D20DF7C2088D89700095032 /* SCMyOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMyOrderModel.m; sourceTree = "<group>"; };
+		2D20DF7E2088D8BB00095032 /* DetailLogisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLogisticsViewController.m; sourceTree = "<group>"; };
+		2D20DF7F2088D8BB00095032 /* DetailLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLogisticsViewController.h; sourceTree = "<group>"; };
+		2D20DF812088D8E300095032 /* OrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderFooterView.h; sourceTree = "<group>"; };
+		2D20DF822088D8E300095032 /* OrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFooterView.m; sourceTree = "<group>"; };
+		2D20DF842088D90700095032 /* LogistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogistModel.m; sourceTree = "<group>"; };
+		2D20DF852088D90700095032 /* LogistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogistModel.h; sourceTree = "<group>"; };
+		2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLogistTableViewCell.m; sourceTree = "<group>"; };
+		2D20DF882088D91A00095032 /* DetailLogistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLogistTableViewCell.h; sourceTree = "<group>"; };
+		2D20DF8A2088D92800095032 /* LogistFirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogistFirstTableViewCell.m; sourceTree = "<group>"; };
+		2D20DF8B2088D92800095032 /* LogistFirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogistFirstTableViewCell.h; sourceTree = "<group>"; };
+		2D20DF8D2088D94700095032 /* SCOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailModel.m; sourceTree = "<group>"; };
+		2D20DF8E2088D94700095032 /* SCOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailModel.h; sourceTree = "<group>"; };
+		2D20DF902088D95600095032 /* SCOrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailCell.m; sourceTree = "<group>"; };
+		2D20DF912088D95600095032 /* SCOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailCell.h; sourceTree = "<group>"; };
+		2D20DF932088D96B00095032 /* CKCLogisticsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCLogisticsDetailVC.h; sourceTree = "<group>"; };
+		2D20DF942088D96B00095032 /* CKCLogisticsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCLogisticsDetailVC.m; sourceTree = "<group>"; };
+		2D20DF962088D98800095032 /* CKCLogisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCLogisticsModel.m; sourceTree = "<group>"; };
+		2D20DF972088D98800095032 /* CKCLogisticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCLogisticsModel.h; sourceTree = "<group>"; };
+		2D20DF992088D99B00095032 /* SCLogisticsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLogisticsDetailCell.m; sourceTree = "<group>"; };
+		2D20DF9A2088D99B00095032 /* SCLogisticsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLogisticsDetailCell.h; sourceTree = "<group>"; };
+		2D20DF9C2088D9B900095032 /* ReturnGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnGoodsViewController.h; sourceTree = "<group>"; };
+		2D20DF9D2088D9B900095032 /* ReturnGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnGoodsViewController.m; sourceTree = "<group>"; };
+		2D20DF9F2088D9D400095032 /* SCCommentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCommentOrderViewController.m; sourceTree = "<group>"; };
+		2D20DFA02088D9D400095032 /* SCCommentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCommentOrderViewController.h; sourceTree = "<group>"; };
+		2D20DFA22088D9F400095032 /* ReturnContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnContentTableViewCell.h; sourceTree = "<group>"; };
+		2D20DFA32088D9F400095032 /* ReturnContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnContentTableViewCell.m; sourceTree = "<group>"; };
+		2D20DFA52088DA1400095032 /* SCCommentGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCommentGoodsCell.m; sourceTree = "<group>"; };
+		2D20DFA62088DA1400095032 /* SCCommentGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCommentGoodsCell.h; sourceTree = "<group>"; };
+		2D20DFA82088DA2200095032 /* SCRefundReasonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRefundReasonModel.h; sourceTree = "<group>"; };
+		2D20DFA92088DA2200095032 /* SCRefundReasonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRefundReasonModel.m; sourceTree = "<group>"; };
+		2D20DFAB2088DA4D00095032 /* JSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTextView.m; sourceTree = "<group>"; };
+		2D20DFAC2088DA4D00095032 /* JSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTextView.h; sourceTree = "<group>"; };
+		2D20DFAE2088DA8F00095032 /* SCCouponDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponDetailCell.h; sourceTree = "<group>"; };
+		2D20DFAF2088DA8F00095032 /* SCCouponDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponDetailCell.m; sourceTree = "<group>"; };
+		2D20DFB12088DAB200095032 /* SCCouponDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCouponDetailModel.h; sourceTree = "<group>"; };
+		2D20DFB22088DAB200095032 /* SCCouponDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCouponDetailModel.m; sourceTree = "<group>"; };
+		2D20DFB42088DD0D00095032 /* SCReleaseCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReleaseCommentCell.m; sourceTree = "<group>"; };
+		2D20DFB52088DD0D00095032 /* SCReleaseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReleaseCommentCell.h; sourceTree = "<group>"; };
+		2D20DFB72089898A00095032 /* SCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineViewController.h; sourceTree = "<group>"; };
+		2D20DFB82089898A00095032 /* SCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineViewController.m; sourceTree = "<group>"; };
+		2D20DFBA2089899E00095032 /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
+		2D20DFBB2089899E00095032 /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
+		2D20DFBD208989AD00095032 /* YSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCollectionViewController.h; sourceTree = "<group>"; };
+		2D20DFBE208989AE00095032 /* YSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCollectionViewController.m; sourceTree = "<group>"; };
+		2D20DFC0208989B900095032 /* YSMemberPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointViewController.m; sourceTree = "<group>"; };
+		2D20DFC1208989B900095032 /* YSMemberPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMemberPointViewController.h; sourceTree = "<group>"; };
+		2D20DFC3208989C800095032 /* WebDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDetailViewController.h; sourceTree = "<group>"; };
+		2D20DFC4208989C800095032 /* WebDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDetailViewController.m; sourceTree = "<group>"; };
+		2D20DFC720898A0800095032 /* CleanCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanCache.m; sourceTree = "<group>"; };
+		2D20DFC820898A0800095032 /* CleanCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanCache.h; sourceTree = "<group>"; };
+		2D20DFCA20898A1900095032 /* SCMineInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineInfoViewController.m; sourceTree = "<group>"; };
+		2D20DFCB20898A1900095032 /* SCMineInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineInfoViewController.h; sourceTree = "<group>"; };
+		2D20DFCD20898A2800095032 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
+		2D20DFCE20898A2800095032 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		2D20DFD020898A3600095032 /* SCMineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineTableViewCell.m; sourceTree = "<group>"; };
+		2D20DFD120898A3600095032 /* SCMineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineTableViewCell.h; sourceTree = "<group>"; };
+		2D20DFD320898A4500095032 /* SCUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUserInfoModel.h; sourceTree = "<group>"; };
+		2D20DFD420898A4600095032 /* SCUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUserInfoModel.m; sourceTree = "<group>"; };
+		2D20DFD620898A7700095032 /* SCOrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListCell.m; sourceTree = "<group>"; };
+		2D20DFD720898A7800095032 /* SCOrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListCell.h; sourceTree = "<group>"; };
+		2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWaitReleaseCommentViewController.m; sourceTree = "<group>"; };
+		2D20DFDA20898AAA00095032 /* SCWaitReleaseCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWaitReleaseCommentViewController.h; sourceTree = "<group>"; };
+		2D20DFDC20898AC700095032 /* SearchTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTopView.h; sourceTree = "<group>"; };
+		2D20DFDD20898AC700095032 /* SearchTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTopView.m; sourceTree = "<group>"; };
+		2D20DFDF20898AEF00095032 /* YSCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCollectionCell.m; sourceTree = "<group>"; };
+		2D20DFE020898AEF00095032 /* YSCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCollectionCell.h; sourceTree = "<group>"; };
+		2D20DFE220898B0D00095032 /* YSCollectionEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCollectionEditCell.m; sourceTree = "<group>"; };
+		2D20DFE320898B0D00095032 /* YSCollectionEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCollectionEditCell.h; sourceTree = "<group>"; };
+		2D20DFE520898B1900095032 /* SCMyCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMyCollectionModel.m; sourceTree = "<group>"; };
+		2D20DFE620898B1900095032 /* SCMyCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMyCollectionModel.h; sourceTree = "<group>"; };
+		2D20DFE820898B2E00095032 /* SCDeleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeleteView.h; sourceTree = "<group>"; };
+		2D20DFE920898B2E00095032 /* SCDeleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeleteView.m; sourceTree = "<group>"; };
+		2D20DFEB20898B3F00095032 /* SCCollectBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCollectBottomView.m; sourceTree = "<group>"; };
+		2D20DFEC20898B3F00095032 /* SCCollectBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCollectBottomView.h; sourceTree = "<group>"; };
+		2D20DFEE20898B6000095032 /* YSPointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPointCell.h; sourceTree = "<group>"; };
+		2D20DFEF20898B6000095032 /* YSPointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPointCell.m; sourceTree = "<group>"; };
+		2D20DFF120898B7000095032 /* SCIntegraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCIntegraModel.m; sourceTree = "<group>"; };
+		2D20DFF220898B7100095032 /* SCIntegraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIntegraModel.h; sourceTree = "<group>"; };
+		2D20DFF420898B7F00095032 /* SCPointExplainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPointExplainCell.m; sourceTree = "<group>"; };
+		2D20DFF520898B7F00095032 /* SCPointExplainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPointExplainCell.h; sourceTree = "<group>"; };
+		2D20DFF720898BA100095032 /* SCCanCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCanCommentCell.h; sourceTree = "<group>"; };
+		2D20DFF820898BA100095032 /* SCCanCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCanCommentCell.m; sourceTree = "<group>"; };
+		2D20DFFA20898CC900095032 /* WYGenderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYGenderPickerView.h; sourceTree = "<group>"; };
+		2D20DFFB20898CC900095032 /* WYGenderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYGenderPickerView.m; sourceTree = "<group>"; };
+		2D20DFFD20898CD900095032 /* WYBirthdayPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYBirthdayPickerView.m; sourceTree = "<group>"; };
+		2D20DFFE20898CD900095032 /* WYBirthdayPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYBirthdayPickerView.h; sourceTree = "<group>"; };
+		2D20E00020898CF900095032 /* YSMemberPointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMemberPointCell.h; sourceTree = "<group>"; };
+		2D20E00120898CF900095032 /* YSMemberPointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointCell.m; sourceTree = "<group>"; };
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,6 +784,10 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DFC6208989F500095032 /* CleanCache */,
+				2D20DF502088D4AB00095032 /* MLEmojiLabel */,
+				2D20DEF42088CD1900095032 /* Pay */,
+				2D20DECE2088CACA00095032 /* Share */,
 				2D20DE302086151000095032 /* Alert */,
 				2D20DE13208614BB00095032 /* Category */,
 				2D20DE062086148200095032 /* Common */,
@@ -487,6 +850,14 @@
 		2D0723BF2082FAA20030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DF402088D12600095032 /* SCBannerActiveGDVC.h */,
+				2D20DF412088D12700095032 /* SCBannerActiveGDVC.m */,
+				2D20DEB02088C8B800095032 /* SCGoodsDetailViewController.h */,
+				2D20DEB12088C8B800095032 /* SCGoodsDetailViewController.m */,
+				2D20DEAB2088C82500095032 /* SCCategoryChildVC.h */,
+				2D20DEAA2088C82500095032 /* SCCategoryChildVC.m */,
+				2D20DE8C2088C7BE00095032 /* SCCategoryViewController.h */,
+				2D20DE8D2088C7BE00095032 /* SCCategoryViewController.m */,
 				2D0723AE2082F9EE0030996F /* NewFeatureViewController.h */,
 				2D0723AF2082F9EF0030996F /* NewFeatureViewController.m */,
 				2D0723F42082FEF10030996F /* HomeViewController.h */,
@@ -511,6 +882,20 @@
 		2D0723C02082FAAC0030996F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DF472088D2A500095032 /* SCCategoryGoodsModel.h */,
+				2D20DF462088D2A500095032 /* SCCategoryGoodsModel.m */,
+				2D20DF132088CE6900095032 /* CellModel.h */,
+				2D20DF142088CE6A00095032 /* CellModel.m */,
+				2D20DF162088CE6A00095032 /* SectionModel.h */,
+				2D20DF152088CE6A00095032 /* SectionModel.m */,
+				2D20DEE82088CC4F00095032 /* BaseEncodeModel.h */,
+				2D20DEE92088CC4F00095032 /* BaseEncodeModel.m */,
+				2D20DEE22088CB6200095032 /* SCFirstPageModel.h */,
+				2D20DEE32088CB6200095032 /* SCFirstPageModel.m */,
+				2D20DEBF2088C9FE00095032 /* GoodModel.h */,
+				2D20DEC02088C9FE00095032 /* GoodModel.m */,
+				2D20DEB42088C92300095032 /* SCGoodsDetailModel.h */,
+				2D20DEB32088C92200095032 /* SCGoodsDetailModel.m */,
 				2D072684208325F90030996F /* ADSModel.h */,
 				2D072683208325F90030996F /* ADSModel.m */,
 			);
@@ -520,6 +905,10 @@
 		2D0723C12082FAB20030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DFDC20898AC700095032 /* SearchTopView.h */,
+				2D20DFDD20898AC700095032 /* SearchTopView.m */,
+				2D20DEAE2088C88600095032 /* SCCategoryTableCell.h */,
+				2D20DEAD2088C88600095032 /* SCCategoryTableCell.m */,
 				2D07268C20832B1C0030996F /* HomeMenuItemView.h */,
 				2D07268D20832B1C0030996F /* HomeMenuItemView.m */,
 				2D07268B20832B1C0030996F /* HomeMenuItemView.xib */,
@@ -591,6 +980,18 @@
 		2D0723C92082FB370030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DEF12088CCD400095032 /* ChangeMyAddressViewController.h */,
+				2D20DEF22088CCD400095032 /* ChangeMyAddressViewController.m */,
+				2D20DEDF2088CB4000095032 /* SCDownloadCKAPPWebVC.h */,
+				2D20DEE02088CB4100095032 /* SCDownloadCKAPPWebVC.m */,
+				2D20DECC2088CA9A00095032 /* SCConfirmOrderVC.h */,
+				2D20DECB2088CA9A00095032 /* SCConfirmOrderVC.m */,
+				2D20DEC92088CA3600095032 /* SCSCConfirmOrderViewController.h */,
+				2D20DEC82088CA3600095032 /* SCSCConfirmOrderViewController.m */,
+				2D20DEBA2088C9A800095032 /* SCGDCommentViewController.h */,
+				2D20DEB92088C9A800095032 /* SCGDCommentViewController.m */,
+				2D20DEB72088C97E00095032 /* SCShoppingCarViewController.h */,
+				2D20DEB62088C97E00095032 /* SCShoppingCarViewController.m */,
 				2D0723EA2082FED20030996F /* ShoppingCartViewController.h */,
 				2D0723EB2082FED20030996F /* ShoppingCartViewController.m */,
 				2D0723EC2082FED20030996F /* ShoppingCartViewController.xib */,
@@ -601,6 +1002,28 @@
 		2D0723CA2082FB400030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DF3A2088D0F300095032 /* SCCommentListHeaderView.h */,
+				2D20DF3B2088D0F300095032 /* SCCommentListHeaderView.m */,
+				2D20DF382088D0D200095032 /* SCCommentListCell.h */,
+				2D20DF372088D0D200095032 /* SCCommentListCell.m */,
+				2D20DF0D2088CDC900095032 /* TopTipView.h */,
+				2D20DF0E2088CDC900095032 /* TopTipView.m */,
+				2D20DF072088CD9000095032 /* SCConfirmOrderAddressCell.h */,
+				2D20DF082088CD9000095032 /* SCConfirmOrderAddressCell.m */,
+				2D20DF052088CD8400095032 /* SCShoppingCarConfirmOrderCell.h */,
+				2D20DF042088CD8300095032 /* SCShoppingCarConfirmOrderCell.m */,
+				2D20DEEC2088CC7700095032 /* MoneyCountView.h */,
+				2D20DEEB2088CC7700095032 /* MoneyCountView.m */,
+				2D20DED32088CAE800095032 /* SCGoodsDetailCell.h */,
+				2D20DED22088CAE800095032 /* SCGoodsDetailCell.m */,
+				2D20DEC52088CA2A00095032 /* OrderBottomView.h */,
+				2D20DEC62088CA2A00095032 /* OrderBottomView.m */,
+				2D20DEC22088CA1500095032 /* SCShoppingCarCell.h */,
+				2D20DEC32088CA1500095032 /* SCShoppingCarCell.m */,
+				2D20DEBC2088C9B700095032 /* SCGoodsDetailBottomView.h */,
+				2D20DEBD2088C9B700095032 /* SCGoodsDetailBottomView.m */,
+				2D20DF022088CD6300095032 /* SCGoodsDetailConfirmOrderCell.h */,
+				2D20DF012088CD6300095032 /* SCGoodsDetailConfirmOrderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -608,6 +1031,8 @@
 		2D0723CB2082FB450030996F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DF3D2088D10D00095032 /* SCCommentModel.h */,
+				2D20DF3E2088D10E00095032 /* SCCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,9 +1050,46 @@
 		2D0723CD2082FB560030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D0723E52082FEC10030996F /* MineViewController.h */,
-				2D0723E62082FEC10030996F /* MineViewController.m */,
-				2D0723E72082FEC10030996F /* MineViewController.xib */,
+				2D20DFDA20898AAA00095032 /* SCWaitReleaseCommentViewController.h */,
+				2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */,
+				2D20DFCE20898A2800095032 /* SetUpViewController.h */,
+				2D20DFCD20898A2800095032 /* SetUpViewController.m */,
+				2D20DFCB20898A1900095032 /* SCMineInfoViewController.h */,
+				2D20DFCA20898A1900095032 /* SCMineInfoViewController.m */,
+				2D20DFC3208989C800095032 /* WebDetailViewController.h */,
+				2D20DFC4208989C800095032 /* WebDetailViewController.m */,
+				2D20DFC1208989B900095032 /* YSMemberPointViewController.h */,
+				2D20DFC0208989B900095032 /* YSMemberPointViewController.m */,
+				2D20DFBD208989AD00095032 /* YSCollectionViewController.h */,
+				2D20DFBE208989AE00095032 /* YSCollectionViewController.m */,
+				2D20DFBB2089899E00095032 /* SCOrderListViewController.h */,
+				2D20DFBA2089899E00095032 /* SCOrderListViewController.m */,
+				2D20DFB72089898A00095032 /* SCMineViewController.h */,
+				2D20DFB82089898A00095032 /* SCMineViewController.m */,
+				2D20DFA02088D9D400095032 /* SCCommentOrderViewController.h */,
+				2D20DF9F2088D9D400095032 /* SCCommentOrderViewController.m */,
+				2D20DF9C2088D9B900095032 /* ReturnGoodsViewController.h */,
+				2D20DF9D2088D9B900095032 /* ReturnGoodsViewController.m */,
+				2D20DF932088D96B00095032 /* CKCLogisticsDetailVC.h */,
+				2D20DF942088D96B00095032 /* CKCLogisticsDetailVC.m */,
+				2D20DF7F2088D8BB00095032 /* DetailLogisticsViewController.h */,
+				2D20DF7E2088D8BB00095032 /* DetailLogisticsViewController.m */,
+				2D20DF782088D87900095032 /* SCOrderDetailViewController.h */,
+				2D20DF792088D87900095032 /* SCOrderDetailViewController.m */,
+				2D20DF732088D71000095032 /* DistrictViewController.h */,
+				2D20DF722088D71000095032 /* DistrictViewController.m */,
+				2D20DF6D2088D6E900095032 /* CityViewController.h */,
+				2D20DF6C2088D6E900095032 /* CityViewController.m */,
+				2D20DF692088D6D300095032 /* SelectedProviceViewController.h */,
+				2D20DF6A2088D6D300095032 /* SelectedProviceViewController.m */,
+				2D20DF602088D5B000095032 /* SCCouponDetailViewController.h */,
+				2D20DF612088D5B000095032 /* SCCouponDetailViewController.m */,
+				2D20DF4A2088D3D300095032 /* PaySuccessViewController.h */,
+				2D20DF492088D3D200095032 /* PaySuccessViewController.m */,
+				2D20DF0A2088CDAE00095032 /* SCUseCouponViewController.h */,
+				2D20DF0B2088CDAE00095032 /* SCUseCouponViewController.m */,
+				2D20DEEF2088CC8B00095032 /* AddAddressViewController.h */,
+				2D20DEEE2088CC8B00095032 /* AddAddressViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -635,6 +1097,68 @@
 		2D0723CF2082FB690030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D20E00020898CF900095032 /* YSMemberPointCell.h */,
+				2D20E00120898CF900095032 /* YSMemberPointCell.m */,
+				2D20DFFE20898CD900095032 /* WYBirthdayPickerView.h */,
+				2D20DFFD20898CD900095032 /* WYBirthdayPickerView.m */,
+				2D20DFFA20898CC900095032 /* WYGenderPickerView.h */,
+				2D20DFFB20898CC900095032 /* WYGenderPickerView.m */,
+				2D20DFF720898BA100095032 /* SCCanCommentCell.h */,
+				2D20DFF820898BA100095032 /* SCCanCommentCell.m */,
+				2D20DFF520898B7F00095032 /* SCPointExplainCell.h */,
+				2D20DFF420898B7F00095032 /* SCPointExplainCell.m */,
+				2D20DFF220898B7100095032 /* SCIntegraModel.h */,
+				2D20DFF120898B7000095032 /* SCIntegraModel.m */,
+				2D20DFEE20898B6000095032 /* YSPointCell.h */,
+				2D20DFEF20898B6000095032 /* YSPointCell.m */,
+				2D20DFEC20898B3F00095032 /* SCCollectBottomView.h */,
+				2D20DFEB20898B3F00095032 /* SCCollectBottomView.m */,
+				2D20DFE820898B2E00095032 /* SCDeleteView.h */,
+				2D20DFE920898B2E00095032 /* SCDeleteView.m */,
+				2D20DFE320898B0D00095032 /* YSCollectionEditCell.h */,
+				2D20DFE220898B0D00095032 /* YSCollectionEditCell.m */,
+				2D20DFE020898AEF00095032 /* YSCollectionCell.h */,
+				2D20DFDF20898AEF00095032 /* YSCollectionCell.m */,
+				2D20DFD720898A7800095032 /* SCOrderListCell.h */,
+				2D20DFD620898A7700095032 /* SCOrderListCell.m */,
+				2D20DFD120898A3600095032 /* SCMineTableViewCell.h */,
+				2D20DFD020898A3600095032 /* SCMineTableViewCell.m */,
+				2D20DFB52088DD0D00095032 /* SCReleaseCommentCell.h */,
+				2D20DFB42088DD0D00095032 /* SCReleaseCommentCell.m */,
+				2D20DFAE2088DA8F00095032 /* SCCouponDetailCell.h */,
+				2D20DFAF2088DA8F00095032 /* SCCouponDetailCell.m */,
+				2D20DFA62088DA1400095032 /* SCCommentGoodsCell.h */,
+				2D20DFA52088DA1400095032 /* SCCommentGoodsCell.m */,
+				2D20DFA22088D9F400095032 /* ReturnContentTableViewCell.h */,
+				2D20DFA32088D9F400095032 /* ReturnContentTableViewCell.m */,
+				2D20DF9A2088D99B00095032 /* SCLogisticsDetailCell.h */,
+				2D20DF992088D99B00095032 /* SCLogisticsDetailCell.m */,
+				2D20DF912088D95600095032 /* SCOrderDetailCell.h */,
+				2D20DF902088D95600095032 /* SCOrderDetailCell.m */,
+				2D20DF8B2088D92800095032 /* LogistFirstTableViewCell.h */,
+				2D20DF8A2088D92800095032 /* LogistFirstTableViewCell.m */,
+				2D20DF882088D91A00095032 /* DetailLogistTableViewCell.h */,
+				2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */,
+				2D20DF812088D8E300095032 /* OrderFooterView.h */,
+				2D20DF822088D8E300095032 /* OrderFooterView.m */,
+				2D20DF762088D84800095032 /* PaySuccessView.h */,
+				2D20DF752088D84800095032 /* PaySuccessView.m */,
+				2D20DF662088D5DB00095032 /* DashLineView.h */,
+				2D20DF672088D5DC00095032 /* DashLineView.m */,
+				2D20DF632088D5C300095032 /* SCCouponCannotUseCell.h */,
+				2D20DF642088D5C300095032 /* SCCouponCannotUseCell.m */,
+				2D20DF5E2088D56500095032 /* MyAddressTableViewCell.h */,
+				2D20DF5D2088D56400095032 /* MyAddressTableViewCell.m */,
+				2D20DF582088D4E600095032 /* SCCouponCanUseCell.h */,
+				2D20DF572088D4E500095032 /* SCCouponCanUseCell.m */,
+				2D20DF4C2088D48400095032 /* FFTipAlertView.h */,
+				2D20DF4D2088D48500095032 /* FFTipAlertView.m */,
+				2D20DF432088D15A00095032 /* StarEvaluateView.h */,
+				2D20DF442088D15A00095032 /* StarEvaluateView.m */,
+				2D20DF102088CDE300095032 /* CKRealnameIdentifyView.h */,
+				2D20DF112088CDE300095032 /* CKRealnameIdentifyView.m */,
+				2D20DEFF2088CD4400095032 /* AddAddressTableViewCell.h */,
+				2D20DEFE2088CD4400095032 /* AddAddressTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,6 +1166,28 @@
 		2D0723D02082FB6F0030996F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DFE620898B1900095032 /* SCMyCollectionModel.h */,
+				2D20DFE520898B1900095032 /* SCMyCollectionModel.m */,
+				2D20DFD320898A4500095032 /* SCUserInfoModel.h */,
+				2D20DFD420898A4600095032 /* SCUserInfoModel.m */,
+				2D20DFB12088DAB200095032 /* SCCouponDetailModel.h */,
+				2D20DFB22088DAB200095032 /* SCCouponDetailModel.m */,
+				2D20DF972088D98800095032 /* CKCLogisticsModel.h */,
+				2D20DF962088D98800095032 /* CKCLogisticsModel.m */,
+				2D20DF8E2088D94700095032 /* SCOrderDetailModel.h */,
+				2D20DF8D2088D94700095032 /* SCOrderDetailModel.m */,
+				2D20DF852088D90700095032 /* LogistModel.h */,
+				2D20DF842088D90700095032 /* LogistModel.m */,
+				2D20DF7B2088D89700095032 /* SCMyOrderModel.h */,
+				2D20DF7C2088D89700095032 /* SCMyOrderModel.m */,
+				2D20DF702088D6F600095032 /* SelecteAreaModel.h */,
+				2D20DF6F2088D6F600095032 /* SelecteAreaModel.m */,
+				2D20DF5B2088D54000095032 /* SCCouponModel.h */,
+				2D20DF5A2088D53F00095032 /* SCCouponModel.m */,
+				2D20DEE62088CBBB00095032 /* AddressModel.h */,
+				2D20DEE52088CBBB00095032 /* AddressModel.m */,
+				2D20DFA82088DA2200095032 /* SCRefundReasonModel.h */,
+				2D20DFA92088DA2200095032 /* SCRefundReasonModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,6 +1215,9 @@
 		2D0723D32082FBBC0030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DFAC2088DA4D00095032 /* JSTextView.h */,
+				2D20DFAB2088DA4D00095032 /* JSTextView.m */,
+				2D20DED52088CB2100095032 /* XLImageViewer */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,6 +1397,8 @@
 		2D20DDEA2086146300095032 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2D20DF192088CE9E00095032 /* Cache */,
+				2D20DE902088C7FE00095032 /* ZJScrollPageView */,
 				2D20DE6B208629A700095032 /* SDCycleScrollView */,
 				2D20DE3D2086185D00095032 /* InvitationAlterVeiw.h */,
 				2D20DE422086185F00095032 /* InvitationAlterVeiw.m */,
@@ -1026,6 +1577,126 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2D20DE902088C7FE00095032 /* ZJScrollPageView */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DE992088C80C00095032 /* UIView+ZJFrame.h */,
+				2D20DE912088C80B00095032 /* UIView+ZJFrame.m */,
+				2D20DE9F2088C80D00095032 /* UIViewController+ZJScrollPageController.h */,
+				2D20DE922088C80B00095032 /* UIViewController+ZJScrollPageController.m */,
+				2D20DEA02088C80D00095032 /* ZJCollectionView.h */,
+				2D20DE932088C80B00095032 /* ZJCollectionView.m */,
+				2D20DE9A2088C80C00095032 /* ZJContentView.h */,
+				2D20DE972088C80C00095032 /* ZJContentView.m */,
+				2D20DE9B2088C80C00095032 /* ZJScrollPageView.h */,
+				2D20DE9D2088C80C00095032 /* ZJScrollPageView.m */,
+				2D20DE952088C80C00095032 /* ZJScrollPageViewDelegate.h */,
+				2D20DE942088C80B00095032 /* ZJScrollSegmentView.h */,
+				2D20DE982088C80C00095032 /* ZJScrollSegmentView.m */,
+				2D20DE9C2088C80C00095032 /* ZJSegmentStyle.h */,
+				2D20DEA12088C80D00095032 /* ZJSegmentStyle.m */,
+				2D20DE962088C80C00095032 /* ZJTitleView.h */,
+				2D20DE9E2088C80C00095032 /* ZJTitleView.m */,
+			);
+			path = ZJScrollPageView;
+			sourceTree = "<group>";
+		};
+		2D20DECE2088CACA00095032 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DECF2088CAD400095032 /* CKShareManager.h */,
+				2D20DED02088CAD400095032 /* CKShareManager.m */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		2D20DED52088CB2100095032 /* XLImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DED82088CB2F00095032 /* XLImageContainer.h */,
+				2D20DED72088CB2E00095032 /* XLImageContainer.m */,
+				2D20DED92088CB2F00095032 /* XLImageLoading.h */,
+				2D20DEDA2088CB2F00095032 /* XLImageLoading.m */,
+				2D20DEDB2088CB2F00095032 /* XLImageViewer.h */,
+				2D20DED62088CB2E00095032 /* XLImageViewer.m */,
+			);
+			path = XLImageViewer;
+			sourceTree = "<group>";
+		};
+		2D20DEF42088CD1900095032 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DEF62088CD2500095032 /* SCPaymentTableCell.h */,
+				2D20DEF72088CD2500095032 /* SCPaymentTableCell.m */,
+				2D20DEF82088CD2500095032 /* SCPayMoneyTableCell.h */,
+				2D20DEFA2088CD2500095032 /* SCPayMoneyTableCell.m */,
+				2D20DEF92088CD2500095032 /* SCPayViewController.h */,
+				2D20DEF52088CD2500095032 /* SCPayViewController.mm */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		2D20DF192088CE9E00095032 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DF2A2088CED400095032 /* YYCache */,
+				2D20DF232088CEB600095032 /* PPNetworkHelper */,
+				2D20DF1A2088CEAD00095032 /* CacheData.h */,
+				2D20DF1C2088CEAE00095032 /* CacheData.m */,
+				2D20DF1B2088CEAD00095032 /* XNArchiverManager.h */,
+				2D20DF1D2088CEAE00095032 /* XNArchiverManager.m */,
+				2D20DF1F2088CEAE00095032 /* XNKeychain.h */,
+				2D20DF1E2088CEAE00095032 /* XNKeychain.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		2D20DF232088CEB600095032 /* PPNetworkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DF252088CEC300095032 /* PPNetworkCache.h */,
+				2D20DF262088CEC400095032 /* PPNetworkCache.m */,
+				2D20DF242088CEC300095032 /* PPNetworkHelper.h */,
+				2D20DF272088CEC400095032 /* PPNetworkHelper.m */,
+			);
+			path = PPNetworkHelper;
+			sourceTree = "<group>";
+		};
+		2D20DF2A2088CED400095032 /* YYCache */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DF2F2088CEDF00095032 /* YYCache.h */,
+				2D20DF2B2088CEDE00095032 /* YYCache.m */,
+				2D20DF302088CEDF00095032 /* YYDiskCache.h */,
+				2D20DF2D2088CEDF00095032 /* YYDiskCache.m */,
+				2D20DF322088CEDF00095032 /* YYKVStorage.h */,
+				2D20DF312088CEDF00095032 /* YYKVStorage.m */,
+				2D20DF2E2088CEDF00095032 /* YYMemoryCache.h */,
+				2D20DF2C2088CEDF00095032 /* YYMemoryCache.m */,
+			);
+			path = YYCache;
+			sourceTree = "<group>";
+		};
+		2D20DF502088D4AB00095032 /* MLEmojiLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DF532088D4B800095032 /* MLEmojiLabel.h */,
+				2D20DF542088D4B800095032 /* MLEmojiLabel.m */,
+				2D20DF522088D4B800095032 /* TTTAttributedLabel.h */,
+				2D20DF512088D4B700095032 /* TTTAttributedLabel.m */,
+			);
+			path = MLEmojiLabel;
+			sourceTree = "<group>";
+		};
+		2D20DFC6208989F500095032 /* CleanCache */ = {
+			isa = PBXGroup;
+			children = (
+				2D20DFC820898A0800095032 /* CleanCache.h */,
+				2D20DFC720898A0800095032 /* CleanCache.m */,
+			);
+			path = CleanCache;
 			sourceTree = "<group>";
 		};
 		75E8AD2EC6E93F62679C40DC /* Pods */ = {
@@ -1230,7 +1901,6 @@
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
-				2D0723E92082FEC10030996F /* MineViewController.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
 				2D072670208311BE0030996F /* ic_close_grey2.png in Resources */,
@@ -1316,103 +1986,223 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D20DF342088CEDF00095032 /* YYMemoryCache.m in Sources */,
 				2D0723B62082FA050030996F /* main.m in Sources */,
+				2D20DF5C2088D54000095032 /* SCCouponModel.m in Sources */,
 				2D20DE2D208614EC00095032 /* UINavigationController+SXFullScreen.m in Sources */,
+				2D20DF982088D98800095032 /* CKCLogisticsModel.m in Sources */,
+				2D20DF3C2088D0F300095032 /* SCCommentListHeaderView.m in Sources */,
 				2D20DE452086186000095032 /* TTAttibuteLabel.m in Sources */,
 				2D20DE652086187200095032 /* UIViewController+CurrentVC.m in Sources */,
 				2D20DE002086147300095032 /* SCNoDataView.m in Sources */,
+				2D20DEB22088C8B800095032 /* SCGoodsDetailViewController.m in Sources */,
 				2D20DE612086187200095032 /* UIImage+Common.m in Sources */,
+				2D20DEA52088C80D00095032 /* ZJContentView.m in Sources */,
+				2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */,
+				2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */,
+				2D20DFDB20898AAB00095032 /* SCWaitReleaseCommentViewController.m in Sources */,
+				2D20DFAA2088DA2200095032 /* SCRefundReasonModel.m in Sources */,
+				2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */,
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
 				2D20DE632086187200095032 /* UILabel+configure.m in Sources */,
 				2D07268F20832B1C0030996F /* HomeMenuItemView.m in Sources */,
 				2D0726B62083926B0030996F /* HonourDetailViewController.m in Sources */,
+				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
+				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
+				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
+				2D20DEC12088C9FE00095032 /* GoodModel.m in Sources */,
+				2D20DF712088D6F600095032 /* SelecteAreaModel.m in Sources */,
+				2D20DF6E2088D6EA00095032 /* CityViewController.m in Sources */,
 				2D20DDC72086135000095032 /* SCEverydayGuideVC.m in Sources */,
+				2D20DECD2088CA9B00095032 /* SCConfirmOrderVC.m in Sources */,
+				2D20DEFC2088CD2600095032 /* SCPaymentTableCell.m in Sources */,
 				2D0723DF2082FDD00030996F /* UIImage+ImageWithColor.m in Sources */,
+				2D20DFFF20898CD900095032 /* WYBirthdayPickerView.m in Sources */,
+				2D20DF482088D2A600095032 /* SCCategoryGoodsModel.m in Sources */,
+				2D20DFA42088D9F400095032 /* ReturnContentTableViewCell.m in Sources */,
 				2D20DE442086186000095032 /* NSString+Chatacters.m in Sources */,
+				2D20DF4E2088D48500095032 /* FFTipAlertView.m in Sources */,
+				2D20DEFD2088CD2600095032 /* SCPayMoneyTableCell.m in Sources */,
 				2D20DE6A20861B2D00095032 /* UIView+MJExtension.m in Sources */,
 				2D0723ED2082FED20030996F /* ShoppingCartViewController.m in Sources */,
 				2D0726B12083924B0030996F /* MedieaDetailViewController.m in Sources */,
+				2D20DF202088CEAE00095032 /* CacheData.m in Sources */,
+				2D20DF422088D12700095032 /* SCBannerActiveGDVC.m in Sources */,
+				2D20DEEA2088CC4F00095032 /* BaseEncodeModel.m in Sources */,
+				2D20DFB62088DD0D00095032 /* SCReleaseCommentCell.m in Sources */,
 				2D20DE8B2086367C00095032 /* SCLoginViewController.m in Sources */,
 				2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */,
+				2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */,
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
+				2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */,
 				2D20DDFD2086147300095032 /* KeyChainStore.m in Sources */,
 				2D072672208311BE0030996F /* DWQSearchBar.m in Sources */,
 				2D20DDE72086142000095032 /* RequestManager.m in Sources */,
 				2D20DDD5208613BA00095032 /* BKGuidePageAppearToll.m in Sources */,
+				2D20DFCF20898A2800095032 /* SetUpViewController.m in Sources */,
+				2D20DEDE2088CB2F00095032 /* XLImageLoading.m in Sources */,
+				2D20DF172088CE6A00095032 /* CellModel.m in Sources */,
+				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
+				2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */,
 				2D20DDE62086142000095032 /* HttpTool.m in Sources */,
+				2D20DF362088CEDF00095032 /* YYKVStorage.m in Sources */,
+				2D20DEE72088CBBB00095032 /* AddressModel.m in Sources */,
+				2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */,
 				2D20DE0F2086149300095032 /* MJGearHeader.m in Sources */,
 				2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
+				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				2D20DE1F208614CE00095032 /* UIViewController+BackButtonHandler.m in Sources */,
+				2D20DF742088D71100095032 /* DistrictViewController.m in Sources */,
+				2D20DEA22088C80D00095032 /* UIView+ZJFrame.m in Sources */,
+				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
+				2D20DF122088CDE300095032 /* CKRealnameIdentifyView.m in Sources */,
+				2D20DFD820898A7800095032 /* SCOrderListCell.m in Sources */,
 				2D20DDCF208613A300095032 /* BKGuidePageAction.m in Sources */,
+				2D20DF772088D84800095032 /* PaySuccessView.m in Sources */,
 				2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */,
 				2D0723F22082FEE40030996F /* CollegeViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
+				2D20DFE720898B1900095032 /* SCMyCollectionModel.m in Sources */,
+				2D20DFF620898B7F00095032 /* SCPointExplainCell.m in Sources */,
 				2D07267C208311CB0030996F /* HistorySearchCell.m in Sources */,
+				2D20DF332088CEDF00095032 /* YYCache.m in Sources */,
+				2D20DEA32088C80D00095032 /* UIViewController+ZJScrollPageController.m in Sources */,
+				2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */,
 				2D20DDD8208613C800095032 /* BKGuidePageCell.m in Sources */,
+				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
+				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
+				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
 				2D20DE642086187200095032 /* UITableView+EmptyData.m in Sources */,
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
+				2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */,
 				2D20DE622086187200095032 /* NSDecimalNumber+Addtion.m in Sources */,
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
+				2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */,
 				2D20DE462086186000095032 /* MessageAlert.m in Sources */,
+				2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */,
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D072682208325E20030996F /* WBAdsImgView.m in Sources */,
 				2D0723E32082FEB30030996F /* CommunityViewController.m in Sources */,
+				2D20DF802088D8BB00095032 /* DetailLogisticsViewController.m in Sources */,
+				2D20DF0C2088CDAE00095032 /* SCUseCouponViewController.m in Sources */,
+				2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */,
+				2D20DFDE20898AC700095032 /* SearchTopView.m in Sources */,
+				2D20DEDD2088CB2F00095032 /* XLImageContainer.m in Sources */,
 				2D20DE74208629D300095032 /* SDCycleScrollView.m in Sources */,
+				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
+				2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */,
+				2D20DEF32088CCD400095032 /* ChangeMyAddressViewController.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
 				2D20DDC52086135000095032 /* SCProgressTimerView.m in Sources */,
 				2D20DDB32086130B00095032 /* RootBaseViewController.m in Sources */,
 				2D20DDC42086135000095032 /* SCAdGoodsViewController.m in Sources */,
+				2D20DF0F2088CDC900095032 /* TopTipView.m in Sources */,
+				2D20DF862088D90700095032 /* LogistModel.m in Sources */,
 				2D20DDB42086130B00095032 /* RootTabBarController.m in Sources */,
 				2D20DE042086147300095032 /* SCCouponTools.m in Sources */,
+				2D20DEA72088C80D00095032 /* ZJScrollPageView.m in Sources */,
+				2D20DEF02088CC8C00095032 /* AddAddressViewController.m in Sources */,
 				2D20DE472086186000095032 /* XWAlterVeiw.m in Sources */,
+				2D20DEAC2088C82600095032 /* SCCategoryChildVC.m in Sources */,
 				2D20DDE82086142000095032 /* RequestManager+CK.m in Sources */,
+				2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */,
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
+				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
+				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
+				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
+				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
+				2D20DED12088CAD400095032 /* CKShareManager.m in Sources */,
+				2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */,
 				2D0726CA20839F6C0030996F /* MessageListViewCell.m in Sources */,
 				2D0726AC2083923A0030996F /* MedieaListViewController.m in Sources */,
+				2D20DF952088D96B00095032 /* CKCLogisticsDetailVC.m in Sources */,
 				2D20DE122086149300095032 /* SCCommon.m in Sources */,
+				2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */,
+				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
+				2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */,
 				2D20DE80208629E700095032 /* TAAbstractDotView.m in Sources */,
 				2D20DDDC208613E400095032 /* CKVersionCheckManager.m in Sources */,
 				2D07267D208311CB0030996F /* HotSerachCell.m in Sources */,
+				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
+				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
+				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
+				2D20DF592088D4E600095032 /* SCCouponCanUseCell.m in Sources */,
 				2D0723F72082FEF10030996F /* HomeViewController.m in Sources */,
 				2D20DE1E208614CE00095032 /* UICollectionView+PlaceHolder.m in Sources */,
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
 				2D20DE21208614CE00095032 /* NSString+MD5.m in Sources */,
+				2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */,
+				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
+				2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */,
 				2D20DE2F208614EC00095032 /* UINavigationItem+SXFixSpace.m in Sources */,
+				2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */,
 				2D20DDE92086142000095032 /* CKFileObject.m in Sources */,
 				2D20DE5F2086187200095032 /* UIButton+Common.m in Sources */,
 				2D0723B52082FA050030996F /* AppDelegate.m in Sources */,
 				2D20DE22208614CE00095032 /* UITableView+PlaceHolder.m in Sources */,
+				2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */,
+				2D20DEA92088C80D00095032 /* ZJSegmentStyle.m in Sources */,
+				2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */,
+				2D20DF282088CEC400095032 /* PPNetworkCache.m in Sources */,
+				2D20DEA82088C80D00095032 /* ZJTitleView.m in Sources */,
+				2D20DF6B2088D6D300095032 /* SelectedProviceViewController.m in Sources */,
 				2D20DE022086147300095032 /* getUUID.m in Sources */,
+				2D20DF002088CD4400095032 /* AddAddressTableViewCell.m in Sources */,
 				2D20DE382086151E00095032 /* FFAlertView.m in Sources */,
+				2D20DF032088CD6300095032 /* SCGoodsDetailConfirmOrderCell.m in Sources */,
+				2D20DF182088CE6A00095032 /* SectionModel.m in Sources */,
+				2D20DF5F2088D56500095032 /* MyAddressTableViewCell.m in Sources */,
+				2D20DF452088D15A00095032 /* StarEvaluateView.m in Sources */,
+				2D20DFF920898BA100095032 /* SCCanCommentCell.m in Sources */,
 				2D20DE102086149300095032 /* DefaultValue.m in Sources */,
+				2D20DEC42088CA1500095032 /* SCShoppingCarCell.m in Sources */,
 				2D072671208311BE0030996F /* UIViewExt.m in Sources */,
 				2D0726A2208332360030996F /* RecommendViewCell.m in Sources */,
 				2D0726C520839EE50030996F /* MessageViewController.m in Sources */,
+				2D20DFF020898B6000095032 /* YSPointCell.m in Sources */,
+				2D20DF292088CEC400095032 /* PPNetworkHelper.m in Sources */,
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
+				2D20DEAF2088C88700095032 /* SCCategoryTableCell.m in Sources */,
 				2D20DE7E208629E700095032 /* TAAnimatedDotView.m in Sources */,
 				2D20DE2E208614EC00095032 /* NSObject+SXRuntime.m in Sources */,
 				2D0723B12082F9EF0030996F /* NewFeatureViewController.m in Sources */,
+				2D20DF622088D5B100095032 /* SCCouponDetailViewController.m in Sources */,
+				2D20DFB02088DA8F00095032 /* SCCouponDetailCell.m in Sources */,
+				2D20DF682088D5DC00095032 /* DashLineView.m in Sources */,
+				2D20DF4B2088D3D300095032 /* PaySuccessViewController.m in Sources */,
 				2D20DDFE2086147300095032 /* SCShoppingCarNoDataView.m in Sources */,
+				2D20DFC920898A0800095032 /* CleanCache.m in Sources */,
 				2D20DDC62086135000095032 /* SCAdImageView.m in Sources */,
+				2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */,
+				2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */,
 				2D20DE20208614CE00095032 /* UIButton+XN.m in Sources */,
+				2D20DE8E2088C7BE00095032 /* SCCategoryViewController.m in Sources */,
+				2D20DF562088D4B800095032 /* MLEmojiLabel.m in Sources */,
 				2D20DE662086187200095032 /* UIView+Extension.m in Sources */,
+				2D20DEB82088C97E00095032 /* SCShoppingCarViewController.m in Sources */,
 				2D0726882083277A0030996F /* BaseModel.m in Sources */,
+				2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */,
+				2D20DFCC20898A1A00095032 /* SCMineInfoViewController.m in Sources */,
+				2D20DF8F2088D94800095032 /* SCOrderDetailModel.m in Sources */,
 				2D0726BB2083928A0030996F /* MedieaListViewCell.m in Sources */,
 				2D0726A72083371B0030996F /* RecommendCollectionViewCell.m in Sources */,
 				2D20DE2C208614EC00095032 /* UIBarButtonItem+SXCreate.m in Sources */,
+				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
-				2D0723E82082FEC10030996F /* MineViewController.m in Sources */,
+				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
+				2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */,
+				2D20DFE420898B0E00095032 /* YSCollectionEditCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

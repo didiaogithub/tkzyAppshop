@@ -18,7 +18,7 @@
     NSMutableArray *idleImages = [NSMutableArray array];
     for (NSUInteger i = 1; i<=3; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"car%zd", i]];
-        [idleImages addObject:image];
+//        [idleImages addObject:image];
         
     }
     
@@ -28,7 +28,7 @@
     NSMutableArray *refreshingImages = [NSMutableArray array];
     for (NSUInteger i = 1; i<=3; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"car%zd", i]];
-        [refreshingImages addObject:image];
+//        [refreshingImages addObject:image];
     }
     [self setImages:refreshingImages forState:MJRefreshStatePulling];
     

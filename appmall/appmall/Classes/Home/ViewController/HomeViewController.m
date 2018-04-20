@@ -13,6 +13,7 @@
 #import "RecommendViewCell.h"
 #import "HonourDetailViewController.h"
 #import "MessageViewController.h"
+#import "SCCategoryViewController.h"
 #import "MedieaListViewController.h"
 #define KRecommendViewCell @"RecommendViewCell"
 @interface HomeViewController ()<WBAdsImgViewDelegate,HomeMenuItemViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
@@ -236,10 +237,15 @@
 -(void)recommendViewCellDelegateMore:(NSInteger)index{
     HonourDetailViewController *honourVC = [[HonourDetailViewController alloc]init];
      MedieaListViewController*medieaVC = [[MedieaListViewController alloc]init];
+    SCCategoryViewController *category = [[SCCategoryViewController alloc] init];
     switch (index) {
             
         case 0:
             
+            category.titleArr = [NSMutableArray arrayWithArray: @[@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈"]];
+            category.categoryIdArr =[NSMutableArray arrayWithArray: @[@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈"]];
+            category.selectedIndex = 0;
+            [self.navigationController pushViewController:category animated:YES];
             break;
         case 1:
             medieaVC.hidesBottomBarWhenPushed = YES;

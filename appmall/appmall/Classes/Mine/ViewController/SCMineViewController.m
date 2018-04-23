@@ -20,6 +20,7 @@
 #import "FFWarnAlertView.h"
 #import "CellModel.h"
 #import "SectionModel.h"
+#import "ArrearsManagerViewController.h"
 
 
 @interface SCMineViewController ()<UITableViewDelegate, UITableViewDataSource, SCUserInfoSignUpDelegate, SCMineOrderCellDelegate>
@@ -225,39 +226,31 @@
     NSMutableArray *vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"YSMemberPointViewController",
-                                         @"SCRecommendRewardVC",
-                                         @"WebDetailViewController",
-                                         @"WebDetailViewController",
+                                         @"ArrearsManagerViewController",
+                                         @"AmortizationLoanViewController",
+                                         @"InvoicesManagerViewController",
                                          @"ChangeMyAddressViewController"]];
 
 
     if (indexPath.section > 1) {
-        if(indexPath.section == vcNameArray.count-1){//问题帮助
-            WebDetailViewController *detailVC = [[WebDetailViewController alloc] init];
-            detailVC.type = @"help";
-            detailVC.detailUrl = [NSString stringWithFormat:@"%@front/help/html/helplist.html", WebServiceAPI];
-            [self.navigationController pushViewController:detailVC animated:YES];
-        }else if(indexPath.section == vcNameArray.count){//关于我们
-            WebDetailViewController *detailVC = [[WebDetailViewController alloc] init];
-            detailVC.type = @"our";
-            NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
-            detailVC.detailUrl = [NSString stringWithFormat:@"%@front/appmall/html/aboutus.html?ckys_openid=%@&uk=%@", WebServiceAPI, USER_OPENID, uk];
-            [self.navigationController pushViewController:detailVC animated:YES];
-        }else{
+//        if(indexPath.section == vcNameArray.count-1){//问题帮助
+//            WebDetailViewController *detailVC = [[WebDetailViewController alloc] init];
+//            detailVC.type = @"help";
+//            detailVC.detailUrl = [NSString stringWithFormat:@"%@front/help/html/helplist.html", WebServiceAPI];
+//            [self.navigationController pushViewController:detailVC animated:YES];
+//        }else if(indexPath.section == vcNameArray.count){//关于我们
+//            WebDetailViewController *detailVC = [[WebDetailViewController alloc] init];
+//            detailVC.type = @"our";
+//            NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
+//            detailVC.detailUrl = [NSString stringWithFormat:@"%@front/appmall/html/aboutus.html?ckys_openid=%@&uk=%@", WebServiceAPI, USER_OPENID, uk];
+//            [self.navigationController pushViewController:detailVC animated:YES];
+//        }else{
             NSString *className = vcNameArray[indexPath.section - 2];
             Class cls = NSClassFromString(className);
             
-            NSString *couponbgurl = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_couponbgurl"]];
-            if (IsNilOrNull(couponbgurl)) {
-                if ([className isEqualToString:@"SCRecommendRewardVC"]) {
-                    [self.loadingView showNoticeView:@"功能暂未开放，敬请期待！"];
-                    return;
-                }
-            }
-            
             UIViewController *viewController = [[cls alloc]init];
             [self.navigationController pushViewController:viewController animated:YES];
-        }
+//        }
     }
 }
 

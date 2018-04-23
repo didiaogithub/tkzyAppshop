@@ -246,6 +246,9 @@
 		2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20E00120898CF900095032 /* YSMemberPointCell.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
+		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
+		F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */; };
+		F20C4D5D208CCE770086282A /* InvoicesManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D5C208CCE770086282A /* InvoicesManagerViewController.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -731,6 +734,12 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
+		F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
+		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
+		F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
+		F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
+		F20C4D5B208CCE770086282A /* InvoicesManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerViewController.h; sourceTree = "<group>"; };
+		F20C4D5C208CCE770086282A /* InvoicesManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerViewController.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1053,6 +1062,9 @@
 		2D0723CD2082FB560030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F20C4D5A208CCE4F0086282A /* 发票管理 */,
+				F20C4D55208CCD130086282A /* 分期还款 */,
+				F20C4D51208CC35F0086282A /* 欠款管理 */,
 				2D20DFDA20898AAA00095032 /* SCWaitReleaseCommentViewController.h */,
 				2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */,
 				2D20DFCE20898A2800095032 /* SetUpViewController.h */,
@@ -1719,6 +1731,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F20C4D51208CC35F0086282A /* 欠款管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */,
+				F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */,
+			);
+			path = "欠款管理";
+			sourceTree = "<group>";
+		};
+		F20C4D55208CCD130086282A /* 分期还款 */ = {
+			isa = PBXGroup;
+			children = (
+				F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */,
+				F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */,
+			);
+			path = "分期还款";
+			sourceTree = "<group>";
+		};
+		F20C4D5A208CCE4F0086282A /* 发票管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F20C4D5B208CCE770086282A /* InvoicesManagerViewController.h */,
+				F20C4D5C208CCE770086282A /* InvoicesManagerViewController.m */,
+			);
+			path = "发票管理";
+			sourceTree = "<group>";
+		};
 		F2FE5BA4208471A4006E274A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2041,6 +2080,7 @@
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
 				2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */,
 				2D20DDFD2086147300095032 /* KeyChainStore.m in Sources */,
+				F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */,
 				2D072672208311BE0030996F /* DWQSearchBar.m in Sources */,
 				2D20DDE72086142000095032 /* RequestManager.m in Sources */,
 				2D20DDD5208613BA00095032 /* BKGuidePageAppearToll.m in Sources */,
@@ -2055,6 +2095,7 @@
 				2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */,
 				2D20DE0F2086149300095032 /* MJGearHeader.m in Sources */,
 				2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */,
+				F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				2D20DE1F208614CE00095032 /* UIViewController+BackButtonHandler.m in Sources */,
@@ -2100,6 +2141,7 @@
 				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
 				2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */,
 				2D20DEF32088CCD400095032 /* ChangeMyAddressViewController.m in Sources */,
+				F20C4D5D208CCE770086282A /* InvoicesManagerViewController.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
 				2D20DDC52086135000095032 /* SCProgressTimerView.m in Sources */,
 				2D20DDB32086130B00095032 /* RootBaseViewController.m in Sources */,

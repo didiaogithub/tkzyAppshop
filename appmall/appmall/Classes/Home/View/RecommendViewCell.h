@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKHomeDataModel.h"
 
 @protocol RecommendViewCellDelegate<NSObject>
 -(void)recommendViewCellDelegateMore:(NSInteger)index;
+-(void)recommendViewCellClick:(NSIndexPath*)indexpath andTabIndex:(NSInteger)index;
 @end
 
 @interface RecommendViewCell : UITableViewCell
 
 @property(weak,nonatomic)id <RecommendViewCellDelegate>delegate;
--(void)setCollection:(NSInteger )index;
+-(void)setCollection:(NSInteger )index andData:(TKHomeDataModel *)model;
+-(CGFloat)getCollectionHeight:(NSInteger)index ;
 
--(CGFloat)getCollectionHeight:(NSInteger)index;
 @end

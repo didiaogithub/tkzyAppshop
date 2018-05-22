@@ -11,11 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="contentSrcView" destination="EBv-Xd-hZX" id="oa8-cM-maZ"/>
-                <outlet property="disTop" destination="MbV-Cs-h94" id="JLp-n4-O8c"/>
-                <outlet property="heightContentView" destination="RCt-EC-Glt" id="ESA-5j-u8T"/>
-                <outlet property="scroMainView" destination="Rmw-V5-r9e" id="KVM-7p-two"/>
-                <outlet property="tabDisTop" destination="0wH-mx-HNK" id="ZVD-ed-pu5"/>
+                <outlet property="tabDisBottom" destination="dj3-CF-WeM" id="e9r-0F-ulb"/>
+                <outlet property="tabDisTop" destination="QjY-z6-vQl" id="Hqz-xT-fxt"/>
                 <outlet property="tabHomeList" destination="pdf-KV-h2b" id="ihm-Ww-ozd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,42 +22,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmw-V5-r9e">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-Xd-hZX">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
-                            <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-KV-h2b">
-                                    <rect key="frame" x="0.0" y="336" width="375" height="464"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </tableView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="pdf-KV-h2b" firstAttribute="top" secondItem="EBv-Xd-hZX" secondAttribute="top" constant="336" id="0wH-mx-HNK"/>
-                                <constraint firstItem="pdf-KV-h2b" firstAttribute="leading" secondItem="EBv-Xd-hZX" secondAttribute="leading" id="LR0-7c-WcA"/>
-                                <constraint firstAttribute="trailing" secondItem="pdf-KV-h2b" secondAttribute="trailing" id="Prj-Zd-o7a"/>
-                                <constraint firstAttribute="height" constant="800" id="RCt-EC-Glt"/>
-                                <constraint firstAttribute="bottom" secondItem="pdf-KV-h2b" secondAttribute="bottom" id="nv5-ur-QDn"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="EBv-Xd-hZX" firstAttribute="leading" secondItem="Rmw-V5-r9e" secondAttribute="leading" id="00W-cH-zLZ"/>
-                        <constraint firstAttribute="trailing" secondItem="EBv-Xd-hZX" secondAttribute="trailing" id="4fR-FX-pSD"/>
-                        <constraint firstAttribute="bottom" secondItem="EBv-Xd-hZX" secondAttribute="bottom" id="JsY-83-4pu"/>
-                        <constraint firstItem="EBv-Xd-hZX" firstAttribute="top" secondItem="Rmw-V5-r9e" secondAttribute="top" id="OWh-UJ-nSf"/>
-                    </constraints>
-                </scrollView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-KV-h2b">
+                    <rect key="frame" x="0.0" y="92" width="375" height="501"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Rmw-V5-r9e" secondAttribute="trailing" id="Dg6-R0-tQU"/>
-                <constraint firstItem="Rmw-V5-r9e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="MbV-Cs-h94"/>
-                <constraint firstAttribute="bottom" secondItem="Rmw-V5-r9e" secondAttribute="bottom" id="qL4-C6-bRW"/>
-                <constraint firstItem="EBv-Xd-hZX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qeU-ma-hgl"/>
-                <constraint firstItem="Rmw-V5-r9e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uoY-x7-BIw"/>
+                <constraint firstAttribute="trailing" secondItem="pdf-KV-h2b" secondAttribute="trailing" id="DhK-LB-L3t"/>
+                <constraint firstItem="pdf-KV-h2b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QjY-z6-vQl"/>
+                <constraint firstAttribute="bottom" secondItem="pdf-KV-h2b" secondAttribute="bottom" id="dj3-CF-WeM"/>
+                <constraint firstItem="pdf-KV-h2b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jo5-SN-VGy"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

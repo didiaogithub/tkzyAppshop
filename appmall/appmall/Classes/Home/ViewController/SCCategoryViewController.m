@@ -15,7 +15,6 @@
 #import "SCCategoryGoodsModel.h"
 
 @interface SCCategoryViewController ()<ZJScrollPageViewDelegate, ZJScrollPageViewChildVcDelegate>
-
 @property (nonatomic, strong) ZJScrollPageView *scrollPageView;
 @property (nonatomic, strong) ZJSegmentStyle *style;
 
@@ -32,22 +31,6 @@
     
     [self createShareButton];
 }
-
-//-(void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//
-//    RLMResults *classArr = [SCCategoryGoodsModel allObjects];
-//    RLMRealm *realm = [RLMRealm defaultRealm];
-//    if (classArr.count > 0) {
-//        for (SCCategoryGoodsModel *classM in classArr) {
-//            [realm beginWriteTransaction];
-//            [realm deleteObject:classM];
-//            [realm commitWriteTransaction];
-//        }
-//    }
-//
-//    [self.scrollPageView.contentView reload];
-//}
 
 -(void)initComponents{
     /**设置title样式*/

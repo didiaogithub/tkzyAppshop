@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "ADSModel.h"
+#import "TKHomeDataModel.h"
+#import "TKSchoolModel.h"
 @protocol WBAdsImgViewDelegate
 
--(void)adsImgViewClick:(ADSModel*)itemIndex;
+-(void)adsImgViewClick:(BannerModel*)itemIndex;
 
 @end
 
@@ -20,7 +21,9 @@
 
 
 @property(nonatomic,weak)id<WBAdsImgViewDelegate>delegate;
--(void)setImageUrlArray:(NSArray<ADSModel *> *)imgUrls;
+-(void)setImageUrlArray:(NSArray<BannerModel *> *)imgUrls;
+
+-(void)setImageUrlArrayTkSchool:(NSArray<BannerListModel *> *)imgUrls;
 
 
 @end

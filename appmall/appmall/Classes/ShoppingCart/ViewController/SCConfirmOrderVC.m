@@ -169,7 +169,7 @@
     [HttpTool getWithUrl:getDefaultAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return;
         }
 
@@ -499,7 +499,7 @@
         
         NSDictionary *dict = json;
         if ([dict[@"code"] intValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         
@@ -618,7 +618,7 @@
     [HttpTool postWithUrl:requestUrl params:[self createCouponParametersWithType:@"1"] success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         NSArray *list = dict[@"list"];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseModel : NSObject
+@interface BaseModel : RLMObject
 
 
 -(id)initWith:(NSDictionary*)dic;

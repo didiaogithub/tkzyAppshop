@@ -13,7 +13,6 @@
 -(id)initWith:(NSDictionary*)dic{
     
     if (self = [super init]) {
-        
         [self setValuesForKeysWithDictionary:dic];
     }
     
@@ -25,6 +24,9 @@
     NSString *strValue = [NSString stringWithFormat:@"%@",value];
     if ([key isEqualToString:@"id"]) {
         key = @"_id";
+    }
+    if ([key isEqualToString:@"description"]) {
+        key = @"_description";
     }
     [super setValue:strValue forKey:key];
 }

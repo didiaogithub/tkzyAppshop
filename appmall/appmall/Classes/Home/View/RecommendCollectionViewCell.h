@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TKHomeDataModel.h"
 @interface RecommendCollectionViewCell : UICollectionViewCell
+
+-(void)loadDataModel:(TKHomeDataModel *)model andIndex:(NSIndexPath  *)index andSuperSection:(NSInteger )section;
 
 @end

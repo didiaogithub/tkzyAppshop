@@ -44,7 +44,7 @@ static NSString *content_Indentifier = @"contentGoodCell";
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         NSArray *arr = dic[@"list"];
@@ -158,7 +158,7 @@ static NSString *content_Indentifier = @"contentGoodCell";
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [self.navigationController popToRootViewControllerAnimated:YES];

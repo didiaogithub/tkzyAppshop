@@ -88,8 +88,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnMore" destination="bMA-Q9-YjE" id="FUw-qU-4Yi"/>
+                <outlet property="collectionTopViewHeight" destination="WQw-6a-Ajk" id="sV0-Zl-a7g"/>
                 <outlet property="collectionViewItem" destination="DnJ-9d-Spa" id="QdJ-V3-F65"/>
                 <outlet property="labTitle" destination="ifx-Iy-taX" id="CFK-iV-D3R"/>
+                <outlet property="topMarginViewHeight" destination="m8C-Gm-3Sm" id="RWw-iE-O06"/>
+                <outlet property="topView" destination="wwB-97-Twi" id="ZFc-Ek-cEN"/>
             </connections>
             <point key="canvasLocation" x="43.5" y="126"/>
         </tableViewCell>

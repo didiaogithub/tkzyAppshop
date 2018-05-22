@@ -70,7 +70,7 @@
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
             [self.loadingView stopAnimation];
-            [self.loadingView showNoticeView:itemDic[@"msg"]];
+            [self.loadingView showNoticeView:itemDic[@"message"]];
             return;
         }
         

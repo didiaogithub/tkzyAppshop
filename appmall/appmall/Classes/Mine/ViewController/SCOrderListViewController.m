@@ -123,7 +123,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
             [self.loadingView stopAnimation];
-            [self showNoticeView:itemDic[@"msg"]];
+            [self showNoticeView:itemDic[@"message"]];
             return;
         }
         
@@ -615,7 +615,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
             [self.loadingView stopAnimation];
-            [self showNoticeView:itemDic[@"msg"]];
+            [self showNoticeView:itemDic[@"message"]];
             return;
         }
         NSArray *itemArr = itemDic[@"orderlist"];
@@ -830,7 +830,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
             [self.loadingView stopAnimation];
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [self showNoticeView:@"删除成功"];
@@ -889,7 +889,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
             [self.loadingView stopAnimation];
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [self showNoticeView:@"取消成功"];
@@ -931,7 +931,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
             [self.loadingView stopAnimation];
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         NSString *predict = [NSString stringWithFormat:@"orderId = '%@'", _orderModel.orderId];

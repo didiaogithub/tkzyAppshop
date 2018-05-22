@@ -21,7 +21,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-Rp-7Wb">
                         <rect key="frame" x="16" y="11" width="346" height="204.5"/>
-                        <color key="backgroundColor" red="0.56667226550000005" green="0.57052165269999999" blue="0.5741731524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mz-9w-3E3">
                         <rect key="frame" x="0.0" y="251.5" width="378" height="10"/>
@@ -38,8 +37,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="3w9-Kp-T1i"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.58426290749999998" green="0.58434748650000001" blue="0.58423620460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QV7-QT-flU">
@@ -47,7 +46,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="da7-6T-gdj"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -68,6 +67,11 @@
                     <constraint firstItem="QV7-QT-flU" firstAttribute="top" secondItem="zgl-Rp-7Wb" secondAttribute="bottom" id="ywM-uA-GJE"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imgMedia" destination="zgl-Rp-7Wb" id="OH0-nF-0DP"/>
+                <outlet property="labMediaTime" destination="dLN-oQ-T1h" id="2pU-bA-fML"/>
+                <outlet property="labMediaTitle" destination="QV7-QT-flU" id="ezW-Gl-bFb"/>
+            </connections>
             <point key="canvasLocation" x="63" y="163"/>
         </tableViewCell>
     </objects>

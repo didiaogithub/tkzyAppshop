@@ -116,11 +116,11 @@
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
             
-            if ([dic[@"msg"] containsString:@"该商品不存在"]) {
-                [self showNoticeView:dic[@"msg"]];
+            if ([dic[@"message"] containsString:@"该商品不存在"]) {
+                [self showNoticeView:dic[@"message"]];
                 [self.navigationController popViewControllerAnimated:YES];
             }
-            [self showNoticeView:dic[@"msg"]];
+            [self showNoticeView:dic[@"message"]];
             return ;
         }
         self.goodsDM = [[SCGoodsDetailModel alloc] init];

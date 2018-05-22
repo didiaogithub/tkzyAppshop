@@ -1,0 +1,111 @@
+{
+    "bannerList": [{
+                   "itemid": "1",
+                   "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                   "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                   "activityid": "10"
+                   },
+                   {
+                   "itemid": "2",
+                   "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                   "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                   "activityid": "11"
+                   }
+                   ],
+    "topicList": [{
+                  "itemid": "1",
+                  "spec":"2kg",
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "itemname": "商品名称1",
+                  "price": "100.50",
+                  "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "activityid": "10"
+                  },
+                  {
+                  "itemid": "2",
+                  "spec":"2kg",
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "itemname": "商品名称1",
+                  "price": "100.50",
+                  "spec":"2kg",
+                  "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "activityid": 10
+                  },
+                  {
+                  "itemid": "3",
+                  "spec":"2kg",
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "itemname": "商品名称1",
+                  "price": "100.50",
+                  "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "activityid": 10
+                  },
+                  {
+                  "itemid": "4",
+                  "spec":"2kg",
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "itemname": "商品名称1",
+                  "price": "100.50",
+                  "link": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "activityid": 10
+                  }
+                  ],
+    "sortList": [{
+                 "sortid": "分类id1",
+                 "sortname": "分类名称",
+                 "itempath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg"
+                 },
+                 {
+                 "sortid": "分类id2",
+                 "sortname": "分类名称",
+                 "itempath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg"
+                 }
+                 ,
+                 {
+                 "sortid": "分类id2",
+                 "sortname": "分类名称",
+                 "itempath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg"
+                 }
+                 ,
+                 {
+                 "sortid": "分类id2",
+                 "sortname": "分类名称",
+                 "itempath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg"
+                 }
+                 ],
+    "mediaReport": {
+        "itemid": "媒体报道id1",
+        "link": "http://www.baidu.com",
+        "title": "标题",
+        "time": "时间",
+        "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg"
+    },
+    "honorList": [{
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "title": "标题"
+                  },
+                  {
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "title": "标题"
+                  }
+                  ,
+                  {
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "title": "标题"
+                  }
+                  ,
+                  {
+                  "imgpath": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=815015076,1530883969&fm=27&gp=0.jpg",
+                  "title": "标题"
+                  }
+                  ],
+    "hotNews": [{
+                "title": "标题1",
+                "link": "http://www.baidu.com"
+                },
+                {
+                "title": "标题2",
+                "link": "http://www.baidu.com"
+                }
+                ]
+}

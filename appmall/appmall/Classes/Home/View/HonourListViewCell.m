@@ -9,6 +9,16 @@
 
 #import "HonourListViewCell.h"
 
+@interface HonourListViewCell()
+{
+    __weak IBOutlet UIImageView *imgHonorIcon;
+    __weak IBOutlet UILabel *labTime;
+    __weak IBOutlet UILabel *labTitle;
+    
+    __weak IBOutlet UILabel *labDesc;
+}
+
+@end
 @implementation HonourListViewCell
 
 - (void)awakeFromNib {
@@ -20,6 +30,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)reloadDataModel:(HonorListModel *)model{
+    if(model.time.length > 0){
+        labTime.text = [[model.time componentsSeparatedByString:@" "] firstObject];
+    }
+    
+    labDesc.text = model._description;
+    labTitle.text = model.title;
+    [imgHonorIcon sd_setImageWithURL:[NSURL URLWithString:model.imgpath]];
 }
 
 @end

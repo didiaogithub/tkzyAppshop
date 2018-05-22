@@ -15,6 +15,13 @@
 
 @implementation HttpTool
 
++(NSDictionary *)getCommonPara{
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    return pramaDic;
+    
+}
+
 +(void)getWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     serializer.removesKeysWithNullValues = YES;

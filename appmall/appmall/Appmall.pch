@@ -4,6 +4,7 @@
 //
 //  Created by 壮壮 on 15/04/2018.
 //  Copyright © 2018 com.tcsw.tkzy. All rights reserved.
+//测试cornerstone 破解是否成功
 //
 
 #ifndef Appmall_pch
@@ -49,6 +50,12 @@
 #import "UIView+Extension.h"
 #import "NSDecimalNumber+Addtion.h"
 #import "CacheData.h"
+#import "UITableView+XY.h"
+#import <Realm.h>
+#import "UserModel.h"
+#import "UIView+GetVC.h"
+#import "SobotManager.h"
+#import "UIImage+Common.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

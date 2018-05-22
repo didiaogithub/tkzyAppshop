@@ -14,10 +14,12 @@
 /* 两次刷新的时间间隔 */
 #define Interval 5
 
+#define KcurUserModel @"curUserModel"
 #define Appid @"2appmall201804001"
+#define Apptype @"1"
+#define Devtype @"2"
 #define TN [[NSDate date] timeIntervalSince1970] * 1000
 #define Apisecret @"apisecret=tk82beab5zyydb87d3d7b07b0f175373"
-
 
 #define shareSDKAppID @"16f95f8fa566e"
 #define weiBoAppkey @"4079281429"
@@ -55,6 +57,7 @@
 #define KAccsess_token @"access_token"
 #define KExpires_in @"expires_in"
 #define KolderData @"older"
+
 
 
 #define Kmobile @"CKSC_phone"
@@ -142,32 +145,48 @@
 #define APPKeyWindow [UIApplication sharedApplication].keyWindow
 //通知
 #define CKCNotificationCenter [NSNotificationCenter defaultCenter]
-
-/**测试过可用地址*/
-//审核用的openid
-//#define OpenidForLogin @"000fDaw000ut5PMoH329jx0cjjomFeoX5L000"
-//#define OpenidForRegist @"000qoaU000_wafWITA29bHyfQwyqwJomz8000"
-
-#define OpenidForLogin @"b79wJqo042_waf8_ITA8_bHyfQwyqomz8500"
-#define OpenidForRegist @"b79wJqo042_waf9_ITA9_bHyfQwyqomz9500"
-
 ////测试审核登录用的openid
 //#define OpenidForLogin @"b507AmE000D0bD-CYaVp193YIRHNraoatK000"
 //#define OpenidForRegist @"00016ks000AwjUdpUfkYCwbkDt5G-voP-L000"
 
 /**请求的参数openid */
 #define USER_OPENID   @""//[KUserdefaults objectForKey:@"USER_OPENID"]
-
 /**域名配置*/
 #define WebServiceAPI [[DefaultValue shareInstance] domainName]
-/**消息域名*/
-#define MsgApi  [[DefaultValue shareInstance] domainSmsMessage]
-/**微信支付宝域名*/
-#define WebServicePayAPI [[DefaultValue shareInstance] domainNamePay]
-/**银联、Apple Pay域名*/
-#define WebServiceUnitPayAPI [[DefaultValue shareInstance] domainNameUnionPay]
-/**上传图片域名*/
-#define UploadImageDomain [[DefaultValue shareInstance] domainNameRes]
+#define CommentResAPI [[DefaultValue shareInstance] domainNameRes]
+
+//登录
+#define Login_By_Phone @"Login/loginByPhone"     // 通过手机号登录
+
+
+//首页
+#define Home_Url @"Index/getMainData"/**商品首页*/
+#define Home_HonorList_Url  @"index/getHonorList"/**获取企业荣誉*/
+#define Home_MediaLit_Url  @"Index/getMediaList"/**获取媒体列表*/
+#define Home_Goods_Class_Url @"Index/getCategoryList"/**获取商品分类列表*/
+#define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"  
+
+/**商品详情*/
+#define GoodsDetailUrl @"/Goods/getGoodsDetail"
+
+/**添加到购物车*/
+#define AddToShoppingCarUrl @"/Cart/addShoppingCart"
+
+#define APIGetMessageSortList @"getMessageSortList"
+
+//天康学院
+#define     GetTkSchoolIndexURl           @"Tkschool/getIndex"                 //获取天康学院首页
+#define     GetTeacherById                   @"Tkschool/getTeacherById"         // 获取名师详情
+#define     GetCourseCatoryList            @"Tkschool/getCourseCatoryList"  //获取所有的课程分类
+#define     GetCourseListByKey             @"Tkschool/getCourseListByKey"  //根据关键字搜索课程列表
+#define     GetCourseList                      @"Tkschool/getCourseList"        // 获取课程列表
+#define     GetTeacherList                     @"Tkschool/getTeacherList"        //获取名师列表
+#define     GetHotSearchList                  @"Tkschool/getHotSearchList"    // 获取热门搜索标签
+/**
+通用服务
+ */
+#define Get_Validate_Code  @"sms/getValidCode/sms/getValidCode"
+
 
 ///**分享时的logo域名*/
 #define ShareLogoUrl @"front/appmall/img/sharedefault.jpg"
@@ -200,24 +219,21 @@
 #define GetShopOwenerUrl @"Wxmall/User/getUserFromOpenid"
 /**进店提醒*/
 #define ShopNoticeUrl @"Wxmall/Index/actNotice"
-/**商品首页*/
-#define Home_Url @"Wxmall/Index/getIndex"
+
 /**商品分类列表*/
 #define CategoryUrl @"Wxmall/Item/getItem"
 /**获取搜索热门标签*/
 #define GetHotItemUrl @"Wxmall/User/getHotItem"
-/**商品详情*/
-#define GoodsDetailUrl @"Wxmall/Item/getItemById"
+
 /**添加收藏*/
-#define AddCollectionUrl @"Wxmall/Collection/addCollection"
+#define AddCollectionUrl @"Goods/addCollection"
 /**取消收藏*/
-#define CancelCollectionUrl @"Wxmall/Collection/cancelCollection"
+#define CancelCollectionUrl @"Center/cancelCollection"
 /**收藏列表*/
-#define GetCollecListUrl @"Wxmall/Collection/getCollection"
+#define GetCollecListUrl @"Center/getCollectionList"
 /**评论列表*/
 #define CommentListUrl @"Wxmall/Item/getCommentByItemId"
-/**添加到购物车*/
-#define AddToShoppingCarUrl @"Wxmall/ShoppingCart/addShoppingCart"
+
 /**获取购物车列表*/
 #define GetShoppingCarUrl @"Wxmall/ShoppingCart/getShoppingCart"
 /**删除购物车商品*/
@@ -227,15 +243,15 @@
 #define UpdateShoppingCarInfoUrl @"Wxmall/ShoppingCart/updateShoppingCartInfo"
 
 /**如果id不存在，openid为必填，查询指定人的默认地址*/
-#define GetDefaultAddrUrl @"Wxmall/Address/getAddressById"
+#define GetDefaultAddrUrl @"Address/getAddressById"
 /**获取地址列表*/
-#define GetAddrListUrl @"Wxmall/Address/getAddressList"
+#define GetAddrListUrl @"Address/getAddressList"
 /**删除地址*/
-#define DeleAddrUrl @"Wxmall/Address/deleteAddress"
+#define DeleAddrUrl @"Address/deleteAddress"
 /**修改地址*/
-#define UpdateAddrUrl @"Wxmall/Address/updateAddress"
+#define UpdateAddrUrl @"Address/modifyAddress"
 /**添加收货地址*/
-#define AddAddrUrl @"Wxmall/Address/address"
+#define AddAddrUrl @"Address/addAddress"
 /**生成活动订单*/
 #define AddActiveOrderUrl @"Wxmall/Order/addOrderByActivity"
 /**直接生成订单*/
@@ -267,7 +283,7 @@
 /**获取积分*/
 #define GetMemberPointUrl @"Wxmall/Integral/getIntegral"
 /**获取个人信息*/
-#define GetMeInfoUrl @"Wxmall/User/getMeInfo"
+#define GetMeInfoUrl @"Customer/getCustomerInfo"
 /**更新个人信息*/
 #define UpdateMeInfoUrl @"Wxmall/User/updateMeInfo"
 /**上传评价图片*/
@@ -275,7 +291,7 @@
 /**手机验证码*/
 #define PhoneLoginUrl @"Wxmall/Login/userLogin" //@"Wxmall/Login/userLoginNew"
 /**获取省  市  区  列表*/
-#define GetAreaUrl @"Wxmall/Index/getAreaList"
+#define GetAreaUrl @"Address/getAreaList"
 /**获取物流信息*/
 #define getLogisticsInfo_Url @"Wxmall/Order/getLogistics"
 

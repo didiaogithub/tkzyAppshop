@@ -34,5 +34,38 @@
         self.labWeight.hidden = NO;
     }
 }
+-(void)loadDataModel:(TKHomeDataModel *)model andIndex:(NSIndexPath  *)index andSuperSection:(NSInteger)section{
+    
+    if (section ==2) {
+        TopicModel *tModel = [model.topicList objectAtIndex:index.row];
+        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+        self.labTitle.text = tModel.itemname;
+        self.labPrice.text = tModel.price;
+        self.labWeight.text = tModel.spec;
+        self.labPrice.hidden = NO;
+        self.labWeight.hidden = NO;
+        self.labTitleDisBottom.constant  = 10;
+        
+        
+    }else if (section ==  3){
+        MediaRepMortModel *tModel = [model.mediaList objectAtIndex:index.row];
+        self.labTitle.text = tModel.title;
+         [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+        self.labPrice.hidden = YES;
+        self.labWeight.hidden = YES;
+        self.labTitleDisBottom.constant  = -15;
+        
+        
+    }else if (section == 4){
+        HonorModel * tModel = [model.honorList objectAtIndex:index.row];
+        
+        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+        self.labTitle.text = tModel.title;
+        self.labPrice.hidden = YES;
+        self.labWeight.hidden = YES;
+        self.labTitleDisBottom.constant  = -15;
+    }
+
+}
 
 @end

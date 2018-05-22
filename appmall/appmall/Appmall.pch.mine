@@ -1,0 +1,62 @@
+//
+//  Appmall.pch
+//  appmall
+//
+//  Created by 壮壮 on 15/04/2018.
+//  Copyright © 2018 com.tcsw.tkzy. All rights reserved.
+//测试cornerstone 破解是否成功
+//
+
+#ifndef Appmall_pch
+#define Appmall_pch
+
+#import <MJExtension.h>
+#import "UIView+MJExtension.h"
+#import "UIImage+ImageWithColor.h"
+#import "NewFeatureViewController.h"
+#import "TextResource.h"
+#import  <AFNetworking.h>
+#import <UIButton+WebCache.h>
+
+#import "AppDelegate.h"
+#import <MJRefresh.h>
+#import <JGProgressHUD.h>
+#import "RequestManager.h"
+#import "UIViewController+CurrentVC.h"
+#import "common.h"
+#import "HttpTool.h"
+#import "UIColor+Extension.h"
+#import <Masonry.h>
+#import "UILabel+configure.h"
+#import "SCCommon.h"
+#import "getUUID.h"
+#import "DefaultValue.h"
+#import "NSDate+Common.h"
+#import "RootTabBarController.h"
+#import <IQKeyboardManager.h>
+#import "SCLoginViewController.h"
+#import "CommonLoginViewController.h"
+#import "NodataLableView.h"
+#import "UIButton+Common.h"
+#import <Realm.h>
+#import "XNArchiverManager.h"
+#import <UIImageView+WebCache.h>
+#import "SCCouponTools.h"
+#import "NSString+Common.h"
+#import "UITableView+PlaceHolder.h"
+#import "MJGearHeader.h"
+#import "TTAttibuteLabel.h"
+#import "UIViewExt.h"
+#import "UIView+Extension.h"
+#import "NSDecimalNumber+Addtion.h"
+#import "CacheData.h"
+#import "UITableView+XY.h"
+#import <Realm.h>
+#import "UserModel.h"
+#import "UIView+GetVC.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Appmall_pch */
+

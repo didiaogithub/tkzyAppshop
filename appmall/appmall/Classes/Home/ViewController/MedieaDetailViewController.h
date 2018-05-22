@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface MedieaDetailViewController : BaseViewController
-
+@property(nonatomic,strong)NSString *strUrl;
 @end

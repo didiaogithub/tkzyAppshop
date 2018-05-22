@@ -7,6 +7,14 @@
 //
 
 #import "MedieaListViewCell.h"
+@interface MedieaListViewCell()
+{
+    __weak IBOutlet UILabel *labMediaTitle;
+    __weak IBOutlet UILabel *labMediaTime;
+    
+    __weak IBOutlet UIImageView *imgMedia;
+}
+@end
 
 @implementation MedieaListViewCell
 
@@ -20,5 +28,12 @@
 
     // Configure the view for the selected state
 }
+
+-(void)reloadDataModel:(MediaListModel *)model{
+    labMediaTime.text = model.time;
+    labMediaTitle.text = model.title;
+    [imgMedia sd_setImageWithURL:[NSURL URLWithString:model.imgpath]];
+}
+
 
 @end

@@ -31,6 +31,8 @@
 
 @property (nonatomic, assign) NSTimeInterval startInterval;
 @property (nonatomic, assign) NSTimeInterval endInterval;
+/**  pageNo*/
+@property (nonatomic, assign) NSInteger pageNo;
 
 @end
 
@@ -49,9 +51,8 @@
     [super viewDidLoad];
 
     [self initComponents];
-    
+    _pageNo = 1;
     [self requestCollectionData];
-    
     _deleteSecion = 0;
     self.navigationItem.title = @"我的收藏";
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -68,7 +69,13 @@
 -(void)requestCollectionData {
     
     _noDataView.hidden = YES;
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID, @"startindex":@"1", @"endindex":@"20"};
+    NSString *token = [UserModel getCurUserToken];
+   NSDictionary *pramaDic = @{@"appid":Appid,
+                @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                @"token":token,
+                              @"pageNo":@(_pageNo),
+                              @"pageSize":@(KpageSize),
+                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetCollecListUrl];
     
     [HttpTool getWithUrl:loveItemUrl params:pramaDic success:^(id json) {
@@ -77,7 +84,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         
@@ -166,7 +173,7 @@
         make.height.mas_equalTo(49);
     }];
 
-//    [self refreshData];
+    [self refreshData];
 }
 
 -(void)layoutViewsIsDeleteState:(BOOL)isDelete {
@@ -273,6 +280,7 @@
         NSLog(@"跳转到商品详情");
         SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
         SCMyCollectionModel *collectM = self.dataArray[indexPath.section];
+        
         detailVC.goodsId = [NSString stringWithFormat:@"%@", collectM.itemid];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
@@ -305,8 +313,21 @@
     collectM = self.dataArray[_deleteSecion];
     //itemids：一组商品id，逗号分隔
     NSString *itemid = [NSString stringWithFormat:@"%@", collectM.itemid];
+     NSString *token = [UserModel getCurUserToken];
     
-    NSDictionary *pramaDic= @{@"openid": USER_OPENID, @"itemids": itemid};
+   NSDictionary *pramaDic =
+  @{
+      @"appid":Appid,
+      @"tn":[NSString stringWithFormat:@"%.0f",TN],
+      @"token":token,
+      @"itemid": itemid,
+      @"sign":[RequestManager getSignNSDictionary:
+      @{@"appid":Appid,
+        @"tn":[NSString stringWithFormat:@"%.0f",TN],
+        @"token":token,
+        @"itemid": itemid,
+        } andNeedUrlEncode:YES andKeyToLower:YES]};
+    
     NSString *deloveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelCollectionUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -316,7 +337,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         
@@ -350,8 +371,19 @@
 }
 
 -(void)deleteMyCollectionWithId:(NSString*)itemids indexArr:(NSArray*)indexArr {
-    
-    NSDictionary *pramaDic= @{@"openid": USER_OPENID, @"itemids": itemids};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic =
+    @{
+      @"appid":Appid,
+      @"tn":[NSString stringWithFormat:@"%.0f",TN],
+      @"token":token,
+      @"itemid": itemids,
+      @"sign":[RequestManager getSignNSDictionary:
+               @{@"appid":Appid,
+                 @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                 @"token":token,
+                 @"itemid": itemids,
+                 } andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *deloveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelCollectionUrl];
         [self.view addSubview:self.loadingView];
         [self.loadingView startAnimation];
@@ -361,7 +393,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         
@@ -429,6 +461,7 @@
             case RequestReachabilityStatusReachableViaWWAN: {
                 if (value >= Interval) {
                     [strongSelf.dataArray removeAllObjects];
+                    _pageNo = 1;
                     [strongSelf requestCollectionData];
                 }else{
                     [strongSelf.tableView.mj_header endRefreshing];
@@ -444,6 +477,7 @@
     }];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        _pageNo ++;
         [weakSelf requestMoreCollectionGoods];
     }];
 }
@@ -451,11 +485,13 @@
 -(void)requestMoreCollectionGoods {
     
     _noDataView.hidden = YES;
-    
-    NSString *startindex = [NSString stringWithFormat:@"%ld", self.dataArray.count+1];
-    NSString *endindex = [NSString stringWithFormat:@"%ld", [startindex integerValue]+20];
-    
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID, @"startindex":startindex, @"endindex":endindex};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic = @{@"appid":Appid,
+                               @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                               @"token":token,
+                               @"pageNo":@(_pageNo),
+                               @"pageSize":@(KpageSize),
+                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetCollecListUrl];
     
     [HttpTool getWithUrl:loveItemUrl params:pramaDic success:^(id json) {
@@ -464,7 +500,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         

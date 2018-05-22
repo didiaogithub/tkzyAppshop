@@ -7,6 +7,7 @@
 //
 
 #import "CommonLoginViewController.h"
+#import "RegistViewController.h"
 
 
 @interface CommonLoginViewController ()
@@ -144,7 +145,9 @@
 
 /**点击注册按钮*/
 -(void)clickRegistButton{
-    
+    [self resignTextFieldFirstresponder];
+    RegistViewController *regist = [[RegistViewController alloc] init];
+    [self.navigationController pushViewController:regist animated:YES];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self resignTextFieldFirstresponder];

@@ -9,7 +9,7 @@
 #import "SCMineViewController.h"
 #import "SCOrderListViewController.h"
 #import "YSCollectionViewController.h"
-#import "YSMemberPointViewController.h"
+#import "CKCouponDetailViewController.h"
 #import "ChangeMyAddressViewController.h"
 #import "WebDetailViewController.h"
 #import "CleanCache.h"
@@ -23,7 +23,7 @@
 #import "ArrearsManagerViewController.h"
 
 
-@interface SCMineViewController ()<UITableViewDelegate, UITableViewDataSource, SCUserInfoSignUpDelegate, SCMineOrderCellDelegate>
+@interface SCMineViewController ()<UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, SCUserInfoSignUpDelegate, SCMineOrderCellDelegate>
 
 @property (nonatomic, strong) UITableView *mineTableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -35,7 +35,10 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+    // 设置导航控制器的代理为self
+    self.navigationController.delegate = self;
+    
     
     [self getMeInfo];
     
@@ -43,51 +46,62 @@
     [[SCCouponTools shareInstance] resquestMyCouponsData];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    //    如果不想让其他页面的导航栏变为透明 需要重置
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+} 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"个人中心";
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+//    self.view.backgroundColor = [UIColor redColor];
     [self createUIView];
     
-    [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
-    [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
+//    [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
+//    [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
 }
 
 - (void)createUIView {
-    _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT-64-49-NaviAddHeight-BOTTOM_BAR_HEIGHT) style:UITableViewStyleGrouped];
-    _mineTableView.rowHeight = UITableViewAutomaticDimension;
-    _mineTableView.estimatedRowHeight = 0;
-    _mineTableView.estimatedSectionFooterHeight = 0;
-    _mineTableView.estimatedSectionHeaderHeight = 0;
+    _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT-49-NaviAddHeight-BOTTOM_BAR_HEIGHT) style:UITableViewStylePlain];
+//    _mineTableView.rowHeight = UITableViewAutomaticDimension;
+//    _mineTableView.estimatedRowHeight = 0;
+//    _mineTableView.estimatedSectionFooterHeight = 0;
+//    _mineTableView.estimatedSectionHeaderHeight = 0;
     _mineTableView.delegate  = self;
     _mineTableView.dataSource = self;
     _mineTableView.separatorColor = [UIColor tt_grayBgColor];
     _mineTableView.backgroundColor = [UIColor tt_grayBgColor];
     [self.view addSubview:_mineTableView];
-    
+
     [self bindMineData];
     
 }
 
 -(void)getMeInfo {
     
-    NSDictionary *params = @{@"openid":USER_OPENID};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,
+                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                              @"token":token,
+                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *signUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetMeInfoUrl];
     
-    [HttpTool getWithUrl:signUrl params:params success:^(id json) {
+    [HttpTool getWithUrl:signUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] intValue] != 200) {
-            [self.loadingView showNoticeView:dict[@"msg"]];
+            [self.loadingView showNoticeView:dict[@"message"]];
             return ;
         }
         
+        NSDictionary *dictD = json[@"data"];
         self.userInfoM = [[SCUserInfoModel alloc] init];
-        [self.userInfoM setValuesForKeysWithDictionary:dict];
+        [self.userInfoM setValuesForKeysWithDictionary:dictD];
         
-        NSString *smallname = [NSString stringWithFormat:@"%@", dict[@"smallname"]];
-        NSString *mobile = [NSString stringWithFormat:@"%@", dict[@"mobile"]];
+        NSString *smallname = [NSString stringWithFormat:@"%@", dict[@"nickname"]];
+        NSString *mobile = [NSString stringWithFormat:@"%@", dict[@"phone"]];
         NSString *headPath = [NSString stringWithFormat:@"%@", dict[@"head"]];
         if (!IsNilOrNull(smallname)) {
             [KUserdefaults setObject:smallname forKey:@"YDSC_USER_SMALLNAME"];
@@ -225,7 +239,7 @@
     
     NSMutableArray *vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
-                                         @"YSMemberPointViewController",
+                                         @"CKCouponDetailViewController",
                                          @"ArrearsManagerViewController",
                                          @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
@@ -263,7 +277,7 @@
     [HttpTool getWithUrl:signUrl params:params success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] intValue] != 200) {
-            [self.loadingView showNoticeView:dict[@"msg"]];
+            [self.loadingView showNoticeView:dict[@"message"]];
             return ;
         }
         
@@ -271,7 +285,7 @@
         if ([integralnum isEqualToString:@"0"] || IsNilOrNull(integralnum)) {
             [self.loadingView showNoticeView:@"已签到"];
         }else{
-            NSString *msg = [NSString stringWithFormat:@"%@ 获得积分%@", dict[@"msg"], dict[@"integralnum"]];
+            NSString *msg = [NSString stringWithFormat:@"%@ 获得积分%@", dict[@"message"], dict[@"integralnum"]];
             
             [self.loadingView showNoticeView:msg];
             
@@ -286,6 +300,9 @@
     }];
 }
 
+- (void)kefuxiaojiejie{
+    [[SobotManager shareInstance] startSobotCustomerService];
+}
 -(void)enterToDetailUserInfo {
     SCMineInfoViewController *info = [[SCMineInfoViewController alloc] init];
     info.userInfoM = self.userInfoM;
@@ -319,6 +336,15 @@
 
 -(void)changeTableViewFrame {
     self.mineTableView.frame = CGRectMake(0, 64+44+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT-64-44-49-NaviAddHeight-BOTTOM_BAR_HEIGHT);
+}
+
+#pragma mark - UINavigationControllerDelegate
+// 将要显示控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 判断要显示的控制器是否是自己
+    BOOL isShowHomePage = [viewController isKindOfClass:[self class]];
+    
+    [self.navigationController setNavigationBarHidden:isShowHomePage animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

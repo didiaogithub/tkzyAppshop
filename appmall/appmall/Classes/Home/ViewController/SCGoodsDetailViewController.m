@@ -105,11 +105,8 @@
 #pragma mark - 请求详情页数据
 -(void)requestGoodsDetailData {
     
-    if (IsNilOrNull(self.goodsId)) {
-        self.goodsId = @"";
-    }
-    
-    NSDictionary *pramaDic= @{@"itemid": self.goodsId, @"openid": USER_OPENID};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
     //请求数据
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GoodsDetailUrl];
     
@@ -121,11 +118,11 @@
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
             [self.loadingView stopAnimation];
-            if ([dic[@"msg"] containsString:@"该商品不存在"]) {
-                [self showNoticeView:dic[@"msg"]];
+            if ([dic[@"message"] containsString:@"该商品不存在"]) {
+                [self showNoticeView:dic[@"message"]];
                 [self.navigationController popViewControllerAnimated:YES];
             }
-            [self showNoticeView:dic[@"msg"]];
+            [self showNoticeView:dic[@"message"]];
             return ;
         }
         
@@ -136,7 +133,7 @@
             [self.view addSubview:_detailBottomView];
         }
         
-        [self bindData:dic];
+        [self bindData:dic[@"data"]];
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -148,7 +145,7 @@
     _dataArray = [NSMutableArray array];
     
     SCGDCommentModel *commentM = [[SCGDCommentModel alloc] init];
-    NSDictionary *commentDic = dic[@"ordercomment"];
+    NSDictionary *commentDic = dic[@"commentList"];
     if (commentDic != nil) {
         [commentM setValuesForKeysWithDictionary:commentDic];
     }
@@ -216,10 +213,10 @@
     NSString *htmlnameios = [NSString stringWithFormat:@"%@", self.goodsDM.htmlnameios];
     NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
     if (IsNilOrNull(htmlnameios)) {
-        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/detail-ios.html?itemid=%@&ckys_openid=%@&uk=%@", WebServiceAPI, self.goodsId, USER_OPENID, uk];
+        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/detail-ios.html?itemid=%@&ckys_openid=%@&uk=%@", WebServiceAPI, self.goodsM.itemid, USER_OPENID, uk];
 //        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/detail-ios.html?itemid=%@&ckys_openid=%@", WebServiceAPI, self.goodsId, USER_OPENID];
     }else{
-        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/%@?itemid=%@&ckys_openid=%@&uk=%@", WebServiceAPI, htmlnameios, self.goodsId, USER_OPENID, uk];
+        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/%@?itemid=%@&ckys_openid=%@&uk=%@", WebServiceAPI, htmlnameios, self.goodsM.itemid, USER_OPENID, uk];
 //        htmlnameios = [NSString stringWithFormat:@"%@front/appmall/html/%@?itemid=%@&ckys_openid=%@", WebServiceAPI, htmlnameios, self.goodsId, USER_OPENID];
     }
     
@@ -270,7 +267,7 @@
 //    if (IsNilOrNull(ckid)) {
 //        ckid = @"0";
 //    }
-    NSString *shareUrl = [NSString stringWithFormat:@"%@?type=detail&openid=%@&itemid=%@", shareApi, USER_OPENID, self.goodsId];
+    NSString *shareUrl = [NSString stringWithFormat:@"%@?type=detail&openid=%@&itemid=%@", shareApi, USER_OPENID, self.goodsM.itemid];
     [CKShareManager shareToFriendWithName:@"点击查看详情" andHeadImages:self.goodsDM.path andUrl:[NSURL URLWithString:shareUrl] andTitle:title];
 }
 
@@ -377,7 +374,7 @@
             [self showNoticeView:@"该商品暂无评价"];
         }else{
             SCGDCommentViewController *comment = [[SCGDCommentViewController alloc] init];
-            comment.goodsId = self.goodsId;
+            comment.goodsId = self.goodsM.itemid;
             comment.limit = self.limit;
             comment.libcnt = self.libcnt;
             comment.goodsDM = self.goodsDM;
@@ -509,7 +506,9 @@
 
 -(void)addToShoppingCar {
     NSLog(@"加入购物车");
-    NSDictionary *pramaDic = @{@"itemids": self.goodsId, @"openid": USER_OPENID};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":_goodsM.itemid,@"num":@"1",@"price":_goodsM.price}]];
+    [pramaDic setObject:@"items" forKey:itemsStr];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -518,7 +517,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
@@ -554,7 +553,7 @@
             NSDictionary *dic = json;
             NSString * status = [dic valueForKey:@"code"];
             if ([status intValue] != 200) {
-                [self showNoticeView:[dic valueForKey:@"msg"]];
+                [self showNoticeView:[dic valueForKey:@"message"]];
                 return ;
             }
             [button setImage:[UIImage imageNamed:@"collectedred"] forState:UIControlStateNormal];
@@ -578,7 +577,7 @@
             NSDictionary *dic = json;
             NSString * status = [dic valueForKey:@"code"];
             if ([status intValue] != 200) {
-                [self showNoticeView:[dic valueForKey:@"msg"]];
+                [self showNoticeView:[dic valueForKey:@"message"]];
                 return ;
             }
             [button setImage:[UIImage imageNamed:@"collectedgray"] forState:UIControlStateNormal];

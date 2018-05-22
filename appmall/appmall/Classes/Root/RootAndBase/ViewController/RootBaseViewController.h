@@ -10,8 +10,9 @@
 #import "LoadingAndMsgTipView.h"
 
 @interface RootBaseViewController : UIViewController
-
+@property(atomic,strong)RLMRealm *realm;
+@property (nonatomic, strong) RLMNotificationToken *token;
 @property (nonatomic, strong) LoadingAndMsgTipView *loadingView;
 @property (nonatomic, strong) UIView *netTip;
-
+- (NSDictionary *)readLocalFileWithName:(NSString *)name ;
 @end

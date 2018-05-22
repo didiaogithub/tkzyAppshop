@@ -163,7 +163,7 @@
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
             [self.loadingView stopAnimation];
-            [self.loadingView showNoticeView:itemDic[@"msg"]];
+            [self.loadingView showNoticeView:itemDic[@"message"]];
             return;
         }
         
@@ -520,7 +520,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
-            [self.loadingView showNoticeView:dic[@"msg"]];
+            [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
         SCSCConfirmOrderViewController *sureMySelf = [[SCSCConfirmOrderViewController alloc]init];
@@ -598,7 +598,7 @@
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
             [self.loadingView stopAnimation];
-            [self.loadingView showNoticeView:dic[@"msg"]];
+            [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
         for (NSString *index in indexArr) {
@@ -646,7 +646,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self.loadingView showNoticeView:[dic valueForKey:@"msg"]];
+            [self.loadingView showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         

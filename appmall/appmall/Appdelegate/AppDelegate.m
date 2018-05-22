@@ -116,11 +116,6 @@
             
             _isFirst = YES;
             //如果请求审核接口成功并且返回code200，那么之后不再请求，除非卸载应用
-            NSString *iOSCheckCode = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"IOS_CheckCode"]];
-            if (IsNilOrNull(iOSCheckCode)) {
-                //非200下次启动继续请求
-                [self appLaunchType];
-            }else if ([iOSCheckCode isEqualToString:@"200"]){
                 BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
                 if (appear == YES) {
                     BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
@@ -129,7 +124,6 @@
                 }else{
                     [self normalLaunchApp];
                 }
-            }
         }
             break;
         default: {
@@ -148,63 +142,63 @@
     }
 }
 
--(void)appLaunchType {
-    
-    NSString *appCheckUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, IsIosCheck_Url];
-    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSDictionary *params = @{@"ver": currentVersion};
-    
-    [HttpTool getWithUrl:appCheckUrl params:params success:^(id json) {
-        NSDictionary *dict = json;
-        if ([dict[@"code"] integerValue] == 200) {//审核通过：200
-            [KUserdefaults setObject:@"200" forKey:@"IOS_CheckCode"];
-            BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
-            if (appear == YES) {
-                BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
-                self.window.rootViewController = guideVc;
-                [self.window makeKeyAndVisible];
-            }else{
-                [self normalLaunchApp];
-            }
-        }else{//审核中：非200
-            BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
-            if (appear == YES) {
-                BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
-                self.window.rootViewController = guideVc;
-                [self.window makeKeyAndVisible];
-            }else{
-                [self showCheckLoginView];
-            }
-        }
-    } failure:^(NSError *error) {
-        
-        if (_isFirst == YES) {
-            _isFirst = NO;
-            [self appLaunchType];
-        }else{
-            
-            NSString *loginWithCheckPhone = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"loginWithCheckPhone"]];
-            if (IsNilOrNull(loginWithCheckPhone)) {
-                
-                if ([USER_OPENID isEqualToString:OpenidForLogin] || [USER_OPENID isEqualToString:OpenidForRegist]) {
-                    [self showCheckLoginView];
-                }else{
-                    [KUserdefaults setObject:@"200" forKey:@"IOS_CheckCode"];
-                    BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
-                    if (appear == YES) {
-                        BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
-                        self.window.rootViewController = guideVc;
-                        [self.window makeKeyAndVisible];
-                    }else{
-                        [self normalLaunchApp];
-                    }
-                }
-            }else{
-                [self enterFirstPage];
-            }
-        }
-    }];
-}
+//-(void)appLaunchType {
+//
+//    NSString *appCheckUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, IsIosCheck_Url];
+//    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    NSDictionary *params = @{@"ver": currentVersion};
+//
+//    [HttpTool getWithUrl:appCheckUrl params:params success:^(id json) {
+//        NSDictionary *dict = json;
+//        if ([dict[@"code"] integerValue] == 200) {//审核通过：200
+//            [KUserdefaults setObject:@"200" forKey:@"IOS_CheckCode"];
+//            BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
+//            if (appear == YES) {
+//                BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
+//                self.window.rootViewController = guideVc;
+//                [self.window makeKeyAndVisible];
+//            }else{
+//                [self normalLaunchApp];
+//            }
+//        }else{//审核中：非200
+//            BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
+//            if (appear == YES) {
+//                BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
+//                self.window.rootViewController = guideVc;
+//                [self.window makeKeyAndVisible];
+//            }else{
+//                [self goWelcom];
+//            }
+//        }
+//    } failure:^(NSError *error) {
+//
+//        if (_isFirst == YES) {
+//            _isFirst = NO;
+//            [self appLaunchType];
+//        }else{
+//
+//            NSString *loginWithCheckPhone = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"loginWithCheckPhone"]];
+//            if (IsNilOrNull(loginWithCheckPhone)) {
+//
+//                if ([USER_OPENID isEqualToString:OpenidForLogin] || [USER_OPENID isEqualToString:OpenidForRegist]) {
+//                    [self goWelcom];
+//                }else{
+//                    [KUserdefaults setObject:@"200" forKey:@"IOS_CheckCode"];
+//                    BOOL appear = [BKGuidePageAppearToll AppearGuidePage];
+//                    if (appear == YES) {
+//                        BKGuidePageController *guideVc = [[BKGuidePageController alloc]init];
+//                        self.window.rootViewController = guideVc;
+//                        [self.window makeKeyAndVisible];
+//                    }else{
+//                        [self normalLaunchApp];
+//                    }
+//                }
+//            }else{
+//                [self enterFirstPage];
+//            }
+//        }
+//    }];
+//}
 
 -(void)loadAD {
     NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -216,8 +210,8 @@
         self.window.rootViewController = adVc;
         [self.window makeKeyAndVisible];
     }else{//没有则进入欢迎页面
-        NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-        if (IsNilOrNull(str)) {
+        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+        if (str == NO) {
             [self goWelcom];
         }else{
             [self enterFirstPage];
@@ -256,24 +250,24 @@
                     self.window.rootViewController = gd;
                     [self.window makeKeyAndVisible];
                 }else{
-                    NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-                    if (IsNilOrNull(str)) {
+                    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+                    if (str == NO) {
                         [self goWelcom];
                     }else{
                         [self enterFirstPage];
                     }
                 }
             }else{
-                NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-                if (IsNilOrNull(str)) {
+                BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+                if (str == NO) {
                     [self goWelcom];
                 }else{
                     [self enterFirstPage];
                 }
             }
         } failure:^(NSError *error) {
-            NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-            if (IsNilOrNull(str)) {
+            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+            if (str == NO) {
                 [self goWelcom];
             }else{
                 [self enterFirstPage];
@@ -282,8 +276,8 @@
     }else{
         NSLog(@"不是第一次启动");
         if (IsNilOrNull(USER_OPENID)) {//没有openid不请求启动页广告
-            NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-            if (IsNilOrNull(str)) {
+            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+            if (str == NO) {
                 [self goWelcom];
             }else{
                 [self enterFirstPage];
@@ -397,8 +391,8 @@
     if (!IsNilOrNull(path)) {
         [self loadAD];
     }else{
-        NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-        if (IsNilOrNull(str)) {
+        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+        if (str == NO) {
             [self goWelcom];
         }else{
             [self enterFirstPage];
@@ -435,8 +429,6 @@
 }
 
 -(void)goWelcom{
-    [self enterFirstPage];
-    return;
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
     self.window.rootViewController = welcomeNav;
@@ -486,7 +478,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
-
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

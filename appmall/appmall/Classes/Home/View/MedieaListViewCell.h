@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MediaListModel.h"
 
 @interface MedieaListViewCell : UITableViewCell
+
+-(void)reloadDataModel:(MediaListModel *)model;
 
 @end

@@ -87,21 +87,11 @@
         //存储根数据
         NSMutableDictionary *rootDic = [[NSMutableDictionary alloc ] init];
         
-        NSString *domainName = (AppEnvironment == 0)? @"http://testofflineappmall.ckc8.com/": @"http://appmall.ckc8.com/";
-//        @"http://bateappmall.ckc8.com/"
-
-        NSString *domainNamePay = (AppEnvironment == 0)? @"http://testofflineckyspb.ckc8.com/":@"http://ckyspb.ckc8.com/";
-        NSString *domainNameRes = (AppEnvironment == 0)?@"http://testofflineckysre.ckc8.com/ckc3/":@"http://ckysre.ckc8.com/ckc3/";
-        NSString *domainSmsMessage = (AppEnvironment == 0)?@"http://testofflineckysmsg.ckc8.com/":@"http://ckysmsg.ckc8.com/";
-        NSString *domainNameUnionPay = (AppEnvironment == 0)?@"http://testofflineckyspb.ckc8.com/":@"http://ckyspb.ckc8.com/";
+        NSString *domainName = (AppEnvironment == 0)? @"http://tkappmall.klboo.com/": @"http://tkappmall.klboo.com/";
+        NSString *domainNameRes =  (AppEnvironment == 0)? @"http://tkre.klboo.com/":@"http://tkre.klboo.com/";
         
         [rootDic setObject:domainName forKey:@"domainName"];
-        [rootDic setObject:domainNamePay forKey:@"domainNamePay"];
-
         [rootDic setObject:domainNameRes forKey:@"domainNameRes"];
-        [rootDic setObject:domainSmsMessage forKey:@"domainSmsMessage"];
-        [rootDic setObject:domainNameUnionPay forKey:@"domainNameUnionPay"];
-        
         NSMutableDictionary *payMethod = [[NSMutableDictionary alloc]init];
         [payMethod setObject:@"YES" forKey:@"alipay"];
         [payMethod setObject:@"NO" forKey:@"wxpay"];
@@ -191,18 +181,7 @@
 
 
 -(void)cleanLoginStatusCacheData {
-    [KUserdefaults setObject:@"NO" forKey:@"SC_ConnectRCloudStatus"];
-    [KUserdefaults removeObjectForKey:Kmobile];
-    [KUserdefaults removeObjectForKey:KopenID];
-    [KUserdefaults removeObjectForKey:Kunionid];
-    [KUserdefaults removeObjectForKey:kheamImageurl];
-    [KUserdefaults removeObjectForKey:@"YDSC_USER_MOBILE"];
-    [KUserdefaults removeObjectForKey:@"SC_RCToken"];
-    [KUserdefaults removeObjectForKey:KloginStatus];
-    [KUserdefaults removeObjectForKey:@"USER_OPENID"];
-    [KUserdefaults removeObjectForKey:KnickName];
-    [KUserdefaults removeObjectForKey:@"YDSC_USER_HEAD"];
-
+    [UserModel deleteCurUserModel];
     //退出登录移除默认地址缓存
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];

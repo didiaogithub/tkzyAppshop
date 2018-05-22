@@ -91,14 +91,14 @@ static NSString *ID = @"cell";
         if ([iosCheckCode isEqualToString:@"200"]) {
             [self normalLaunchApp];
         }else{
-            [self showCheckLoginView];
+            [self goWelcom];
         }
     }
 }
 
 -(void)normalLaunchApp {
-    NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-    if (IsNilOrNull(str)) {
+    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+    if (str == YES) {
         [self goWelcom];
     }else{
         [self enterFirstPage];
@@ -117,8 +117,6 @@ static NSString *ID = @"cell";
 }
 
 -(void)goWelcom{
-    [self enterFirstPage];
-    return;
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
     [UIApplication sharedApplication].keyWindow.rootViewController = welcomeNav;

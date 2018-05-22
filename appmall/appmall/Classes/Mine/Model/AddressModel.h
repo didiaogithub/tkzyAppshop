@@ -24,4 +24,5 @@
 /**省市区地址*/
 @property(nonatomic,copy)NSString *area;
 
+
 @end

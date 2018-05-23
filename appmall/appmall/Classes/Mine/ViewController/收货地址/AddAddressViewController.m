@@ -122,7 +122,7 @@
 -(void)refreshWithModel:(AddressModel *)addressModel{
     NSString *name = [NSString stringWithFormat:@"%@",addressModel.name];
     NSString *mobile = [NSString stringWithFormat:@"%@",addressModel.mobile];
-    NSString *threeAddress = [NSString stringWithFormat:@"%@",addressModel.area];
+    NSString *threeAddress = [NSString stringWithFormat:@"%@ %@ %@",addressModel.provincename,addressModel.cityname,addressModel.areaname];
     NSString *detailAddress = [NSString stringWithFormat:@" %@",addressModel.address];
     if (IsNilOrNull(name)) {
         name = @"";
@@ -160,9 +160,10 @@
     }else{
         _telePhoneFiedld.text = @"";
     }
-    if (!IsNilOrNull(self.addressModel.area)) {
+    NSString *threeAddress = [NSString stringWithFormat:@"%@ %@ %@",_addressModel.provincename,_addressModel.cityname,_addressModel.areaname];
+    if (!IsNilOrNull(threeAddress)) {
         _cityLabel.textColor = TitleColor;
-        _cityLabel.text = self.addressModel.area;
+        _cityLabel.text = threeAddress;
     }else{
         _cityLabel.textColor = CKYS_Color(189, 187, 195);
         _cityLabel.text = @"请选择";
@@ -177,7 +178,7 @@
         _defaultBtn.selected = NO;
     }else{
         NSString *isdefault = [NSString stringWithFormat:@"%@",_addressModel.isdefault];
-        if ([isdefault isEqualToString:@"0"] || [isdefault isEqualToString:@"false"]) {
+        if ([isdefault isEqualToString:@"0"]) {
             _defaultBtn.selected = NO;
         }else{
             _defaultBtn.selected = YES;
@@ -336,9 +337,9 @@
     
   NSString *areaCodeS =  [KUserdefaults objectForKey:@"areaCodeS"];
     aeraCodeArray = [areaCodeS componentsSeparatedByString:@","];
-    NSString *isdefault = @"false";
+    NSString *isdefault = @"0";
     if (_defaultBtn.selected == YES) {
-        isdefault = @"true";
+        isdefault = @"1";
     }
     [self resignTextfieldFirstRespoder];
     
@@ -379,8 +380,8 @@
     
     NSString *requestUrl = nil;
     NSDictionary *pramaDic = nil;
-    if (IsNilOrNull(self.addressModel.ID)) {
-        self.addressModel.ID = @"";
+    if (IsNilOrNull(self.addressModel.addressid)) {
+        self.addressModel.addressid = @"";
     }
     NSString *token = [UserModel getCurUserToken];
     
@@ -393,14 +394,14 @@
                     @"name":_nameTextFiedld.text,
                     @"mobile":_telePhoneFiedld.text,
                     @"address":_detailedAddressFiedld.text,
-                    @"provincecode":aeraCodeArray[0],
-                    @"citycode":aeraCodeArray[1],
-                    @"areacode":aeraCodeArray[2],
+                    @"provincecode":self.addressModel.provincecode,
+                    @"citycode":self.addressModel.citycode,
+                    @"areacode":self.addressModel.areacode,
                     @"isdefault":isdefault,
-                    @"addressId":self.addressModel.ID,
-                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"address":_detailedAddressFiedld.text,@"isdefault":isdefault, @"addressId":self.addressModel.ID,@"provincecode":aeraCodeArray[0],
-                                                                  @"citycode":aeraCodeArray[1],
-                                                                  @"areacode":aeraCodeArray[2]} andNeedUrlEncode:YES andKeyToLower:YES]};
+                    @"addressId":self.addressModel.addressid,
+                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"address":_detailedAddressFiedld.text,@"isdefault":isdefault, @"addressId":self.addressModel.addressid,@"provincecode":self.addressModel.provincecode,
+                                                                  @"citycode":self.addressModel.citycode,
+                                                                  @"areacode":self.addressModel.areacode} andNeedUrlEncode:YES andKeyToLower:YES]};
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddAddrUrl];
         pramaDic= @{@"appid":Appid,

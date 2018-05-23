@@ -270,7 +270,7 @@
 /**点击立即购买 跳转按钮*/
 -(void)moneyCountViewButtonClicked{
     
-    if (IsNilOrNull(self.addressModel.ID)) {
+    if (IsNilOrNull(self.addressModel.addressid)) {
         [self showNoticeView:@"请添加收货地址"];
         self.moneyCountView.nowToBuyButton.enabled = YES;
         return;
@@ -297,7 +297,7 @@
 - (void)realNameIdentify {
     
     NSString *gettername = [NSString stringWithFormat:@"%@", self.addressModel.name];
-    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.ID];
+    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     NSDictionary *params = @{@"addressid":addressID};
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,GetRealName];
     
@@ -413,7 +413,7 @@
 - (void)prepareSubmitOrder{
     NSString *addressId = nil;
     
-    NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.ID];
+    NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     
     addressId = defaultAddressId;
     

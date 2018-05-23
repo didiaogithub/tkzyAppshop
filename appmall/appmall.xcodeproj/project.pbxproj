@@ -290,6 +290,10 @@
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
 		F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */; };
+		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
+		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
+		F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */; };
+		F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
 		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
@@ -871,6 +875,12 @@
 		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
 		F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
+		F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerCell.h; sourceTree = "<group>"; };
+		F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerCell.m; sourceTree = "<group>"; };
+		F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerCell.xib; sourceTree = "<group>"; };
+		F2113A8C20B58CCE00C01DA4 /* InvoicesManagerDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerDetailVC.h; sourceTree = "<group>"; };
+		F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerDetailVC.m; sourceTree = "<group>"; };
+		F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerDetailVC.xib; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
@@ -2095,6 +2105,9 @@
 				F2F18BAB2090D714002984A9 /* InvoicesManagerHeadView.h */,
 				F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */,
 				F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */,
+				F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */,
+				F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */,
+				F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2104,6 +2117,9 @@
 			children = (
 				F2F18BAF2090D714002984A9 /* InvoicesManagerViewController.h */,
 				F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */,
+				F2113A8C20B58CCE00C01DA4 /* InvoicesManagerDetailVC.h */,
+				F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */,
+				F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2308,9 +2324,11 @@
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
+				F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */,
 				2D0726BC2083928A0030996F /* MedieaListViewCell.xib in Resources */,
 				2D6F9262208F4A78007DFD0B /* TeacherItemViewCell.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
+				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
 				2D0726CB20839F6C0030996F /* MessageListViewCell.xib in Resources */,
 				2D0726B72083926B0030996F /* HonourDetailViewController.xib in Resources */,
@@ -2539,6 +2557,7 @@
 				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
+				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
 				2D20DE642086187200095032 /* UITableView+EmptyData.m in Sources */,
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
@@ -2690,6 +2709,7 @@
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
 				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
+				F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */,
 				2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */,
 				2D6F923E208DFC7F007DFD0B /* TabTopAdsViewCell.m in Sources */,
 				2D20DFE420898B0E00095032 /* YSCollectionEditCell.m in Sources */,

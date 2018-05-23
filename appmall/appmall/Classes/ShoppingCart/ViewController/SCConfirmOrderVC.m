@@ -327,7 +327,7 @@
 - (void)prepareSubmitOrder{
     NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
     NSString *addressId = nil;
-    NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.ID];
+    NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     addressId = defaultAddressId;
     if (!IsNilOrNull(self.activeId)) {
         NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -368,7 +368,7 @@
 - (void)realNameIdentify {
     
     NSString *gettername = [NSString stringWithFormat:@"%@", self.addressModel.name];
-    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.ID];
+    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     NSDictionary *params = @{@"addressid":addressID};
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetRealName];
     

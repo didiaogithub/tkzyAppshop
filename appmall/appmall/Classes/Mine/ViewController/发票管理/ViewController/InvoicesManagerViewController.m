@@ -8,9 +8,11 @@
 
 #import "InvoicesManagerViewController.h"
 #import "InvoicesManagerHeadView.h"
+#import "InvoicesManagerCell.h"
+#import "InvoicesManagerDetailVC.h"
 #define leftTag 2000
 #define rightTag 2001
-@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManagerCellDelegate>
 
 /**  headView*/
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
@@ -32,12 +34,15 @@
     [self.view addSubview:self.headView];
     
      [self setSegamentView];
+     [self.mTableView registerNib:[UINib nibWithNibName:@"InvoicesManagerCell" bundle:nil] forCellReuseIdentifier:@"InvoicesManagerCell"];
     
     [self initComponments];
     
 }
 
 - (void)initComponments{
+    
+    self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45)) style:UITableViewStylePlain];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -117,19 +122,27 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 150;
+    return 133;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    static NSString *identifier = @"InvoicesManagerCell";//这个identifier跟xib设置的一样
+    InvoicesManagerCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (cell == nil) {
+        cell= [[[NSBundle  mainBundle]
+                loadNibNamed:@"InvoicesManagerCell" owner:self options:nil]  lastObject];
+        cell.delegete = self;
     }
-    cell.textLabel.text = @"eadasda";
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+- (void)showDetail{
+    InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 @end

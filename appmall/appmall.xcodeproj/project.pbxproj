@@ -251,6 +251,7 @@
 		2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFFB20898CC900095032 /* WYGenderPickerView.m */; };
 		2D20DFFF20898CD900095032 /* WYBirthdayPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFFD20898CD900095032 /* WYBirthdayPickerView.m */; };
 		2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20E00120898CF900095032 /* YSMemberPointCell.m */; };
+		2D2280FE20B53C2700F4C8B9 /* TKSchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2280FC20B53C2700F4C8B9 /* TKSchoolModel.m */; };
 		2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D3B0151209363FA007CF4E6 /* HomeJson.json */; };
 		2D3B015520936423007CF4E6 /* TKHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B015420936423007CF4E6 /* TKHomeDataModel.m */; };
 		2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4D60E420B2EDF200280033 /* SCCategoryTableCell.xib */; };
@@ -259,7 +260,6 @@
 		2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4D60EC20B3E6BF00280033 /* ClassItemViewCell.xib */; };
 		2D4D60F120B3F1F500280033 /* ClassListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60F020B3F1F500280033 /* ClassListModel.m */; };
 		2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60F620B3F7B700280033 /* TeacherListItemModel.m */; };
-		2D4D60FA20B441C600280033 /* TKSchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60F820B441C600280033 /* TKSchoolModel.m */; };
 		2D4D60FD20B449D700280033 /* UIView+GetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60FC20B449D700280033 /* UIView+GetVC.m */; };
 		2D6F923E208DFC7F007DFD0B /* TabTopAdsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F923D208DFC7F007DFD0B /* TabTopAdsViewCell.m */; };
 		2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6F9244208E0285007DFD0B /* CollegeCollectionViewCell.xib */; };
@@ -290,7 +290,6 @@
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
 		F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */; };
-
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
 		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
@@ -301,8 +300,6 @@
 		F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F4020AE9F260005F624 /* CKCouponModel.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
 		F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */; };
-		F27D8B8120A9AA7500E64AD8 /* TKSchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F27D8B8020A9AA7500E64AD8 /* TKSchoolModel.m */; };
-
 		F2F18BB22090D715002984A9 /* InvoicesManagerHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */; };
 		F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */; };
 		F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */; };
@@ -802,6 +799,8 @@
 		2D20DFFE20898CD900095032 /* WYBirthdayPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYBirthdayPickerView.h; sourceTree = "<group>"; };
 		2D20E00020898CF900095032 /* YSMemberPointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMemberPointCell.h; sourceTree = "<group>"; };
 		2D20E00120898CF900095032 /* YSMemberPointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointCell.m; sourceTree = "<group>"; };
+		2D2280FC20B53C2700F4C8B9 /* TKSchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSchoolModel.m; sourceTree = "<group>"; };
+		2D2280FD20B53C2700F4C8B9 /* TKSchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSchoolModel.h; sourceTree = "<group>"; };
 		2D3B0151209363FA007CF4E6 /* HomeJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeJson.json; sourceTree = "<group>"; };
 		2D3B015320936423007CF4E6 /* TKHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKHomeDataModel.h; sourceTree = "<group>"; };
 		2D3B015420936423007CF4E6 /* TKHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKHomeDataModel.m; sourceTree = "<group>"; };
@@ -815,8 +814,6 @@
 		2D4D60F020B3F1F500280033 /* ClassListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassListModel.m; sourceTree = "<group>"; };
 		2D4D60F520B3F7B700280033 /* TeacherListItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListItemModel.h; sourceTree = "<group>"; };
 		2D4D60F620B3F7B700280033 /* TeacherListItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListItemModel.m; sourceTree = "<group>"; };
-		2D4D60F820B441C600280033 /* TKSchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSchoolModel.m; sourceTree = "<group>"; };
-		2D4D60F920B441C600280033 /* TKSchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSchoolModel.h; sourceTree = "<group>"; };
 		2D4D60FB20B449D700280033 /* UIView+GetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GetVC.h"; sourceTree = "<group>"; };
 		2D4D60FC20B449D700280033 /* UIView+GetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GetVC.m"; sourceTree = "<group>"; };
 		2D6F923C208DFC7F007DFD0B /* TabTopAdsViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabTopAdsViewCell.h; sourceTree = "<group>"; };
@@ -866,7 +863,6 @@
 		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
 		F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
-
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
@@ -884,9 +880,6 @@
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
 		F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
 		F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
-		F27D8B7F20A9AA6B00E64AD8 /* TKSchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSchoolModel.h; sourceTree = "<group>"; };
-		F27D8B8020A9AA7500E64AD8 /* TKSchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSchoolModel.m; sourceTree = "<group>"; };
-
 		F2F18BAB2090D714002984A9 /* InvoicesManagerHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerHeadView.h; sourceTree = "<group>"; };
 		F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerHeadView.m; sourceTree = "<group>"; };
 		F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesManagerHeadView.xib; sourceTree = "<group>"; };
@@ -2047,8 +2040,8 @@
 		F27D8B7E20A9AA2B00E64AD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2D4D60F920B441C600280033 /* TKSchoolModel.h */,
-				2D4D60F820B441C600280033 /* TKSchoolModel.m */,
+				2D2280FD20B53C2700F4C8B9 /* TKSchoolModel.h */,
+				2D2280FC20B53C2700F4C8B9 /* TKSchoolModel.m */,
 				2D4D60EF20B3F1F500280033 /* ClassListModel.h */,
 				2D4D60F020B3F1F500280033 /* ClassListModel.m */,
 				2D4D60F520B3F7B700280033 /* TeacherListItemModel.h */,
@@ -2363,6 +2356,10 @@
 				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_success@2x.png",
 				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_success@3x.png",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SobotKit/SobotKit.bundle",
+				"${PODS_ROOT}/SobotKit/ZCEmojiExpression.bundle",
+				"${PODS_ROOT}/SobotKit/en.lproj",
+				"${PODS_ROOT}/SobotKit/zh-Hans.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2374,6 +2371,10 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_success@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_success@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SobotKit.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZCEmojiExpression.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2543,7 +2544,6 @@
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
 				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
-				2D4D60FA20B441C600280033 /* TKSchoolModel.m in Sources */,
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
 				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
@@ -2611,6 +2611,7 @@
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
 				2D20DEAF2088C88700095032 /* SCCategoryTableCell.m in Sources */,
+				2D2280FE20B53C2700F4C8B9 /* TKSchoolModel.m in Sources */,
 				2D20DE7E208629E700095032 /* TAAnimatedDotView.m in Sources */,
 				2D20DE2E208614EC00095032 /* NSObject+SXRuntime.m in Sources */,
 				2D0723B12082F9EF0030996F /* NewFeatureViewController.m in Sources */,

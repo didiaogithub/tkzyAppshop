@@ -303,6 +303,14 @@
 		F2F18BB22090D715002984A9 /* InvoicesManagerHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */; };
 		F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */; };
 		F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */; };
+		F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14CF20B556940066B153 /* AddressTableCell.m */; };
+		F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D020B556940066B153 /* AddressTableCell.xib */; };
+		F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14D220B556940066B153 /* MineInfoCell.m */; };
+		F2FA14DA20B556940066B153 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D320B556940066B153 /* MineInfoCell.xib */; };
+		F2FA14DB20B556940066B153 /* SexTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14D520B556940066B153 /* SexTableCell.m */; };
+		F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D620B556940066B153 /* SexTableCell.xib */; };
+		F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */; };
+		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -885,6 +893,18 @@
 		F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesManagerHeadView.xib; sourceTree = "<group>"; };
 		F2F18BAF2090D714002984A9 /* InvoicesManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerViewController.h; sourceTree = "<group>"; };
 		F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerViewController.m; sourceTree = "<group>"; };
+		F2FA14CE20B556940066B153 /* AddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
+		F2FA14CF20B556940066B153 /* AddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
+		F2FA14D020B556940066B153 /* AddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
+		F2FA14D120B556940066B153 /* MineInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoCell.h; sourceTree = "<group>"; };
+		F2FA14D220B556940066B153 /* MineInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoCell.m; sourceTree = "<group>"; };
+		F2FA14D320B556940066B153 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoCell.xib; sourceTree = "<group>"; };
+		F2FA14D420B556940066B153 /* SexTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexTableCell.h; sourceTree = "<group>"; };
+		F2FA14D520B556940066B153 /* SexTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexTableCell.m; sourceTree = "<group>"; };
+		F2FA14D620B556940066B153 /* SexTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexTableCell.xib; sourceTree = "<group>"; };
+		F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoViewController.xib; sourceTree = "<group>"; };
+		F2FA14DE20B556A90066B153 /* MineInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoViewController.h; sourceTree = "<group>"; };
+		F2FA14DF20B556A90066B153 /* MineInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoViewController.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1208,8 +1228,8 @@
 			children = (
 				F2487F5320AEA2CD0005F624 /* MineModel.h */,
 				F2487F5220AEA2CD0005F624 /* MineModel.m */,
-				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CF2082FB690030996F /* View */,
+				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CD2082FB560030996F /* ViewController */,
 				F20039C52089A10600499D39 /* mine.xcassets */,
 			);
@@ -1224,6 +1244,9 @@
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
 				F20C4D55208CCD130086282A /* 分期还款 */,
 				F20C4D51208CC35F0086282A /* 欠款管理 */,
+				F2FA14DE20B556A90066B153 /* MineInfoViewController.h */,
+				F2FA14DF20B556A90066B153 /* MineInfoViewController.m */,
+				F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */,
 				2D20DFDA20898AAA00095032 /* SCWaitReleaseCommentViewController.h */,
 				2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */,
 				2D20DFCE20898A2800095032 /* SetUpViewController.h */,
@@ -1263,6 +1286,7 @@
 		2D0723CF2082FB690030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2FA14CD20B556940066B153 /* mineinfocell */,
 				2D20E00020898CF900095032 /* YSMemberPointCell.h */,
 				2D20E00120898CF900095032 /* YSMemberPointCell.m */,
 				2D20DFFE20898CD900095032 /* WYBirthdayPickerView.h */,
@@ -2091,6 +2115,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F2FA14CD20B556940066B153 /* mineinfocell */ = {
+			isa = PBXGroup;
+			children = (
+				F2FA14CE20B556940066B153 /* AddressTableCell.h */,
+				F2FA14CF20B556940066B153 /* AddressTableCell.m */,
+				F2FA14D020B556940066B153 /* AddressTableCell.xib */,
+				F2FA14D120B556940066B153 /* MineInfoCell.h */,
+				F2FA14D220B556940066B153 /* MineInfoCell.m */,
+				F2FA14D320B556940066B153 /* MineInfoCell.xib */,
+				F2FA14D420B556940066B153 /* SexTableCell.h */,
+				F2FA14D520B556940066B153 /* SexTableCell.m */,
+				F2FA14D620B556940066B153 /* SexTableCell.xib */,
+			);
+			path = mineinfocell;
+			sourceTree = "<group>";
+		};
 		F2FE5BA4208471A4006E274A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2274,6 +2314,7 @@
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
 				2D0726CB20839F6C0030996F /* MessageListViewCell.xib in Resources */,
 				2D0726B72083926B0030996F /* HonourDetailViewController.xib in Resources */,
+				F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */,
 				F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */,
 				2D0726C12083929D0030996F /* HonourListViewCell.xib in Resources */,
 				F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */,
@@ -2286,6 +2327,7 @@
 				2D6F926C208F5040007DFD0B /* TeacherDetailVC.xib in Resources */,
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
+				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
 				2D791C7120905C4900E455F5 /* ClassListVC.xib in Resources */,
@@ -2299,9 +2341,11 @@
 				2D0723F82082FEF10030996F /* HomeViewController.xib in Resources */,
 				2D07266F208311BE0030996F /* 搜索-拷贝@3x.png in Resources */,
 				2D0723EE2082FED20030996F /* ShoppingCartViewController.xib in Resources */,
+				F2FA14DA20B556940066B153 /* MineInfoCell.xib in Resources */,
 				2D05C8AF20A83237001A8953 /* TeachItemViewCell.xib in Resources */,
 				2D07268A20832B0F0030996F /* HomeMenuItemsConfig.plist in Resources */,
 				2D6F9276208F5074007DFD0B /* TeacherClassListViewCell.xib in Resources */,
+				F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */,
 				2D072673208311BE0030996F /* 搜索-拷贝@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2405,6 +2449,7 @@
 				2D20DFDB20898AAB00095032 /* SCWaitReleaseCommentViewController.m in Sources */,
 				2D20DFAA2088DA2200095032 /* SCRefundReasonModel.m in Sources */,
 				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
+				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */,
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
@@ -2457,6 +2502,7 @@
 				2D20DF172088CE6A00095032 /* CellModel.m in Sources */,
 				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
 				2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */,
+				F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */,
 				2D20DDE62086142000095032 /* HttpTool.m in Sources */,
 				2D20DF362088CEDF00095032 /* YYKVStorage.m in Sources */,
 				2D20DEE72088CBBB00095032 /* AddressModel.m in Sources */,
@@ -2539,6 +2585,7 @@
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
+				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
 				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
@@ -2607,6 +2654,7 @@
 				2D0726A2208332360030996F /* RecommendViewCell.m in Sources */,
 				2D0726C520839EE50030996F /* MessageViewController.m in Sources */,
 				2D20DFF020898B6000095032 /* YSPointCell.m in Sources */,
+				F2FA14DB20B556940066B153 /* SexTableCell.m in Sources */,
 				2D20DF292088CEC400095032 /* PPNetworkHelper.m in Sources */,
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,

@@ -34,7 +34,7 @@
 
 @protocol SCUserInfoSignUpDelegate <NSObject>
 
--(void)signUp;
+-(void)setup;
 -(void)kefuxiaojiejie;
 -(void)enterToDetailUserInfo;
 

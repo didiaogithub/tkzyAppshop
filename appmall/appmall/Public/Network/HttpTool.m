@@ -35,7 +35,7 @@
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:params];
     [paramDict setValue:uuid forKey:@"deviceid"];
     [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:@"2" forKey:@"apptype"];
+    [paramDict setValue:Apptype forKey:@"apptype"];
     
     
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -103,7 +103,7 @@
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:params];
     [paramDict setValue:uuid forKey:@"deviceid"];
     [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:@"2" forKey:@"apptype"];
+    [paramDict setValue:Apptype forKey:@"apptype"];
     
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
@@ -171,7 +171,7 @@
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:paramaDic];
     [paramDict setValue:uuid forKey:@"deviceid"];
     [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:@"2" forKey:@"apptype"];
+    [paramDict setValue:Apptype forKey:@"apptype"];
     
 
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];

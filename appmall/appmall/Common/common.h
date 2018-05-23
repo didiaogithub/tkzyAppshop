@@ -235,12 +235,12 @@
 #define CommentListUrl @"Wxmall/Item/getCommentByItemId"
 
 /**获取购物车列表*/
-#define GetShoppingCarUrl @"Wxmall/ShoppingCart/getShoppingCart"
+#define GetShoppingCarUrl @"Cart/getShoppingCartInfo"
 /**删除购物车商品*/
-#define DelShoppingCarUrl @"Wxmall/ShoppingCart/delShoppingCart"
+#define DelShoppingCarUrl @"Cart/delShoppingCart"
 /**修改*/
 //#define UpdateShoppingCarUrl @"Wxmall/ShoppingCart/updateShoppingCart"
-#define UpdateShoppingCarInfoUrl @"Wxmall/ShoppingCart/updateShoppingCartInfo"
+#define UpdateShoppingCarInfoUrl @"Cart/updateShoppingCartInfo"
 
 /**如果id不存在，openid为必填，查询指定人的默认地址*/
 #define GetDefaultAddrUrl @"Address/getAddressById"

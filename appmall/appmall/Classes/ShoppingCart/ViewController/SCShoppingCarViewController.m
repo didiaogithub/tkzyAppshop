@@ -153,7 +153,7 @@
     [self.view sendSubviewToBack:self.noDataView];
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, GetShoppingCarUrl];
-    NSDictionary *pramaDic= @{@"openid": @"USER_OPENID", @"startindex":@"0"};
+    NSDictionary *pramaDic= [HttpTool getCommonPara];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -169,7 +169,7 @@
         
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
-        NSArray *itemArr = itemDic[@"cartlist"];
+        NSArray *itemArr = itemDic[@"data"][@"cartlist"];
         
         if (itemArr.count == 0) {
             [self.view bringSubviewToFront:self.noDataView];

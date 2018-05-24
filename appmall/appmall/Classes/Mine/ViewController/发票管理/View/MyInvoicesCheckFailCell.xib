@@ -74,6 +74,9 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="点击修改发票详情"/>
+                        <connections>
+                            <action selector="jumpAddMyInvoicesDetailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uec-ck-igQ"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21Q-Cz-Lfy">
                         <rect key="frame" x="197" y="122" width="107" height="1"/>
@@ -110,7 +113,13 @@
                     <constraint firstItem="NCi-2J-KoT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uT8-zQ-1K5"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="54" y="134.5"/>
+            <connections>
+                <outlet property="failreasonLab" destination="i6t-AD-raZ" id="927-bF-PwI"/>
+                <outlet property="fpttLab" destination="GKk-Ck-3GQ" id="dPT-Mq-orT"/>
+                <outlet property="shLab" destination="kjG-zB-H0K" id="gjH-UX-XAM"/>
+                <outlet property="typeLab" destination="NCi-2J-KoT" id="de1-ep-hAn"/>
+            </connections>
+            <point key="canvasLocation" x="9" y="135"/>
         </tableViewCell>
     </objects>
 </document>

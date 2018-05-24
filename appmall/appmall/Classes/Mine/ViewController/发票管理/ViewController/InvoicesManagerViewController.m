@@ -11,6 +11,8 @@
 #import "InvoicesManagerCell.h"
 #import "InvoicesManagerDetailVC.h"
 #import "OpenInvoicesViewController.h"
+#import "InvoicesManagerModel.h"
+#import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
 @interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManagerCellDelegate>
@@ -19,8 +21,7 @@
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
 @property (nonatomic,strong) UIView *sliderView;//标题栏上的滑动线
 @property (nonatomic,strong) NSMutableArray *segementArr;//导航栏上的按钮数组
-@property (nonatomic,strong) NSMutableArray *friendArr;
-@property (nonatomic,strong) NSMutableArray *systemArr;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,assign) NSInteger currentIndex;
 /**  是否选中第一个按钮*/
 @property (nonatomic, assign) BOOL selectFirstState;
@@ -33,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"发票管理";
+    self.dataArray = [NSMutableArray array];
     self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT * 0.15)];
     [self.view addSubview:self.headView];
     
@@ -41,6 +43,44 @@
     
     [self initComponments];
     self.selectFirstState = YES;
+    
+    [self getData:@"0"];
+}
+
+- (void)getData:(NSString*)type{
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary * pramaDic = @{@"appid":Appid,
+                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                @"token":@"df9e345e28349f5911a413026924f63c",
+                                @"pageNo":@"1",
+                                @"pageSize":@"10",
+                                @"invoice":type,
+                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"pageNo":@"1",
+                                                                              @"pageSize":@"10",@"invoice":type} andNeedUrlEncode:YES andKeyToLower:YES]};
+    
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getOrderByInvoiceApi];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSArray *Arr = dict[@"data"];
+        for (NSDictionary *dic in Arr) {
+            InvoicesManagerModel *model = [[InvoicesManagerModel alloc]initWithDictionary:dic];
+            [self.dataArray addObject:model];
+            
+        }
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
 }
 
 - (void)initComponments{

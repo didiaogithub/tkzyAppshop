@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyInvoicesModel.h"
 @interface MyInvoicesCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *typeLab;
+@property (weak, nonatomic) IBOutlet UILabel *fpttLab;
+@property (weak, nonatomic) IBOutlet UILabel *shLab;
 
+- (void)refreshData:(MyInvoicesModel *)model;
 @end

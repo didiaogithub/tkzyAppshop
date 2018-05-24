@@ -82,7 +82,12 @@
                     <constraint firstItem="Y8v-pD-Hcs" firstAttribute="top" secondItem="814-Yk-LOU" secondAttribute="top" id="ycN-B5-dK3"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="54" y="107.5"/>
+            <connections>
+                <outlet property="fpttLab" destination="814-Yk-LOU" id="Tto-5V-Z7L"/>
+                <outlet property="shLab" destination="95g-0I-fec" id="OEu-10-xXW"/>
+                <outlet property="typeLab" destination="nTk-H3-ur9" id="Idy-Rk-hda"/>
+            </connections>
+            <point key="canvasLocation" x="-253" y="107"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -70,6 +70,11 @@
                     <constraint firstAttribute="trailing" secondItem="CLA-bK-Hvb" secondAttribute="trailing" constant="15" id="z1A-3x-JLx"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="fpttLab" destination="CLA-bK-Hvb" id="a9S-0i-hRU"/>
+                <outlet property="shLab" destination="G35-t2-JOS" id="IT4-qh-NiT"/>
+                <outlet property="typeLab" destination="O4p-J9-Grq" id="jM4-Oq-938"/>
+            </connections>
             <point key="canvasLocation" x="-13" y="-9"/>
         </tableViewCell>
     </objects>

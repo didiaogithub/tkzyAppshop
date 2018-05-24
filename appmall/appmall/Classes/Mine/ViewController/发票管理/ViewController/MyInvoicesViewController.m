@@ -11,9 +11,18 @@
 #import "MyinvoicesCheckingCell.h"
 #import "MyInvoicesCheckFailCell.h"
 #import "AddInvoicesDataViewController.h"
-@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "MyInvoicesModel.h"
+@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCheckFailCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 - (IBAction)addinvoicesDataAction:(UIButton *)sender;
+/**  data*/
+@property (nonatomic, strong) NSMutableArray *dataArray;
+/**  未处理*/
+@property (nonatomic, strong) NSMutableArray *wclDataArray;
+/**  已处理*/
+@property (nonatomic, strong) NSMutableArray *yclDataArray;
+/**  已拒绝*/
+@property (nonatomic, strong) NSMutableArray *yjjDataArray;
 
 @end
 
@@ -22,17 +31,62 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的发票";
+    self.dataArray = [NSMutableArray array];
+    self.yjjDataArray = [NSMutableArray array];
+    self.wclDataArray = [NSMutableArray array];
+    self.yclDataArray = [NSMutableArray array];
     self.mTableView.dataSource = self;
     self.mTableView.delegate = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyinvoicesCheckingCell" bundle:nil] forCellReuseIdentifier:@"MyinvoicesCheckingCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCheckFailCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCheckFailCell"];
     self.mTableView.tableFooterView = [UIView new];
-    
+    [self getData];
 }
 
 
-
+- (void)getData{
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary * pramaDic = @{@"appid":Appid,
+                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                @"token":@"df9e345e28349f5911a413026924f63c",
+                                @"pageNo":@"1",
+                                @"pageSize":@"10",
+                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"pageNo":@"1",
+                                                                              @"pageSize":@"10"} andNeedUrlEncode:YES andKeyToLower:YES]};
+    
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMyInvoiceApi];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSArray *Arr = dict[@"data"][@"invoices"];
+        for (NSDictionary *dic in Arr) {
+            MyInvoicesModel *MyInvoicesM = [[MyInvoicesModel alloc] init];
+            [MyInvoicesM setValuesForKeysWithDictionary:dic];
+            
+            if ([MyInvoicesM.disposestatus isEqualToString:@"0"]) {
+                [self.wclDataArray addObject:MyInvoicesM];
+            }else if ([MyInvoicesM.disposestatus isEqualToString:@"1"]){
+                [self.yclDataArray addObject:MyInvoicesM];
+            }else{
+                [self.yjjDataArray addObject:MyInvoicesM];
+            }
+            
+        }
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *tcell;
@@ -45,27 +99,31 @@
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"MyInvoicesCell" owner:self options:nil]  lastObject];
         }
+        [cell refreshData:self.yclDataArray[indexPath.row]];
         tcell = cell;
     }else if (indexPath.section == 1){
         static NSString *identifier = @"MyinvoicesCheckingCell";//这个identifier跟xib设置的一样
-        MyInvoicesCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        MyinvoicesCheckingCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"MyinvoicesCheckingCell" owner:self options:nil]  lastObject];
         }
+        [cell refreshData:self.wclDataArray[indexPath.row]];
          tcell = cell;
         
     }else{
         static NSString *identifier = @"MyInvoicesCheckFailCell";//这个identifier跟xib设置的一样
-        MyInvoicesCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        MyInvoicesCheckFailCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"MyInvoicesCheckFailCell" owner:self options:nil]  lastObject];
         }
-        
+        cell.delegate = self;
+        [cell refreshData:self.yjjDataArray[indexPath.row]];
          tcell = cell;
+        
         
     }
    
@@ -76,9 +134,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 3;
+        return self.yclDataArray.count;
+    }else if(section == 1){
+        return self.wclDataArray.count;
     }else{
-        return 1;
+        return self.yjjDataArray.count;
     }
     return 0;
 }
@@ -94,7 +154,7 @@
     view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 60);
     view.backgroundColor = [UIColor tt_lineBgColor];
     UILabel *type = [UILabel new];
-    type.frame = CGRectMake(15,20, SCREEN_WIDTH, 20);
+    type.frame = CGRectMake(15,10, SCREEN_WIDTH, 20);
     type.font = [UIFont systemFontOfSize:14];
     type.text = @"审核中";
     if (section == 2) {
@@ -128,7 +188,7 @@
     if (section == 0) {
         return 0;
     }else{
-        return 60;
+        return 40;
     }
     return 0;
 }
@@ -150,4 +210,10 @@
     [self.navigationController pushViewController:add animated:YES];
     
 }
+
+-(void)jumpAddInvoicesDataViewController{
+    AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+    [self.navigationController pushViewController:add animated:YES];
+}
+
 @end

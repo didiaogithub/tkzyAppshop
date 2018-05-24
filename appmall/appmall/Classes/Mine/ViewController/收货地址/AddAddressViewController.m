@@ -161,7 +161,7 @@
         _telePhoneFiedld.text = @"";
     }
     NSString *threeAddress = [NSString stringWithFormat:@"%@ %@ %@",_addressModel.provincename,_addressModel.cityname,_addressModel.areaname];
-    if (!IsNilOrNull(threeAddress)) {
+    if (!IsNilOrNull(_addressModel.provincename)) {
         _cityLabel.textColor = TitleColor;
         _cityLabel.text = threeAddress;
     }else{

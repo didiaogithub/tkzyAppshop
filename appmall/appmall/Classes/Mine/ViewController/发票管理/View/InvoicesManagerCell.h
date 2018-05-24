@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @protocol InvoicesManagerCellDelegate<NSObject>
-- (void)showDetail;
+- (void)showDetail:(UIButton *)sender;
 @end
 @interface InvoicesManagerCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 - (IBAction)showDetailAction:(UIButton *)sender;
 /**  delegate*/
 @property (nonatomic, weak) id<InvoicesManagerCellDelegate> delegete;

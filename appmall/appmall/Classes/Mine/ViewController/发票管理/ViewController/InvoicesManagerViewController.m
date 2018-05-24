@@ -10,6 +10,7 @@
 #import "InvoicesManagerHeadView.h"
 #import "InvoicesManagerCell.h"
 #import "InvoicesManagerDetailVC.h"
+#import "OpenInvoicesViewController.h"
 #define leftTag 2000
 #define rightTag 2001
 @interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManagerCellDelegate>
@@ -21,6 +22,8 @@
 @property (nonatomic,strong) NSMutableArray *friendArr;
 @property (nonatomic,strong) NSMutableArray *systemArr;
 @property (nonatomic,assign) NSInteger currentIndex;
+/**  是否选中第一个按钮*/
+@property (nonatomic, assign) BOOL selectFirstState;
 
 @property (nonatomic,strong) UITableView *mTableView;
 @end
@@ -37,7 +40,7 @@
      [self.mTableView registerNib:[UINib nibWithNibName:@"InvoicesManagerCell" bundle:nil] forCellReuseIdentifier:@"InvoicesManagerCell"];
     
     [self initComponments];
-    
+    self.selectFirstState = YES;
 }
 
 - (void)initComponments{
@@ -93,15 +96,16 @@
 - (void)buttonClick:(UIButton *)sender
 {
     
-    if (sender.tag == leftTag) { // 好友消息
-  
+    if (sender.tag == leftTag) { // 待开发票
+       self.selectFirstState = YES;
         
     }
-    else if (sender.tag == rightTag) // 业务消息
+    else if (sender.tag == rightTag) // 已开发票
     {
-        
+         self.selectFirstState = NO;
        
     }
+    [self.mTableView reloadData];
     self.sliderView.x = sender.x;
     self.sliderView.width = sender.width;
     
@@ -135,14 +139,31 @@
                 loadNibNamed:@"InvoicesManagerCell" owner:self options:nil]  lastObject];
         cell.delegete = self;
     }
+    cell.rightBtn.layer.masksToBounds = YES;
+    cell.rightBtn.layer.cornerRadius = 3;
+    cell.rightBtn.layer.borderColor = [UIColor redColor].CGColor;
+    cell.rightBtn.layer.borderWidth = 1;
+    if (self.selectFirstState == YES) {
+        [cell.rightBtn setTitle:@"开发票" forState:0];
+        
+    }else{
+         [cell.rightBtn setTitle:@"发票详情" forState:0];
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
-- (void)showDetail{
-    InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
-    [self.navigationController pushViewController:detail animated:YES];
+- (void)showDetail:(UIButton *)sender{
+    
+    if ([sender.titleLabel.text isEqualToString:@"开发票"]) {
+        OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
+        [self.navigationController pushViewController:open animated:YES];
+    }else{
+        InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    
 }
 @end

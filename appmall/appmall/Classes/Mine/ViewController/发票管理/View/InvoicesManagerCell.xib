@@ -156,6 +156,9 @@
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="rightBtn" destination="Ys8-Eo-Ndk" id="0QB-CP-wrW"/>
+            </connections>
             <point key="canvasLocation" x="-257" y="-62"/>
         </tableViewCell>
     </objects>

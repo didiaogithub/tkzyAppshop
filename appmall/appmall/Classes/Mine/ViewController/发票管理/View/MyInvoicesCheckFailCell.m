@@ -1,14 +1,14 @@
 //
-//  InvoicesManagerCell.m
+//  MyInvoicesCheckFailCell.m
 //  appmall
 //
-//  Created by majun on 2018/5/23.
+//  Created by majun on 2018/5/24.
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "InvoicesManagerCell.h"
+#import "MyInvoicesCheckFailCell.h"
 
-@implementation InvoicesManagerCell
+@implementation MyInvoicesCheckFailCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,10 +21,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)showDetailAction:(UIButton *)sender {
-    
-    if (self.delegete && [self.delegete respondsToSelector:@selector(showDetail:)]) {
-        [self.delegete showDetail:sender];
-    }
-}
 @end

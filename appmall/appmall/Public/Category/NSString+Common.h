@@ -65,5 +65,10 @@
 
 /**检测是否合法的银行卡号*/
 + (BOOL)isCheckCardNo:(NSString*)cardNumber;
-
+/**文字竖排显示*/
+- (NSString *)VerticalString;
+/*带*号的变色,星号在最后*/
++(NSMutableAttributedString *)attributedStrWthStr:(NSString *)commonStr;
+/*带*号的变色,星号在最前面*/
++(NSMutableAttributedString *)attributedStarWthStr:(NSString *)commonStr;
 @end

@@ -12,7 +12,7 @@
 
 -(void)setValue:(id)value forKey:(NSString *)key{
     if ([key isEqualToString:@"id"]) {
-        _ID = value;;
+        _addressid = value;;
     }
     [super setValue:value forKey:key];
 }

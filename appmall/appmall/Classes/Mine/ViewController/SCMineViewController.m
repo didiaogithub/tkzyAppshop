@@ -21,6 +21,7 @@
 #import "CellModel.h"
 #import "SectionModel.h"
 #import "ArrearsManagerViewController.h"
+#import "MineInfoViewController.h"
 
 
 @interface SCMineViewController ()<UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, SCUserInfoSignUpDelegate, SCMineOrderCellDelegate>
@@ -269,43 +270,20 @@
 }
 
 #pragma - mark cellDelegate
--(void)signUp {
-    
-    NSDictionary *params = @{@"openid":USER_OPENID};
-    NSString *signUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, SignUrl];
-    
-    [HttpTool getWithUrl:signUrl params:params success:^(id json) {
-        NSDictionary *dict = json;
-        if ([dict[@"code"] intValue] != 200) {
-            [self.loadingView showNoticeView:dict[@"message"]];
-            return ;
-        }
-        
-        NSString *integralnum = [NSString stringWithFormat:@"%@", dict[@"integralnum"]];
-        if ([integralnum isEqualToString:@"0"] || IsNilOrNull(integralnum)) {
-            [self.loadingView showNoticeView:@"已签到"];
-        }else{
-            NSString *msg = [NSString stringWithFormat:@"%@ 获得积分%@", dict[@"message"], dict[@"integralnum"]];
-            
-            [self.loadingView showNoticeView:msg];
-            
-            [self getMeInfo];
-        }
-    } failure:^(NSError *error) {
-        if (error.code == -1009) {
-            [self.loadingView showNoticeView:NetWorkNotReachable];
-        }else{
-            [self.loadingView showNoticeView:NetWorkTimeout];
-        }
-    }];
+- (void)setup{
+    SetUpViewController *setup = [[SetUpViewController alloc]init];
+    [self.navigationController pushViewController:setup animated:YES];
 }
 
 - (void)kefuxiaojiejie{
     [[SobotManager shareInstance] startSobotCustomerService];
 }
 -(void)enterToDetailUserInfo {
-    SCMineInfoViewController *info = [[SCMineInfoViewController alloc] init];
-    info.userInfoM = self.userInfoM;
+//    SCMineInfoViewController *info = [[SCMineInfoViewController alloc] init];
+//    info.userInfoM = self.userInfoM;
+//    [self.navigationController pushViewController:info animated:YES];
+    
+    MineInfoViewController *info = [[MineInfoViewController alloc]init];
     [self.navigationController pushViewController:info animated:YES];
 }
 

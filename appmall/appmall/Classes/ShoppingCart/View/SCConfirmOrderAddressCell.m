@@ -149,7 +149,7 @@
 
 -(void)refreshWithAddressModel:(AddressModel *)addressModel {
     _addressNameLable.text = [NSString stringWithFormat:@"%@",addressModel.name];
-    NSString *address = [NSString stringWithFormat:@"%@",addressModel.area];
+    NSString *address = [NSString stringWithFormat:@"%@ %@ %@",addressModel.provincename,addressModel.cityname,addressModel.areaname];
     NSString *detaiAddress = [NSString stringWithFormat:@"%@",addressModel.address];
     if(IsNilOrNull(address)){
         address = @"";

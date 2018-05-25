@@ -296,4 +296,34 @@
     int modulus = sum % 10;
     return modulus == 0;
 }
+
+- (NSString *)VerticalString{
+    NSMutableString * str = [[NSMutableString alloc] initWithString:self];
+    NSInteger count = str.length;
+    for (int i = 1; i < count; i ++) {
+        [str insertString:@"\n" atIndex:i*2 - 1];
+    }
+    return str;
+}
+
+
++(NSMutableAttributedString *)attributedStrWthStr:(NSString *)commonStr{
+    NSRange range = {commonStr.length - 1, 1};
+    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:commonStr];
+    
+    [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:range];
+    
+    return AttributedStr;
+}
+
++(NSMutableAttributedString *)attributedStarWthStr:(NSString *)commonStr{
+    NSRange range = {0, 1};
+    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:commonStr];
+    
+    [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:range];
+    
+    return AttributedStr;
+}
+
+
 @end

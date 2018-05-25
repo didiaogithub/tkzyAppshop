@@ -577,7 +577,7 @@
     SectionModel *section11 = [self createSectionModel:@[getterModel] headerHeight:0.0001 footerHeight:0.0001];
     
     
-    NSString *address = [NSString stringWithFormat:@"%@%@", addressModel.area, addressModel.address];
+    NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@",addressModel.provincename,addressModel.cityname,addressModel.areaname, addressModel.address];
     
     CellModel *addressM = [self createCellModel:[CKOrderAddressCell class] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:address,@"data", @"changed", @"type", nil] height:50*SCREEN_WIDTH/375.0f];
     SectionModel *section12 = [self createSectionModel:@[addressM] headerHeight:0.0001 footerHeight:0.0001];

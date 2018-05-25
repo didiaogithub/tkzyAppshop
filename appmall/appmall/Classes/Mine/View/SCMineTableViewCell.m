@@ -87,17 +87,6 @@
         make.edges.mas_offset(0);
     }];
     
-//    //签到按钮
-//    _signUpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [self.contentView addSubview:_signUpButton];
-//    [_signUpButton setTitle:@"签到" forState:UIControlStateNormal];
-//    [_signUpButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_offset(10);
-//        make.right.mas_offset(-10);
-//        make.size.mas_offset(CGSizeMake(60, 40));
-//    }];
-//    [_signUpButton addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
-    
     _headImgV = [UIImageView new];
     [self.contentView addSubview:_headImgV];
     _headImgV.layer.cornerRadius = 60/2;
@@ -152,7 +141,7 @@
             make.right.mas_offset(-10);
             make.size.mas_offset(CGSizeMake(90, 35));
         }];
-        [_editButton addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
+        [_editButton addTarget:self action:@selector(clickEditButton) forControlEvents:UIControlEventTouchUpInside];
     
     // 客服小姐姐
     _kefuButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -175,27 +164,9 @@
         make.right.equalTo(_kefuButton.mas_left).offset(-10);
         make.size.mas_offset(CGSizeMake(30, 30));
     }];
-    [_settingButton addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
+    [_settingButton addTarget:self action:@selector(clickSetUpButton) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
-    
-    
-//    //积分按钮
-//    _integralButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [self.contentView addSubview:_integralButton];
-//    [_integralButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(_nameLable.mas_bottom).offset(8);
-//        make.bottom.mas_offset(-15);
-//        make.left.mas_offset(SCREEN_WIDTH/2-60);
-//        make.width.mas_offset(120);
-//
-//    }];
-//    [_integralButton setTitle:@"积分:0" forState:UIControlStateNormal];
-//    [_integralButton setBackgroundColor:[UIColor tt_redMoneyColor]];
-//    _integralButton.titleLabel.font = MAIN_TITLE_FONT;
-//    _integralButton.layer.cornerRadius = 15;
-//    _integralButton.layer.masksToBounds = YES;
+
 }
 
 -(void)fillData:(id)data {
@@ -220,9 +191,15 @@
     }
 }
 
--(void)clickSignUpButton {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(signUp)]) {
-        [self.delegate signUp];
+-(void)clickEditButton{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(enterToDetailUserInfo)]) {
+        [self.delegate enterToDetailUserInfo];
+    }
+}
+
+-(void)clickSetUpButton {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(setup)]) {
+        [self.delegate setup];
     }
 }
 

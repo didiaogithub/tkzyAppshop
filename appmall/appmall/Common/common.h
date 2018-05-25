@@ -242,12 +242,12 @@
 #define CommentListUrl @"Wxmall/Item/getCommentByItemId"
 
 /**获取购物车列表*/
-#define GetShoppingCarUrl @"Wxmall/ShoppingCart/getShoppingCart"
+#define GetShoppingCarUrl @"Cart/getShoppingCartInfo"
 /**删除购物车商品*/
-#define DelShoppingCarUrl @"Wxmall/ShoppingCart/delShoppingCart"
+#define DelShoppingCarUrl @"Cart/delShoppingCart"
 /**修改*/
 //#define UpdateShoppingCarUrl @"Wxmall/ShoppingCart/updateShoppingCart"
-#define UpdateShoppingCarInfoUrl @"Wxmall/ShoppingCart/updateShoppingCartInfo"
+#define UpdateShoppingCarInfoUrl @"Cart/updateShoppingCartInfo"
 
 /**如果id不存在，openid为必填，查询指定人的默认地址*/
 #define GetDefaultAddrUrl @"Address/getAddressById"
@@ -342,8 +342,16 @@
 #define NetWorkNotReachable @"当前网络不可用，请检查你的网络设置"
 #define NetWorkTimeout @"网络不给力，请稍后再试"
 
-
-
+/** 获取我的发票*/
+#define getOrderByInvoiceApi @"Invoice/getOrderByInvoice"
+/** 获取我的发票*/
+#define getMyInvoiceApi @"Invoice/getMyInvoice"
+/** 添加发票*/
+#define applyInvoiceApi @"Invoice/applyInvoice"
+/** 发票详情*/
+#define getInvoiceByIdApi @"Invoice/getInvoiceById"
+/** 修改发票*/
+#define invoiceidApi @"Invocie/invoiceid"
 /**判空处理*/
 #define IsNilOrNull(_ref) (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]])  || ([(_ref) isKindOfClass:[NSNull class]]) || ([(_ref) isEqualToString:@"(null)"]) || ([(_ref) isEqualToString:@""]) || ([(_ref) isEqualToString:@"null"]) || ([(_ref) isEqualToString:@"<null>"]))
 

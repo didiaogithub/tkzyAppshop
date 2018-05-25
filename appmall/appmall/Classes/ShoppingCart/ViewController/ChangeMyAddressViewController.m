@@ -177,7 +177,7 @@
 - (void)realNameIdentify {
     
     NSString *gettername = [NSString stringWithFormat:@"%@", self.addressModel.name];
-    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.ID];
+    NSString *addressID = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     NSDictionary *params = @{@"addressid":addressID};
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetRealName];
     
@@ -298,7 +298,7 @@
     [params setObject:_addressModel.name forKey:@"gettername"];
     [params setObject:_addressModel.mobile forKey:@"gettermobile"];
     
-    NSString *getteraddress = [NSString stringWithFormat:@"%@ %@", _addressModel.area, _addressModel.address];
+    NSString *getteraddress = [NSString stringWithFormat:@"%@ %@ %@ %@", _addressModel.provincename,_addressModel.cityname,_addressModel.areaname, _addressModel.address];
     [params setObject:getteraddress forKey:@"getteraddress"];
     
     [HttpTool postWithUrl:url params:params success:^(id json) {
@@ -384,8 +384,8 @@
                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
                                @"token":token,
                                @"isdefault":@"1",
-                               @"addressId":self.addressModel.ID,
-                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"isdefault":@"1",@"addressId":self.addressModel.ID} andNeedUrlEncode:YES andKeyToLower:YES]};
+                               @"addressId":self.addressModel.addressid,
+                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"isdefault":@"1",@"addressId":self.addressModel.addressid} andNeedUrlEncode:YES andKeyToLower:YES]};
     //如果是默认地址不请求
     if (![isdefault isEqualToString:@"1"]){
         [HttpTool postWithUrl:setDefaultUrl params:pramaDic success:^(id json) {
@@ -431,16 +431,16 @@
     if([self.myAddressArray count]){
         _addressModel = self.myAddressArray[_deleteIndex];
     }
-    if (IsNilOrNull(_addressModel.ID)){
-        _addressModel.ID = @"";
+    if (IsNilOrNull(_addressModel.addressid)){
+        _addressModel.addressid = @"";
     }
     
     NSString *token = [UserModel getCurUserToken];
     NSDictionary * pramaDic = @{@"appid":Appid,
                                   @"tn":[NSString stringWithFormat:@"%.0f",TN],
                                   @"token":token,
-                                  @"addressId":_addressModel.ID,
-                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"addressId":_addressModel.ID} andNeedUrlEncode:YES andKeyToLower:YES]};
+                                  @"addressId":_addressModel.addressid,
+                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"addressId":_addressModel.addressid} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *deleteMeAddressUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,DeleAddrUrl];
     [HttpTool postWithUrl:deleteMeAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
@@ -451,7 +451,7 @@
         //删除成功之后删除数组数据
 
         if (_backBlock){
-            _backBlock(_addressModel.ID);
+            _backBlock(_addressModel.addressid);
         }
         if ([self.myAddressArray count]) {
             

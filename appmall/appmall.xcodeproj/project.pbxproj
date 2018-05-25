@@ -299,8 +299,35 @@
 		2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F020B79E2B0031AC47 /* CommDetailHeaderView.xib */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
+		F208D35820B70E110098E64A /* MyInvoicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35720B70E110098E64A /* MyInvoicesModel.m */; };
+		F208D35D20B71C490098E64A /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35A20B71C480098E64A /* Ordersheet.m */; };
+		F208D35E20B71C490098E64A /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35C20B71C490098E64A /* InvoicesManagerModel.m */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
-		F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */; };
+		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
+		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
+		F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */; };
+		F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */; };
+		F23E653B20B65AC000EB6720 /* OpenInvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E653920B65AC000EB6720 /* OpenInvoicesViewController.m */; };
+		F23E653C20B65AC000EB6720 /* OpenInvoicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E653A20B65AC000EB6720 /* OpenInvoicesViewController.xib */; };
+		F23E654020B6632E00EB6720 /* OpenInvoicesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E653E20B6632E00EB6720 /* OpenInvoicesCell.m */; };
+		F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E653F20B6632E00EB6720 /* OpenInvoicesCell.xib */; };
+		F23E654520B66F9D00EB6720 /* MyInvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E654320B66F9D00EB6720 /* MyInvoicesViewController.m */; };
+		F23E654620B66F9D00EB6720 /* MyInvoicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E654420B66F9D00EB6720 /* MyInvoicesViewController.xib */; };
+		F23E654A20B670B300EB6720 /* MyInvoicesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E654820B670B300EB6720 /* MyInvoicesCell.m */; };
+		F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E654920B670B300EB6720 /* MyInvoicesCell.xib */; };
+		F23E654F20B686D900EB6720 /* MyinvoicesCheckingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E654D20B686D900EB6720 /* MyinvoicesCheckingCell.m */; };
+		F23E655020B686D900EB6720 /* MyinvoicesCheckingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E654E20B686D900EB6720 /* MyinvoicesCheckingCell.xib */; };
+		F23E655420B6886200EB6720 /* MyInvoicesCheckFailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E655220B6886200EB6720 /* MyInvoicesCheckFailCell.m */; };
+		F23E655520B6886200EB6720 /* MyInvoicesCheckFailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E655320B6886200EB6720 /* MyInvoicesCheckFailCell.xib */; };
+		F23E655920B68DC500EB6720 /* AddInvoicesDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E655720B68DC500EB6720 /* AddInvoicesDataViewController.m */; };
+		F23E655A20B68DC500EB6720 /* AddInvoicesDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E655820B68DC500EB6720 /* AddInvoicesDataViewController.xib */; };
+		F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E656220B6911200EB6720 /* LeftLabelRightLabelView.m */; };
+		F23E656620B6911200EB6720 /* LeftLabelRightTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E656420B6911200EB6720 /* LeftLabelRightTextFieldView.m */; };
+		F23E657E20B693D600EB6720 /* QRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E657920B693D600EB6720 /* QRadioButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F23E657F20B693D600EB6720 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657A20B693D600EB6720 /* radio_checked.png */; };
+		F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657B20B693D600EB6720 /* radio_checked@2x.png */; };
+		F23E658120B693D600EB6720 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657C20B693D600EB6720 /* radio_unchecked.png */; };
+		F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
 		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
@@ -311,9 +338,21 @@
 		F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F4020AE9F260005F624 /* CKCouponModel.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
 		F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */; };
+		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
+		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
+		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
+		F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E44220B6D5C0007775B1 /* AmortizationLoanCell.xib */; };
 		F2F18BB22090D715002984A9 /* InvoicesManagerHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */; };
 		F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */; };
 		F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */; };
+		F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14CF20B556940066B153 /* AddressTableCell.m */; };
+		F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D020B556940066B153 /* AddressTableCell.xib */; };
+		F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14D220B556940066B153 /* MineInfoCell.m */; };
+		F2FA14DA20B556940066B153 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D320B556940066B153 /* MineInfoCell.xib */; };
+		F2FA14DB20B556940066B153 /* SexTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14D520B556940066B153 /* SexTableCell.m */; };
+		F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D620B556940066B153 /* SexTableCell.xib */; };
+		F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */; };
+		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -887,10 +926,51 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
+		F208D35620B70E110098E64A /* MyInvoicesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInvoicesModel.h; sourceTree = "<group>"; };
+		F208D35720B70E110098E64A /* MyInvoicesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInvoicesModel.m; sourceTree = "<group>"; };
+		F208D35920B71C480098E64A /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
+		F208D35A20B71C480098E64A /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
+		F208D35B20B71C490098E64A /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
+		F208D35C20B71C490098E64A /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
 		F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
 		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
-		F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
-		F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
+		F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerCell.h; sourceTree = "<group>"; };
+		F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerCell.m; sourceTree = "<group>"; };
+		F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerCell.xib; sourceTree = "<group>"; };
+		F2113A8C20B58CCE00C01DA4 /* InvoicesManagerDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerDetailVC.h; sourceTree = "<group>"; };
+		F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerDetailVC.m; sourceTree = "<group>"; };
+		F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerDetailVC.xib; sourceTree = "<group>"; };
+		F23E653820B65AC000EB6720 /* OpenInvoicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenInvoicesViewController.h; sourceTree = "<group>"; };
+		F23E653920B65AC000EB6720 /* OpenInvoicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenInvoicesViewController.m; sourceTree = "<group>"; };
+		F23E653A20B65AC000EB6720 /* OpenInvoicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenInvoicesViewController.xib; sourceTree = "<group>"; };
+		F23E653D20B6632E00EB6720 /* OpenInvoicesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenInvoicesCell.h; sourceTree = "<group>"; };
+		F23E653E20B6632E00EB6720 /* OpenInvoicesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenInvoicesCell.m; sourceTree = "<group>"; };
+		F23E653F20B6632E00EB6720 /* OpenInvoicesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenInvoicesCell.xib; sourceTree = "<group>"; };
+		F23E654220B66F9D00EB6720 /* MyInvoicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInvoicesViewController.h; sourceTree = "<group>"; };
+		F23E654320B66F9D00EB6720 /* MyInvoicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInvoicesViewController.m; sourceTree = "<group>"; };
+		F23E654420B66F9D00EB6720 /* MyInvoicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInvoicesViewController.xib; sourceTree = "<group>"; };
+		F23E654720B670B300EB6720 /* MyInvoicesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInvoicesCell.h; sourceTree = "<group>"; };
+		F23E654820B670B300EB6720 /* MyInvoicesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInvoicesCell.m; sourceTree = "<group>"; };
+		F23E654920B670B300EB6720 /* MyInvoicesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInvoicesCell.xib; sourceTree = "<group>"; };
+		F23E654C20B686D900EB6720 /* MyinvoicesCheckingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyinvoicesCheckingCell.h; sourceTree = "<group>"; };
+		F23E654D20B686D900EB6720 /* MyinvoicesCheckingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyinvoicesCheckingCell.m; sourceTree = "<group>"; };
+		F23E654E20B686D900EB6720 /* MyinvoicesCheckingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyinvoicesCheckingCell.xib; sourceTree = "<group>"; };
+		F23E655120B6886200EB6720 /* MyInvoicesCheckFailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInvoicesCheckFailCell.h; sourceTree = "<group>"; };
+		F23E655220B6886200EB6720 /* MyInvoicesCheckFailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInvoicesCheckFailCell.m; sourceTree = "<group>"; };
+		F23E655320B6886200EB6720 /* MyInvoicesCheckFailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInvoicesCheckFailCell.xib; sourceTree = "<group>"; };
+		F23E655620B68DC500EB6720 /* AddInvoicesDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddInvoicesDataViewController.h; sourceTree = "<group>"; };
+		F23E655720B68DC500EB6720 /* AddInvoicesDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddInvoicesDataViewController.m; sourceTree = "<group>"; };
+		F23E655820B68DC500EB6720 /* AddInvoicesDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoicesDataViewController.xib; sourceTree = "<group>"; };
+		F23E656120B6911200EB6720 /* LeftLabelRightLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftLabelRightLabelView.h; sourceTree = "<group>"; };
+		F23E656220B6911200EB6720 /* LeftLabelRightLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftLabelRightLabelView.m; sourceTree = "<group>"; };
+		F23E656320B6911200EB6720 /* LeftLabelRightTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftLabelRightTextFieldView.h; sourceTree = "<group>"; };
+		F23E656420B6911200EB6720 /* LeftLabelRightTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftLabelRightTextFieldView.m; sourceTree = "<group>"; };
+		F23E657820B693D600EB6720 /* QRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioButton.h; sourceTree = "<group>"; };
+		F23E657920B693D600EB6720 /* QRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioButton.m; sourceTree = "<group>"; };
+		F23E657A20B693D600EB6720 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
+		F23E657B20B693D600EB6720 /* radio_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_checked@2x.png"; sourceTree = "<group>"; };
+		F23E657C20B693D600EB6720 /* radio_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unchecked.png; sourceTree = "<group>"; };
+		F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_unchecked@2x.png"; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
@@ -908,11 +988,29 @@
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
 		F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
 		F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
+		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
+		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
+		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
+		F2F0E44020B6D5C0007775B1 /* AmortizationLoanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanCell.h; sourceTree = "<group>"; };
+		F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanCell.m; sourceTree = "<group>"; };
+		F2F0E44220B6D5C0007775B1 /* AmortizationLoanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanCell.xib; sourceTree = "<group>"; };
 		F2F18BAB2090D714002984A9 /* InvoicesManagerHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerHeadView.h; sourceTree = "<group>"; };
 		F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerHeadView.m; sourceTree = "<group>"; };
 		F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesManagerHeadView.xib; sourceTree = "<group>"; };
 		F2F18BAF2090D714002984A9 /* InvoicesManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerViewController.h; sourceTree = "<group>"; };
 		F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerViewController.m; sourceTree = "<group>"; };
+		F2FA14CE20B556940066B153 /* AddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
+		F2FA14CF20B556940066B153 /* AddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
+		F2FA14D020B556940066B153 /* AddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
+		F2FA14D120B556940066B153 /* MineInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoCell.h; sourceTree = "<group>"; };
+		F2FA14D220B556940066B153 /* MineInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoCell.m; sourceTree = "<group>"; };
+		F2FA14D320B556940066B153 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoCell.xib; sourceTree = "<group>"; };
+		F2FA14D420B556940066B153 /* SexTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexTableCell.h; sourceTree = "<group>"; };
+		F2FA14D520B556940066B153 /* SexTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexTableCell.m; sourceTree = "<group>"; };
+		F2FA14D620B556940066B153 /* SexTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexTableCell.xib; sourceTree = "<group>"; };
+		F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoViewController.xib; sourceTree = "<group>"; };
+		F2FA14DE20B556A90066B153 /* MineInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoViewController.h; sourceTree = "<group>"; };
+		F2FA14DF20B556A90066B153 /* MineInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoViewController.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -968,6 +1066,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				F23E657720B693D600EB6720 /* QRadioButton */,
 				F2487F2E20AE730B0005F624 /* Sobot(智齿) */,
 				2D20DFC6208989F500095032 /* CleanCache */,
 				2D20DF502088D4AB00095032 /* MLEmojiLabel */,
@@ -1236,8 +1335,8 @@
 			children = (
 				F2487F5320AEA2CD0005F624 /* MineModel.h */,
 				F2487F5220AEA2CD0005F624 /* MineModel.m */,
-				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CF2082FB690030996F /* View */,
+				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CD2082FB560030996F /* ViewController */,
 				F20039C52089A10600499D39 /* mine.xcassets */,
 			);
@@ -1252,6 +1351,9 @@
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
 				F20C4D55208CCD130086282A /* 分期还款 */,
 				F20C4D51208CC35F0086282A /* 欠款管理 */,
+				F2FA14DE20B556A90066B153 /* MineInfoViewController.h */,
+				F2FA14DF20B556A90066B153 /* MineInfoViewController.m */,
+				F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */,
 				2D20DFDA20898AAA00095032 /* SCWaitReleaseCommentViewController.h */,
 				2D20DFD920898AAA00095032 /* SCWaitReleaseCommentViewController.m */,
 				2D20DFCE20898A2800095032 /* SetUpViewController.h */,
@@ -1291,6 +1393,7 @@
 		2D0723CF2082FB690030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2FA14CD20B556940066B153 /* mineinfocell */,
 				2D20E00020898CF900095032 /* YSMemberPointCell.h */,
 				2D20E00120898CF900095032 /* YSMemberPointCell.m */,
 				2D20DFFE20898CD900095032 /* WYBirthdayPickerView.h */,
@@ -1993,6 +2096,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F208D35520B70DDF0098E64A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F208D35B20B71C490098E64A /* InvoicesManagerModel.h */,
+				F208D35C20B71C490098E64A /* InvoicesManagerModel.m */,
+				F208D35920B71C480098E64A /* Ordersheet.h */,
+				F208D35A20B71C480098E64A /* Ordersheet.m */,
+				F208D35620B70E110098E64A /* MyInvoicesModel.h */,
+				F208D35720B70E110098E64A /* MyInvoicesModel.m */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F20C4D51208CC35F0086282A /* 欠款管理 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2005,8 +2122,9 @@
 		F20C4D55208CCD130086282A /* 分期还款 */ = {
 			isa = PBXGroup;
 			children = (
-				F20C4D56208CCD340086282A /* AmortizationLoanViewController.h */,
-				F20C4D57208CCD340086282A /* AmortizationLoanViewController.m */,
+				F2F0E43F20B6D578007775B1 /* ViewController */,
+				F2F0E43E20B6D571007775B1 /* Model */,
+				F2F0E43D20B6D56B007775B1 /* View */,
 			);
 			path = "分期还款";
 			sourceTree = "<group>";
@@ -2014,11 +2132,24 @@
 		F20C4D5A208CCE4F0086282A /* 发票管理 */ = {
 			isa = PBXGroup;
 			children = (
-				F2F18BB12090D715002984A9 /* Model */,
+				F208D35520B70DDF0098E64A /* Model */,
 				F2F18BAA2090D714002984A9 /* View */,
 				F2F18BAE2090D714002984A9 /* ViewController */,
 			);
 			path = "发票管理";
+			sourceTree = "<group>";
+		};
+		F23E657720B693D600EB6720 /* QRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				F23E657820B693D600EB6720 /* QRadioButton.h */,
+				F23E657920B693D600EB6720 /* QRadioButton.m */,
+				F23E657A20B693D600EB6720 /* radio_checked.png */,
+				F23E657B20B693D600EB6720 /* radio_checked@2x.png */,
+				F23E657C20B693D600EB6720 /* radio_unchecked.png */,
+				F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */,
+			);
+			path = QRadioButton;
 			sourceTree = "<group>";
 		};
 		F2487F2E20AE730B0005F624 /* Sobot(智齿) */ = {
@@ -2110,12 +2241,58 @@
 			path = "收货地址";
 			sourceTree = "<group>";
 		};
+		F2F0E43D20B6D56B007775B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2F0E44020B6D5C0007775B1 /* AmortizationLoanCell.h */,
+				F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */,
+				F2F0E44220B6D5C0007775B1 /* AmortizationLoanCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2F0E43E20B6D571007775B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2F0E43F20B6D578007775B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */,
+				F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */,
+				F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		F2F18BAA2090D714002984A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F2F18BAB2090D714002984A9 /* InvoicesManagerHeadView.h */,
 				F2F18BAC2090D714002984A9 /* InvoicesManagerHeadView.m */,
 				F2F18BAD2090D714002984A9 /* InvoicesManagerHeadView.xib */,
+				F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */,
+				F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */,
+				F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */,
+				F23E653D20B6632E00EB6720 /* OpenInvoicesCell.h */,
+				F23E653E20B6632E00EB6720 /* OpenInvoicesCell.m */,
+				F23E653F20B6632E00EB6720 /* OpenInvoicesCell.xib */,
+				F23E654720B670B300EB6720 /* MyInvoicesCell.h */,
+				F23E654820B670B300EB6720 /* MyInvoicesCell.m */,
+				F23E654920B670B300EB6720 /* MyInvoicesCell.xib */,
+				F23E654C20B686D900EB6720 /* MyinvoicesCheckingCell.h */,
+				F23E654D20B686D900EB6720 /* MyinvoicesCheckingCell.m */,
+				F23E654E20B686D900EB6720 /* MyinvoicesCheckingCell.xib */,
+				F23E655120B6886200EB6720 /* MyInvoicesCheckFailCell.h */,
+				F23E655220B6886200EB6720 /* MyInvoicesCheckFailCell.m */,
+				F23E655320B6886200EB6720 /* MyInvoicesCheckFailCell.xib */,
+				F23E656120B6911200EB6720 /* LeftLabelRightLabelView.h */,
+				F23E656220B6911200EB6720 /* LeftLabelRightLabelView.m */,
+				F23E656320B6911200EB6720 /* LeftLabelRightTextFieldView.h */,
+				F23E656420B6911200EB6720 /* LeftLabelRightTextFieldView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2125,15 +2302,36 @@
 			children = (
 				F2F18BAF2090D714002984A9 /* InvoicesManagerViewController.h */,
 				F2F18BB02090D714002984A9 /* InvoicesManagerViewController.m */,
+				F2113A8C20B58CCE00C01DA4 /* InvoicesManagerDetailVC.h */,
+				F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */,
+				F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */,
+				F23E653820B65AC000EB6720 /* OpenInvoicesViewController.h */,
+				F23E653920B65AC000EB6720 /* OpenInvoicesViewController.m */,
+				F23E653A20B65AC000EB6720 /* OpenInvoicesViewController.xib */,
+				F23E654220B66F9D00EB6720 /* MyInvoicesViewController.h */,
+				F23E654320B66F9D00EB6720 /* MyInvoicesViewController.m */,
+				F23E654420B66F9D00EB6720 /* MyInvoicesViewController.xib */,
+				F23E655620B68DC500EB6720 /* AddInvoicesDataViewController.h */,
+				F23E655720B68DC500EB6720 /* AddInvoicesDataViewController.m */,
+				F23E655820B68DC500EB6720 /* AddInvoicesDataViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		F2F18BB12090D715002984A9 /* Model */ = {
+		F2FA14CD20B556940066B153 /* mineinfocell */ = {
 			isa = PBXGroup;
 			children = (
+				F2FA14CE20B556940066B153 /* AddressTableCell.h */,
+				F2FA14CF20B556940066B153 /* AddressTableCell.m */,
+				F2FA14D020B556940066B153 /* AddressTableCell.xib */,
+				F2FA14D120B556940066B153 /* MineInfoCell.h */,
+				F2FA14D220B556940066B153 /* MineInfoCell.m */,
+				F2FA14D320B556940066B153 /* MineInfoCell.xib */,
+				F2FA14D420B556940066B153 /* SexTableCell.h */,
+				F2FA14D520B556940066B153 /* SexTableCell.m */,
+				F2FA14D620B556940066B153 /* SexTableCell.xib */,
 			);
-			path = Model;
+			path = mineinfocell;
 			sourceTree = "<group>";
 		};
 		F2FE5BA4208471A4006E274A /* Common */ = {
@@ -2309,20 +2507,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
+
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
+
+				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
+
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
+				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
+				F23E654620B66F9D00EB6720 /* MyInvoicesViewController.xib in Resources */,
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
+				F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */,
 				2D0726BC2083928A0030996F /* MedieaListViewCell.xib in Resources */,
 				2D6F9262208F4A78007DFD0B /* TeacherItemViewCell.xib in Resources */,
 				2DA0C2EC20B715F90031AC47 /* CommPingLunViewCell.xib in Resources */,
 				2DA0C2E220B712DE0031AC47 /* CommDetailViewController.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
+
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
+
+				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
+
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
+				F23E655A20B68DC500EB6720 /* AddInvoicesDataViewController.xib in Resources */,
 				2D0726CB20839F6C0030996F /* MessageListViewCell.xib in Resources */,
 				2D0726B72083926B0030996F /* HonourDetailViewController.xib in Resources */,
+				F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */,
 				F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */,
 				2D0726C12083929D0030996F /* HonourListViewCell.xib in Resources */,
 				F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */,
@@ -2330,14 +2541,20 @@
 				2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */,
 				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
+				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
 				2D6F9267208F4CB3007DFD0B /* TeacherListVC.xib in Resources */,
 				2D0726A3208332360030996F /* RecommendViewCell.xib in Resources */,
+				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
 				2D6F926C208F5040007DFD0B /* TeacherDetailVC.xib in Resources */,
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
+				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
+				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
+				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
 				2D791C7120905C4900E455F5 /* ClassListVC.xib in Resources */,
+				F23E655020B686D900EB6720 /* MyinvoicesCheckingCell.xib in Resources */,
 				F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
@@ -2346,12 +2563,18 @@
 				2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */,
 				F20039C62089A10600499D39 /* mine.xcassets in Resources */,
 				2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */,
+				F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */,
 				2D0723F82082FEF10030996F /* HomeViewController.xib in Resources */,
 				2D07266F208311BE0030996F /* 搜索-拷贝@3x.png in Resources */,
+				F23E658120B693D600EB6720 /* radio_unchecked.png in Resources */,
+				F23E653C20B65AC000EB6720 /* OpenInvoicesViewController.xib in Resources */,
+				F23E655520B6886200EB6720 /* MyInvoicesCheckFailCell.xib in Resources */,
 				2D0723EE2082FED20030996F /* ShoppingCartViewController.xib in Resources */,
+				F2FA14DA20B556940066B153 /* MineInfoCell.xib in Resources */,
 				2D05C8AF20A83237001A8953 /* TeachItemViewCell.xib in Resources */,
 				2D07268A20832B0F0030996F /* HomeMenuItemsConfig.plist in Resources */,
 				2D6F9276208F5074007DFD0B /* TeacherClassListViewCell.xib in Resources */,
+				F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */,
 				2D072673208311BE0030996F /* 搜索-拷贝@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2440,6 +2663,7 @@
 			files = (
 				2D20DF342088CEDF00095032 /* YYMemoryCache.m in Sources */,
 				2D0723B62082FA050030996F /* main.m in Sources */,
+				F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */,
 				2D20DF5C2088D54000095032 /* SCCouponModel.m in Sources */,
 				2D20DE2D208614EC00095032 /* UINavigationController+SXFullScreen.m in Sources */,
 				2D20DF982088D98800095032 /* CKCLogisticsModel.m in Sources */,
@@ -2449,6 +2673,8 @@
 				2D20DE002086147300095032 /* SCNoDataView.m in Sources */,
 				2D20DEB22088C8B800095032 /* SCGoodsDetailViewController.m in Sources */,
 				2D20DE612086187200095032 /* UIImage+Common.m in Sources */,
+				F23E654A20B670B300EB6720 /* MyInvoicesCell.m in Sources */,
+				F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */,
 				2D20DEA52088C80D00095032 /* ZJContentView.m in Sources */,
 				2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */,
 				2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */,
@@ -2457,6 +2683,7 @@
 				2DA0C2EB20B715F90031AC47 /* CommPingLunViewCell.m in Sources */,
 				2DA0C2E620B712F80031AC47 /* CommPingLunListViewController.m in Sources */,
 				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
+				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */,
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
@@ -2500,7 +2727,7 @@
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
 				2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */,
 				2D20DDFD2086147300095032 /* KeyChainStore.m in Sources */,
-				F20C4D58208CCD340086282A /* AmortizationLoanViewController.m in Sources */,
+				F23E654520B66F9D00EB6720 /* MyInvoicesViewController.m in Sources */,
 				2D072672208311BE0030996F /* DWQSearchBar.m in Sources */,
 				2D20DDE72086142000095032 /* RequestManager.m in Sources */,
 				2D20DDD5208613BA00095032 /* BKGuidePageAppearToll.m in Sources */,
@@ -2509,6 +2736,7 @@
 				2D20DF172088CE6A00095032 /* CellModel.m in Sources */,
 				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
 				2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */,
+				F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */,
 				2D20DDE62086142000095032 /* HttpTool.m in Sources */,
 				2D20DF362088CEDF00095032 /* YYKVStorage.m in Sources */,
 				2D20DEE72088CBBB00095032 /* AddressModel.m in Sources */,
@@ -2516,11 +2744,13 @@
 				2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */,
 				2D20DE0F2086149300095032 /* MJGearHeader.m in Sources */,
 				2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */,
+				F23E655920B68DC500EB6720 /* AddInvoicesDataViewController.m in Sources */,
 				F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				2D20DE1F208614CE00095032 /* UIViewController+BackButtonHandler.m in Sources */,
 				2D20DF742088D71100095032 /* DistrictViewController.m in Sources */,
+				F208D35E20B71C490098E64A /* InvoicesManagerModel.m in Sources */,
 				2D20DEA22088C80D00095032 /* UIView+ZJFrame.m in Sources */,
 				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
@@ -2531,14 +2761,20 @@
 				2D20DF772088D84800095032 /* PaySuccessView.m in Sources */,
 				2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */,
 				2D0723F22082FEE40030996F /* CollegeViewController.m in Sources */,
+
 				2DA0C2E120B712DE0031AC47 /* CommDetailViewController.m in Sources */,
+
+				F23E655420B6886200EB6720 /* MyInvoicesCheckFailCell.m in Sources */,
+
 				2D165FF5209C0EB500C1C7E7 /* UserModel.m in Sources */,
+				F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */,
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
 				F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
 				2D20DFE720898B1900095032 /* SCMyCollectionModel.m in Sources */,
 				2D20DFF620898B7F00095032 /* SCPointExplainCell.m in Sources */,
 				2D07267C208311CB0030996F /* HistorySearchCell.m in Sources */,
+				F23E654020B6632E00EB6720 /* OpenInvoicesCell.m in Sources */,
 				2D20DF332088CEDF00095032 /* YYCache.m in Sources */,
 				2D20DEA32088C80D00095032 /* UIViewController+ZJScrollPageController.m in Sources */,
 				2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */,
@@ -2546,11 +2782,14 @@
 				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
+				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
 				2D20DE642086187200095032 /* UITableView+EmptyData.m in Sources */,
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
 				2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */,
+				F23E653B20B65AC000EB6720 /* OpenInvoicesViewController.m in Sources */,
 				2D20DE622086187200095032 /* NSDecimalNumber+Addtion.m in Sources */,
+				F23E657E20B693D600EB6720 /* QRadioButton.m in Sources */,
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
 				2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */,
 				2D20DE462086186000095032 /* MessageAlert.m in Sources */,
@@ -2573,6 +2812,7 @@
 				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
 				2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */,
 				2D20DEF32088CCD400095032 /* ChangeMyAddressViewController.m in Sources */,
+				F23E654F20B686D900EB6720 /* MyinvoicesCheckingCell.m in Sources */,
 				2D05C8AE20A83237001A8953 /* TeachItemViewCell.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
 				2D20DDC52086135000095032 /* SCProgressTimerView.m in Sources */,
@@ -2594,6 +2834,7 @@
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
+				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
 				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
@@ -2612,8 +2853,10 @@
 				2D0726AC2083923A0030996F /* MedieaListViewController.m in Sources */,
 				2D20DF952088D96B00095032 /* CKCLogisticsDetailVC.m in Sources */,
 				2D20DE122086149300095032 /* SCCommon.m in Sources */,
+				F23E656620B6911200EB6720 /* LeftLabelRightTextFieldView.m in Sources */,
 				2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */,
 				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
+				F208D35820B70E110098E64A /* MyInvoicesModel.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
 				2D165FF9209D9A0500C1C7E7 /* HonorListModel.m in Sources */,
 				2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */,
@@ -2663,6 +2906,7 @@
 				2D0726A2208332360030996F /* RecommendViewCell.m in Sources */,
 				2D0726C520839EE50030996F /* MessageViewController.m in Sources */,
 				2D20DFF020898B6000095032 /* YSPointCell.m in Sources */,
+				F2FA14DB20B556940066B153 /* SexTableCell.m in Sources */,
 				2D20DF292088CEC400095032 /* PPNetworkHelper.m in Sources */,
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
@@ -2679,6 +2923,7 @@
 				2D20DFC920898A0800095032 /* CleanCache.m in Sources */,
 				2D20DDC62086135000095032 /* SCAdImageView.m in Sources */,
 				2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */,
+				F208D35D20B71C490098E64A /* Ordersheet.m in Sources */,
 				2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */,
 				2D20DE20208614CE00095032 /* UIButton+XN.m in Sources */,
 				2D20DE8E2088C7BE00095032 /* SCCategoryViewController.m in Sources */,
@@ -2698,6 +2943,7 @@
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
 				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
+				F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */,
 				2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */,
 				2D6F923E208DFC7F007DFD0B /* TabTopAdsViewCell.m in Sources */,
 				2D20DFE420898B0E00095032 /* YSCollectionEditCell.m in Sources */,

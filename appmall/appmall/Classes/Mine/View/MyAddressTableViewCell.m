@@ -96,7 +96,7 @@
 
 -(void)refreshWithModel:(AddressModel *)addressModel andIndex:(NSInteger)index{
     _addressNameLable.text = addressModel.name;
-    _addressDetailLable.text = [NSString stringWithFormat:@"%@%@",addressModel.area,addressModel.address];
+    _addressDetailLable.text = [NSString stringWithFormat:@"%@ %@ %@ %@",addressModel.provincename,addressModel.cityname,addressModel.areaname,addressModel.address];
     _addressTelPhoneLable.text = addressModel.mobile;
     
     //联系人

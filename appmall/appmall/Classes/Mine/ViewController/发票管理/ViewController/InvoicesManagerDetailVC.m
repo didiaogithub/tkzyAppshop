@@ -1,23 +1,22 @@
 //
-//  AmortizationLoanViewController.m
+//  InvoicesManagerDetailVC.m
 //  appmall
 //
-//  Created by majun on 2018/4/22.
+//  Created by majun on 2018/5/23.
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "AmortizationLoanViewController.h"
+#import "InvoicesManagerDetailVC.h"
 
-@interface AmortizationLoanViewController ()
+@interface InvoicesManagerDetailVC ()
 
 @end
 
-@implementation AmortizationLoanViewController
+@implementation InvoicesManagerDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"分期还款";
+    self.title = @"发票详情";
 }
 
 - (void)didReceiveMemoryWarning {

@@ -31,6 +31,7 @@
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"MineInfoCell" bundle:nil] forCellReuseIdentifier:@"MineInfoCell"];
+    self.mTableView.tableFooterView = [UIView new];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

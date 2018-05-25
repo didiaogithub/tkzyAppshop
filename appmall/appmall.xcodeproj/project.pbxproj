@@ -288,9 +288,6 @@
 		2D791C792090685B00E455F5 /* WBMenuAllItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D791C782090685B00E455F5 /* WBMenuAllItem.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
-		F208D35820B70E110098E64A /* MyInvoicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35720B70E110098E64A /* MyInvoicesModel.m */; };
-		F208D35D20B71C490098E64A /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35A20B71C480098E64A /* Ordersheet.m */; };
-		F208D35E20B71C490098E64A /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35C20B71C490098E64A /* InvoicesManagerModel.m */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
 		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
 		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
@@ -317,6 +314,13 @@
 		F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657B20B693D600EB6720 /* radio_checked@2x.png */; };
 		F23E658120B693D600EB6720 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657C20B693D600EB6720 /* radio_unchecked.png */; };
 		F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */; };
+		F23F1A3C20B78EA900F01D01 /* InvoicesManCellHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A3B20B78EA900F01D01 /* InvoicesManCellHeadView.m */; };
+		F23F1A4320B78EDA00F01D01 /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4020B78EDA00F01D01 /* Ordersheet.m */; };
+		F23F1A4420B78EDA00F01D01 /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */; };
+		F23F1A4520B78EDA00F01D01 /* MyInvoicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */; };
+		F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */; };
+		F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */; };
+		F23F1A4C20B7904F00F01D01 /* InvoicesManCellFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
 		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
@@ -898,12 +902,6 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
-		F208D35620B70E110098E64A /* MyInvoicesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInvoicesModel.h; sourceTree = "<group>"; };
-		F208D35720B70E110098E64A /* MyInvoicesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInvoicesModel.m; sourceTree = "<group>"; };
-		F208D35920B71C480098E64A /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
-		F208D35A20B71C480098E64A /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
-		F208D35B20B71C490098E64A /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
-		F208D35C20B71C490098E64A /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
 		F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
 		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
 		F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerCell.h; sourceTree = "<group>"; };
@@ -943,6 +941,18 @@
 		F23E657B20B693D600EB6720 /* radio_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_checked@2x.png"; sourceTree = "<group>"; };
 		F23E657C20B693D600EB6720 /* radio_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unchecked.png; sourceTree = "<group>"; };
 		F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_unchecked@2x.png"; sourceTree = "<group>"; };
+		F23F1A3A20B78EA900F01D01 /* InvoicesManCellHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManCellHeadView.h; sourceTree = "<group>"; };
+		F23F1A3B20B78EA900F01D01 /* InvoicesManCellHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManCellHeadView.m; sourceTree = "<group>"; };
+		F23F1A3D20B78ED900F01D01 /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ordersheet.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/Ordersheet.h"; sourceTree = SOURCE_ROOT; };
+		F23F1A3E20B78ED900F01D01 /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvoicesManagerModel.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/InvoicesManagerModel.h"; sourceTree = SOURCE_ROOT; };
+		F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInvoicesModel.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/MyInvoicesModel.h"; sourceTree = SOURCE_ROOT; };
+		F23F1A4020B78EDA00F01D01 /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ordersheet.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/Ordersheet.m"; sourceTree = SOURCE_ROOT; };
+		F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InvoicesManagerModel.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/InvoicesManagerModel.m"; sourceTree = SOURCE_ROOT; };
+		F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInvoicesModel.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/MyInvoicesModel.m"; sourceTree = SOURCE_ROOT; };
+		F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManCellHeadView.xib; sourceTree = "<group>"; };
+		F23F1A4820B7903A00F01D01 /* InvoicesManCellFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManCellFooterView.h; sourceTree = "<group>"; };
+		F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManCellFooterView.m; sourceTree = "<group>"; };
+		F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManCellFooterView.xib; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
@@ -2054,12 +2064,12 @@
 		F208D35520B70DDF0098E64A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F208D35B20B71C490098E64A /* InvoicesManagerModel.h */,
-				F208D35C20B71C490098E64A /* InvoicesManagerModel.m */,
-				F208D35920B71C480098E64A /* Ordersheet.h */,
-				F208D35A20B71C480098E64A /* Ordersheet.m */,
-				F208D35620B70E110098E64A /* MyInvoicesModel.h */,
-				F208D35720B70E110098E64A /* MyInvoicesModel.m */,
+				F23F1A3E20B78ED900F01D01 /* InvoicesManagerModel.h */,
+				F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */,
+				F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */,
+				F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */,
+				F23F1A3D20B78ED900F01D01 /* Ordersheet.h */,
+				F23F1A4020B78EDA00F01D01 /* Ordersheet.m */,
 			);
 			name = Model;
 			path = "New Group";
@@ -2248,6 +2258,12 @@
 				F23E656220B6911200EB6720 /* LeftLabelRightLabelView.m */,
 				F23E656320B6911200EB6720 /* LeftLabelRightTextFieldView.h */,
 				F23E656420B6911200EB6720 /* LeftLabelRightTextFieldView.m */,
+				F23F1A4820B7903A00F01D01 /* InvoicesManCellFooterView.h */,
+				F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */,
+				F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */,
+				F23F1A3A20B78EA900F01D01 /* InvoicesManCellHeadView.h */,
+				F23F1A3B20B78EA900F01D01 /* InvoicesManCellHeadView.m */,
+				F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2462,6 +2478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
+				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
@@ -2483,6 +2500,7 @@
 				2D0726C12083929D0030996F /* HonourListViewCell.xib in Resources */,
 				F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */,
 				2D0726AD2083923A0030996F /* MedieaListViewController.xib in Resources */,
+				F23F1A4C20B7904F00F01D01 /* InvoicesManCellFooterView.xib in Resources */,
 				2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */,
 				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
@@ -2627,6 +2645,7 @@
 				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
 				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */,
+				F23F1A4520B78EDA00F01D01 /* MyInvoicesModel.m in Sources */,
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
 				F2487F4A20AE9F270005F624 /* CKCouponNotCanUseCell.m in Sources */,
@@ -2692,7 +2711,6 @@
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				2D20DE1F208614CE00095032 /* UIViewController+BackButtonHandler.m in Sources */,
 				2D20DF742088D71100095032 /* DistrictViewController.m in Sources */,
-				F208D35E20B71C490098E64A /* InvoicesManagerModel.m in Sources */,
 				2D20DEA22088C80D00095032 /* UIView+ZJFrame.m in Sources */,
 				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
@@ -2731,6 +2749,7 @@
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
 				2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */,
 				2D20DE462086186000095032 /* MessageAlert.m in Sources */,
+				F23F1A4320B78EDA00F01D01 /* Ordersheet.m in Sources */,
 				2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */,
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D791C6A20905BCA00E455F5 /* WBContentView.m in Sources */,
@@ -2752,6 +2771,7 @@
 				2D05C8AE20A83237001A8953 /* TeachItemViewCell.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
 				2D20DDC52086135000095032 /* SCProgressTimerView.m in Sources */,
+				F23F1A3C20B78EA900F01D01 /* InvoicesManCellHeadView.m in Sources */,
 				2D20DDB32086130B00095032 /* RootBaseViewController.m in Sources */,
 				2D20DDC42086135000095032 /* SCAdGoodsViewController.m in Sources */,
 				2D166002209DADC400C1C7E7 /* XYNoDataView.m in Sources */,
@@ -2792,7 +2812,6 @@
 				F23E656620B6911200EB6720 /* LeftLabelRightTextFieldView.m in Sources */,
 				2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */,
 				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
-				F208D35820B70E110098E64A /* MyInvoicesModel.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
 				2D165FF9209D9A0500C1C7E7 /* HonorListModel.m in Sources */,
 				2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */,
@@ -2800,6 +2819,7 @@
 				2D20DDDC208613E400095032 /* CKVersionCheckManager.m in Sources */,
 				2D07267D208311CB0030996F /* HotSerachCell.m in Sources */,
 				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
+				F23F1A4420B78EDA00F01D01 /* InvoicesManagerModel.m in Sources */,
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
@@ -2858,7 +2878,6 @@
 				2D20DFC920898A0800095032 /* CleanCache.m in Sources */,
 				2D20DDC62086135000095032 /* SCAdImageView.m in Sources */,
 				2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */,
-				F208D35D20B71C490098E64A /* Ordersheet.m in Sources */,
 				2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */,
 				2D20DE20208614CE00095032 /* UIButton+XN.m in Sources */,
 				2D20DE8E2088C7BE00095032 /* SCCategoryViewController.m in Sources */,
@@ -2872,6 +2891,7 @@
 				2D4D60FD20B449D700280033 /* UIView+GetVC.m in Sources */,
 				2D20DF8F2088D94800095032 /* SCOrderDetailModel.m in Sources */,
 				2D0726BB2083928A0030996F /* MedieaListViewCell.m in Sources */,
+				F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */,
 				2D0726A72083371B0030996F /* RecommendCollectionViewCell.m in Sources */,
 				2D20DE2C208614EC00095032 /* UIBarButtonItem+SXCreate.m in Sources */,
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InvoicesManCellFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpD-Sn-Eta">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uP-bw-wp8">
+                            <rect key="frame" x="15" y="10.5" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiO-n4-tGb">
+                            <rect key="frame" x="290" y="8.5" width="70" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="Vla-VY-CYt"/>
+                                <constraint firstAttribute="width" constant="70" id="sZz-Zv-5Tk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="开发票">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="rightBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xYN-eq-byE"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6uP-bw-wp8" firstAttribute="centerY" secondItem="tpD-Sn-Eta" secondAttribute="centerY" id="Ret-RF-stb"/>
+                        <constraint firstItem="DiO-n4-tGb" firstAttribute="centerY" secondItem="tpD-Sn-Eta" secondAttribute="centerY" id="kk8-P4-SkL"/>
+                        <constraint firstItem="6uP-bw-wp8" firstAttribute="leading" secondItem="tpD-Sn-Eta" secondAttribute="leading" constant="15" id="tSt-Yg-qY1"/>
+                        <constraint firstAttribute="trailing" secondItem="DiO-n4-tGb" secondAttribute="trailing" constant="15" id="zO2-Gr-69A"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tpD-Sn-Eta" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="71Z-EV-9Gk"/>
+                <constraint firstAttribute="bottom" secondItem="tpD-Sn-Eta" secondAttribute="bottom" constant="10" id="bXX-8B-pRq"/>
+                <constraint firstItem="tpD-Sn-Eta" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wiR-Xd-yex"/>
+                <constraint firstAttribute="trailing" secondItem="tpD-Sn-Eta" secondAttribute="trailing" id="wpb-ku-guY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="orderTimeLab" destination="6uP-bw-wp8" id="eje-9S-vLs"/>
+                <outlet property="rightBtn" destination="DiO-n4-tGb" id="k8f-BU-Z3C"/>
+            </connections>
+            <point key="canvasLocation" x="31.5" y="-208"/>
+        </view>
+    </objects>
+</document>

@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface OpenInvoicesViewController : BaseViewController
-
+/**  invoiceid*/
+@property (nonatomic, strong) NSString *invoiceid;
 @end

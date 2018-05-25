@@ -12,10 +12,12 @@
 #import "InvoicesManagerDetailVC.h"
 #import "OpenInvoicesViewController.h"
 #import "InvoicesManagerModel.h"
+#import "InvoicesManCellHeadView.h"
+#import "InvoicesManCellFooterView.h"
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
-@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManagerCellDelegate>
+@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate>
 
 /**  headView*/
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
@@ -69,7 +71,7 @@
         for (NSDictionary *dic in Arr) {
             InvoicesManagerModel *model = [[InvoicesManagerModel alloc]initWithDictionary:dic];
             [self.dataArray addObject:model];
-            
+        
         }
         
         [self.mTableView reloadData];
@@ -86,7 +88,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45)) style:UITableViewStylePlain];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45 + 10)) style:UITableViewStylePlain];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -124,7 +126,7 @@
     
     self.segementArr = [NSMutableArray arrayWithObjects:button,button1,nil];
     
-    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake(0, 39, btnW, 1)];
+    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 50)/2 , 39,50, 1)];
     self.sliderView.backgroundColor = [UIColor redColor];
     [contentView addSubview:self.sliderView];
     self.currentIndex = 0;
@@ -146,8 +148,8 @@
        
     }
     [self.mTableView reloadData];
-    self.sliderView.x = sender.x;
-    self.sliderView.width = sender.width;
+    self.sliderView.x = sender.x + (sender.width - 50)/2;
+    self.sliderView.width = 50;
     
     for (UIButton *btn in self.segementArr) {
         btn.selected = NO;
@@ -161,12 +163,17 @@
 #pragma mark ---- UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    InvoicesManagerModel *model = self.dataArray[section];
     
-    return 10;
+    return model.ordersheet.count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.dataArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 133;
+    return 103;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -177,28 +184,59 @@
     if (cell == nil) {
         cell= [[[NSBundle  mainBundle]
                 loadNibNamed:@"InvoicesManagerCell" owner:self options:nil]  lastObject];
-        cell.delegete = self;
     }
-    cell.rightBtn.layer.masksToBounds = YES;
-    cell.rightBtn.layer.cornerRadius = 3;
-    cell.rightBtn.layer.borderColor = [UIColor redColor].CGColor;
-    cell.rightBtn.layer.borderWidth = 1;
-    if (self.selectFirstState == YES) {
-        [cell.rightBtn setTitle:@"开发票" forState:0];
-        
-    }else{
-         [cell.rightBtn setTitle:@"发票详情" forState:0];
-    }
+    InvoicesManagerModel *model = self.dataArray[indexPath.section];
+    NSArray *ordersheet = model.ordersheet;
+    [cell refreshData:ordersheet[indexPath.row]];
+ 
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,50)];
+    view.rightBtn.layer.masksToBounds = YES;
+    view.rightBtn.layer.cornerRadius = 3;
+    view.rightBtn.layer.borderColor = [UIColor redColor].CGColor;
+    view.rightBtn.layer.borderWidth = 1;
+    view.delegate = self;
+    view.tag = section;
+    if (self.selectFirstState == YES) {
+        [view.rightBtn setTitle:@"开发票" forState:0];
+        
+    }else{
+        [view.rightBtn setTitle:@"发票详情" forState:0];
+    }
+    
+    InvoicesManagerModel *model = self.dataArray[section];
+    view.orderTimeLab.text = model.orderpaymoney;
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    InvoicesManCellHeadView *view = [[InvoicesManCellHeadView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    InvoicesManagerModel *model = self.dataArray[section];
+    view.orderNum.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 50;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
+
 - (void)showDetail:(UIButton *)sender{
     
     if ([sender.titleLabel.text isEqualToString:@"开发票"]) {
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
+        InvoicesManagerModel *model = self.dataArray[sender.tag];
+        open.invoiceid = model.orderid;
         [self.navigationController pushViewController:open animated:YES];
     }else{
         InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];

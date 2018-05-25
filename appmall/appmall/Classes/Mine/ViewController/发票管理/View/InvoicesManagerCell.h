@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ordersheet.h"
 @protocol InvoicesManagerCellDelegate<NSObject>
 - (void)showDetail:(UIButton *)sender;
 @end
 @interface InvoicesManagerCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
-- (IBAction)showDetailAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *numLab;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *numAndGgLab;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+
 /**  delegate*/
 @property (nonatomic, weak) id<InvoicesManagerCellDelegate> delegete;
+
+- (void)refreshData:(Ordersheet *)model;
+
 @end

@@ -32,6 +32,37 @@
     
     [self setUpRightItem];
     
+    [self getData];
+}
+
+- (void)getData{
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary * pramaDic = @{@"appid":Appid,
+                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                @"token":@"df9e345e28349f5911a413026924f63c",
+                                @"invoiceid":self.invoiceid,
+                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"invoiceid":self.invoiceid} andNeedUrlEncode:YES andKeyToLower:YES]};
+    
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getInvoiceByIdApi];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSArray *Arr = dict[@"data"];
+     
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+
 }
 
 

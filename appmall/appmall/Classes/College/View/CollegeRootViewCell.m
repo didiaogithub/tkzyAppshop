@@ -10,6 +10,7 @@
 #import "CollegeCollectionViewCell.h"
 #import "TeachItemViewCell.h"
 #import "TeacherDetailVC.h"
+#import "WebDetailViewController.h"
 #define  KCollegeCollectionViewCell @"CollegeCollectionViewCell"
 #define KTeachItemViewCell @"TeachItemViewCell"
 
@@ -154,6 +155,14 @@
         detailVC.hidesBottomBarWhenPushed = YES;
         detailVC.teacherId = [self.model.teacherList objectAtIndex:indexPath.row].teacherId;
        [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+    }else if(self.selectIndex == 1){
+        WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+        detailVC.detailUrl = _model.courseList[indexPath.row].detailUrl;
+        [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+    }else if(self.selectIndex == 3){
+        WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+        detailVC.detailUrl = _model.lookList[indexPath.row].detailUrl;
+        [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }
 }
 

@@ -232,10 +232,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
-    
     detailVC.goodsM = self.dataArr[indexPath.row];
-    
-
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

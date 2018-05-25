@@ -34,6 +34,7 @@
     self.view.backgroundColor = [UIColor tt_grayBgColor];
     [self creatSearchUI];
     [self setTableView];
+    [UITableView refreshHelperWithScrollView:self.tabTKXYRooView target:self  loadNewData:@selector(loadData) loadMoreData:nil isBeginRefresh:NO];
     [self loadData];
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
@@ -89,6 +90,7 @@
 - (void)actionSearch{
     DWQSearchController *dwqSearch=[[DWQSearchController alloc]init];
     dwqSearch.hidesBottomBarWhenPushed  = YES;
+    
     [self.navigationController pushViewController:dwqSearch animated:NO];
 }
 
@@ -166,7 +168,8 @@
             [self.navigationController pushViewController:teacherVC animated:YES];
             break;
         case 3:
-            
+            classListVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:classListVC animated:YES];
             break;
         case 4:
             
@@ -189,6 +192,7 @@
     [self.loadingView startAnimation];
     
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        [self.tabTKXYRooView tableViewEndRefreshCurPageCount:0];
         [self.loadingView stopAnimation];
         [self.tabTKXYRooView.mj_header endRefreshing];
         NSDictionary *dic = json;

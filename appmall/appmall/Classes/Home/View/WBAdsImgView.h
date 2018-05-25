@@ -13,6 +13,7 @@
 @protocol WBAdsImgViewDelegate
 
 -(void)adsImgViewClick:(BannerModel*)itemIndex;
+-(void)adsImgTKViewClick:(BannerListModel*)itemIndex;
 
 @end
 

@@ -29,8 +29,17 @@
     [super viewDidLoad];
     self.title = @"名师指路";
     _teacherArray = [NSMutableArray arrayWithCapacity:0];
-    _page = 1;
+    [UITableView refreshHelperWithScrollView:self.tabTeaCherListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self setTableView];
+    [self loadNewData];
+}
+
+-(void)loadNewData{
+    _page = 1;
+    [self loadData];
+}
+-(void)loadMoreData{
+    _page ++;
     [self loadData];
 }
 
@@ -47,12 +56,15 @@
     
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
+        
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
             [self.loadingView showNoticeView:dic[@"message"]];
+            [self.tabTeaCherListView tableViewEndRefreshCurPageCount:0];
             return;
         }
-        
+        NSArray *teacherList = dic[@"data"][@"teacherList"];
+        [self.tabTeaCherListView tableViewEndRefreshCurPageCount:teacherList.count];
         if (dic != nil) {
             for (NSDictionary *itemDic in dic[@"data"][@"teacherList"]) {
                 [_teacherArray addObject:[[TeacherListItemModel alloc]initWith:itemDic]];
@@ -63,6 +75,7 @@
         }
         
     } failure:^(NSError *error) {
+        [self.tabTeaCherListView tableViewEndRefreshCurPageCount:0];
         [self.loadingView stopAnimation];
         if (error.code == -1009) {
             [self.loadingView showNoticeView:NetWorkNotReachable];

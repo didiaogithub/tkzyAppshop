@@ -22,17 +22,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _page = 1;
     [self setTableView];
-    
-    [self loadData];
+    [UITableView refreshHelperWithScrollView:self.classListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];
     self.classArray = [NSMutableArray arrayWithCapacity:0];
+}
+
+
+-(void)loadNewData{
+    _page = 1;
+    [self loadData];
+}
+-(void)loadMoreData{
+    _page ++;
+    [self loadData];
 }
 
 -(void)setTableView{
     self.classListView .delegate = self;
     self.classListView.rowHeight = 140;
     self.classListView.dataSource = self;
+    
     [self.classListView registerNib:[UINib nibWithNibName:KClassItemViewCell bundle:nil] forCellReuseIdentifier:KClassItemViewCell];
 
 }
@@ -45,7 +55,7 @@
 -(void)loadData{
 
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"categoryId":@27}];
+    [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"categoryId":_classItem.categoryId}];
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetCourseList];
     
@@ -57,10 +67,12 @@
         [self.loadingView stopAnimation];
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
+            [self.classListView tableViewEndRefreshCurPageCount:0];
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
-
+        NSArray *list = dic[@"data"][@"courseList"];
+        [self.classListView tableViewEndRefreshCurPageCount:list.count];
         if (dic != nil) {
             for (NSDictionary *itemDic in dic[@"data"][@"courseList"]) {
                 ClassListModel *model = [[ClassListModel alloc]initWith:itemDic];

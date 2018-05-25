@@ -33,8 +33,9 @@
     [super viewDidLoad];
     [self setNavtion];
     [self setTableView];
-    [self loadData];
     
+    [UITableView refreshHelperWithScrollView:self.tabClassListView target:self loadNewData:@selector(loadData) loadMoreData:nil isBeginRefresh:NO];
+    [self loadData];
 }
 
 -(void)loadData{
@@ -50,6 +51,7 @@
     
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
+        [self.tabClassListView tableViewEndRefreshCurPageCount: 0];
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
             [self.loadingView showNoticeView:dic[@"message"]];

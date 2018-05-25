@@ -21,7 +21,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJp-oW-Wfz">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="104"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKT-6g-Jgu">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKT-6g-Jgu">
                         <rect key="frame" x="0.0" y="69" width="95" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="3Hu-by-wTe"/>
@@ -32,7 +32,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqY-Qz-Dzl">
                         <rect key="frame" x="22.5" y="11" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.90576424870000005" green="0.53811460079999995" blue="0.35503984360000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="ICe-Vu-v8W"/>
                             <constraint firstAttribute="width" constant="50" id="Xye-7k-pcE"/>

@@ -114,7 +114,6 @@
     [self.loadingView startAnimation];
     
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
-        
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
             [self.loadingView stopAnimation];

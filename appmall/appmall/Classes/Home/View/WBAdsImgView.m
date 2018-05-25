@@ -35,7 +35,7 @@
 }
 
 -(void)setImageUrlArrayTkSchool:(NSArray<BannerListModel *> *)imgUrls{
-    
+    _imgUrls = imgUrls;
     if (scrContentView == nil) {
         scrContentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth,self.mj_h)];
         scrContentView.delegate = self;
@@ -60,6 +60,7 @@
             itemImg.imageView.contentMode = UIViewContentModeScaleToFill;
             [scrContentView addSubview:itemImg];
             itemImg.adjustsImageWhenHighlighted = NO;
+     
             //            [itemImg setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"ad_home%d",i + 1]] forState:0];
         }
         [self addSubview:pageCtl];
@@ -82,10 +83,10 @@
         itemImg.imageView.contentMode = UIViewContentModeScaleToFill;
         [scrContentView addSubview:itemImg];
         
-        [itemImg addTarget:self action:@selector(imgItemClick) forControlEvents:UIControlEventTouchUpInside];
+        [itemImg addTarget:self action:@selector(imgItemTKClick) forControlEvents:UIControlEventTouchUpInside];
         itemImg.adjustsImageWhenHighlighted = NO;
         
-        [itemImg sd_setBackgroundImageWithURL: [NSURL URLWithString: [NSString stringWithFormat:@"http://tkbpre.klboo.com%@",[imgUrls objectAtIndex:i].picUrl ]] forState:0];
+        [itemImg sd_setBackgroundImageWithURL: [NSURL URLWithString: [NSString stringWithFormat:@"%@",[imgUrls objectAtIndex:i].picUrl ]] forState:0];
     }
     pageCtl.numberOfPages = imgUrls.count;
     
@@ -196,6 +197,10 @@
 -(void)imgItemClick{
     
     [self.delegate adsImgViewClick:_imgUrls[index]];
+}
+
+-(void)imgItemTKClick{
+    [self .delegate adsImgTKViewClick:_imgUrls[index]];
 }
 
 

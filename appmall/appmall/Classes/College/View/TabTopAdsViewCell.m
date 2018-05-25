@@ -8,6 +8,7 @@
 
 #import "TabTopAdsViewCell.h"
 #import "WBAdsImgView.h"
+#import "WebDetailViewController.h"
 
 @interface TabTopAdsViewCell()<WBAdsImgViewDelegate>{
     WBAdsImgView *adsView;
@@ -37,8 +38,10 @@
     [adsView setImageUrlArrayTkSchool:model.bannerList];
 }
 
--(void)adsImgViewClick:(BannerModel*)itemIndex{
-    
+-(void)adsImgTKViewClick:(BannerListModel*)itemIndex;{
+    WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+    detailVC.detailUrl = itemIndex.detailUrl;
+    [[self getCurrentVC ].navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

@@ -6,10 +6,10 @@
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "BaseModelRoot.h"
 
 
-@interface CourseListModel :BaseModel
+@interface CourseListModel :BaseModelRoot
 
 @property NSString *detailUrl;
 @property NSString *courseId;
@@ -19,13 +19,13 @@
 @end
 RLM_ARRAY_TYPE(CourseListModel)
 
-@interface BannerListModel :BaseModel
+@interface BannerListModel :BaseModelRoot
 @property NSString * detailUrl;
 @property NSString *picUrl;
 @end
 RLM_ARRAY_TYPE(BannerListModel)
 
-@interface TeacherListModel :BaseModel
+@interface TeacherListModel :BaseModelRoot
 
 @property NSString *picUrl;
 @property NSString *avater;
@@ -38,7 +38,7 @@ RLM_ARRAY_TYPE(BannerListModel)
 @end
 RLM_ARRAY_TYPE(TeacherListModel)
 
-@interface LookListModel :BaseModel
+@interface LookListModel :BaseModelRoot
 
 @property NSString *detailUrl;
 @property NSString *courseId;
@@ -48,7 +48,7 @@ RLM_ARRAY_TYPE(TeacherListModel)
 @end
 RLM_ARRAY_TYPE(LookListModel)
 
-@interface TKSchoolModel : BaseModel
+@interface TKSchoolModel : BaseModelRoot
 @property NSString *modelId;
 @property RLMArray  <CourseListModel*><CourseListModel> *courseList;
 @property RLMArray    <BannerListModel *><BannerListModel> *bannerList;

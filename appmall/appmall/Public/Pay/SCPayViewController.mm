@@ -490,7 +490,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@", WebServicePayAPI, payForJoinByWX_Url];
+    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@", @"", payForJoinByWX_Url];
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app版本
@@ -576,7 +576,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    NSString *upPayUrl= [NSString stringWithFormat:@"%@%@", WebServiceUnitPayAPI, Uionpay_Url];
+    NSString *upPayUrl= [NSString stringWithFormat:@"%@%@", @"", Uionpay_Url];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app版本
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];

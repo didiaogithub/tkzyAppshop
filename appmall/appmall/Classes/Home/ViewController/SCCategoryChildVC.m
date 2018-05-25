@@ -23,7 +23,7 @@
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) NodataLableView *nodataLableView;
 @property (nonatomic, assign) BOOL isFirst;
-
+@property (assign ,nonatomic) NSInteger pageNo;
 @property (nonatomic, assign) NSTimeInterval startInterval;
 @property (nonatomic, assign) NSTimeInterval endInterval;
 
@@ -40,7 +40,9 @@
 }
 
 -(void)passSortIdArray:(id)data {
+    
     self.idArr = data;
+    self.categoryId = [self.idArr firstObject];
 }
 
 -(void)passSelectIndex:(id)data {
@@ -51,13 +53,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initComponents];
+    _pageNo = 1;
     [self refreshData];
 }
 
 -(void)zj_viewDidAppearForIndex:(NSInteger)index {
     
     if (index == 0) {
-        self.categoryId = @"0";
+        self.categoryId = [self.idArr firstObject];
         RequestReachabilityStatus status = [RequestManager reachabilityStatus];
         switch (status) {
             case RequestReachabilityStatusReachableViaWiFi:
@@ -107,9 +110,16 @@
     
     _nodataLableView.hidden = YES;
     
-    NSDictionary *pramaDic= @{@"openid":@"123", @"categoryId":self.categoryId, @"sorttype":@"2", @"startindex":@"1", @"endindex":@"20"};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,
+                                            @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                            @"token":token,
+                                            @"pageNo":@(_pageNo),
+                                            @"pageSize":@(KpageSize),
+                                            @"sortid":self.categoryId,
+                                            @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES],@"sortid":self.categoryId};
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CategoryUrl];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, Get_Goods_ListBySortid];
     
     NSLog(@"请求参数：%@", pramaDic);
     
@@ -123,12 +133,12 @@
         [self.cateTableView.mj_footer endRefreshing];
         
         if ([dic[@"code"] integerValue] !=  200) {
-            [self showNoticeView:dic[@"msg"]];
+            [self showNoticeView:dic[@"message"]];
             return ;
         }
         
         NSLog(@"%@", dic);
-        NSArray *goodslist = dic[@"goodslist"];
+        NSArray *goodslist = dic[@"data"][@"goodsList"];
         if (goodslist.count == 0) {
             
             _nodataLableView.hidden = NO;
@@ -142,10 +152,7 @@
             
             self.dataArr = [NSMutableArray array];
             for (NSDictionary *listDic in goodslist){
-                SCCategoryGoodsModel *cateM = [[SCCategoryGoodsModel alloc] init];
-                [cateM setValuesForKeysWithDictionary:listDic];
-                cateM.isvip = [NSString stringWithFormat:@"%@", listDic[@"isvip"]];
-                cateM.keyName = [NSString stringWithFormat:@"%@_%@", cateM.itemtype, cateM.itemid];
+                SCCategoryGoodsModel *cateM = [[SCCategoryGoodsModel alloc] initWith:listDic];
                 [self.dataArr addObject:cateM];
             }
             
@@ -183,6 +190,7 @@
     self.cateTableView.estimatedSectionFooterHeight = 0;
     self.cateTableView.delegate = self;
     self.cateTableView.dataSource = self;
+    [self.cateTableView registerNib:[UINib nibWithNibName:@"SCCategoryTableCell" bundle:nil] forCellReuseIdentifier:@"SCCategoryTableCell"];
     _cateTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -196,11 +204,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *reuseID = [NSString stringWithFormat:@"SCCategoryTableCell%ld", indexPath.row];
-    SCCategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-    if (cell == nil) {
-        cell = [[SCCategoryTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseID];
-    }
+    
+    SCCategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCCategoryTableCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (self.dataArr.count > 0) {
         [cell refreshCellWithModel:self.dataArr[indexPath.row]];
@@ -227,19 +232,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
-    SCCategoryGoodsModel *goodsM = [[SCCategoryGoodsModel alloc] init];
-    if (self.dataArr.count > 0) {
-        goodsM = self.dataArr[indexPath.row];
-    }
     
-    detailVC.goodsId = [NSString stringWithFormat:@"%@", goodsM.itemid];
+    detailVC.goodsM = self.dataArr[indexPath.row];
+    
+
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - 添加到购物车
 -(void)addGoodsToShoppingCar:(SCCategoryGoodsModel *)cateM {
     
-    NSString *isdlbitem = [NSString stringWithFormat:@"%@", cateM.isdlbitem];
+    NSString *isdlbitem = @"";
     if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
         //跳转到下载下载创客app页面
         XWAlterVeiw *alert = [[XWAlterVeiw alloc] init];
@@ -247,9 +250,12 @@
         alert.titleLable.text = @"您购买的商品暂不能在商城下单，请点击【确定】下载创客APP进行购买";
         [alert show];
     }else{
-        NSString *goodsId = [NSString stringWithFormat:@"%@", cateM.itemid];
+        
         NSLog(@"加入购物车");
-        NSDictionary *pramaDic = @{@"itemids": goodsId, @"openid": USER_OPENID};
+        
+        NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+        NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":cateM.itemid,@"num":@"1",@"price":cateM.price}]];
+        [pramaDic setObject:@"items" forKey:itemsStr];
         NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
         
         [self.view addSubview:self.loadingView];
@@ -260,7 +266,7 @@
             NSDictionary *dic = json;
             NSString * status = [dic valueForKey:@"code"];
             if ([status intValue] != 200) {
-                [self showNoticeView:[dic valueForKey:@"msg"]];
+                [self showNoticeView:[dic valueForKey:@"message"]];
                 return ;
             }
             [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
@@ -342,7 +348,7 @@
         
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
-            [self showNoticeView:dic[@"msg"]];
+            [self showNoticeView:dic[@"message"]];
             return ;
         }
         
@@ -355,10 +361,8 @@
         
         
         for (NSDictionary *listDic in goodslist){
-            SCCategoryGoodsModel *cateM = [[SCCategoryGoodsModel alloc] init];
-            [cateM setValuesForKeysWithDictionary:listDic];
-            cateM.isvip = [NSString stringWithFormat:@"%@", listDic[@"isvip"]];
-            cateM.keyName = [NSString stringWithFormat:@"%@_%@", cateM.itemtype, cateM.itemid];
+            SCCategoryGoodsModel *cateM = [[SCCategoryGoodsModel alloc] initWith:listDic];
+
             [self.dataArr addObject:cateM];
         }
         

@@ -19,20 +19,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="420" height="187.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOL-5s-NbK">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="时间" translatesAutoresizingMaskIntoConstraints="NO" id="TOL-5s-NbK">
                         <rect key="frame" x="10" y="15" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="5z1-ED-Uhr"/>
                             <constraint firstAttribute="width" constant="16" id="eFV-58-L67"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSm-2F-GfM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSm-2F-GfM">
                         <rect key="frame" x="31" y="14.5" width="354" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="iJE-tp-mSd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.58426290749999998" green="0.58434748650000001" blue="0.58423620460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Eh-D6-Mv0">
@@ -48,12 +48,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krv-fU-CQm">
                         <rect key="frame" x="31.5" y="49" width="358.5" height="133"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-M1-zWa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-M1-zWa">
                                 <rect key="frame" x="10" y="13" width="338.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="nMY-zg-WTi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -61,12 +61,12 @@
                                 <rect key="frame" x="10" y="38" width="339" height="50"/>
                                 <color key="backgroundColor" red="0.56667226550000005" green="0.57052165269999999" blue="0.5741731524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdM-Wg-4fQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdM-Wg-4fQ">
                                 <rect key="frame" x="10" y="98" width="338.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Pib-MS-kCA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -102,7 +102,16 @@
                     <constraint firstItem="fSm-2F-GfM" firstAttribute="leading" secondItem="TOL-5s-NbK" secondAttribute="trailing" constant="5" id="yxW-Of-68m"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imgHonorIcon" destination="MBm-OY-vSX" id="uBB-Ru-P8K"/>
+                <outlet property="labDesc" destination="PdM-Wg-4fQ" id="5bl-vq-MdD"/>
+                <outlet property="labTime" destination="fSm-2F-GfM" id="TD3-Rl-siG"/>
+                <outlet property="labTitle" destination="AKw-M1-zWa" id="dEZ-Nd-HCB"/>
+            </connections>
             <point key="canvasLocation" x="84" y="126"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="时间" width="15" height="15"/>
+    </resources>
 </document>

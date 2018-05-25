@@ -53,8 +53,8 @@
 
 -(void)removeAdViewFromWindow {
     
-    NSString *str = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KloginStatus]];
-    if (IsNilOrNull(str)) {
+    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+    if (str == YES) {
         [self goWelcom];
     }else{
         [self enterFirstPage];

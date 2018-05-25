@@ -45,16 +45,23 @@
 -(void)getMyAddressData {
     [self.myAddressArray removeAllObjects];
     
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,
+                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                              @"token":token,
+                              @"pageNo":@"1",
+                              @"pageSize":@"10",
+                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"pageNo":@"1",
+                                                                            @"pageSize":@"10"} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *addressListUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
     
     [HttpTool getWithUrl:addressListUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue]!=200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
-        NSArray *addressArr = dict[@"addresslist"];
+        NSArray *addressArr = dict[@"data"][@"addressList"];
         if (addressArr.count == 0) {
             return;
         }
@@ -298,7 +305,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] intValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             [CKCNotificationCenter postNotificationName:@"OrderUpdateAddrFailNoti" object:nil];
         }else{
             if (_addressBlock) {
@@ -370,8 +377,15 @@
         isdefault = @"0";
     }
     
+    
+    NSString *token = [UserModel getCurUserToken];
     NSString *setDefaultUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateAddrUrl];
-    NSDictionary *pramaDic = @{@"openid":USER_OPENID, @"id":_addressModel.ID, @"isdefault":@"1"};
+    NSDictionary *pramaDic = @{@"appid":Appid,
+                               @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                               @"token":token,
+                               @"isdefault":@"1",
+                               @"addressId":self.addressModel.ID,
+                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"isdefault":@"1",@"addressId":self.addressModel.ID} andNeedUrlEncode:YES andKeyToLower:YES]};
     //如果是默认地址不请求
     if (![isdefault isEqualToString:@"1"]){
         [HttpTool postWithUrl:setDefaultUrl params:pramaDic success:^(id json) {
@@ -379,7 +393,7 @@
             
             NSDictionary *dict = json;
             if ([dict[@"code"] integerValue] != 200) {
-                [self showNoticeView:dict[@"msg"]];
+                [self showNoticeView:dict[@"message"]];
                 return ;
             }
             
@@ -420,12 +434,18 @@
     if (IsNilOrNull(_addressModel.ID)){
         _addressModel.ID = @"";
     }
-    NSDictionary * pramaDic = @{@"openid":USER_OPENID,@"id":_addressModel.ID};
+    
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary * pramaDic = @{@"appid":Appid,
+                                  @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                  @"token":token,
+                                  @"addressId":_addressModel.ID,
+                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"addressId":_addressModel.ID} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *deleteMeAddressUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,DeleAddrUrl];
     [HttpTool postWithUrl:deleteMeAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return;
         }
         //删除成功之后删除数组数据

@@ -294,7 +294,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         
@@ -742,7 +742,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [self.navigationController popToRootViewControllerAnimated:YES];
@@ -794,7 +794,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         [self showNoticeView:@"取消成功"];
@@ -836,7 +836,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self showNoticeView:[dic valueForKey:@"msg"]];
+            [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         

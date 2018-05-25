@@ -24,5 +24,9 @@
  */
 + (NSMutableArray *)getImgWidthAndHeight:(NSString *)imgUrl;
 
+/**
+ *  根据颜色创建图片
+ */
++ (UIImage *)imageWithColor:(UIColor*)color rect:(CGRect)rect;
 
 @end

@@ -5,7 +5,7 @@ inhibit_all_warnings! #忽略第三方代码警告
 
 target 'appmall' do
 
-  pod 'AFNetworking', '~> 3.1.0'
+pod 'AFNetworking', '~> 3.1.0'
   pod 'SDWebImage', '~> 3.7.2'
   pod 'MJExtension'
   pod 'IQKeyboardManager'
@@ -13,7 +13,6 @@ target 'appmall' do
   pod 'JGProgressHUD'
   pod 'Realm'
   pod 'Masonry'
-    pod 'MJRefresh'
-  
-
+  pod 'MJRefresh'
+  pod 'SobotKit', '~> 2.3.0'
 end

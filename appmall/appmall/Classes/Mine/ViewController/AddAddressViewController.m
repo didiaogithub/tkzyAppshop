@@ -10,7 +10,7 @@
 #import "AddressModel.h"
 #import "SelectedProviceViewController.h"
 #import "ChangeMyAddressViewController.h"
-
+#import "RequestManager.h"
 @interface AddAddressViewController ()<UITextFieldDelegate,UIScrollViewDelegate>
 {
     UIView *_bankView;
@@ -45,6 +45,8 @@
     NSString *_addressStr;
     NSString *_addressId;
     
+    NSArray *aeraCodeArray;
+    
 }
 @property(nonatomic,strong)UIView *bottomView;
 
@@ -77,10 +79,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"收货地址";
-
     [CKCNotificationCenter addObserver:self selector:@selector(transName:) name:@"bank" object:nil];
     [self createOtherViews];
     [self refreshData];
+    
     
     if (self.addressIdString && self.addressIdString.length > 0) {
          [self getAddressInfoData];
@@ -91,15 +93,18 @@
     if(IsNilOrNull(self.addressIdString)){
      self.addressIdString = @"";
     }
-    
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID};
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,
+                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                              @"token":token,
+                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
 
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         NSString *code  = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         _addressModel = [[AddressModel alloc] init];
@@ -327,6 +332,14 @@
 
 #pragma mark-点击添加地址
 -(void)clickAddressButton{
+    
+    
+  NSString *areaCodeS =  [KUserdefaults objectForKey:@"areaCodeS"];
+    aeraCodeArray = [areaCodeS componentsSeparatedByString:@","];
+    NSString *isdefault = @"false";
+    if (_defaultBtn.selected == YES) {
+        isdefault = @"true";
+    }
     [self resignTextfieldFirstRespoder];
     
     if(IsNilOrNull(_nameTextFiedld.text)){
@@ -363,38 +376,59 @@
             _cityLabel.text = self.areaNameStr;
         }
     }
-        
+    
     NSString *requestUrl = nil;
     NSDictionary *pramaDic = nil;
     if (IsNilOrNull(self.addressModel.ID)) {
-       self.addressModel.ID = @"";
+        self.addressModel.ID = @"";
     }
+    NSString *token = [UserModel getCurUserToken];
     
-    NSString *isdefault = @"false";
-    if (_defaultBtn.selected == YES) {
-        isdefault = @"true";
-    }
-
     _detailedAddressFiedld.text = [NSString stringWithFormat:@" %@",_detailedAddressFiedld.text];
     if (self.addressModel){ //修改
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateAddrUrl];
-        pramaDic = @{@"openid": USER_OPENID, @"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"area":_cityLabel.text,@"address":_detailedAddressFiedld.text, @"isdefault":isdefault, @"id":self.addressModel.ID};
+        pramaDic= @{@"appid":Appid,
+                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                    @"token":token,
+                    @"name":_nameTextFiedld.text,
+                    @"mobile":_telePhoneFiedld.text,
+                    @"address":_detailedAddressFiedld.text,
+                    @"provincecode":aeraCodeArray[0],
+                    @"citycode":aeraCodeArray[1],
+                    @"areacode":aeraCodeArray[2],
+                    @"isdefault":isdefault,
+                    @"addressId":self.addressModel.ID,
+                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"address":_detailedAddressFiedld.text,@"isdefault":isdefault, @"addressId":self.addressModel.ID,@"provincecode":aeraCodeArray[0],
+                                                                  @"citycode":aeraCodeArray[1],
+                                                                  @"areacode":aeraCodeArray[2]} andNeedUrlEncode:YES andKeyToLower:YES]};
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddAddrUrl];
-        pramaDic = @{@"openid": USER_OPENID, @"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"area":_cityLabel.text,@"address":_detailedAddressFiedld.text, @"isdefault":isdefault};
+        pramaDic= @{@"appid":Appid,
+                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                    @"token":token,
+                    @"name":_nameTextFiedld.text,
+                    @"mobile":_telePhoneFiedld.text,
+                    @"area":_detailedAddressFiedld.text,
+                    @"provincecode":aeraCodeArray[0],
+                    @"citycode":aeraCodeArray[1],
+                    @"areacode":aeraCodeArray[2],
+                    @"isdefault":isdefault,
+                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"area":_detailedAddressFiedld.text,@"area":_detailedAddressFiedld.text, @"isdefault":isdefault,@"provincecode":aeraCodeArray[0],
+                                                                  @"citycode":aeraCodeArray[1],
+                                                                  @"areacode":aeraCodeArray[2]} andNeedUrlEncode:YES andKeyToLower:YES]};
     }
     
-        [self.view addSubview:self.loadingView];
-        [self.loadingView startAnimation];
-        [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
-            
-            [self.loadingView stopAnimation];
-            NSDictionary *dict = json;
-            if ([dict[@"code"] integerValue] != 200) {
-                [self showNoticeView:dict[@"msg"]];
-                return ;
-            }
-            
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] != 200) {
+            [self showNoticeView:dict[@"message"]];
+            return ;
+        }
+        
         _addressId = [NSString stringWithFormat:@"%@",dict[@"id"]];
         //将地址传过去
         NSString *string = [NSString stringWithFormat:@"%@ %@",_cityLabel.text,_detailedAddressFiedld.text];
@@ -403,19 +437,22 @@
                 _placeBlock(string,_addressId);
             }
         }
-         [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+
+   
+   
     
-        } failure:^(NSError *error) {
-            [self.loadingView stopAnimation];
-            if (error.code == -1009) {
-                [self showNoticeView:NetWorkNotReachable];
-            }else{
-                [self showNoticeView:NetWorkTimeout];
-            }
-        }];
-
+   
 }
-
 #pragma mark-限制手机号输入长度
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     

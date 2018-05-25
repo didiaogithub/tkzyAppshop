@@ -26,6 +26,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - SobotKit (2.3.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - MJRefresh
   - Realm
   - SDWebImage (~> 3.7.2)
+  - SobotKit (~> 2.3.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -49,6 +51,7 @@ SPEC REPOS:
     - MJRefresh
     - Realm
     - SDWebImage
+    - SobotKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -60,7 +63,8 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SobotKit: 09bdd69653356c3cbe687e1455a65424de3b6287
 
-PODFILE CHECKSUM: 6ee4bed0e2622fa01cac9716971dccacfb563ce9
+PODFILE CHECKSUM: 822def525f99cb6e5fd8b7fcd7a4912a623d5062
 
 COCOAPODS: 1.5.0

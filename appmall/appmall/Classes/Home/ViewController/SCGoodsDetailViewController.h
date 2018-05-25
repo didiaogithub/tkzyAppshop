@@ -7,9 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "SCCategoryGoodsModel.h"
 
 @interface SCGoodsDetailViewController : BaseViewController
 
-@property (nonatomic, copy) NSString *goodsId;
+@property (nonatomic, strong) SCCategoryGoodsModel *goodsM;
+@property (nonatomic, strong) NSString  *goodsId;
 
 @end

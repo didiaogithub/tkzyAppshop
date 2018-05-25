@@ -46,9 +46,22 @@
 /**积分按钮*/
 @property (nonatomic, strong) UIButton *integralButton;
 
+/**认证label*/
+@property (nonatomic, strong) UILabel *rzLabel;
+
+/**编辑按钮*/
+@property (nonatomic, strong) UIButton *editButton;
+
 @property (nonatomic, strong) SCUserInfoModel *userInfoM;
+
 /**签到按钮*/
 @property (nonatomic, strong) UIButton *signUpButton;
+
+/** 客服小姐姐*/
+@property (nonatomic, strong) UIButton *kefuButton;
+
+/** 设置*/
+@property (nonatomic, strong) UIButton *settingButton;
 
 @end
 
@@ -66,7 +79,7 @@
     //背景图片
     _headBankImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:_headBankImageView];
-    UIImage *image = [UIImage imageNamed:@"minebank"];
+    UIImage *image = [UIImage imageWithColor:[UIColor redColor]];
     
     [_headBankImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
@@ -74,23 +87,12 @@
         make.edges.mas_offset(0);
     }];
     
-    //签到按钮
-    _signUpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.contentView addSubview:_signUpButton];
-    [_signUpButton setTitle:@"签到" forState:UIControlStateNormal];
-    [_signUpButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(10);
-        make.right.mas_offset(-10);
-        make.size.mas_offset(CGSizeMake(60, 40));
-    }];
-    [_signUpButton addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
-    
     _headImgV = [UIImageView new];
     [self.contentView addSubview:_headImgV];
     _headImgV.layer.cornerRadius = 60/2;
     _headImgV.clipsToBounds = YES;
     _headImgV.userInteractionEnabled = YES;
-    
+    _headImgV.backgroundColor = [UIColor greenColor];
     NSString *headUrl = [KUserdefaults objectForKey:@"YDSC_USER_HEAD"];
     [_headImgV sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:[UIImage imageNamed:@"name"]];
     
@@ -98,53 +100,84 @@
     [_headImgV addGestureRecognizer:tap];
     
     [_headImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(30);
-        make.left.mas_offset(SCREEN_WIDTH/2 - 60/2);
+        make.bottom.mas_offset(-30);
+        make.left.mas_offset(15);
         make.size.mas_offset(CGSizeMake(60, 60));
     }];
     
     //微信名字
-    _nameLable = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter font:MAIN_BODYTITLE_FONT];
+    _nameLable = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft font:MAIN_BODYTITLE_FONT];
     [self.contentView addSubview:_nameLable];
     _nameLable.font = [UIFont boldSystemFontOfSize:17];
     _nameLable.text = @" ";
-    _nameLable.textAlignment = NSTextAlignmentCenter;
+    _nameLable.textAlignment = NSTextAlignmentLeft;
     [_nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_headImgV.mas_bottom).offset(8);
-        make.left.mas_offset(0);
-        make.right.mas_offset(0);
+        make.top.equalTo(_headImgV.mas_top);
+        make.left.equalTo(_headImgV.mas_right).offset(10);
+        make.width.mas_offset(150);
     }];
-    //积分按钮
-    _integralButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.contentView addSubview:_integralButton];
-    [_integralButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_nameLable.mas_bottom).offset(8);
-        make.bottom.mas_offset(-15);
-        make.left.mas_offset(SCREEN_WIDTH/2-60);
-        make.width.mas_offset(120);
-        
+    
+    _rzLabel = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft font:MAIN_BODYTITLE_FONT];
+    
+    [self.contentView addSubview:_rzLabel];
+    _rzLabel.font = [UIFont boldSystemFontOfSize:12];
+    _rzLabel.text = @"已实名认证";
+    _rzLabel.textAlignment = NSTextAlignmentLeft;
+    [_rzLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_nameLable.mas_bottom).offset(5);
+        make.left.equalTo(_nameLable.mas_left);
+        make.width.mas_offset(150);
     }];
-    [_integralButton setTitle:@"积分:0" forState:UIControlStateNormal];
-    [_integralButton setBackgroundColor:[UIColor tt_redMoneyColor]];
-    _integralButton.titleLabel.font = MAIN_TITLE_FONT;
-    _integralButton.layer.cornerRadius = 15;
-    _integralButton.layer.masksToBounds = YES;
+    
+    // 编辑
+        _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.contentView addSubview:_editButton];
+    _editButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+        _editButton.layer.cornerRadius = 35 * 0.5;
+        _editButton.layer.masksToBounds = YES;
+        [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [_editButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_offset(100);
+            make.right.mas_offset(-10);
+            make.size.mas_offset(CGSizeMake(90, 35));
+        }];
+        [_editButton addTarget:self action:@selector(clickEditButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 客服小姐姐
+    _kefuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.contentView addSubview:_kefuButton];
+    [_kefuButton setImage:[UIImage imageNamed:@"客服小姐姐"] forState:UIControlStateNormal];
+    [_kefuButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_offset(30);
+        make.right.mas_offset(-10);
+        make.size.mas_offset(CGSizeMake(30, 30));
+    }];
+    [_kefuButton addTarget:self action:@selector(clickkefuButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 设置
+    
+    _settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.contentView addSubview:_settingButton];
+    [_settingButton setImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
+    [_settingButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_offset(30);
+        make.right.equalTo(_kefuButton.mas_left).offset(-10);
+        make.size.mas_offset(CGSizeMake(30, 30));
+    }];
+    [_settingButton addTarget:self action:@selector(clickSetUpButton) forControlEvents:UIControlEventTouchUpInside];
+    
+
 }
 
 -(void)fillData:(id)data {
     self.userInfoM = data;
-    NSString *integral = [NSString stringWithFormat:@"%@", self.userInfoM.integral];
-    if (IsNilOrNull(integral)) {
-        integral = @"积分:0";
-    }
-    [_integralButton setTitle:[NSString stringWithFormat:@"积分:%@", integral] forState:UIControlStateNormal];
     
     NSString *headPath = [NSString stringWithFormat:@"%@", self.userInfoM.head];
     if ([headPath hasPrefix:@"http"]) {
         [_headImgV sd_setImageWithURL:[NSURL URLWithString:headPath] placeholderImage:[UIImage imageNamed:@"name"]];
     }
     
-    NSString *smallname = [NSString stringWithFormat:@"%@", self.userInfoM.smallname];
+    NSString *smallname = [NSString stringWithFormat:@"%@", self.userInfoM.nickname];
     if (IsNilOrNull(smallname)) {
         smallname = @"";
     }
@@ -158,12 +191,23 @@
     }
 }
 
--(void)clickSignUpButton {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(signUp)]) {
-        [self.delegate signUp];
+-(void)clickEditButton{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(enterToDetailUserInfo)]) {
+        [self.delegate enterToDetailUserInfo];
     }
 }
 
+-(void)clickSetUpButton {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(setup)]) {
+        [self.delegate setup];
+    }
+}
+
+-(void)clickkefuButton{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(kefuxiaojiejie)]) {
+        [self.delegate kefuxiaojiejie];
+    }
+}
 @end
 
 

@@ -71,7 +71,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         

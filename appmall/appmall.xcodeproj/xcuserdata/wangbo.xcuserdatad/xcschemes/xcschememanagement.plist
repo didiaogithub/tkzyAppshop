@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>appmall.xcscheme</key>
+		<key>Copy of appmall.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>appmall.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F2FED0592081A1ED00DFBD77</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2FED0712081A1ED00DFBD77</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2FED07C2081A1ED00DFBD77</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

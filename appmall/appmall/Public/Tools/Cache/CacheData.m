@@ -10,9 +10,9 @@
 #import "XNKeychain.h"
 #import <Realm.h>
 
-uint64_t const CacheDataCurrentVersion = 12;
+uint64_t const CacheDataCurrentVersion = 13;
 
-NSString *const CacheDataEncryptionKey = @"com.ckc8.ydsc.data";
+NSString *const CacheDataEncryptionKey = @"com.tcsw.www.data";
 
 @implementation CacheData
 

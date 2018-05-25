@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HonorListModel.h"
 @interface HonourListViewCell : UITableViewCell
+
+-(void)reloadDataModel:(HonorListModel *)model;
 
 @end

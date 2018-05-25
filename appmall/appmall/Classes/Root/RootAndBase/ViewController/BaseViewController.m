@@ -13,6 +13,7 @@
 @end
 
 @implementation BaseViewController
+
 - (AppDelegate *)appDelegate
 {
     if (!_appDelegate) {
@@ -60,5 +61,13 @@
     }
     return YES;
 }
+
+-(void)getReaml{
+    NSString * docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbPath = [docPath stringByAppendingString:@"/tkxyDB.realm"];
+    self.realm = [RLMRealm realmWithURL:[NSURL URLWithString:dbPath]];
+}
+
+
 
 @end

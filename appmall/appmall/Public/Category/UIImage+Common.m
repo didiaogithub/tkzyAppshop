@@ -179,4 +179,17 @@
     return resArr;
 }
 
++ (UIImage *)imageWithColor:(UIColor*)color rect:(CGRect)rect {
+    CGRect imgRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
+    UIGraphicsBeginImageContextWithOptions(imgRect.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, imgRect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
+
 @end

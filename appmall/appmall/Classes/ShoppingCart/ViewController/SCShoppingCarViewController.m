@@ -153,7 +153,7 @@
     [self.view sendSubviewToBack:self.noDataView];
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, GetShoppingCarUrl];
-    NSDictionary *pramaDic= @{@"openid": @"USER_OPENID", @"startindex":@"0"};
+    NSDictionary *pramaDic= [HttpTool getCommonPara];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -163,13 +163,13 @@
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
             [self.loadingView stopAnimation];
-            [self.loadingView showNoticeView:itemDic[@"msg"]];
+            [self.loadingView showNoticeView:itemDic[@"message"]];
             return;
         }
         
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
-        NSArray *itemArr = itemDic[@"cartlist"];
+        NSArray *itemArr = itemDic[@"data"][@"cartlist"];
         
         if (itemArr.count == 0) {
             [self.view bringSubviewToFront:self.noDataView];
@@ -520,7 +520,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
-            [self.loadingView showNoticeView:dic[@"msg"]];
+            [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
         SCSCConfirmOrderViewController *sureMySelf = [[SCSCConfirmOrderViewController alloc]init];
@@ -598,7 +598,7 @@
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] !=  200) {
             [self.loadingView stopAnimation];
-            [self.loadingView showNoticeView:dic[@"msg"]];
+            [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
         for (NSString *index in indexArr) {
@@ -646,7 +646,7 @@
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
         if ([status intValue] != 200) {
-            [self.loadingView showNoticeView:[dic valueForKey:@"msg"]];
+            [self.loadingView showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
         

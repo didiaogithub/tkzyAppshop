@@ -198,7 +198,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         
@@ -225,7 +225,7 @@
     NSString *dateStr = [NSDate dateNow];
     NSString *nameStr = [USER_OPENID stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
     NSDictionary *pramaDic = @{@"name":nameStr,@"ckid":USER_OPENID,@"file":selectedImge};
-    NSString *photoImageUrl = [NSString stringWithFormat:@"%@%@", UploadImageDomain, UploadImageUrl];
+    NSString *photoImageUrl = [NSString stringWithFormat:@"%@%@", @"", UploadImageUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     //上传图片
@@ -236,7 +236,7 @@
         [self.loadingView stopAnimation];
         NSDictionary *dict = responseObject;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         NSLog(@"%@", dict);

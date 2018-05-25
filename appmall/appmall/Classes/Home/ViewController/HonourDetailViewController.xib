@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HonourDetailViewController">
             <connections>
                 <outlet property="honourDetailList" destination="ZqQ-Pl-6Dv" id="HrT-aI-lOk"/>
+                <outlet property="tabBottomDis" destination="cOu-fg-ff4" id="Qfa-bd-K8h"/>
+                <outlet property="tabTopDis" destination="Fwy-Dg-92R" id="9Cg-WD-EFR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,12 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx8-7r-6AJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </webView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZqQ-Pl-6Dv">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZqQ-Pl-6Dv">
+                    <rect key="frame" x="0.0" y="71" width="375" height="537"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
@@ -34,12 +32,9 @@
                 <constraint firstItem="ZqQ-Pl-6Dv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0eq-GY-XdS"/>
                 <constraint firstItem="ZqQ-Pl-6Dv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fwy-Dg-92R"/>
                 <constraint firstAttribute="trailing" secondItem="ZqQ-Pl-6Dv" secondAttribute="trailing" id="aeI-DS-t9l"/>
-                <constraint firstItem="fx8-7r-6AJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bEd-bB-qon"/>
                 <constraint firstAttribute="bottom" secondItem="ZqQ-Pl-6Dv" secondAttribute="bottom" id="cOu-fg-ff4"/>
-                <constraint firstAttribute="trailing" secondItem="fx8-7r-6AJ" secondAttribute="trailing" id="k0H-7j-C2I"/>
-                <constraint firstItem="fx8-7r-6AJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lsE-PW-hNG"/>
-                <constraint firstAttribute="bottom" secondItem="fx8-7r-6AJ" secondAttribute="bottom" id="tM1-ec-LPb"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

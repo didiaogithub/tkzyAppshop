@@ -9,6 +9,7 @@
 #import "MedieaDetailViewController.h"
 
 @interface MedieaDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *wbMediaDetail;
 
 @end
 
@@ -16,12 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"报道详情";
+    if(self.strUrl.length == 0){
+        
+        [self.wbMediaDetail loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    }else{
+        [self.wbMediaDetail loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strUrl]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 

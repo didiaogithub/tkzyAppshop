@@ -7,27 +7,31 @@
 //
 
 #import "HomeViewController.h"
+#import "MedieaDetailViewController.h"
 #import "DWQSearchController.h"
 #import "WBAdsImgView.h"
-#import "HomeMenuItemView.h"
 #import "RecommendViewCell.h"
 #import "HonourDetailViewController.h"
 #import "MessageViewController.h"
 #import "SCCategoryViewController.h"
 #import "MedieaListViewController.h"
+#import "TKHomeDataModel.h"
+#import "HomeTabTopAdsViewCell.h"
 #define KRecommendViewCell @"RecommendViewCell"
-@interface HomeViewController ()<WBAdsImgViewDelegate,HomeMenuItemViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
+#define KHomeTabTopAdsViewCell  @"HomeTabTopAdsViewCell"
+@interface HomeViewController ()<WBAdsImgViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
 {
-    
-    __weak IBOutlet UIScrollView *scroMainView;
-    __weak IBOutlet UIView *contentSrcView;
+    TKHomeDataModel *model;
+    __weak IBOutlet NSLayoutConstraint *tabDisBottom;
+    __weak IBOutlet NSLayoutConstraint *tabDisTop;
+
     WBAdsImgView *adsView;
-    __weak IBOutlet NSLayoutConstraint *heightContentView;
+
     CGFloat curY;
     UIView  *menuView;
-    __weak IBOutlet NSLayoutConstraint *disTop;
+
     __weak IBOutlet UITableView *tabHomeList;
-    __weak IBOutlet NSLayoutConstraint *tabDisTop;
+    
 }
 @end
 
@@ -35,39 +39,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        MJWeakSelf;
+    self.token = [self.realm addNotificationBlock:^(RLMNotification  _Nonnull notification, RLMRealm * _Nonnull realm) {
+        [weakSelf tabReloadData];
+    }];
 
     [self creatSearchUI];
     [self creatRightItem];
-    [self setADSUI];
-    [self setMenu];
+    
     [self setTableView];
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestHomePageData" object:nil];
+    [self requestDataWithoutCache];
     
+}
+
+
+-(void)tabReloadData{
+    RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
+    model = [result firstObject];
+    [tabHomeList reloadData];
 }
 
 -(void)defaultTableViewFrame {
     dispatch_async(dispatch_get_main_queue(), ^{
-        disTop.constant = NaviHeight;
+        tabDisTop.constant = NaviHeight;
+        tabDisBottom .constant = BOTTOM_BAR_HEIGHT + 49;
     });
 }
 
 -(void)changeTableViewFrame {
     dispatch_async(dispatch_get_main_queue(), ^{
-        disTop.constant = NaviHeight + 44;
+        tabDisTop.constant = NaviHeight + 44;
     });
     
 
 }
 
 -(void)requestDataWithoutCache {
-//    [self loadHomeData:YES];
+    [self loadHomeData:YES];
 }
 
 -(void)loadHomeData:(BOOL)showLoading {
     
-    NSDictionary *pramaDic= @{@"openid":USER_OPENID};
+    NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"",@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@""} andNeedUrlEncode:YES andKeyToLower:YES]};
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_Url];
     
@@ -81,7 +97,7 @@
         [tabHomeList.mj_header endRefreshing];
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
-            [self.loadingView showNoticeView:dic[@"msg"]];
+            [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
         
@@ -99,13 +115,17 @@
 //            }];
         }
         
-//        [self analysisDatas:dic];
-//        [self bindFirstPageData];
-        //创建分享按钮2017.10.12
-//        [self createShareButton];
-        //连接融云或者智齿
-//        [self connectRCloudOrTooth];
-        
+        if (dic != nil) {  //请求到数据
+            TKHomeDataModel * homeData = [[TKHomeDataModel alloc]initWith:dic[@"data"]];
+            homeData.modelId = @"1";
+            [self.realm beginWriteTransaction];
+            [self.realm addOrUpdateObject:homeData];
+            [self.realm commitWriteTransaction];
+        }
+        RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
+        model = [result firstObject];
+        [tabHomeList reloadData];
+
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {
@@ -121,64 +141,44 @@
     tabHomeList.delegate = self;
     tabHomeList.dataSource = self;
     [tabHomeList registerNib:[UINib nibWithNibName:KRecommendViewCell bundle:nil] forCellReuseIdentifier:KRecommendViewCell];
+    [tabHomeList registerClass:[HomeTabTopAdsViewCell class] forCellReuseIdentifier:KHomeTabTopAdsViewCell   ];
     [tabHomeList reloadData];
 }
 
 #pragma UITableViewDataSource
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 5;
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
-    [cell setCollection:indexPath.row];
-    cell.delegate = self;
-    heightContentView.constant = tableView.contentSize.height + tableView.mj_y;
-    cell.selectionStyle =UITableViewCellSelectionStyleNone;
-    return cell;
+    if (indexPath.section ==0) {
+        HomeTabTopAdsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KHomeTabTopAdsViewCell];
+        [cell  loadData:model];
+        return cell;
+    }else{
+        RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
+        [cell setCollection:indexPath.section andData:model];
+        cell.delegate = self;
+        
+        cell.selectionStyle =UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
-    return [cell getCollectionHeight:indexPath.row];
+    return [cell getCollectionHeight:indexPath.section];
     
 }
 
--(void)adsImgViewClick:(ADSModel*)itemIndex{
+-(void)adsImgViewClick:(BannerModel*)itemIndex{
     
-}
-
--(void)setADSUI{
-    if (adsView == nil) {
-        adsView = [[WBAdsImgView alloc]initWithFrame:CGRectMake(0,0, KscreenWidth, KscreenWidth/2)];
-        adsView.delegate = self;
-        [contentSrcView addSubview:adsView];
-    }
-    [adsView setImageUrlArray:nil];
-}
-
--(void)setMenu{
-    curY = adsView.mj_y + adsView.mj_h ;
-    if (menuView != nil) {
-        return;
-    }
-    menuView = [[UIView alloc]initWithFrame:CGRectMake(0, curY, KscreenWidth, 93)];
-    [contentSrcView addSubview:menuView];
-    
-    NSArray *items = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"HomeMenuItemsConfig" ofType: @"plist"]];
-    NSInteger width = KscreenWidth/items.count;
-    NSInteger height = menuView.mj_h;
-    for (int i = 0; i<items.count; i++) {
-        NSDictionary *itemdic = items[i];
-        HomeMenuItemView *menuItem = [[HomeMenuItemView alloc]initWithFrame:CGRectMake(i*width, 0, width, height)];
-        [menuItem setItemIcom:[UIImage imageNamed:itemdic[@"itemImage"]] title:itemdic[@"itemTitle"] setTag:1000+i];
-        
-        
-        menuItem.delegate = self;
-        menuView.backgroundColor = [UIColor whiteColor];
-        [menuView addSubview:menuItem];
-    }
-    curY = menuView.mj_h + menuView.mj_y + 10;
-    tabDisTop.constant = curY;
 }
 
 -(void)creatSearchUI{
@@ -190,7 +190,6 @@
     itemBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     itemBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     itemBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    
     [itemBtn setTitle:@"搜索商品 " forState:0];
     [itemBtn setBackgroundColor:RGBCOLOR(230 , 230, 230)];
     itemBtn .layer.cornerRadius = 3;
@@ -237,22 +236,18 @@
 -(void)recommendViewCellDelegateMore:(NSInteger)index{
     HonourDetailViewController *honourVC = [[HonourDetailViewController alloc]init];
      MedieaListViewController*medieaVC = [[MedieaListViewController alloc]init];
-    SCCategoryViewController *category = [[SCCategoryViewController alloc] init];
+  
     switch (index) {
             
-        case 0:
-            
-            category.titleArr = [NSMutableArray arrayWithArray: @[@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈"]];
-            category.categoryIdArr =[NSMutableArray arrayWithArray: @[@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈",@"哈哈"]];
-            category.selectedIndex = 0;
-            [self.navigationController pushViewController:category animated:YES];
+        case 2:
+            [self actionGoto];
             break;
-        case 1:
+        case 3:
             medieaVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:medieaVC animated:YES];
             
             break;
-        case 2:
+        case 4:
             honourVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:honourVC animated:YES];
             break;
@@ -260,6 +255,91 @@
         default:
             break;
     }
+}
+
+
+-(void)actionGoto{
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_Goods_Class_Url];
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        [tabHomeList.mj_header endRefreshing];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        
+        NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
+        if (!IsNilOrNull(meid)) {
+            
+            NSSet *setTags = [NSSet setWithObject:@"appmall"];
+            //            [JPUSHService setTags:setTags alias:[NSString stringWithFormat:@"m%@", meid] fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
+            //                NSLog(@"\n[用户登录成功后设置别名]---[%@]",iAlias);
+            //            }];
+            
+            //查看registId
+            //            [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+            //                NSLog(@"resCode : %d,registrationID: %@",resCode,registrationID);
+            //            }];
+        }
+        
+        if (dic != nil) {  //请求到数据
+            SCCategoryViewController *category = [[SCCategoryViewController alloc]init];
+            NSArray *categoryList = dic[@"data"][@"categoryList"];
+            for(int i = 0; i < 10; i++){
+                NSDictionary * itemDic = [categoryList objectAtIndex:0];
+                category.titleArr = [NSMutableArray arrayWithCapacity:0];
+                [category.titleArr addObject:itemDic[@"name"]];
+                category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
+                [category.categoryIdArr addObject:itemDic[@"styleid"]];
+                category.selectedIndex = 0;
+            }
+          [self.navigationController pushViewController:category animated:YES];
+        }else{
+            [self.loadingView showNoticeView:@"无更多商品"];
+        }
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
+}
+
+-(void)recommendViewCellClick:(NSIndexPath *)indexpath andTabIndex:(NSInteger)index{
+    if(index == 3){
+        
+        MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
+        medieaDetailVC.strUrl = model.mediaList[indexpath.row].link;
+        medieaDetailVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:medieaDetailVC animated:YES];
+        
+    }
+}
+
+-(void)loadData{
+    NSDictionary *dic = [self readLocalFileWithName:@"HomeJson"]; // 模拟网络请求
+    if (dic != nil) {  //请求到数据
+        TKHomeDataModel * homeData = [[TKHomeDataModel alloc]initWith:dic];
+        homeData.modelId = @"1";
+        [self.realm beginWriteTransaction];
+        [self.realm addOrUpdateObject:homeData];
+        [self.realm commitWriteTransaction];
+    }
+    RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
+    model = [result firstObject];
+    [tabHomeList reloadData];
 }
 
 -(void)actionToMessage{

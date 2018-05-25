@@ -75,7 +75,7 @@
             _nickNameTextfield.textAlignment = NSTextAlignmentRight;
             [_bankView addSubview:_nickNameTextfield];
             _nickNameTextfield.placeholder = @"未填写";
-            NSString *smallName = [NSString stringWithFormat:@"%@", self.userInfoM.smallname];
+            NSString *smallName = [NSString stringWithFormat:@"%@", self.userInfoM.nickname];
             if (!IsNilOrNull(smallName)) {
                 _nickNameTextfield.text = smallName;
             }
@@ -102,7 +102,7 @@
             _phoneTextfield.textAlignment = NSTextAlignmentRight;
             [_bankView addSubview:_phoneTextfield];
             _phoneTextfield.placeholder = @"未填写";
-            NSString *mobile = [NSString stringWithFormat:@"%@", self.userInfoM.mobile];
+            NSString *mobile = [NSString stringWithFormat:@"%@", self.userInfoM.phone];
             if (!IsNilOrNull(mobile)) {
                 _phoneTextfield.text = mobile;
                 _phoneTextfield.enabled = NO;
@@ -113,20 +113,20 @@
         }
         
         if (i == 4) {
-            _birthDayLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
-            
-            NSString *birthdate = [NSString stringWithFormat:@"%@", self.userInfoM.birthdate];
-            if (!IsNilOrNull(birthdate)) {
-                _birthDayLabel.text = birthdate;
-            }else{
-                _birthDayLabel.text = @"请选择";
-            }
-            _birthDayLabel.userInteractionEnabled = YES;
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseBirthDay)];
-            _birthDayLabel.frame = CGRectMake(SCREEN_WIDTH*0.5, h, SCREEN_WIDTH*0.5 - 10, height);
-            [_bankView addSubview:_birthDayLabel];
-            [_birthDayLabel addGestureRecognizer:tap];
+//            _birthDayLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+//
+//            NSString *birthdate = [NSString stringWithFormat:@"%@", self.userInfoM.birthdate];
+//            if (!IsNilOrNull(birthdate)) {
+//                _birthDayLabel.text = birthdate;
+//            }else{
+//                _birthDayLabel.text = @"请选择";
+////            }
+//            _birthDayLabel.userInteractionEnabled = YES;
+//
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseBirthDay)];
+//            _birthDayLabel.frame = CGRectMake(SCREEN_WIDTH*0.5, h, SCREEN_WIDTH*0.5 - 10, height);
+//            [_bankView addSubview:_birthDayLabel];
+//            [_birthDayLabel addGestureRecognizer:tap];
         }
         if (i == 5) {
             _sexLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
@@ -186,21 +186,21 @@
     [_phoneTextfield resignFirstResponder];
     
     
-    NSString *birthDay = nil;
-    if (IsNilOrNull(self.userInfoM.birthdate)) {
-        birthDay = self.userInfoM.birthdate;
-    }
-    WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:birthDay];
-    birthdayPickerView.confirmBlock = ^(NSString *selectedDate) {
-        _birthDayLabel.text = selectedDate;
-    };
-    
-    for (UIView *view in self.view.subviews) {
-        if ([view isKindOfClass:[WYBirthdayPickerView class]]) {
-            [view removeFromSuperview];
-        }
-    }
-    [self.view addSubview:birthdayPickerView];
+//    NSString *birthDay = nil;
+//    if (IsNilOrNull(self.userInfoM.birthdate)) {
+//        birthDay = self.userInfoM.birthdate;
+//    }
+//    WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:birthDay];
+//    birthdayPickerView.confirmBlock = ^(NSString *selectedDate) {
+//        _birthDayLabel.text = selectedDate;
+//    };
+//    
+//    for (UIView *view in self.view.subviews) {
+//        if ([view isKindOfClass:[WYBirthdayPickerView class]]) {
+//            [view removeFromSuperview];
+//        }
+//    }
+//    [self.view addSubview:birthdayPickerView];
 }
 
 -(void)chooseSex {
@@ -262,7 +262,7 @@
         
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"msg"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeHeadIconSuccessNotification" object:nil];

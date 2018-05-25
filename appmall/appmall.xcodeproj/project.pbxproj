@@ -297,6 +297,8 @@
 		2DA0C2EC20B715F90031AC47 /* CommPingLunViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2EA20B715F90031AC47 /* CommPingLunViewCell.xib */; };
 		2DA0C2EF20B79E1C0031AC47 /* CommDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2EE20B79E1C0031AC47 /* CommDetailHeaderView.m */; };
 		2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F020B79E2B0031AC47 /* CommDetailHeaderView.xib */; };
+		2DA0C2F420B7A7F90031AC47 /* CommPingLunModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */; };
+		2DA0C2F720B7D3B80031AC47 /* BaseModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F620B7D3B80031AC47 /* BaseModelRoot.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F208D35820B70E110098E64A /* MyInvoicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F208D35720B70E110098E64A /* MyInvoicesModel.m */; };
@@ -923,6 +925,10 @@
 		2DA0C2ED20B79E1C0031AC47 /* CommDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommDetailHeaderView.h; sourceTree = "<group>"; };
 		2DA0C2EE20B79E1C0031AC47 /* CommDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommDetailHeaderView.m; sourceTree = "<group>"; };
 		2DA0C2F020B79E2B0031AC47 /* CommDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommDetailHeaderView.xib; sourceTree = "<group>"; };
+		2DA0C2F220B7A7F90031AC47 /* CommPingLunModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommPingLunModel.h; sourceTree = "<group>"; };
+		2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommPingLunModel.m; sourceTree = "<group>"; };
+		2DA0C2F520B7D3B80031AC47 /* BaseModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelRoot.h; sourceTree = "<group>"; };
+		2DA0C2F620B7D3B80031AC47 /* BaseModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelRoot.m; sourceTree = "<group>"; };
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
@@ -1573,6 +1579,8 @@
 		2D0723D82082FBE90030996F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2DA0C2F520B7D3B80031AC47 /* BaseModelRoot.h */,
+				2DA0C2F620B7D3B80031AC47 /* BaseModelRoot.m */,
 				2D072686208327790030996F /* BaseModel.h */,
 				2D0726872083277A0030996F /* BaseModel.m */,
 			);
@@ -2075,6 +2083,8 @@
 			children = (
 				2DA0C2DB20B6F0480031AC47 /* CommListModel.h */,
 				2DA0C2DC20B6F0480031AC47 /* CommListModel.m */,
+				2DA0C2F220B7A7F90031AC47 /* CommPingLunModel.h */,
+				2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2507,11 +2517,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
-
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
-
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
-
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
@@ -2524,11 +2531,8 @@
 				2DA0C2EC20B715F90031AC47 /* CommPingLunViewCell.xib in Resources */,
 				2DA0C2E220B712DE0031AC47 /* CommDetailViewController.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
-
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
-
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
-
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
 				F23E655A20B68DC500EB6720 /* AddInvoicesDataViewController.xib in Resources */,
 				2D0726CB20839F6C0030996F /* MessageListViewCell.xib in Resources */,
@@ -2761,11 +2765,8 @@
 				2D20DF772088D84800095032 /* PaySuccessView.m in Sources */,
 				2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */,
 				2D0723F22082FEE40030996F /* CollegeViewController.m in Sources */,
-
 				2DA0C2E120B712DE0031AC47 /* CommDetailViewController.m in Sources */,
-
 				F23E655420B6886200EB6720 /* MyInvoicesCheckFailCell.m in Sources */,
-
 				2D165FF5209C0EB500C1C7E7 /* UserModel.m in Sources */,
 				F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */,
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
@@ -2784,6 +2785,7 @@
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
 				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
+				2DA0C2F720B7D3B80031AC47 /* BaseModelRoot.m in Sources */,
 				2D20DE642086187200095032 /* UITableView+EmptyData.m in Sources */,
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
 				2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */,
@@ -2823,6 +2825,7 @@
 				2D20DF862088D90700095032 /* LogistModel.m in Sources */,
 				2D20DDB42086130B00095032 /* RootTabBarController.m in Sources */,
 				2D20DE042086147300095032 /* SCCouponTools.m in Sources */,
+				2DA0C2F420B7A7F90031AC47 /* CommPingLunModel.m in Sources */,
 				2D20DEA72088C80D00095032 /* ZJScrollPageView.m in Sources */,
 				2D165FFC209DA57700C1C7E7 /* MediaListModel.m in Sources */,
 				2D20DEF02088CC8C00095032 /* AddAddressViewController.m in Sources */,

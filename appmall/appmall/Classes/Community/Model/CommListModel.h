@@ -6,11 +6,11 @@
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "BaseModelRoot.h"
 
 
 
-@interface CommListModelItem : BaseModel
+@interface CommListModelItem : BaseModelRoot
 
 
 @property NSString *commentnum;
@@ -34,7 +34,7 @@
 @end
 RLM_ARRAY_TYPE(CommListModelItem)
 
-@interface CommListModel : BaseModel
+@interface CommListModel : BaseModelRoot
 @property RLMArray  <CommListModelItem*><CommListModelItem> *commList;
 @property NSString *commId;
 

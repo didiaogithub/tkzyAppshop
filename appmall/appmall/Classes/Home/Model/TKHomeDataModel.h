@@ -6,9 +6,9 @@
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "BaseModelRoot.h"
 
-@interface BannerModel:BaseModel
+@interface BannerModel:BaseModelRoot
 
 @property NSString *itemid;
 @property NSString *imgpath;
@@ -19,7 +19,7 @@
 RLM_ARRAY_TYPE(BannerModel)
 
 
-@interface TopicModel:BaseModel
+@interface TopicModel:BaseModelRoot
 
 @property NSString *itemid;
 @property NSString *imgpath;
@@ -33,7 +33,7 @@ RLM_ARRAY_TYPE(BannerModel)
 RLM_ARRAY_TYPE(TopicModel)
 
 
-@interface SortModel:BaseModel
+@interface SortModel:BaseModelRoot
 
 @property NSString *sortid;
 @property NSString *imgpath;
@@ -42,7 +42,7 @@ RLM_ARRAY_TYPE(TopicModel)
 
 RLM_ARRAY_TYPE(SortModel)
 
-@interface MediaRepMortModel:BaseModel
+@interface MediaRepMortModel:BaseModelRoot
 
 @property NSString *itemid;
 @property NSString *imgpath;
@@ -53,7 +53,7 @@ RLM_ARRAY_TYPE(SortModel)
 @end
 RLM_ARRAY_TYPE(MediaRepMortModel)
 
-@interface HonorModel:BaseModel
+@interface HonorModel:BaseModelRoot
 
 @property NSString *imgpath;
 @property NSString *title;
@@ -61,7 +61,7 @@ RLM_ARRAY_TYPE(MediaRepMortModel)
 @end
 RLM_ARRAY_TYPE(HonorModel)
 
-@interface HotNewsModel:BaseModel
+@interface HotNewsModel:BaseModelRoot
 
 @property NSString *link;
 @property NSString *title;
@@ -71,7 +71,7 @@ RLM_ARRAY_TYPE(HotNewsModel)
 
 
 
-@interface TKHomeDataModel : BaseModel
+@interface TKHomeDataModel : BaseModelRoot
 @property NSString *modelId;
 @property RLMArray  <BannerModel*><BannerModel> *bannerList;
 @property RLMArray    <TopicModel *><TopicModel> *topicList;

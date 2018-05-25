@@ -8,18 +8,19 @@
 
 #import "CommPingLunListViewController.h"
 #import "CommPingLunViewCell.h"
+#import "CommPingLunModel.h"
 #define KCommPingLunViewCell @"CommPingLunViewCell.h"
 @interface CommPingLunListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property(nonatomic,assign)NSInteger page;
-@property(strong,nonatomic)NSMutableArray *commList;
+@property(strong,nonatomic)NSMutableArray <CommPingLunModel *>*commList;
 @end
 
 @implementation CommPingLunListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.commList = [NSMutableArray arrayWithCapacity:0];
     [self setTableView];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
@@ -60,24 +61,25 @@
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         
         [self.loadingView stopAnimation];
-        [self.tabCommunityList.mj_header endRefreshing];
+        
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
             [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
-        NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
-        if (!IsNilOrNull(meid)) {
-            
-            NSSet *setTags = [NSSet setWithObject:@"appmall"];
-        }
-        
+
         [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
         if (dic != nil) {
-            
+            NSArray *commArray = dic[@"data"][@"communitys"];
+            [self.tabCommunityList tableViewEndRefreshCurPageCount:commArray.count];
+            for (NSDictionary *itemDic in commArray) {
+                CommPingLunModel *model = [[CommPingLunModel alloc]initWith:itemDic];
+                [self.commList addObject:model];
+            }
+            [self .tabCommunityList reloadData];
         }else{
-            [self.loadingView showNoticeView:@"无更多商品"];
+            [self.loadingView showNoticeView:@"无更多评论"];
         }
         
         [self.tabCommunityList reloadData];
@@ -107,12 +109,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90; // [self.model.commList[indexPath.row] getCellHeight];
+    return [self.commList[indexPath.row] getCellHeight];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
-//    [cell refreshData:self.model.commList[indexPath.row]];
+    [cell refreshData:self.commList[indexPath.row]];
     return cell;
 }
 

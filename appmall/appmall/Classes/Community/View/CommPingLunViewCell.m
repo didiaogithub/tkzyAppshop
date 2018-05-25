@@ -18,7 +18,21 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+}
+- (IBAction)actionComDetail:(id)sender {
+}
+
+-(void)refreshData:(CommPingLunModel *)model{
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    self.labName.text = model.name;
+    self.labContent.text = model.content;
+    self.labTime.text = [model.time substringWithRange:NSMakeRange(4, 11)];
+    if (model.comment.count == 0) {
+        self.heightBottom.constant  =0;
+        
+    }else{
+        self.heightBottom.constant = 32;
+    }
 }
 
 @end

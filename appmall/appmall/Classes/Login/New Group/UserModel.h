@@ -6,26 +6,26 @@
 //  Copyright © 2017年 ckys. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "BaseModelRoot.h"
 
-@interface UserInfoModel:BaseModel
+@interface UserInfoModel:BaseModelRoot
 
 
-@property(nonatomic,strong)NSString *customerid;
-@property(nonatomic,strong)NSString *nickname;
-@property(nonatomic,strong)NSString *head;
-@property(nonatomic,strong)NSString *gradeid;
-@property(nonatomic,strong)NSString *phone;
-@property(nonatomic,strong)NSString *realname;
+@property NSString *customerid;
+@property NSString *nickname;
+@property NSString *head;
+@property NSString *gradeid;
+@property NSString *phone;
+@property NSString *realname;
 
 
 @end
 
-@interface UserModel :BaseModel
-@property(nonatomic,strong)NSString  *userId;
-@property (nonatomic,strong)UserInfoModel *userinfo;
-@property (nonatomic,strong)NSString  *token;
-@property (nonatomic,assign)BOOL  isLogin;
+@interface UserModel :BaseModelRoot
+@property NSString  *userId;
+@property UserInfoModel *userinfo;
+@property NSString  *token;
+@property BOOL  isLogin;
 
 -(void)saveUserInfo;
 -(void)Login;

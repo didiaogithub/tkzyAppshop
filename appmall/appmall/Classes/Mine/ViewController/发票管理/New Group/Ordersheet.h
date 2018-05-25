@@ -7,6 +7,7 @@
 @property (nonatomic, strong) NSString * itemid;
 @property (nonatomic, strong) NSString * itemno;
 @property (nonatomic, strong) NSString * itemspec;
+@property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * price;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

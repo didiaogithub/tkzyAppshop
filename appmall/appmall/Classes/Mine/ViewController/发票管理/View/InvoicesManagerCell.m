@@ -31,7 +31,7 @@
 - (void)refreshData:(Ordersheet *)model{
     
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@""]];
-    self.nameLab.text = model.itemspec;
+    self.nameLab.text = model.name;
     self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.price];
     self.numAndGgLab.text = [NSString stringWithFormat:@"编号：%@；规格：%@",model.itemno,model.itemspec];
     self.numLab.text = [NSString stringWithFormat:@"X%@",model.count];

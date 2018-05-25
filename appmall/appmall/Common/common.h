@@ -352,6 +352,10 @@
 #define getInvoiceByIdApi @"Invoice/getInvoiceById"
 /** 修改发票*/
 #define invoiceidApi @"Invocie/invoiceid"
+
+/** 我的分期*/
+#define getMyDividePayList @"Rule/getMyDividePayList"
+
 /**判空处理*/
 #define IsNilOrNull(_ref) (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]])  || ([(_ref) isKindOfClass:[NSNull class]]) || ([(_ref) isEqualToString:@"(null)"]) || ([(_ref) isEqualToString:@""]) || ([(_ref) isEqualToString:@"null"]) || ([(_ref) isEqualToString:@"<null>"]))
 

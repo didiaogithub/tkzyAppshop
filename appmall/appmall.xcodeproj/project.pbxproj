@@ -328,12 +328,19 @@
 		F23E658120B693D600EB6720 /* radio_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657C20B693D600EB6720 /* radio_unchecked.png */; };
 		F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */; };
 		F23F1A3C20B78EA900F01D01 /* InvoicesManCellHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A3B20B78EA900F01D01 /* InvoicesManCellHeadView.m */; };
-		F23F1A4320B78EDA00F01D01 /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4020B78EDA00F01D01 /* Ordersheet.m */; };
-		F23F1A4420B78EDA00F01D01 /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */; };
 		F23F1A4520B78EDA00F01D01 /* MyInvoicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */; };
 		F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */; };
 		F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */; };
 		F23F1A4C20B7904F00F01D01 /* InvoicesManCellFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */; };
+		F23F1A5520B7DF3800F01D01 /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5220B7DF3800F01D01 /* Ordersheet.m */; };
+		F23F1A5620B7DF3800F01D01 /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */; };
+		F23F1A5920B7E2B800F01D01 /* AmortizationHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5820B7E2B800F01D01 /* AmortizationHeadView.m */; };
+		F23F1A5B20B7E2CE00F01D01 /* AmortizationHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A5A20B7E2CE00F01D01 /* AmortizationHeadView.xib */; };
+		F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5D20B7ED7500F01D01 /* AmortizationLoan.m */; };
+		F23F1A6120B7ED7600F01D01 /* Stag.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5F20B7ED7600F01D01 /* Stag.m */; };
+		F23F1A6720B81C5800F01D01 /* 引导页3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6420B81C5700F01D01 /* 引导页3.jpg */; };
+		F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6520B81C5800F01D01 /* 引导页2.jpg */; };
+		F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6620B81C5800F01D01 /* 引导页1.jpg */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
 		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
@@ -977,16 +984,26 @@
 		F23E657D20B693D600EB6720 /* radio_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_unchecked@2x.png"; sourceTree = "<group>"; };
 		F23F1A3A20B78EA900F01D01 /* InvoicesManCellHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManCellHeadView.h; sourceTree = "<group>"; };
 		F23F1A3B20B78EA900F01D01 /* InvoicesManCellHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManCellHeadView.m; sourceTree = "<group>"; };
-		F23F1A3D20B78ED900F01D01 /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ordersheet.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/Ordersheet.h"; sourceTree = SOURCE_ROOT; };
-		F23F1A3E20B78ED900F01D01 /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvoicesManagerModel.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/InvoicesManagerModel.h"; sourceTree = SOURCE_ROOT; };
 		F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInvoicesModel.h; path = "appmall/Classes/Mine/ViewController/发票管理/Model/MyInvoicesModel.h"; sourceTree = SOURCE_ROOT; };
-		F23F1A4020B78EDA00F01D01 /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ordersheet.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/Ordersheet.m"; sourceTree = SOURCE_ROOT; };
-		F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InvoicesManagerModel.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/InvoicesManagerModel.m"; sourceTree = SOURCE_ROOT; };
 		F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInvoicesModel.m; path = "appmall/Classes/Mine/ViewController/发票管理/Model/MyInvoicesModel.m"; sourceTree = SOURCE_ROOT; };
 		F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManCellHeadView.xib; sourceTree = "<group>"; };
 		F23F1A4820B7903A00F01D01 /* InvoicesManCellFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManCellFooterView.h; sourceTree = "<group>"; };
 		F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManCellFooterView.m; sourceTree = "<group>"; };
 		F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManCellFooterView.xib; sourceTree = "<group>"; };
+		F23F1A5120B7DF3800F01D01 /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
+		F23F1A5220B7DF3800F01D01 /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
+		F23F1A5320B7DF3800F01D01 /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
+		F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
+		F23F1A5720B7E2B800F01D01 /* AmortizationHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationHeadView.h; sourceTree = "<group>"; };
+		F23F1A5820B7E2B800F01D01 /* AmortizationHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationHeadView.m; sourceTree = "<group>"; };
+		F23F1A5A20B7E2CE00F01D01 /* AmortizationHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationHeadView.xib; sourceTree = "<group>"; };
+		F23F1A5C20B7ED7500F01D01 /* AmortizationLoan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmortizationLoan.h; sourceTree = "<group>"; };
+		F23F1A5D20B7ED7500F01D01 /* AmortizationLoan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoan.m; sourceTree = "<group>"; };
+		F23F1A5E20B7ED7600F01D01 /* Stag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stag.h; sourceTree = "<group>"; };
+		F23F1A5F20B7ED7600F01D01 /* Stag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stag.m; sourceTree = "<group>"; };
+		F23F1A6420B81C5700F01D01 /* 引导页3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页3.jpg"; sourceTree = "<group>"; };
+		F23F1A6520B81C5800F01D01 /* 引导页2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页2.jpg"; sourceTree = "<group>"; };
+		F23F1A6620B81C5800F01D01 /* 引导页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页1.jpg"; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
@@ -1659,6 +1676,9 @@
 		2D20DDC82086135F00095032 /* 引导页 */ = {
 			isa = PBXGroup;
 			children = (
+				F23F1A6620B81C5800F01D01 /* 引导页1.jpg */,
+				F23F1A6520B81C5800F01D01 /* 引导页2.jpg */,
+				F23F1A6420B81C5700F01D01 /* 引导页3.jpg */,
 				2D20DDCC2086139600095032 /* View */,
 				2D20DDCB2086139200095032 /* Model */,
 				2D20DDCA2086138400095032 /* ViewController */,
@@ -2119,12 +2139,12 @@
 		F208D35520B70DDF0098E64A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F23F1A3E20B78ED900F01D01 /* InvoicesManagerModel.h */,
-				F23F1A4120B78EDA00F01D01 /* InvoicesManagerModel.m */,
+				F23F1A5320B7DF3800F01D01 /* InvoicesManagerModel.h */,
+				F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */,
+				F23F1A5120B7DF3800F01D01 /* Ordersheet.h */,
+				F23F1A5220B7DF3800F01D01 /* Ordersheet.m */,
 				F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */,
 				F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */,
-				F23F1A3D20B78ED900F01D01 /* Ordersheet.h */,
-				F23F1A4020B78EDA00F01D01 /* Ordersheet.m */,
 			);
 			name = Model;
 			path = "New Group";
@@ -2264,6 +2284,9 @@
 		F2F0E43D20B6D56B007775B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F23F1A5720B7E2B800F01D01 /* AmortizationHeadView.h */,
+				F23F1A5820B7E2B800F01D01 /* AmortizationHeadView.m */,
+				F23F1A5A20B7E2CE00F01D01 /* AmortizationHeadView.xib */,
 				F2F0E44020B6D5C0007775B1 /* AmortizationLoanCell.h */,
 				F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */,
 				F2F0E44220B6D5C0007775B1 /* AmortizationLoanCell.xib */,
@@ -2274,6 +2297,10 @@
 		F2F0E43E20B6D571007775B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F23F1A5C20B7ED7500F01D01 /* AmortizationLoan.h */,
+				F23F1A5D20B7ED7500F01D01 /* AmortizationLoan.m */,
+				F23F1A5E20B7ED7600F01D01 /* Stag.h */,
+				F23F1A5F20B7ED7600F01D01 /* Stag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2532,6 +2559,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */,
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
 				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
@@ -2539,6 +2567,7 @@
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
+				F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */,
 				F23E654620B66F9D00EB6720 /* MyInvoicesViewController.xib in Resources */,
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
@@ -2547,6 +2576,7 @@
 				2D6F9262208F4A78007DFD0B /* TeacherItemViewCell.xib in Resources */,
 				2DA0C2EC20B715F90031AC47 /* CommPingLunViewCell.xib in Resources */,
 				2DA0C2E220B712DE0031AC47 /* CommDetailViewController.xib in Resources */,
+				F23F1A5B20B7E2CE00F01D01 /* AmortizationHeadView.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
@@ -2567,6 +2597,7 @@
 				2D6F9267208F4CB3007DFD0B /* TeacherListVC.xib in Resources */,
 				2D0726A3208332360030996F /* RecommendViewCell.xib in Resources */,
 				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
+				F23F1A6720B81C5800F01D01 /* 引导页3.jpg in Resources */,
 				2D6F926C208F5040007DFD0B /* TeacherDetailVC.xib in Resources */,
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
@@ -2746,6 +2777,7 @@
 				2D20DFB62088DD0D00095032 /* SCReleaseCommentCell.m in Sources */,
 				2D20DE8B2086367C00095032 /* SCLoginViewController.m in Sources */,
 				2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */,
+				F23F1A5920B7E2B800F01D01 /* AmortizationHeadView.m in Sources */,
 				2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */,
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
 				2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */,
@@ -2813,7 +2845,6 @@
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
 				2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */,
 				2D20DE462086186000095032 /* MessageAlert.m in Sources */,
-				F23F1A4320B78EDA00F01D01 /* Ordersheet.m in Sources */,
 				2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */,
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D791C6A20905BCA00E455F5 /* WBContentView.m in Sources */,
@@ -2863,6 +2894,7 @@
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
 				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
+				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
 				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
@@ -2886,7 +2918,6 @@
 				2D20DDDC208613E400095032 /* CKVersionCheckManager.m in Sources */,
 				2D07267D208311CB0030996F /* HotSerachCell.m in Sources */,
 				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
-				F23F1A4420B78EDA00F01D01 /* InvoicesManagerModel.m in Sources */,
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
@@ -2896,6 +2927,7 @@
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
 				2D20DE21208614CE00095032 /* NSString+MD5.m in Sources */,
+				F23F1A5620B7DF3800F01D01 /* InvoicesManagerModel.m in Sources */,
 				2D4D60E920B3077B00280033 /* ClassCateItem.m in Sources */,
 				2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */,
 				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
@@ -2922,6 +2954,7 @@
 				2D20DF5F2088D56500095032 /* MyAddressTableViewCell.m in Sources */,
 				2D20DF452088D15A00095032 /* StarEvaluateView.m in Sources */,
 				2D20DFF920898BA100095032 /* SCCanCommentCell.m in Sources */,
+				F23F1A6120B7ED7600F01D01 /* Stag.m in Sources */,
 				2D20DE102086149300095032 /* DefaultValue.m in Sources */,
 				2D20DEC42088CA1500095032 /* SCShoppingCarCell.m in Sources */,
 				2D6F9275208F5074007DFD0B /* TeacherClassListViewCell.m in Sources */,
@@ -2965,6 +2998,7 @@
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
+				F23F1A5520B7DF3800F01D01 /* Ordersheet.m in Sources */,
 				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
 				F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */,
 				2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */,

@@ -9,6 +9,7 @@
 @property (nonatomic, strong) NSString * orderno;
 @property (nonatomic, strong) NSString * orderpaymoney;
 @property (nonatomic, strong) NSArray * ordersheet;
+@property (nonatomic, strong) NSString * ordertime;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

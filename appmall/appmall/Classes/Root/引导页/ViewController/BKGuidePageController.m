@@ -78,7 +78,7 @@ static NSString *ID = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BKGuidePageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    NSString *imageName = [NSString stringWithFormat:@"guide%ld.jpg",indexPath.row + 1];
+    NSString *imageName = [NSString stringWithFormat:@"引导页%ld.jpg",indexPath.row + 1];
     cell.image = [UIImage imageNamed:imageName];
     
     return cell;

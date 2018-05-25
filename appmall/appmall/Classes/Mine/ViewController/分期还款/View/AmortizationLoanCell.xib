@@ -19,15 +19,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83X-eI-xnd">
-                        <rect key="frame" x="15" y="27" width="20" height="20"/>
+                        <rect key="frame" x="15" y="29.5" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="cgh-X6-lCC"/>
-                            <constraint firstAttribute="height" constant="20" id="s4b-Sg-3yA"/>
+                            <constraint firstAttribute="width" constant="15" id="cgh-X6-lCC"/>
+                            <constraint firstAttribute="height" constant="15" id="s4b-Sg-3yA"/>
                         </constraints>
                         <state key="normal" image="选中1"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMU-7B-vjH">
-                        <rect key="frame" x="40" y="20" width="34" height="34"/>
+                        <rect key="frame" x="38" y="20" width="34" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="34" id="brc-4z-0N0"/>
                             <constraint firstAttribute="height" constant="34" id="oQH-jU-PY6"/>
@@ -36,22 +36,46 @@
                         <state key="normal" title="待" backgroundImage="待"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号：123hj9804324234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbb-ng-kUj">
-                        <rect key="frame" x="82" y="20" width="155" height="14.5"/>
+                        <rect key="frame" x="80" y="20" width="155" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应还款时间：2018-01-06 12：09：53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-PV-2Uq">
+                        <rect key="frame" x="80" y="39.5" width="212.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥564536.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2f-Vz-aXw">
+                        <rect key="frame" x="241" y="20" width="71" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="83X-eI-xnd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="36I-mg-ce2"/>
                     <constraint firstItem="qMU-7B-vjH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7la-xt-HRd"/>
+                    <constraint firstItem="Q2f-Vz-aXw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Ca8-2X-tUA"/>
                     <constraint firstItem="Pbb-ng-kUj" firstAttribute="leading" secondItem="qMU-7B-vjH" secondAttribute="trailing" constant="8" id="GZv-Mg-1Aa"/>
-                    <constraint firstItem="qMU-7B-vjH" firstAttribute="leading" secondItem="83X-eI-xnd" secondAttribute="trailing" constant="5" id="Z5G-cU-blQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Q2f-Vz-aXw" secondAttribute="trailing" constant="8" id="JvR-I5-pmP"/>
+                    <constraint firstItem="hAP-PV-2Uq" firstAttribute="leading" secondItem="qMU-7B-vjH" secondAttribute="trailing" constant="8" id="Sme-w3-nA4"/>
+                    <constraint firstItem="hAP-PV-2Uq" firstAttribute="leading" secondItem="Pbb-ng-kUj" secondAttribute="leading" id="UDH-9X-5aG"/>
+                    <constraint firstItem="qMU-7B-vjH" firstAttribute="leading" secondItem="83X-eI-xnd" secondAttribute="trailing" constant="8" id="Z5G-cU-blQ"/>
                     <constraint firstItem="Pbb-ng-kUj" firstAttribute="top" secondItem="qMU-7B-vjH" secondAttribute="top" id="ZE4-eu-Tal"/>
                     <constraint firstItem="83X-eI-xnd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="gkj-dU-2ce"/>
+                    <constraint firstItem="hAP-PV-2Uq" firstAttribute="bottom" secondItem="qMU-7B-vjH" secondAttribute="bottom" id="qMw-Nq-s2V"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="62" y="93.5"/>
+            <connections>
+                <outlet property="daiBtn" destination="qMU-7B-vjH" id="r6b-wf-9dl"/>
+                <outlet property="leftBtn" destination="83X-eI-xnd" id="VAo-Wi-owi"/>
+                <outlet property="moneyLab" destination="Q2f-Vz-aXw" id="evq-9h-8Mm"/>
+                <outlet property="orderNoLab" destination="Pbb-ng-kUj" id="1Rz-RX-j2J"/>
+                <outlet property="timeLab" destination="hAP-PV-2Uq" id="oTX-Ug-yNu"/>
+            </connections>
+            <point key="canvasLocation" x="-87" y="72.5"/>
         </tableViewCell>
     </objects>
     <resources>

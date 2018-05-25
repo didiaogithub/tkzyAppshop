@@ -55,8 +55,8 @@
     
     _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 56  , 56)];
     _loginIcon.center = CGPointMake(SCREEN_WIDTH/ 2, _loginIcon.centerY);
-//    _loginIcon.image = [UIImage imageNamed:@"bg"];
-    _loginIcon.backgroundColor = [UIColor redColor];
+    _loginIcon.image = [UIImage imageNamed:@"logo-商城"];
+//    _loginIcon.backgroundColor = [UIColor redColor];
     [_loginIcon setUserInteractionEnabled:YES];
     [self.view addSubview:_loginIcon];
     

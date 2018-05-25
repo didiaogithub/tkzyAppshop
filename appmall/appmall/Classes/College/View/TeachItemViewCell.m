@@ -13,10 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.teacherIcon.layer.cornerRadius = self.teacherIcon.mj_h/ 2;
+    self.teacherIcon.layer.masksToBounds = YES;
     self.viewContent.layer .cornerRadius = 4;
     self.viewContent.layer.borderColor = RGBCOLOR(200, 200, 200).CGColor;
     self.viewContent.layer.borderWidth = 1;
-    // Initialization code
 }
 
 -(void)loadData:(TeacherListModel *)model{

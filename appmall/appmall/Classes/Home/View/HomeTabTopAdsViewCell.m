@@ -8,6 +8,7 @@
 
 #import "HomeTabTopAdsViewCell.h"
 #import "WBAdsImgView.h"
+#import "WebDetailViewController.h"
 
 @interface HomeTabTopAdsViewCell()<WBAdsImgViewDelegate>{
     WBAdsImgView *adsView;
@@ -34,10 +35,12 @@
     
 }
 -(void)loadData:(TKHomeDataModel *)model{
-    [adsView setImageUrlArray:model.bannerList];
+    [adsView setImageUrlArray:(NSArray *)model.bannerList];
 }
 -(void)adsImgViewClick:(BannerModel*)itemIndex{
-    
+    WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+    detailVC.detailUrl = itemIndex.link;
+    [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

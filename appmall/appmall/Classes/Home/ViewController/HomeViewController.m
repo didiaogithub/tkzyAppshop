@@ -17,6 +17,8 @@
 #import "MedieaListViewController.h"
 #import "TKHomeDataModel.h"
 #import "HomeTabTopAdsViewCell.h"
+#import "SCOrderDetailModel.h"
+#import "SCGoodsDetailViewController.h"
 #define KRecommendViewCell @"RecommendViewCell"
 #define KHomeTabTopAdsViewCell  @"HomeTabTopAdsViewCell"
 @interface HomeViewController ()<WBAdsImgViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
@@ -159,6 +161,7 @@
     if (indexPath.section ==0) {
         HomeTabTopAdsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KHomeTabTopAdsViewCell];
         [cell  loadData:model];
+        
         return cell;
     }else{
         RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
@@ -325,6 +328,14 @@
         medieaDetailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:medieaDetailVC animated:YES];
         
+    }
+    
+    if (index == 2) {
+        SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
+        SCCategoryGoodsModel *modelItem = [[SCCategoryGoodsModel alloc]init];
+        modelItem.itemid = model.topicList[index].itemid;
+        detailVC.goodsM  = modelItem;
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
 

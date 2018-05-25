@@ -61,14 +61,14 @@
 -(void)showAllItem{
     if (allItemView== nil) {
        
-        allItemView = [[WBMenuAllItem alloc]initWithFrame: CGRectMake(0, 20, KscreenWidth, 400)];
+        allItemView = [[WBMenuAllItem alloc]initWithFrame: CGRectMake(0, 20, KscreenWidth, KscreenHeight)];
          allItemView.delegate = self;
         allItemView.backgroundColor = [UIColor whiteColor];
         [allItemView refreshSelectItem:self.titles];
         [self addSubview:allItemView];
     }else{
         allItemView .hidden = NO;
-        allItemView.mj_h = 400;
+        allItemView.mj_h = 180;
           [allItemView refreshSelectItem:self.titles];
     }
 }

@@ -164,14 +164,9 @@
 #define Home_HonorList_Url  @"index/getHonorList"/**获取企业荣誉*/
 #define Home_MediaLit_Url  @"Index/getMediaList"/**获取媒体列表*/
 #define Home_Goods_Class_Url @"Index/getCategoryList"/**获取商品分类列表*/
-#define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"  
-
-/**商品详情*/
+#define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"
 #define GoodsDetailUrl @"/Goods/getGoodsDetail"
-
-/**添加到购物车*/
 #define AddToShoppingCarUrl @"/Cart/addShoppingCart"
-
 #define APIGetMessageSortList @"getMessageSortList"
 
 //天康学院
@@ -182,6 +177,18 @@
 #define     GetCourseList                      @"Tkschool/getCourseList"        // 获取课程列表
 #define     GetTeacherList                     @"Tkschool/getTeacherList"        //获取名师列表
 #define     GetHotSearchList                  @"Tkschool/getHotSearchList"    // 获取热门搜索标签
+
+//社区
+#define  Note_GetNoteList                                @"/Note/getNoteList"  //: 帖子列表
+#define  Note_AddNote                                     @"/Note/addNote"  //添加帖子
+#define  Note_GetNoteById                                @"/Note/getNoteById"  //帖子详情
+#define  Note_DeleteNote                                  @"/Note/deleteNote"   //删除帖子
+#define  Note_EditPraise                                    @"/Note/editPraise"   //帖子评论点赞/取消点赞
+#define  Note_GetCommunityShowList                 @"/Note/getCommunityShowList"  ///: 帖子评论列表
+#define  Note_AddCommunity                             @"/Note/addCommunity" //评论详情
+#define  Note_DeleteCommunity                          @"/Note/deleteCommunity"  //删除评论
+
+
 /**
 通用服务
  */

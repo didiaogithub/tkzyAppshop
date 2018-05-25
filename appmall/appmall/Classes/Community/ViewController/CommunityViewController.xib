@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController">
             <connections>
+                <outlet property="tabCommunityList" destination="1C1-Yd-OKk" id="2Hw-6X-U6d"/>
+                <outlet property="topDis" destination="qVJ-bV-Fvg" id="o4M-qY-kd7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +20,20 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1C1-Yd-OKk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1C1-Yd-OKk" secondAttribute="trailing" id="i5v-GU-ToQ"/>
+                <constraint firstItem="1C1-Yd-OKk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lHb-Yd-GAH"/>
+                <constraint firstItem="1C1-Yd-OKk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qVJ-bV-Fvg"/>
+                <constraint firstAttribute="bottom" secondItem="1C1-Yd-OKk" secondAttribute="bottom" constant="49" id="tA1-4A-aeX"/>
+            </constraints>
+            <point key="canvasLocation" x="133.5" y="53.5"/>
         </view>
     </objects>
 </document>

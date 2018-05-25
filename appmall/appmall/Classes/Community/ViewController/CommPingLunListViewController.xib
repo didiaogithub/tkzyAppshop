@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassListCellViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommPingLunListViewController">
             <connections>
-                <outlet property="classListView" destination="U4e-D8-lMg" id="jYG-R4-CUd"/>
+                <outlet property="tabCommunityList" destination="QNj-MK-GqW" id="fVH-6g-rwC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,17 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U4e-D8-lMg">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-MK-GqW">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="U4e-D8-lMg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WCW-Og-gLH"/>
-                <constraint firstAttribute="bottom" secondItem="U4e-D8-lMg" secondAttribute="bottom" id="abI-IL-lrv"/>
-                <constraint firstItem="U4e-D8-lMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="boT-xg-5LJ"/>
-                <constraint firstAttribute="trailing" secondItem="U4e-D8-lMg" secondAttribute="trailing" id="pPt-p2-shy"/>
+                <constraint firstAttribute="bottom" secondItem="QNj-MK-GqW" secondAttribute="bottom" id="B59-3b-Y95"/>
+                <constraint firstAttribute="trailing" secondItem="QNj-MK-GqW" secondAttribute="trailing" id="Id1-Cx-Cee"/>
+                <constraint firstItem="QNj-MK-GqW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KCk-t7-nTm"/>
+                <constraint firstItem="QNj-MK-GqW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ofa-ze-tSc"/>
             </constraints>
         </view>
     </objects>

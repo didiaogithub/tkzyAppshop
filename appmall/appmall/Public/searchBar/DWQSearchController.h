@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DWQSearchController : UIViewController
+@interface DWQSearchController : BaseViewController
 
+@property(nonatomic,assign)NSInteger seachVCIndex;
 @end

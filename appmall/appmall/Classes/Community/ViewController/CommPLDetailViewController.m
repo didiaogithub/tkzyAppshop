@@ -1,44 +1,43 @@
+
+
 //
-//  CommPingLunListViewController.m
+//  CommPLDetailViewController.m
 //  appmall
 //
-//  Created by 阿兹尔 on 2018/5/24.
+//  Created by 阿兹尔 on 2018/5/25.
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "CommPingLunListViewController.h"
-#import "CommPingLunViewCell.h"
+#import "CommPLDetailViewController.h"
 #import "CommPingLunModel.h"
+#import "CommPingLunViewCell.h"
 #define KCommPingLunViewCell @"CommPingLunViewCell"
-@interface CommPingLunListViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,CommPingLunViewCellDelegate>
+@interface CommPLDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommPingLunViewCellDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property(nonatomic,assign)NSInteger page;
-@property(strong,nonatomic)NSMutableArray <CommPingLunModel *>*commList;
+@property(strong,nonatomic)CommPingLunModel *commListModel;
 @property(nonatomic,strong)UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UITextField *sadf;
-
+@property(nonatomic,strong)NSString *commId;
 @property(nonatomic,strong)UITextField *commInput;
-@property(nonatomic,strong)NSString * commId;
 @end
 
-@implementation CommPingLunListViewController
+@implementation CommPLDetailViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title= @"全部评论";
-    self.commList = [NSMutableArray arrayWithCapacity:0];
+    self.title = @"评论详情";
     self.topDis.constant =NaviHeight;
+    [self creataToolBar];
     [self setTableView];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
-    [self creataToolBar];
 }
 -(void)setTableView{
     self.tabCommunityList .delegate = self;
     self.tabCommunityList.dataSource = self;
-
     [self.tabCommunityList registerNib:[UINib nibWithNibName:KCommPingLunViewCell bundle:nil] forCellReuseIdentifier:KCommPingLunViewCell];
     
 }
@@ -83,11 +82,11 @@
 -(void)loadData{
     
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-
-    [pramaDic setObject:self.notiID forKey:@"noteid"];
+    
+    [pramaDic setObject:self.communityid forKey:@"communityid"];
     
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetCommunityShowList];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetCommunity];
     
     
     [self.view addSubview:self.loadingView];
@@ -96,9 +95,6 @@
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         
         [self.loadingView stopAnimation];
-        if (_page == 1) {
-             [self.commList removeAllObjects];
-        }
         
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200) {
@@ -106,15 +102,12 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
-
+        
         [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
         if (dic != nil) {
-            NSArray *commArray = dic[@"data"][@"communitys"];
+            NSDictionary *commArray = dic[@"data"];
             [self.tabCommunityList tableViewEndRefreshCurPageCount:commArray.count];
-            for (NSDictionary *itemDic in commArray) {
-                CommPingLunModel *model = [[CommPingLunModel alloc]initWith:itemDic];
-                [self.commList addObject:model];
-            }
+            self.commListModel = [[CommPingLunModel alloc]initWith:commArray];
             [self .tabCommunityList reloadData];
         }else{
             [self.loadingView showNoticeView:@"无更多评论"];
@@ -132,53 +125,6 @@
     }];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.commList.count;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self.commList[indexPath.row] getCellHeight];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
-    [cell refreshData:self.commList[indexPath.row] IsneedCommView:YES];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.notId = self.notiID;
-    cell.delegate = self;
-    return cell;
-}
-
-- (IBAction)actionSubmitComm:(id)sender {
-    self.commInput.returnKeyType = UIReturnKeySend;
-    [self.sadf becomeFirstResponder];
-    [self.commInput becomeFirstResponder];
-    [self.sadf resignFirstResponder];
-    self.commInput.delegate = self;
-    self.commId = nil;
-//    [self.commInput becomeFirstResponder];
-    
-    
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.sadf resignFirstResponder];
-    [self.commInput resignFirstResponder];
-    [self  submitComm:textField.text commId:self.commId];
-
-    return YES;
-}
-
 -(void)submitComm:(NSString *)comm commId:(NSString *)commid{
     if (comm .length == 0) {
         [self.loadingView showNoticeView:@"评论不能为空"];
@@ -186,7 +132,7 @@
     }
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
-    [pramaDic setObject:self.notiID forKey:@"noteid"];
+    [pramaDic setObject:self.notied forKey:@"noteid"];
     if (commid == nil) {
         [pramaDic setObject:@"1" forKey:@"type"];
     }else{
@@ -221,6 +167,39 @@
     }];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.commListModel.comment.count + 1;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath .row == 0) {
+        return [self.commListModel getCellHeightNoComment];
+    }else{
+        return [self.commListModel.comment[indexPath.row-1] getCellHeight];
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
+    if (indexPath .row == 0) {
+        [cell refreshData:self.commListModel IsneedCommView:NO];
+    }else{
+        [cell refreshDataDetail:self.commListModel.comment[indexPath.row-1]];
+    }
+    cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
 -(void)actionComment:(CommPingLunModel *)model{
     self.commInput.returnKeyType = UIReturnKeySend;
     [self.sadf becomeFirstResponder];
@@ -230,6 +209,13 @@
     self.commId =model._id;
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.sadf resignFirstResponder];
+    [self.commInput resignFirstResponder];
+    [self  submitComm:textField.text commId:self.commId];
+    
+    return YES;
+}
 
 @end

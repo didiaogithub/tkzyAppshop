@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CommPingLunModel.h"
 
+@protocol CommPingLunViewCellDelegate <NSObject>
+-(void)actionComment:(CommPingLunModel *)model;
+@end
+
 @interface CommPingLunViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
 @property (weak, nonatomic) IBOutlet UILabel *labName;
@@ -20,6 +24,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *labPersonNum;
 @property (weak, nonatomic) IBOutlet UIButton *btnComDetail;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightBottom;
-
--(void)refreshData:(CommPingLunModel *)model;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentDisLeft;
+@property (weak, nonatomic) IBOutlet UIView *viewContent;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentDisRight;
+@property(strong,nonatomic)NSString *notId;
+@property(weak,nonatomic)id <CommPingLunViewCellDelegate> delegate;
+-(void)refreshData:(CommPingLunModel *)model IsneedCommView:(BOOL) isNeed;
+-(void)refreshDataDetail:(CommcommentList *)model;
 @end

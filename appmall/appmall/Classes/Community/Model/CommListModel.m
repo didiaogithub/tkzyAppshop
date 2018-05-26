@@ -15,6 +15,7 @@
     return @"commId";
 }
 
+
 @end
 
 @implementation CommListModelItem

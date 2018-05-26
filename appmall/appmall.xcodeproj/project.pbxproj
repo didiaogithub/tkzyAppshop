@@ -299,6 +299,36 @@
 		2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F020B79E2B0031AC47 /* CommDetailHeaderView.xib */; };
 		2DA0C2F420B7A7F90031AC47 /* CommPingLunModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */; };
 		2DA0C2F720B7D3B80031AC47 /* BaseModelRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F620B7D3B80031AC47 /* BaseModelRoot.m */; };
+		2DA0C2FB20B7F8C80031AC47 /* CommPLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2F920B7F8C80031AC47 /* CommPLDetailViewController.m */; };
+		2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2FA20B7F8C80031AC47 /* CommPLDetailViewController.xib */; };
+		2DA0C34B20B867810031AC47 /* radio_btn_onTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2FF20B867810031AC47 /* radio_btn_onTwo.png */; };
+		2DA0C34C20B867810031AC47 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C30020B867810031AC47 /* ELCAssetTablePicker.m */; };
+		2DA0C34D20B867810031AC47 /* 添加@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C30120B867810031AC47 /* 添加@2x.png */; };
+		2DA0C34E20B867810031AC47 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C30220B867810031AC47 /* ELCOverlayImageView.m */; };
+		2DA0C34F20B867810031AC47 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C30320B867810031AC47 /* ELCImagePickerController.m */; };
+		2DA0C35020B867810031AC47 /* 添加@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C30620B867810031AC47 /* 添加@3x.png */; };
+		2DA0C35120B867810031AC47 /* radio_btn_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C30A20B867810031AC47 /* radio_btn_off.png */; };
+		2DA0C35220B867810031AC47 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C30E20B867810031AC47 /* ELCAssetCell.m */; };
+		2DA0C35320B867810031AC47 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31020B867810031AC47 /* ELCConsole.m */; };
+		2DA0C35420B867810031AC47 /* radio_btn_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C31120B867810031AC47 /* radio_btn_on@2x.png */; };
+		2DA0C35520B867810031AC47 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C31220B867810031AC47 /* 添加.png */; };
+		2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31320B867810031AC47 /* ELCAsset.m */; };
+		2DA0C35720B867810031AC47 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31420B867810031AC47 /* ELCAlbumPickerController.m */; };
+		2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C31520B867810031AC47 /* radio_btn_offTwo.png */; };
+		2DA0C35920B867810031AC47 /* radio_btn_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C31620B867810031AC47 /* radio_btn_on.png */; };
+		2DA0C35A20B867810031AC47 /* PictureAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31A20B867810031AC47 /* PictureAddCell.m */; };
+		2DA0C35B20B867810031AC47 /* PictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31B20B867810031AC47 /* PictureCollectionViewCell.m */; };
+		2DA0C35C20B867810031AC47 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31D20B867810031AC47 /* PictureViewController.m */; };
+		2DA0C35D20B867810031AC47 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C31F20B867810031AC47 /* MJPhotoLoadingView.m */; };
+		2DA0C35E20B867810031AC47 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32120B867810031AC47 /* MJPhotoView.m */; };
+		2DA0C35F20B867810031AC47 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C32320B867810031AC47 /* MJPhotoBrowser.bundle */; };
+		2DA0C36020B867810031AC47 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32420B867810031AC47 /* MJPhoto.m */; };
+		2DA0C36120B867810031AC47 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32920B867810031AC47 /* MJPhotoToolbar.m */; };
+		2DA0C36220B867810031AC47 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32B20B867810031AC47 /* MJPhotoProgressView.m */; };
+		2DA0C36320B867810031AC47 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32C20B867810031AC47 /* SDWebImageManager+MJ.m */; };
+		2DA0C36420B867810031AC47 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32D20B867810031AC47 /* MJPhotoBrowser.m */; };
+		2DA0C37620B868170031AC47 /* PostCommViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C37420B868170031AC47 /* PostCommViewController.m */; };
+		2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C37520B868170031AC47 /* PostCommViewController.xib */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
@@ -933,6 +963,57 @@
 		2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommPingLunModel.m; sourceTree = "<group>"; };
 		2DA0C2F520B7D3B80031AC47 /* BaseModelRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelRoot.h; sourceTree = "<group>"; };
 		2DA0C2F620B7D3B80031AC47 /* BaseModelRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelRoot.m; sourceTree = "<group>"; };
+		2DA0C2F820B7F8C80031AC47 /* CommPLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommPLDetailViewController.h; sourceTree = "<group>"; };
+		2DA0C2F920B7F8C80031AC47 /* CommPLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommPLDetailViewController.m; sourceTree = "<group>"; };
+		2DA0C2FA20B7F8C80031AC47 /* CommPLDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommPLDetailViewController.xib; sourceTree = "<group>"; };
+		2DA0C2FF20B867810031AC47 /* radio_btn_onTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_onTwo.png; sourceTree = "<group>"; };
+		2DA0C30020B867810031AC47 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		2DA0C30120B867810031AC47 /* 添加@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@2x.png"; sourceTree = "<group>"; };
+		2DA0C30220B867810031AC47 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		2DA0C30320B867810031AC47 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		2DA0C30420B867810031AC47 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		2DA0C30520B867810031AC47 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		2DA0C30620B867810031AC47 /* 添加@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@3x.png"; sourceTree = "<group>"; };
+		2DA0C30720B867810031AC47 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		2DA0C30820B867810031AC47 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		2DA0C30920B867810031AC47 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		2DA0C30A20B867810031AC47 /* radio_btn_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_off.png; sourceTree = "<group>"; };
+		2DA0C30B20B867810031AC47 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		2DA0C30C20B867810031AC47 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		2DA0C30D20B867810031AC47 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		2DA0C30E20B867810031AC47 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		2DA0C30F20B867810031AC47 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		2DA0C31020B867810031AC47 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		2DA0C31120B867810031AC47 /* radio_btn_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_btn_on@2x.png"; sourceTree = "<group>"; };
+		2DA0C31220B867810031AC47 /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
+		2DA0C31320B867810031AC47 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		2DA0C31420B867810031AC47 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		2DA0C31520B867810031AC47 /* radio_btn_offTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_offTwo.png; sourceTree = "<group>"; };
+		2DA0C31620B867810031AC47 /* radio_btn_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_btn_on.png; sourceTree = "<group>"; };
+		2DA0C31820B867810031AC47 /* PictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCollectionViewCell.h; sourceTree = "<group>"; };
+		2DA0C31920B867810031AC47 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		2DA0C31A20B867810031AC47 /* PictureAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureAddCell.m; sourceTree = "<group>"; };
+		2DA0C31B20B867810031AC47 /* PictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCollectionViewCell.m; sourceTree = "<group>"; };
+		2DA0C31C20B867810031AC47 /* PictureAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureAddCell.h; sourceTree = "<group>"; };
+		2DA0C31D20B867810031AC47 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		2DA0C31F20B867810031AC47 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		2DA0C32020B867810031AC47 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		2DA0C32120B867810031AC47 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		2DA0C32220B867810031AC47 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		2DA0C32320B867810031AC47 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		2DA0C32420B867810031AC47 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		2DA0C32520B867810031AC47 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		2DA0C32620B867810031AC47 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		2DA0C32720B867810031AC47 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		2DA0C32820B867810031AC47 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		2DA0C32920B867810031AC47 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		2DA0C32A20B867810031AC47 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		2DA0C32B20B867810031AC47 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		2DA0C32C20B867810031AC47 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		2DA0C32D20B867810031AC47 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		2DA0C37320B868170031AC47 /* PostCommViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCommViewController.h; sourceTree = "<group>"; };
+		2DA0C37420B868170031AC47 /* PostCommViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCommViewController.m; sourceTree = "<group>"; };
+		2DA0C37520B868170031AC47 /* PostCommViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommViewController.xib; sourceTree = "<group>"; };
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
@@ -1082,6 +1163,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				2DA0C2FD20B867810031AC47 /* ShowPicture */,
 				F23E657720B693D600EB6720 /* QRadioButton */,
 				F2487F2E20AE730B0005F624 /* Sobot(智齿) */,
 				2D20DFC6208989F500095032 /* CleanCache */,
@@ -1527,6 +1609,12 @@
 				2DA0C2E320B712F80031AC47 /* CommPingLunListViewController.h */,
 				2DA0C2E420B712F80031AC47 /* CommPingLunListViewController.m */,
 				2DA0C2E520B712F80031AC47 /* CommPingLunListViewController.xib */,
+				2DA0C2F820B7F8C80031AC47 /* CommPLDetailViewController.h */,
+				2DA0C2F920B7F8C80031AC47 /* CommPLDetailViewController.m */,
+				2DA0C2FA20B7F8C80031AC47 /* CommPLDetailViewController.xib */,
+				2DA0C37320B868170031AC47 /* PostCommViewController.h */,
+				2DA0C37420B868170031AC47 /* PostCommViewController.m */,
+				2DA0C37520B868170031AC47 /* PostCommViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2099,6 +2187,82 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2DA0C2FD20B867810031AC47 /* ShowPicture */ = {
+			isa = PBXGroup;
+			children = (
+				2DA0C2FE20B867810031AC47 /* ImagePicker */,
+				2DA0C31720B867810031AC47 /* PictureCollectionViewController */,
+				2DA0C31E20B867810031AC47 /* MJPhotoBrowser */,
+			);
+			path = ShowPicture;
+			sourceTree = "<group>";
+		};
+		2DA0C2FE20B867810031AC47 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2DA0C2FF20B867810031AC47 /* radio_btn_onTwo.png */,
+				2DA0C30020B867810031AC47 /* ELCAssetTablePicker.m */,
+				2DA0C30120B867810031AC47 /* 添加@2x.png */,
+				2DA0C30220B867810031AC47 /* ELCOverlayImageView.m */,
+				2DA0C30320B867810031AC47 /* ELCImagePickerController.m */,
+				2DA0C30420B867810031AC47 /* ELCConsole.h */,
+				2DA0C30520B867810031AC47 /* ELCAssetPickerFilterDelegate.h */,
+				2DA0C30620B867810031AC47 /* 添加@3x.png */,
+				2DA0C30720B867810031AC47 /* ELCAssetCell.h */,
+				2DA0C30820B867810031AC47 /* ELCAlbumPickerController.h */,
+				2DA0C30920B867810031AC47 /* ELCAsset.h */,
+				2DA0C30A20B867810031AC47 /* radio_btn_off.png */,
+				2DA0C30B20B867810031AC47 /* ELCImagePickerController.h */,
+				2DA0C30C20B867810031AC47 /* ELCOverlayImageView.h */,
+				2DA0C30D20B867810031AC47 /* ELCAssetTablePicker.h */,
+				2DA0C30E20B867810031AC47 /* ELCAssetCell.m */,
+				2DA0C30F20B867810031AC47 /* ELCAssetSelectionDelegate.h */,
+				2DA0C31020B867810031AC47 /* ELCConsole.m */,
+				2DA0C31120B867810031AC47 /* radio_btn_on@2x.png */,
+				2DA0C31220B867810031AC47 /* 添加.png */,
+				2DA0C31320B867810031AC47 /* ELCAsset.m */,
+				2DA0C31420B867810031AC47 /* ELCAlbumPickerController.m */,
+				2DA0C31520B867810031AC47 /* radio_btn_offTwo.png */,
+				2DA0C31620B867810031AC47 /* radio_btn_on.png */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		2DA0C31720B867810031AC47 /* PictureCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DA0C31820B867810031AC47 /* PictureCollectionViewCell.h */,
+				2DA0C31920B867810031AC47 /* PictureViewController.h */,
+				2DA0C31A20B867810031AC47 /* PictureAddCell.m */,
+				2DA0C31B20B867810031AC47 /* PictureCollectionViewCell.m */,
+				2DA0C31C20B867810031AC47 /* PictureAddCell.h */,
+				2DA0C31D20B867810031AC47 /* PictureViewController.m */,
+			);
+			path = PictureCollectionViewController;
+			sourceTree = "<group>";
+		};
+		2DA0C31E20B867810031AC47 /* MJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				2DA0C31F20B867810031AC47 /* MJPhotoLoadingView.m */,
+				2DA0C32020B867810031AC47 /* MJPhotoToolbar.h */,
+				2DA0C32120B867810031AC47 /* MJPhotoView.m */,
+				2DA0C32220B867810031AC47 /* MJPhotoProgressView.h */,
+				2DA0C32320B867810031AC47 /* MJPhotoBrowser.bundle */,
+				2DA0C32420B867810031AC47 /* MJPhoto.m */,
+				2DA0C32520B867810031AC47 /* MJPhotoBrowser.h */,
+				2DA0C32620B867810031AC47 /* SDWebImageManager+MJ.h */,
+				2DA0C32720B867810031AC47 /* MJPhotoLoadingView.h */,
+				2DA0C32820B867810031AC47 /* MJPhotoView.h */,
+				2DA0C32920B867810031AC47 /* MJPhotoToolbar.m */,
+				2DA0C32A20B867810031AC47 /* MJPhoto.h */,
+				2DA0C32B20B867810031AC47 /* MJPhotoProgressView.m */,
+				2DA0C32C20B867810031AC47 /* SDWebImageManager+MJ.m */,
+				2DA0C32D20B867810031AC47 /* MJPhotoBrowser.m */,
+			);
+			path = MJPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		75E8AD2EC6E93F62679C40DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2534,6 +2698,8 @@
 			files = (
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
 				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
+				2DA0C34B20B867810031AC47 /* radio_btn_onTwo.png in Resources */,
+				2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */,
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
@@ -2541,6 +2707,7 @@
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
 				F23E654620B66F9D00EB6720 /* MyInvoicesViewController.xib in Resources */,
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
+				2DA0C34D20B867810031AC47 /* 添加@2x.png in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
 				F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */,
 				2D0726BC2083928A0030996F /* MedieaListViewCell.xib in Resources */,
@@ -2549,8 +2716,13 @@
 				2DA0C2E220B712DE0031AC47 /* CommDetailViewController.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
+				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
+				2DA0C35420B867810031AC47 /* radio_btn_on@2x.png in Resources */,
+				2DA0C35520B867810031AC47 /* 添加.png in Resources */,
+				2DA0C35920B867810031AC47 /* radio_btn_on.png in Resources */,
+				2DA0C35020B867810031AC47 /* 添加@3x.png in Resources */,
 				F23E655A20B68DC500EB6720 /* AddInvoicesDataViewController.xib in Resources */,
 				2D0726CB20839F6C0030996F /* MessageListViewCell.xib in Resources */,
 				2D0726B72083926B0030996F /* HonourDetailViewController.xib in Resources */,
@@ -2571,6 +2743,7 @@
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
 				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
+				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
@@ -2581,6 +2754,8 @@
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
+				2DA0C35120B867810031AC47 /* radio_btn_off.png in Resources */,
+				2DA0C35F20B867810031AC47 /* MJPhotoBrowser.bundle in Resources */,
 				2D072670208311BE0030996F /* ic_close_grey2.png in Resources */,
 				2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */,
 				F20039C62089A10600499D39 /* mine.xcassets in Resources */,
@@ -2705,6 +2880,7 @@
 				2DA0C2EB20B715F90031AC47 /* CommPingLunViewCell.m in Sources */,
 				2DA0C2E620B712F80031AC47 /* CommPingLunListViewController.m in Sources */,
 				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
+				2DA0C36320B867810031AC47 /* SDWebImageManager+MJ.m in Sources */,
 				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				2D20DF922088D95700095032 /* SCOrderDetailCell.m in Sources */,
 				F23F1A4520B78EDA00F01D01 /* MyInvoicesModel.m in Sources */,
@@ -2747,6 +2923,7 @@
 				2D20DE8B2086367C00095032 /* SCLoginViewController.m in Sources */,
 				2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */,
 				2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */,
+				2DA0C35A20B867810031AC47 /* PictureAddCell.m in Sources */,
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
 				2D20DF222088CEAE00095032 /* XNKeychain.m in Sources */,
 				2D20DDFD2086147300095032 /* KeyChainStore.m in Sources */,
@@ -2767,20 +2944,27 @@
 				2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */,
 				2D20DE0F2086149300095032 /* MJGearHeader.m in Sources */,
 				2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */,
+				2DA0C35B20B867810031AC47 /* PictureCollectionViewCell.m in Sources */,
 				F23E655920B68DC500EB6720 /* AddInvoicesDataViewController.m in Sources */,
 				F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				2D20DE1F208614CE00095032 /* UIViewController+BackButtonHandler.m in Sources */,
+				2DA0C34F20B867810031AC47 /* ELCImagePickerController.m in Sources */,
 				2D20DF742088D71100095032 /* DistrictViewController.m in Sources */,
+				2DA0C35C20B867810031AC47 /* PictureViewController.m in Sources */,
 				2D20DEA22088C80D00095032 /* UIView+ZJFrame.m in Sources */,
 				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
+				2DA0C35320B867810031AC47 /* ELCConsole.m in Sources */,
+				2DA0C35720B867810031AC47 /* ELCAlbumPickerController.m in Sources */,
 				2D20DF122088CDE300095032 /* CKRealnameIdentifyView.m in Sources */,
 				2D4D60ED20B3E6BF00280033 /* ClassItemViewCell.m in Sources */,
 				2D20DFD820898A7800095032 /* SCOrderListCell.m in Sources */,
+				2DA0C37620B868170031AC47 /* PostCommViewController.m in Sources */,
 				2D20DDCF208613A300095032 /* BKGuidePageAction.m in Sources */,
 				2D20DF772088D84800095032 /* PaySuccessView.m in Sources */,
+				2DA0C34E20B867810031AC47 /* ELCOverlayImageView.m in Sources */,
 				2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */,
 				2D0723F22082FEE40030996F /* CollegeViewController.m in Sources */,
 				2DA0C2E120B712DE0031AC47 /* CommDetailViewController.m in Sources */,
@@ -2836,6 +3020,8 @@
 				F23E654F20B686D900EB6720 /* MyinvoicesCheckingCell.m in Sources */,
 				2D05C8AE20A83237001A8953 /* TeachItemViewCell.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
+				2DA0C35E20B867810031AC47 /* MJPhotoView.m in Sources */,
+				2DA0C36120B867810031AC47 /* MJPhotoToolbar.m in Sources */,
 				2D20DDC52086135000095032 /* SCProgressTimerView.m in Sources */,
 				F23F1A3C20B78EA900F01D01 /* InvoicesManCellHeadView.m in Sources */,
 				2D20DDB32086130B00095032 /* RootBaseViewController.m in Sources */,
@@ -2843,6 +3029,7 @@
 				2D166002209DADC400C1C7E7 /* XYNoDataView.m in Sources */,
 				2D20DF0F2088CDC900095032 /* TopTipView.m in Sources */,
 				2D20DF862088D90700095032 /* LogistModel.m in Sources */,
+				2DA0C36420B867810031AC47 /* MJPhotoBrowser.m in Sources */,
 				2D20DDB42086130B00095032 /* RootTabBarController.m in Sources */,
 				2D20DE042086147300095032 /* SCCouponTools.m in Sources */,
 				2DA0C2F420B7A7F90031AC47 /* CommPingLunModel.m in Sources */,
@@ -2856,6 +3043,7 @@
 				2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */,
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
+				2DA0C35D20B867810031AC47 /* MJPhotoLoadingView.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
 				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
 				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
@@ -2871,6 +3059,7 @@
 				F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */,
 				2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */,
 				2D6F9250208E0731007DFD0B /* HomeTabTopAdsViewCell.m in Sources */,
+				2DA0C36020B867810031AC47 /* MJPhoto.m in Sources */,
 				2D0726CA20839F6C0030996F /* MessageListViewCell.m in Sources */,
 				2D791C792090685B00E455F5 /* WBMenuAllItem.m in Sources */,
 				2D0726AC2083923A0030996F /* MedieaListViewController.m in Sources */,
@@ -2881,6 +3070,7 @@
 				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
 				2D165FF9209D9A0500C1C7E7 /* HonorListModel.m in Sources */,
+				2DA0C34C20B867810031AC47 /* ELCAssetTablePicker.m in Sources */,
 				2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */,
 				2D20DE80208629E700095032 /* TAAbstractDotView.m in Sources */,
 				2D20DDDC208613E400095032 /* CKVersionCheckManager.m in Sources */,
@@ -2890,8 +3080,10 @@
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
+				2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */,
 				2D20DF592088D4E600095032 /* SCCouponCanUseCell.m in Sources */,
 				2D0723F72082FEF10030996F /* HomeViewController.m in Sources */,
+				2DA0C2FB20B7F8C80031AC47 /* CommPLDetailViewController.m in Sources */,
 				2D20DE1E208614CE00095032 /* UICollectionView+PlaceHolder.m in Sources */,
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
@@ -2900,6 +3092,7 @@
 				2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */,
 				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
 				2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */,
+				2DA0C36220B867810031AC47 /* MJPhotoProgressView.m in Sources */,
 				2D20DE2F208614EC00095032 /* UINavigationItem+SXFixSpace.m in Sources */,
 				2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */,
 				2D165FF2209C0EA200C1C7E7 /* RegistViewController.m in Sources */,
@@ -2948,6 +3141,7 @@
 				2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */,
 				2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */,
 				2D20DE20208614CE00095032 /* UIButton+XN.m in Sources */,
+				2DA0C35220B867810031AC47 /* ELCAssetCell.m in Sources */,
 				2D20DE8E2088C7BE00095032 /* SCCategoryViewController.m in Sources */,
 				2D20DF562088D4B800095032 /* MLEmojiLabel.m in Sources */,
 				2D20DE662086187200095032 /* UIView+Extension.m in Sources */,
@@ -3127,7 +3321,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
+				DEVELOPMENT_TEAM = S384ZJQ68Q;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3146,7 +3340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
+				DEVELOPMENT_TEAM = S384ZJQ68Q;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

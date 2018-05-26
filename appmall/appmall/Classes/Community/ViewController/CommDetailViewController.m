@@ -11,6 +11,7 @@
 
 @interface CommDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabCommDetail;
+@property (weak, nonatomic) IBOutlet UITableView *item;
 
 @end
 
@@ -40,7 +41,7 @@
     [pramaDic setObject:self.notiID forKey:@"noteid"];
     
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetCommunityShowList];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetCommunity];
     
     
     [self.view addSubview:self.loadingView];

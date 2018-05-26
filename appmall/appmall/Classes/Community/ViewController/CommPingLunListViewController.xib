@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommPingLunListViewController">
             <connections>
+                <outlet property="sadf" destination="Jq7-5F-B3Q" id="hbw-63-iX2"/>
                 <outlet property="tabCommunityList" destination="QNj-MK-GqW" id="fVH-6g-rwC"/>
+                <outlet property="topDis" destination="KCk-t7-nTm" id="eL4-WI-mqg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,17 +23,40 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-MK-GqW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heP-14-h0m">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.0" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="6BV-Mt-XdG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="写评论"/>
+                    <connections>
+                        <action selector="actionSubmitComm:" destination="-1" eventType="touchUpInside" id="uXZ-iK-byt"/>
+                    </connections>
+                </button>
+                <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jq7-5F-B3Q">
+                    <rect key="frame" x="269" y="109" width="64" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="QNj-MK-GqW" secondAttribute="bottom" id="B59-3b-Y95"/>
                 <constraint firstAttribute="trailing" secondItem="QNj-MK-GqW" secondAttribute="trailing" id="Id1-Cx-Cee"/>
                 <constraint firstItem="QNj-MK-GqW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KCk-t7-nTm"/>
                 <constraint firstItem="QNj-MK-GqW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ofa-ze-tSc"/>
+                <constraint firstItem="heP-14-h0m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QID-fN-H7U"/>
+                <constraint firstAttribute="bottom" secondItem="heP-14-h0m" secondAttribute="bottom" id="VLZ-oh-mvG"/>
+                <constraint firstAttribute="trailing" secondItem="heP-14-h0m" secondAttribute="trailing" id="tUE-EJ-Jes"/>
+                <constraint firstItem="heP-14-h0m" firstAttribute="top" secondItem="QNj-MK-GqW" secondAttribute="bottom" id="wL6-zZ-z3d"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

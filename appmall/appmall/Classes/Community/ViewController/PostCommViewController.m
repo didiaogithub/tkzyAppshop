@@ -9,8 +9,9 @@
 #import "PostCommViewController.h"
 #import "PictureViewController.h"
 
-@interface PostCommViewController ()
+@interface PostCommViewController ()<UITextViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewPhotoContent;
+@property (weak, nonatomic) IBOutlet UILabel *labTfPlaceHolder;
 @property (weak, nonatomic) IBOutlet UITextView *labCommContent;
 @property (weak, nonatomic) IBOutlet UITextField *labCommTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labWordNum;
@@ -31,6 +32,8 @@
     _picturevc.view.frame =   self.viewPhotoContent.frame;
     _picturevc.view.mj_y = 0;
     [self.viewPhotoContent addSubview:_picturevc.pictureCollectonView];
+    self.labCommTitle.delegate = self;
+    self.labCommContent.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,6 +134,35 @@
     }];
 }
 
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if (textView.text.length + text.length == 0) {
+        self.labTfPlaceHolder.hidden = NO;
+    }else{
+        self.labTfPlaceHolder.hidden = YES;
+    }
+    if ([text isEqualToString:@""]) {
+        return YES;
+    }
+   
+    if (textView.text.length + text.length > 200) {
+        [self showNoticeView:@"内容不能超过200个字符"];
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+   
+    self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length - string.length];
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    if (textField.text.length + string.length > 30) {
+        [self showNoticeView:@"标题不能超过30个字符"];
+        return NO;
+    }
+    return YES;
+}
 
 
 @end

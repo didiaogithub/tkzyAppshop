@@ -69,5 +69,25 @@
 }
 
 
+- (void)setRightButton:(NSString *)btnName
+{
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:btnName style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnPressed)];
+    self.navigationItem.rightBarButtonItem = right;
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationItem.rightBarButtonItem.tintColor = KCommonBlueColor;
+}
+
+- (void)setRightImageButton:(NSString *)btnName
+{
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:btnName] style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnPressed)];
+    self.navigationItem.rightBarButtonItem = right;
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationItem.rightBarButtonItem.tintColor = KCommonBlueColor;
+}
+- (void)rightBtnPressed
+{
+    
+}
+
 
 @end

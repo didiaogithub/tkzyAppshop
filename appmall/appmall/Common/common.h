@@ -292,7 +292,7 @@
 /**获取个人信息*/
 #define GetMeInfoUrl @"Customer/getCustomerInfo"
 /**更新个人信息*/
-#define UpdateMeInfoUrl @"Wxmall/User/updateMeInfo"
+#define UpdateMeInfoUrl @"Customer/modifyCustomerInfo"
 /**上传评价图片*/
 #define UploadImageUrl @"Resource/CkApp/uploadPhoto"
 /**手机验证码*/

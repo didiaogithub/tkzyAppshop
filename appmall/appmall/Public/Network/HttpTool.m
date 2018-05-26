@@ -255,4 +255,58 @@
     }];
 }
 
+/**上传图片新处理方法*/
++(void)uploadWithUrl1:(NSString *)url andImages:(NSArray *)imageArray andPramaDic:(NSDictionary *)paramaDic completion:(void(^)(NSString *url,NSError *error))uploadBlock success:(void (^)(id responseObject))success fail:(void (^)(NSError * error))fail
+{
+    
+    NSLog(@"params:%@\nurl:%@", paramaDic, url);
+    
+    
+    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = serializer;
+    manager.requestSerializer.timeoutInterval = CKDataRequestTimeOut;
+    [manager POST:url parameters:paramaDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        for(NSInteger i = 0; i < imageArray.count; i++)
+        {
+            UIImage * image = [imageArray objectAtIndex: i];
+            // 压缩图片
+            
+            // 添加一个标记 去分图片名称
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            if (data.length>100*1024) {
+                if (data.length>1024*1024) {//1M以及以上
+                    data = UIImageJPEGRepresentation(image, 0.1);
+                }else if (data.length>512*1024) {//0.5M-1M
+                    data = UIImageJPEGRepresentation(image, 0.5);
+                }else if (data.length>200*1024) {//0.25M-0.5M
+                    data = UIImageJPEGRepresentation(image, 0.9);
+                }
+            }
+            
+            // 上传的参数名
+            NSString *now = [NSDate nowTime:@"yyyyMMddHHmmss"];
+            NSString * Name = [NSString stringWithFormat:@"%@%zi",now,i+1];
+            // 上传filename
+            NSString * fileName = [NSString stringWithFormat:@"%@.jpg", Name];
+            
+            [formData appendPartWithFileData:data name:@"headfile" fileName:fileName mimeType:@"image/jpeg"];
+        }
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        NSLog(@"上传进度");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"[Fail---%@]",error.localizedDescription);
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
 @end

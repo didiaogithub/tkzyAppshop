@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "SCUserInfoModel.h"
 @interface MineInfoViewController : BaseViewController
-
+/**  model*/
+@property (nonatomic, strong) SCUserInfoModel *model;
 @end

@@ -25,4 +25,5 @@
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *realname;
 @property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString *birthdate;
 @end

@@ -16,18 +16,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InvoicesManagerHeadView" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-FI-TOU">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                    <rect key="frame" x="10" y="0.0" width="355" height="150"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Rw0-FI-TOU" secondAttribute="trailing" id="DbV-RE-ffE"/>
-                <constraint firstAttribute="bottom" secondItem="Rw0-FI-TOU" secondAttribute="bottom" id="Ijt-gM-ZPM"/>
-                <constraint firstItem="Rw0-FI-TOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a4K-eM-W5n"/>
-                <constraint firstItem="Rw0-FI-TOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zLt-vd-8u5"/>
+                <constraint firstItem="Rw0-FI-TOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2ZX-ce-72H"/>
+                <constraint firstAttribute="bottom" secondItem="Rw0-FI-TOU" secondAttribute="bottom" id="NUd-is-Vo9"/>
+                <constraint firstItem="Rw0-FI-TOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="R3u-q8-3hH"/>
+                <constraint firstAttribute="trailing" secondItem="Rw0-FI-TOU" secondAttribute="trailing" constant="10" id="UEj-UN-5Ve"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

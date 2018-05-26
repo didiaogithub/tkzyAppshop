@@ -112,22 +112,22 @@
     _nameLable.text = @" ";
     _nameLable.textAlignment = NSTextAlignmentLeft;
     [_nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_headImgV.mas_top);
+        make.top.equalTo(_headImgV.mas_top).mas_offset(20);
         make.left.equalTo(_headImgV.mas_right).offset(10);
         make.width.mas_offset(150);
     }];
     
-    _rzLabel = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft font:MAIN_BODYTITLE_FONT];
-    
-    [self.contentView addSubview:_rzLabel];
-    _rzLabel.font = [UIFont boldSystemFontOfSize:12];
-    _rzLabel.text = @"已实名认证";
-    _rzLabel.textAlignment = NSTextAlignmentLeft;
-    [_rzLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_nameLable.mas_bottom).offset(5);
-        make.left.equalTo(_nameLable.mas_left);
-        make.width.mas_offset(150);
-    }];
+//    _rzLabel = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentLeft font:MAIN_BODYTITLE_FONT];
+//
+//    [self.contentView addSubview:_rzLabel];
+//    _rzLabel.font = [UIFont boldSystemFontOfSize:12];
+//    _rzLabel.text = @"已实名认证";
+//    _rzLabel.textAlignment = NSTextAlignmentLeft;
+//    [_rzLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_nameLable.mas_bottom).offset(5);
+//        make.left.equalTo(_nameLable.mas_left);
+//        make.width.mas_offset(150);
+//    }];
     
     // 编辑
         _editButton = [UIButton buttonWithType:UIButtonTypeCustom];

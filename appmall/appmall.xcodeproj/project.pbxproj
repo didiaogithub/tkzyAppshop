@@ -362,8 +362,6 @@
 		F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4620B78EFB00F01D01 /* InvoicesManCellHeadView.xib */; };
 		F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */; };
 		F23F1A4C20B7904F00F01D01 /* InvoicesManCellFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */; };
-		F23F1A5520B7DF3800F01D01 /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5220B7DF3800F01D01 /* Ordersheet.m */; };
-		F23F1A5620B7DF3800F01D01 /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */; };
 		F23F1A5920B7E2B800F01D01 /* AmortizationHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5820B7E2B800F01D01 /* AmortizationHeadView.m */; };
 		F23F1A5B20B7E2CE00F01D01 /* AmortizationHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A5A20B7E2CE00F01D01 /* AmortizationHeadView.xib */; };
 		F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */ = {isa = PBXBuildFile; fileRef = F23F1A5D20B7ED7500F01D01 /* AmortizationLoan.m */; };
@@ -396,6 +394,8 @@
 		F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D620B556940066B153 /* SexTableCell.xib */; };
 		F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */; };
 		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
+		F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */; };
+		F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -1071,10 +1071,6 @@
 		F23F1A4820B7903A00F01D01 /* InvoicesManCellFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManCellFooterView.h; sourceTree = "<group>"; };
 		F23F1A4920B7903A00F01D01 /* InvoicesManCellFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManCellFooterView.m; sourceTree = "<group>"; };
 		F23F1A4B20B7904F00F01D01 /* InvoicesManCellFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManCellFooterView.xib; sourceTree = "<group>"; };
-		F23F1A5120B7DF3800F01D01 /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
-		F23F1A5220B7DF3800F01D01 /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
-		F23F1A5320B7DF3800F01D01 /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
-		F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
 		F23F1A5720B7E2B800F01D01 /* AmortizationHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationHeadView.h; sourceTree = "<group>"; };
 		F23F1A5820B7E2B800F01D01 /* AmortizationHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationHeadView.m; sourceTree = "<group>"; };
 		F23F1A5A20B7E2CE00F01D01 /* AmortizationHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationHeadView.xib; sourceTree = "<group>"; };
@@ -1125,6 +1121,10 @@
 		F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoViewController.xib; sourceTree = "<group>"; };
 		F2FA14DE20B556A90066B153 /* MineInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoViewController.h; sourceTree = "<group>"; };
 		F2FA14DF20B556A90066B153 /* MineInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoViewController.m; sourceTree = "<group>"; };
+		F2FB4FCC20B8520700BFBE5C /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
+		F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
+		F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
+		F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2303,10 +2303,10 @@
 		F208D35520B70DDF0098E64A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F23F1A5320B7DF3800F01D01 /* InvoicesManagerModel.h */,
-				F23F1A5420B7DF3800F01D01 /* InvoicesManagerModel.m */,
-				F23F1A5120B7DF3800F01D01 /* Ordersheet.h */,
-				F23F1A5220B7DF3800F01D01 /* Ordersheet.m */,
+				F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */,
+				F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */,
+				F2FB4FCC20B8520700BFBE5C /* Ordersheet.h */,
+				F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */,
 				F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */,
 				F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */,
 			);
@@ -2317,8 +2317,9 @@
 		F20C4D51208CC35F0086282A /* 欠款管理 */ = {
 			isa = PBXGroup;
 			children = (
-				F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */,
-				F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */,
+				F2FB4FC920B8490300BFBE5C /* Model */,
+				F2FB4FCA20B8490300BFBE5C /* View */,
+				F2FB4FCB20B8490300BFBE5C /* ViewController */,
 			);
 			path = "欠款管理";
 			sourceTree = "<group>";
@@ -2549,6 +2550,29 @@
 				F2FA14D620B556940066B153 /* SexTableCell.xib */,
 			);
 			path = mineinfocell;
+			sourceTree = "<group>";
+		};
+		F2FB4FC920B8490300BFBE5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2FB4FCA20B8490300BFBE5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2FB4FCB20B8490300BFBE5C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */,
+				F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F2FE5BA4208471A4006E274A /* Common */ = {
@@ -2927,6 +2951,7 @@
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
 				2D20DEC12088C9FE00095032 /* GoodModel.m in Sources */,
+				F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */,
 				2D20DF712088D6F600095032 /* SelecteAreaModel.m in Sources */,
 				2D20DF6E2088D6EA00095032 /* CityViewController.m in Sources */,
 				2D20DDC72086135000095032 /* SCEverydayGuideVC.m in Sources */,
@@ -3024,6 +3049,7 @@
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
 				2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */,
 				F23E653B20B65AC000EB6720 /* OpenInvoicesViewController.m in Sources */,
+				F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */,
 				2D20DE622086187200095032 /* NSDecimalNumber+Addtion.m in Sources */,
 				F23E657E20B693D600EB6720 /* QRadioButton.m in Sources */,
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
@@ -3119,7 +3145,6 @@
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
 				2D20DE21208614CE00095032 /* NSString+MD5.m in Sources */,
-				F23F1A5620B7DF3800F01D01 /* InvoicesManagerModel.m in Sources */,
 				2D4D60E920B3077B00280033 /* ClassCateItem.m in Sources */,
 				2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */,
 				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
@@ -3192,7 +3217,6 @@
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
-				F23F1A5520B7DF3800F01D01 /* Ordersheet.m in Sources */,
 				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
 				F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */,
 				2D20DFA12088D9D400095032 /* SCCommentOrderViewController.m in Sources */,

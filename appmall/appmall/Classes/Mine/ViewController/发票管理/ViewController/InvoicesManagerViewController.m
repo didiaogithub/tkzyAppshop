@@ -14,6 +14,7 @@
 #import "InvoicesManagerModel.h"
 #import "InvoicesManCellHeadView.h"
 #import "InvoicesManCellFooterView.h"
+#import "AddInvoicesDataViewController.h"
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
@@ -236,10 +237,17 @@
 - (void)showDetail:(UIButton *)sender{
     
     if ([sender.titleLabel.text isEqualToString:@"开发票"]) {
+        
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
         InvoicesManagerModel *model = self.dataArray[sender.tag];
-        open.invoiceid = model.orderid;
-        [self.navigationController pushViewController:open animated:YES];
+        if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
+            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+            [self.navigationController pushViewController:add animated:YES];
+        }else{ // 1是有 可以直接跳转到详情那个页面
+            open.invoiceid = model.orderid;
+            [self.navigationController pushViewController:open animated:YES];
+        }
+        
     }else{
         InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
         [self.navigationController pushViewController:detail animated:YES];

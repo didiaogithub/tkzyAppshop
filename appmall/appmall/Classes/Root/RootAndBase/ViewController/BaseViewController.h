@@ -18,5 +18,9 @@
 
 //添加提示view
 - (void)showNoticeView:(NSString*)title;
+- (void)setRightButton:(NSString *)btnName;
 
+- (void)setRightImageButton:(NSString *)btnName;
+
+- (void)rightBtnPressed;
 @end

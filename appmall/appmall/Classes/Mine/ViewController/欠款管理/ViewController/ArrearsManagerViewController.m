@@ -19,6 +19,9 @@
 @property (nonatomic, strong) UILabel *indicateLine;
 @property (nonatomic, strong) NSArray *statusArr;
 @property (nonatomic, copy)  NSString *statusString;
+
+/**  tableView*/
+@property (nonatomic, strong) UITableView *mtableView;
 @end
 
 @implementation ArrearsManagerViewController
@@ -29,8 +32,34 @@
     self.view.backgroundColor = [UIColor redColor];
     _statusArr = @[@"1", @"2,7", @"4,5", @"99"];
      [self createTopButton];
+    
+    [self getData];
 }
+- (void)getData{
+    NSDictionary * pramaDic = [HttpTool getCommonPara];
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMyLoanList];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSArray *Arr = dict[@"data"][@"orders"];
+        for (NSDictionary *dic in Arr) {
 
+        }
+        
+        [self.mtableView reloadData];
+        
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+    
+}
 
 
 /**创建订单状态按钮*/

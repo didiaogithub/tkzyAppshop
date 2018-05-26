@@ -9,6 +9,7 @@
 #import "CommunityViewController.h"
 #import "CommunityViewCell.h"
 #import "CommListModel.h"
+#import "PostCommViewController.h"
 #import "CommDetailViewController.h"
 #define KCommunityViewCell @"CommunityViewCell"
 @interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -23,16 +24,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
     [self setTableView];
-
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestHomePageData" object:nil];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
+    [self creatRightItem];
 }
+
+-(void)creatRightItem{
+
+    UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [itemBtn addTarget:self action:@selector(actionToPostComm) forControlEvents:UIControlEventTouchUpInside];
+    itemBtn.frame = CGRectMake(0, 0, 33, 33);
+    [itemBtn setTitle:@"+" forState:0];
+    [itemBtn setTitleColor:[UIColor redColor] forState:0];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:itemBtn];
+}
+
 -(void)setTableView{
     self.tabCommunityList .delegate = self;
     self.tabCommunityList.dataSource = self;
@@ -92,13 +102,8 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
-        NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
-        if (!IsNilOrNull(meid)) {
-            
-            NSSet *setTags = [NSSet setWithObject:@"appmall"];
-        }
-        
-        [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
+        NSArray *itemArray = dic[@"data"][@"noteList"];
+        [self.tabCommunityList tableViewEndRefreshCurPageCount:itemArray.count];
         if (dic != nil) {
             CommListModel *itemModel = [[CommListModel alloc]init];
             for (NSDictionary *itemDic in dic[@"data"][@"noteList"]) {
@@ -143,6 +148,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommunityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommunityViewCell];
     [cell refreshData:self.model.commList[indexPath.row]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -151,5 +157,11 @@
     detailVC.hidesBottomBarWhenPushed = YES;
     detailVC.notiID = self.model.commList[indexPath.row]._id;
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+-(void)actionToPostComm{
+    PostCommViewController *postVC = [[PostCommViewController alloc]init];
+    postVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:postVC animated:YES];
 }
 @end

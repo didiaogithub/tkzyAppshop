@@ -9,12 +9,11 @@
 #import "CommPingLunModel.h"
 
 @implementation CommcommentList
-
--(void)setValue:(id)value forKey:(NSString *)key{
-    
+-(CGFloat)getCellHeight{
+    CGFloat imgHeight = 74;
+    CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
+    return  imgHeight + labHeight;
 }
-
-
 
 @end
 
@@ -34,15 +33,22 @@
 }
 
 -(CGFloat)getCellHeight{
-    CGFloat imgHeight = 95;
-    if (self.comment.count > 10) {
-        imgHeight  += 32;
+    CGFloat imgHeight = 81;
+    if (self.comment.count > 0) {
+        imgHeight  += 41;
     }
   
     CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
     return  imgHeight + labHeight;
 }
 
+-(CGFloat)getCellHeightNoComment{
+    CGFloat imgHeight = 81;
+
+    
+    CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
+    return  imgHeight + labHeight;
+}
 
 
 @end

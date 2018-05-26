@@ -185,10 +185,13 @@
 #define  Note_DeleteNote                                  @"/Note/deleteNote"   //删除帖子
 #define  Note_EditPraise                                    @"/Note/editPraise"   //帖子评论点赞/取消点赞
 #define  Note_GetCommunityShowList                 @"/Note/getCommunityShowList"  ///: 帖子评论列表
-#define  Note_AddCommunity                             @"/Note/addCommunity" //评论详情
+#define  Note_AddCommunity                             @"/Note/addCommunity" //添加评论
 #define  Note_DeleteCommunity                          @"/Note/deleteCommunity"  //删除评论
+#define  Note_GetCommunity                            @"/Note/getCommunity"  //评论详情
 
 
+
+#define APIuploadfileimg @"resource/uploadfileimg"
 /**
 通用服务
  */

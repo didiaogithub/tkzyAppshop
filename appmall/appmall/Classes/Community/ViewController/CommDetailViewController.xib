@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommDetailViewController">
             <connections>
+                <outlet property="item" destination="wA9-mC-Bwz" id="F48-K8-SfM"/>
                 <outlet property="tabCommDetail" destination="wA9-mC-Bwz" id="Fgl-Az-fgA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

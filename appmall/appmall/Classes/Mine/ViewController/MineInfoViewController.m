@@ -26,12 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"个人信息";
+    self.title = @"个人资料";
     titleArr= @[@"昵称",@"真实姓名",@"手机号码",@"性别",@"出生日期"];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"MineInfoCell" bundle:nil] forCellReuseIdentifier:@"MineInfoCell"];
     self.mTableView.tableFooterView = [UIView new];
+    
+    self.iconImage.layer.masksToBounds = YES;
+    self.iconImage.layer.cornerRadius = 35;
+    self.iconImage.layer.borderColor = [UIColor tt_grayBgColor].CGColor;
+    self.iconImage.layer.borderWidth = 1;
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@""]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,6 +70,14 @@
             cell= [[[NSBundle  mainBundle]  loadNibNamed:@"MineInfoCell" owner:self options:nil]  lastObject];
         }
         cell.nameLab.text = titleArr[indexPath.row];
+        if (indexPath.row == 0) {
+            cell.contentTextField.text = self.model.nickname;
+        }else if (indexPath.row == 1){
+            cell.contentTextField.text = self.model.realname;
+        }else{
+            cell.contentTextField.text = self.model.phone;
+        }
+       
         tcell = cell;
     }
     return tcell;
@@ -80,5 +94,7 @@
 
 
 - (IBAction)sciconAction:(UIButton *)sender {
+    
+    
 }
 @end

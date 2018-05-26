@@ -284,6 +284,7 @@
 //    [self.navigationController pushViewController:info animated:YES];
     
     MineInfoViewController *info = [[MineInfoViewController alloc]init];
+    info.model = self.userInfoM;
     [self.navigationController pushViewController:info animated:YES];
 }
 

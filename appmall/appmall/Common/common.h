@@ -353,9 +353,15 @@
 /** 修改发票*/
 #define invoiceidApi @"Invocie/invoiceid"
 
+/** 添加发票模板*/
+#define addInvoiceTempApi @"Invoice/addInvoiceTemp"
+/** 修改发票模板*/
+#define editInvoiceTempApi @"Invoice/editInvoiceTemp"
+
 /** 我的分期*/
 #define getMyDividePayList @"Rule/getMyDividePayList"
-
+/** 我的欠款*/
+#define getMyLoanList @"Rule/getMyLoanList"
 /**判空处理*/
 #define IsNilOrNull(_ref) (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]])  || ([(_ref) isKindOfClass:[NSNull class]]) || ([(_ref) isEqualToString:@"(null)"]) || ([(_ref) isEqualToString:@""]) || ([(_ref) isEqualToString:@"null"]) || ([(_ref) isEqualToString:@"<null>"]))
 

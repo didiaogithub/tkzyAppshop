@@ -5,13 +5,14 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddInvoicesDataViewController">
             <connections>
                 <outlet property="contView" destination="38e-b5-Sei" id="tV2-Kw-3cp"/>
+                <outlet property="tjBtn" destination="1Lc-PQ-RzD" id="Ww4-aM-x1q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,12 +28,26 @@
                         <constraint firstAttribute="height" constant="200" id="gfs-vb-vcp"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lc-PQ-RzD">
+                    <rect key="frame" x="15" y="314" width="345" height="45"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="EHm-ks-lTY"/>
+                    </constraints>
+                    <state key="normal" title="提交"/>
+                    <connections>
+                        <action selector="tjBtnAction:" destination="-1" eventType="touchUpInside" id="ibs-rf-byw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="38e-b5-Sei" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="cKv-Uy-3wc"/>
+                <constraint firstAttribute="trailing" secondItem="1Lc-PQ-RzD" secondAttribute="trailing" constant="15" id="cQO-QQ-EKo"/>
                 <constraint firstAttribute="trailing" secondItem="38e-b5-Sei" secondAttribute="trailing" id="gR8-WC-Uye"/>
+                <constraint firstItem="1Lc-PQ-RzD" firstAttribute="top" secondItem="38e-b5-Sei" secondAttribute="bottom" constant="50" id="kxb-36-N2v"/>
                 <constraint firstItem="38e-b5-Sei" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vit-k1-dm2"/>
+                <constraint firstItem="1Lc-PQ-RzD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="y4w-8I-j7a"/>
             </constraints>
         </view>
     </objects>

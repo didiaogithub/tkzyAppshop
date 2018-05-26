@@ -94,7 +94,7 @@
     UIImageView *logoImageView = [[UIImageView alloc] init];
     [_topView addSubview:logoImageView];
     logoImageView.contentMode = UIViewContentModeScaleAspectFit;
-    logoImageView.image = [UIImage imageNamed:@"YDSC_Logo"];
+    logoImageView.image = [UIImage imageNamed:@"logo-商城"];
     [logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(AdaptedHeight(40));
         make.left.mas_offset(SCREEN_WIDTH/2-AdaptedWidth(63.5));

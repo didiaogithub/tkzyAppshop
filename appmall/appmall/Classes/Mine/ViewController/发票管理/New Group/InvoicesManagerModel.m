@@ -6,6 +6,7 @@
 
 #import "InvoicesManagerModel.h"
 
+NSString *const kInvoicesManagerModelInvoice = @"invoice";
 NSString *const kInvoicesManagerModelOrderType = @"order_type";
 NSString *const kInvoicesManagerModelOrderid = @"orderid";
 NSString *const kInvoicesManagerModelOrdermoney = @"ordermoney";
@@ -28,6 +29,10 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
 	self = [super init];
+	if(![dictionary[kInvoicesManagerModelInvoice] isKindOfClass:[NSNull class]]){
+		self.invoice = [dictionary[kInvoicesManagerModelInvoice] integerValue];
+	}
+
 	if(![dictionary[kInvoicesManagerModelOrderType] isKindOfClass:[NSNull class]]){
 		self.orderType = dictionary[kInvoicesManagerModelOrderType];
 	}	
@@ -65,6 +70,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 -(NSDictionary *)toDictionary
 {
 	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
+	dictionary[kInvoicesManagerModelInvoice] = @(self.invoice);
 	if(self.orderType != nil){
 		dictionary[kInvoicesManagerModelOrderType] = self.orderType;
 	}
@@ -102,7 +108,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	if(self.orderType != nil){
+	[aCoder encodeObject:@(self.invoice) forKey:kInvoicesManagerModelInvoice];	if(self.orderType != nil){
 		[aCoder encodeObject:self.orderType forKey:kInvoicesManagerModelOrderType];
 	}
 	if(self.orderid != nil){
@@ -132,6 +138,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super init];
+	self.invoice = [[aDecoder decodeObjectForKey:kInvoicesManagerModelInvoice] integerValue];
 	self.orderType = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderType];
 	self.orderid = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderid];
 	self.ordermoney = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrdermoney];
@@ -150,6 +157,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 {
 	InvoicesManagerModel *copy = [InvoicesManagerModel new];
 
+	copy.invoice = self.invoice;
 	copy.orderType = [self.orderType copy];
 	copy.orderid = [self.orderid copy];
 	copy.ordermoney = [self.ordermoney copy];

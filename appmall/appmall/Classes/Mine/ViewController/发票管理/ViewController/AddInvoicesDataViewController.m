@@ -22,12 +22,17 @@
 @property (nonatomic, strong) LeftLabelRightTextFieldView *shView;
 /**  发票证明材料*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *fpzmclView;
+
+/**  type*/
+@property (nonatomic, strong) NSString *type;
 @property (weak, nonatomic) IBOutlet UIView *contView;
 
 /**  拍照*/
 @property (nonatomic, strong) UIButton *pzBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *tjBtn;
 
+- (IBAction)tjBtnAction:(UIButton *)sender;
 
 @end
 
@@ -41,6 +46,8 @@
 }
 
 - (void)initCompontments{
+    self.tjBtn.layer.masksToBounds = YES;
+    self.tjBtn.layer.cornerRadius = 5;
     // 抬头类型
     self.ttlxView = [[LeftLabelRightTextFieldView alloc] init];
     self.ttlxView.backgroundColor = [UIColor whiteColor];
@@ -186,7 +193,9 @@
         self.fpzmclView.hidden = YES;
         line2.hidden = YES;
         line3.hidden = YES;
+        self.type = @"1";
     }else{// 企业单位
+        self.type = @"2";
         self.shView.hidden = NO;
         self.fpzmclView.hidden = NO;
         line2.hidden = NO;
@@ -200,8 +209,14 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 
+- (IBAction)tjBtnAction:(UIButton *)sender {
+    
+    
+    
+    
+}
 @end

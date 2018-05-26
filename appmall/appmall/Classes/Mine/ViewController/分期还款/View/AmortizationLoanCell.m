@@ -20,5 +20,12 @@
 
     // Configure the view for the selected state
 }
+- (void)refreshData:(Stag *)model{
+//    self.orderNoLab.text = [NSString stringWithFormat:@"%@",model.]
+    self.timeLab.text = [NSString stringWithFormat:@"应还款时间:%@",model.paybackTime];
+    self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.paymoney];
+}
+
+
 
 @end

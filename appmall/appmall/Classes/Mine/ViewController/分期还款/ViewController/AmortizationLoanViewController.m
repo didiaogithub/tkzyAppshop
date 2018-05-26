@@ -8,8 +8,23 @@
 
 #import "AmortizationLoanViewController.h"
 #import "AmortizationLoanCell.h"
-@interface AmortizationLoanViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "AmortizationHeadView.h"
+#import "AmortizationLoan.h"
+#import "Stag.h"
+@interface AmortizationLoanViewController ()<UITableViewDelegate,UITableViewDataSource,AmortizationHeadViewDelegate>
+{
+    BOOL _isOpen[1000];
+}
+
+
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+
+/**  dataArray*/
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+/**  分区内数组*/
+@property (nonatomic, strong) NSMutableArray *stagArray;
+
 
 @end
 
@@ -18,19 +33,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"分期还款";
+    self.dataArray = [NSMutableArray array];
+    self.stagArray = [NSMutableArray array];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"AmortizationLoanCell" bundle:nil] forCellReuseIdentifier:@"AmortizationLoanCell"];
 
+    [self getData];
+}
+
+- (void)getData{
+    NSDictionary * pramaDic = [HttpTool getCommonPara];
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMyDividePayList];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSArray *Arr = dict[@"data"][@"orders"];
+        for (NSDictionary *dic in Arr) {
+            AmortizationLoan *model = [[AmortizationLoan alloc]initWithDictionary:dic];
+            [self.dataArray addObject:model];
+        }
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+    
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return self.dataArray.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (_isOpen[section]) {
+        AmortizationLoan *model = self.dataArray[section];
+        return model.stags.count;
+    }
+    else
+    {
+        //如果是关闭的就返回0
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -40,6 +93,9 @@
     if (cell == nil) {
         cell= [[[NSBundle  mainBundle]  loadNibNamed:@"AmortizationLoanCell" owner:self options:nil]  lastObject];
     }
+    AmortizationLoan *model = self.dataArray[indexPath.section];
+    NSArray *array = model.stags;
+    [cell refreshData:array[indexPath.row]];
     return cell;
 }
 
@@ -47,29 +103,36 @@
     return 50;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc]init];
-    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50);
-    view.backgroundColor = [UIColor whiteColor];
-    UILabel *orderNoLab = [[UILabel alloc]init];
-    orderNoLab.text = @"订单编号：122333434(三期付款)";
-    [view addSubview:orderNoLab];
-    [orderNoLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(view.mas_centerY);
-        make.left.mas_offset(15);
-        make.width.mas_offset(200);
-    }];
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [view addSubview:btn];
-    [btn setTitle:@"两期待付" forState:0];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_offset(0);
-        make.centerY.equalTo(view.mas_centerY);
-        make.width.mas_offset(200);
-    }];
-    
+    AmortizationHeadView *view = [[AmortizationHeadView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
+    view.delegate = self;
+    view.rightBtn.tag = section;
+    AmortizationLoan *model = self.dataArray[section];
+    NSString *qi = [self HanziWithNum:[model.stagCount intValue]];
+    view.orderNo.text = [NSString stringWithFormat:@"订单编号：%@(%@期付款)",model.no,qi];
     return view;
+}
+
+-(void)showAndHiddrenCell:(UIButton *)sender{
+    _isOpen[sender.tag] = !_isOpen[sender.tag];
+    [self.mTableView reloadData];
+    
+    
+}
+
+// 数字转成汉字
+- (NSString *)HanziWithNum:(int)num{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    formatter.numberStyle = kCFNumberFormatterRoundHalfDown;
+    
+    NSString *string = [formatter stringFromNumber:[NSNumber numberWithInt: num]];
+    
+    return string;
 }
 
 

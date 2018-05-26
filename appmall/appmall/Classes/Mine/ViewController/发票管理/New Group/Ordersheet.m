@@ -11,6 +11,7 @@ NSString *const kOrdersheetImgurl = @"imgurl";
 NSString *const kOrdersheetItemid = @"itemid";
 NSString *const kOrdersheetItemno = @"itemno";
 NSString *const kOrdersheetItemspec = @"itemspec";
+NSString *const kOrdersheetName = @"name";
 NSString *const kOrdersheetPrice = @"price";
 
 @interface Ordersheet ()
@@ -42,6 +43,9 @@ NSString *const kOrdersheetPrice = @"price";
 	if(![dictionary[kOrdersheetItemspec] isKindOfClass:[NSNull class]]){
 		self.itemspec = dictionary[kOrdersheetItemspec];
 	}	
+	if(![dictionary[kOrdersheetName] isKindOfClass:[NSNull class]]){
+		self.name = dictionary[kOrdersheetName];
+	}	
 	if(![dictionary[kOrdersheetPrice] isKindOfClass:[NSNull class]]){
 		self.price = dictionary[kOrdersheetPrice];
 	}	
@@ -69,6 +73,9 @@ NSString *const kOrdersheetPrice = @"price";
 	}
 	if(self.itemspec != nil){
 		dictionary[kOrdersheetItemspec] = self.itemspec;
+	}
+	if(self.name != nil){
+		dictionary[kOrdersheetName] = self.name;
 	}
 	if(self.price != nil){
 		dictionary[kOrdersheetPrice] = self.price;
@@ -100,6 +107,9 @@ NSString *const kOrdersheetPrice = @"price";
 	if(self.itemspec != nil){
 		[aCoder encodeObject:self.itemspec forKey:kOrdersheetItemspec];
 	}
+	if(self.name != nil){
+		[aCoder encodeObject:self.name forKey:kOrdersheetName];
+	}
 	if(self.price != nil){
 		[aCoder encodeObject:self.price forKey:kOrdersheetPrice];
 	}
@@ -117,6 +127,7 @@ NSString *const kOrdersheetPrice = @"price";
 	self.itemid = [aDecoder decodeObjectForKey:kOrdersheetItemid];
 	self.itemno = [aDecoder decodeObjectForKey:kOrdersheetItemno];
 	self.itemspec = [aDecoder decodeObjectForKey:kOrdersheetItemspec];
+	self.name = [aDecoder decodeObjectForKey:kOrdersheetName];
 	self.price = [aDecoder decodeObjectForKey:kOrdersheetPrice];
 	return self;
 
@@ -134,6 +145,7 @@ NSString *const kOrdersheetPrice = @"price";
 	copy.itemid = [self.itemid copy];
 	copy.itemno = [self.itemno copy];
 	copy.itemspec = [self.itemspec copy];
+	copy.name = [self.name copy];
 	copy.price = [self.price copy];
 
 	return copy;

@@ -88,7 +88,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45 + 10)) style:UITableViewStylePlain];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45 + 10)) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -196,6 +196,14 @@
 }
 
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    InvoicesManCellHeadView *view = [[InvoicesManCellHeadView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    InvoicesManagerModel *model = self.dataArray[section];
+    view.orderNum.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
+    return view;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,50)];
     view.rightBtn.layer.masksToBounds = YES;
@@ -212,16 +220,10 @@
     }
     
     InvoicesManagerModel *model = self.dataArray[section];
-    view.orderTimeLab.text = model.orderpaymoney;
+    view.orderTimeLab.text = [NSString stringWithFormat:@"订单时间：%@",model.ordertime];
     return view;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    InvoicesManCellHeadView *view = [[InvoicesManCellHeadView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
-    InvoicesManagerModel *model = self.dataArray[section];
-    view.orderNum.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
-    return view;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 50;

@@ -12,6 +12,7 @@ NSString *const kInvoicesManagerModelOrdermoney = @"ordermoney";
 NSString *const kInvoicesManagerModelOrderno = @"orderno";
 NSString *const kInvoicesManagerModelOrderpaymoney = @"orderpaymoney";
 NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
+NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 
 @interface InvoicesManagerModel ()
 @end
@@ -51,6 +52,9 @@ NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
 		}
 		self.ordersheet = ordersheetItems;
 	}
+	if(![dictionary[kInvoicesManagerModelOrdertime] isKindOfClass:[NSNull class]]){
+		self.ordertime = dictionary[kInvoicesManagerModelOrdertime];
+	}	
 	return self;
 }
 
@@ -83,6 +87,9 @@ NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
 		}
 		dictionary[kInvoicesManagerModelOrdersheet] = dictionaryElements;
 	}
+	if(self.ordertime != nil){
+		dictionary[kInvoicesManagerModelOrdertime] = self.ordertime;
+	}
 	return dictionary;
 
 }
@@ -113,6 +120,9 @@ NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
 	if(self.ordersheet != nil){
 		[aCoder encodeObject:self.ordersheet forKey:kInvoicesManagerModelOrdersheet];
 	}
+	if(self.ordertime != nil){
+		[aCoder encodeObject:self.ordertime forKey:kInvoicesManagerModelOrdertime];
+	}
 
 }
 
@@ -128,6 +138,7 @@ NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
 	self.orderno = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderno];
 	self.orderpaymoney = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderpaymoney];
 	self.ordersheet = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrdersheet];
+	self.ordertime = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrdertime];
 	return self;
 
 }
@@ -145,6 +156,7 @@ NSString *const kInvoicesManagerModelOrdersheet = @"ordersheet";
 	copy.orderno = [self.orderno copy];
 	copy.orderpaymoney = [self.orderpaymoney copy];
 	copy.ordersheet = [self.ordersheet copy];
+	copy.ordertime = [self.ordertime copy];
 
 	return copy;
 }

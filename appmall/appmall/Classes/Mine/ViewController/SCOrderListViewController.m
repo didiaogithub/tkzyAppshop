@@ -101,16 +101,39 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     _nodataLableView.hidden = YES;
     
-    NSString *startindex = @"1";
+    NSString *pageNo = @"1";
     
-    NSString *endindex = @"20";
+    NSString *pageSize = @"20";
     
     NSDictionary *parmaDic = [NSDictionary dictionary];
     NSString *searchStr = _searchView.searchTextField.text;
+    
+    NSString *token = [UserModel getCurUserToken];
+   
     if (!IsNilOrNull(searchStr)) {
-        parmaDic = @{@"openid":USER_OPENID ,@"status": self.statusString, @"startindex":startindex, @"endindex":endindex, @"keywords":searchStr};
+        
+        parmaDic= @{@"appid":Appid,
+                                  @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                                  @"token":token,
+                                  @"status":self.statusString,
+                                  @"pageNo":pageNo,
+                                  @"pageSize":pageSize,
+                                  @"keywords":searchStr,
+                                  @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token, @"status":self.statusString,
+                                                                  @"pageNo":pageNo,
+                                                                  @"pageSize":pageSize,
+                                                                  @"keywords":searchStr} andNeedUrlEncode:YES andKeyToLower:YES]};
     }else{
-        parmaDic = @{@"openid":USER_OPENID ,@"status": self.statusString, @"startindex":startindex, @"endindex":endindex};
+        parmaDic= @{@"appid":Appid,
+                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
+                    @"token":token,
+                    @"status":self.statusString,
+                    @"pageNo":pageNo,
+                    @"pageSize":pageSize,
+                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token, @"status":self.statusString,
+                                                                  @"pageNo":pageNo,
+                                                                  @"pageSize":pageSize,
+                                                                   } andNeedUrlEncode:YES andKeyToLower:YES]};
     }
     
     NSString *orderListUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetOrderListUrl];

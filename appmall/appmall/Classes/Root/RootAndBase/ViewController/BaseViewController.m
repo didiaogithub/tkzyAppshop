@@ -74,7 +74,7 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:btnName style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnPressed)];
     self.navigationItem.rightBarButtonItem = right;
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationItem.rightBarButtonItem.tintColor = KCommonBlueColor;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
 }
 
 - (void)setRightImageButton:(NSString *)btnName
@@ -82,7 +82,7 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:btnName] style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnPressed)];
     self.navigationItem.rightBarButtonItem = right;
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationItem.rightBarButtonItem.tintColor = KCommonBlueColor;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
 }
 - (void)rightBtnPressed
 {

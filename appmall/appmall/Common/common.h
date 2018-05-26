@@ -273,7 +273,7 @@
 /**奖励商品生成订单*/
 #define MyPrizeGoodsAddOrderUrl @"Wxmall/Order/addOrderThree"
 /**订单列表*/
-#define GetOrderListUrl @"Wxmall/Order/getOrderList"
+#define GetOrderListUrl @"Order/getOrderList"
 /**订单详情*/
 #define OrderDetailUrl @"Wxmall/Order/getOrderById"
 /**确认收货*/

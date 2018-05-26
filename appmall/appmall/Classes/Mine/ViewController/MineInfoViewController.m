@@ -19,10 +19,16 @@
 - (IBAction)sciconAction:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
-
+@property (nonatomic, strong) NSMutableArray *headImageArr;
 @end
 
 @implementation MineInfoViewController
+-(NSMutableArray *)headImageArr{
+    if (_headImageArr == nil) {
+        _headImageArr = [NSMutableArray array];
+    }
+    return _headImageArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -190,26 +196,26 @@
     UIImage *imageSales = [UIImage fixOrientation:image];
     //显示头像
     [self.iconImage setImage:imageSales];
-    NSString *headDicUrl = [NSString stringWithFormat:@"%@%@",UploadPicAndPhoto_Url,uploadPic_Url];
+    NSString *headDicUrl = [NSString stringWithFormat:@"%@%@",CommentResAPI,APIuploadfileimg];
     NSString *dateStr = [NSDate dateNow];
     NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
-    NSDictionary *pramaDic = @{@"name":nameStr,@"ckid":ckidStr,@"file":imageSales};
-
+    [self.headImageArr addObject:imageSales];
+    NSDictionary *pramaDic = @{@"file":imageSales};
     
     //保存头像
     [HttpTool uploadWithUrl:headDicUrl andImages:self.headImageArr andPramaDic:pramaDic completion:^(NSString *url, NSError *error) {
         NSLog(@"正在上传");
         
     } success:^(id responseObject) {
-        [self.viewDataLoading stopAnimation];
         NSDictionary *dict = responseObject;
+        
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
+       NSString *url =  dict[@"data"][@"url"];
         
     } fail:^(NSError *error){
-        [self.viewDataLoading stopAnimation];
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];
         }else{

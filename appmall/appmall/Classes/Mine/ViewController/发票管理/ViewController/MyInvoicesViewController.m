@@ -24,6 +24,9 @@
 /**  已拒绝*/
 @property (nonatomic, strong) NSMutableArray *yjjDataArray;
 
+/**  pageNo*/
+@property (nonatomic, assign)  NSInteger page;
+
 @end
 
 @implementation MyInvoicesViewController
@@ -41,28 +44,51 @@
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyinvoicesCheckingCell" bundle:nil] forCellReuseIdentifier:@"MyinvoicesCheckingCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCheckFailCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCheckFailCell"];
     self.mTableView.tableFooterView = [UIView new];
-    [self getData];
+    
+    _page = 1;
+    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];    
 }
 
 
+-(void)loadNewData{
+    _page =  1;
+    [self getData];
+}
+
+-(void)loadMoreData{
+    _page ++;
+    [self getData];
+}
+
 - (void)getData{
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary * pramaDic = @{@"appid":Appid,
-                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                                @"token":@"df9e345e28349f5911a413026924f63c",
-                                @"pageNo":@"1",
-                                @"pageSize":@"10",
-                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"pageNo":@"1",
-                                                                              @"pageSize":@"10"} andNeedUrlEncode:YES andKeyToLower:YES]};
     
     
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:@(_page) forKey:@"pageNo"];
+    [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
+    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMyInvoiceApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        [self.mTableView.mj_header endRefreshing];
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
+            [self.mTableView tableViewEndRefreshCurPageCount:0];
             [self showNoticeView:dict[@"message"]];
         }
+        
+        if (self.page == 1) {
+            [self.wclDataArray removeAllObjects];
+            [self.yclDataArray removeAllObjects];
+            [self.yjjDataArray removeAllObjects];
+        }
         NSArray *Arr = dict[@"data"][@"invoices"];
+        [self.mTableView tableViewEndRefreshCurPageCount:Arr.count];
         for (NSDictionary *dic in Arr) {
             MyInvoicesModel *MyInvoicesM = [[MyInvoicesModel alloc] init];
             [MyInvoicesM setValuesForKeysWithDictionary:dic];
@@ -209,6 +235,12 @@
     AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
     [self.navigationController pushViewController:add animated:YES];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+//    MyInvoicesModel *model = self.wclDataArray[indexPath.row];
+//    self.selectMyInvoicesBlock(model);
 }
 
 -(void)jumpAddInvoicesDataViewController{

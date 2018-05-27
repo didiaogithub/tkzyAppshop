@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MyInvoicesModel.h"
+
+@protocol MyInvoicesCellDelegate<NSObject>
+
+@end
 @interface MyInvoicesCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *typeLab;
 @property (weak, nonatomic) IBOutlet UILabel *fpttLab;

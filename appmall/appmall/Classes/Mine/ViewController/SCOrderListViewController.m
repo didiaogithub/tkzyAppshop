@@ -86,12 +86,20 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     self.navigationItem.title = @"订单列表";
     _page  =1;
-    _statusArr = @[@"1", @"2,7", @"3,4,5,6", @"4,5", @"99"];
+    _statusArr = @[@"99", @"1", @"2", @"2,4,5,7", @"3,6"];
     
     [self createTopButton];
     [self moveStatusLineWithStatus:self.statusString];
     [self createTableView];
     [self refreshData];
+    
+//    [UITableView refreshHelperWithScrollView:self.orderTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData]; 
+}
+
+-(void)loadNewData{
+    _page =  1;
+    [self loadMyOrderData:_searchView.searchTextField.text];
 }
 
 #pragma mark - 请求订单列表数据
@@ -122,6 +130,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             [self.loadingView stopAnimation];
             [self showNoticeView:itemDic[@"message"]];
             return;
+        }
+        if (self.page == 1) {
+            [self.orderDataArr removeAllObjects];
         }
         
         if (!IsNilOrNull(self.searchView.searchTextField.text)) {
@@ -269,7 +280,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }];
     float buttonH = 50;
     _statusBtnArr = [NSMutableArray array];
-    NSArray *titleArr = @[@"待付款", @"待发货", @"待收货", @"使用反馈", @"全部"];
+    NSArray *titleArr = @[@"全部",@"待付款", @"待发货", @"待收货", @"使用反馈"];
     
     for (NSInteger i = 0; i < titleArr.count; i++) {
         UIButton *btn = [self createOrderButtonWithframe:CGRectMake((SCREEN_WIDTH/5)*i, 0, SCREEN_WIDTH/5, buttonH) andTag:140+i andAction:@selector(clickOrderButton:) andtitle:titleArr[i]];
@@ -318,17 +329,22 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //移动红线
 -(void)moveStatusLineWithStatus:(NSString *)status{
     
+//    待付款  1
+//    待发货  2
+//    待收货 2,4,5,7
+//    使用反馈 3,6
+//    全部 99
     
     float leftX = 0;
-    if ([self.statusString isEqualToString:@"1"]){//待付款
+    if ([self.statusString isEqualToString:@"99"]){//全部
         leftX = 0;
-    }else if ([self.statusString isEqualToString:@"2,7"]){//待发货
+    }else if ([self.statusString isEqualToString:@"1"]){//待付款
         leftX = SCREEN_WIDTH/5;
-    }else if ([self.statusString isEqualToString:@"3,4,5,6"]){//已完成
+    }else if ([self.statusString isEqualToString:@"2"]){//待发货
         leftX = SCREEN_WIDTH*2/5;
-    }else if ([self.statusString isEqualToString:@"4,5"]){//退换货
+    }else if ([self.statusString isEqualToString:@"2,4,5,7"]){//使用反馈
         leftX = SCREEN_WIDTH*3/5;
-    }else{ //99:全部
+    }else{ // 使用反馈 3,6
         leftX = SCREEN_WIDTH*4/5;
     }
     [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -338,6 +354,11 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 -(void)clickOrderButton:(UIButton *)button{
     //    订单状态（99：全部0：已取消 1：未付款；2：已付款；3:已收货 4：正在退货，5：退货成功，6：已完成，7：已发货 8  支付中）
+//    订单状态（0：未付款 1：已取消 2：已付款 3：确认收货 4：退货中 5：退货完成 6：已完成 7：已发货 99：全部）
+    
+    /*0：已取消；1：未付款；2：已付款；
+     3：已收货，4：正在退货，
+     5：退货成功，6：已完成，7：已发货*/
     
     [self.orderDataArr removeAllObjects];
     [self updateBtnSelectedState:button];
@@ -403,7 +424,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _orderNumberLable = [UILabel configureLabelWithTextColor:[UIColor darkGrayColor] textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [headerView addSubview:_orderNumberLable];
     _orderNumberLable.text = @"订单编号:";
-    _orderNumberLable.frame = CGRectMake(10, 0, (SCREEN_WIDTH-100), 45);
+    _orderNumberLable.frame = CGRectMake(10, 0, (SCREEN_WIDTH-150), 45);
+    _orderNumberLable.adjustsFontSizeToFitWidth = YES;
+    UILabel *qian = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter font:MAIN_TITLE_FONT];
+    qian.frame = CGRectMake((SCREEN_WIDTH-150) + 10,10, 25, 25);
+    qian.text = @"欠";
+  
     
     _orderStateLable = [UILabel configureLabelWithTextColor:[UIColor tt_redMoneyColor] textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
     _orderStateLable.text = @"";
@@ -437,6 +463,14 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //            _orderNumberLable.attributedText = attri;
 //        }else{
             _orderNumberLable.text = [NSString stringWithFormat:@"订单编号：%@", orderModel.orderno];
+        
+        
+        qian.backgroundColor = [UIColor redColor];
+        if ([orderModel.ordertypelabel containsString:@"欠"]) {
+            [headerView addSubview:qian];
+        }else{
+            [headerView removeFromSuperview];
+        }
 //        }
     }
     return headerView;
@@ -449,7 +483,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     SCMyOrderModel *orderModel = self.orderDataArr[section];
-    NSString *statustr = [NSString stringWithFormat:@"%@",orderModel.orderstatus];
+    NSString *statustr = [NSString stringWithFormat:@"%@",orderModel.orderstatuslabel];
     
     if ([statustr isEqualToString:@"已付款"] || [statustr isEqualToString:@"退货成功"]) {
     
@@ -466,7 +500,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         label.textColor = [UIColor tt_monthGrayColor];
         label.backgroundColor = [UIColor whiteColor];
-        label.textAlignment = NSTextAlignmentRight;
+        label.textAlignment = NSTextAlignmentLeft;
         if (iphone4) {
             label.font = CHINESE_SYSTEM(11);
         }else if (iphone5){
@@ -476,7 +510,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
         NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-        NSString *str = [NSString stringWithFormat:@"全国包邮，共%@件商品，合计:¥%@", count, allMoney];
+        NSString *str = [NSString stringWithFormat:@"共%@件商品，合计:¥%@", count, allMoney];
         
         NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
         //获取要调整颜色的文字位置,调整颜色
@@ -493,7 +527,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         _footerView = [[OrderFooterView alloc] initWithFrame:CGRectZero andType:statustr andHasTop:YES type:@"SCOrderListViewController"];
         _footerView.delegate = self;
 //        NSString *iscomment = [NSString stringWithFormat:@"%@", orderModel.iscomment];
-//        [_footerView refreshButton:iscomment];
+        _footerView.statustring = orderModel.orderstatuslabel;
+        [_footerView refreshButton:@""];
+        
         _footerView.rightButton.tag = section + 170;
         _footerView.leftButton.tag = section + 160;
         
@@ -539,12 +575,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 /**点击进入详情*/
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    SCMyOrderModel *orderM = self.orderDataArr[indexPath.section];
-    SCOrderDetailViewController *checkOrder = [[SCOrderDetailViewController alloc] init];
-    checkOrder.orderModel = orderM;
-    checkOrder.orderstatusString = orderM.orderstatus;
-    checkOrder.orderid = orderM.orderId;
-    [self.navigationController pushViewController:checkOrder animated:YES];
+//    SCMyOrderModel *orderM = self.orderDataArr[indexPath.section];
+//    SCOrderDetailViewController *checkOrder = [[SCOrderDetailViewController alloc] init];
+//    checkOrder.orderModel = orderM;
+//    checkOrder.orderstatusString = orderM.orderstatus;
+//    checkOrder.orderid = orderM.orderId;
+//    [self.navigationController pushViewController:checkOrder animated:YES];
 }
 
 -(void)refreshData {
@@ -589,7 +625,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 #pragma mark - 上拉加载更多订单列表数据
 -(void)loadMoreData {
-    
+    _page ++;
     _nodataLableView.hidden = YES;
     
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];

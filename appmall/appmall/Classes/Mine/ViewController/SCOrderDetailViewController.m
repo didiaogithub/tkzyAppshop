@@ -712,14 +712,14 @@
     SCPayViewController *payMoney = [[SCPayViewController alloc] init];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.ordermoney];
     
-    NSString *balancemoney = [NSString stringWithFormat:@"%@", self.orderModel.balancemoney];
-    if (!IsNilOrNull(balancemoney) && [balancemoney doubleValue] > 0) {
-        //补差价
-        payMoney.money = balancemoney;
-    }else{
-        //实付款
-        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
-    }
+//    NSString *balancemoney = [NSString stringWithFormat:@"%@", self.orderModel.balancemoney];
+//    if (!IsNilOrNull(balancemoney) && [balancemoney doubleValue] > 0) {
+//        //补差价
+//        payMoney.money = balancemoney;
+//    }else{
+//        //实付款
+//        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
+//    }
     
     payMoney.orderid = orderM.Id;
     NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.no];

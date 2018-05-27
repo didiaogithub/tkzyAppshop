@@ -38,12 +38,12 @@
     }
     
     //商品数量  商品总价  运费
-    _priceLable = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentRight font:priceFont];
+    _priceLable = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentLeft font:priceFont];
     [bankView addSubview:_priceLable];
-    
-    //中间的线
-    UILabel *midlleLine = [UILabel creatLineLable];
-    [bankView addSubview:midlleLine];
+//
+//    //中间的线
+//    UILabel *midlleLine = [UILabel creatLineLable];
+//    [bankView addSubview:midlleLine];
     //右按钮
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [bankView addSubview:_rightButton];
@@ -73,7 +73,7 @@
         if ([statustr isEqualToString:@"已取消"]) {
             
             [_priceLable mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_offset(0);
+                make.top.mas_offset(10);
                 make.right.mas_offset(-10);
                 make.left.mas_offset(10);
                 make.height.mas_equalTo(0);
@@ -88,20 +88,20 @@
         }else{
             
             [_priceLable mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_offset(0);
+                make.top.mas_offset(10);
                 make.right.mas_offset(-10);
                 make.left.mas_offset(10);
                 make.height.mas_equalTo(35);
             }];
             
-            [midlleLine mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(_priceLable.mas_bottom).offset(0);
-                make.left.right.mas_offset(0);
-                make.height.mas_offset(0.5);
-            }];
+//            [midlleLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(_priceLable.mas_bottom).offset(0);
+//                make.left.right.mas_offset(0);
+//                make.height.mas_offset(0.5);
+//            }];
             
             [_rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(_priceLable.mas_bottom).offset(10);
+                make.top.mas_offset(10);
                 make.right.mas_offset(-10);
                 make.bottom.mas_offset(-10);
                 make.width.mas_offset(80);

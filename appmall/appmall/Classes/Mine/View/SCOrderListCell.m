@@ -81,7 +81,7 @@
 
 - (void)refreshWithModel:(SCMyOrderGoodsModel *)model {
     
-    NSString *imageStr = [NSString stringWithFormat:@"%@", model.path];
+    NSString *imageStr = [NSString stringWithFormat:@"%@", model.imgurl];
     if (![imageStr hasPrefix:@"http"]) {
         imageStr = [BaseImagestr_Url stringByAppendingString:imageStr];
     }
@@ -128,11 +128,11 @@
     }];
     
     //规格
-    NSString *spec = [NSString stringWithFormat:@"%@", model.spec];
+    NSString *spec = [NSString stringWithFormat:@"%@", model.itemspec];
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@", model.spec];
+        spec = [NSString stringWithFormat:@"规格:%@", model.itemspec];
     }
     _textNumber.text = spec;
     if (IsNilOrNull(name)) {

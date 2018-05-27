@@ -295,11 +295,11 @@
     if(tag == 0){
         status = @"1";
     }else if (tag == 1){
-        status = @"2,7";
+        status = @"2";
     }else if (tag == 2){
-        status = @"3,4,5,6";
+        status = @"2,4,5,7";
     }else if (tag == 3){
-        status = @"4,5";
+        status = @"3,6";
     }else{
         status = @"99";
     }

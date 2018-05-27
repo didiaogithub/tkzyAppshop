@@ -42,7 +42,8 @@
                             <constraint firstAttribute="height" constant="20" id="CHw-Ah-mgP"/>
                             <constraint firstAttribute="width" constant="20" id="kVK-He-y4R"/>
                         </constraints>
-                        <state key="normal" image="选中1"/>
+                        <state key="normal" image="默认未选"/>
+                        <state key="selected" image="选中1"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抬头类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkC-FU-RxN">
                         <rect key="frame" x="35" y="9" width="53.5" height="16"/>
@@ -87,10 +88,11 @@
                 <outlet property="shLab" destination="95g-0I-fec" id="OEu-10-xXW"/>
                 <outlet property="typeLab" destination="nTk-H3-ur9" id="Idy-Rk-hda"/>
             </connections>
-            <point key="canvasLocation" x="-253" y="107"/>
+            <point key="canvasLocation" x="-491" y="12"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="选中1" width="20" height="20"/>
+        <image name="默认未选" width="21" height="21"/>
     </resources>
 </document>

@@ -63,6 +63,8 @@ RLM_ARRAY_TYPE(SCMyOrderGoodsModel)
 @property (nonatomic, copy) NSString *orderstatuslabel;
 /** 订单状态 数字形式状态*/
 @property (nonatomic, copy) NSString *orderstatus;
+/** 订单状态 欠款状态*/
+@property (nonatomic, copy) NSString *ordertypelabel;
 
 @property (nonatomic, copy) NSString *statusString;
 /** 订单号*/

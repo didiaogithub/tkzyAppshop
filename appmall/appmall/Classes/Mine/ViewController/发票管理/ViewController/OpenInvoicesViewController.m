@@ -32,18 +32,15 @@
     
     [self setUpRightItem];
     
-    [self getData];
+//    [self getData];
 }
 
 - (void)getData{
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary * pramaDic = @{@"appid":Appid,
-                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                                @"token":@"df9e345e28349f5911a413026924f63c",
-                                @"invoiceid":self.invoiceid,
-                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"invoiceid":self.invoiceid} andNeedUrlEncode:YES andKeyToLower:YES]};
     
     
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.invoiceid forKey:@"invoiceid"];
+    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"];    
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getInvoiceByIdApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;

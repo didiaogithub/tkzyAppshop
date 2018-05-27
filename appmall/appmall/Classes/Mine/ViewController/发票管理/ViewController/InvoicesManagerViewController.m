@@ -15,6 +15,7 @@
 #import "InvoicesManCellHeadView.h"
 #import "InvoicesManCellFooterView.h"
 #import "AddInvoicesDataViewController.h"
+#import "MyInvoicesViewController.h"
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
@@ -30,6 +31,8 @@
 @property (nonatomic, assign) BOOL selectFirstState;
 
 @property (nonatomic,strong) UITableView *mTableView;
+/**  pageNo*/
+@property (nonatomic, assign)  NSInteger page;
 @end
 
 @implementation InvoicesManagerViewController
@@ -40,35 +43,67 @@
     self.dataArray = [NSMutableArray array];
     self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT * 0.15)];
     [self.view addSubview:self.headView];
-    
+    _page = 1;
      [self setSegamentView];
      [self.mTableView registerNib:[UINib nibWithNibName:@"InvoicesManagerCell" bundle:nil] forCellReuseIdentifier:@"InvoicesManagerCell"];
     
     [self initComponments];
     self.selectFirstState = YES;
-    
-    [self getData:@"0"];
+    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];    
+    [self setRightButton:@"开票信息"];
 }
 
+- (void)rightBtnPressed{
+     MyInvoicesViewController *my = [[MyInvoicesViewController alloc]init];
+    [self.navigationController pushViewController:my animated:YES];
+    
+}
+
+-(void)loadNewData{
+    _page =  1;
+    if (self.selectFirstState == YES) {
+        [self getData:@"0"];
+    }else{
+        [self getData:@"1"];
+    }
+}
+
+-(void)loadMoreData{
+    _page ++;
+    if (self.selectFirstState == YES) {
+        [self getData:@"0"];
+    }else{
+        [self getData:@"1"];
+    }
+}
+
+
 - (void)getData:(NSString*)type{
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary * pramaDic = @{@"appid":Appid,
-                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                                @"token":@"df9e345e28349f5911a413026924f63c",
-                                @"pageNo":@"1",
-                                @"pageSize":@"10",
-                                @"invoice":type,
-                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"df9e345e28349f5911a413026924f63c",@"pageNo":@"1",
-                                                                              @"pageSize":@"10",@"invoice":type} andNeedUrlEncode:YES andKeyToLower:YES]};
     
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
     
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:@(_page) forKey:@"pageNo"];
+    [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
+    [pramaDic setObject:type forKey:@"invoice"];
+    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getOrderByInvoiceApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        [self.mTableView.mj_header endRefreshing];
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
+            [self.mTableView tableViewEndRefreshCurPageCount:0];
             [self showNoticeView:dict[@"message"]];
         }
+
+        if (self.page == 1) {
+            [self.dataArray removeAllObjects];
+        }
         NSArray *Arr = dict[@"data"];
+         [self.mTableView tableViewEndRefreshCurPageCount:Arr.count];
         for (NSDictionary *dic in Arr) {
             InvoicesManagerModel *model = [[InvoicesManagerModel alloc]initWithDictionary:dic];
             [self.dataArray addObject:model];
@@ -135,17 +170,20 @@
     
 }
 
+
 //导航栏切换
 - (void)buttonClick:(UIButton *)sender
 {
     
     if (sender.tag == leftTag) { // 待开发票
        self.selectFirstState = YES;
+        [self getData:@"0"];
         
     }
     else if (sender.tag == rightTag) // 已开发票
     {
          self.selectFirstState = NO;
+        [self getData:@"1"];
        
     }
     [self.mTableView reloadData];
@@ -240,9 +278,10 @@
         
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
         InvoicesManagerModel *model = self.dataArray[sender.tag];
-        if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
-            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
-            [self.navigationController pushViewController:add animated:YES];
+        if (model.invoice == 1) { // 0 是没有审核审核成功的发票模板 需要去添加
+//            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+//            [self.navigationController pushViewController:add animated:YES];
+            [self showNoticeView:@"请点击开票信息，去添加发票模板"];
         }else{ // 1是有 可以直接跳转到详情那个页面
             open.invoiceid = model.orderid;
             [self.navigationController pushViewController:open animated:YES];

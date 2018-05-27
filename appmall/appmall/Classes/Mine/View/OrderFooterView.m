@@ -52,7 +52,7 @@
     _rightButton.layer.borderWidth = 1;
     _rightButton.clipsToBounds = YES;
     _rightButton.titleLabel.font = MAIN_TITLE_FONT;
-    _rightButton.backgroundColor = [UIColor redColor];
+    _rightButton.backgroundColor = [UIColor whiteColor];
     [_rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_rightButton addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     //左按钮
@@ -213,9 +213,10 @@
 
 -(void)refreshButton:(NSString*)iscomment {
     _iscomment = iscomment;
-    if ([_statustring isEqualToString:@"待付款"]) {
+    if ([_statustring isEqualToString:@"未付款"]) {
         [_leftButton setTitle:@"取消订单" forState:UIControlStateNormal];
-        [_rightButton setTitle:@"去付款" forState:UIControlStateNormal];
+        [_rightButton setTitle:@"立即付款" forState:UIControlStateNormal];
+        [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"已付款"] || [_statustring isEqualToString:@"退货成功"]){
         _leftButton.hidden = YES;
         _rightButton.hidden = YES;

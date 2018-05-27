@@ -47,7 +47,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 @property (nonatomic, assign) NSTimeInterval startInterval;
 @property (nonatomic, assign) NSTimeInterval endInterval;
 @property (nonatomic, strong) UIView *statusView;
-
+@property(assign,nonatomic)NSInteger page;
 @end
 
 @implementation SCOrderListViewController
@@ -85,7 +85,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     [super viewDidLoad];
     
     self.navigationItem.title = @"订单列表";
-    
+    _page  =1;
     _statusArr = @[@"1", @"2,7", @"3,4,5,6", @"4,5", @"99"];
     
     [self createTopButton];
@@ -101,46 +101,20 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     _nodataLableView.hidden = YES;
     
-    NSString *pageNo = @"1";
+    NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
-    NSString *pageSize = @"20";
-    
-    NSDictionary *parmaDic = [NSDictionary dictionary];
     NSString *searchStr = _searchView.searchTextField.text;
-    
-    NSString *token = [UserModel getCurUserToken];
-   
     if (!IsNilOrNull(searchStr)) {
-        
-        parmaDic= @{@"appid":Appid,
-                                  @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                                  @"token":token,
-                                  @"status":self.statusString,
-                                  @"pageNo":pageNo,
-                                  @"pageSize":pageSize,
-                                  @"keywords":searchStr,
-                                  @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token, @"status":self.statusString,
-                                                                  @"pageNo":pageNo,
-                                                                  @"pageSize":pageSize,
-                                                                  @"keywords":searchStr} andNeedUrlEncode:YES andKeyToLower:YES]};
+        [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"orderstatus":self.statusString,@"keyword":searchStr}];
     }else{
-        parmaDic= @{@"appid":Appid,
-                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                    @"token":token,
-                    @"status":self.statusString,
-                    @"pageNo":pageNo,
-                    @"pageSize":pageSize,
-                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token, @"status":self.statusString,
-                                                                  @"pageNo":pageNo,
-                                                                  @"pageSize":pageSize,
-                                                                   } andNeedUrlEncode:YES andKeyToLower:YES]};
+        [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"orderstatus":self.statusString}];
     }
     
     NSString *orderListUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetOrderListUrl];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    [HttpTool getWithUrl:orderListUrl params:parmaDic success:^(id json) {
+    [HttpTool getWithUrl:orderListUrl params:pramaDic success:^(id json) {
         
         [self.orderTableView.mj_header endRefreshing];
         NSDictionary *itemDic = json;
@@ -151,7 +125,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
         if (!IsNilOrNull(self.searchView.searchTextField.text)) {
-            NSArray *itemArr = itemDic[@"orderlist"];
+            NSArray *itemArr = itemDic[@"data"][@"orderlist"];
             if (itemArr.count == 0) {
                 _nodataLableView.hidden = NO;
                 [self.orderDataArr removeAllObjects];
@@ -161,12 +135,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             for (NSDictionary *listOrderDic in itemArr) {
                 SCMyOrderModel *orderModel = [[SCMyOrderModel alloc] init];
                 [orderModel setValuesForKeysWithDictionary:listOrderDic];
-                orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
-                orderModel.ordernumber = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
-                orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
-                orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
-                orderModel.statusString = _statusString;
-                NSArray *ordersheetArr = listOrderDic[@"itemlist"];
+//                orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
+//                orderModel. = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
+//                orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
+//                orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
+//                orderModel.statusString = _statusString;
+                NSArray *ordersheetArr = listOrderDic[@"ordersheet"];
                 if (ordersheetArr.count > 0) {
                     for (NSInteger i = 0; i<ordersheetArr.count; i++) {
                         SCMyOrderGoodsModel *orderSheet = [[SCMyOrderGoodsModel alloc] init];
@@ -188,16 +162,16 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             
             
         }else{
-            NSArray *itemArr = itemDic[@"orderlist"];
+            NSArray *itemArr = itemDic[@"data"][@"orderlist"];
             for (NSDictionary *listOrderDic in itemArr) {
                 SCMyOrderModel *orderModel = [[SCMyOrderModel alloc] init];
                 [orderModel setValuesForKeysWithDictionary:listOrderDic];
-                orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
-                orderModel.ordernumber = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
-                orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
-                orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
-                orderModel.statusString = _statusString;
-                NSArray *ordersheetArr = listOrderDic[@"itemlist"];
+//                orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
+//                orderModel.ordernumber = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
+//                orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
+//                orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
+//                orderModel.statusString = _statusString;
+                NSArray *ordersheetArr = listOrderDic[@"ordersheet"];
                 if (ordersheetArr.count > 0) {
                     for (NSInteger i = 0; i<ordersheetArr.count; i++) {
                         SCMyOrderGoodsModel *orderSheet = [[SCMyOrderGoodsModel alloc] init];
@@ -257,7 +231,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 -(void)loadDBData:(NSString*)statusStr {
     
-    [self.orderDataArr removeAllObjects];
+//    [self.orderDataArr removeAllObjects];
     
     RLMResults *orderArr = [self getDBData];
     if (orderArr.count > 0) {
@@ -365,6 +339,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 -(void)clickOrderButton:(UIButton *)button{
     //    订单状态（99：全部0：已取消 1：未付款；2：已付款；3:已收货 4：正在退货，5：退货成功，6：已完成，7：已发货 8  支付中）
     
+    [self.orderDataArr removeAllObjects];
     [self updateBtnSelectedState:button];
     [self loadDBData:_statusString];
     [self loadMyOrderData:_searchView.searchTextField.text];
@@ -447,22 +422,22 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     if ([self.orderDataArr count]) {
         
         SCMyOrderModel *orderModel = self.orderDataArr[section];
-        _orderStateLable.text = [NSString stringWithFormat:@"%@",orderModel.orderstatus];
+        _orderStateLable.text = [NSString stringWithFormat:@"%@",orderModel.orderstatuslabel];
         
-        NSString *orderfrom = [NSString stringWithFormat:@"%@", orderModel.orderfrom];
-        if ([orderfrom isEqualToString:@"3"]) {
-            //退换货才加标识
-            NSString *orderNo = [NSString stringWithFormat:@"订单编号：%@", orderModel.no];
-            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:orderNo];
-            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
-            attch.image = [UIImage imageNamed:@"order_changeGoods"];
-            attch.bounds = CGRectMake(5, -5, 25, 25);
-            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
-            [attri appendAttributedString:string];
-            _orderNumberLable.attributedText = attri;
-        }else{
-            _orderNumberLable.text = [NSString stringWithFormat:@"订单编号：%@", orderModel.no];
-        }
+//        NSString *orderfrom = [NSString stringWithFormat:@"%@", orderModel.orderfrom];
+//        if ([orderfrom isEqualToString:@"3"]) {
+//            //退换货才加标识
+//            NSString *orderNo = [NSString stringWithFormat:@"订单编号：%@", orderModel.orderno];
+//            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:orderNo];
+//            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+//            attch.image = [UIImage imageNamed:@"order_changeGoods"];
+//            attch.bounds = CGRectMake(5, -5, 25, 25);
+//            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+//            [attri appendAttributedString:string];
+//            _orderNumberLable.attributedText = attri;
+//        }else{
+            _orderNumberLable.text = [NSString stringWithFormat:@"订单编号：%@", orderModel.orderno];
+//        }
     }
     return headerView;
 }
@@ -484,7 +459,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         view.backgroundColor = [UIColor whiteColor];
         [bgview addSubview:view];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, 35)];
-        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.money];
+        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
         }
@@ -500,7 +475,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             label.font = CHINESE_SYSTEM(15);
         }
         
-        NSString *count = [NSString stringWithFormat:@"%@",orderModel.ordernumber];
+        NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
         NSString *str = [NSString stringWithFormat:@"全国包邮，共%@件商品，合计:¥%@", count, allMoney];
         
         NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
@@ -517,12 +492,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         _footerView = [[OrderFooterView alloc] initWithFrame:CGRectZero andType:statustr andHasTop:YES type:@"SCOrderListViewController"];
         _footerView.delegate = self;
-        NSString *iscomment = [NSString stringWithFormat:@"%@", orderModel.iscomment];
-        [_footerView refreshButton:iscomment];
+//        NSString *iscomment = [NSString stringWithFormat:@"%@", orderModel.iscomment];
+//        [_footerView refreshButton:iscomment];
         _footerView.rightButton.tag = section + 170;
         _footerView.leftButton.tag = section + 160;
         
-        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.money];
+        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
         }
@@ -530,8 +505,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         if([statustr isEqualToString:@"已取消"]){
             
         }else{
-            NSString *count = [NSString stringWithFormat:@"%@",orderModel.ordernumber];
-            NSString *str = [NSString stringWithFormat:@"全国包邮，共%@件商品，合计:¥%@", count, allMoney];
+            NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
+            NSString *str = [NSString stringWithFormat:@"共%@件商品，合计:¥%@", count, allMoney];
             
             NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
             //获取要调整颜色的文字位置,调整颜色
@@ -557,7 +532,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         if ([statustr isEqualToString:@"已取消"]){
             return 55;
         }
-        return 95;
+        return 55;
     }
 }
 
@@ -617,23 +592,21 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     _nodataLableView.hidden = YES;
     
-    NSString *startindex = [NSString stringWithFormat:@"%ld", self.orderDataArr.count+1];
+    NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
-    NSString *endindex = [NSString stringWithFormat:@"%ld", [startindex integerValue]+20];
-    
-    NSDictionary *parmaDic = [NSDictionary dictionary];
     NSString *searchStr = _searchView.searchTextField.text;
     if (!IsNilOrNull(searchStr)) {
-        parmaDic = @{@"openid":USER_OPENID ,@"status": self.statusString, @"startindex":startindex, @"endindex":endindex, @"keywords":searchStr};
+        [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"orderstatus":self.statusString,@"keyword":searchStr}];
     }else{
-        parmaDic = @{@"openid":USER_OPENID ,@"status": self.statusString, @"startindex":startindex, @"endindex":endindex};
+        [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"orderstatus":self.statusString}];
     }
+    
     
     NSString *orderListUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, GetOrderListUrl];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    [HttpTool getWithUrl:orderListUrl params:parmaDic success:^(id json) {
+    [HttpTool getWithUrl:orderListUrl params:pramaDic success:^(id json) {
         [self.orderTableView.mj_footer endRefreshing];
         NSDictionary *itemDic = json;
         if ([itemDic[@"code"] integerValue] != 200) {
@@ -641,7 +614,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             [self showNoticeView:itemDic[@"message"]];
             return;
         }
-        NSArray *itemArr = itemDic[@"orderlist"];
+        NSArray *itemArr = itemDic[@"data"][@"orderlist"];
         if (itemArr.count == 0) {
             [self.loadingView stopAnimation];
             [self.orderTableView.mj_footer endRefreshingWithNoMoreData];
@@ -650,12 +623,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         for (NSDictionary *listOrderDic in itemArr) {
             SCMyOrderModel *orderModel = [[SCMyOrderModel alloc] init];
             [orderModel setValuesForKeysWithDictionary:listOrderDic];
-            orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
-            orderModel.ordernumber = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
-            orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
-            orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
+//            orderModel.money = [NSString stringWithFormat:@"%@", listOrderDic[@"money"]];
+//            orderModel.ordernumber = [NSString stringWithFormat:@"%@", listOrderDic[@"ordernumber"]];
+//            orderModel.iscomment = [NSString stringWithFormat:@"%@", listOrderDic[@"iscomment"]];
+//            orderModel.balancemoney = [NSString stringWithFormat:@"%@", listOrderDic[@"balancemoney"]];
             orderModel.statusString = _statusString;
-            NSArray *ordersheetArr = listOrderDic[@"itemlist"];
+            NSArray *ordersheetArr = listOrderDic[@"ordersheet"];
             if (ordersheetArr.count > 0) {
                 
                 for (NSInteger i = 0; i<ordersheetArr.count; i++) {
@@ -727,7 +700,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self confirmCancelOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
         
-        NSString *iftransno = [NSString stringWithFormat:@"%@", orderM.iftransno];
+        NSString *iftransno = [NSString stringWithFormat:@"%@", orderM.logistics];
         if ([iftransno isEqualToString:@"false"] || [iftransno isEqualToString:@"0"] || IsNilOrNull(iftransno)) {
             
         }else{
@@ -756,8 +729,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSMutableArray *temp = [NSMutableArray array];
         for (SCMyOrderGoodsModel *orderGoodsM in orderM.itemlistArr) {
             SCOrderDetailGoodsModel *commentM = [[SCOrderDetailGoodsModel alloc] init];
-            commentM.path = [NSString stringWithFormat:@"%@", orderGoodsM.path];
-            commentM.spec = [NSString stringWithFormat:@"%@", orderGoodsM.spec];
+            commentM.path = [NSString stringWithFormat:@"%@", orderGoodsM.imgurl];
+            commentM.spec = [NSString stringWithFormat:@"%@", orderGoodsM.itemspec];
             commentM.count = [NSString stringWithFormat:@"%@", orderGoodsM.count];
             commentM.name = [NSString stringWithFormat:@"%@", orderGoodsM.name];
             commentM.itemid = [NSString stringWithFormat:@"%@", orderGoodsM.itemid];
@@ -780,7 +753,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
         
-        NSString *iftransno = [NSString stringWithFormat:@"%@", orderM.iftransno];
+        NSString *iftransno = [NSString stringWithFormat:@"%@", orderM.logistics];
         if ([iftransno isEqualToString:@"false"] || [iftransno isEqualToString:@"0"] || IsNilOrNull(iftransno)) {
             
         }else{
@@ -816,16 +789,16 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     SCPayViewController *payMoney = [[SCPayViewController alloc] init];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.ordermoney];
     
-    NSString *balancemoney = [NSString stringWithFormat:@"%@", orderM.balancemoney];
-    if (!IsNilOrNull(balancemoney) && [balancemoney doubleValue] > 0) {
-        //补差价
-        payMoney.money = balancemoney;
-    }else{
-        //实付款
-        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
-    }
+//    NSString *balancemoney = [NSString stringWithFormat:@"%@", orderM.balancemoney];
+//    if (!IsNilOrNull(balancemoney) && [balancemoney doubleValue] > 0) {
+//        //补差价
+//        payMoney.money = balancemoney;
+//    }else{
+//        //实付款
+//        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
+//    }
     payMoney.orderid = orderM.orderId;
-    NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.no];
+    NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.orderno];
     if ([orderNo hasPrefix:@"ckdlb"]) {
         payMoney.isdlbitem = @"1";
     }

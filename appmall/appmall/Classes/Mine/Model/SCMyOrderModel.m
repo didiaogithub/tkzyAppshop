@@ -23,7 +23,7 @@
 }
 
 -(void)setValue:(id)value forKey:(NSString *)key{
-    if ([key isEqualToString:@"id"]) {
+    if ([key isEqualToString:@"orderid"]) {
         _orderId = value;
     }
     [super setValue:value forKey:key];

@@ -69,13 +69,9 @@
 -(void)requestCollectionData {
     
     _noDataView.hidden = YES;
-    NSString *token = [UserModel getCurUserToken];
-   NSDictionary *pramaDic = @{@"appid":Appid,
-                @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                @"token":token,
-                              @"pageNo":@(_pageNo),
-                              @"pageSize":@(KpageSize),
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:@(_pageNo) forKey:@"pageNo"];
+    [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetCollecListUrl];
     
     [HttpTool getWithUrl:loveItemUrl params:pramaDic success:^(id json) {

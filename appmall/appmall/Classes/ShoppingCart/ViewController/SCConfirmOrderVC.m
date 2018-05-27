@@ -54,7 +54,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"订单确认";
+    self.navigationItem.title = @"确认订单";
     self.buyCount = @"1";
     self.exitPay = NO;
     [self createTableView];
@@ -165,7 +165,7 @@
 -(void)requestDefaultAddress {
 
     NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddrUrl];
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID};
+    NSDictionary *pramaDic = [HttpTool getCommonPara];
     [HttpTool getWithUrl:getDefaultAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
@@ -326,7 +326,10 @@
 
 - (void)prepareSubmitOrder{
     NSMutableDictionary *pram = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    
+    if (self.goodsDict.allKeys.count == 0) {
+        [self showNoticeView:@"商品信息有误"];
+        return;
+    }
     NSString *addressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     [pram setObject:@"addressid" forKey:addressId];
     NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:0];

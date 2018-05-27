@@ -274,7 +274,10 @@
 
             
             NSLog(@"加入购物车");
-            
+    if (self.detailModel.itemid == nil  || self.detailModel.price) {
+        [self.loadingView showNoticeView:@"商品信息有误"];
+        return;
+    }
             NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
             NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":self.detailModel.itemid,@"num":@"1",@"price":self.detailModel.price}]];
             [pramaDic setObject:@"items" forKey:itemsStr];

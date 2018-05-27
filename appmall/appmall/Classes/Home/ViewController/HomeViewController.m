@@ -297,7 +297,11 @@
         if (dic != nil) {  //请求到数据
             SCCategoryViewController *category = [[SCCategoryViewController alloc]init];
             NSArray *categoryList = dic[@"data"][@"categoryList"];
-            for(int i = 0; i < 10; i++){
+            if (categoryList .count == 0) {
+                [self.loadingView showNoticeView:@"暂无更多商品"];
+                return;
+            }
+            for(int i = 0; i < categoryList.count; i++){
                 NSDictionary * itemDic = [categoryList objectAtIndex:0];
                 category.titleArr = [NSMutableArray arrayWithCapacity:0];
                 [category.titleArr addObject:itemDic[@"name"]];

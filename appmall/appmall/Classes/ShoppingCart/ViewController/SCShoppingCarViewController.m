@@ -170,7 +170,7 @@
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
         NSArray *itemArr = itemDic[@"data"][@"cartList"];
-        
+        return;
         if (itemArr.count == 0) {
             [self.view bringSubviewToFront:self.noDataView];
             [self.shoppingCarDataArray removeAllObjects];

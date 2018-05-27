@@ -9,9 +9,6 @@
 #import "GoodModel.h"
 
 @implementation GoodModel
--(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    
-}
 
 +(NSString *)primaryKey {
     return @"itemid";

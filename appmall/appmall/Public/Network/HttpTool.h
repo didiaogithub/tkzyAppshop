@@ -25,6 +25,7 @@
 /**上传图片新处理方法*/
 +(void)uploadWithUrl1:(NSString *)url andImages:(NSArray *)imageArray andPramaDic:(NSDictionary *)paramaDic completion:(void(^)(NSString *url,NSError *error))uploadBlock success:(void (^)(id responseObject))success fail:(void (^)(NSError * error))fail;
 
-
+- (id) objFromJson: (NSString*) jsonStr;
+- (NSString*) JsonFromId: (id) obj;
 
 @end

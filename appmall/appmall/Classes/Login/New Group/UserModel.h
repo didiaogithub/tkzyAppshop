@@ -18,7 +18,6 @@
 @property NSString *phone;
 @property NSString *realname;
 
-
 @end
 
 @interface UserModel :BaseModelRoot

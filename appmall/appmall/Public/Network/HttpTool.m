@@ -309,4 +309,37 @@
     }];
 }
 
+
+- (NSString*) JsonFromId: (id) obj {
+    if (obj == nil) {
+        return nil;
+    }
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject: obj
+                                                       options: NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding: NSUTF8StringEncoding];
+        jsonString =  [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        jsonString =  [jsonString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+        jsonString =  [jsonString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return jsonString;
+    }
+    
+    return nil;
+}
+
+- (id) objFromJson: (NSString*) jsonStr {
+    if (jsonStr == nil) {
+        return nil;
+    }
+    NSData * jsonData = [jsonStr dataUsingEncoding: NSUTF8StringEncoding];
+    NSError * error=nil;
+    NSDictionary * parsedData = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    return parsedData;
+}
+
 @end

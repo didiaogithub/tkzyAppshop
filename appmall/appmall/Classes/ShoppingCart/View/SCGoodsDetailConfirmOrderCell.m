@@ -458,6 +458,7 @@
         make.left.mas_offset(10);
     }];
     
+    
     self.couponCanUseL = [UILabel new];
     [self.couponView addSubview:self.couponCanUseL];
     self.couponCanUseL.text = @" 0张可用 ";
@@ -467,8 +468,8 @@
     self.couponCanUseL.backgroundColor = [UIColor tt_redMoneyColor];
     [self.couponCanUseL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
-        make.left.equalTo(self.countLable.mas_right).offset(2);
+        make.centerY.equalTo(self.couponView.mas_centerY);
+        make.left.equalTo(self.countLable.mas_right).mas_offset(2);
     }];
     
     self.rightArrow = [UIImageView new];
@@ -477,7 +478,7 @@
     [self.couponView addSubview:self.rightArrow];
     [self.rightArrow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
+        make.centerY.equalTo(self.couponView.mas_centerY);
         make.right.mas_offset(-10);
         make.width.mas_equalTo(10);
     }];
@@ -487,7 +488,7 @@
     [self.couponView addSubview:self.couponPriceLabel];
     [self.couponPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
+        make.centerY.equalTo(self.couponView.mas_centerY);
         make.right.equalTo(self.rightArrow.mas_left).offset(-5);
         make.width.mas_equalTo(100);
     }];

@@ -108,9 +108,9 @@
     
     _goodModel = model;
     //商品图片
-    NSString *imageString = [NSString stringWithFormat:@"%@",model.path];
+    NSString *imageString = [NSString stringWithFormat:@"%@",model.imgpath];
     if (![imageString hasPrefix:@"http"]) {
-        imageString = [BaseImagestr_Url stringByAppendingString:model.path];
+        imageString = [BaseImagestr_Url stringByAppendingString:model.imgpath];
     }
     
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIImage imageNamed:@"defaultover"]];
@@ -130,11 +130,11 @@
     }
     _priceLable.text = pricestr;
     
-    NSString *count = [NSString stringWithFormat:@"%@",model.count];
+    NSString *count = [NSString stringWithFormat:@"%@",model.num];
     if (IsNilOrNull(count)) {
         count = @"";
     }else{
-        count = [NSString stringWithFormat:@"x%@",model.count];
+        count = [NSString stringWithFormat:@"x%@",model.num];
     }
     
     _rightNumberLable.text = count;

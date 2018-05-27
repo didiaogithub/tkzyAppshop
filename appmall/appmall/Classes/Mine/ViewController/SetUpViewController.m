@@ -317,6 +317,7 @@
 -(void)gotoLogOut{
     //断开与融云服务器的连接，并不再接收远程推送
 //    [[RCloudManager manager] logout];
+    [KUserdefaults setValue:@(NO) forKey:KloginStatus];
     [KUserdefaults setObject:@"NO" forKey:@"SC_ConnectRCloudStatus"];
     [KUserdefaults removeObjectForKey:Kmobile];
     [KUserdefaults removeObjectForKey:KopenID];
@@ -338,15 +339,8 @@
     NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager removeItemAtPath:filePath error:nil];
-    
-    NSString *isCheck = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"loginWithCheckPhone"]];
-    if (!IsNilOrNull(isCheck)) {
-        [KUserdefaults removeObjectForKey:@"loginWithCheckPhone"];
-        [self goCheckLogin];
-    }else{
-        [KUserdefaults removeObjectForKey:KloginStatus];
-        [self goWelcom];
-    }
+ [self goWelcom];
+
 }
 
 -(void)goCheckLogin {

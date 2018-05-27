@@ -18,7 +18,7 @@
 #import "TKHomeDataModel.h"
 #import "HomeTabTopAdsViewCell.h"
 #import "SCOrderDetailModel.h"
-#import "SCGoodsDetailViewController.h"
+#import "GoodsDetailViewController.h"
 #define KRecommendViewCell @"RecommendViewCell"
 #define KHomeTabTopAdsViewCell  @"HomeTabTopAdsViewCell"
 @interface HomeViewController ()<WBAdsImgViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
@@ -331,7 +331,7 @@
     }
     
     if (index == 2) {
-        SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
+        GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
         SCCategoryGoodsModel *modelItem = [[SCCategoryGoodsModel alloc]init];
         modelItem.itemid = model.topicList[index].itemid;
         detailVC.goodsM  = modelItem;

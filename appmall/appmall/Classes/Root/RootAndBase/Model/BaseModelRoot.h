@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Realm.h>
 @interface BaseModelRoot : RLMObject
 
 

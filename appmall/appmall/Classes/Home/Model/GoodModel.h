@@ -7,31 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface GoodModel : RLMObject
+#import "BaseModelRoot.h"
+@interface GoodModel : BaseModelRoot
 /**商品id*/
 @property NSString *itemid;
-/**状态*/
-@property long status;
-/**价格*/
-@property NSString *price;
-/**购买数量*/
-@property NSString *count;
-/**规格*/
-@property NSString *spec;
-/**图片*/
-@property NSString *path;
+
 /**商品名称*/
 @property NSString *name;
+/**价格*/
+@property NSString *price;
+/**图片*/
+@property NSString *imgpath;
+/**规格*/
+@property NSString *spec;
 /**加入时间*/
-@property NSString *time;
-//选中状态
+@property NSString *chose;
+/**购买数量*/
+@property NSString *num;
+@property NSString *no;
 @property BOOL isSelect;
 
-@property NSString *meopenid;
-
-/**0：非海外购订单 1：海外购订单*/
-@property NSString *isoversea;
 
 @end
 

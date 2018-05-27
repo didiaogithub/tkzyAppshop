@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoodsDetailViewController">
+            <connections>
+                <outlet property="tabGoodDetail" destination="6XY-Lv-fQC" id="V8A-sK-GxB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-Lv-fQC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1a-AQ-Jqe">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsv-MG-5hb">
+                            <rect key="frame" x="120" y="0.0" width="127.5" height="49"/>
+                            <color key="backgroundColor" red="0.90588235294117647" green="0.83137254901960789" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="加入购物车">
+                                <color key="titleColor" red="0.9137254901960784" green="0.17647058823529413" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionAddShopping:" destination="-1" eventType="touchUpInside" id="zWe-gm-U15"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS4-Zu-sji">
+                            <rect key="frame" x="247.5" y="0.0" width="127.5" height="49"/>
+                            <color key="backgroundColor" red="0.9137254901960784" green="0.094117647058823528" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="立即购买">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionGoBuy:" destination="-1" eventType="touchUpInside" id="qAv-9p-UVl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxg-Mc-b2t">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Lk0-mB-xLL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="客服">
+                                <color key="titleColor" red="0.51372549019607838" green="0.51764705882352946" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n24-c0-Y6S">
+                            <rect key="frame" x="60" y="0.0" width="60" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="qgf-Aa-3Wf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="首页">
+                                <color key="titleColor" red="0.49411764705882355" green="0.49803921568627452" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionHomeView:" destination="-1" eventType="touchUpInside" id="Bag-KH-Ffh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="cS4-Zu-sji" secondAttribute="trailing" id="1Wi-JY-gX0"/>
+                        <constraint firstItem="cS4-Zu-sji" firstAttribute="top" secondItem="Y1a-AQ-Jqe" secondAttribute="top" id="KAa-V6-Lpu"/>
+                        <constraint firstAttribute="bottom" secondItem="n24-c0-Y6S" secondAttribute="bottom" id="Kel-Vk-CDg"/>
+                        <constraint firstItem="cS4-Zu-sji" firstAttribute="width" secondItem="nsv-MG-5hb" secondAttribute="width" id="LxG-dL-4Nw"/>
+                        <constraint firstItem="nsv-MG-5hb" firstAttribute="top" secondItem="Y1a-AQ-Jqe" secondAttribute="top" id="M3c-ce-jq7"/>
+                        <constraint firstItem="vxg-Mc-b2t" firstAttribute="top" secondItem="Y1a-AQ-Jqe" secondAttribute="top" id="Ti4-Kq-Q1K"/>
+                        <constraint firstAttribute="height" constant="49" id="Y9c-Te-0q7"/>
+                        <constraint firstAttribute="bottom" secondItem="vxg-Mc-b2t" secondAttribute="bottom" id="aH6-ph-uEt"/>
+                        <constraint firstItem="nsv-MG-5hb" firstAttribute="leading" secondItem="n24-c0-Y6S" secondAttribute="trailing" id="aQ1-NL-YkF"/>
+                        <constraint firstAttribute="bottom" secondItem="cS4-Zu-sji" secondAttribute="bottom" id="cwl-nB-ds3"/>
+                        <constraint firstItem="n24-c0-Y6S" firstAttribute="leading" secondItem="vxg-Mc-b2t" secondAttribute="trailing" id="fMm-yg-zkY"/>
+                        <constraint firstAttribute="bottom" secondItem="nsv-MG-5hb" secondAttribute="bottom" id="hB4-QP-C3G"/>
+                        <constraint firstItem="vxg-Mc-b2t" firstAttribute="leading" secondItem="Y1a-AQ-Jqe" secondAttribute="leading" id="k0U-q7-OGf"/>
+                        <constraint firstItem="cS4-Zu-sji" firstAttribute="leading" secondItem="nsv-MG-5hb" secondAttribute="trailing" id="ujf-E8-05e"/>
+                        <constraint firstItem="n24-c0-Y6S" firstAttribute="top" secondItem="Y1a-AQ-Jqe" secondAttribute="top" id="yQE-jc-CJY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6XY-Lv-fQC" secondAttribute="trailing" id="I7I-eg-ElS"/>
+                <constraint firstAttribute="bottom" secondItem="Y1a-AQ-Jqe" secondAttribute="bottom" id="KDQ-sy-AOb"/>
+                <constraint firstItem="Y1a-AQ-Jqe" firstAttribute="top" secondItem="6XY-Lv-fQC" secondAttribute="bottom" id="YiC-Mo-wAF"/>
+                <constraint firstItem="6XY-Lv-fQC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cSG-XQ-aB5"/>
+                <constraint firstItem="6XY-Lv-fQC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="laO-E0-9Am"/>
+                <constraint firstAttribute="trailing" secondItem="Y1a-AQ-Jqe" secondAttribute="trailing" id="n5n-xq-jRQ"/>
+                <constraint firstItem="Y1a-AQ-Jqe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rij-Hb-bqo"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

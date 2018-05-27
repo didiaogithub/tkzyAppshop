@@ -7,7 +7,8 @@
 //
 
 #import "SCLoginViewController.h"
-
+#import "WXApi.h"
+#import "SCPhoneLoginViewController.h"
 #define KCheckSec 60
 
 @interface SCLoginViewController ()
@@ -254,7 +255,17 @@
 }
 
 -(void)toWeiXinAuth{
-
+    if([WXApi isWXAppInstalled]){
+        //从欢迎页进入app 未登录 并且没有授权
+        [self shownotice];
+    }else{
+        
+        //微信授权
+        SendAuthReq* req =[[SendAuthReq alloc ] init];
+        req.scope = @"snsapi_userinfo";
+        req.state = @"login123";
+        [WXApi sendReq:req];
+    }
 }
 
 -(void)shownotice{
@@ -270,6 +281,82 @@
 }
 
 -(void)loginByWeChat {
+    NSString *codeUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PhoneLoginUrl];
+    NSString *openid = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KopenID]];
+    NSString *unionid = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:Kunionid]];
+    NSString *head = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:kheamImageurl]];
+    NSString *smallname = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KnickName]];
+    NSDictionary *pramdDic = @{@"unionid":unionid,@"openid":openid,@"nickname":smallname,@"head":head};
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:codeUrl params:pramdDic success:^(id json) {
+        
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] == 200) {
+            
+            NSString *uk = [NSString stringWithFormat:@"%@",dict[@"uk"]];
+            if (!IsNilOrNull(uk)) {
+                [KUserdefaults setObject:uk forKey:@"YDSC_uk"];
+            }
+            
+            NSString *appopenid = [NSString stringWithFormat:@"%@",dict[@"appopenid"]];
+            
+            [KUserdefaults setObject:appopenid forKey:@"USER_OPENID"];
+            
+            [KUserdefaults setObject:@"loginWithPhoneAndWxSucc" forKey:KloginStatus];
+            
+            [KUserdefaults removeObjectForKey:@"loginWithCheckPhone"];
+            
+            //清除优惠券缓存
+            [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
+            [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
+            
+            //删除订单购物车缓存
+            RLMResults *result = [GoodModel allObjects];
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            if (result.count > 0) {
+                [realm beginWriteTransaction];
+                [realm deleteObjects:result];
+                [realm commitWriteTransaction];
+            }
+            RLMResults *result1 = [SCMyOrderModel allObjects];
+            if (result1.count > 0) {
+                [realm beginWriteTransaction];
+                [realm deleteObjects:result1];
+                [realm commitWriteTransaction];
+            }
+            
+            //            RLMResults *result3 = [SCCategoryGoodsModel allObjects];
+            //            if (result2.count > 0) {
+            //                [realm beginWriteTransaction];
+            //                [realm deleteObjects:result3];
+            //                [realm commitWriteTransaction];
+            //            }
+            UserModel *curModel = [[UserModel alloc]initWith:dict[@"data"]];
+            curModel.isLogin = YES;
+            curModel.userId = @"1";
+            [curModel saveUserInfo];
+    
+            [KUserdefaults synchronize];
+            [self goFirstPage];
+            
+        }else if([dict[@"code"] integerValue] == 300) {
+          
+                SCPhoneLoginViewController *bindPhone = [[SCPhoneLoginViewController alloc] init];
+                bindPhone.bindString = @"needBindPhone";
+                [self.navigationController pushViewController:bindPhone animated:YES];
+        }else{
+            [self showNoticeView:dict[@"codeinfo"]];
+        }
+        [self.loadingView stopAnimation];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
     
 }
 

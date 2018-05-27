@@ -213,13 +213,13 @@
     
     GoodModel *classM = [[GoodModel alloc] init];
     classM.itemid = _goodModel.itemid;
-    classM.status = _goodModel.status;
+    
     classM.price = _goodModel.price;
-    classM.count = [NSString stringWithFormat:@"%zd", self.chooseCount];
+    classM.num = [NSString stringWithFormat:@"%zd", self.chooseCount];
     classM.spec = _goodModel.spec;
-    classM.path = _goodModel.path;
+    classM.imgpath = _goodModel.imgpath;
     classM.name = _goodModel.name;
-    classM.meopenid = _goodModel.meopenid;
+    classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
 
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -238,15 +238,14 @@
     
     GoodModel *classM = [[GoodModel alloc] init];
     classM.itemid = _goodModel.itemid;
-    classM.status = _goodModel.status;
+    
     classM.price = _goodModel.price;
-    classM.count = [NSString stringWithFormat:@"%zd", self.chooseCount];
+    classM.num = [NSString stringWithFormat:@"%zd", self.chooseCount];
     classM.spec = _goodModel.spec;
-    classM.path = _goodModel.path;
+    classM.imgpath = _goodModel.imgpath;
     classM.name = _goodModel.name;
-    classM.meopenid = _goodModel.meopenid;
+    classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
-    classM.isoversea = _goodModel.isoversea;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
@@ -262,13 +261,13 @@
 -(void)setModel:(GoodModel *)model{
     _goodModel = model;
     _selectedButton.selected = model.isSelect;
-    self.chooseCount = [[NSString stringWithFormat:@"%@",model.count] integerValue];
+    self.chooseCount = [[NSString stringWithFormat:@"%@",model.num] integerValue];
     
     
     //商品图片
-    NSString *imageString = model.path;
+    NSString *imageString = model.imgpath;
     if (![imageString hasPrefix:@"http"]) {
-        imageString = [BaseImagestr_Url stringByAppendingString:model.path];
+        imageString = [BaseImagestr_Url stringByAppendingString:model.imgpath];
     }
     
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIImage imageNamed:@"defaultover"]];
@@ -286,7 +285,7 @@
     }
     _priceLable.text = [NSString stringWithFormat:@"¥%@",pricestr];
     
-    _countLable.text = [NSString stringWithFormat:@"%@",model.count];
+    _countLable.text = [NSString stringWithFormat:@"%@",model.num];
     
     //规格
     NSString *spec = [NSString stringWithFormat:@"%@",model.spec];

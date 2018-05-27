@@ -219,7 +219,7 @@
         
         NSMutableArray *temp = [NSMutableArray array];
         for (GoodModel *goodModel in self.dataArray) {
-            [temp addObject:[NSString stringWithFormat:@"%@", goodModel.count]];
+            [temp addObject:[NSString stringWithFormat:@"%@", goodModel.num]];
         }
         NSInteger sum = 0;
         for (NSString *count in temp) {
@@ -275,20 +275,10 @@
         self.moneyCountView.nowToBuyButton.enabled = YES;
         return;
     }
-
-    BOOL isNeedRealName = NO;
-    for (GoodModel *goodModel in self.dataArray) {
-        if ([goodModel.isoversea isEqualToString:@"1"]) {
-            isNeedRealName = YES;
-            break;
-        }
-    }
     
-    if (isNeedRealName) {
-        [self realNameIdentify];
-    }else{
+
         [self prepareSubmitOrder];
-    }
+    
   
 }
 
@@ -524,7 +514,7 @@
     
     NSMutableArray *orderinfo = [NSMutableArray array];
     for (GoodModel *goodsM in self.dataArray) {
-        NSDictionary *dic = @{@"id":goodsM.itemid, @"num":goodsM.count};
+        NSDictionary *dic = @{@"id":goodsM.itemid, @"num":goodsM.num};
         [orderinfo addObject:dic];
     }
     

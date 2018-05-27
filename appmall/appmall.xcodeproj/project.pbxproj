@@ -286,6 +286,16 @@
 		2D791C752090614000E455F5 /* ClassListCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D791C732090614000E455F5 /* ClassListCellViewController.m */; };
 		2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D791C742090614000E455F5 /* ClassListCellViewController.xib */; };
 		2D791C792090685B00E455F5 /* WBMenuAllItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D791C782090685B00E455F5 /* WBMenuAllItem.m */; };
+		2D808E5C20BA5702002FADA8 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E5920BA5702002FADA8 /* README.txt */; };
+		2D808E5D20BA5702002FADA8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E5B20BA5702002FADA8 /* libWeChatSDK.a */; };
+		2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E5E20BA573B002FADA8 /* libc++.tbd */; };
+		2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E6020BA5748002FADA8 /* libsqlite3.0.tbd */; };
+		2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E6220BA5753002FADA8 /* libsqlite3.tbd */; };
+		2D808E6520BA575C002FADA8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E6420BA575C002FADA8 /* libz.tbd */; };
+		2D808E6720BA5765002FADA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E6620BA5765002FADA8 /* SystemConfiguration.framework */; };
+		2D808E6A20BA5A97002FADA8 /* SCPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6920BA5A97002FADA8 /* SCPhoneLoginViewController.m */; };
+		2D808E6D20BA5BBE002FADA8 /* STCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6C20BA5BBE002FADA8 /* STCountDownButton.m */; };
+		2D808E7020BA5BD4002FADA8 /* STCountDownConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6E20BA5BD4002FADA8 /* STCountDownConst.m */; };
 		2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */; };
 		2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */; };
 		2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2DC20B6F0480031AC47 /* CommListModel.m */; };
@@ -329,6 +339,20 @@
 		2DA0C36420B867810031AC47 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C32D20B867810031AC47 /* MJPhotoBrowser.m */; };
 		2DA0C37620B868170031AC47 /* PostCommViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C37420B868170031AC47 /* PostCommViewController.m */; };
 		2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C37520B868170031AC47 /* PostCommViewController.xib */; };
+		2DA0C37B20B920A60031AC47 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C37920B920A60031AC47 /* GoodsDetailViewController.m */; };
+		2DA0C37C20B920A60031AC47 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C37A20B920A60031AC47 /* GoodsDetailViewController.xib */; };
+		2DA0C38020B921540031AC47 /* GoodSdetailHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C37E20B921540031AC47 /* GoodSdetailHeaderViewCell.m */; };
+		2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C37F20B921540031AC47 /* GoodSdetailHeaderViewCell.xib */; };
+		2DA0C38520B925480031AC47 /* GoodSDetailBackViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C38320B925470031AC47 /* GoodSDetailBackViewCell.m */; };
+		2DA0C38620B925480031AC47 /* GoodSDetailBackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C38420B925480031AC47 /* GoodSDetailBackViewCell.xib */; };
+		2DA0C38A20B926ED0031AC47 /* GoodSdetailBottomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C38820B926ED0031AC47 /* GoodSdetailBottomViewCell.m */; };
+		2DA0C38B20B926ED0031AC47 /* GoodSdetailBottomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C38920B926ED0031AC47 /* GoodSdetailBottomViewCell.xib */; };
+		2DA0C38E20B9288E0031AC47 /* GoodsDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C38D20B9288E0031AC47 /* GoodsDetailHeader.m */; };
+		2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C38F20B928980031AC47 /* GoodsDetailHeader.xib */; };
+		2DA0C39320B92BD70031AC47 /* BaseGoodSDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C39220B92BD70031AC47 /* BaseGoodSDetailViewCell.m */; };
+		2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C39520B942F60031AC47 /* GoodDetailModel.m */; };
+		2DA0C39A20B947C10031AC47 /* ImageCollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */; };
+		2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
@@ -949,6 +973,22 @@
 		2D791C742090614000E455F5 /* ClassListCellViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassListCellViewController.xib; sourceTree = "<group>"; };
 		2D791C772090685B00E455F5 /* WBMenuAllItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBMenuAllItem.h; sourceTree = "<group>"; };
 		2D791C782090685B00E455F5 /* WBMenuAllItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBMenuAllItem.m; sourceTree = "<group>"; };
+		2D808E5720BA5702002FADA8 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		2D808E5820BA5702002FADA8 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		2D808E5920BA5702002FADA8 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		2D808E5A20BA5702002FADA8 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		2D808E5B20BA5702002FADA8 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		2D808E5E20BA573B002FADA8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2D808E6020BA5748002FADA8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		2D808E6220BA5753002FADA8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2D808E6420BA575C002FADA8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2D808E6620BA5765002FADA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2D808E6820BA5A96002FADA8 /* SCPhoneLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPhoneLoginViewController.h; sourceTree = "<group>"; };
+		2D808E6920BA5A97002FADA8 /* SCPhoneLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPhoneLoginViewController.m; sourceTree = "<group>"; };
+		2D808E6B20BA5BBE002FADA8 /* STCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCountDownButton.h; sourceTree = "<group>"; };
+		2D808E6C20BA5BBE002FADA8 /* STCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCountDownButton.m; sourceTree = "<group>"; };
+		2D808E6E20BA5BD4002FADA8 /* STCountDownConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCountDownConst.m; sourceTree = "<group>"; };
+		2D808E6F20BA5BD4002FADA8 /* STCountDownConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCountDownConst.h; sourceTree = "<group>"; };
 		2DA0C2D520B6DF480031AC47 /* CommunityViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewCell.h; sourceTree = "<group>"; };
 		2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewCell.m; sourceTree = "<group>"; };
 		2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewCell.xib; sourceTree = "<group>"; };
@@ -1021,6 +1061,28 @@
 		2DA0C37320B868170031AC47 /* PostCommViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCommViewController.h; sourceTree = "<group>"; };
 		2DA0C37420B868170031AC47 /* PostCommViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCommViewController.m; sourceTree = "<group>"; };
 		2DA0C37520B868170031AC47 /* PostCommViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommViewController.xib; sourceTree = "<group>"; };
+		2DA0C37820B920A60031AC47 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		2DA0C37920B920A60031AC47 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
+		2DA0C37A20B920A60031AC47 /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
+		2DA0C37D20B921540031AC47 /* GoodSdetailHeaderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodSdetailHeaderViewCell.h; sourceTree = "<group>"; };
+		2DA0C37E20B921540031AC47 /* GoodSdetailHeaderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodSdetailHeaderViewCell.m; sourceTree = "<group>"; };
+		2DA0C37F20B921540031AC47 /* GoodSdetailHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodSdetailHeaderViewCell.xib; sourceTree = "<group>"; };
+		2DA0C38220B925470031AC47 /* GoodSDetailBackViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodSDetailBackViewCell.h; sourceTree = "<group>"; };
+		2DA0C38320B925470031AC47 /* GoodSDetailBackViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodSDetailBackViewCell.m; sourceTree = "<group>"; };
+		2DA0C38420B925480031AC47 /* GoodSDetailBackViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodSDetailBackViewCell.xib; sourceTree = "<group>"; };
+		2DA0C38720B926ED0031AC47 /* GoodSdetailBottomViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodSdetailBottomViewCell.h; sourceTree = "<group>"; };
+		2DA0C38820B926ED0031AC47 /* GoodSdetailBottomViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodSdetailBottomViewCell.m; sourceTree = "<group>"; };
+		2DA0C38920B926ED0031AC47 /* GoodSdetailBottomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodSdetailBottomViewCell.xib; sourceTree = "<group>"; };
+		2DA0C38C20B9288E0031AC47 /* GoodsDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailHeader.h; sourceTree = "<group>"; };
+		2DA0C38D20B9288E0031AC47 /* GoodsDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailHeader.m; sourceTree = "<group>"; };
+		2DA0C38F20B928980031AC47 /* GoodsDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailHeader.xib; sourceTree = "<group>"; };
+		2DA0C39120B92BD70031AC47 /* BaseGoodSDetailViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseGoodSDetailViewCell.h; sourceTree = "<group>"; };
+		2DA0C39220B92BD70031AC47 /* BaseGoodSDetailViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseGoodSDetailViewCell.m; sourceTree = "<group>"; };
+		2DA0C39420B942F60031AC47 /* GoodDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodDetailModel.h; sourceTree = "<group>"; };
+		2DA0C39520B942F60031AC47 /* GoodDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDetailModel.m; sourceTree = "<group>"; };
+		2DA0C39720B947C10031AC47 /* ImageCollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCollViewCell.h; sourceTree = "<group>"; };
+		2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCollViewCell.m; sourceTree = "<group>"; };
+		2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollViewCell.xib; sourceTree = "<group>"; };
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
@@ -1142,6 +1204,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D808E6720BA5765002FADA8 /* SystemConfiguration.framework in Frameworks */,
+				2D808E6520BA575C002FADA8 /* libz.tbd in Frameworks */,
+				2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */,
+				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
+				2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */,
+				2D808E5D20BA5702002FADA8 /* libWeChatSDK.a in Frameworks */,
 				4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1180,6 +1248,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				2D808E5620BA5702002FADA8 /* WXpaySDK */,
 				2DA0C2FD20B867810031AC47 /* ShowPicture */,
 				F23E657720B693D600EB6720 /* QRadioButton */,
 				F2487F2E20AE730B0005F624 /* Sobot(智齿) */,
@@ -1274,6 +1343,9 @@
 				2D0726C220839EE50030996F /* MessageViewController.h */,
 				2D0726C320839EE50030996F /* MessageViewController.m */,
 				2D0726C420839EE50030996F /* MessageViewController.xib */,
+				2DA0C37820B920A60031AC47 /* GoodsDetailViewController.h */,
+				2DA0C37920B920A60031AC47 /* GoodsDetailViewController.m */,
+				2DA0C37A20B920A60031AC47 /* GoodsDetailViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1303,6 +1375,8 @@
 				2D165FF8209D9A0500C1C7E7 /* HonorListModel.m */,
 				2D165FFA209DA57700C1C7E7 /* MediaListModel.h */,
 				2D165FFB209DA57700C1C7E7 /* MediaListModel.m */,
+				2DA0C39420B942F60031AC47 /* GoodDetailModel.h */,
+				2DA0C39520B942F60031AC47 /* GoodDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1337,6 +1411,23 @@
 				2D07268C20832B1C0030996F /* MenuCollectionViewCell.h */,
 				2D07268D20832B1C0030996F /* MenuCollectionViewCell.m */,
 				2D6F9256208E1B27007DFD0B /* MenuCollectionViewCell.xib */,
+				2DA0C37D20B921540031AC47 /* GoodSdetailHeaderViewCell.h */,
+				2DA0C37E20B921540031AC47 /* GoodSdetailHeaderViewCell.m */,
+				2DA0C37F20B921540031AC47 /* GoodSdetailHeaderViewCell.xib */,
+				2DA0C38220B925470031AC47 /* GoodSDetailBackViewCell.h */,
+				2DA0C38320B925470031AC47 /* GoodSDetailBackViewCell.m */,
+				2DA0C38420B925480031AC47 /* GoodSDetailBackViewCell.xib */,
+				2DA0C38720B926ED0031AC47 /* GoodSdetailBottomViewCell.h */,
+				2DA0C38820B926ED0031AC47 /* GoodSdetailBottomViewCell.m */,
+				2DA0C38920B926ED0031AC47 /* GoodSdetailBottomViewCell.xib */,
+				2DA0C38C20B9288E0031AC47 /* GoodsDetailHeader.h */,
+				2DA0C38D20B9288E0031AC47 /* GoodsDetailHeader.m */,
+				2DA0C38F20B928980031AC47 /* GoodsDetailHeader.xib */,
+				2DA0C39120B92BD70031AC47 /* BaseGoodSDetailViewCell.h */,
+				2DA0C39220B92BD70031AC47 /* BaseGoodSDetailViewCell.m */,
+				2DA0C39720B947C10031AC47 /* ImageCollViewCell.h */,
+				2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */,
+				2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2004,6 +2095,8 @@
 		2D20DE832086365200095032 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D808E6820BA5A96002FADA8 /* SCPhoneLoginViewController.h */,
+				2D808E6920BA5A97002FADA8 /* SCPhoneLoginViewController.m */,
 				2D20DE882086367C00095032 /* CommonLoginViewController.h */,
 				2D20DE862086367B00095032 /* CommonLoginViewController.m */,
 				2D20DE892086367C00095032 /* SCLoginViewController.h */,
@@ -2176,6 +2269,10 @@
 		2D6F9242208E01B8007DFD0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D808E6F20BA5BD4002FADA8 /* STCountDownConst.h */,
+				2D808E6E20BA5BD4002FADA8 /* STCountDownConst.m */,
+				2D808E6B20BA5BBE002FADA8 /* STCountDownButton.h */,
+				2D808E6C20BA5BBE002FADA8 /* STCountDownButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2194,6 +2291,18 @@
 			);
 			name = WBMenu;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		2D808E5620BA5702002FADA8 /* WXpaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				2D808E5720BA5702002FADA8 /* WXApi.h */,
+				2D808E5820BA5702002FADA8 /* WXApiObject.h */,
+				2D808E5920BA5702002FADA8 /* README.txt */,
+				2D808E5A20BA5702002FADA8 /* WechatAuthSDK.h */,
+				2D808E5B20BA5702002FADA8 /* libWeChatSDK.a */,
+			);
+			path = WXpaySDK;
 			sourceTree = "<group>";
 		};
 		2DA0C2DA20B6F0330031AC47 /* Model */ = {
@@ -2295,6 +2404,11 @@
 		91B284A98B2775F1FCAB3120 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D808E6620BA5765002FADA8 /* SystemConfiguration.framework */,
+				2D808E6420BA575C002FADA8 /* libz.tbd */,
+				2D808E6220BA5753002FADA8 /* libsqlite3.tbd */,
+				2D808E6020BA5748002FADA8 /* libsqlite3.0.tbd */,
+				2D808E5E20BA573B002FADA8 /* libc++.tbd */,
 				87A62A5DA8A5214778B42E06 /* libPods-appmall.a */,
 			);
 			name = Frameworks;
@@ -2770,9 +2884,12 @@
 				F23F1A5B20B7E2CE00F01D01 /* AmortizationHeadView.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
+				2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */,
 				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
+				2DA0C38620B925480031AC47 /* GoodSDetailBackViewCell.xib in Resources */,
+				2DA0C37C20B920A60031AC47 /* GoodsDetailViewController.xib in Resources */,
 				2DA0C35420B867810031AC47 /* radio_btn_on@2x.png in Resources */,
 				2DA0C35520B867810031AC47 /* 添加.png in Resources */,
 				2DA0C35920B867810031AC47 /* radio_btn_on.png in Resources */,
@@ -2790,6 +2907,7 @@
 				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
+				2D808E5C20BA5702002FADA8 /* README.txt in Resources */,
 				2D6F9267208F4CB3007DFD0B /* TeacherListVC.xib in Resources */,
 				2D0726A3208332360030996F /* RecommendViewCell.xib in Resources */,
 				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
@@ -2798,6 +2916,7 @@
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
 				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
+				2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */,
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
@@ -2816,6 +2935,7 @@
 				F20039C62089A10600499D39 /* mine.xcassets in Resources */,
 				2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */,
 				F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */,
+				2DA0C38B20B926ED0031AC47 /* GoodSdetailBottomViewCell.xib in Resources */,
 				2D0723F82082FEF10030996F /* HomeViewController.xib in Resources */,
 				2D07266F208311BE0030996F /* 搜索-拷贝@3x.png in Resources */,
 				F23E658120B693D600EB6720 /* radio_unchecked.png in Resources */,
@@ -2824,6 +2944,7 @@
 				2D0723EE2082FED20030996F /* ShoppingCartViewController.xib in Resources */,
 				F2FA14DA20B556940066B153 /* MineInfoCell.xib in Resources */,
 				2D05C8AF20A83237001A8953 /* TeachItemViewCell.xib in Resources */,
+				2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */,
 				2D07268A20832B0F0030996F /* HomeMenuItemsConfig.plist in Resources */,
 				2D6F9276208F5074007DFD0B /* TeacherClassListViewCell.xib in Resources */,
 				F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */,
@@ -2916,6 +3037,7 @@
 				2D20DF342088CEDF00095032 /* YYMemoryCache.m in Sources */,
 				2D0723B62082FA050030996F /* main.m in Sources */,
 				F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */,
+				2D808E6A20BA5A97002FADA8 /* SCPhoneLoginViewController.m in Sources */,
 				2D20DF5C2088D54000095032 /* SCCouponModel.m in Sources */,
 				2D20DE2D208614EC00095032 /* UINavigationController+SXFullScreen.m in Sources */,
 				2D20DF982088D98800095032 /* CKCLogisticsModel.m in Sources */,
@@ -2947,6 +3069,7 @@
 				2D3B015520936423007CF4E6 /* TKHomeDataModel.m in Sources */,
 				2D0726B62083926B0030996F /* HonourDetailViewController.m in Sources */,
 				2D6F9261208F4A78007DFD0B /* TeacherItemViewCell.m in Sources */,
+				2DA0C37B20B920A60031AC47 /* GoodsDetailViewController.m in Sources */,
 				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
@@ -3031,6 +3154,7 @@
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
 				F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
+				2DA0C38520B925480031AC47 /* GoodSDetailBackViewCell.m in Sources */,
 				2D20DFE720898B1900095032 /* SCMyCollectionModel.m in Sources */,
 				2D20DFF620898B7F00095032 /* SCPointExplainCell.m in Sources */,
 				2D07267C208311CB0030996F /* HistorySearchCell.m in Sources */,
@@ -3041,6 +3165,7 @@
 				2D20DDD8208613C800095032 /* BKGuidePageCell.m in Sources */,
 				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
+				2DA0C39320B92BD70031AC47 /* BaseGoodSDetailViewCell.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
 				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
@@ -3091,6 +3216,7 @@
 				2D20DE042086147300095032 /* SCCouponTools.m in Sources */,
 				2DA0C2F420B7A7F90031AC47 /* CommPingLunModel.m in Sources */,
 				2D20DEA72088C80D00095032 /* ZJScrollPageView.m in Sources */,
+				2DA0C38A20B926ED0031AC47 /* GoodSdetailBottomViewCell.m in Sources */,
 				2D165FFC209DA57700C1C7E7 /* MediaListModel.m in Sources */,
 				2D20DEF02088CC8C00095032 /* AddAddressViewController.m in Sources */,
 				2D6F9270208F5061007DFD0B /* TeacherInfoViewCell.m in Sources */,
@@ -3106,6 +3232,7 @@
 				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
+				2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */,
 				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
@@ -3159,6 +3286,7 @@
 				2D20DE22208614CE00095032 /* UITableView+PlaceHolder.m in Sources */,
 				2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */,
 				2D20DEA92088C80D00095032 /* ZJSegmentStyle.m in Sources */,
+				2D808E7020BA5BD4002FADA8 /* STCountDownConst.m in Sources */,
 				2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */,
 				2D20DF282088CEC400095032 /* PPNetworkCache.m in Sources */,
 				2D20DEA82088C80D00095032 /* ZJTitleView.m in Sources */,
@@ -3181,6 +3309,7 @@
 				2D0726C520839EE50030996F /* MessageViewController.m in Sources */,
 				2D20DFF020898B6000095032 /* YSPointCell.m in Sources */,
 				F2FA14DB20B556940066B153 /* SexTableCell.m in Sources */,
+				2D808E6D20BA5BBE002FADA8 /* STCountDownButton.m in Sources */,
 				2D20DF292088CEC400095032 /* PPNetworkHelper.m in Sources */,
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
@@ -3190,6 +3319,7 @@
 				2D20DE2E208614EC00095032 /* NSObject+SXRuntime.m in Sources */,
 				2D0723B12082F9EF0030996F /* NewFeatureViewController.m in Sources */,
 				2D20DF622088D5B100095032 /* SCCouponDetailViewController.m in Sources */,
+				2DA0C38E20B9288E0031AC47 /* GoodsDetailHeader.m in Sources */,
 				2D20DFB02088DA8F00095032 /* SCCouponDetailCell.m in Sources */,
 				2D20DF682088D5DC00095032 /* DashLineView.m in Sources */,
 				2D20DF4B2088D3D300095032 /* PaySuccessViewController.m in Sources */,
@@ -3213,7 +3343,9 @@
 				2D0726BB2083928A0030996F /* MedieaListViewCell.m in Sources */,
 				F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */,
 				2D0726A72083371B0030996F /* RecommendCollectionViewCell.m in Sources */,
+				2DA0C38020B921540031AC47 /* GoodSdetailHeaderViewCell.m in Sources */,
 				2D20DE2C208614EC00095032 /* UIBarButtonItem+SXCreate.m in Sources */,
+				2DA0C39A20B947C10031AC47 /* ImageCollViewCell.m in Sources */,
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
@@ -3385,7 +3517,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tcsw.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3405,7 +3541,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tcsw.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

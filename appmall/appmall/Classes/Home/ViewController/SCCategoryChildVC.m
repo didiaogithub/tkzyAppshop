@@ -10,7 +10,7 @@
 #import "ZJScrollPageViewDelegate.h"
 #import "SCCategoryTableCell.h"
 #import "SCCategoryGoodsModel.h"
-#import "SCGoodsDetailViewController.h"
+#import "GoodsDetailViewController.h"
 #import "SCDownloadCKAPPWebVC.h"
 #import "XWAlterVeiw.h"
 
@@ -231,7 +231,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
+    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
     detailVC.goodsM = self.dataArr[indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }

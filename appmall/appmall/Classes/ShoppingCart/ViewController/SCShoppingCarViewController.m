@@ -22,7 +22,7 @@
 @property (nonatomic, strong) XWAlterVeiw *deleteAlertView;
 @property (nonatomic, strong) UITableView *shoppingCarTableView;
 @property (nonatomic, strong) GoodModel *goodModel;
-@property (nonatomic, strong) NSMutableArray *shoppingCarDataArray;
+@property (nonatomic, strong) NSMutableArray<GoodModel *> *shoppingCarDataArray;
 @property (nonatomic, strong) NSMutableArray *selectedArray;
 @property (nonatomic, strong) NSMutableArray *selectedRowArr;
 @property (nonatomic, strong) UIButton *editBtn;
@@ -169,7 +169,7 @@
         
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
-        NSArray *itemArr = itemDic[@"data"][@"cartlist"];
+        NSArray *itemArr = itemDic[@"data"][@"cartList"];
         
         if (itemArr.count == 0) {
             [self.view bringSubviewToFront:self.noDataView];
@@ -182,18 +182,8 @@
         _bottomView.allSelectedButton.selected = NO;
         
         for (NSDictionary *goodDic in itemArr) {
-            _goodModel = [[GoodModel alloc] init];
-           
-            [_goodModel setValuesForKeysWithDictionary:goodDic];
-            // 暂时这样写
-            _goodModel.isoversea = [NSString stringWithFormat:@"%@", goodDic[@"isoversea"]];
-            _goodModel.status = [[NSString stringWithFormat:@"%@", goodDic[@"status"]] integerValue];
-            _goodModel.count = [NSString stringWithFormat:@"%@", goodDic[@"count"]];
-            _goodModel.price = [NSString stringWithFormat:@"%@", goodDic[@"price"]];
-            _goodModel.time = [NSString stringWithFormat:@"%@",goodDic[@"time"]];
-            _goodModel.isSelect = NO;
-            _goodModel.meopenid = USER_OPENID;
-            [self.shoppingCarDataArray addObject:_goodModel];
+            GoodModel *model = [[GoodModel alloc]initWith:goodDic];
+            [self.shoppingCarDataArray addObject:model];
         }
         
         for (NSInteger i = 0; i < self.shoppingCarDataArray.count; i++) {
@@ -225,8 +215,8 @@
 
 #pragma mark - 加载缓存
 -(void)loadCacheData {
-    NSString *predicate = [NSString stringWithFormat:@"meopenid = '%@'", USER_OPENID];
-    RLMResults *results = [GoodModel objectsWhere:predicate];
+
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     [self.shoppingCarDataArray removeAllObjects];
     if (results.count > 0) {
         for (GoodModel *cls in results) {
@@ -337,7 +327,7 @@
     
     __weak typeof(self) weakSelf = self;
     [cell setBlock:^(GoodModel *model, NSInteger row) {
-        NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.count);
+        NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.num);
         [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0"];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
         [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
@@ -355,7 +345,7 @@
     for (int i=0; i<self.shoppingCarDataArray.count; i++) {
         models = [self.shoppingCarDataArray objectAtIndex:i];
         NSString *pricestr = [NSString stringWithFormat:@"%@",models.price];
-        NSString *localCountStr = [NSString stringWithFormat:@"%@", models.count];
+        NSString *localCountStr = [NSString stringWithFormat:@"%@", models.num];
         if (IsNilOrNull(localCountStr)) {
             localCountStr = @"1";
         }
@@ -401,7 +391,7 @@
 #pragma mark-点击单选按钮 代理方法
 -(void)singleClick:(GoodModel *)goodModel anRow:(NSInteger)indexRow andSection:(NSInteger)section{
     
-    NSLog(@"单选传过来的 名字 %@数量%@ ",goodModel.name,goodModel.count);
+    NSLog(@"单选传过来的 名字 %@数量%@ ",goodModel.name,goodModel.num);
     NSMutableArray *array =  [[NSMutableArray alloc] initWithCapacity:0];
     for (int i = 0;i<self.shoppingCarDataArray.count;i++) {
         goodModel  = [self.shoppingCarDataArray objectAtIndex:i];
@@ -438,15 +428,14 @@
             
             GoodModel *classM = [[GoodModel alloc] init];
             classM.itemid = _goodModel.itemid;
-            classM.status = _goodModel.status;
+            
             classM.price = _goodModel.price;
-            classM.count = _goodModel.count;
+            classM.num = @"1";
             classM.spec = _goodModel.spec;
-            classM.path = _goodModel.path;
+            classM.imgpath = _goodModel.imgpath;
             classM.name = _goodModel.name;
-            classM.meopenid = _goodModel.meopenid;
-            classM.isoversea = _goodModel.isoversea;
-            classM.time = _goodModel.time;
+            classM.no =_goodModel.no;
+            classM.isSelect =NO;
             if (btselected){
                 classM.isSelect = YES;
                 
@@ -504,7 +493,7 @@
         if (goodsM.isSelect == YES || goodsM.isSelect == 1) {
             status = @"1";
         }
-        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"count":goodsM.count, @"status":status};
+        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"count":goodsM.num, @"status":status};
         
         [cartlist addObject:dic];
     }
@@ -694,11 +683,9 @@
         if (goodsM.isSelect == YES) {
             status = @"1";
         }
-        NSString *time = [NSString stringWithFormat:@"%@", goodsM.time];
-        if (IsNilOrNull(time)) {
-            time = @"";
-        }
-        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"count":goodsM.count, @"status":status, @"time":time};
+        NSString *time = @"";
+   
+        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"count":goodsM.num, @"status":status, @"time":time};
         [cartlist addObject:dic];
     }
     

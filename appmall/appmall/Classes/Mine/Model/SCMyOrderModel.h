@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseModelRoot.h"
+#import <Realm.h>
 
 
 @interface SCCommentOrderModel : NSObject
@@ -27,7 +29,7 @@
 
 
 
-@interface SCMyOrderGoodsModel : RLMObject
+@interface SCMyOrderGoodsModel : BaseModelRoot
 /** 图片路径*/
 @property (nonatomic, copy) NSString *path;
 /** 规格*/

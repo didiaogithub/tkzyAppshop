@@ -94,7 +94,7 @@
 
 -(void)refreshAllPayMoney {
     
-    NSString *salePrice = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+    NSString *salePrice = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
     if (IsNilOrNull(salePrice)) {
         salePrice = @"0.00";
     }
@@ -264,9 +264,9 @@
         
         _moneyCountView.allMoneyLable.text = [NSString stringWithFormat:@"合计:¥%@", money];
         
-        NSString *isIntegral = [NSString stringWithFormat:@"%@", self.goodsDict[@"isIntegral"]];
+        NSString *isIntegral = [NSString stringWithFormat:@"%@", @"1"];
         if ([isIntegral isEqualToString:@"1"] || [isIntegral isEqualToString:@"true"]) {
-            NSString *integral = [NSString stringWithFormat:@"%@", self.goodsDict[@"integral"]];
+            NSString *integral = [NSString stringWithFormat:@"%@", @"1"];
             if (IsNilOrNull(integral)) {
                 money = @"0";
             }
@@ -313,7 +313,7 @@
         return;
     }
     // 判断是不是海外商品
-    NSString *isoversea = [NSString stringWithFormat:@"%@",self.goodsDict[@"isoversea"]];
+    NSString *isoversea = [NSString stringWithFormat:@"%@",@"0"];
     if (!IsNilOrNull(isoversea)) {
         if ([isoversea isEqualToString:@"1"]) {
             [self realNameIdentify];
@@ -325,43 +325,14 @@
 
 
 - (void)prepareSubmitOrder{
-    NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
-    NSString *addressId = nil;
-    NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
-    addressId = defaultAddressId;
-    if (!IsNilOrNull(self.activeId)) {
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-        [parameters setObject:USER_OPENID forKey:@"openid"];
-        [parameters setObject:addressId forKey:@"addressid"];
-        [parameters setObject:itemid forKey:@"itemid"];
-        [parameters setObject:self.buyCount forKey:@"buynum"];
-        [parameters setObject:self.activeId forKey:@"activityid"];
-        
+    NSMutableDictionary *pram = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    
+    NSString *addressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
+    [pram setObject:@"addressid" forKey:addressId];
+    NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:0];
+    [itemArray addObject:@{@"itemid":self.self.goodsDict[@"itemid"],@"count":@1}];
         NSString *itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddActiveOrderUrl];
-        [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:parameters];
-        
-    }else{
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-        [parameters setObject:USER_OPENID forKey:@"openid"];
-        [parameters setObject:addressId forKey:@"addressid"];
-        [parameters setObject:itemid forKey:@"itemids"];
-        [parameters setObject:self.buyCount forKey:@"buynum"];
-        
-        
-        NSString *itemCarOrderUrl = @"";
-        
-        NSString *isIntegral = [NSString stringWithFormat:@"%@", self.goodsDict[@"isIntegral"]];
-        if ([isIntegral isEqualToString:@"1"] || [isIntegral isEqualToString:@"true"]) {
-            itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, IntegralGoodsAddOrderUrl];
-        }else{
-            if (IsNilOrNull(self.coupontId)) {
-                self.coupontId = @"0";
-            }
-            [parameters setObject:self.coupontId forKey:@"couponsid"];
-            itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddOrderUrl];
-        }
-        [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:parameters];
-    }
+        [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:pram];
 }
 
 #pragma mark - 检测当前收货人是否实名认证（海外购的需要）

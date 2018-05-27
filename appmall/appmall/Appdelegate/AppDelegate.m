@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "WXApi.h"
 #import "DefaultValue.h"
 #import "RootNavigationController.h"
 #import "BKGuidePageAppearToll.h"
@@ -18,7 +18,7 @@
 #import "CKVersionCheckManager.h"
 
 
-@interface AppDelegate ()<ADTimerDelegate>
+@interface AppDelegate ()<ADTimerDelegate,WXApiDelegate>
 
 @property (nonatomic, assign) BOOL isFirst;
 @property (nonatomic, strong) UIViewController *tempRootVC;
@@ -48,7 +48,7 @@
     [self initKeyWindow];
 
     [CKCNotificationCenter addObserver:self selector:@selector(checkAppDoesOnCheck) name:RequestManagerReachabilityDidChangeNotification object:nil];
-    
+     [WXApi registerApp:kWXAPP_ID];
     [self configKeyboard];
     return YES;
 }
@@ -495,5 +495,232 @@
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RequestManagerReachabilityDidChangeNotification object:nil];
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+
+//授权后回调 WXApiDelegate
+//如果第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面。
+-(void)onResp:(BaseResp *)resp {
+    /*
+     ErrCode ERR_OK = 0(用户同意)
+     ERR_AUTH_DENIED = -4（用户拒绝授权）
+     ERR_USER_CANCEL = -2（用户取消）
+     code    用户换取access_token的code，仅在ErrCode为0时有效
+     state   第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用sendReq时传入，由微信终端回传，state字符串长度不能超过1K
+     lang    微信客户端当前语言
+     country 微信用户当前国家信息
+     */
+    //微信授权回调处理
+    if ([resp isKindOfClass:[SendAuthResp class]]){
+        SendAuthResp *aresp = (SendAuthResp *)resp;
+        if (aresp.errCode == 0) {
+            [CKCNotificationCenter postNotificationName:@"cancel" object:@(aresp.errCode)];
+            [self getWeiCodefinishedWhth:resp];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }
+    //    WXSuccess           = 0,    /**< 成功    */
+    //    WXErrCodeCommon     = -1,   /**< 普通错误类型    */
+    //    WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+    //    WXErrCodeSentFail   = -3,   /**< 发送失败    */
+    //    WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
+    //    WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
+    
+    //微信支付回调 处理
+    if ([resp isKindOfClass:[PayResp class]]) {
+        PayResp *response = (PayResp *)resp;
+        [CKCNotificationCenter postNotificationName:WeiXinPay_CallBack object:@(response.errCode)];
+    }
+}
+
+#pragma mark-通过第一步code获取Accesontoken
+-(void)getWeiCodefinishedWhth:(BaseResp *)req
+{
+    if (req.errCode==0) {
+        NSLog(@"用户同意");
+        //到绑定手机号
+        SendAuthResp *aresp=(SendAuthResp *)req;
+        NSLog(@"state=====%@",aresp.state);
+        [self getAccessTokenWithCode:aresp.code andStateStr:aresp.state];
+    }else if (req.errCode==-4){
+        NSLog(@"用户拒绝");
+        //[LCProgressHUD showInfoMsg:@"登录失败"];
+        [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    }else if (req.errCode==-2){
+        NSLog(@"用户取消");
+        //[LCProgressHUD showInfoMsg:@"登录失败"];
+        [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
+}
+
+-(void)getAccessTokenWithCode:(NSString *)code andStateStr:(NSString *)stateStr {
+    NSString *urlString =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",kWXAPP_ID,kWXAPP_SECRET,code];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *dataStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (data){
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                NSLog(@"微信的返回%@",dict);
+                if ([dict objectForKey:@"errcode"]){
+                    //获取token错误
+                }else{
+                    NSLog(@"%@",dict);
+                    NSLog(@"unionid===%@",dict[@"unionid"]);
+                    NSLog(@"openid=====%@",dict[@"openid"]);
+                    NSLog(@" RefreshToken===%@",dict[@"refresh_token"]);
+                    
+                    //openid
+                    NSString *openid = [NSString stringWithFormat:@"%@",[dict objectForKey:@"openid"]];
+                    if (IsNilOrNull(openid)){
+                        openid = @"";
+                    }
+                    [KUserdefaults setObject:openid forKey:KopenID];
+                    
+                    NSString *unionid = [NSString stringWithFormat:@"%@",[dict objectForKey:@"unionid"]];
+                    if (IsNilOrNull(unionid)){
+                        unionid = @"";
+                    }
+                    [KUserdefaults setObject:unionid forKey:Kunionid];
+                    
+                    //刷新的token
+                    NSString *refresh_token = [NSString stringWithFormat:@"%@",dict[@"refresh_token"]];
+                    if (IsNilOrNull(refresh_token)){
+                        refresh_token = @"";
+                    }
+                    
+                    //请求的token
+                    NSString *access_token = [NSString stringWithFormat:@"%@",dict[@"access_token"]];
+                    if (IsNilOrNull(access_token)){
+                        access_token = @"";
+                    }
+                    
+                    //token过期时间
+                    NSString *expires_in = [NSString stringWithFormat:@"%@",dict[@"expires_in"]];
+                    if (IsNilOrNull(expires_in)){
+                        expires_in = @"";
+                    }
+                    //存储AccessToken OpenId RefreshToken以便下次直接登陆
+                    //AccessToken有效期两小时，RefreshToken有效期三十天
+                    NSDate *oldDate = [NSDate date];    //获取AccessToken RefreshToken的一致时间
+                    NSLog(@" oldDate =======%@ ",oldDate);
+                    [KUserdefaults setObject:oldDate forKey:KolderData];
+                    [KUserdefaults setObject:refresh_token forKey:kWeiXinRefreshToken];
+                    
+                    [KUserdefaults setObject:access_token forKey:KAccsess_token];
+                    
+                    [KUserdefaults setObject:expires_in forKey:KExpires_in];
+                    
+                    [KUserdefaults synchronize];
+                    [self getUserInfoWithAccessToken:access_token andOpenId:openid andStateStr:stateStr];
+                }
+            }
+        });
+    });
+}
+
+#pragma mark 获取用户的信息
+- (void)getUserInfoWithAccessToken:(NSString *)accessToken andOpenId:(NSString *)openId andStateStr:(NSString *)stateStr
+{
+    NSLog(@"openId%@",openId);
+    NSString *urlString =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",accessToken,openId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0 ), ^{
+        
+        NSString *dataStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (data)
+            {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                
+                if ([dict objectForKey:@"errcode"])
+                {
+                    NSString *refresh_token = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:kWeiXinRefreshToken]];
+                    if (IsNilOrNull(refresh_token)){
+                        refresh_token = @"";
+                    }
+                    //AccessToken失效
+                    [self getAccessTokenWithRefreshToken:refresh_token];
+                }else{
+                    //获取需要的数据
+                    NSLog(@"获取的用户信息%@",dict);
+                    
+                    [KUserdefaults setObject:dict[@"nickname"] forKey:KnickName];
+                    
+                    [KUserdefaults setObject:dict[@"headimgurl"] forKey:kheamImageurl];
+                    [KUserdefaults synchronize];
+                    //授权后跳转
+                    NSString *authTypeWX = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_WxLogin_Click"]];
+                    if ([authTypeWX isEqualToString:@"clickWechatBtn"]) {
+                        [KUserdefaults setObject:@"" forKey:@"YDSC_WxLogin_Click"];
+                        [KUserdefaults setObject:@"" forKey:@"YDSC_PhoneLogin_Click"];
+                        
+                        [CKCNotificationCenter postNotificationName:@"YDSC_WxLogin_Click" object:nil];
+                    }
+                    
+                    NSString *authTypePhone = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_PhoneLogin_Click"]];
+                    if([authTypePhone isEqualToString:@"clickPhoneBtn"]){
+                        [KUserdefaults setObject:@"" forKey:@"YDSC_WxLogin_Click"];
+                        [KUserdefaults setObject:@"" forKey:@"YDSC_PhoneLogin_Click"];
+                        [CKCNotificationCenter postNotificationName:WeiXinAuthSuccess object:nil];
+                    }
+                }
+            }
+        });
+    });
+}
+
+
+//重新获取AccessToken
+- (void)getAccessTokenWithRefreshToken:(NSString *)refreshToken
+{
+    NSString *urlString =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=%@&grant_type=refresh_token&refresh_token=%@",kWXAPP_ID,refreshToken];
+    NSURL *url = [NSURL URLWithString:urlString];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSString *dataStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (data)
+            {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                if ([dict objectForKey:@"errcode"])
+                {
+                    //授权过期
+                }else
+                {
+                    //重新使用AccessToken获取信息
+                    NSLog(@"重新使用AccessToken获取信息%@",dict);
+                }
+            }
+        });
+    });
+}
+
+- (void)showNoticeView:(NSString*)title{
+    if (self.viewNetError && !self.viewNetError.visible) {
+        self.viewNetError.textLabel.text = title;
+        [self.viewNetError showInView:[UIApplication sharedApplication].keyWindow];
+        [self.viewNetError dismissAfterDelay:1.5f];
+    }
+}
+
 
 @end

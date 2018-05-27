@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodModel.h"
+#import "SCMyOrderModel.h"
 
 @interface SCLoginViewController : UIViewController
 

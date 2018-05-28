@@ -62,9 +62,10 @@
     self.navigationItem.title = @"订单详情";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self createBottomView];
     [self initComponents];
     
-    [self createBottomView];
+   
     //请求订单详情数据
     [self requestOrderDetailData];
 }
@@ -288,7 +289,8 @@
     NSString *orderDetailUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,OrderDetailUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    NSDictionary *pramaDic = @{@"orderid": self.orderid};
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    pramaDic setObject:@"" forKey:@"";
     
     [HttpTool getWithUrl:orderDetailUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];

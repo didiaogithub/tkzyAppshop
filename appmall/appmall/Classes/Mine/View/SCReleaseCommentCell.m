@@ -7,10 +7,10 @@
 //
 
 #import "SCReleaseCommentCell.h"
-//#import "HXPhotoViewController.h"
-//#import "HXPhotoView.h"
+#import "HXPhotoViewController.h"
+#import "HXPhotoView.h"
 
-@interface SCReleaseCommentCell() //HXPhotoViewDelegate
+@interface SCReleaseCommentCell()<HXPhotoViewDelegate> //HXPhotoViewDelegate
 //
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *nameLable;
@@ -22,31 +22,31 @@
 //
 @property (nonatomic, strong) UIView *bgview;
 //
-//@property (nonatomic, strong) HXPhotoManager *manager;
-//@property (nonatomic, strong) HXPhotoView *photoView;
+@property (nonatomic, strong) HXPhotoManager *manager;
+@property (nonatomic, strong) HXPhotoView *photoView;
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
 @implementation SCReleaseCommentCell
 
-//-(HXPhotoManager *)manager {
-//    if (!_manager) {
-//        _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
-//        _manager.openCamera = YES;
-//        _manager.cacheAlbum = YES;
-//        _manager.lookLivePhoto = YES;
-//        _manager.open3DTouchPreview = YES;
-//        _manager.cameraType = HXPhotoManagerCameraTypeSystem;
-//        _manager.photoMaxNum = 3;
-//        _manager.videoMaxNum = 0;
-//        _manager.maxNum = 3;
-//        _manager.saveSystemAblum = NO;
-//        _manager.UIManager.navBar = ^(UINavigationBar *navBar) {
-//        };
-//    }
-//    return _manager;
-//}
+-(HXPhotoManager *)manager {
+    if (!_manager) {
+        _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
+        _manager.openCamera = YES;
+        _manager.cacheAlbum = YES;
+        _manager.lookLivePhoto = YES;
+        _manager.open3DTouchPreview = YES;
+        _manager.cameraType = HXPhotoManagerCameraTypeSystem;
+        _manager.photoMaxNum = 3;
+        _manager.videoMaxNum = 0;
+        _manager.maxNum = 3;
+        _manager.saveSystemAblum = NO;
+        _manager.UIManager.navBar = ^(UINavigationBar *navBar) {
+        };
+    }
+    return _manager;
+}
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -177,7 +177,7 @@
         make.height.mas_offset(50);
     }];
     
-    _startView = [[StarEvaluateView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2/3, 100, SCREEN_WIDTH/3, 50) starIndex:0 starWidth:20 space:3.f defaultImage:[UIImage imageNamed:@"smallstargray"] lightImage:[UIImage imageNamed:@"smallstarred"] isCanTap:YES];
+    _startView = [[StarEvaluateView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2/3, 100, SCREEN_WIDTH/3, 50) starIndex:0 starWidth:20 space:3.f defaultImage:[UIImage imageNamed:@"评分为选中"] lightImage:[UIImage imageNamed:@"评分选中"] isCanTap:YES];
     [self.contentView addSubview:_startView];
 }
 
@@ -234,34 +234,34 @@ static const CGFloat kPhotoViewMargin = 12.0;
     
     scrollView.scrollEnabled = NO;
     
-//    CGFloat width = scrollView.frame.size.width;
-//    HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
-//    photoView.frame = CGRectMake(kPhotoViewMargin, kPhotoViewMargin, width - kPhotoViewMargin * 2, 0);
-//    photoView.delegate = self;
-//    photoView.backgroundColor = [UIColor whiteColor];
-//    [scrollView addSubview:photoView];
-//    self.photoView = photoView;
+    CGFloat width = scrollView.frame.size.width;
+    HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
+    photoView.frame = CGRectMake(kPhotoViewMargin, kPhotoViewMargin, width - kPhotoViewMargin * 2, 0);
+    photoView.delegate = self;
+    photoView.backgroundColor = [UIColor whiteColor];
+    [scrollView addSubview:photoView];
+    self.photoView = photoView;
+}
+//
+- (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
+    NSSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
+    [HXPhotoTools getImageForSelectedPhoto:photos type:HXPhotoToolsFetchHDImageType completion:^(NSArray<UIImage *> *images) {
+        NSSLog(@"%@",images);
+
+        if (self.imageBlock != nil) {
+            self.imageBlock(images);
+        }
+    }];
 }
 
-//- (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
-//    NSSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
-//    [HXPhotoTools getImageForSelectedPhoto:photos type:HXPhotoToolsFetchHDImageType completion:^(NSArray<UIImage *> *images) {
-//        NSSLog(@"%@",images);
-//
-//        if (self.imageBlock != nil) {
-//            self.imageBlock(images);
-//        }
-//    }];
-//}
+-(void)photoView:(HXPhotoView *)photoView deleteNetworkPhoto:(NSString *)networkPhotoUrl {
+    NSSLog(@"%@",networkPhotoUrl);
+}
 
-//-(void)photoView:(HXPhotoView *)photoView deleteNetworkPhoto:(NSString *)networkPhotoUrl {
-//    NSSLog(@"%@",networkPhotoUrl);
-//}
-//
-//-(void)photoView:(HXPhotoView *)photoView updateFrame:(CGRect)frame {
-//    NSSLog(@"%@",NSStringFromCGRect(frame));
-//    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(frame) + kPhotoViewMargin);
-//}
+-(void)photoView:(HXPhotoView *)photoView updateFrame:(CGRect)frame {
+    NSSLog(@"%@",NSStringFromCGRect(frame));
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(frame) + kPhotoViewMargin);
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

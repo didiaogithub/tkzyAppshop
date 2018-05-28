@@ -280,15 +280,15 @@
 /**订单列表*/
 #define GetOrderListUrl @"Order/getOrderList"
 /**订单详情*/
-#define OrderDetailUrl @"Wxmall/Order/getOrderById"
+#define OrderDetailUrl @"Order/getOrderInfo"
 /**确认收货*/
 #define ConfirmReceiveUrl @"Wxmall/Order/confirmOrderItem"
 /**删除订单*/
-#define DelOrderUrl @"Wxmall/Order/delOrder"
+#define DelOrderUrl @"Order/deleteOrder"
 /**取消订单*/
 #define CancelOrderUrl @"Wxmall/Order/cancelOrder"
 /**发表评论*/
-#define AddCommentUrl @"Wxmall/Order/addCommentByOrder"
+#define AddCommentUrl @"Order/addComment"
 /**退换货申请*/
 #define ReturnOrderUrl @"Wxmall/Order/addRefurnItem"
 /**退货默认原因*/

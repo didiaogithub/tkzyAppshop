@@ -3843,6 +3843,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RHTML55WR7;
+				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3867,6 +3868,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RHTML55WR7;
+				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -305,17 +305,17 @@
     
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIImage imageNamed:@"defaultover"]];
     // 名称
-    NSString *name = [NSString stringWithFormat:@"%@", goodsDict[@"name"]];
+    NSString *name = [NSString stringWithFormat:@"%@", goodsDict[@"goodname"]];
     if (IsNilOrNull(name)) {
         name = @"";
     }
     _nameLable.text = name;
     
-    NSString *salesprice = [NSString stringWithFormat:@"%@", goodsDict[@"salesprice"]];
+    NSString *salesprice = [NSString stringWithFormat:@"%@", goodsDict[@"price"]];
     if (IsNilOrNull(salesprice)) {
         salesprice = @"";
     }else{
-        salesprice = [NSString stringWithFormat:@"¥%@", goodsDict[@"salesprice"]];
+        salesprice = [NSString stringWithFormat:@"¥%@", goodsDict[@"price"]];
     }
     _priceLable.text = salesprice;
     
@@ -333,7 +333,7 @@
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@",goodsDict[@"spec"]];
+        spec = [NSString stringWithFormat:@"规格:%@kg",goodsDict[@"spec"]];
     }
     _standardLable.text = spec;
 }

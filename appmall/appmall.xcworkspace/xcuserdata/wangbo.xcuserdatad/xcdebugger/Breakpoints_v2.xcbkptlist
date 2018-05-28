@@ -228,12 +228,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/College/ViewController/TeacherDetailVC.m"
-                  timestampString = "549171331.4356509"
+                  timestampString = "549196765.052205"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "544">
+                  offsetFromSymbolStart = "584">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -243,12 +243,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/College/ViewController/TeacherDetailVC.m"
-                  timestampString = "549171331.437672"
+                  timestampString = "549196765.054906"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "564">
+                  offsetFromSymbolStart = "596">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -436,7 +436,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "549103218.980949"
+            timestampString = "549196718.952335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -452,12 +452,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.482263"
+                  timestampString = "549196765.109387"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
                   endingLineNumber = "166"
-                  offsetFromSymbolStart = "1884">
+                  offsetFromSymbolStart = "1795">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -467,12 +467,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.4843"
+                  timestampString = "549196765.1119291"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
                   endingLineNumber = "167"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "47">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -482,12 +482,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.48627"
+                  timestampString = "549196765.114488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
                   endingLineNumber = "166"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -499,7 +499,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "549103218.981003"
+            timestampString = "549196718.9524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
@@ -515,7 +515,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "549103218.981053"
+            timestampString = "549196718.952458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
@@ -531,12 +531,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.495544"
+                  timestampString = "549196765.126878"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "319"
                   endingLineNumber = "319"
-                  offsetFromSymbolStart = "3900">
+                  offsetFromSymbolStart = "3869">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -546,12 +546,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.4973021"
+                  timestampString = "549196765.129178"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "321"
                   endingLineNumber = "321"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "47">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -561,12 +561,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "549171331.499319"
+                  timestampString = "549196765.131395"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "319"
                   endingLineNumber = "319"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -578,7 +578,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "549103218.981158"
+            timestampString = "549196718.952499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "422"
@@ -594,7 +594,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "549103218.981204"
+            timestampString = "549196718.9525369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "322"

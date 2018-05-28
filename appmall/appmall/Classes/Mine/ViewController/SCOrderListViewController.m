@@ -86,7 +86,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     self.navigationItem.title = @"订单列表";
     _page  =1;
-    _statusArr = @[@"99", @"1", @"2", @"2,4,5,7", @"3,6"];
+    _statusArr = @[@"99", @"1", @"2", @"4,5,7", @"3,6"];
     
     [self createTopButton];
     [self moveStatusLineWithStatus:self.statusString];
@@ -342,7 +342,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         leftX = SCREEN_WIDTH/5;
     }else if ([self.statusString isEqualToString:@"2"]){//待发货
         leftX = SCREEN_WIDTH*2/5;
-    }else if ([self.statusString isEqualToString:@"2,4,5,7"]){//使用反馈
+    }else if ([self.statusString isEqualToString:@"4,5,7"]){//待收货
         leftX = SCREEN_WIDTH*3/5;
     }else{ // 使用反馈 3,6
         leftX = SCREEN_WIDTH*4/5;
@@ -575,12 +575,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 /**点击进入详情*/
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    SCMyOrderModel *orderM = self.orderDataArr[indexPath.section];
-//    SCOrderDetailViewController *checkOrder = [[SCOrderDetailViewController alloc] init];
-//    checkOrder.orderModel = orderM;
-//    checkOrder.orderstatusString = orderM.orderstatus;
-//    checkOrder.orderid = orderM.orderId;
-//    [self.navigationController pushViewController:checkOrder animated:YES];
+    SCMyOrderModel *orderM = self.orderDataArr[indexPath.section];
+    SCOrderDetailViewController *checkOrder = [[SCOrderDetailViewController alloc] init];
+    checkOrder.orderModel = orderM;
+    checkOrder.orderstatusString = orderM.orderstatus;
+    checkOrder.orderid = orderM.orderId;
+    [self.navigationController pushViewController:checkOrder animated:YES];
 }
 
 -(void)refreshData {

@@ -222,10 +222,10 @@
 
 -(void)uploadImage:(UIImage *)selectedImge index:(NSInteger)index {
     
-    NSString *dateStr = [NSDate dateNow];
-    NSString *nameStr = [USER_OPENID stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
-    NSDictionary *pramaDic = @{@"name":nameStr,@"ckid":USER_OPENID,@"file":selectedImge};
-    NSString *photoImageUrl = [NSString stringWithFormat:@"%@%@", @"", UploadImageUrl];
+//    NSString *dateStr = [NSDate dateNow];
+//    NSString *nameStr = [USER_OPENID stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
+    NSDictionary *pramaDic = @{@"file":selectedImge};
+      NSString *photoImageUrl = [NSString stringWithFormat:@"%@%@", CommentResAPI, APIuploadfileimg];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     //上传图片

@@ -297,7 +297,7 @@
     }else if (tag == 1){
         status = @"2";
     }else if (tag == 2){
-        status = @"2,4,5,7";
+        status = @"4,5,7";
     }else if (tag == 3){
         status = @"3,6";
     }else{

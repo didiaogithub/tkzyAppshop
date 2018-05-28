@@ -138,6 +138,8 @@
             }else{
                 [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
                 [_rightButton setTitle:@"去评价" forState:UIControlStateNormal];
+                [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
+                
             }
         }else if ([statustr isEqualToString:@"正在退货"]) {
             _leftButton.hidden = YES;
@@ -223,6 +225,7 @@
     }else if ([_statustring isEqualToString:@"已发货"]) {
         [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
         [_rightButton setTitle:@"确认收货" forState:UIControlStateNormal];
+        [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"已收货"]) {
         if ([_iscomment isEqualToString:@"1"] || [_iscomment isEqualToString:@"true"]) {
             _leftButton.hidden = YES;

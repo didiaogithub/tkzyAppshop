@@ -9,7 +9,7 @@
 #import "SCOrderListViewController.h"
 #import "SCOrderListCell.h"
 #import "SCMyOrderModel.h"
-#import "SCOrderDetailViewController.h"
+#import "SCOrderDetailVC.h"
 #import "OrderFooterView.h"
 #import "SCPayViewController.h"
 #import "DetailLogisticsViewController.h"
@@ -576,7 +576,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SCMyOrderModel *orderM = self.orderDataArr[indexPath.section];
-    SCOrderDetailViewController *checkOrder = [[SCOrderDetailViewController alloc] init];
+    SCOrderDetailVC *checkOrder = [[SCOrderDetailVC alloc] init];
     checkOrder.orderModel = orderM;
     checkOrder.orderstatusString = orderM.orderstatus;
     checkOrder.orderid = orderM.orderId;

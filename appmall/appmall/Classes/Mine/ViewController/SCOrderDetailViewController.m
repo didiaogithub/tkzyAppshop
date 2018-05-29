@@ -290,8 +290,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:self.orderid forKey:@"orderid"];
-    
+    [pramaDic setObject:self.orderid forKey:@"orderid"];    
     [HttpTool getWithUrl:orderDetailUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;

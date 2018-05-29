@@ -252,7 +252,7 @@
     [GoodModel createOrUpdateInRealm:realm withValue:classM];
     [realm commitWriteTransaction];
     
-//    _goodModel.isSelect = _selectedButton.selected;
+    _goodModel.isSelect = _selectedButton.selected;
     if (self.delegate && [self.delegate respondsToSelector:@selector(singleClick:anRow:andSection:)]){
         [self.delegate singleClick:classM anRow:self.indexRow andSection:self.section];
     }

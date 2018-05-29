@@ -14,8 +14,13 @@
 /**商品名称*/
 @property (nonatomic, copy) NSString *name;
 /**购买数量*/
-@property (nonatomic, copy) NSString *count;
-
+@property (nonatomic, copy) NSString *number;
+@property (nonatomic, copy) NSString *isgift;
+@property (nonatomic, copy) NSString *price;
+@property (nonatomic, assign) NSInteger *feedback;
+@property (nonatomic, copy) NSString *picture;
+@property (nonatomic, copy) NSString *specification;
+@property (nonatomic, copy) NSString *itemid;
 @end
 
 @interface CKOldDetailModel : BaseEncodeModel
@@ -66,21 +71,21 @@
 
 @property (nonatomic, strong) NSMutableArray *itemlistArr;
 /**订单id*/
-@property (nonatomic, copy) NSString *Id;
+@property (nonatomic, copy) NSString *orderId;
 /**订单no*/
-@property (nonatomic, copy) NSString *no;
+@property (nonatomic, copy) NSString *orderNo;
 /**收货人*/
 @property (nonatomic, copy) NSString *gettername;
 /**收货电话*/
-@property (nonatomic, copy) NSString *gettermobile;
+@property (nonatomic, copy) NSString *phone;
 /**收货地址*/
-@property (nonatomic, copy) NSString *getteraddress;
+@property (nonatomic, copy) NSString *address;
 /**总金额*/
-@property (nonatomic, copy) NSString *ordermoney;
+@property (nonatomic, copy) NSString *money;
 /**运费*/
 @property (nonatomic, copy) NSString *transfee;
 /**下单时间*/
-@property (nonatomic, copy) NSString *ordertime;
+@property (nonatomic, copy) NSString *orderTime;
 /**物流信息*/
 @property (nonatomic, copy) NSString *transmsg;
 /**是否存在物流信息*/
@@ -90,7 +95,7 @@
 /**支付方式*/
 @property (nonatomic, copy) NSString *paymethod;
 /**支付时间*/
-@property (nonatomic, copy) NSString *paytime;
+@property (nonatomic, copy) NSString *payTime;
 /**获取的积分数*/
 @property (nonatomic, copy) NSString *integralnum;
 /**是否可以修改地址*/
@@ -98,7 +103,7 @@
 /**优惠金额*/
 @property (nonatomic, copy) NSString *favormoney;
 /**实付金额*/
-@property (nonatomic, copy) NSString *money;
+@property (nonatomic, copy) NSString *totalFee;
 
 //3.1.3新增
 /**支付流水*/

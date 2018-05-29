@@ -1048,11 +1048,11 @@
     SCOrderDetailModel *infoModel = [[SCOrderDetailModel alloc] init];
     [infoModel setValuesForKeysWithDictionary:detailDict];
 
-    NSString *orderNo = [NSString stringWithFormat:@"%@",  infoModel.no];    
+    NSString *orderNo = [NSString stringWithFormat:@"%@",  infoModel.orderNo];
     NSString *transNo = [NSString stringWithFormat:@"%@",  infoModel.transno];
     NSString *tranName = [NSString stringWithFormat:@"%@", infoModel.transname];
-    NSString *ordertime = [NSString stringWithFormat:@"%@", infoModel.ordertime];
-    NSString *paytime = [NSString stringWithFormat:@"%@",infoModel.paytime];
+    NSString *ordertime = [NSString stringWithFormat:@"%@", infoModel.orderTime];
+    NSString *paytime = [NSString stringWithFormat:@"%@",infoModel.payTime];
     NSString *paytimeold = [NSString stringWithFormat:@"%@", infoModel.paytimeold];
     NSString *payno = [NSString stringWithFormat:@"%@", infoModel.payno];
     NSString *paynoold = [NSString stringWithFormat:@"%@", infoModel.paynoold];
@@ -1399,7 +1399,7 @@
     
     CKGoodsDetailModel *goodsM = data[@"data"];
     self.goodsNameLabel.text = goodsM.name;
-    self.buyCountLable.text = [NSString stringWithFormat:@"x%@", goodsM.count];
+    self.buyCountLable.text = [NSString stringWithFormat:@"x%@", goodsM.number];
 }
 
 + (CGFloat)computeHeight:(id)data {
@@ -1587,7 +1587,7 @@
     
     CKGoodsDetailModel *goodsM = data[@"data"];
     self.goodsNameLabel.text = goodsM.name;
-    self.buyCountLable.text = [NSString stringWithFormat:@"x%@", goodsM.count];
+    self.buyCountLable.text = [NSString stringWithFormat:@"x%@", goodsM.number];
 }
 
 + (CGFloat)computeHeight:(id)data {

@@ -117,41 +117,41 @@
 }
 
 -(void)refreshCellWithCollectionModel:(SCMyCollectionModel*)collectionM {
-    [_imageViwe sd_setImageWithURL:[NSURL URLWithString:collectionM.path] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+    [_imageViwe sd_setImageWithURL:[NSURL URLWithString:collectionM.pic] placeholderImage:[UIImage imageNamed:@"defaultover"]];
     
-    NSString *name = [NSString stringWithFormat:@"【%@】%@", collectionM.itemtypename ,collectionM.name];
-    NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName:[UIColor tt_bodyTitleColor]}];
+    NSString *name = [NSString stringWithFormat:@"%@",collectionM.name];
+//    NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName:[UIColor tt_bodyTitleColor]}];
+//    
+//    NSRange range = [name rangeOfString:@"】"];
+//    
+//    [aStr setAttributes:@{NSForegroundColorAttributeName:[UIColor tt_redMoneyColor]} range:NSMakeRange(0, range.location+1)];
     
-    NSRange range = [name rangeOfString:@"】"];
-    
-    [aStr setAttributes:@{NSForegroundColorAttributeName:[UIColor tt_redMoneyColor]} range:NSMakeRange(0, range.location+1)];
-    
-    _title.attributedText = aStr;
+    _title.text = name;
     
     
-    NSString *spec = [NSString stringWithFormat:@"%@", collectionM.spec];
+    NSString *spec = [NSString stringWithFormat:@"%@", collectionM.itemSpec];
     if (!IsNilOrNull(spec)) {
-        spec = [NSString stringWithFormat:@"规格:%@", collectionM.spec];
+        spec = [NSString stringWithFormat:@"规格:%@", collectionM.itemSpec];
     }else{
         spec = @"";
     }
     _specLabel.text = spec;
     
-    NSString *saleprice = [NSString stringWithFormat:@"%@", collectionM.salesprice];
+    NSString *saleprice = [NSString stringWithFormat:@"%@", collectionM.price];
     if (!IsNilOrNull(saleprice)) {
-        saleprice = [NSString stringWithFormat:@"¥%@", collectionM.salesprice];
+        saleprice = [NSString stringWithFormat:@"¥%@", collectionM.price];
     }else{
         saleprice = @"";
     }
     _price.text = saleprice;
     
-    NSString *fine = [NSString stringWithFormat:@"%@", collectionM.fine];
-    if (!IsNilOrNull(fine)) {
-        fine = [NSString stringWithFormat:@"好评%@", collectionM.fine];
-    }else{
-        fine = @"";
-    }
-    _comment.text = fine;
+//    NSString *fine = [NSString stringWithFormat:@"%@", collectionM.fine];
+//    if (!IsNilOrNull(fine)) {
+//        fine = [NSString stringWithFormat:@"好评%@", collectionM.fine];
+//    }else{
+//        fine = @"";
+//    }
+//    _comment.text = fine;
 
 }
 

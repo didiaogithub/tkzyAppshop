@@ -462,6 +462,8 @@
 		F2F3433220BAA2A500004E90 /* UIFont+HXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F342FC20BAA2A500004E90 /* UIFont+HXExtension.m */; };
 		F2F3433320BAA2A500004E90 /* UIImage+HXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F342FE20BAA2A500004E90 /* UIImage+HXExtension.m */; };
 		F2F3433420BAA2A500004E90 /* UIView+HXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F3430020BAA2A500004E90 /* UIView+HXExtension.m */; };
+		F2F3434920BBE71E00004E90 /* Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F3434520BBE71C00004E90 /* Goods.m */; };
+		F2F3434A20BBE71E00004E90 /* orderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F3434820BBE71E00004E90 /* orderDetailModel.m */; };
 		F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14CF20B556940066B153 /* AddressTableCell.m */; };
 		F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D020B556940066B153 /* AddressTableCell.xib */; };
 		F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14D220B556940066B153 /* MineInfoCell.m */; };
@@ -1324,6 +1326,10 @@
 		F2F342FE20BAA2A500004E90 /* UIImage+HXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HXExtension.m"; sourceTree = "<group>"; };
 		F2F342FF20BAA2A500004E90 /* UIView+HXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HXExtension.h"; sourceTree = "<group>"; };
 		F2F3430020BAA2A500004E90 /* UIView+HXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HXExtension.m"; sourceTree = "<group>"; };
+		F2F3434520BBE71C00004E90 /* Goods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goods.m; sourceTree = "<group>"; };
+		F2F3434620BBE71C00004E90 /* Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goods.h; sourceTree = "<group>"; };
+		F2F3434720BBE71D00004E90 /* orderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderDetailModel.h; sourceTree = "<group>"; };
+		F2F3434820BBE71E00004E90 /* orderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderDetailModel.m; sourceTree = "<group>"; };
 		F2FA14CE20B556940066B153 /* AddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
 		F2FA14CF20B556940066B153 /* AddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
 		F2FA14D020B556940066B153 /* AddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
@@ -1693,6 +1699,10 @@
 		2D0723CC2082FB4D0030996F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				F2F3434620BBE71C00004E90 /* Goods.h */,
+				F2F3434520BBE71C00004E90 /* Goods.m */,
+				F2F3434720BBE71D00004E90 /* orderDetailModel.h */,
+				F2F3434820BBE71E00004E90 /* orderDetailModel.m */,
 				F2487F5320AEA2CD0005F624 /* MineModel.h */,
 				F2487F5220AEA2CD0005F624 /* MineModel.m */,
 				2D0723CF2082FB690030996F /* View */,
@@ -3547,6 +3557,7 @@
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
 				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
+				F2F3434920BBE71E00004E90 /* Goods.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
 				2D20DED12088CAD400095032 /* CKShareManager.m in Sources */,
 				F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */,
@@ -3642,6 +3653,7 @@
 				F2F3431E20BAA2A500004E90 /* HXPhotoEditViewController.m in Sources */,
 				2D20DF622088D5B100095032 /* SCCouponDetailViewController.m in Sources */,
 				2DA0C38E20B9288E0031AC47 /* GoodsDetailHeader.m in Sources */,
+				F2F3434A20BBE71E00004E90 /* orderDetailModel.m in Sources */,
 				2D20DFB02088DA8F00095032 /* SCCouponDetailCell.m in Sources */,
 				2D20DF682088D5DC00095032 /* DashLineView.m in Sources */,
 				2D20DF4B2088D3D300095032 /* PaySuccessViewController.m in Sources */,
@@ -3842,7 +3854,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
 				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
@@ -3867,7 +3878,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
 				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";

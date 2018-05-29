@@ -290,7 +290,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    pramaDic setObject:@"" forKey:@"";
+    [pramaDic setObject:self.orderid forKey:@"orderid"];
     
     [HttpTool getWithUrl:orderDetailUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
@@ -430,7 +430,7 @@
     }
     
     //应付款信息
-    CellModel *payInfoModel = [self createCellModel:[CKOrderPaymentCell class] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:dict,@"data", self.orderDetailModel.favormoney, @"favormoney", self.orderstatusString, @"orderStatus", self.orderDetailModel.money, @"money", self.orderDetailModel.ordermoney, @"orderMoney", nil] height:[CKOrderPaymentCell computeHeight:[NSDictionary dictionaryWithObjectsAndKeys: self.orderDetailModel.favormoney, @"favormoney", nil]]];
+    CellModel *payInfoModel = [self createCellModel:[CKOrderPaymentCell class] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:dict,@"data", self.orderDetailModel.favormoney, @"favormoney", self.orderstatusString, @"orderStatus", self.orderDetailModel.money, @"money", self.orderDetailModel.money, @"orderMoney", nil] height:[CKOrderPaymentCell computeHeight:[NSDictionary dictionaryWithObjectsAndKeys: self.orderDetailModel.favormoney, @"favormoney", nil]]];
     SectionModel *section31 = [self createSectionModel:@[payInfoModel] headerHeight:0.0001 footerHeight:0.0001];
     [self.tableDataArr addObject:section31];
     //支付、物流信息
@@ -712,7 +712,7 @@
 - (void)payOrder {
     SCOrderDetailModel *orderM = self.orderDetailArray.firstObject;
     SCPayViewController *payMoney = [[SCPayViewController alloc] init];
-    payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.ordermoney];
+    payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.money];
     
 //    NSString *balancemoney = [NSString stringWithFormat:@"%@", self.orderModel.balancemoney];
 //    if (!IsNilOrNull(balancemoney) && [balancemoney doubleValue] > 0) {
@@ -723,8 +723,8 @@
 //        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
 //    }
     
-    payMoney.orderid = orderM.Id;
-    NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.no];
+    payMoney.orderid = orderM.orderId;
+    NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.orderNo];
     if ([orderNo hasPrefix:@"ckdlb"]) {
         payMoney.isdlbitem = @"1";
     }

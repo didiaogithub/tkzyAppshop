@@ -68,12 +68,12 @@
     
     _deleteRow = 0;
     
-    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
-    if (IsNilOrNull(str)) {
-        [self loadCacheData];
-    }else{
+//    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
+//    if (IsNilOrNull(str)) {
+//        [self loadCacheData];
+//    }else{
         [self getshoppingCarData];
-    }
+//    }
     
     NSString *changedShoppingCar = [[NSUserDefaults standardUserDefaults] objectForKey:@"SCChangedShopingCar"];
     if ([changedShoppingCar isEqualToString:@"AddToShoppingCarSuccess"]) {
@@ -170,7 +170,6 @@
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
         NSArray *itemArr = itemDic[@"data"][@"cartList"];
-        return;
         if (itemArr.count == 0) {
             [self.view bringSubviewToFront:self.noDataView];
             [self.shoppingCarDataArray removeAllObjects];
@@ -193,7 +192,8 @@
             [GoodModel createOrUpdateInRealm:realm withValue:classM];
             [realm commitWriteTransaction];
         }
-        [self loadCacheData];
+//        [self loadCacheData];
+        [self.shoppingCarTableView reloadData];
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -247,25 +247,25 @@
     self.shoppingCarTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.shoppingCarTableView];
     
-//    [self.shoppingCarTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view.mas_top).offset(64);
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.mas_right);
-//        make.bottom.equalTo(self.view.mas_bottom).offset(-100);
-//    }];
-//     _shoppingCarTableView.frame = CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT - 164-NaviAddHeight-BOTTOM_BAR_HEIGHT);
+    [self.shoppingCarTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(64);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-100);
+    }];
+     _shoppingCarTableView.frame = CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT - 164-NaviAddHeight-BOTTOM_BAR_HEIGHT);
     
     _bottomView = [[OrderBottomView alloc] initWithFrame:CGRectZero andType:@"yes"];
     _bottomView.delegate = self;
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_bottomView];
-//    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.mas_right);
-//        make.height.mas_equalTo(50);
-//    }];
-//    _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_shoppingCarTableView.frame), SCREEN_WIDTH, 50);
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.mas_equalTo(50);
+    }];
+    _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_shoppingCarTableView.frame), SCREEN_WIDTH, 50);
     
     _editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _editBtn.frame = CGRectMake(0, 0, 50, 45);

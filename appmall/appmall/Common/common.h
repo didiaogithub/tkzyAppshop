@@ -166,7 +166,7 @@
 #define Home_Goods_Class_Url @"Index/getCategoryList"/**获取商品分类列表*/
 #define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"
 #define GoodsDetailUrl @"Goods/getGoodsDetail"
-#define AddToShoppingCarUrl @"/Cart/addShoppingCart"
+#define AddToShoppingCarUrl @"Cart/addShoppingCart"
 #define APIGetMessageSortList @"getMessageSortList"
 
 //天康学院

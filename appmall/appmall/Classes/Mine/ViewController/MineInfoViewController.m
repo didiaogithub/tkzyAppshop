@@ -11,15 +11,27 @@
 #import "AddressTableCell.h"
 #import "SexTableCell.h"
 #import "WYBirthdayPickerView.h"
-@interface MineInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "QRadioButton.h"
+@interface MineInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,QRadioButtonDelegate>
 {
     NSArray * titleArr;
+    NSString *url;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 - (IBAction)sciconAction:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) NSMutableArray *headImageArr;
+/**  nickName*/
+@property (nonatomic, strong) NSString *nickName;
+/**  realname*/
+@property (nonatomic, strong) NSString *realname;
+
+/**  phone*/
+@property (nonatomic, strong) NSString *phone;
+/**  sex*/
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *birth;
 @end
 
 @implementation MineInfoViewController
@@ -50,8 +62,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-
     UITableViewCell *tcell;
     if (indexPath.row == 3) {
         static NSString *identifier = @"sexTableCell";//这个identifier跟xib设置的一样
@@ -61,6 +71,45 @@
             cell= [[[NSBundle  mainBundle]  loadNibNamed:@"SexTableCell" owner:self options:nil]  lastObject];
         }
         cell.nameLab.text = titleArr[indexPath.row];
+        
+        QRadioButton *sex_bm = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
+        [sex_bm setTitle:@"保密" forState:UIControlStateNormal];
+        [sex_bm setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [sex_bm.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+        [cell addSubview:sex_bm];
+        
+        [sex_bm mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(cell.mas_right).offset(-40);
+            make.centerY.equalTo(cell.mas_centerY);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(45);
+        }];
+        QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
+        [sex_women setTitle:@"女" forState:UIControlStateNormal];
+        [sex_women setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [sex_women.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+        [cell addSubview:sex_women];
+        [sex_women setChecked:YES];
+        [sex_women mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(sex_bm.mas_left).offset(-10);
+            make.centerY.equalTo(cell.mas_centerY);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(45);
+        }];
+        
+        QRadioButton *sex_men = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
+        [sex_men setTitle:@"男" forState:UIControlStateNormal];
+        [sex_men setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [sex_men.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+        [cell addSubview:sex_men];
+        [sex_men setChecked:YES];
+        [sex_men mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(sex_women.mas_left).offset(-10);
+            make.centerY.equalTo(cell.mas_centerY);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(45);
+        }];
+        
         tcell = cell;
     }else if (indexPath.row == 4){
         static NSString *identifier = @"addressTableCell";//这个identifier跟xib设置的一样
@@ -81,10 +130,13 @@
         cell.nameLab.text = titleArr[indexPath.row];
         if (indexPath.row == 0) {
             cell.contentTextField.text = self.model.nickname;
+            self.nickName = cell.contentTextField.text;
         }else if (indexPath.row == 1){
             cell.contentTextField.text = self.model.realname;
+            self.realname = cell.contentTextField.text;
         }else{
             cell.contentTextField.text = self.model.phone;
+             self.phone = cell.contentTextField.text;
         }
        
         tcell = cell;
@@ -98,6 +150,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSString *birthDay = nil;
     if (IsNilOrNull(self.model.birthdate)) {
         birthDay = self.model.birthdate;
@@ -107,6 +160,7 @@
         WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:birthDay];
         birthdayPickerView.confirmBlock = ^(NSString *selectedDate) {
             cell.selectLab.text = selectedDate;
+            self.birth = cell.selectLab.text;
         };
         
         for (UIView *view in self.view.subviews) {
@@ -190,6 +244,8 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
 /**拍照上传时，先保存图片到图库，再上传*/
 -(void)uploadImage:(UIImage*)image {
     //旋转图片
@@ -197,8 +253,8 @@
     //显示头像
     [self.iconImage setImage:imageSales];
     NSString *headDicUrl = [NSString stringWithFormat:@"%@%@",CommentResAPI,APIuploadfileimg];
-    NSString *dateStr = [NSDate dateNow];
-    NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
+//    NSString *dateStr = [NSDate dateNow];
+//    NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
     [self.headImageArr addObject:imageSales];
     NSDictionary *pramaDic = @{@"file":imageSales};
     
@@ -213,7 +269,7 @@
             [self showNoticeView:dict[@"message"]];
             return ;
         }
-       NSString *url =  dict[@"data"][@"url"];
+        url =  dict[@"data"][@"url"];
         
     } fail:^(NSError *error){
         if (error.code == -1009) {
@@ -223,12 +279,49 @@
         }
     }];
 }
+- (void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
+    if ([radio.titleLabel.text isEqualToString:@"保密"]) {
+        self.sex = @"0";
+    }else if([radio.titleLabel.text isEqualToString:@"男"]){
+        self.sex = @"1";
+    }else{
+        self.sex = @"2";
+    }
+}
 
 
 
 //UpdateMeInfoUrl
 - (void)rightBtnPressed{
+    NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    if (url) {
+        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
+         [para setObject:urls forKey:@"head"];
+    }else{
+        [para setObject:self.model.head forKey:@"head"];
+    }
     
+    [para setObject:self.nickName forKey:@"nickname"];
+    [para setObject:self.realname forKey:@"realname"];
+    [para setObject:self.phone forKey:@"phone"];
+    if (self.sex) {
+        [para setObject:self.sex forKey:@"sex"];
+    }
+    if (self.birth) {
+       [para setObject:self.birth forKey:@"birth"];
+    }
+
+   NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,UpdateMeInfoUrl];
+//     requestUrl=[requestUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [HttpTool postWithUrl:requestUrl params:para success:^(id json) {
+        
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] == 200) {
+
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 @end

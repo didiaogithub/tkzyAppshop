@@ -84,7 +84,7 @@
             return ;
         }
         
-        NSArray *collectionlist = dic[@"collectionlist"];
+        NSArray *collectionlist = dic[@"data"][@"itemlist"];
         if (collectionlist.count == 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
             

@@ -430,7 +430,7 @@
     
     _logistLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [_topView addSubview:_logistLabale];
-    _logistLabale.text = @"快递 免运费";
+    _logistLabale.text = @"默认";
     [_logistLabale mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(_leftLable);
         make.right.mas_offset(-10);

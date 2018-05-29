@@ -296,6 +296,17 @@
 		2D808E6A20BA5A97002FADA8 /* SCPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6920BA5A97002FADA8 /* SCPhoneLoginViewController.m */; };
 		2D808E6D20BA5BBE002FADA8 /* STCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6C20BA5BBE002FADA8 /* STCountDownButton.m */; };
 		2D808E7020BA5BD4002FADA8 /* STCountDownConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E6E20BA5BD4002FADA8 /* STCountDownConst.m */; };
+		2D808E7420BC2B9B002FADA8 /* SCOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E7220BC2B9B002FADA8 /* SCOrderDetailVC.m */; };
+		2D808E7520BC2B9B002FADA8 /* SCOrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E7320BC2B9B002FADA8 /* SCOrderDetailVC.xib */; };
+		2D808E7920BC2BEC002FADA8 /* ODWuliuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E7720BC2BEC002FADA8 /* ODWuliuCell.m */; };
+		2D808E7A20BC2BEC002FADA8 /* ODWuliuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E7820BC2BEC002FADA8 /* ODWuliuCell.xib */; };
+		2D808E8320BC2C18002FADA8 /* ODGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E8120BC2C18002FADA8 /* ODGoodsTableViewCell.m */; };
+		2D808E8420BC2C18002FADA8 /* ODGoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E8220BC2C18002FADA8 /* ODGoodsTableViewCell.xib */; };
+		2D808E8820BC2C2E002FADA8 /* ODGoodInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E8620BC2C2E002FADA8 /* ODGoodInfoViewCell.m */; };
+		2D808E8920BC2C2E002FADA8 /* ODGoodInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E8720BC2C2E002FADA8 /* ODGoodInfoViewCell.xib */; };
+		2D808E8D20BC2C49002FADA8 /* ODOrderInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E8B20BC2C49002FADA8 /* ODOrderInfoViewCell.m */; };
+		2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E8C20BC2C49002FADA8 /* ODOrderInfoViewCell.xib */; };
+		2D808E9120BC3843002FADA8 /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E9020BC3843002FADA8 /* OrderDetailModel.m */; };
 		2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */; };
 		2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */; };
 		2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2DC20B6F0480031AC47 /* CommListModel.m */; };
@@ -1041,6 +1052,23 @@
 		2D808E6C20BA5BBE002FADA8 /* STCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCountDownButton.m; sourceTree = "<group>"; };
 		2D808E6E20BA5BD4002FADA8 /* STCountDownConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCountDownConst.m; sourceTree = "<group>"; };
 		2D808E6F20BA5BD4002FADA8 /* STCountDownConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCountDownConst.h; sourceTree = "<group>"; };
+		2D808E7120BC2B9B002FADA8 /* SCOrderDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOrderDetailVC.h; sourceTree = "<group>"; };
+		2D808E7220BC2B9B002FADA8 /* SCOrderDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOrderDetailVC.m; sourceTree = "<group>"; };
+		2D808E7320BC2B9B002FADA8 /* SCOrderDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCOrderDetailVC.xib; sourceTree = "<group>"; };
+		2D808E7620BC2BEC002FADA8 /* ODWuliuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODWuliuCell.h; sourceTree = "<group>"; };
+		2D808E7720BC2BEC002FADA8 /* ODWuliuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODWuliuCell.m; sourceTree = "<group>"; };
+		2D808E7820BC2BEC002FADA8 /* ODWuliuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODWuliuCell.xib; sourceTree = "<group>"; };
+		2D808E8020BC2C18002FADA8 /* ODGoodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODGoodsTableViewCell.h; sourceTree = "<group>"; };
+		2D808E8120BC2C18002FADA8 /* ODGoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODGoodsTableViewCell.m; sourceTree = "<group>"; };
+		2D808E8220BC2C18002FADA8 /* ODGoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODGoodsTableViewCell.xib; sourceTree = "<group>"; };
+		2D808E8520BC2C2E002FADA8 /* ODGoodInfoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODGoodInfoViewCell.h; sourceTree = "<group>"; };
+		2D808E8620BC2C2E002FADA8 /* ODGoodInfoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODGoodInfoViewCell.m; sourceTree = "<group>"; };
+		2D808E8720BC2C2E002FADA8 /* ODGoodInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODGoodInfoViewCell.xib; sourceTree = "<group>"; };
+		2D808E8A20BC2C49002FADA8 /* ODOrderInfoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODOrderInfoViewCell.h; sourceTree = "<group>"; };
+		2D808E8B20BC2C49002FADA8 /* ODOrderInfoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ODOrderInfoViewCell.m; sourceTree = "<group>"; };
+		2D808E8C20BC2C49002FADA8 /* ODOrderInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODOrderInfoViewCell.xib; sourceTree = "<group>"; };
+		2D808E8F20BC3843002FADA8 /* OrderDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailModel.h; sourceTree = "<group>"; };
+		2D808E9020BC3843002FADA8 /* OrderDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailModel.m; sourceTree = "<group>"; };
 		2DA0C2D520B6DF480031AC47 /* CommunityViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewCell.h; sourceTree = "<group>"; };
 		2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewCell.m; sourceTree = "<group>"; };
 		2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewCell.xib; sourceTree = "<group>"; };
@@ -1746,6 +1774,9 @@
 				2D20DF492088D3D200095032 /* PaySuccessViewController.m */,
 				2D20DF0A2088CDAE00095032 /* SCUseCouponViewController.h */,
 				2D20DF0B2088CDAE00095032 /* SCUseCouponViewController.m */,
+				2D808E7120BC2B9B002FADA8 /* SCOrderDetailVC.h */,
+				2D808E7220BC2B9B002FADA8 /* SCOrderDetailVC.m */,
+				2D808E7320BC2B9B002FADA8 /* SCOrderDetailVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1816,6 +1847,18 @@
 				2D20DF112088CDE300095032 /* CKRealnameIdentifyView.m */,
 				2D20DEFF2088CD4400095032 /* AddAddressTableViewCell.h */,
 				2D20DEFE2088CD4400095032 /* AddAddressTableViewCell.m */,
+				2D808E7620BC2BEC002FADA8 /* ODWuliuCell.h */,
+				2D808E7720BC2BEC002FADA8 /* ODWuliuCell.m */,
+				2D808E7820BC2BEC002FADA8 /* ODWuliuCell.xib */,
+				2D808E8020BC2C18002FADA8 /* ODGoodsTableViewCell.h */,
+				2D808E8120BC2C18002FADA8 /* ODGoodsTableViewCell.m */,
+				2D808E8220BC2C18002FADA8 /* ODGoodsTableViewCell.xib */,
+				2D808E8520BC2C2E002FADA8 /* ODGoodInfoViewCell.h */,
+				2D808E8620BC2C2E002FADA8 /* ODGoodInfoViewCell.m */,
+				2D808E8720BC2C2E002FADA8 /* ODGoodInfoViewCell.xib */,
+				2D808E8A20BC2C49002FADA8 /* ODOrderInfoViewCell.h */,
+				2D808E8B20BC2C49002FADA8 /* ODOrderInfoViewCell.m */,
+				2D808E8C20BC2C49002FADA8 /* ODOrderInfoViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1845,6 +1888,8 @@
 				2D20DEE52088CBBB00095032 /* AddressModel.m */,
 				2D20DFA82088DA2200095032 /* SCRefundReasonModel.h */,
 				2D20DFA92088DA2200095032 /* SCRefundReasonModel.m */,
+				2D808E8F20BC3843002FADA8 /* OrderDetailModel.h */,
+				2D808E9020BC3843002FADA8 /* OrderDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3149,6 +3194,7 @@
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
+				2D808E7520BC2B9B002FADA8 /* SCOrderDetailVC.xib in Resources */,
 				F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */,
 				F23E654620B66F9D00EB6720 /* MyInvoicesViewController.xib in Resources */,
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
@@ -3165,6 +3211,7 @@
 				2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */,
 				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
+				2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
 				2DA0C38620B925480031AC47 /* GoodSDetailBackViewCell.xib in Resources */,
 				2DA0C37C20B920A60031AC47 /* GoodsDetailViewController.xib in Resources */,
@@ -3184,6 +3231,7 @@
 				F2F3430220BAA2A500004E90 /* README.md in Resources */,
 				F23F1A4C20B7904F00F01D01 /* InvoicesManCellFooterView.xib in Resources */,
 				2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */,
+				2D808E7A20BC2BEC002FADA8 /* ODWuliuCell.xib in Resources */,
 				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
@@ -3199,6 +3247,7 @@
 				2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */,
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
+				2D808E8420BC2C18002FADA8 /* ODGoodsTableViewCell.xib in Resources */,
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
@@ -3209,6 +3258,7 @@
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
+				2D808E8920BC2C2E002FADA8 /* ODGoodInfoViewCell.xib in Resources */,
 				2DA0C35120B867810031AC47 /* radio_btn_off.png in Resources */,
 				2DA0C35F20B867810031AC47 /* MJPhotoBrowser.bundle in Resources */,
 				2D072670208311BE0030996F /* ic_close_grey2.png in Resources */,
@@ -3407,6 +3457,7 @@
 				2D20DFCF20898A2800095032 /* SetUpViewController.m in Sources */,
 				2D20DEDE2088CB2F00095032 /* XLImageLoading.m in Sources */,
 				2D20DF172088CE6A00095032 /* CellModel.m in Sources */,
+				2D808E7420BC2B9B002FADA8 /* SCOrderDetailVC.m in Sources */,
 				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
 				F2F3432D20BAA2A500004E90 /* HXVideoPreviewViewController.m in Sources */,
 				2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */,
@@ -3505,6 +3556,7 @@
 				2D20DEF32088CCD400095032 /* ChangeMyAddressViewController.m in Sources */,
 				F23E654F20B686D900EB6720 /* MyinvoicesCheckingCell.m in Sources */,
 				2D05C8AE20A83237001A8953 /* TeachItemViewCell.m in Sources */,
+				2D808E7920BC2BEC002FADA8 /* ODWuliuCell.m in Sources */,
 				2D20DE012086147300095032 /* FFPopTool.m in Sources */,
 				2DA0C35E20B867810031AC47 /* MJPhotoView.m in Sources */,
 				2DA0C36120B867810031AC47 /* MJPhotoToolbar.m in Sources */,
@@ -3530,6 +3582,7 @@
 				2D20DE472086186000095032 /* XWAlterVeiw.m in Sources */,
 				2D20DEAC2088C82600095032 /* SCCategoryChildVC.m in Sources */,
 				2D20DDE82086142000095032 /* RequestManager+CK.m in Sources */,
+				2D808E8820BC2C2E002FADA8 /* ODGoodInfoViewCell.m in Sources */,
 				2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */,
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
@@ -3544,6 +3597,7 @@
 				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
+				2D808E9120BC3843002FADA8 /* OrderDetailModel.m in Sources */,
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
 				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
@@ -3589,6 +3643,7 @@
 				2D4D60E920B3077B00280033 /* ClassCateItem.m in Sources */,
 				F2F3430A20BAA2A500004E90 /* HXCollectionView.m in Sources */,
 				2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */,
+				2D808E8D20BC2C49002FADA8 /* ODOrderInfoViewCell.m in Sources */,
 				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
 				2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */,
 				2DA0C36220B867810031AC47 /* MJPhotoProgressView.m in Sources */,
@@ -3652,6 +3707,7 @@
 				2D20DFAD2088DA4D00095032 /* JSTextView.m in Sources */,
 				F2F3431F20BAA2A500004E90 /* HXPhotoManager.m in Sources */,
 				2D20DEA42088C80D00095032 /* ZJCollectionView.m in Sources */,
+				2D808E8320BC2C18002FADA8 /* ODGoodsTableViewCell.m in Sources */,
 				F2F3432220BAA2A500004E90 /* HXPhotoPreviewViewController.m in Sources */,
 				2D20DE20208614CE00095032 /* UIButton+XN.m in Sources */,
 				2DA0C35220B867810031AC47 /* ELCAssetCell.m in Sources */,
@@ -3842,7 +3898,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
 				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
@@ -3867,7 +3922,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RHTML55WR7;
 				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";

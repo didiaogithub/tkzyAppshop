@@ -23,21 +23,25 @@
 }
 
 -(void)loadLogData:(OrderDetailModel *)model{
+    [self.imgIcon setImage:[UIImage imageNamed: @"待收货.png"]];
     self.imgLine.hidden = YES;
     self.labBottomLine.hidden = YES;
-    self.labBottomTitle.textColor = [UIColor redColor];
+    self.labTopTitle.textColor = [UIColor redColor];
     if (model.logistics == nil) {
         self.labBottomTitle.text = @"";
         self.labTopTitle.text = @"";
+        self.imgIcon.hidden = YES;
     }else{
         self.labTopTitle.text = model.logistics.info;
         self.labBottomTitle.text = model.logistics.time;
+        self.imgIcon.hidden = NO;
     }
 }
 -(void)loadAddData:(OrderDetailModel *)model{
+    [self.imgIcon setImage:[UIImage imageNamed: @"定位.png"]];
     self.imgLine.hidden = NO;
     self.labBottomLine.hidden = NO;
-    self.labBottomTitle.textColor = [UIColor blackColor];
+    self.labTopTitle.textColor = [UIColor blackColor];
     self.labTopTitle.text = [NSString stringWithFormat:@"收货人：%@",model.phone];
     self.labBottomTitle.text = model.address;
 }

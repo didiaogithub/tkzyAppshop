@@ -7,7 +7,13 @@
 //
 
 #import "BaseGoodSDetailViewCell.h"
+#import "GoodDetailModel.h"
 
 @interface GoodSdetailBottomViewCell : BaseGoodSDetailViewCell
+@property (weak, nonatomic) IBOutlet UIButton *btnGoodDetail;
+@property (weak, nonatomic) IBOutlet UIWebView *webContent;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineDisLeft;
+@property(weak,nonatomic)GoodDetailModel *selfModel;
+@property (weak, nonatomic) IBOutlet UIButton *btnGoodInfo;
 
 @end

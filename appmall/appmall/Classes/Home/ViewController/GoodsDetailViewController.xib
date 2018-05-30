@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoodsDetailViewController">
             <connections>
                 <outlet property="tabGoodDetail" destination="6XY-Lv-fQC" id="V8A-sK-GxB"/>
+                <outlet property="topDis" destination="cSG-XQ-aB5" id="ttf-7a-LNT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -103,6 +104,7 @@
                 <constraint firstAttribute="trailing" secondItem="Y1a-AQ-Jqe" secondAttribute="trailing" id="n5n-xq-jRQ"/>
                 <constraint firstItem="Y1a-AQ-Jqe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rij-Hb-bqo"/>
             </constraints>
+            <point key="canvasLocation" x="108.5" y="53.5"/>
         </view>
     </objects>
 </document>

@@ -9,6 +9,7 @@
 #import "HonourDetailViewController.h"
 #import "HonorListModel.h"
 #import "HonourListViewCell.h"
+#import "ImageDetailController.h"
 #define KHonourListViewCell @"HonourListViewCell"
 
 @interface HonourDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -69,7 +70,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 300;
-    
+  
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ImageDetailController *imageDetailVC = [[ImageDetailController alloc]init];
+    imageDetailVC.imgUrl = self.dataList[indexPath.row].imgpath;
+    [self presentViewController:imageDetailVC animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

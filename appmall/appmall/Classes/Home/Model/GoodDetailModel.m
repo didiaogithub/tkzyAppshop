@@ -25,6 +25,13 @@
     }
     [super setValue:value   forKey:key];
 }
+
+-(CGFloat)getWebDetail{
+    
+    CGFloat labHeight1 = [self.goodsdetail boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size.height;
+    CGFloat labHeight2 = [self.property boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size.height;
+    return  labHeight1 > labHeight2 ?labHeight1 :labHeight2;
+}
 @end
 
 

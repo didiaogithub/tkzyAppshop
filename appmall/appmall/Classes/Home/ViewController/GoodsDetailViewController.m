@@ -25,6 +25,7 @@
     UIButton *commView;
     UIButton *detailView;
     BOOL isDrag;
+    __weak IBOutlet NSLayoutConstraint *topDis;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tabGoodDetail;
 @property (nonatomic,strong)GoodDetailModel *detailModel;
@@ -35,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    topDis.constant = NaviHeight;
     self.title = @"商品详情";
     [self setTableView];
     [self createTitleView];
@@ -147,7 +149,7 @@
         [cell loadDataWithModel:self.detailModel.commentList[indexPath.row]];
     }else if(indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:KGoodSdetailBottomViewCell];
-        [cell loadDataWithModel:nil];
+        [cell loadDataWithModel:self.detailModel];
     }
     return cell;
 }
@@ -158,7 +160,7 @@
     }else if (indexPath.section == 1){
         return [self.detailModel.commentList[indexPath.row] getCellHeight];
     }else if(indexPath.section == 2){
-         return 400;
+        return [self.detailModel getWebDetail];
     }
     return 0;
 }
@@ -243,7 +245,6 @@
     }else{
        [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
     }
-    
     //请求数据
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GoodsDetailUrl];
     
@@ -279,12 +280,14 @@
 
             
             NSLog(@"加入购物车");
-    if (self.detailModel.itemid == nil  || self.detailModel.price) {
+    if (self.detailModel.itemid == nil  || self.detailModel.price == nil) {
         [self.loadingView showNoticeView:@"商品信息有误"];
         return;
     }
             NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    NSString* itemsStr  = [@[@{@"itemids":self.detailModel.itemid,@"num":@"1",@"chose":@"0"} ]mj_JSONString];
+//    NSString* itemsStr  = [@[@{@"itemid":cateM.itemid,@"num":@"1",@"chose":@"0"}] mj_JSONString];
+//    [pramaDic setObject:itemsStr forKey:@"items"];
+            NSString* itemsStr  = [@[@{@"itemid":self.detailModel.itemid,@"num":@"1"} ] mj_JSONString];
             [pramaDic setObject:itemsStr forKey:@"items"];
             NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
             

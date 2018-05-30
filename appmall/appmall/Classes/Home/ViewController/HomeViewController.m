@@ -340,6 +340,11 @@
         detailVC.goodsM  = modelItem;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
+    if (index == 4) {
+        ImageDetailController *imageDetailVC = [[ImageDetailController alloc]init];
+        imageDetailVC.imgUrl = model.honorList[indexpath.row].imgpath;
+        [self presentViewController:imageDetailVC animated:NO completion:nil];
+    }
 }
 
 -(void)loadData{

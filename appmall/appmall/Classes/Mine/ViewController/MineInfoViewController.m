@@ -12,7 +12,7 @@
 #import "SexTableCell.h"
 #import "WYBirthdayPickerView.h"
 #import "QRadioButton.h"
-@interface MineInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,QRadioButtonDelegate>
+@interface MineInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource,QRadioButtonDelegate,UITextFieldDelegate>
 {
     NSArray * titleArr;
     NSString *url;
@@ -32,6 +32,13 @@
 /**  sex*/
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *birth;
+
+/**  textfield*/
+@property (nonatomic, strong) UITextField *nicknamet;
+/**  textfield*/
+@property (nonatomic, strong) UITextField *realnamet;
+/**  textfield*/
+@property (nonatomic, strong) UITextField *phonet;
 @end
 
 @implementation MineInfoViewController
@@ -110,6 +117,16 @@
             make.width.mas_equalTo(45);
         }];
         
+        if ([self.model.sex isEqualToString:@"0"]) {
+            [sex_bm setChecked:YES];
+        }else if ([self.model.sex isEqualToString:@"1"]){
+            [sex_men setChecked:YES];
+        }else if([self.model.sex isEqualToString:@"2"]){
+            [sex_women setChecked:YES];
+        }else{
+            [sex_men setChecked:YES];
+        }
+        
         tcell = cell;
     }else if (indexPath.row == 4){
         static NSString *identifier = @"addressTableCell";//这个identifier跟xib设置的一样
@@ -119,6 +136,9 @@
             cell= [[[NSBundle  mainBundle]  loadNibNamed:@"AddressTableCell" owner:self options:nil]  lastObject];
         }
         cell.nameLab.text = titleArr[indexPath.row];
+        if (self.model.birth) {
+            cell.selectLab.text = self.model.birth;
+        }
         tcell = cell;
     }else{
         static NSString *identifier = @"MineInfoCell";//这个identifier跟xib设置的一样
@@ -130,15 +150,16 @@
         cell.nameLab.text = titleArr[indexPath.row];
         if (indexPath.row == 0) {
             cell.contentTextField.text = self.model.nickname;
-            self.nickName = cell.contentTextField.text;
+            self.nicknamet = cell.contentTextField;
         }else if (indexPath.row == 1){
             cell.contentTextField.text = self.model.realname;
-            self.realname = cell.contentTextField.text;
+           self.realnamet = cell.contentTextField;
         }else{
             cell.contentTextField.text = self.model.phone;
-             self.phone = cell.contentTextField.text;
+            self.phonet = cell.contentTextField;
         }
-       
+        cell.contentTextField.delegate = self;
+        cell.contentTextField.tag = indexPath.row;
         tcell = cell;
     }
     return tcell;
@@ -152,8 +173,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *birthDay = nil;
-    if (IsNilOrNull(self.model.birthdate)) {
-        birthDay = self.model.birthdate;
+    if (IsNilOrNull(self.model.birth)) {
+        birthDay = self.model.birth;
     }
     AddressTableCell *cell = [self.mTableView cellForRowAtIndexPath:indexPath];
     if (indexPath.row == 4) {
@@ -171,7 +192,6 @@
         [self.view addSubview:birthdayPickerView];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -295,15 +315,15 @@
 - (void)rightBtnPressed{
     NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     if (url) {
-        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
-         [para setObject:urls forKey:@"head"];
+//        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
+         [para setObject:url forKey:@"head"];
     }else{
         [para setObject:self.model.head forKey:@"head"];
     }
-    
-    [para setObject:self.nickName forKey:@"nickname"];
-    [para setObject:self.realname forKey:@"realname"];
-    [para setObject:self.phone forKey:@"phone"];
+
+    [para setObject:self.nicknamet.text forKey:@"nickname"];
+    [para setObject:self.realnamet.text forKey:@"realname"];
+    [para setObject:self.phonet.text forKey:@"phone"];
     if (self.sex) {
         [para setObject:self.sex forKey:@"sex"];
     }
@@ -317,10 +337,11 @@
         
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
-
+               [self showNoticeView:@"保存成功"];
         }
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
+        [self showNoticeView:@"保存失败"];
     }];
 }
 

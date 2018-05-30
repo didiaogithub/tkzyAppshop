@@ -342,19 +342,19 @@
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
             
             //删除订单购物车缓存
-            RLMResults *result = [GoodModel allObjects];
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            if (result.count > 0) {
-                [realm beginWriteTransaction];
-                [realm deleteObjects:result];
-                [realm commitWriteTransaction];
-            }
-            RLMResults *result1 = [SCMyOrderModel allObjects];
-            if (result1.count > 0) {
-                [realm beginWriteTransaction];
-                [realm deleteObjects:result1];
-                [realm commitWriteTransaction];
-            }
+//            RLMResults *result = [GoodModel allObjects];
+//            RLMRealm *realm = [RLMRealm defaultRealm];
+//            if (result.count > 0) {
+//                [realm beginWriteTransaction];
+//                [realm deleteObjects:result];
+//                [realm commitWriteTransaction];
+//            }
+//            RLMResults *result1 = [SCMyOrderModel allObjects];
+//            if (result1.count > 0) {
+//                [realm beginWriteTransaction];
+//                [realm deleteObjects:result1];
+//                [realm commitWriteTransaction];
+//            }
             
             //            RLMResults *result3 = [SCCategoryGoodsModel allObjects];
             //            if (result2.count > 0) {
@@ -457,25 +457,25 @@
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
             
             //删除订单购物车缓存
-            RLMResults *result = [GoodModel allObjects];
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            if (result.count > 0) {
-                [realm beginWriteTransaction];
-                [realm deleteObjects:result];
-                [realm commitWriteTransaction];
-            }
-            RLMResults *result1 = [SCMyOrderModel allObjects];
-            if (result1.count > 0) {
-                [realm beginWriteTransaction];
-                [realm deleteObjects:result1];
-                [realm commitWriteTransaction];
-            }
-            RLMResults *result2 = [SCMyOrderGoodsModel allObjects];
-            if (result2.count > 0) {
-                [realm beginWriteTransaction];
-                [realm deleteObjects:result2];
-                [realm commitWriteTransaction];
-            }
+//            RLMResults *result = [GoodModel allObjects];
+//            RLMRealm *realm = [RLMRealm defaultRealm];
+//            if (result.count > 0) {
+//                [realm beginWriteTransaction];
+//                [realm deleteObjects:result];
+//                [realm commitWriteTransaction];
+//            }
+//            RLMResults *result1 = [SCMyOrderModel allObjects];
+//            if (result1.count > 0) {
+//                [realm beginWriteTransaction];
+//                [realm deleteObjects:result1];
+//                [realm commitWriteTransaction];
+//            }
+//            RLMResults *result2 = [SCMyOrderGoodsModel allObjects];
+//            if (result2.count > 0) {
+//                [realm beginWriteTransaction];
+//                [realm deleteObjects:result2];
+//                [realm commitWriteTransaction];
+//            }
             //            RLMResults *result3 = [SCCategoryGoodsModel allObjects];
             //            if (result2.count > 0) {
             //                [realm beginWriteTransaction];

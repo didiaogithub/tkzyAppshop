@@ -75,7 +75,7 @@
 /**创建内容view*/
 -(void)createContentView:(NSArray*)titles{
     
-    WBContentView *contentView = [[WBContentView alloc]initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-50)];
+    WBContentView *contentView = [[WBContentView alloc]initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     contentView.delegate = self;
     self.menuView.contentScrollView = contentView;
     [contentView addTopMenuView:titles];
@@ -96,7 +96,7 @@
 -(void)addViewController:(UIViewController*)vc atIndex:(NSInteger)index{
 
     [self.VClist addObject:vc];
-    vc.view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,vc.view.frame.size.height - 80);
+    vc.view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,vc.view.frame.size.height);
     [self.menuView.contentScrollView addSubview:vc.view];
 
 }
@@ -104,7 +104,7 @@
 -(void)addView:(UIView*)view andViewController :(UIViewController*)vc atIndex:(NSInteger )index{
 
     [self.VClist addObject:vc];
-    view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,view.frame.size.height - 50);
+    view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,view.frame.size.height);
     [self.menuView.contentScrollView addSubview:view];
 
 }

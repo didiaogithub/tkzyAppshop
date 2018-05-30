@@ -414,6 +414,16 @@
 		F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F4020AE9F260005F624 /* CKCouponModel.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
 		F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */; };
+		F255513D20BD44EE0097C2A4 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */; };
+		F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */; };
+		F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255514620BD450B0097C2A4 /* libPaymentControl.a */; };
+		F255515020BD52DE0097C2A4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255514F20BD52DE0097C2A4 /* Security.framework */; };
+		F255515220BD52F70097C2A4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255515120BD52F70097C2A4 /* CoreTelephony.framework */; };
+		F255515420BD53230097C2A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255515320BD53230097C2A4 /* UIKit.framework */; };
+		F255515620BD532B0097C2A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255515520BD532B0097C2A4 /* Foundation.framework */; };
+		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
+		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
+		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -1241,6 +1251,19 @@
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
 		F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
 		F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
+		F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		F255514220BD450B0097C2A4 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
+		F255514320BD450B0097C2A4 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
+		F255514420BD450B0097C2A4 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		F255514620BD450B0097C2A4 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		F255514F20BD52DE0097C2A4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F255515120BD52F70097C2A4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F255515320BD53230097C2A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F255515520BD532B0097C2A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1388,11 +1411,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D808E6720BA5765002FADA8 /* SystemConfiguration.framework in Frameworks */,
+				F255515420BD53230097C2A4 /* UIKit.framework in Frameworks */,
+				F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */,
+				F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */,
+				F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */,
 				2D808E6520BA575C002FADA8 /* libz.tbd in Frameworks */,
-				2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */,
-				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
 				2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */,
+				F255515620BD532B0097C2A4 /* Foundation.framework in Frameworks */,
+				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
+				2D808E6720BA5765002FADA8 /* SystemConfiguration.framework in Frameworks */,
+				F255515220BD52F70097C2A4 /* CoreTelephony.framework in Frameworks */,
+				F255515020BD52DE0097C2A4 /* Security.framework in Frameworks */,
+				F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */,
+				2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */,
+				F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */,
 				2D808E5D20BA5702002FADA8 /* libWeChatSDK.a in Frameworks */,
 				4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */,
 			);
@@ -1432,6 +1464,8 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				F255513F20BD450B0097C2A4 /* 银联支付 */,
+				F255513A20BD44ED0097C2A4 /* AlipaySDK */,
 				F2F3429920BAA2A500004E90 /* HXWeiboPhotoPicker */,
 				2D808E5620BA5702002FADA8 /* WXpaySDK */,
 				2DA0C2FD20B867810031AC47 /* ShowPicture */,
@@ -2608,6 +2642,13 @@
 		91B284A98B2775F1FCAB3120 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F29193E920BD54BE007A5774 /* CoreGraphics.framework */,
+				F29193E720BD54B4007A5774 /* CoreText.framework */,
+				F29193E520BD54A7007A5774 /* QuartzCore.framework */,
+				F255515520BD532B0097C2A4 /* Foundation.framework */,
+				F255515320BD53230097C2A4 /* UIKit.framework */,
+				F255515120BD52F70097C2A4 /* CoreTelephony.framework */,
+				F255514F20BD52DE0097C2A4 /* Security.framework */,
 				2D808E6620BA5765002FADA8 /* SystemConfiguration.framework */,
 				2D808E6420BA575C002FADA8 /* libz.tbd */,
 				2D808E6220BA5753002FADA8 /* libsqlite3.tbd */,
@@ -2734,6 +2775,50 @@
 				F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F255513A20BD44ED0097C2A4 /* AlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */,
+				F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */,
+			);
+			path = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		F255513F20BD450B0097C2A4 /* 银联支付 */ = {
+			isa = PBXGroup;
+			children = (
+				F255514020BD450B0097C2A4 /* paymentcontrol */,
+			);
+			path = "银联支付";
+			sourceTree = "<group>";
+		};
+		F255514020BD450B0097C2A4 /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				F255514120BD450B0097C2A4 /* inc */,
+				F255514520BD450B0097C2A4 /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		F255514120BD450B0097C2A4 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				F255514220BD450B0097C2A4 /* UPAPayPlugin.h */,
+				F255514320BD450B0097C2A4 /* UPAPayPluginDelegate.h */,
+				F255514420BD450B0097C2A4 /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		F255514520BD450B0097C2A4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				F255514620BD450B0097C2A4 /* libPaymentControl.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		F27D8B7E20A9AA2B00E64AD8 /* Model */ = {
@@ -3282,6 +3367,7 @@
 				2D05C8AF20A83237001A8953 /* TeachItemViewCell.xib in Resources */,
 				2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */,
 				2D07268A20832B0F0030996F /* HomeMenuItemsConfig.plist in Resources */,
+				F255513D20BD44EE0097C2A4 /* AlipaySDK.bundle in Resources */,
 				2D6F9276208F5074007DFD0B /* TeacherClassListViewCell.xib in Resources */,
 				F2FA14D820B556940066B153 /* AddressTableCell.xib in Resources */,
 				2D072673208311BE0030996F /* 搜索-拷贝@2x.png in Resources */,
@@ -3904,7 +3990,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8RE52F5T9U;
+				DEVELOPMENT_TEAM = RHTML55WR7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3912,6 +4002,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
+					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
+					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3928,7 +4020,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8RE52F5T9U;
+				DEVELOPMENT_TEAM = RHTML55WR7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/appmall/Appmall.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/appmall/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3936,6 +4032,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
+					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
+					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -93,8 +93,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     [self createTableView];
     [self refreshData];
     
-//    [UITableView refreshHelperWithScrollView:self.orderTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
-    [self loadNewData]; 
+    [UITableView refreshHelperWithScrollView:self.orderTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];
 }
 
 -(void)loadNewData{
@@ -140,7 +140,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             if (itemArr.count == 0) {
                 _nodataLableView.hidden = NO;
                 [self.orderDataArr removeAllObjects];
-                [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
+//                [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
             }
             [self.orderDataArr removeAllObjects];
             for (NSDictionary *listOrderDic in itemArr) {
@@ -223,7 +223,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         if(self.orderDataArr.count == 0){
             _nodataLableView.hidden = NO;
-            [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
+//            [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
         }
         [self.loadingView stopAnimation];
     }];
@@ -253,7 +253,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         _oidString = [NSString stringWithFormat:@"%@", orderModel.orderId];
     }else{
         _nodataLableView.hidden = NO;
-        [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
+//        [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
     }
     
     [self.orderTableView.mj_header endRefreshing];

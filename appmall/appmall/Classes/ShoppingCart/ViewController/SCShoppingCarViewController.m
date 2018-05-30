@@ -170,28 +170,37 @@
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
         NSArray *itemArr = itemDic[@"data"][@"cartList"];
-        if (itemArr.count == 0) {
+        if ([itemArr isKindOfClass:[NSArray class]]) {
+            if (itemArr.count == 0) {
+                [self.view bringSubviewToFront:self.noDataView];
+                [self.shoppingCarDataArray removeAllObjects];
+                [self.shoppingCarTableView reloadData];
+                
+                _editBtn.enabled = NO;
+                
+            }
+            
+            for (NSDictionary *goodDic in itemArr) {
+                GoodModel *model = [[GoodModel alloc]initWith:goodDic];
+                [self.shoppingCarDataArray addObject:model];
+            }
+            
+            for (NSInteger i = 0; i < self.shoppingCarDataArray.count; i++) {
+                GoodModel *classM = self.shoppingCarDataArray[i];
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                [realm beginWriteTransaction];
+                [GoodModel createOrUpdateInRealm:realm withValue:classM];
+                [realm commitWriteTransaction];
+            }
+        }else{
             [self.view bringSubviewToFront:self.noDataView];
             [self.shoppingCarDataArray removeAllObjects];
             [self.shoppingCarTableView reloadData];
-            
             _editBtn.enabled = NO;
         }
         _bottomView.realPayMoneyLable.text = @"合计:￥0.00";
         _bottomView.allSelectedButton.selected = NO;
-        
-        for (NSDictionary *goodDic in itemArr) {
-            GoodModel *model = [[GoodModel alloc]initWith:goodDic];
-            [self.shoppingCarDataArray addObject:model];
-        }
-        
-        for (NSInteger i = 0; i < self.shoppingCarDataArray.count; i++) {
-            GoodModel *classM = self.shoppingCarDataArray[i];
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [GoodModel createOrUpdateInRealm:realm withValue:classM];
-            [realm commitWriteTransaction];
-        }
+       
 //        [self loadCacheData];
         [self.shoppingCarTableView reloadData];
         [self.loadingView stopAnimation];
@@ -579,8 +588,9 @@
 -(void)deleteShoppingCarGoods:(NSString*)itemids indexArr:(NSArray*)indexArr{
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, DelShoppingCarUrl];
-    NSDictionary *pramaDic= @{@"openid": USER_OPENID, @"itemids": itemids};
-    
+   
+    NSMutableDictionary *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:itemids forKey:@"itemids"];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
@@ -629,7 +639,8 @@
     }
     
     NSString *itemids = [idArr componentsJoinedByString:@","];
-    NSDictionary *pramaDic = @{@"itemid": itemids, @"openid": USER_OPENID};
+    NSMutableDictionary *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:itemids forKey:@"itemid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddCollectionUrl];
     [HttpTool postWithUrl:loveItemUrl params:pramaDic success:^(id json) {
         NSDictionary *dic = json;

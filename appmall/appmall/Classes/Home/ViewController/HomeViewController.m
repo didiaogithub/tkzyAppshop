@@ -48,7 +48,6 @@
 
     [self creatSearchUI];
     [self creatRightItem];
-    
     [self setTableView];
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
@@ -215,7 +214,7 @@
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [itemBtn addTarget:self action:@selector(actionToMessage) forControlEvents:UIControlEventTouchUpInside];
     itemBtn.frame = CGRectMake(10, 10, 25, 25);
-    [itemBtn setBackgroundImage:[UIImage imageNamed:@"消息图标"] forState:0];
+    [itemBtn setBackgroundImage:[UIImage imageNamed:@"首页-消息"] forState:0];
     [rightView addSubview:itemBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightView];
 }

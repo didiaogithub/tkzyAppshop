@@ -238,7 +238,12 @@
 -(void)requestGoodsDetailData {
     
     NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
+    if (self.goodsM.itemid == nil) {
+       [pramaDic setObject:self.goodsId forKey:@"itemid"];
+    }else{
+       [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
+    }
+    
     //请求数据
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GoodsDetailUrl];
     
@@ -279,7 +284,7 @@
 //        return;
 //    }
             NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":self.detailModel.itemid,@"num":@"1",@"chose":@"0"}]];
+    NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemids":self.detailModel.itemid,@"num":@"1",@"chose":@"0"}]];
             [pramaDic setObject:@"items" forKey:itemsStr];
             NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
             

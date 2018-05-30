@@ -14,6 +14,7 @@
 #import "SCDeleteView.h"
 #import "SCNoDataView.h"
 #import "SCCollectBottomView.h"
+#import "GoodsDetailViewController.h"
 #import "XWAlterVeiw.h"
 
 @interface YSCollectionViewController ()<UITableViewDelegate, UITableViewDataSource, SCCollectBottomViewDelegate, UIActionSheetDelegate, SCCollectionEditCellDelegate, XWAlterVeiwDelegate>
@@ -274,7 +275,7 @@
     if (!_isDealWithData) {
         
         NSLog(@"跳转到商品详情");
-        SCGoodsDetailViewController *detailVC = [[SCGoodsDetailViewController alloc] init];
+        GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
         SCMyCollectionModel *collectM = self.dataArray[indexPath.section];
         
         detailVC.goodsId = [NSString stringWithFormat:@"%@", collectM.itemid];

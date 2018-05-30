@@ -59,12 +59,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-Hb-VHp">
-                        <rect key="frame" x="284" y="79" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.2274509804" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="284" y="78.5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="5CE-hB-R8b"/>
                             <constraint firstAttribute="height" constant="30" id="COO-er-3RZ"/>
                         </constraints>
+                        <state key="normal" image="购物车"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -98,4 +98,7 @@
             <point key="canvasLocation" x="38.5" y="97"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="购物车" width="25" height="24"/>
+    </resources>
 </document>

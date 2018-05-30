@@ -18,9 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="294.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oqR-fW-p4z">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacherBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="oqR-fW-p4z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
-                        <color key="backgroundColor" red="0.90576424870000005" green="0.53811460079999995" blue="0.35503984360000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="149" id="9bB-nq-Hql"/>
                         </constraints>
@@ -97,4 +96,7 @@
             <point key="canvasLocation" x="63.5" y="164.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="teacherBack.png" width="1440" height="586"/>
+    </resources>
 </document>

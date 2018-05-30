@@ -307,6 +307,9 @@
 		2D808E8D20BC2C49002FADA8 /* ODOrderInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E8B20BC2C49002FADA8 /* ODOrderInfoViewCell.m */; };
 		2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E8C20BC2C49002FADA8 /* ODOrderInfoViewCell.xib */; };
 		2D808E9120BC3843002FADA8 /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D808E9020BC3843002FADA8 /* OrderDetailModel.m */; };
+		2D83E25B20BD915700F2D375 /* NSMutableParagraphStyle+WB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D83E25A20BD915700F2D375 /* NSMutableParagraphStyle+WB.m */; };
+		2D83E25D20BD93D700F2D375 /* teacherBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E25C20BD93D700F2D375 /* teacherBack.png */; };
+		2D83E25F20BD9E4200F2D375 /* orderdetailline.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E25E20BD9E4200F2D375 /* orderdetailline.png */; };
 		2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */; };
 		2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */; };
 		2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2DC20B6F0480031AC47 /* CommListModel.m */; };
@@ -1080,6 +1083,10 @@
 		2D808E8C20BC2C49002FADA8 /* ODOrderInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ODOrderInfoViewCell.xib; sourceTree = "<group>"; };
 		2D808E8F20BC3843002FADA8 /* OrderDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailModel.h; sourceTree = "<group>"; };
 		2D808E9020BC3843002FADA8 /* OrderDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailModel.m; sourceTree = "<group>"; };
+		2D83E25920BD915700F2D375 /* NSMutableParagraphStyle+WB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableParagraphStyle+WB.h"; sourceTree = "<group>"; };
+		2D83E25A20BD915700F2D375 /* NSMutableParagraphStyle+WB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableParagraphStyle+WB.m"; sourceTree = "<group>"; };
+		2D83E25C20BD93D700F2D375 /* teacherBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teacherBack.png; sourceTree = "<group>"; };
+		2D83E25E20BD9E4200F2D375 /* orderdetailline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderdetailline.png; sourceTree = "<group>"; };
 		2DA0C2D520B6DF480031AC47 /* CommunityViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewCell.h; sourceTree = "<group>"; };
 		2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewCell.m; sourceTree = "<group>"; };
 		2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewCell.xib; sourceTree = "<group>"; };
@@ -1493,6 +1500,8 @@
 				F2FED0662081A1ED00DFBD77 /* Assets.xcassets */,
 				2D0723B72082FA1D0030996F /* TextResource.h */,
 				2D20DD9E20860F9F00095032 /* images.xcassets */,
+				2D83E25C20BD93D700F2D375 /* teacherBack.png */,
+				2D83E25E20BD9E4200F2D375 /* orderdetailline.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1548,6 +1557,8 @@
 				2D0723AE2082F9EE0030996F /* NewFeatureViewController.h */,
 				2D0723AF2082F9EF0030996F /* NewFeatureViewController.m */,
 				2D0723F42082FEF10030996F /* HomeViewController.h */,
+				2D83E25920BD915700F2D375 /* NSMutableParagraphStyle+WB.h */,
+				2D83E25A20BD915700F2D375 /* NSMutableParagraphStyle+WB.m */,
 				2D0723F52082FEF10030996F /* HomeViewController.m */,
 				2D0723F62082FEF10030996F /* HomeViewController.xib */,
 				2D0726A92083923A0030996F /* MedieaListViewController.h */,
@@ -3279,6 +3290,7 @@
 				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
 				2DA0C34B20B867810031AC47 /* radio_btn_onTwo.png in Resources */,
 				2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */,
+				2D83E25F20BD9E4200F2D375 /* orderdetailline.png in Resources */,
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
 				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
@@ -3334,6 +3346,7 @@
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
 				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
+				2D83E25D20BD93D700F2D375 /* teacherBack.png in Resources */,
 				2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */,
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
@@ -3809,6 +3822,7 @@
 				2D20DEB82088C97E00095032 /* SCShoppingCarViewController.m in Sources */,
 				2D0726882083277A0030996F /* BaseModel.m in Sources */,
 				2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */,
+				2D83E25B20BD915700F2D375 /* NSMutableParagraphStyle+WB.m in Sources */,
 				2D791C7020905C4900E455F5 /* ClassListVC.m in Sources */,
 				2D20DFCC20898A1A00095032 /* SCMineInfoViewController.m in Sources */,
 				F2F3432F20BAA2A500004E90 /* NSBundle+HXWeiboPhotoPicker.m in Sources */,

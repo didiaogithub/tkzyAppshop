@@ -23,6 +23,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    imgNumberIcon.layer.cornerRadius = imgNumberIcon.mj_h/ 2;
+    imgNumberIcon.layer.masksToBounds = YES;
     // Initialization code
 }
 
@@ -33,7 +35,7 @@
 }
 
 -(void)refreshData:(TeacherListItemModel *)model{
-    [imgTopView sd_setImageWithURL:[NSURL URLWithString:model .avater]];
+    [imgNumberIcon sd_setImageWithURL:[NSURL URLWithString:model .avater]];
     labTeacherInfo .text = model.introduction;
     labTeacherPostion.text = model.level;
     labTeacherName.text = model.name;

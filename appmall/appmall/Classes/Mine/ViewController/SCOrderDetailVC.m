@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"订单详情";
+    
     self.topDis.constant = NaviHeight;
     [self setTableView];
     [self requestOrderDetailData];
@@ -102,7 +104,7 @@
     }
     
     if (indexPath.row == 2 + self.orderDetailModel.goods.count) {
-        return 85;
+        return 90;
     }
     
     if (indexPath.row == 3 + self.orderDetailModel.goods.count) {
@@ -153,7 +155,14 @@
             [self showNoticeView:NetWorkTimeout];
         }
     }];
-    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
 }
 
 

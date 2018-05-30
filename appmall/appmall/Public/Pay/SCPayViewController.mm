@@ -290,15 +290,15 @@
         
         NSString *paymentType = _payMethodArr[indexPath.row];
         if([paymentType isEqualToString:@"alipay"]){  //支付宝
-            cell.leftIamgeView.image = [UIImage imageNamed:@"alipay"];
+            cell.leftIamgeView.image = [UIImage imageNamed:@"支付宝"];
         }else if ([paymentType isEqualToString:@"wxpay"]){  //微信
-            cell.leftIamgeView.image = [UIImage imageNamed:@"weixinpay"];
+            cell.leftIamgeView.image = [UIImage imageNamed:@"微信支付"];
         }else if ([paymentType isEqualToString:@"unionpay"]){  //银联
-            cell.leftIamgeView.image = [UIImage imageNamed:@"uupay"];
+            cell.leftIamgeView.image = [UIImage imageNamed:@"银联支付"];
         }else if ([paymentType isEqualToString:@"applepay"]){  //applePay
             cell.leftIamgeView.image = [UIImage imageNamed:@"Apple-Pay"];
         }else if ([paymentType isEqualToString:@"jdpay"]){  //jdpay
-            cell.leftIamgeView.image = [UIImage imageNamed:@"jdpay"];
+            cell.leftIamgeView.image = [UIImage imageNamed:@"中金支付"];
         }
         
         NSInteger row = [indexPath row];

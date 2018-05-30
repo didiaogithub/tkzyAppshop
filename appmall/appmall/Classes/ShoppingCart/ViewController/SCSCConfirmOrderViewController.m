@@ -407,8 +407,16 @@
     
     addressId = defaultAddressId;
     
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:USER_OPENID forKey:@"openid"];
+    NSMutableArray *itemlist = [NSMutableArray array];
+    NSMutableDictionary *item = [NSMutableDictionary dictionary];
+    for (GoodModel *model in self.dataArray) {
+        [item setObject:model.itemid forKey:@"itemid"];
+        [item setObject:model.num forKey:@"count"];
+        [itemlist addObject:item];
+    }
+   NSString *itemlistStr =  [itemlist mj_JSONString];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [parameters setObject:itemlistStr forKey:@"itemlist"];
     [parameters setObject:addressId forKey:@"addressid"];
     if (!IsNilOrNull(self.coupontId)) {
         [parameters setObject:self.coupontId forKey:@"couponsid"];//优惠券id

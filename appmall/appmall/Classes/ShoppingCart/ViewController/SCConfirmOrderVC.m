@@ -333,7 +333,7 @@
     NSString *addressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
     [pram setObject:@"addressid" forKey:addressId];
     NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:0];
-    [itemArray addObject:@{@"itemid":self.self.goodsDict[@"itemid"],@"count":@1}];
+    [itemArray addObject:@{@"itemid":self.goodsDict[@"itemid"],@"count":@1}];
         NSString *itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddActiveOrderUrl];
         [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:pram];
 }

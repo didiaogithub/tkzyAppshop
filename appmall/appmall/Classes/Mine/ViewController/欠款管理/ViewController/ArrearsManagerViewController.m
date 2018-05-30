@@ -7,8 +7,10 @@
 //
 
 #import "ArrearsManagerViewController.h"
-
-@interface ArrearsManagerViewController ()
+#import "ArrearsTableCell.h"
+#import "ArrearsFooterView.h"
+#import "ArrearsHeaderView.h"
+@interface ArrearsManagerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIView *statusView;
 @property (nonatomic, strong) NSMutableArray *orderDataArr;
 @property (nonatomic, strong) UIButton *applyingButton; //申请中
@@ -19,6 +21,8 @@
 @property (nonatomic, strong) UILabel *indicateLine;
 @property (nonatomic, strong) NSArray *statusArr;
 @property (nonatomic, copy)  NSString *statusString;
+/**  dataArray*/
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 /**  tableView*/
 @property (nonatomic, strong) UITableView *mtableView;
@@ -29,12 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"欠款管理";
-    self.view.backgroundColor = [UIColor redColor];
     _statusArr = @[@"1", @"2,7", @"4,5", @"99"];
      [self createTopButton];
-    
+    self.mtableView.delegate = self;
+    self.mtableView.dataSource = self;
+    self.dataArray = [NSMutableArray array];
     [self getData];
 }
+
+
 - (void)getData{
     NSDictionary * pramaDic = [HttpTool getCommonPara];
     
@@ -125,11 +132,9 @@
 
 
 -(void)clickOrderButton:(UIButton *)button{
-    //    订单状态（99：全部0：已取消 1：未付款；2：已付款；3:已收货 4：正在退货，5：退货成功，6：已完成，7：已发货 8  支付中）
+  
     
     [self updateBtnSelectedState:button];
-//    [self loadDBData:_statusString];
-//    [self loadMyOrderData:_searchView.searchTextField.text];
 }
 -(void)updateBtnSelectedState:(UIButton*)button {
     for (NSInteger i = 0; i < _statusBtnArr.count; i++) {
@@ -162,9 +167,65 @@
         make.left.mas_offset(leftX);
     }];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark ---- UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    InvoicesManagerModel *model = self.dataArray[section];
+//
+//    return model.ordersheet.count;
+    return 0;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.dataArray.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 103;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *identifier = @"InvoicesManagerCell";//这个identifier跟xib设置的一样
+    ArrearsTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (cell == nil) {
+        cell= [[[NSBundle  mainBundle]
+                loadNibNamed:@"ArrearsTableCell" owner:self options:nil]  lastObject];
+    }
+//    InvoicesManagerModel *model = self.dataArray[indexPath.section];
+//    NSArray *ordersheet = model.ordersheet;
+//    [cell refreshData:ordersheet[indexPath.row]];
+    
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+//    InvoicesManagerModel *model = self.dataArray[section];
+//    view.orderNum.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    ArrearsFooterView *view = [[ArrearsFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+   
+    return view;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 40;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
 
 
 @end

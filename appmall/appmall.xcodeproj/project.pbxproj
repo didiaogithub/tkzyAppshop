@@ -427,6 +427,12 @@
 		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
 		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
 		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
+		F2A92D4D20BE3C01009F0F9C /* ArrearsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */; };
+		F2A92D4F20BE3C15009F0F9C /* ArrearsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */; };
+		F2A92D5220BE3C81009F0F9C /* ArrearsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */; };
+		F2A92D5420BE3C92009F0F9C /* ArrearsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */; };
+		F2A92D5820BE3CE5009F0F9C /* ArrearsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */; };
+		F2A92D5920BE3CE5009F0F9C /* ArrearsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -1271,6 +1277,15 @@
 		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F2A92D4B20BE3C01009F0F9C /* ArrearsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsHeaderView.h; sourceTree = "<group>"; };
+		F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsHeaderView.m; sourceTree = "<group>"; };
+		F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsHeaderView.xib; sourceTree = "<group>"; };
+		F2A92D5020BE3C81009F0F9C /* ArrearsFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsFooterView.h; sourceTree = "<group>"; };
+		F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsFooterView.m; sourceTree = "<group>"; };
+		F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsFooterView.xib; sourceTree = "<group>"; };
+		F2A92D5520BE3CE5009F0F9C /* ArrearsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsTableCell.h; sourceTree = "<group>"; };
+		F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsTableCell.m; sourceTree = "<group>"; };
+		F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsTableCell.xib; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -2687,8 +2702,8 @@
 		F20C4D51208CC35F0086282A /* 欠款管理 */ = {
 			isa = PBXGroup;
 			children = (
-				F2FB4FC920B8490300BFBE5C /* Model */,
-				F2FB4FCA20B8490300BFBE5C /* View */,
+				F2A92D4920BE3BC4009F0F9C /* Model */,
+				F2A92D4A20BE3BC4009F0F9C /* View */,
 				F2FB4FCB20B8490300BFBE5C /* ViewController */,
 			);
 			path = "欠款管理";
@@ -2858,6 +2873,29 @@
 				2D20DEEE2088CC8B00095032 /* AddAddressViewController.m */,
 			);
 			path = "收货地址";
+			sourceTree = "<group>";
+		};
+		F2A92D4920BE3BC4009F0F9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2A92D4A20BE3BC4009F0F9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2A92D4B20BE3C01009F0F9C /* ArrearsHeaderView.h */,
+				F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */,
+				F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */,
+				F2A92D5020BE3C81009F0F9C /* ArrearsFooterView.h */,
+				F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */,
+				F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */,
+				F2A92D5520BE3CE5009F0F9C /* ArrearsTableCell.h */,
+				F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */,
+				F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F2F0E43D20B6D56B007775B1 /* View */ = {
@@ -3090,20 +3128,6 @@
 			path = mineinfocell;
 			sourceTree = "<group>";
 		};
-		F2FB4FC920B8490300BFBE5C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F2FB4FCA20B8490300BFBE5C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F2FB4FCB20B8490300BFBE5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3287,6 +3311,7 @@
 			files = (
 				F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */,
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
+				F2A92D4F20BE3C15009F0F9C /* ArrearsHeaderView.xib in Resources */,
 				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
 				2DA0C34B20B867810031AC47 /* radio_btn_onTwo.png in Resources */,
 				2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */,
@@ -3302,6 +3327,7 @@
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
 				2DA0C34D20B867810031AC47 /* 添加@2x.png in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
+				F2A92D5420BE3C92009F0F9C /* ArrearsFooterView.xib in Resources */,
 				F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */,
 				2D0726BC2083928A0030996F /* MedieaListViewCell.xib in Resources */,
 				2D6F9262208F4A78007DFD0B /* TeacherItemViewCell.xib in Resources */,
@@ -3360,6 +3386,7 @@
 				F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
+				F2A92D5920BE3CE5009F0F9C /* ArrearsTableCell.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
 				2D808E8920BC2C2E002FADA8 /* ODGoodInfoViewCell.xib in Resources */,
 				2DA0C35120B867810031AC47 /* radio_btn_off.png in Resources */,
@@ -3607,6 +3634,7 @@
 				F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */,
 				F2F3431B20BAA2A500004E90 /* HXPhoto3DTouchViewController.m in Sources */,
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
+				F2A92D4D20BE3C01009F0F9C /* ArrearsHeaderView.m in Sources */,
 				F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
 				2DA0C38520B925480031AC47 /* GoodSDetailBackViewCell.m in Sources */,
@@ -3618,6 +3646,7 @@
 				2D20DEA32088C80D00095032 /* UIViewController+ZJScrollPageController.m in Sources */,
 				2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */,
 				2D20DDD8208613C800095032 /* BKGuidePageCell.m in Sources */,
+				F2A92D5220BE3C81009F0F9C /* ArrearsFooterView.m in Sources */,
 				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2DA0C39320B92BD70031AC47 /* BaseGoodSDetailViewCell.m in Sources */,
@@ -3644,6 +3673,7 @@
 				F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */,
 				2D072682208325E20030996F /* WBAdsImgView.m in Sources */,
 				2D0723E32082FEB30030996F /* CommunityViewController.m in Sources */,
+				F2A92D5820BE3CE5009F0F9C /* ArrearsTableCell.m in Sources */,
 				2D20DF802088D8BB00095032 /* DetailLogisticsViewController.m in Sources */,
 				2D20DF0C2088CDAE00095032 /* SCUseCouponViewController.m in Sources */,
 				2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */,

@@ -94,10 +94,10 @@
         [rootDic setObject:domainNameRes forKey:@"domainNameRes"];
         NSMutableDictionary *payMethod = [[NSMutableDictionary alloc]init];
         [payMethod setObject:@"YES" forKey:@"alipay"];
-        [payMethod setObject:@"NO" forKey:@"wxpay"];
-        [payMethod setObject:@"NO" forKey:@"unionpay"];
+        [payMethod setObject:@"YES" forKey:@"wxpay"];
+        [payMethod setObject:@"YES" forKey:@"unionpay"];
         [payMethod setObject:@"NO" forKey:@"applepay"];
-        [payMethod setObject:@"NO" forKey:@"jdpay"];
+        [payMethod setObject:@"YES" forKey:@"jdpay"];
 
         [rootDic setObject:payMethod forKey:@"PayMethod"];
         

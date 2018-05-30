@@ -33,7 +33,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - JGProgressHUD
   - JPush-iOS-SDK
-  - Masonry
+  - Masonry (~> 1.1.0)
   - MJExtension
   - MJRefresh
   - Realm
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SobotKit: 09bdd69653356c3cbe687e1455a65424de3b6287
 
-PODFILE CHECKSUM: 822def525f99cb6e5fd8b7fcd7a4912a623d5062
+PODFILE CHECKSUM: feaf63b4eb0b1dea0b3ebfb6a3bf7c70c32a7071
 
 COCOAPODS: 1.5.0

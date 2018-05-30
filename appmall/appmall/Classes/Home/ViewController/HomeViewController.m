@@ -48,7 +48,6 @@
 
     [self creatSearchUI];
     [self creatRightItem];
-    
     [self setTableView];
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
@@ -215,7 +214,7 @@
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [itemBtn addTarget:self action:@selector(actionToMessage) forControlEvents:UIControlEventTouchUpInside];
     itemBtn.frame = CGRectMake(10, 10, 25, 25);
-    [itemBtn setBackgroundImage:[UIImage imageNamed:@"消息图标"] forState:0];
+    [itemBtn setBackgroundImage:[UIImage imageNamed:@"首页-消息"] forState:0];
     [rightView addSubview:itemBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightView];
 }
@@ -301,11 +300,11 @@
                 [self.loadingView showNoticeView:@"暂无更多商品"];
                 return;
             }
+             category.titleArr = [NSMutableArray arrayWithCapacity:0];
+            category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
             for(int i = 0; i < categoryList.count; i++){
                 NSDictionary * itemDic = [categoryList objectAtIndex:0];
-                category.titleArr = [NSMutableArray arrayWithCapacity:0];
                 [category.titleArr addObject:itemDic[@"name"]];
-                category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
                 [category.categoryIdArr addObject:itemDic[@"styleid"]];
                 category.selectedIndex = 0;
             }

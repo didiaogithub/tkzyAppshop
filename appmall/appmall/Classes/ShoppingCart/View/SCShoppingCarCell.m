@@ -238,7 +238,7 @@
     
     GoodModel *classM = [[GoodModel alloc] init];
     classM.itemid = _goodModel.itemid;
-    
+    classM.chose = _goodModel.chose;
     classM.price = _goodModel.price;
     classM.num = [NSString stringWithFormat:@"%zd", self.chooseCount];
     classM.spec = _goodModel.spec;
@@ -247,19 +247,19 @@
     classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
     
+
+    
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     [GoodModel createOrUpdateInRealm:realm withValue:classM];
     [realm commitWriteTransaction];
-    
-    _goodModel.isSelect = _selectedButton.selected;
     if (self.delegate && [self.delegate respondsToSelector:@selector(singleClick:anRow:andSection:)]){
         [self.delegate singleClick:classM anRow:self.indexRow andSection:self.section];
     }
 }
 #pragma mark-刷新model数据
 -(void)setModel:(GoodModel *)model{
-    _goodModel = model;
+    self.goodModel = model;
     _selectedButton.selected = model.isSelect;
     self.chooseCount = [[NSString stringWithFormat:@"%@",model.num] integerValue];
     

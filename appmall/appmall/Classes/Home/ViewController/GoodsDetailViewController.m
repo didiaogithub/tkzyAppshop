@@ -238,7 +238,12 @@
 -(void)requestGoodsDetailData {
     
     NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
+    if (self.goodsM.itemid == nil) {
+       [pramaDic setObject:self.goodsId forKey:@"itemid"];
+    }else{
+       [pramaDic setObject:self.goodsM.itemid forKey:@"itemid"];
+    }
+    
     //请求数据
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GoodsDetailUrl];
     
@@ -274,13 +279,13 @@
 
             
             NSLog(@"加入购物车");
-//    if (self.detailModel.itemid == nil  || self.detailModel.price) {
-//        [self.loadingView showNoticeView:@"商品信息有误"];
-//        return;
-//    }
+    if (self.detailModel.itemid == nil  || self.detailModel.price) {
+        [self.loadingView showNoticeView:@"商品信息有误"];
+        return;
+    }
             NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":self.detailModel.itemid,@"num":@"1",@"chose":@"0"}]];
-            [pramaDic setObject:@"items" forKey:itemsStr];
+    NSString* itemsStr  = [@[@{@"itemids":self.detailModel.itemid,@"num":@"1",@"chose":@"0"} ]mj_JSONString];
+            [pramaDic setObject:itemsStr forKey:@"items"];
             NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
             
             [self.view addSubview:self.loadingView];

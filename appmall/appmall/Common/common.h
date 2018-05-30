@@ -167,7 +167,7 @@
 #define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"
 #define GoodsDetailUrl @"Goods/getGoodsDetail"
 #define AddToShoppingCarUrl @"Cart/addShoppingCart"
-#define APIGetMessageSortList @"getMessageSortList"
+#define APIGetMessageSortList @"Message/getMessageSortList"
 
 //天康学院
 #define     GetTkSchoolIndexURl           @"Tkschool/getIndex"                 //获取天康学院首页
@@ -272,7 +272,7 @@
 /**直接生成订单*/
 #define AddOrderUrl @"Wxmall/Order/addOrder"
 /**购物车生成订单*/
-#define ShoppingCarAddOrderUrl @"Wxmall/Order/addOrderTwo"
+#define ShoppingCarAddOrderUrl @"Order/submitOrderByShoppingCart"
 /**积分商品生成订单*/
 #define IntegralGoodsAddOrderUrl @"Wxmall/Order/addOrderFour"
 /**奖励商品生成订单*/

@@ -251,8 +251,8 @@
         NSLog(@"加入购物车");
         
         NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-        NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":cateM.itemid,@"num":@"1",@"price":cateM.price}]];
-        [pramaDic setObject:@"items" forKey:itemsStr];
+         NSString* itemsStr  = [@[@{@"itemid":cateM.itemid,@"num":@"1",@"chose":@"0"}] mj_JSONString];
+        [pramaDic setObject:itemsStr forKey:@"items"];
         NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
         
         [self.view addSubview:self.loadingView];

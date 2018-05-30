@@ -164,7 +164,11 @@
 
 
 @interface SCShoppingCarConfirmOrderOtherMsgCell()
-
+@property (nonatomic, strong) UILabel *buyNumberLabel;
+@property (nonatomic, strong) UIView *topView;
+/**  centerView*/
+@property (nonatomic, strong) UIView *centerView;
+@property (nonatomic, strong) UILabel *leftLable;
 @property (nonatomic, strong) UIView *couponView;
 @property (nonatomic, strong) UILabel *couponLabel;
 @property (nonatomic, strong) UILabel *couponCanUseL;
@@ -190,55 +194,85 @@
     UIView *numView = [[UIView alloc] init];
     [self.contentView addSubview:numView];
     numView.backgroundColor = [UIColor whiteColor];
-    
+
     UILabel *numLeftLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [numView addSubview:numLeftLable];
     numLeftLable.text = @"购买数量:";
-    
+
     UIView * countView = [[UIView alloc] init];
     [numView addSubview:countView];
     countView.layer.cornerRadius = 3;
     countView.layer.borderWidth = 1;
     countView.layer.borderColor = [UIColor tt_lineBgColor].CGColor;
-    
+
     UIImageView *boderImageView = [[UIImageView alloc] init];
     [countView addSubview:boderImageView];
     [boderImageView setImage:[UIImage imageNamed:@"numberborder"]];
-    
+
     
     //配送方式
-    UIView *topView = [[UIView alloc] init];
-    [self.contentView addSubview:topView];
-    topView.backgroundColor = [UIColor whiteColor];
-    
-    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _topView = [[UIView alloc] init];
+    _topView.backgroundColor = [UIColor redColor];
+    [self.contentView addSubview:_topView];
+    _topView.backgroundColor = [UIColor whiteColor];
+    [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_offset(0);
         make.height.mas_offset(45);
     }];
     
-    UILabel *leftLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [topView addSubview:leftLable];
-    leftLable.text = @"配送方式:";
-    [leftLable mas_makeConstraints:^(MASConstraintMaker *make) {
+    _buyNumberLabel =  [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+    _buyNumberLabel.text = @"配货仓:";
+    [_topView addSubview:_buyNumberLabel];
+    [_buyNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_topView.mas_top).offset(1);
+        make.left.mas_offset(10);
+        make.bottom.mas_offset(0);
+        make.height.equalTo(@(44));
+    }];
+    
+    UILabel * lab =  [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+    lab.text = @"仓库配货中";
+    [_topView addSubview:lab];
+    [lab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_buyNumberLabel.mas_centerY);
+        make.right.mas_offset(-10);
+        make.height.equalTo(@(44));
+    }];
+    
+
+    _centerView = [[UIView alloc]init];
+    _centerView.backgroundColor = [UIColor whiteColor];
+    [self.contentView addSubview:_centerView];
+    [_centerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_offset(0);
+        make.height.mas_equalTo(45);
+        make.top.equalTo(_topView.mas_bottom).offset(1);
+    }];
+    
+    _leftLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    [_centerView addSubview:_leftLable];
+    _leftLable.text = @"配送方式:";
+    [_leftLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.mas_offset(0);
         make.left.mas_offset(10);
     }];
     
     _logistLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [topView addSubview:_logistLabale];
-    _logistLabale.text = @"快递 免运费";
+    [_centerView addSubview:_logistLabale];
+    _logistLabale.text = @"默认";
     [_logistLabale mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(leftLable);
+        make.top.bottom.equalTo(_leftLable);
         make.right.mas_offset(-10);
     }];
     
+   
     
     //优惠券
     self.couponView = [[UIView alloc] init];
     [self.contentView addSubview:self.couponView];
     self.couponView.backgroundColor = [UIColor whiteColor];
     [self.couponView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(topView.mas_bottom).offset(1);
+        make.top.equalTo(_leftLable.mas_bottom).offset(1);
         make.left.right.mas_offset(0);
         make.height.mas_equalTo(45);
     }];
@@ -255,26 +289,27 @@
         make.left.mas_offset(10);
     }];
     
+    
     self.couponCanUseL = [UILabel new];
     [self.couponView addSubview:self.couponCanUseL];
-    self.couponCanUseL.text = @"0张可用";
+    self.couponCanUseL.text = @" 0张可用 ";
     self.couponCanUseL.textColor = [UIColor whiteColor];
     self.couponCanUseL.layer.cornerRadius = 2.0;
     self.couponCanUseL.layer.masksToBounds = YES;
     self.couponCanUseL.backgroundColor = [UIColor tt_redMoneyColor];
     [self.couponCanUseL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
-        make.left.equalTo(self.countLable.mas_right).offset(2);
+        make.centerY.equalTo(self.couponView.mas_centerY);
+        make.left.equalTo(self.countLable.mas_right).mas_offset(2);
     }];
     
     self.rightArrow = [UIImageView new];
     self.rightArrow.userInteractionEnabled = YES;
     self.rightArrow.image = [UIImage imageNamed:@"rightgray"];
-    [self.contentView addSubview:self.rightArrow];
+    [self.couponView addSubview:self.rightArrow];
     [self.rightArrow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
+        make.centerY.equalTo(self.couponView.mas_centerY);
         make.right.mas_offset(-10);
         make.width.mas_equalTo(10);
     }];
@@ -284,7 +319,7 @@
     [self.couponView addSubview:self.couponPriceLabel];
     [self.couponPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
-        make.centerY.equalTo(self.couponLabel.mas_centerY);
+        make.centerY.equalTo(self.couponView.mas_centerY);
         make.right.equalTo(self.rightArrow.mas_left).offset(-5);
         make.width.mas_equalTo(100);
     }];
@@ -295,7 +330,7 @@
     bottomView.backgroundColor = [UIColor whiteColor];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.couponView.mas_bottom).offset(1);
-        make.left.right.height.equalTo(topView);
+        make.left.right.height.equalTo(_topView);
         make.bottom.mas_offset(0);
     }];
     

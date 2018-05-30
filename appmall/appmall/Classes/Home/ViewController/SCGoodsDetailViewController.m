@@ -62,7 +62,7 @@
             
             [self rightShareItem];
             
-            [self requestGoodsDetailData];
+//            [self requestGoodsDetailData];
         }
             break;
         default: {
@@ -506,8 +506,8 @@
 -(void)addToShoppingCar {
     NSLog(@"加入购物车");
     NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    NSString* itemsStr  = [NSString stringWithFormat:@"%@",@[@{@"itemid":_goodsM.itemid,@"num":@"1",@"price":_goodsM.price}]];
-    [pramaDic setObject:@"items" forKey:itemsStr];
+    NSString* itemsStr  = [@[@{@"itemid":_goodsM.itemid,@"num":@"1",@"chose":@"0"}] mj_JSONString];
+    [pramaDic setObject:itemsStr forKey:@"items"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];

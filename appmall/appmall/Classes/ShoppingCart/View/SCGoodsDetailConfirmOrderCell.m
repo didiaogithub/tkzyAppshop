@@ -90,23 +90,16 @@
     _priceLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_priceLable];
     _priceLable.text = @"¥0.00";
+    _priceLable.textColor = [UIColor redColor];
     [_priceLable mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(_nameLable.mas_top);
-        make.right.mas_offset(-5);
+        make.left.equalTo(_iconImageView.mas_right);
         make.height.equalTo(@(20));
+        make.bottom.equalTo(_iconImageView.mas_bottom);
+        make.width.equalTo(@(100));
     }];
     
-    //积分数量
-    _integtalLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [self.contentView addSubview:_integtalLabel];
-    _integtalLabel.text = @" ";
-    [_integtalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_priceLable.mas_bottom).offset(3);
-        make.right.mas_offset(-5);
-        make.height.equalTo(@(20));
-    }];
-    
+
     //规格内容
     _standardLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_standardLable];
@@ -114,17 +107,11 @@
     [_standardLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20));
         make.left.equalTo(_iconImageView.mas_right).offset(5);
-        make.bottom.equalTo(_iconImageView.mas_bottom).offset(-10);
+        make.top.equalTo(_nameLable.mas_bottom);
+        
     }];
     
-    _rightNumberLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [self.contentView addSubview:_rightNumberLable];
-    _rightNumberLable.text = @"x1";    
-    [_rightNumberLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(20));
-        make.right.mas_offset(-5);
-        make.bottom.equalTo(_iconImageView.mas_bottom).offset(-10);
-    }];
+
     
     UILabel *lineLable = [UILabel creatLineLable];
     [self.contentView addSubview:lineLable];
@@ -135,7 +122,7 @@
     }];
     
     _buyNumberLabel =  [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
-    _buyNumberLabel.text = @"购买数量:";
+    _buyNumberLabel.text = @"配货仓:";
     [self.contentView addSubview:_buyNumberLabel];
     [_buyNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_iconImageView.mas_bottom).offset(11);
@@ -143,6 +130,17 @@
         make.bottom.mas_offset(0);
         make.height.equalTo(@(50));
     }];
+    
+    UILabel * lab =  [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+    lab.text = @"仓库配货中";
+    [self.contentView addSubview:lab];
+    [lab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_buyNumberLabel.mas_centerY);
+        make.right.mas_offset(-10);
+        make.height.equalTo(@(50));
+    }];
+    
+    
     
     _countView = [[UIView alloc] init];
     [self.contentView addSubview:_countView];
@@ -163,7 +161,7 @@
     
     [_countView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-10);
-        make.centerY.equalTo(_buyNumberLabel.mas_centerY);
+        make.top.equalTo(_priceLable.mas_top);
         make.size.mas_offset(CGSizeMake(110, 30));
     }];
     
@@ -292,7 +290,7 @@
         
         [_countView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_offset(-10);
-            make.centerY.equalTo(_buyNumberLabel.mas_centerY);
+            make.centerY.equalTo(_priceLable.mas_centerY);
             make.size.mas_offset(CGSizeMake(110, 30));
         }];
     }
@@ -330,10 +328,11 @@
     _rightNumberLable.text = @"x1";
     //规格
     NSString *spec = [NSString stringWithFormat:@"%@",goodsDict[@"spec"]];
+    NSString *no = [NSString stringWithFormat:@"%@",goodsDict[@"no"]];
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@kg",goodsDict[@"spec"]];
+        spec = [NSString stringWithFormat:@"编号:%@;规格:%@kg",no,goodsDict[@"spec"]];
     }
     _standardLable.text = spec;
 }
@@ -527,20 +526,20 @@
         make.bottom.mas_offset(0);
     }];
     
-    _priceLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [_bottomView addSubview:_priceLabale];
-    [_priceLabale mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_offset(0);
-        make.right.mas_offset(-10);
-    }];
+//    _priceLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+//    [_bottomView addSubview:_priceLabale];
+//    [_priceLabale mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.mas_offset(0);
+//        make.right.mas_offset(-10);
+//    }];
     
-    _priceLabale.text = @"共0件商品 合计:¥0.00";
+//    _priceLabale.text = @"共0件商品 合计:¥0.00";
     
 }
 
 #pragma mark-刷新金额
 -(void)refreshCellWithCount:(NSInteger)count money:(NSString *)allMoney{
-    _priceLabale.text = [NSString stringWithFormat:@"共%ld件商品 合计:¥%@", count, allMoney];
+//    _priceLabale.text = [NSString stringWithFormat:@"共%ld件商品 合计:¥%@", count, allMoney];
 }
 
 #pragma mark-刷新积分
@@ -582,22 +581,22 @@
         }];
         
     }else{
-        _couponView.hidden = YES;
-        //积分
-        _integralView.hidden = NO;
-        [_integralView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.topView.mas_bottom).offset(1);
-            make.left.right.mas_offset(0);
-            make.height.mas_equalTo(45);
-        }];
-        [_useIntegral mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.mas_offset(0);
-            make.left.mas_offset(10);
-        }];
-        [_costIntegralLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(_useIntegral);
-            make.right.mas_offset(-10);
-        }];
+//        _couponView.hidden = YES;
+//        //积分
+//        _integralView.hidden = NO;
+//        [_integralView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.topView.mas_bottom).offset(1);
+//            make.left.right.mas_offset(0);
+//            make.height.mas_equalTo(45);
+//        }];
+//        [_useIntegral mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.top.bottom.mas_offset(0);
+//            make.left.mas_offset(10);
+//        }];
+//        [_costIntegralLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.top.bottom.equalTo(_useIntegral);
+//            make.right.mas_offset(-10);
+//        }];
         
         
         [_bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {

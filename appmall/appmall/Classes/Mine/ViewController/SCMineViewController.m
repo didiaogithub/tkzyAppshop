@@ -135,8 +135,10 @@
     NSMutableArray *titleArray = [NSMutableArray array];
     NSMutableArray *imageArray = [NSMutableArray array];
   
-    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理", @"分期还款", @"发票管理",@"收货地址"]];
-    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款", @"dkw_还款", @"发票",  @"地址(1)"]];
+//    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理", @"分期还款", @"发票管理",@"收货地址"]];
+//    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款", @"dkw_还款", @"发票",  @"地址(1)"]];
+    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理",@"发票管理",@"收货地址"]];
+    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款",@"发票",  @"地址(1)"]];
    
     for (NSInteger i = 0; i < titleArray.count; i++) {
         CellModel *functionM = [self createCellModel:[SCMineFunctionCell class] userInfo:@{@"title":titleArray[i], @"image": imageArray[i]} height:55];
@@ -242,7 +244,7 @@
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"CKCouponDetailViewController",
                                          @"ArrearsManagerViewController",
-                                         @"AmortizationLoanViewController",
+//                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
                                          @"ChangeMyAddressViewController"]];
 

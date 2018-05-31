@@ -16,7 +16,7 @@
 @interface WBSQQKViewController ()<UITableViewDelegate,UITableViewDataSource,WBSelectFeQiItemViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 /**  dataArray*/
-@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSMutableArray <LoanRuleListModel *>*dataArray;
 
 @property (weak, nonatomic)  UITextField *sqPerson;
 @property (weak, nonatomic)  UITextView *sqRerson;
@@ -61,9 +61,10 @@
         for (NSDictionary *dic in list) {
             LoanRuleListModel *model = [[LoanRuleListModel alloc]initWith:dic];
             [self.dataArray addObject:model];
-            [self.mTableView reloadData];
+          
         }
-        
+        [self.dataArray firstObject].isSelect = YES;
+          [self.mTableView reloadData];
         
     } failure:^(NSError *error) {
         
@@ -104,7 +105,7 @@
 //          cell.selectBtn.selected = YES;
 //        }
         cell.delegate = self;
-        cell.selectBtn.tag = indexPath.row;
+        cell.selectBtn.selected =self.dataArray[indexPath.row].isSelect;
         [cell refreshData:self.dataArray[indexPath.row]];
         return cell;
         
@@ -113,19 +114,14 @@
     return nil;
 }
 
-- (void)tableCellButtonDidSelected:(UIButton *)button{
+- (void)tableCellButtonDidSelected:(LoanRuleListModel *)model{
 
-    LoanRuleListModel *model =  self.dataArray[button.tag];
-    self.loadid = model.loanid;
-    
-    if(self.lastSelectedButton!=nil){
-                  //在这里设置lastSelectButton的背景
-                //达到取消选择的效果 比如
-      self.lastSelectedButton.selected = NO;
-        
-         //然后更新引用
-     self.lastSelectedButton = button;
+    for (LoanRuleListModel *itemModel in self.dataArray) {
+        itemModel.isSelect = NO;
     }
+    model.isSelect = YES;
+    self.loadid = model.loanid;
+    [self.mTableView reloadData];
 }
 
 

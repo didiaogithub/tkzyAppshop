@@ -10,6 +10,7 @@
 #import "ArrearsTableCell.h"
 #import "ArrearsFooterView.h"
 #import "ArrearsHeaderView.h"
+
 @interface ArrearsManagerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIView *statusView;
 @property (nonatomic, strong) NSMutableArray *orderDataArr;

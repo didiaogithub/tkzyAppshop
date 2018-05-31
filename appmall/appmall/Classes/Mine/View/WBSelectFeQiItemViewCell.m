@@ -8,7 +8,9 @@
 
 #import "WBSelectFeQiItemViewCell.h"
 
-@implementation WBSelectFeQiItemViewCell
+@implementation WBSelectFeQiItemViewCell{
+    LoanRuleListModel * selfModel;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,6 +24,7 @@
 }
 
 - (void)refreshData:(LoanRuleListModel *)model{
+    selfModel = model;
     self.yingfLab.text = [NSString stringWithFormat:@"应付：¥%.2f",[model.paymoney floatValue]];
     self.haikLab.text = [NSString stringWithFormat:@"最晚还款日:%@",model.paytime];
     self.yuefLab.text = [NSString stringWithFormat:@"%@个月",model.time];;
@@ -29,7 +32,7 @@
 - (IBAction)changeChoose:(UIButton *)sender {
     sender.selected=!sender.selected;
     if (self.delegate &&[self.delegate respondsToSelector:@selector(tableCellButtonDidSelected:)]) {
-        [self.delegate tableCellButtonDidSelected:sender];
+        [self.delegate tableCellButtonDidSelected:selfModel];
     }
 }
 

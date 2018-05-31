@@ -9,6 +9,8 @@
 #import "BaseModel.h"
 
 @interface LoanRuleListModel : BaseModel
+
+@property(nonatomic,assign)BOOL isSelect;
 /**  欠款时长*/
 @property (nonatomic, copy) NSString *time;
 /**  到期应付金额*/

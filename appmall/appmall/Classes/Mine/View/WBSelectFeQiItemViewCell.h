@@ -10,7 +10,7 @@
 #import "LoanRuleListModel.h"
 @protocol WBSelectFeQiItemViewCellDelegate <NSObject> //当点击Button，实现这个协议的TableView会得到这个Button的引用
 //然后将上次引用的Button取消选择   比如_lastSelectedButton.selected = NO;
-- (void)tableCellButtonDidSelected:(UIButton *)button;
+- (void)tableCellButtonDidSelected:(LoanRuleListModel *)model;
 
 @end
 @interface WBSelectFeQiItemViewCell : UITableViewCell

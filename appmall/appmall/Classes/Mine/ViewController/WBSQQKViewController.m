@@ -7,8 +7,23 @@
 //
 
 #import "WBSQQKViewController.h"
+#import "LoanRuleListModel.h"
+#import "WBSelectFeQiItemViewCell.h"
+#import "WBSQQKInfoViewCell.h"
 
-@interface WBSQQKViewController ()
+#define applyForMoneyApi @"Rule/applyForMoney"
+#define getLoanRuleListApi @"Rule/getLoanRuleList"
+@interface WBSQQKViewController ()<UITableViewDelegate,UITableViewDataSource,WBSelectFeQiItemViewCellDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *mTableView;
+/**  dataArray*/
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (weak, nonatomic)  UITextField *sqPerson;
+@property (weak, nonatomic)  UITextView *sqRerson;
+@property (weak, nonatomic)  UITextField *sqPhone;
+/**  loadid*/
+@property (nonatomic, strong) NSString  *loadid;
+@property (nonatomic, strong) UIButton *lastSelectedButton;
 
 @end
 
@@ -16,22 +31,167 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"申请欠款";
+    self.view.backgroundColor = [UIColor tt_borderColor];
+    self.dataArray = [NSMutableArray array];
+    self.mTableView.delegate = self;
+    self.mTableView.dataSource = self;
+    self.mTableView.backgroundColor = [UIColor tt_borderColor];
+    [self getLoanRuleList];
+     [self.mTableView registerNib:[UINib nibWithNibName:@"WBSelectFeQiItemViewCell" bundle:nil] forCellReuseIdentifier:@"WBSelectFeQiItemViewCell"];
+    [self.mTableView registerNib:[UINib nibWithNibName:@"WBSQQKInfoViewCell" bundle:nil] forCellReuseIdentifier:@"WBSQQKInfoViewCell"];
+    
+    self.mTableView.tableFooterView = [UIView new];
 }
+
+
+- (void)getLoanRuleList{
+    NSMutableDictionary *paradic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paradic setObject:self.orderid forKey:@"orderid"];
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getLoanRuleListApi];
+    [HttpTool getWithUrl:requsetUrl params:paradic success:^(id json) {
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        NSArray *list = dic[@"data"][@"list"];
+        
+        for (NSDictionary *dic in list) {
+            LoanRuleListModel *model = [[LoanRuleListModel alloc]initWith:dic];
+            [self.dataArray addObject:model];
+            [self.mTableView reloadData];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        static NSString *identifier = @"WBSQQKInfoViewCell";//这个identifier跟xib设置的一样
+        WBSQQKInfoViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]
+                    loadNibNamed:@"WBSQQKInfoViewCell" owner:self options:nil]  lastObject];
+        }
+        
+        cell.sqRerson.layer.borderColor = [UIColor tt_lineBgColor].CGColor;
+        cell.sqRerson.layer.borderWidth = 1;
+        cell.sqRerson.layer.masksToBounds = YES;
+        cell.sqRerson.layer.cornerRadius = 3;
+        self.sqPerson = cell.sqPerson;
+        self.sqPhone = cell.sqPhone;
+        self.sqRerson = cell.sqRerson;
+        return cell;
+    }else{
+        static NSString *identifier = @"WBSelectFeQiItemViewCell";//这个identifier跟xib设置的一样
+        WBSelectFeQiItemViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]
+                    loadNibNamed:@"WBSelectFeQiItemViewCel" owner:self options:nil]  lastObject];
+        }
+        
+//        if (indexPath.row == 0) {
+//          cell.selectBtn.selected = YES;
+//        }
+        cell.delegate = self;
+        cell.selectBtn.tag = indexPath.row;
+        [cell refreshData:self.dataArray[indexPath.row]];
+        return cell;
+        
+    }
+
+    return nil;
+}
+
+- (void)tableCellButtonDidSelected:(UIButton *)button{
+
+    LoanRuleListModel *model =  self.dataArray[button.tag];
+    self.loadid = model.loanid;
+    
+    if(self.lastSelectedButton!=nil){
+                  //在这里设置lastSelectButton的背景
+                //达到取消选择的效果 比如
+      self.lastSelectedButton.selected = NO;
+        
+         //然后更新引用
+     self.lastSelectedButton = button;
+    }
+}
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 2;
+}
+
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 1;
+    }
+    return self.dataArray.count;
+}
+
+- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 300;
+    }
+    return 60;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+      LoanRuleListModel *model =  self.dataArray[indexPath.row];
+    
+      self.loadid = model.loanid;
+}
+- (IBAction)sendDataAction:(id)sender {
+    
+    if (IsNilOrNull(self.sqPerson.text)) {
+        [self showNoticeView:@"请输入申请人"];
+    }
+    if (IsNilOrNull(self.sqPhone.text)) {
+        [self showNoticeView:@"请输入联系方式"];
+    }
+    if (IsNilOrNull(self.sqPerson.text)) {
+        [self showNoticeView:@"请输入申请理由"];
+    }
+    
+    
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:self.orderid forKey:@"orderid"];
+    [paraDic setObject:self.sqPerson.text forKey:@"applyname"];
+    [paraDic setObject:self.sqPhone.text forKey:@"phone"];
+    [paraDic setObject:self.sqRerson.text forKey:@"applyreason"];
+    [paraDic setObject:@"" forKey:@"loanid"];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyForMoneyApi];
+    
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

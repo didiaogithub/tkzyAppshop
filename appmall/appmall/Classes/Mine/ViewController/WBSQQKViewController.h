@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface WBSQQKViewController : BaseViewController
-
+/**  orderid*/
+@property (nonatomic, strong) NSString *orderid;
 @end

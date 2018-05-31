@@ -107,7 +107,6 @@
 		2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE352086151E00095032 /* CKCUpdateAlertView.m */; };
 		2D20DE442086186000095032 /* NSString+Chatacters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE3B2086185C00095032 /* NSString+Chatacters.m */; };
 		2D20DE452086186000095032 /* TTAttibuteLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE3C2086185D00095032 /* TTAttibuteLabel.m */; };
-		2D20DE462086186000095032 /* MessageAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE3E2086185E00095032 /* MessageAlert.m */; };
 		2D20DE472086186000095032 /* XWAlterVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE412086185F00095032 /* XWAlterVeiw.m */; };
 		2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE422086185F00095032 /* InvitationAlterVeiw.m */; };
 		2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE4C2086186C00095032 /* NSDate+Common.m */; };
@@ -391,6 +390,11 @@
 		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
 		F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */; };
 		F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */; };
+		F236AE3A20BF87C8004B9A03 /* CKJPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3720BF87C8004B9A03 /* CKJPushManager.m */; };
+		F236AE3B20BF87C8004B9A03 /* MessageAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3920BF87C8004B9A03 /* MessageAlert.m */; };
+		F236AE4120BF8DBE004B9A03 /* SQQKTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3F20BF8DBE004B9A03 /* SQQKTableCell.m */; };
+		F236AE4220BF8DBE004B9A03 /* SQQKTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F236AE4020BF8DBE004B9A03 /* SQQKTableCell.xib */; };
+		F236AE4520BF9751004B9A03 /* LoanRuleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE4420BF9751004B9A03 /* LoanRuleListModel.m */; };
 		F23E653B20B65AC000EB6720 /* OpenInvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E653920B65AC000EB6720 /* OpenInvoicesViewController.m */; };
 		F23E653C20B65AC000EB6720 /* OpenInvoicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23E653A20B65AC000EB6720 /* OpenInvoicesViewController.xib */; };
 		F23E654020B6632E00EB6720 /* OpenInvoicesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23E653E20B6632E00EB6720 /* OpenInvoicesCell.m */; };
@@ -726,12 +730,10 @@
 		2D20DE3B2086185C00095032 /* NSString+Chatacters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Chatacters.m"; sourceTree = "<group>"; };
 		2D20DE3C2086185D00095032 /* TTAttibuteLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAttibuteLabel.m; sourceTree = "<group>"; };
 		2D20DE3D2086185D00095032 /* InvitationAlterVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationAlterVeiw.h; sourceTree = "<group>"; };
-		2D20DE3E2086185E00095032 /* MessageAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageAlert.m; sourceTree = "<group>"; };
 		2D20DE3F2086185E00095032 /* TTAttibuteLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAttibuteLabel.h; sourceTree = "<group>"; };
 		2D20DE402086185E00095032 /* XWAlterVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAlterVeiw.h; sourceTree = "<group>"; };
 		2D20DE412086185F00095032 /* XWAlterVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlterVeiw.m; sourceTree = "<group>"; };
 		2D20DE422086185F00095032 /* InvitationAlterVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationAlterVeiw.m; sourceTree = "<group>"; };
-		2D20DE432086186000095032 /* MessageAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageAlert.h; sourceTree = "<group>"; };
 		2D20DE492086186B00095032 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		2D20DE4A2086186B00095032 /* NSDecimalNumber+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+Addtion.h"; sourceTree = "<group>"; };
 		2D20DE4B2086186C00095032 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
@@ -1241,6 +1243,15 @@
 		F2113A8C20B58CCE00C01DA4 /* InvoicesManagerDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerDetailVC.h; sourceTree = "<group>"; };
 		F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerDetailVC.m; sourceTree = "<group>"; };
 		F2113A8E20B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerDetailVC.xib; sourceTree = "<group>"; };
+		F236AE3620BF87C8004B9A03 /* CKJPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJPushManager.h; sourceTree = "<group>"; };
+		F236AE3720BF87C8004B9A03 /* CKJPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKJPushManager.m; sourceTree = "<group>"; };
+		F236AE3820BF87C8004B9A03 /* MessageAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageAlert.h; sourceTree = "<group>"; };
+		F236AE3920BF87C8004B9A03 /* MessageAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageAlert.m; sourceTree = "<group>"; };
+		F236AE3E20BF8DBE004B9A03 /* SQQKTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQQKTableCell.h; sourceTree = "<group>"; };
+		F236AE3F20BF8DBE004B9A03 /* SQQKTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQQKTableCell.m; sourceTree = "<group>"; };
+		F236AE4020BF8DBE004B9A03 /* SQQKTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQQKTableCell.xib; sourceTree = "<group>"; };
+		F236AE4320BF9751004B9A03 /* LoanRuleListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanRuleListModel.h; sourceTree = "<group>"; };
+		F236AE4420BF9751004B9A03 /* LoanRuleListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanRuleListModel.m; sourceTree = "<group>"; };
 		F23E653820B65AC000EB6720 /* OpenInvoicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenInvoicesViewController.h; sourceTree = "<group>"; };
 		F23E653920B65AC000EB6720 /* OpenInvoicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenInvoicesViewController.m; sourceTree = "<group>"; };
 		F23E653A20B65AC000EB6720 /* OpenInvoicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenInvoicesViewController.xib; sourceTree = "<group>"; };
@@ -1529,6 +1540,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				F236AE3520BF87C8004B9A03 /* Push */,
 				F255513F20BD450B0097C2A4 /* 银联支付 */,
 				F255513A20BD44ED0097C2A4 /* AlipaySDK */,
 				F2F3429920BAA2A500004E90 /* HXWeiboPhotoPicker */,
@@ -2024,6 +2036,8 @@
 				2D20DFA92088DA2200095032 /* SCRefundReasonModel.m */,
 				2D808E8F20BC3843002FADA8 /* OrderDetailModel.h */,
 				2D808E9020BC3843002FADA8 /* OrderDetailModel.m */,
+				F236AE4320BF9751004B9A03 /* LoanRuleListModel.h */,
+				F236AE4420BF9751004B9A03 /* LoanRuleListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2271,8 +2285,6 @@
 				2D166001209DADC400C1C7E7 /* XYNoDataView.m */,
 				2D165FFD209DAD4400C1C7E7 /* UITableView+XY.h */,
 				2D165FFE209DAD4400C1C7E7 /* UITableView+XY.m */,
-				2D20DE432086186000095032 /* MessageAlert.h */,
-				2D20DE3E2086185E00095032 /* MessageAlert.m */,
 				2D20DE3A2086185C00095032 /* NSString+Chatacters.h */,
 				2D20DE3B2086185C00095032 /* NSString+Chatacters.m */,
 				2D20DE3F2086185E00095032 /* TTAttibuteLabel.h */,
@@ -2495,6 +2507,9 @@
 				2D20DEFA2088CD2500095032 /* SCPayMoneyTableCell.m */,
 				2D20DEF92088CD2500095032 /* SCPayViewController.h */,
 				2D20DEF52088CD2500095032 /* SCPayViewController.mm */,
+				F236AE3E20BF8DBE004B9A03 /* SQQKTableCell.h */,
+				F236AE3F20BF8DBE004B9A03 /* SQQKTableCell.m */,
+				F236AE4020BF8DBE004B9A03 /* SQQKTableCell.xib */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -2796,6 +2811,17 @@
 				F2F18BAE2090D714002984A9 /* ViewController */,
 			);
 			path = "发票管理";
+			sourceTree = "<group>";
+		};
+		F236AE3520BF87C8004B9A03 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				F236AE3620BF87C8004B9A03 /* CKJPushManager.h */,
+				F236AE3720BF87C8004B9A03 /* CKJPushManager.m */,
+				F236AE3820BF87C8004B9A03 /* MessageAlert.h */,
+				F236AE3920BF87C8004B9A03 /* MessageAlert.m */,
+			);
+			path = Push;
 			sourceTree = "<group>";
 		};
 		F23E657720B693D600EB6720 /* QRadioButton */ = {
@@ -3407,6 +3433,7 @@
 				2D83E28020BEE3AC00F2D375 /* ImageDetailController.xib in Resources */,
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
+				F236AE4220BF8DBE004B9A03 /* SQQKTableCell.xib in Resources */,
 				2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */,
 				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
@@ -3587,6 +3614,7 @@
 				2D20DE652086187200095032 /* UIViewController+CurrentVC.m in Sources */,
 				2D20DE002086147300095032 /* SCNoDataView.m in Sources */,
 				2D20DEB22088C8B800095032 /* SCGoodsDetailViewController.m in Sources */,
+				F236AE3A20BF87C8004B9A03 /* CKJPushManager.m in Sources */,
 				2D20DE612086187200095032 /* UIImage+Common.m in Sources */,
 				F23E654A20B670B300EB6720 /* MyInvoicesCell.m in Sources */,
 				F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */,
@@ -3742,7 +3770,6 @@
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
 				2D20DFF320898B7100095032 /* SCIntegraModel.m in Sources */,
 				F2F3431220BAA2A500004E90 /* HXDatePhotoInteractiveTransition.m in Sources */,
-				2D20DE462086186000095032 /* MessageAlert.m in Sources */,
 				2D83E27F20BEE3AC00F2D375 /* ImageDetailController.m in Sources */,
 				2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */,
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
@@ -3783,6 +3810,7 @@
 				F2F3431920BAA2A500004E90 /* HXFullScreenCameraPlayView.m in Sources */,
 				2D20DF862088D90700095032 /* LogistModel.m in Sources */,
 				F2F3431520BAA2A500004E90 /* HXDatePhotoToolManager.m in Sources */,
+				F236AE4120BF8DBE004B9A03 /* SQQKTableCell.m in Sources */,
 				2DA0C36420B867810031AC47 /* MJPhotoBrowser.m in Sources */,
 				2D20DDB42086130B00095032 /* RootTabBarController.m in Sources */,
 				2D20DE042086147300095032 /* SCCouponTools.m in Sources */,
@@ -3810,6 +3838,7 @@
 				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
+				F236AE3B20BF87C8004B9A03 /* MessageAlert.m in Sources */,
 				2D808E9120BC3843002FADA8 /* OrderDetailModel.m in Sources */,
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
@@ -3863,6 +3892,7 @@
 				2D808E8D20BC2C49002FADA8 /* ODOrderInfoViewCell.m in Sources */,
 				2D20DFD520898A4600095032 /* SCUserInfoModel.m in Sources */,
 				2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */,
+				F236AE4520BF9751004B9A03 /* LoanRuleListModel.m in Sources */,
 				2DA0C36220B867810031AC47 /* MJPhotoProgressView.m in Sources */,
 				2D20DE2F208614EC00095032 /* UINavigationItem+SXFixSpace.m in Sources */,
 				2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */,

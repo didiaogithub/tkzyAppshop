@@ -79,7 +79,7 @@
     //背景图片
     _headBankImageView = [[UIImageView alloc] init];
     [self.contentView addSubview:_headBankImageView];
-    UIImage *image = [UIImage imageWithColor:[UIColor redColor]];
+    UIImage *image = [UIImage imageWithColor:[UIColor colorWithHexString:@"#9C1D1F"]];
     
     [_headBankImageView setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     

@@ -13,6 +13,8 @@
 #define UnionPayEnvironment @"00"
 /* 两次刷新的时间间隔 */
 #define Interval 5
+/**主题红色 #D6011B*/
+#define ThemeRedColor CKYS_Color(214,1,27)
 
 #define KcurUserModel @"curUserModel"
 #define Appid @"2appmall201804001"

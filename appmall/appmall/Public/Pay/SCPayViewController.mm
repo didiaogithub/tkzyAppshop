@@ -18,11 +18,12 @@
 #import "TopTipView.h"
 //#import "JDPAuthSDK.h" //京东支付
 #import "FFWarnAlertView.h"
-
+#import "SQQKTableCell.h"
+#import "WBSQQKViewController.h"
 /**京东支付~*/
 #define JionPay_JD @"pay/appmall_pay/jdpay/action/app.php"
 
-@interface SCPayViewController ()<UITableViewDelegate, UITableViewDataSource, XWAlterVeiwDelegate, TopTipViewDelegate>
+@interface SCPayViewController ()<UITableViewDelegate, UITableViewDataSource, XWAlterVeiwDelegate, TopTipViewDelegate,SQQKTableCellDelegate>
 
 
 @property (nonatomic, copy) NSString *ckAllPayMoney;
@@ -55,7 +56,7 @@
 
 -(void)initializeComponent {
     
-    self.navigationItem.title = @"支付订单";
+    self.navigationItem.title = @"选择支付方式";
     
     // 注册微信支付结果通知
     [CKCNotificationCenter addObserver:self selector:@selector(weixinPayCallBack:) name:WeiXinPay_CallBack object:nil];
@@ -69,7 +70,7 @@
     
     
     [self createTableView];
-    
+     [self.paymentTableView registerNib:[UINib nibWithNibName:@"SQQKTableCell" bundle:nil] forCellReuseIdentifier:@"SQQKTableCell"];
     
     /**获取加盟需要支付的总金额和可用的支付方式*/
     [self getPayMethod];
@@ -258,11 +259,11 @@
 
 #pragma mark - UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 0 || section == 2) {
         return 1;
     }
     return _payMethodArr.count;
@@ -278,6 +279,16 @@
         cell.backgroundColor = [UIColor tt_grayBgColor];
         cell.moneyLable.text = [NSString stringWithFormat:@"¥%.2f", [self.payfeeStr doubleValue]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if (indexPath.section == 2){
+        static NSString *identifier = @"SQQKTableCell";//这个identifier跟xib设置的一样
+        SQQKTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]
+                    loadNibNamed:@"SQQKTableCell" owner:self options:nil]  lastObject];
+        }
+        cell.delegate = self;
         return cell;
     }else{
         
@@ -310,6 +321,13 @@
         }
         return cell;
     }
+}
+
+
+- (void)showSQQKView{
+    WBSQQKViewController *sqqkV = [[WBSQQKViewController alloc]init];
+    sqqkV.orderid = self.orderid;
+    [self.navigationController pushViewController:sqqkV animated:YES];
 }
 
 #pragma mark - UITableViewDelegate

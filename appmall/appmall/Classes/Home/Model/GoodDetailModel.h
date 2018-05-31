@@ -18,6 +18,7 @@
 @end
 
 @interface GoodDetailModel : BaseModel
+@property(nonatomic,strong)NSString *property;
 @property(nonatomic,strong)NSString *itemid;
 @property(nonatomic,strong)NSArray  *banner;
 @property(nonatomic,strong)NSString *goodname;
@@ -30,4 +31,5 @@
 @property(nonatomic,strong)NSString *no;
 @property(nonatomic,strong)NSString *supplierid;
 @property(nonatomic,strong)NSArray<GoodCommentModel *> *commentList;
+-(CGFloat)getWebDetail;
 @end

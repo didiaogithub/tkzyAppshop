@@ -7,6 +7,7 @@
 //
 
 #import "RootBaseViewController.h"
+#import "ImageDetailController.h"
 
 @interface HomeViewController : RootBaseViewController
 

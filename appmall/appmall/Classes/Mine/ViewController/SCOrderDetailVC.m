@@ -78,8 +78,8 @@
         ODGoodInfoViewCell *wuliuCell = [tableView dequeueReusableCellWithIdentifier:KODGoodInfoViewCell];
         [wuliuCell loadData:self.orderDetailModel];
         cell = wuliuCell;
-    }else if (indexPath.row == 4){
-        ODGoodInfoViewCell *wuliuCell = [tableView dequeueReusableCellWithIdentifier:KODOrderInfoViewCell];
+    }else if (indexPath.row == 3 + self.orderDetailModel.goods.count  ){
+        ODOrderInfoViewCell *wuliuCell = [tableView dequeueReusableCellWithIdentifier:KODOrderInfoViewCell];
         [wuliuCell loadData:self.orderDetailModel];
         cell = wuliuCell;
     }else{

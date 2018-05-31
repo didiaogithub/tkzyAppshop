@@ -43,7 +43,7 @@
     self.labBottomLine.hidden = NO;
     self.labTopTitle.textColor = [UIColor blackColor];
     self.labTopTitle.text = [NSString stringWithFormat:@"收货人：%@",model.phone];
-    self.labBottomTitle.text = model.address;
+    self.labBottomTitle.text =[NSString stringWithFormat:@"收货地址：%@", model.address];
 }
 
 

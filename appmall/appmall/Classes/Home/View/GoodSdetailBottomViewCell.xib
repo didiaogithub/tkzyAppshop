@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-Yx-3to">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-za-jCg">
-                                <rect key="frame" x="0.0" y="42" width="160" height="2"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-za-jCg">
+                                <rect key="frame" x="15" y="42" width="145" height="2"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.094117647058823528" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="AHb-St-4mN"/>
@@ -31,7 +31,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ync-S7-GV1">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ync-S7-GV1">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -41,6 +41,12 @@
                                 <state key="normal" title="产品详情">
                                     <color key="titleColor" red="0.16078431369999999" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.19215686269999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionOrderDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0fb-IY-w6k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL0-yD-Wud">
                                 <rect key="frame" x="160" y="0.0" width="160" height="42"/>
@@ -52,6 +58,12 @@
                                 <state key="normal" title="产品参数">
                                     <color key="titleColor" red="0.16078431369999999" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.19215686269999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionGoodInfo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G1g-oo-QnI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,17 +84,31 @@
                         <rect key="frame" x="0.0" y="44" width="320" height="217.5"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </webView>
+                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Slv-N5-SVa">
+                        <rect key="frame" x="0.0" y="44" width="320" height="217.5"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Slv-N5-SVa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3Gh-h7-HUw"/>
+                    <constraint firstAttribute="trailing" secondItem="Slv-N5-SVa" secondAttribute="trailing" id="9gS-C0-mgQ"/>
                     <constraint firstItem="4X2-in-CGE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="C3i-VE-LIf"/>
                     <constraint firstItem="9ic-Yx-3to" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="EqN-KG-EqK"/>
                     <constraint firstItem="9ic-Yx-3to" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gpx-ns-lji"/>
                     <constraint firstItem="4X2-in-CGE" firstAttribute="top" secondItem="9ic-Yx-3to" secondAttribute="bottom" id="NgS-y9-KRC"/>
+                    <constraint firstItem="Slv-N5-SVa" firstAttribute="top" secondItem="9ic-Yx-3to" secondAttribute="bottom" id="TpV-cq-lao"/>
                     <constraint firstAttribute="trailing" secondItem="9ic-Yx-3to" secondAttribute="trailing" id="UIP-zr-BbQ"/>
                     <constraint firstAttribute="bottom" secondItem="4X2-in-CGE" secondAttribute="bottom" id="We6-5F-RIN"/>
+                    <constraint firstAttribute="bottom" secondItem="Slv-N5-SVa" secondAttribute="bottom" id="cHv-mG-fGg"/>
                     <constraint firstAttribute="trailing" secondItem="4X2-in-CGE" secondAttribute="trailing" id="rT2-Ke-W0V"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomLineDisLeft" destination="Bbn-HF-RxM" id="9yz-tN-2DS"/>
+                <outlet property="btnGoodDetail" destination="mL0-yD-Wud" id="bua-Xt-GeU"/>
+                <outlet property="btnGoodInfo" destination="ync-S7-GV1" id="Ws7-ms-bzL"/>
+                <outlet property="webContent" destination="Slv-N5-SVa" id="6ZJ-h3-C2Q"/>
+            </connections>
             <point key="canvasLocation" x="34" y="163"/>
         </tableViewCell>
     </objects>

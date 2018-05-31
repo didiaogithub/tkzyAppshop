@@ -138,12 +138,12 @@
 
 #pragma mark-请求购物车数据
 -(void)getshoppingCarData{
-    RLMResults *result = [GoodModel allObjects];
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *result = [GoodModel allObjectsInRealm:self.realm];
+    
     if (result.count > 0) {
-        [realm beginWriteTransaction];
-        [realm deleteObjects:result];
-        [realm commitWriteTransaction];
+        [self.realm beginWriteTransaction];
+        [self.realm deleteObjects:result];
+        [self.realm commitWriteTransaction];
     }
     
     [self.shoppingCarDataArray removeAllObjects];
@@ -179,43 +179,28 @@
                 _editBtn.enabled = NO;
                 
             }
-            
-//            @property NSString *itemid;
-//
-//            /**商品名称*/
-//            @property NSString *name;
-//            /**价格*/
-//            @property NSString *price;
-//            /**图片*/
-//            @property NSString *imgpath;
-//            /**规格*/
-//            @property NSString *spec;
-//            /**加入时间*/
-//            @property NSString *chose;
-//            /**购买数量*/
-//            @property NSString *num;
-//            @property NSString *no;
+
             
             for (NSDictionary *goodDic in itemArr) {
                 GoodModel *model = [[GoodModel alloc]initWith:goodDic];
-                model.itemid = [NSString stringWithFormat:@"%@", model[@"itemid"]];
-                model.imgpath = [NSString stringWithFormat:@"%@", goodDic[@"imgpath"]];
-                model.name = [NSString stringWithFormat:@"%@", goodDic[@"name"]];
-                model.price = [NSString stringWithFormat:@"%@", goodDic[@"price"]];
-                model.spec = [NSString stringWithFormat:@"%@",goodDic[@"spec"]];
-                model.chose = [NSString stringWithFormat:@"%@",goodDic[@"chose"]];
-                model.num = [NSString stringWithFormat:@"%@",goodDic[@"num"]];
-                model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
+//                model.itemid = [NSString stringWithFormat:@"%@", model[@"itemid"]];
+//                model.imgpath = [NSString stringWithFormat:@"%@", goodDic[@"imgpath"]];
+//                model.name = [NSString stringWithFormat:@"%@", goodDic[@"name"]];
+//                model.price = [NSString stringWithFormat:@"%@", goodDic[@"price"]];
+//                model.spec = [NSString stringWithFormat:@"%@",goodDic[@"spec"]];
+//                model.chose = [NSString stringWithFormat:@"%@",goodDic[@"chose"]];
+//                model.num = [NSString stringWithFormat:@"%@",goodDic[@"num"]];
+//                model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
                 model.isSelect = NO;
                 [self.shoppingCarDataArray addObject:model];
             }
             
             for (NSInteger i = 0; i < self.shoppingCarDataArray.count; i++) {
                 GoodModel *classM = self.shoppingCarDataArray[i];
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                [realm beginWriteTransaction];
-                [GoodModel createOrUpdateInRealm:realm withValue:classM];
-                [realm commitWriteTransaction];
+                
+                [self.realm beginWriteTransaction];
+                [GoodModel createOrUpdateInRealm:self.realm withValue:classM];
+                [self.realm commitWriteTransaction];
             }
         }else{
             [self.view bringSubviewToFront:self.noDataView];
@@ -250,7 +235,7 @@
 #pragma mark - 加载缓存
 -(void)loadCacheData {
 
-    RLMResults *results = [GoodModel allObjects];// [GoodModel allObjectsInRealm:self.realm];
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];// [GoodModel allObjectsInRealm:self.realm];
     [self.shoppingCarDataArray removeAllObjects];
     if (results.count > 0) {
         for (GoodModel *cls in results) {
@@ -442,7 +427,7 @@
             _bottomView.allSelectedButton.selected = NO;
         }
     }
-    goodModel = self.shoppingCarDataArray[indexRow];
+     self.shoppingCarDataArray[indexRow] = goodModel;
     [self numPrice:goodModel andtype:@"0"];
     //一个cell刷新
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexRow inSection:section]; //刷新第0段第2行
@@ -473,17 +458,17 @@
             if (btselected){
                 classM.isSelect = YES;
                 
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                [realm beginWriteTransaction];
-                [GoodModel createOrUpdateInRealm:realm withValue:classM];
-                [realm commitWriteTransaction];
+                
+                [self.realm beginWriteTransaction];
+                [GoodModel createOrUpdateInRealm:self.realm withValue:classM];
+                [self.realm commitWriteTransaction];
             }else{
                 classM.isSelect = NO;
                 
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                [realm beginWriteTransaction];
-                [GoodModel createOrUpdateInRealm:realm withValue:classM];
-                [realm commitWriteTransaction];
+                
+                [self.realm beginWriteTransaction];
+                [GoodModel createOrUpdateInRealm:self.realm withValue:classM];
+                [self.realm commitWriteTransaction];
             }
             [self numPrice:_goodModel andtype:@"1"];
             [self.shoppingCarTableView reloadData];

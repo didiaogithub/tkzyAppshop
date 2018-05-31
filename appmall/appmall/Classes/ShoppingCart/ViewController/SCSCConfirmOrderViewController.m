@@ -125,9 +125,8 @@
 #pragma mark - 请求默认地址数据
 -(void)requestDefaultAddress {
     
-    NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddrUrl];
-    NSDictionary *pramaDic = @{@"openid": USER_OPENID};
-    [HttpTool getWithUrl:getDefaultAddressUrl params:pramaDic success:^(id json) {
+    NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddress1];
+    [HttpTool getWithUrl:getDefaultAddressUrl params:nil success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
             [self showNoticeView:dict[@"message"]];

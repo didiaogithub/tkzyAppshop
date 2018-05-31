@@ -44,7 +44,7 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(220 , 220) ;
+    customLayout.itemSize = CGSizeMake(220 , 180) ;
     return customLayout;
 }
 
@@ -82,7 +82,7 @@
             break;
         case 4:
             
-            return 220 + 53 ;
+            return 180 + 53 ;
             
             break;
             

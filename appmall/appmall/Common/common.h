@@ -260,6 +260,9 @@
 
 /**如果id不存在，openid为必填，查询指定人的默认地址*/
 #define GetDefaultAddrUrl @"Address/getAddressById"
+
+/**如果id不存在，openid为必填，查询指定人的默认地址*/
+#define GetDefaultAddress1 @"Address/getDefaultAddress"
 /**获取地址列表*/
 #define GetAddrListUrl @"Address/getAddressList"
 /**删除地址*/

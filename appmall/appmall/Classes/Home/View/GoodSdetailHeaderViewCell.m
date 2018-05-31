@@ -37,7 +37,7 @@
 
 -(void)loadDataWithModel:(GoodDetailModel *)model{
     selfmodel = model;
-    self.labBannerNum.text = [NSString stringWithFormat:@"1/3"];
+    self.labBannerNum.text = [NSString stringWithFormat:@"1/%ld",model.banner.count];
     [self.bannerCollectionView reloadData];
     self.labTime.text = [NSString stringWithFormat:@"规格：%@kg",model.spec];
     self.labGoodName.text = model.goodname;
@@ -57,14 +57,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return  selfmodel.banner.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KImageCollViewCell forIndexPath:indexPath];
-    cell.imgView.backgroundColor =RandomColor;
-
+    NSDictionary *imgDic = selfmodel.banner[indexPath.row];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:imgDic[@"picpath"]]];
     return cell;
 }
 

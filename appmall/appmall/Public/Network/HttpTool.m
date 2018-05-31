@@ -78,7 +78,7 @@
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
-                [alert showAlert:noticeString];
+                [alert showMsgAlert:noticeString btnClick:nil];
                 return;
             }
             
@@ -144,7 +144,7 @@
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
-                [alert showAlert:noticeString];
+                [alert showMsgAlert:noticeString btnClick:nil];
                 return;
             }
             success(responseObject);
@@ -241,7 +241,7 @@
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
-                [alert showAlert:noticeString];
+                [alert showMsgAlert:noticeString btnClick:nil];
                 return;
             }
             

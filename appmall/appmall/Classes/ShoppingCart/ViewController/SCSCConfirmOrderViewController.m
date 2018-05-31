@@ -448,7 +448,7 @@
             return ;
         }
         
-        self.oidStr = [NSString stringWithFormat:@"%@",dict[@"orderid"]];
+        self.oidStr = [NSString stringWithFormat:@"%@",dict[@"data"][@"orderid"]];
         
         if (IsNilOrNull(self.oidStr)){
             self.oidStr = @"";

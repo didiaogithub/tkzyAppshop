@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WBSQQKInfoViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *sqPerson;
+@property (weak, nonatomic) IBOutlet UITextView *sqRerson;
+@property (weak, nonatomic) IBOutlet UITextField *sqPhone;
+
 
 @end

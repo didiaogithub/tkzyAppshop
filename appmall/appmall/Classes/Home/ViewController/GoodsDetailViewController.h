@@ -12,4 +12,5 @@
 @interface GoodsDetailViewController : BaseViewController
 @property (nonatomic, strong) SCCategoryGoodsModel *goodsM;
 @property (nonatomic, strong) NSString  *goodsId;
+-(void)loadData;
 @end

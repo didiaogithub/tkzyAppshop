@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *tempArr;
 @property (nonatomic, strong) UIView *bankView;
-@property (nonatomic, strong) SCCommentModel *commentModel;
+@property (nonatomic, strong) SCCommentImgModel *commentModel;
 @property (nonatomic, strong) NSMutableArray *imageArr;
 
 
@@ -92,7 +92,7 @@
     
 }
 
--(void)refreshCellWithModel:(SCCommentModel*)commontModel index:(NSInteger)index {
+-(void)refreshCellWithModel:(SCCommentImgModel*)commontModel index:(NSInteger)index {
     
     _commentModel = commontModel;
     
@@ -142,9 +142,9 @@
     
     _imageArr = [NSMutableArray array];
     for (NSInteger i = 0; i < commontModel.imgPathArray.count; i++) {
-        SCCommentImgModel *imgM = commontModel.imgPathArray[i];
-        NSString *path = [NSString stringWithFormat:@"%@", imgM.path];
-        [_imageArr addObject:path];
+        
+        NSString *path = commontModel.imgPathArray[i];
+        
         UIImageView *imageV = [[UIImageView alloc] init];
         imageV.userInteractionEnabled = YES;
         imageV.tag = 1314+i;

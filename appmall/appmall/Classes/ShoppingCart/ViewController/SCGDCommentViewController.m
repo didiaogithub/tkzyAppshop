@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UITableView *commentTableView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) SCGoodsDetailBottomView *detailBottomView;
+@property (nonatomic,strong)SCCommentModel *commentM;
 
 @end
 
@@ -44,21 +45,14 @@
 }
 
 -(void)requestCommentData {
-    
-#warning startindex 从1开始
-    NSString *startindex = [NSString stringWithFormat:@"%ld", self.dataArr.count];
-    
-    if (self.dataArr.count != 0 && self.dataArr.count < 20) {
-        [self.commentTableView.mj_header endRefreshing];
-        [self.commentTableView.mj_footer endRefreshingWithNoMoreData];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    if (self.detailModel == nil) {
         return;
     }
-    
-    NSString *endindex = [NSString stringWithFormat:@"%ld", self.dataArr.count + 20];
-    NSDictionary *pramaDic = @{@"itemid": self.goodsId, @"startindex":startindex, @"endindex":endindex};
+    [param setObject:@"37" forKey:@"itemid"];
     
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CommentListUrl];
-    [HttpTool getWithUrl:loveItemUrl params:pramaDic success:^(id json) {
+    [HttpTool getWithUrl:loveItemUrl params:param success:^(id json) {
         [self.commentTableView.mj_footer endRefreshing];
         NSDictionary *dic = json;
         NSString * status = [dic valueForKey:@"code"];
@@ -66,33 +60,12 @@
             [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
-        
-        NSArray *commentlist = dic[@"commentlist"];
-        if (commentlist.count == 0) {
-            [self.commentTableView.mj_footer endRefreshingWithNoMoreData];
-            return;
-        }
-        for (NSDictionary *dict in commentlist) {
-            SCCommentModel *commentM = [[SCCommentModel alloc] init];
-            [commentM setValuesForKeysWithDictionary:dict];
-            NSMutableArray *tempArr = [NSMutableArray array];
-            for (NSDictionary *pathDic in dict[@"pathlist"]) {
-                SCCommentImgModel *commentImgM = [[SCCommentImgModel alloc] init];
-                [commentImgM setValuesForKeysWithDictionary:pathDic];
-                [tempArr addObject:commentImgM];
-            }
-            commentM.imgPathArray = tempArr;
-            [self.dataArr addObject:commentM];
-        }
-        
-        NSString *synthesispf = [NSString stringWithFormat:@"%@", dic[@"synthesispf"]];
-        if (IsNilOrNull(synthesispf)) {
-            synthesispf = @"5.0";
-        }
-        
+        [self .commentTableView tableViewEndRefreshCurPageCount:0];
+        self .commentM = [[SCCommentModel alloc]initWith:dic[@"data"]];
+
         SCCommentListHeaderView *headerView = [[SCCommentListHeaderView alloc] initWithFrame:CGRectMake(5,69, SCREEN_WIDTH-10,90)];
-        CGFloat score = [synthesispf floatValue];
-        NSString *commentScore = [NSString stringWithFormat:@"%.1f", score];
+        
+        NSString *commentScore = [NSString stringWithFormat:@"%@", self.commentM.score];
         
         [headerView realoadView:commentScore];
         
@@ -128,28 +101,17 @@
     [self.view addSubview:_commentTableView];
 
     //创建底部 加入购物车  立即购买
-    _detailBottomView = [[SCGoodsDetailBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-50-BOTTOM_BAR_HEIGHT, SCREEN_WIDTH, 50)];
-    
-    if ([_limit isEqualToString:@"0"]) {
-        if ([_libcnt integerValue] > 0) {
-            [_detailBottomView showBottomType:@"Sell"];//可以购买
-        }else{
-            [_detailBottomView showBottomType:@"Sellout"];//已售罄
-        }
-    }else if([_limit isEqualToString:@"1"]){
-        [_detailBottomView showBottomType:@"WaitSell"];//待出售
-    }else if([_limit isEqualToString:@"2"]){
-        [_detailBottomView showBottomType:@"Sellout"];//已售罄
-    }
-    
-    _detailBottomView.delegate = self;
-    [self.view addSubview:_detailBottomView];
+//    _detailBottomView = [[SCGoodsDetailBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-50-BOTTOM_BAR_HEIGHT, SCREEN_WIDTH, 50)];
+//
+//
+//    _detailBottomView.delegate = self;
+//    [self.view addSubview:_detailBottomView];
     
 }
 
 #pragma mark - tableViewdelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArr.count;
+    return self.commentM.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -160,7 +122,7 @@
     }
     cell.backgroundColor = [UIColor tt_grayBgColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell refreshCellWithModel:self.dataArr[indexPath.row] index:indexPath.row];
+    [cell refreshCellWithModel:self.commentM.list[indexPath.row] index:indexPath.row];
     return cell;
     
 }
@@ -174,71 +136,71 @@
 }
 
 #pragma mark - 消息40 店铺41 加入购物车42 立即购买43
--(void)pushToOtherVCWithButtonTag:(NSInteger)buttonTag{
-    
-    if (buttonTag == 40) {
-//        [[SCEnterRCloudOrToothManager manager] enterRCloudOrTooth];
-    }else if (buttonTag == 41){
-        self.tabBarController.selectedIndex = 0;
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        
-    }else if (buttonTag == 42){
-        
-        NSString *isdlbitem = [NSString stringWithFormat:@"%@", self.goodsDM.isdlbitem];
-        if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
-            //跳转到下载下载创客app页面
-            XWAlterVeiw *alert = [[XWAlterVeiw alloc] init];
-            alert.delegate = self;
-            alert.titleLable.text = @"您购买的商品暂不能在商城下单，请点击【确定】下载创客APP进行购买";
-            [alert show];
-        }else{
-            NSLog(@"加入购物车");
-            NSDictionary *pramaDic = @{@"itemids": self.goodsId, @"openid": USER_OPENID};
-            NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
-            [self.view addSubview:self.loadingView];
-            [self.loadingView stopAnimation];
-            [HttpTool postWithUrl:loveItemUrl params:pramaDic success:^(id json) {
-                [self.loadingView startAnimation];
-                
-                NSDictionary *dic = json;
-                NSString * status = [dic valueForKey:@"code"];
-                if ([status intValue] != 200) {
-                    [self showNoticeView:[dic valueForKey:@"message"]];
-                    return ;
-                }
-                [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
-                [self showNoticeView:@"亲，在购物车等你哦"];
-            } failure:^(NSError *error) {
-                [self.loadingView stopAnimation];
-                if (error.code == -1009) {
-                    [self showNoticeView:NetWorkNotReachable];
-                }else{
-                    [self showNoticeView:NetWorkTimeout];
-                }
-            }];
-        }
-    }else{
-        NSString *isdlbitem = [NSString stringWithFormat:@"%@", self.goodsDM.isdlbitem];
-        if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
-            //跳转到下载下载创客app页面
-            XWAlterVeiw *alert = [[XWAlterVeiw alloc] init];
-            alert.delegate = self;
-            alert.titleLable.text = @"您购买的商品暂不能在商城下单，请点击【确定】下载创客APP进行购买";
-            [alert show];
-        }else{
-            NSLog(@"立即购买");
-            SCConfirmOrderVC *confirmOrder = [[SCConfirmOrderVC alloc] init];
-            NSDictionary *goodsDict = [self.goodsDM mj_keyValues];
-            confirmOrder.goodsDict = goodsDict;
-            [self.navigationController pushViewController:confirmOrder animated:YES];
-        }
-    }
-}
+//-(void)pushToOtherVCWithButtonTag:(NSInteger)buttonTag{
+//
+//    if (buttonTag == 40) {
+////        [[SCEnterRCloudOrToothManager manager] enterRCloudOrTooth];
+//    }else if (buttonTag == 41){
+//        self.tabBarController.selectedIndex = 0;
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//
+//    }else if (buttonTag == 42){
+//
+//        NSString *isdlbitem = [NSString stringWithFormat:@"%@", self.goodsDM.isdlbitem];
+//        if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
+//            //跳转到下载下载创客app页面
+//            XWAlterVeiw *alert = [[XWAlterVeiw alloc] init];
+//            alert.delegate = self;
+//            alert.titleLable.text = @"您购买的商品暂不能在商城下单，请点击【确定】下载创客APP进行购买";
+//            [alert show];
+//        }else{
+//            NSLog(@"加入购物车");
+//            NSDictionary *pramaDic = @{@"itemids": self.goodsId, @"openid": USER_OPENID};
+//            NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
+//            [self.view addSubview:self.loadingView];
+//            [self.loadingView stopAnimation];
+//            [HttpTool postWithUrl:loveItemUrl params:pramaDic success:^(id json) {
+//                [self.loadingView startAnimation];
+//
+//                NSDictionary *dic = json;
+//                NSString * status = [dic valueForKey:@"code"];
+//                if ([status intValue] != 200) {
+//                    [self showNoticeView:[dic valueForKey:@"message"]];
+//                    return ;
+//                }
+//                [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
+//                [self showNoticeView:@"亲，在购物车等你哦"];
+//            } failure:^(NSError *error) {
+//                [self.loadingView stopAnimation];
+//                if (error.code == -1009) {
+//                    [self showNoticeView:NetWorkNotReachable];
+//                }else{
+//                    [self showNoticeView:NetWorkTimeout];
+//                }
+//            }];
+//        }
+//    }else{
+//        NSString *isdlbitem = [NSString stringWithFormat:@"%@", self.goodsDM.isdlbitem];
+//        if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
+//            //跳转到下载下载创客app页面
+//            XWAlterVeiw *alert = [[XWAlterVeiw alloc] init];
+//            alert.delegate = self;
+//            alert.titleLable.text = @"您购买的商品暂不能在商城下单，请点击【确定】下载创客APP进行购买";
+//            [alert show];
+//        }else{
+//            NSLog(@"立即购买");
+//            SCConfirmOrderVC *confirmOrder = [[SCConfirmOrderVC alloc] init];
+//            NSDictionary *goodsDict = [self.goodsDM mj_keyValues];
+//            confirmOrder.goodsDict = goodsDict;
+//            [self.navigationController pushViewController:confirmOrder animated:YES];
+//        }
+//    }
+//}
 
--(void)subuttonClicked {
-    SCDownloadCKAPPWebVC *downVC = [[SCDownloadCKAPPWebVC alloc] init];
-    [self.navigationController pushViewController:downVC animated:YES];
-}
+//-(void)subuttonClicked {
+//    SCDownloadCKAPPWebVC *downVC = [[SCDownloadCKAPPWebVC alloc] init];
+//    [self.navigationController pushViewController:downVC animated:YES];
+//}
 
 -(void)refreshData {
     __typeof (self) __weak weakSelf = self;

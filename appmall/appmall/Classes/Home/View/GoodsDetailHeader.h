@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodDetailModel.h"
 
 @interface GoodsDetailHeader : UIView
-
+@property (nonatomic,strong)GoodDetailModel *detailModel;
+@property (weak, nonatomic) IBOutlet UIButton *actionHaoping;
+@property (weak, nonatomic) IBOutlet UIButton *actionFanKui;
+-(void)loadData;
 @end

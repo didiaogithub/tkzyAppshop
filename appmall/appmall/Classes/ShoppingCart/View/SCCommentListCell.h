@@ -25,6 +25,6 @@
 
 @property(nonatomic,strong)NSMutableArray *imageArray;
 
--(void)refreshCellWithModel:(SCCommentModel*)commontModel index:(NSInteger)index;
+-(void)refreshCellWithModel:(SCCommentImgModel*)commontModel index:(NSInteger)index;
 
 @end

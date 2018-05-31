@@ -45,4 +45,6 @@
     self.messInfo.text = model.title;
     self.messTime.text = model.time;
 }
+
+
 @end

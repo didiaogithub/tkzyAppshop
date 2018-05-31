@@ -167,7 +167,10 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 1) {
-        return [[GoodsDetailHeader alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, 44)];
+        GoodsDetailHeader *header = [[GoodsDetailHeader alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, 44)];
+        header.detailModel = self.detailModel;
+        [header loadData];
+        return header;
     }else{
         return [UIView new];
     }

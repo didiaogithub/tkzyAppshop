@@ -7,6 +7,7 @@
 //
 
 #import "GoodsDetailHeader.h"
+#import "SCGDCommentViewController.h"
 
 @implementation GoodsDetailHeader
 
@@ -16,6 +17,21 @@
         self.frame = frame;
     }
     return self;
+}
+- (IBAction)actionComm:(id)sender {
+    if (self.detailModel.commentList.count != 0) {
+        BaseViewController *baseVC = (BaseViewController *)[self getCurrentVC];
+        [baseVC showNoticeView:@"该商品暂无评价"];
+    }else{
+        SCGDCommentViewController *comment = [[SCGDCommentViewController alloc] init];
+        comment.detailModel = self.detailModel;
+        [[self getCurrentVC].navigationController pushViewController:comment animated:YES];
+    }
+}
+
+-(void)loadData{
+    [self.actionFanKui setTitle:[NSString stringWithFormat:@"反馈(%ld)",self.detailModel.commentList.count] forState:0];
+//    [self.actionHaoping setTitle:@"" forState:0];
 }
 
 @end

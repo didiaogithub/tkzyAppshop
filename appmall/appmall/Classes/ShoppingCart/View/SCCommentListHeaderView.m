@@ -69,7 +69,7 @@
 -(void)realoadView:(NSString*)commentScore {
     _scoreLable.text = commentScore;
     float leftX = (SCREEN_WIDTH/2-120)/2;
-    _starView = [[StarEvaluateView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+leftX,20,120, 50) starIndex:[commentScore integerValue] starWidth:20 space:5.f defaultImage:[UIImage imageNamed:@"bigstargray"] lightImage:[UIImage imageNamed:@"bigstarred"] isCanTap:NO];
+    _starView = [[StarEvaluateView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+leftX,20,120, 50) starIndex:[commentScore integerValue] starWidth:20 space:5.f defaultImage:[UIImage imageNamed:@"评分为选中"] lightImage:[UIImage imageNamed:@"评分选中"] isCanTap:NO];
     [_bankView addSubview:_starView];
     
 }

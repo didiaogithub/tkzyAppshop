@@ -373,10 +373,10 @@
             [self showNoticeView:@"该商品暂无评价"];
         }else{
             SCGDCommentViewController *comment = [[SCGDCommentViewController alloc] init];
-            comment.goodsId = self.goodsM.itemid;
-            comment.limit = self.limit;
-            comment.libcnt = self.libcnt;
-            comment.goodsDM = self.goodsDM;
+//            comment.goodsId = self.goodsM.itemid;
+//            comment.limit = self.limit;
+//            comment.libcnt = self.libcnt;
+//            comment.goodsDM = self.goodsDM;
             [self.navigationController pushViewController:comment animated:YES];
         }
     }

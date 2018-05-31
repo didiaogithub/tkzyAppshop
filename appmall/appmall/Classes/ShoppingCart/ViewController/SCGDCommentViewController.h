@@ -7,13 +7,10 @@
 //
 
 #import "BaseViewController.h"
-#import "SCGoodsDetailModel.h"
+#import "GoodDetailModel.h"
 
 @interface SCGDCommentViewController : BaseViewController
 
-@property (nonatomic, copy) NSString *goodsId;
-@property (nonatomic, copy) NSString *limit;
-@property (nonatomic, copy) NSString *libcnt;
-@property (nonatomic, strong) SCGoodsDetailModel *goodsDM;
+@property (nonatomic,strong)GoodDetailModel *detailModel;
 
 @end

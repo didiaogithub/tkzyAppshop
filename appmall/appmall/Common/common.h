@@ -251,7 +251,7 @@
 /**收藏列表*/
 #define GetCollecListUrl @"Center/getCollectionList"
 /**评论列表*/
-#define CommentListUrl @"Wxmall/Item/getCommentByItemId"
+#define CommentListUrl @"Goods/getGoodsComment"
 
 /**获取购物车列表*/
 #define GetShoppingCarUrl @"Cart/getShoppingCartInfo"
@@ -287,6 +287,8 @@
 #define GetOrderListUrl @"Order/getOrderList"
 /**订单详情*/
 #define OrderDetailUrl @"Order/getOrderInfo"
+#define getOrderTransInfo @"Order/getOrderTransInfo"
+
 /**确认收货*/
 #define ConfirmReceiveUrl @"Wxmall/Order/confirmOrderItem"
 /**删除订单*/

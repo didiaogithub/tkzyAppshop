@@ -287,6 +287,12 @@
 		2D791C792090685B00E455F5 /* WBMenuAllItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D791C782090685B00E455F5 /* WBMenuAllItem.m */; };
 		2D7B8D6720BFCC1F000EAFB1 /* MessageOffDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7B8D6420BFCC1E000EAFB1 /* MessageOffDetailViewCell.xib */; };
 		2D7B8D6820BFCC1F000EAFB1 /* MessageOffDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B8D6620BFCC1F000EAFB1 /* MessageOffDetailViewCell.m */; };
+		2D7B8D6C20C01E74000EAFB1 /* WBWuliuInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B8D6A20C01E74000EAFB1 /* WBWuliuInfoVC.m */; };
+		2D7B8D6D20C01E74000EAFB1 /* WBWuliuInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7B8D6B20C01E74000EAFB1 /* WBWuliuInfoVC.xib */; };
+		2D7B8D7120C0274B000EAFB1 /* WuliuHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B8D6F20C0274B000EAFB1 /* WuliuHeaderViewCell.m */; };
+		2D7B8D7220C0274B000EAFB1 /* WuliuHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7B8D7020C0274B000EAFB1 /* WuliuHeaderViewCell.xib */; };
+		2D7B8D7620C02768000EAFB1 /* WuliuDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B8D7420C02768000EAFB1 /* WuliuDetailViewCell.m */; };
+		2D7B8D7720C02768000EAFB1 /* WuliuDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7B8D7520C02768000EAFB1 /* WuliuDetailViewCell.xib */; };
 		2D808E5C20BA5702002FADA8 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D808E5920BA5702002FADA8 /* README.txt */; };
 		2D808E5D20BA5702002FADA8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E5B20BA5702002FADA8 /* libWeChatSDK.a */; };
 		2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D808E5E20BA573B002FADA8 /* libc++.tbd */; };
@@ -1078,6 +1084,15 @@
 		2D7B8D6420BFCC1E000EAFB1 /* MessageOffDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageOffDetailViewCell.xib; sourceTree = "<group>"; };
 		2D7B8D6520BFCC1E000EAFB1 /* MessageOffDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOffDetailViewCell.h; sourceTree = "<group>"; };
 		2D7B8D6620BFCC1F000EAFB1 /* MessageOffDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOffDetailViewCell.m; sourceTree = "<group>"; };
+		2D7B8D6920C01E74000EAFB1 /* WBWuliuInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBWuliuInfoVC.h; sourceTree = "<group>"; };
+		2D7B8D6A20C01E74000EAFB1 /* WBWuliuInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBWuliuInfoVC.m; sourceTree = "<group>"; };
+		2D7B8D6B20C01E74000EAFB1 /* WBWuliuInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWuliuInfoVC.xib; sourceTree = "<group>"; };
+		2D7B8D6E20C0274B000EAFB1 /* WuliuHeaderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WuliuHeaderViewCell.h; sourceTree = "<group>"; };
+		2D7B8D6F20C0274B000EAFB1 /* WuliuHeaderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WuliuHeaderViewCell.m; sourceTree = "<group>"; };
+		2D7B8D7020C0274B000EAFB1 /* WuliuHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WuliuHeaderViewCell.xib; sourceTree = "<group>"; };
+		2D7B8D7320C02768000EAFB1 /* WuliuDetailViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WuliuDetailViewCell.h; sourceTree = "<group>"; };
+		2D7B8D7420C02768000EAFB1 /* WuliuDetailViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WuliuDetailViewCell.m; sourceTree = "<group>"; };
+		2D7B8D7520C02768000EAFB1 /* WuliuDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WuliuDetailViewCell.xib; sourceTree = "<group>"; };
 		2D808E5720BA5702002FADA8 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		2D808E5820BA5702002FADA8 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		2D808E5920BA5702002FADA8 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -1853,10 +1868,6 @@
 		2D0723CC2082FB4D0030996F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				F2F3434620BBE71C00004E90 /* Goods.h */,
-				F2F3434520BBE71C00004E90 /* Goods.m */,
-				F2487F5320AEA2CD0005F624 /* MineModel.h */,
-				F2487F5220AEA2CD0005F624 /* MineModel.m */,
 				2D0723CF2082FB690030996F /* View */,
 				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CD2082FB560030996F /* ViewController */,
@@ -1914,6 +1925,9 @@
 				2D83E26D20BED81200F2D375 /* WBSQQKViewController.h */,
 				2D83E26E20BED81200F2D375 /* WBSQQKViewController.m */,
 				2D83E26F20BED81200F2D375 /* WBSQQKViewController.xib */,
+				2D7B8D6920C01E74000EAFB1 /* WBWuliuInfoVC.h */,
+				2D7B8D6A20C01E74000EAFB1 /* WBWuliuInfoVC.m */,
+				2D7B8D6B20C01E74000EAFB1 /* WBWuliuInfoVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2005,6 +2019,12 @@
 				2D83E27720BED9CD00F2D375 /* WBSelectFeQiItemViewCell.h */,
 				2D83E27820BED9CD00F2D375 /* WBSelectFeQiItemViewCell.m */,
 				2D83E27920BED9CD00F2D375 /* WBSelectFeQiItemViewCell.xib */,
+				2D7B8D6E20C0274B000EAFB1 /* WuliuHeaderViewCell.h */,
+				2D7B8D6F20C0274B000EAFB1 /* WuliuHeaderViewCell.m */,
+				2D7B8D7020C0274B000EAFB1 /* WuliuHeaderViewCell.xib */,
+				2D7B8D7320C02768000EAFB1 /* WuliuDetailViewCell.h */,
+				2D7B8D7420C02768000EAFB1 /* WuliuDetailViewCell.m */,
+				2D7B8D7520C02768000EAFB1 /* WuliuDetailViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2012,6 +2032,10 @@
 		2D0723D02082FB6F0030996F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F2F3434620BBE71C00004E90 /* Goods.h */,
+				F2F3434520BBE71C00004E90 /* Goods.m */,
+				F2487F5320AEA2CD0005F624 /* MineModel.h */,
+				F2487F5220AEA2CD0005F624 /* MineModel.m */,
 				2D20DFE620898B1900095032 /* SCMyCollectionModel.h */,
 				2D20DFE520898B1900095032 /* SCMyCollectionModel.m */,
 				2D20DFD320898A4500095032 /* SCUserInfoModel.h */,
@@ -3452,6 +3476,7 @@
 				F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */,
 				F2F18BB32090D715002984A9 /* InvoicesManagerHeadView.xib in Resources */,
 				2D0726C12083929D0030996F /* HonourListViewCell.xib in Resources */,
+				2D7B8D7220C0274B000EAFB1 /* WuliuHeaderViewCell.xib in Resources */,
 				F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */,
 				2D0726AD2083923A0030996F /* MedieaListViewController.xib in Resources */,
 				F2F3430220BAA2A500004E90 /* README.md in Resources */,
@@ -3474,6 +3499,7 @@
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
 				F23E657F20B693D600EB6720 /* radio_checked.png in Resources */,
 				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
+				2D7B8D6D20C01E74000EAFB1 /* WBWuliuInfoVC.xib in Resources */,
 				2D83E25D20BD93D700F2D375 /* teacherBack.png in Resources */,
 				2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */,
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
@@ -3500,6 +3526,7 @@
 				2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */,
 				F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */,
 				2DA0C38B20B926ED0031AC47 /* GoodSdetailBottomViewCell.xib in Resources */,
+				2D7B8D7720C02768000EAFB1 /* WuliuDetailViewCell.xib in Resources */,
 				2D83E27120BED81200F2D375 /* WBSQQKViewController.xib in Resources */,
 				2D0723F82082FEF10030996F /* HomeViewController.xib in Resources */,
 				2D07266F208311BE0030996F /* 搜索-拷贝@3x.png in Resources */,
@@ -3662,6 +3689,7 @@
 				2D0723DF2082FDD00030996F /* UIImage+ImageWithColor.m in Sources */,
 				2D165FFF209DAD4500C1C7E7 /* UITableView+XY.m in Sources */,
 				2D791C752090614000E455F5 /* ClassListCellViewController.m in Sources */,
+				2D7B8D6C20C01E74000EAFB1 /* WBWuliuInfoVC.m in Sources */,
 				2D20DFFF20898CD900095032 /* WYBirthdayPickerView.m in Sources */,
 				2D20DF482088D2A600095032 /* SCCategoryGoodsModel.m in Sources */,
 				F2F18BB22090D715002984A9 /* InvoicesManagerHeadView.m in Sources */,
@@ -3772,6 +3800,7 @@
 				F2F3431220BAA2A500004E90 /* HXDatePhotoInteractiveTransition.m in Sources */,
 				2D83E27F20BEE3AC00F2D375 /* ImageDetailController.m in Sources */,
 				2D20DEB52088C92300095032 /* SCGoodsDetailModel.m in Sources */,
+				2D7B8D7620C02768000EAFB1 /* WuliuDetailViewCell.m in Sources */,
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D791C6A20905BCA00E455F5 /* WBContentView.m in Sources */,
 				2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */,
@@ -3979,6 +4008,7 @@
 				2DA0C38020B921540031AC47 /* GoodSdetailHeaderViewCell.m in Sources */,
 				2D20DE2C208614EC00095032 /* UIBarButtonItem+SXCreate.m in Sources */,
 				2DA0C39A20B947C10031AC47 /* ImageCollViewCell.m in Sources */,
+				2D7B8D7120C0274B000EAFB1 /* WuliuHeaderViewCell.m in Sources */,
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
 				2D83E28C20BF000200F2D375 /* MessageDetailViewCell.m in Sources */,

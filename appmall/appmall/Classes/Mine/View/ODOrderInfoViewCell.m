@@ -27,8 +27,8 @@
     [self labSetTitle:model.paytn andTitleEx:@"支付流水号：" andLable:self.labZhifuNo];
     [self labSetTitle:model.payTime andTitleEx:@"支付时间：" andLable:self.labPayTime];
     if (model.logistics != nil) {
-        self.labWuliu.text =[NSString stringWithFormat:@"支付时间：%@",model.logistics.companyName];
-        self.labWuliuNo.text =[NSString stringWithFormat:@"支付时间：%@",model.logistics.number];
+        self.labWuliu.text =[NSString stringWithFormat:@"快递公司：%@",model.logistics.companyName];
+        self.labWuliuNo.text =[NSString stringWithFormat:@"快递单号：%@",model.logistics.number];
     }else{
         self.labWuliu.text =@"";
         self.labWuliuNo.text =@"";
@@ -37,7 +37,7 @@
 
 -(void)labSetTitle:(NSString *)title andTitleEx:(NSString *)titEx andLable:(UILabel *)lab {
     if (title == nil) {
-        lab.text = @"";
+        lab.text = [NSString stringWithFormat:@"%@：暂无",titEx];
     }else{
          lab.text = [NSString stringWithFormat:@"%@%@",titEx,title];
     }

@@ -13,6 +13,7 @@
 #import "ODGoodsTableViewCell.h"
 #import "SCOrderDetailModel.h"
 #import "OrderDetailModel.h"
+#import "WBWuliuInfoVC.h"
 
 #define KODWuliuCell @"ODWuliuCell"
 #define KODGoodInfoViewCell @"ODGoodInfoViewCell"
@@ -87,6 +88,7 @@
         [wuliuCell loadData:self.orderDetailModel.goods[indexPath.row - 2]];
         cell = wuliuCell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -108,7 +110,7 @@
     }
     
     if (indexPath.row == 3 + self.orderDetailModel.goods.count) {
-        return 135;
+        return 145;
     }
     if ([self.orderDetailModel.goods[indexPath.row - 2].feedback boolValue] == YES) {
         return  118;
@@ -163,6 +165,15 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
+        wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+        wuliuVC.orderid = self.orderModel.orderId;
+        [self.navigationController pushViewController:wuliuVC animated:YES];
+    }
 }
 
 

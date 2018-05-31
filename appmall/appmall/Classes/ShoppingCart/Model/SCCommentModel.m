@@ -10,16 +10,35 @@
 
 @implementation SCCommentModel
 
--(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    
+-(void)setValue:(id)value forKey:(NSString *)key{
+    if ([key isEqualToString:@"list"]) {
+        NSMutableArray *itemArray  = [[NSMutableArray alloc]initWithCapacity:0];
+        for (NSDictionary *itemDic in value) {
+            SCCommentImgModel *model = [[SCCommentImgModel alloc]initWith:itemDic];
+            [itemArray addObject:model];
+        }
+        self.list = itemArray;
+        return;
+    }
+    [super setValue:value forKey:key];
 }
+
 
 @end
 
 @implementation SCCommentImgModel
-
--(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    
+-(NSMutableArray *)imgPathArray{
+    NSMutableArray *item = [NSMutableArray arrayWithCapacity:0];
+    if (self.path1 .length > 10) {
+        [item addObject:self.path1];
+    }
+    if (self.path2 .length > 10) {
+        [item addObject:self.path2];
+    }
+    if (self.path3 .length > 10) {
+        [item addObject:self.path3];
+    }
+    return item;
 }
 
 @end

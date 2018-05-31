@@ -15,7 +15,8 @@
 #import "HotSerachCell.h"
 #import "ClassItemViewCell.h"
 #import "WebDetailViewController.h"
-
+#import "SCCategoryTableCell.h"
+#define KSCCategoryTableCell @"SCCategoryTableCell"
 static NSString *const HotCellID = @"HotCellID";
 static NSString *const HistoryCellID = @"HistoryCellID";
 
@@ -43,7 +44,13 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         self.resultTableView.delegate = self;
         self.resultTableView.dataSource = self;
         self.resultTableView.hidden = YES;
-        [self.resultTableView registerNib:[UINib nibWithNibName:@"ClassItemViewCell" bundle:nil] forCellReuseIdentifier:@"ClassItemViewCell"];
+        if (self.seachVCIndex == 0) {
+               [self.resultTableView registerNib:[UINib nibWithNibName:KSCCategoryTableCell bundle:nil] forCellReuseIdentifier:KSCCategoryTableCell];
+            
+        }else if (self.seachVCIndex == 1){
+                    [self.resultTableView registerNib:[UINib nibWithNibName:@"ClassItemViewCell" bundle:nil] forCellReuseIdentifier:@"ClassItemViewCell"];
+        }
+
         [self.view addSubview:self.resultTableView];
     }
     return self;
@@ -67,7 +74,12 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     /**
      *  造热门搜索的假数据
      */
-    self.historyArr = [NSMutableArray arrayWithArray:[KUserdefaults objectForKey:@"historyArr"]] ;
+    if (self.seachVCIndex == 0) {
+        self.historyArr = [NSMutableArray arrayWithArray:[KUserdefaults objectForKey:@"historyArrHome"]] ;
+    }else{
+        self.historyArr = [NSMutableArray arrayWithArray:[KUserdefaults objectForKey:@"historyArr"]] ;
+    }
+    
 
     [self loadDataHot];
 }

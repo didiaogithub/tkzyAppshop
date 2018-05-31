@@ -248,11 +248,10 @@
     classM.isSelect = _selectedButton.selected;
     
 
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [GoodModel createOrUpdateInRealm:realm withValue:classM];
-    [realm commitWriteTransaction];
+    BaseViewController *itemVC =(BaseViewController *) [self getCurrentVC];
+    [itemVC.realm beginWriteTransaction];
+    [GoodModel createOrUpdateInRealm:itemVC.realm withValue:classM];
+    [itemVC.realm commitWriteTransaction];
     if (self.delegate && [self.delegate respondsToSelector:@selector(singleClick:anRow:andSection:)]){
         [self.delegate singleClick:classM anRow:self.indexRow andSection:self.section];
     }

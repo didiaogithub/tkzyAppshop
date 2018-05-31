@@ -427,7 +427,7 @@
             _bottomView.allSelectedButton.selected = NO;
         }
     }
-     self.shoppingCarDataArray[indexRow] = goodModel;
+   goodModel =  self.shoppingCarDataArray[indexRow];
     [self numPrice:goodModel andtype:@"0"];
     //一个cell刷新
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexRow inSection:section]; //刷新第0段第2行

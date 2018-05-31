@@ -126,7 +126,7 @@
 -(void)requestDefaultAddress {
     
     NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddress1];
-    [HttpTool getWithUrl:getDefaultAddressUrl params:nil success:^(id json) {
+    [HttpTool getWithUrl:getDefaultAddressUrl params:[HttpTool getCommonPara] success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
             [self showNoticeView:dict[@"message"]];

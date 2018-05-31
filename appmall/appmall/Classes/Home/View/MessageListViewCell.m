@@ -19,7 +19,10 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
-
+-(void)loadData:(MessagModel *)model{
+    self.messTitle.text = model.name;
+    self.messInfo.text = model.title;
+    self.messTime.text = model.time;
+}
 @end

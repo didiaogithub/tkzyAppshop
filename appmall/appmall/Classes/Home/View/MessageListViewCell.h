@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessagModel.h"
 
 @interface MessageListViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messIcon;
+@property (weak, nonatomic) IBOutlet UILabel *messInfo;
+@property (weak, nonatomic) IBOutlet UILabel *messTime;
+@property (weak, nonatomic) IBOutlet UILabel *messTitle;
+-(void)loadData:(MessagModel *)model;
 @end

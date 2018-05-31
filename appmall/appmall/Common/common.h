@@ -168,7 +168,7 @@
 #define GoodsDetailUrl @"Goods/getGoodsDetail"
 #define AddToShoppingCarUrl @"Cart/addShoppingCart"
 #define APIGetMessageSortList @"Message/getMessageSortList"
-
+#define APIgetMessageList @"Message/getMessageList"
 //天康学院
 #define     GetTkSchoolIndexURl           @"Tkschool/getIndex"                 //获取天康学院首页
 #define     GetTeacherById                   @"Tkschool/getTeacherById"         // 获取名师详情

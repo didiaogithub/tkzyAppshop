@@ -41,17 +41,16 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="XU9-in-2tk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.55294117649999996" green="0.55294117649999996" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgR-DJ-LTJ">
-                        <rect key="frame" x="60" y="40" width="240" height="18"/>
+                        <rect key="frame" x="60" y="43.5" width="240" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="Xaj-fO-74M"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -60,13 +59,19 @@
                     <constraint firstItem="QuQ-kl-xXa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="D1g-YV-x7g"/>
                     <constraint firstAttribute="trailingMargin" secondItem="WgR-DJ-LTJ" secondAttribute="trailing" constant="10" id="FpU-49-12a"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3UM-xo-oFl" secondAttribute="trailing" constant="9" id="Ghu-WQ-gbO"/>
-                    <constraint firstItem="WgR-DJ-LTJ" firstAttribute="bottom" secondItem="QuQ-kl-xXa" secondAttribute="bottom" id="HlO-qt-TWN"/>
+                    <constraint firstItem="WgR-DJ-LTJ" firstAttribute="bottom" secondItem="QuQ-kl-xXa" secondAttribute="bottom" constant="4" id="HlO-qt-TWN"/>
                     <constraint firstItem="QuQ-kl-xXa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SJh-oC-Pqj"/>
                     <constraint firstItem="dTx-ub-bKU" firstAttribute="leading" secondItem="QuQ-kl-xXa" secondAttribute="trailing" constant="5" id="dFi-Mc-SRn"/>
                     <constraint firstItem="3UM-xo-oFl" firstAttribute="top" secondItem="dTx-ub-bKU" secondAttribute="top" id="lvz-Sh-voN"/>
                     <constraint firstItem="WgR-DJ-LTJ" firstAttribute="leading" secondItem="QuQ-kl-xXa" secondAttribute="trailing" constant="5" id="opO-Bm-Ggt"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="messIcon" destination="D1g-YV-x7g" id="We1-lC-WWA"/>
+                <outlet property="messInfo" destination="WgR-DJ-LTJ" id="hb6-h9-Bc1"/>
+                <outlet property="messTime" destination="3UM-xo-oFl" id="8OW-KU-IiF"/>
+                <outlet property="messTitle" destination="dTx-ub-bKU" id="Lf1-tE-J1S"/>
+            </connections>
             <point key="canvasLocation" x="37" y="72"/>
         </tableViewCell>
     </objects>

@@ -8,32 +8,45 @@
 //  Copyright © 2018 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "MessageViewController.h"
-#import "MessageListViewCell.h"
 #import "MessageDetailViewController.h"
+#import "MessageListViewCell.h"
 #import "MessagModel.h"
 
 #define KMessageListViewCell @"MessageListViewCell"
 
-@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MessageDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property (weak, nonatomic) IBOutlet UITableView *messageListIView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property(nonatomic,assign)NSInteger page;
 @property (nonatomic, strong) NodataLableView *nodataLableView;
 @property(nonatomic,strong)NSMutableArray <MessagModel *> *messageList;
 @end
-@implementation MessageViewController
+@implementation MessageDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [UITableView refreshHelperWithScrollView:self.messageListIView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];
+ 
+
     self.topDis.constant = NaviHeight;
     self.messageList = [NSMutableArray arrayWithCapacity:0];
     [self setTableView];
-    [self requestData];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)loadNewData{
+    _page =  1;
+    [self requestData];
+}
+
+-(void)loadMoreData{
+    _page ++;
+    [self requestData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [self setTableView];
@@ -53,13 +66,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KMessageListViewCell];
-    cell.selectionStyle =UITableViewCellSelectionStyleNone;
-    [cell loadData:self.messageList[indexPath.row]];
+
     return  cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 74;
+    return 120;
 }
 
 -(void)requestData {
@@ -67,9 +79,12 @@
     _nodataLableView.hidden = YES;
     
     
-    NSDictionary *pramaDic= [HttpTool getCommonPara];
+    NSMutableDictionary  *pramaDic= [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:@"" forKey:@"messageType"];
+    [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
+    [pramaDic setObject:@(_page) forKey:@"pageNo"];
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, APIGetMessageSortList];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, APIgetMessageList];
     
     NSLog(@"请求参数：%@", pramaDic);
     
@@ -77,7 +92,6 @@
     [self.loadingView startAnimation];
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
-        
         NSDictionary *dic = json;
         [self.messageListIView.mj_header endRefreshing];
         [self.messageListIView.mj_footer endRefreshing];
@@ -133,10 +147,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MessageDetailViewController *detailVC = [[MessageDetailViewController alloc]init];
-    detailVC.messageType = self.messageList[indexPath.row].messageType;
-    [self.navigationController pushViewController:detailVC animated:YES];
-    
     
 }
 @end

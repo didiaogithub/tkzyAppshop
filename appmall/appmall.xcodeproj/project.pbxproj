@@ -320,6 +320,11 @@
 		2D83E27B20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E27920BED9CD00F2D375 /* WBSelectFeQiItemViewCell.xib */; };
 		2D83E27F20BEE3AC00F2D375 /* ImageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D83E27D20BEE3AC00F2D375 /* ImageDetailController.m */; };
 		2D83E28020BEE3AC00F2D375 /* ImageDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E27E20BEE3AC00F2D375 /* ImageDetailController.xib */; };
+		2D83E28320BEF9DF00F2D375 /* MessagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D83E28220BEF9DF00F2D375 /* MessagModel.m */; };
+		2D83E28720BEFD1700F2D375 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D83E28520BEFD1600F2D375 /* MessageDetailViewController.m */; };
+		2D83E28820BEFD1700F2D375 /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E28620BEFD1600F2D375 /* MessageDetailViewController.xib */; };
+		2D83E28C20BF000200F2D375 /* MessageDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D83E28A20BF000200F2D375 /* MessageDetailViewCell.m */; };
+		2D83E28D20BF000200F2D375 /* MessageDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D83E28B20BF000200F2D375 /* MessageDetailViewCell.xib */; };
 		2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */; };
 		2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */; };
 		2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C2DC20B6F0480031AC47 /* CommListModel.m */; };
@@ -1118,6 +1123,14 @@
 		2D83E27C20BEE3AC00F2D375 /* ImageDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDetailController.h; sourceTree = "<group>"; };
 		2D83E27D20BEE3AC00F2D375 /* ImageDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDetailController.m; sourceTree = "<group>"; };
 		2D83E27E20BEE3AC00F2D375 /* ImageDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailController.xib; sourceTree = "<group>"; };
+		2D83E28120BEF9DF00F2D375 /* MessagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagModel.h; sourceTree = "<group>"; };
+		2D83E28220BEF9DF00F2D375 /* MessagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagModel.m; sourceTree = "<group>"; };
+		2D83E28420BEFD1600F2D375 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		2D83E28520BEFD1600F2D375 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
+		2D83E28620BEFD1600F2D375 /* MessageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailViewController.xib; sourceTree = "<group>"; };
+		2D83E28920BF000200F2D375 /* MessageDetailViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewCell.h; sourceTree = "<group>"; };
+		2D83E28A20BF000200F2D375 /* MessageDetailViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewCell.m; sourceTree = "<group>"; };
+		2D83E28B20BF000200F2D375 /* MessageDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageDetailViewCell.xib; sourceTree = "<group>"; };
 		2DA0C2D520B6DF480031AC47 /* CommunityViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewCell.h; sourceTree = "<group>"; };
 		2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewCell.m; sourceTree = "<group>"; };
 		2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewCell.xib; sourceTree = "<group>"; };
@@ -1610,6 +1623,9 @@
 				2D0726B32083926B0030996F /* HonourDetailViewController.h */,
 				2D0726B42083926B0030996F /* HonourDetailViewController.m */,
 				2D0726B52083926B0030996F /* HonourDetailViewController.xib */,
+				2D83E28420BEFD1600F2D375 /* MessageDetailViewController.h */,
+				2D83E28520BEFD1600F2D375 /* MessageDetailViewController.m */,
+				2D83E28620BEFD1600F2D375 /* MessageDetailViewController.xib */,
 				2D0726C220839EE50030996F /* MessageViewController.h */,
 				2D0726C320839EE50030996F /* MessageViewController.m */,
 				2D0726C420839EE50030996F /* MessageViewController.xib */,
@@ -1650,6 +1666,8 @@
 				2D165FFB209DA57700C1C7E7 /* MediaListModel.m */,
 				2DA0C39420B942F60031AC47 /* GoodDetailModel.h */,
 				2DA0C39520B942F60031AC47 /* GoodDetailModel.m */,
+				2D83E28120BEF9DF00F2D375 /* MessagModel.h */,
+				2D83E28220BEF9DF00F2D375 /* MessagModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1701,6 +1719,9 @@
 				2DA0C39720B947C10031AC47 /* ImageCollViewCell.h */,
 				2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */,
 				2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */,
+				2D83E28920BF000200F2D375 /* MessageDetailViewCell.h */,
+				2D83E28A20BF000200F2D375 /* MessageDetailViewCell.m */,
+				2D83E28B20BF000200F2D375 /* MessageDetailViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3403,6 +3424,7 @@
 				2D83E27620BED8B100F2D375 /* WBSQQKInfoViewCell.xib in Resources */,
 				2D808E7A20BC2BEC002FADA8 /* ODWuliuCell.xib in Resources */,
 				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
+				2D83E28D20BF000200F2D375 /* MessageDetailViewCell.xib in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
 				2D808E5C20BA5702002FADA8 /* README.txt in Resources */,
@@ -3432,6 +3454,7 @@
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
 				F2A92D5920BE3CE5009F0F9C /* ArrearsTableCell.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
+				2D83E28820BEFD1700F2D375 /* MessageDetailViewController.xib in Resources */,
 				2D808E8920BC2C2E002FADA8 /* ODGoodInfoViewCell.xib in Resources */,
 				2DA0C35120B867810031AC47 /* radio_btn_off.png in Resources */,
 				2DA0C35F20B867810031AC47 /* MJPhotoBrowser.bundle in Resources */,
@@ -3820,6 +3843,7 @@
 				2D20DE1E208614CE00095032 /* UICollectionView+PlaceHolder.m in Sources */,
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
+				2D83E28320BEF9DF00F2D375 /* MessagModel.m in Sources */,
 				F2F3432C20BAA2A500004E90 /* HXVideoPresentTransition.m in Sources */,
 				2D20DE21208614CE00095032 /* NSString+MD5.m in Sources */,
 				2D83E26A20BED5E600F2D375 /* WBFenqiSelecView.m in Sources */,
@@ -3885,6 +3909,7 @@
 				2D20DF682088D5DC00095032 /* DashLineView.m in Sources */,
 				2D20DF4B2088D3D300095032 /* PaySuccessViewController.m in Sources */,
 				F2F3431320BAA2A500004E90 /* HXDatePhotoPreviewBottomView.m in Sources */,
+				2D83E28720BEFD1700F2D375 /* MessageDetailViewController.m in Sources */,
 				2D83E27020BED81200F2D375 /* WBSQQKViewController.m in Sources */,
 				2D20DDFE2086147300095032 /* SCShoppingCarNoDataView.m in Sources */,
 				2D20DFC920898A0800095032 /* CleanCache.m in Sources */,
@@ -3916,6 +3941,7 @@
 				2DA0C39A20B947C10031AC47 /* ImageCollViewCell.m in Sources */,
 				2D20DF352088CEDF00095032 /* YYDiskCache.m in Sources */,
 				2D20DDFF2086147300095032 /* UpdateAlertView.m in Sources */,
+				2D83E28C20BF000200F2D375 /* MessageDetailViewCell.m in Sources */,
 				2D791C6B20905BCA00E455F5 /* WBMenuScrollView.m in Sources */,
 				2D20DFE120898AF000095032 /* YSCollectionCell.m in Sources */,
 				F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */,

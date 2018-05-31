@@ -10,4 +10,6 @@
 
 @interface  MessageDetailViewController: BaseViewController
 @property(nonatomic,strong)NSString *messageType;
+@property(nonatomic,strong)NSString *titleStr;
+
 @end

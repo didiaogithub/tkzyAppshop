@@ -11,3 +11,17 @@
 @implementation MessagModel
 
 @end
+@implementation MessagDetailModel
+
+@end
+@implementation MessagDetailOffModel
+-(CGFloat)getCellHeight{
+    CGFloat imgHeight = 136;
+    CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 130,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+    if (labHeight > 55) {
+        return  imgHeight + labHeight;
+    }else{
+          return  imgHeight + 55;
+    }
+}
+@end

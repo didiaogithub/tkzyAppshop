@@ -7,9 +7,9 @@
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
-#import "MessageDetailViewCell.h"
+#import "MessageOffDetailViewCell.h"
 
-@implementation MessageDetailViewCell
+@implementation MessageOffDetailViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -20,10 +20,11 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)loadData:(MessagDetailModel *)model{
+-(void)loadData:(MessagDetailOffModel *)model{
     self.labTime.text = model.time;
     self.labTitle.text = model.title;
     self.labContent.text = model.content;
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.img]];
 }
 
 @end

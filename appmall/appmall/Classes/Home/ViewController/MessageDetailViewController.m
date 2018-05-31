@@ -9,11 +9,13 @@
 //
 
 #import "MessageDetailViewController.h"
-#import "MessageListViewCell.h"
+#import "MessageDetailViewCell.h"
+#import "MessageOffDetailViewCell.h"
 #import "MessagModel.h"
+#import "WebDetailViewController.h"
 
-#define KMessageListViewCell @"MessageListViewCell"
-
+#define KMessageDetailViewCell @"MessageDetailViewCell"
+#define KMessageOffDetailViewCell @"MessageOffDetailViewCell"
 @interface MessageDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
@@ -21,12 +23,13 @@
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property(nonatomic,assign)NSInteger page;
 @property (nonatomic, strong) NodataLableView *nodataLableView;
-@property(nonatomic,strong)NSMutableArray <MessagModel *> *messageList;
+@property(nonatomic,strong)NSMutableArray <MessagDetailModel *> *messageList;
 @end
 @implementation MessageDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.titleStr;
     [UITableView refreshHelperWithScrollView:self.messageListIView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
  
@@ -56,7 +59,8 @@
 -(void)setTableView{
     self.messageListIView.delegate = self;
     self.messageListIView.dataSource = self;
-    [self.messageListIView registerNib:[UINib nibWithNibName:KMessageListViewCell bundle:nil] forCellReuseIdentifier:KMessageListViewCell];
+    [self.messageListIView registerNib:[UINib nibWithNibName:KMessageDetailViewCell bundle:nil] forCellReuseIdentifier:KMessageDetailViewCell];
+       [self.messageListIView registerNib:[UINib nibWithNibName:KMessageOffDetailViewCell bundle:nil] forCellReuseIdentifier:KMessageOffDetailViewCell];
     [self .messageListIView reloadData];
 }
 
@@ -65,13 +69,28 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MessageListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KMessageListViewCell];
-
-    return  cell;
+    if ([self.messageType integerValue] == 0) {
+        MessageOffDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KMessageOffDetailViewCell];
+        [cell loadData:(MessagDetailOffModel *)self.messageList[indexPath.row]];
+        cell.selectionStyle  =UITableViewCellSelectionStyleNone;
+        return  cell;
+    }else{
+        MessageDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KMessageDetailViewCell];
+        [cell loadData:self.messageList[indexPath.row]];
+        cell.selectionStyle  =UITableViewCellSelectionStyleNone;
+        return  cell;
+    }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    if ([self.messageType integerValue] == 0) {
+        MessagDetailOffModel *model =(MessagDetailOffModel *)self.messageList[indexPath.row];
+      return  [model getCellHeight];
+    }else{
+        return 120;
+    }
+    
 }
 
 -(void)requestData {
@@ -80,11 +99,17 @@
     
     
     NSMutableDictionary  *pramaDic= [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:@"" forKey:@"messageType"];
+    NSString *api =APIgetMessageList;
+    if ([self.messageType integerValue] == 0) {
+        api =APIgetOfficialMessageList;
+    }else{
+        [pramaDic setObject:self.messageType forKey:@"messageType"];
+    }
+    
     [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
     [pramaDic setObject:@(_page) forKey:@"pageNo"];
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, APIgetMessageList];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, api];
     
     NSLog(@"请求参数：%@", pramaDic);
     
@@ -93,8 +118,6 @@
     [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
         NSDictionary *dic = json;
-        [self.messageListIView.mj_header endRefreshing];
-        [self.messageListIView.mj_footer endRefreshing];
         
         if ([dic[@"code"] integerValue] !=  200) {
             [self showNoticeView:dic[@"message"]];
@@ -108,18 +131,23 @@
             
             [self.messageListIView reloadData];
             
-            [self.messageListIView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.dataArr.count];
-            [self.messageListIView.mj_footer endRefreshingWithNoMoreData];
+            [self.messageListIView tableViewEndRefreshCurPageCount:0];
+         
         }else{
-            
-            for (NSDictionary *itemDic in dic[@"data"][@"messages"]) {
-                MessagModel *model = [[MessagModel alloc]initWith:itemDic];
-                [self.messageList addObject:model];
+            NSArray *itemList =dic[@"data"][@"messages"];
+            [self.messageListIView tableViewEndRefreshCurPageCount:itemList .count];
+            for (NSDictionary *itemDic in itemList) {
+                if ([self.messageType integerValue] == 0) {
+                    MessagDetailOffModel *model = [[MessagDetailOffModel alloc]initWith:itemDic];
+                    [self.messageList addObject:model];
+                }else{
+                    MessagDetailModel *model = [[MessagDetailModel alloc]initWith:itemDic];
+                    [self.messageList addObject:model];
+                }
+              
             }
             [self.messageListIView reloadData];
         }
-        
-        
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         
@@ -147,6 +175,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if ([self.messageType integerValue] == 0) {
+   MessagDetailOffModel *model =  self.messageList[indexPath.row];
+        WebDetailViewController *webDetail = [[WebDetailViewController alloc]init];
+        webDetail.detailUrl = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/officialnotice.html?id=%@",model.msgId];
+        [self.navigationController pushViewController:webDetail animated:YES];
+    }
 }
 @end

@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"消息中心";
     self.topDis.constant = NaviHeight;
     self.messageList = [NSMutableArray arrayWithCapacity:0];
     [self setTableView];
@@ -135,6 +136,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageDetailViewController *detailVC = [[MessageDetailViewController alloc]init];
     detailVC.messageType = self.messageList[indexPath.row].messageType;
+    detailVC.titleStr = self.messageList[indexPath.row].name;
     [self.navigationController pushViewController:detailVC animated:YES];
     
     

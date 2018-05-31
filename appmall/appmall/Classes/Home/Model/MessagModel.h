@@ -14,3 +14,18 @@
 @property(nonatomic,strong)NSString *time;
 @property(nonatomic,strong)NSString *title;
 @end
+
+@interface MessagDetailModel : BaseModel
+@property(nonatomic,strong)NSString *content;
+@property(nonatomic,strong)NSString *time;
+@property(nonatomic,strong)NSString *title;
+@end
+
+@interface MessagDetailOffModel : BaseModel
+@property(nonatomic,strong)NSString *content;
+@property(nonatomic,strong)NSString *time;
+@property(nonatomic,strong)NSString *msgId;
+@property(nonatomic,strong)NSString *img;
+@property(nonatomic,strong)NSString *title;
+-(CGFloat)getCellHeight;
+@end

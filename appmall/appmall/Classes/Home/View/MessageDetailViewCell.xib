@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +22,7 @@
                         <rect key="frame" x="36" y="34" width="346" height="113"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udp-zj-c4N">
-                                <rect key="frame" x="8" y="15" width="330" height="21"/>
+                                <rect key="frame" x="10" y="5" width="328" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ajq-hv-cra"/>
                                 </constraints>
@@ -31,21 +30,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WXy-VA-IhZ">
-                                <rect key="frame" x="10" y="44" width="57" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="WXy-VA-IhZ" secondAttribute="height" multiplier="1:1" id="oFk-Vw-M7D"/>
-                                    <constraint firstAttribute="width" constant="57" id="u9a-cW-Ehm"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfV-JO-B1A">
-                                <rect key="frame" x="77" y="44" width="259" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNf-fb-9Xk">
-                                <rect key="frame" x="77" y="73" width="259" height="21"/>
+                                <rect key="frame" x="10" y="34" width="326" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,15 +41,10 @@
                         <constraints>
                             <constraint firstItem="sfV-JO-B1A" firstAttribute="top" secondItem="udp-zj-c4N" secondAttribute="bottom" constant="8" id="AI7-wS-DsE"/>
                             <constraint firstAttribute="trailing" secondItem="udp-zj-c4N" secondAttribute="trailing" constant="8" id="AYJ-QU-RNp"/>
-                            <constraint firstItem="sfV-JO-B1A" firstAttribute="leading" secondItem="WXy-VA-IhZ" secondAttribute="trailing" constant="10" id="Atm-X1-A3j"/>
                             <constraint firstAttribute="trailing" secondItem="sfV-JO-B1A" secondAttribute="trailing" constant="10" id="DfH-8C-Mcd"/>
-                            <constraint firstItem="WXy-VA-IhZ" firstAttribute="leading" secondItem="ogy-Y6-mHq" secondAttribute="leading" constant="10" id="FFK-oO-Xpe"/>
-                            <constraint firstAttribute="trailing" secondItem="XNf-fb-9Xk" secondAttribute="trailing" constant="10" id="UBn-Xx-FSW"/>
-                            <constraint firstItem="udp-zj-c4N" firstAttribute="leading" secondItem="ogy-Y6-mHq" secondAttribute="leading" constant="8" id="bDv-ga-3BF"/>
-                            <constraint firstItem="WXy-VA-IhZ" firstAttribute="top" secondItem="udp-zj-c4N" secondAttribute="bottom" constant="8" id="dKa-Kw-QDG"/>
-                            <constraint firstItem="XNf-fb-9Xk" firstAttribute="leading" secondItem="WXy-VA-IhZ" secondAttribute="trailing" constant="10" id="iNJ-Ym-wxO"/>
-                            <constraint firstItem="XNf-fb-9Xk" firstAttribute="top" secondItem="sfV-JO-B1A" secondAttribute="bottom" constant="8" id="oTF-zK-epf"/>
-                            <constraint firstItem="udp-zj-c4N" firstAttribute="top" secondItem="ogy-Y6-mHq" secondAttribute="top" constant="15" id="peG-XW-9Ma"/>
+                            <constraint firstItem="sfV-JO-B1A" firstAttribute="leading" secondItem="ogy-Y6-mHq" secondAttribute="leading" constant="10" id="Xmm-fB-qzl"/>
+                            <constraint firstItem="udp-zj-c4N" firstAttribute="leading" secondItem="ogy-Y6-mHq" secondAttribute="leading" constant="10" id="bDv-ga-3BF"/>
+                            <constraint firstItem="udp-zj-c4N" firstAttribute="top" secondItem="ogy-Y6-mHq" secondAttribute="top" constant="5" id="peG-XW-9Ma"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="时间" translatesAutoresizingMaskIntoConstraints="NO" id="k7s-Js-3Pk">
@@ -93,6 +74,11 @@
                     <constraint firstItem="ogy-Y6-mHq" firstAttribute="top" secondItem="Bf0-nq-1Ua" secondAttribute="bottom" constant="8" id="zhw-qY-or6"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="labContent" destination="sfV-JO-B1A" id="BEN-X9-Fss"/>
+                <outlet property="labTime" destination="Bf0-nq-1Ua" id="Dmr-Wb-hVs"/>
+                <outlet property="labTitle" destination="udp-zj-c4N" id="OXX-Q2-Z8w"/>
+            </connections>
             <point key="canvasLocation" x="70" y="112"/>
         </tableViewCell>
     </objects>

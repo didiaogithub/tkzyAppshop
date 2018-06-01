@@ -249,7 +249,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     arrearsModel *model = self.dataArray[section];
-    view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.no];
+    view.orderNo.text = [NSString stringWithFormat:@"订单编号:%@",model.no];
     int status = [self.statusString intValue];
     view.orderStates.text = titleArr[status - 1];
     return view;

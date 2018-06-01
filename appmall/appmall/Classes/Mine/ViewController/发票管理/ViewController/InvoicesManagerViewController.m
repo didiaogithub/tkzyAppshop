@@ -239,7 +239,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     InvoicesManCellHeadView *view = [[InvoicesManCellHeadView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     InvoicesManagerModel *model = self.dataArray[section];
-    view.orderNum.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
+    view.orderNum.text = [NSString stringWithFormat:@"订单编号:%@",model.orderno];
     return view;
 }
 

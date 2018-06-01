@@ -14,6 +14,7 @@
 #import "XWAlterVeiw.h"
 #import "SCGoodsDetailViewController.h"
 #import "SCShoppingCarNoDataView.h"
+#import "GoodsDetailViewController.h"
 
 
 @interface SCShoppingCarViewController ()<UITableViewDelegate, UITableViewDataSource, SCShoppingCarCellDelegate, OrderBottomViewDelegate, XWAlterVeiwDelegate>
@@ -401,7 +402,7 @@
     if([self.shoppingCarDataArray count]){
         _goodModel = self.shoppingCarDataArray[indexPath.row];
     }
-    SCGoodsDetailViewController *detailVc = [[SCGoodsDetailViewController alloc] init];
+    GoodsDetailViewController *detailVc = [[GoodsDetailViewController alloc] init];
     detailVc.goodsId = _goodModel.itemid;
     [self.navigationController pushViewController:detailVc animated:YES];
     

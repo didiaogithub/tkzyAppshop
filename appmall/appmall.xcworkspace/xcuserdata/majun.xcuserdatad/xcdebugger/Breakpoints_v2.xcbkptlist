@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCSCConfirmOrderViewController.m"
-            timestampString = "549440382.437057"
+            timestampString = "549535036.699006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "-canPayGoodsRequestWithUrl:pramaDic:"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCSCConfirmOrderViewController.m"
-            timestampString = "549440382.437132"
+            timestampString = "549535036.6990761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "-canPayGoodsRequestWithUrl:pramaDic:"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Public/Tools/UITableView+XY.m"
-            timestampString = "549534015.778252"
+            timestampString = "549535036.6991431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "9"

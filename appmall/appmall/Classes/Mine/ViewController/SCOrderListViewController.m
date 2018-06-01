@@ -8,6 +8,7 @@
 
 #import "SCOrderListViewController.h"
 #import "SCOrderListCell.h"
+#import "WBWuliuInfoVC.h"
 #import "SCMyOrderModel.h"
 #import "SCOrderDetailVC.h"
 #import "OrderFooterView.h"
@@ -735,17 +736,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }else if ([btn.titleLabel.text isEqualToString:@"删除订单"]) {
         [self confirmCancelOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
-        
-        NSString *iftransno = [NSString stringWithFormat:@"%@", orderM.logistics];
-        if ([iftransno isEqualToString:@"false"] || [iftransno isEqualToString:@"0"] || IsNilOrNull(iftransno)) {
-            
-        }else{
-            NSString *oidString = [NSString stringWithFormat:@"%@",_orderModel.orderId];
-            //点击进入物流详情
-            DetailLogisticsViewController *detailLogist = [[DetailLogisticsViewController alloc] init];
-            detailLogist.oidString = oidString;
-            [self.navigationController pushViewController:detailLogist animated:YES];
-        }
+        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
+        wuluVC.orderid = orderM.orderId;
+        [self.navigationController pushViewController:wuluVC animated:YES];
     }
 }
 

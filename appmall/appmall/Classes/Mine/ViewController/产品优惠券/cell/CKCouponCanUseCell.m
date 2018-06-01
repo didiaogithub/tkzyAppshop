@@ -28,97 +28,97 @@
 }
 
 - (void)initUI{
+    self.backgroundColor = [UIColor clearColor];
     self.imgView = [[UIImageView alloc]init];
-    self.imgView.image = [UIImage imageWithColor:[UIColor colorWithHexString:@"#AAAAAA"] rect:CGRectMake(1, 1, 1, 1 )];
+    self.imgView.image = [UIImage imageNamed:@"优惠券bg2"];
     [self.contentView addSubview:self.imgView];
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.mas_offset(0);
-        make.width.mas_offset(AdaptedWidth(120));
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 10, 0, 10));
     }];
     
     self.moneyLable = [[UILabel alloc]init];
     self.moneyLable.text = @"¥0.00";
     self.moneyLable.backgroundColor = [UIColor clearColor];
-    self.moneyLable.textColor = [UIColor whiteColor];
+    self.moneyLable.textColor = [UIColor tt_monthGrayColor];
     self.moneyLable.textAlignment = NSTextAlignmentCenter;
-    self.moneyLable.font = [UIFont systemFontOfSize:22];
+    self.moneyLable.font = [UIFont systemFontOfSize:28];
     [self.contentView addSubview:self.moneyLable];
     [self.moneyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(10);
+        make.top.mas_offset(15);
         make.left.mas_offset(0);
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(AdaptedWidth(120));
     }];
     
-    self.nameLable = [UILabel new];
-    self.nameLable.text = @"产品券";
-    self.nameLable.backgroundColor = [UIColor clearColor];
-    self.nameLable.textColor = [UIColor whiteColor];
-    self.nameLable.textAlignment = NSTextAlignmentCenter;
-    self.nameLable.font = [UIFont systemFontOfSize:12];
-    self.nameLable.numberOfLines = 0;
-    [self.contentView addSubview:self.nameLable];
-    [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.moneyLable.mas_bottom).offset(0);
-        make.width.mas_equalTo(AdaptedWidth(120));
-        make.left.mas_offset(0);
-        make.height.mas_equalTo(30);
-    }];
+    //    self.nameLable = [UILabel new];
+    //    self.nameLable.text = @"产品券";
+    //    self.nameLable.backgroundColor = [UIColor clearColor];
+    //    self.nameLable.textColor = [UIColor whiteColor];
+    //    self.nameLable.textAlignment = NSTextAlignmentCenter;
+    //    self.nameLable.font = [UIFont systemFontOfSize:12];
+    //    self.nameLable.numberOfLines = 0;
+    //    [self.contentView addSubview:self.nameLable];
+    //    [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.equalTo(self.moneyLable.mas_bottom).offset(0);
+    //        make.width.mas_equalTo(AdaptedWidth(120));
+    //        make.left.mas_offset(0);
+    //        make.height.mas_equalTo(30);
+    //    }];
     
     self.typeLabel = [UILabel new];
     self.typeLabel.text = @"产品进货抵用券";
-    self.typeLabel.textColor = [UIColor colorWithHexString:@"#333333"];
-    self.typeLabel.font = [UIFont systemFontOfSize:13];
+    self.typeLabel.textColor = [UIColor tt_monthLittleBlackColor];
+    self.typeLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:self.typeLabel];
     [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(0);
-        make.right.mas_offset(-10);
-        make.left.equalTo(self.imgView.mas_right).offset(10);
+        make.centerX.mas_equalTo(self.mas_centerX);
         make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(self.moneyLable.mas_bottom);
     }];
     
     self.validDate = [UILabel new];
     self.validDate.text = @"2017.03.01 00:00-2017.04.25 00:00";
-    self.validDate.textColor = [UIColor colorWithHexString:@"#999999"];
-    self.validDate.font = [UIFont systemFontOfSize:10];
+    self.validDate.textColor = [UIColor tt_monthLittleBlackColor];
+    self.validDate.font = [UIFont systemFontOfSize:13];
     [self.contentView addSubview:self.validDate];
     [self.validDate mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.typeLabel.mas_bottom);
         make.right.mas_offset(-10);
-        make.left.equalTo(self.imgView.mas_right).offset(10);
+        make.left.mas_offset(30);
         make.height.mas_equalTo(30);
+        make.bottom.mas_offset(-10);
     }];
     
     
-    UILabel *dashLine = [UILabel creatLineLable];
-    dashLine.backgroundColor = [UIColor colorWithHexString:@"#CCCCCC"];
-    [self.contentView addSubview:dashLine];
-    [dashLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.validDate.mas_bottom);
-        make.right.mas_offset(-10);
-        make.left.equalTo(self.imgView.mas_right).offset(10);
-        make.height.mas_equalTo(1);
-    }];
+    //    UILabel *dashLine = [UILabel creatLineLable];
+    //    dashLine.backgroundColor = [UIColor colorWithHexString:@"#CCCCCC"];
+    //    [self.contentView addSubview:dashLine];
+    //    [dashLine mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.equalTo(self.validDate.mas_bottom);
+    //        make.right.mas_offset(-10);
+    //        make.left.equalTo(self.imgView.mas_right).offset(10);
+    //        make.height.mas_equalTo(1);
+    //    }];
+    //
     
-    
-    self.sendReasonL = [UILabel new];
-    self.sendReasonL.text = @"发放原因：累计销售创客礼包2套";
-    self.sendReasonL.font = [UIFont systemFontOfSize:10];
-    [self.contentView addSubview:self.sendReasonL];
-    [self.sendReasonL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.validDate.mas_bottom).offset(1);
-        make.right.mas_offset(-10);
-        make.left.equalTo(self.imgView.mas_right).offset(10);
-        make.height.mas_equalTo(24);
-    }];
+    //    self.sendReasonL = [UILabel new];
+    //    self.sendReasonL.text = @"发放原因：累计销售创客礼包2套";
+    //    self.sendReasonL.font = [UIFont systemFontOfSize:10];
+    //    [self.contentView addSubview:self.sendReasonL];
+    //    [self.sendReasonL mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.equalTo(self.validDate.mas_bottom).offset(1);
+    //        make.right.mas_offset(-10);
+    //        make.left.equalTo(self.imgView.mas_right).offset(10);
+    //        make.height.mas_equalTo(24);
+    //    }];
+    //
     
     UIImageView *uselessView = [UIImageView new];
-    uselessView.image = [UIImage imageNamed:@"usedCoupon"];
+    uselessView.image = [UIImage imageNamed:@"已使用"];
     uselessView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:uselessView];
     [uselessView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(10);
-        make.right.mas_offset(-10);
+        make.right.mas_offset(-15);
         make.height.mas_equalTo(48);
         make.width.mas_equalTo(64);
     }];

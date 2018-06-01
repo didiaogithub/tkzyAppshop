@@ -434,15 +434,7 @@
 		F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6520B81C5800F01D01 /* 引导页2.jpg */; };
 		F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6620B81C5800F01D01 /* 引导页1.jpg */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
-		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
-		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
-		F2487F4A20AE9F270005F624 /* CKCouponNotCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */; };
-		F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */; };
-		F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */; };
-		F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */; };
-		F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F4020AE9F260005F624 /* CKCouponModel.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
-		F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */; };
 		F255513D20BD44EE0097C2A4 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */; };
 		F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */; };
 		F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255514620BD450B0097C2A4 /* libPaymentControl.a */; };
@@ -462,6 +454,14 @@
 		F2C1E78920C1335D00ECCFFE /* ArrearsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77E20C1335D00ECCFFE /* ArrearsTableCell.m */; };
 		F2C1E78A20C1335D00ECCFFE /* ArrearsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77F20C1335D00ECCFFE /* ArrearsTableCell.xib */; };
 		F2C1E78B20C1335D00ECCFFE /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */; };
+		F2C1E79E20C133F300ECCFFE /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */; };
+		F2C1E79F20C133F300ECCFFE /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */; };
+		F2C1E7A020C133F300ECCFFE /* CKCouponNotCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */; };
+		F2C1E7A120C133F300ECCFFE /* expireCoupon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */; };
+		F2C1E7A220C133F300ECCFFE /* expireCoupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */; };
+		F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */; };
+		F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */; };
+		F2C1E7A520C133F300ECCFFE /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -1318,21 +1318,8 @@
 		F23F1A6620B81C5800F01D01 /* 引导页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页1.jpg"; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
-		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
-		F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCannotUseCell.m; sourceTree = "<group>"; };
-		F2487F3620AE9F260005F624 /* CKCouponCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCanUseCell.h; sourceTree = "<group>"; };
-		F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCanUseCell.m; sourceTree = "<group>"; };
-		F2487F3820AE9F260005F624 /* CKCouponNotCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponNotCanUseCell.h; sourceTree = "<group>"; };
-		F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponNotCanUseCell.m; sourceTree = "<group>"; };
-		F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@1x.png"; sourceTree = "<group>"; };
-		F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@2x.png"; sourceTree = "<group>"; };
-		F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@3x.png"; sourceTree = "<group>"; };
-		F2487F3F20AE9F260005F624 /* CKCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponModel.h; sourceTree = "<group>"; };
-		F2487F4020AE9F260005F624 /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
 		F2487F5220AEA2CD0005F624 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
-		F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
-		F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
 		F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		F255514220BD450B0097C2A4 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
@@ -1361,6 +1348,19 @@
 		F2C1E77F20C1335D00ECCFFE /* ArrearsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsTableCell.xib; sourceTree = "<group>"; };
 		F2C1E78120C1335D00ECCFFE /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
 		F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
+		F2C1E78E20C133F300ECCFFE /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
+		F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCannotUseCell.m; sourceTree = "<group>"; };
+		F2C1E79020C133F300ECCFFE /* CKCouponCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCanUseCell.h; sourceTree = "<group>"; };
+		F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCanUseCell.m; sourceTree = "<group>"; };
+		F2C1E79220C133F300ECCFFE /* CKCouponNotCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponNotCanUseCell.h; sourceTree = "<group>"; };
+		F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponNotCanUseCell.m; sourceTree = "<group>"; };
+		F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@1x.png"; sourceTree = "<group>"; };
+		F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@2x.png"; sourceTree = "<group>"; };
+		F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@3x.png"; sourceTree = "<group>"; };
+		F2C1E79920C133F300ECCFFE /* CKCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponModel.h; sourceTree = "<group>"; };
+		F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
+		F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
+		F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1885,8 +1885,8 @@
 		2D0723CD2082FB560030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F2C1E78C20C133F300ECCFFE /* 产品优惠券 */,
 				F293ABDE20B4122C00722FE3 /* 收货地址 */,
-				F2487F3220AE9F260005F624 /* 产品优惠券 */,
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
 				F20C4D55208CCD130086282A /* 分期还款 */,
 				F2C1E77020C1335D00ECCFFE /* 欠款管理 */,
@@ -2866,58 +2866,6 @@
 			path = "Sobot(智齿)";
 			sourceTree = "<group>";
 		};
-		F2487F3220AE9F260005F624 /* 产品优惠券 */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F5520AEAA3E0005F624 /* ViewController */,
-				F2487F3320AE9F260005F624 /* cell */,
-				F2487F3A20AE9F260005F624 /* image */,
-				F2487F3E20AE9F260005F624 /* model */,
-			);
-			path = "产品优惠券";
-			sourceTree = "<group>";
-		};
-		F2487F3320AE9F260005F624 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */,
-				F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */,
-				F2487F3620AE9F260005F624 /* CKCouponCanUseCell.h */,
-				F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */,
-				F2487F3820AE9F260005F624 /* CKCouponNotCanUseCell.h */,
-				F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		F2487F3A20AE9F260005F624 /* image */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */,
-				F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */,
-				F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */,
-			);
-			path = image;
-			sourceTree = "<group>";
-		};
-		F2487F3E20AE9F260005F624 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3F20AE9F260005F624 /* CKCouponModel.h */,
-				F2487F4020AE9F260005F624 /* CKCouponModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		F2487F5520AEAA3E0005F624 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */,
-				F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		F255513A20BD44ED0097C2A4 /* AlipaySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -3032,6 +2980,58 @@
 			children = (
 				F2C1E78120C1335D00ECCFFE /* ArrearsManagerViewController.h */,
 				F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F2C1E78C20C133F300ECCFFE /* 产品优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E78D20C133F300ECCFFE /* cell */,
+				F2C1E79420C133F300ECCFFE /* image */,
+				F2C1E79820C133F300ECCFFE /* model */,
+				F2C1E79B20C133F300ECCFFE /* ViewController */,
+			);
+			path = "产品优惠券";
+			sourceTree = "<group>";
+		};
+		F2C1E78D20C133F300ECCFFE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E78E20C133F300ECCFFE /* CKCouponCannotUseCell.h */,
+				F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */,
+				F2C1E79020C133F300ECCFFE /* CKCouponCanUseCell.h */,
+				F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */,
+				F2C1E79220C133F300ECCFFE /* CKCouponNotCanUseCell.h */,
+				F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		F2C1E79420C133F300ECCFFE /* image */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */,
+				F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */,
+				F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		F2C1E79820C133F300ECCFFE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79920C133F300ECCFFE /* CKCouponModel.h */,
+				F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F2C1E79B20C133F300ECCFFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */,
+				F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3447,7 +3447,6 @@
 				F2C1E78820C1335D00ECCFFE /* ArrearsHeaderView.xib in Resources */,
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
-				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D7B8D6720BFCC1F000EAFB1 /* MessageOffDetailViewCell.xib in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
@@ -3473,6 +3472,7 @@
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
+				F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */,
 				2DA0C38620B925480031AC47 /* GoodSDetailBackViewCell.xib in Resources */,
 				2DA0C37C20B920A60031AC47 /* GoodsDetailViewController.xib in Resources */,
 				F2F3430120BAA2A500004E90 /* LICENSE in Resources */,
@@ -3494,7 +3494,6 @@
 				2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */,
 				2D83E27620BED8B100F2D375 /* WBSQQKInfoViewCell.xib in Resources */,
 				2D808E7A20BC2BEC002FADA8 /* ODWuliuCell.xib in Resources */,
-				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D83E28D20BF000200F2D375 /* MessageDetailViewCell.xib in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
@@ -3504,6 +3503,7 @@
 				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
 				2D83E26C20BED5ED00F2D375 /* WBFenqiSelecView.xib in Resources */,
 				F23F1A6720B81C5800F01D01 /* 引导页3.jpg in Resources */,
+				F2C1E7A120C133F300ECCFFE /* expireCoupon@1x.png in Resources */,
 				2D83E27B20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.xib in Resources */,
 				2D6F926C208F5040007DFD0B /* TeacherDetailVC.xib in Resources */,
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
@@ -3521,7 +3521,6 @@
 				2D791C7120905C4900E455F5 /* ClassListVC.xib in Resources */,
 				F2F3432E20BAA2A500004E90 /* HXWeiboPhotoPicker.bundle in Resources */,
 				F23E655020B686D900EB6720 /* MyinvoicesCheckingCell.xib in Resources */,
-				F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
@@ -3532,6 +3531,7 @@
 				2D072670208311BE0030996F /* ic_close_grey2.png in Resources */,
 				2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */,
 				F20039C62089A10600499D39 /* mine.xcassets in Resources */,
+				F2C1E7A220C133F300ECCFFE /* expireCoupon@2x.png in Resources */,
 				2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */,
 				F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */,
 				2DA0C38B20B926ED0031AC47 /* GoodSdetailBottomViewCell.xib in Resources */,
@@ -3667,7 +3667,6 @@
 				F2F3433120BAA2A500004E90 /* UIButton+HXExtension.m in Sources */,
 				F2F3432320BAA2A500004E90 /* HXPhotoResultModel.m in Sources */,
 				2DA0C2E620B712F80031AC47 /* CommPingLunListViewController.m in Sources */,
-				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
 				2DA0C36320B867810031AC47 /* SDWebImageManager+MJ.m in Sources */,
 				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				F2F3432520BAA2A500004E90 /* HXPhotoTools.m in Sources */,
@@ -3678,7 +3677,6 @@
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				F2F3431A20BAA2A500004E90 /* HXFullScreenCameraViewController.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
-				F2487F4A20AE9F270005F624 /* CKCouponNotCanUseCell.m in Sources */,
 				2D20DE632086187200095032 /* UILabel+configure.m in Sources */,
 				2D07268F20832B1C0030996F /* MenuCollectionViewCell.m in Sources */,
 				2D3B015520936423007CF4E6 /* TKHomeDataModel.m in Sources */,
@@ -3760,6 +3758,7 @@
 				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
 				2DA0C35320B867810031AC47 /* ELCConsole.m in Sources */,
+				F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */,
 				2DA0C35720B867810031AC47 /* ELCAlbumPickerController.m in Sources */,
 				2D20DF122088CDE300095032 /* CKRealnameIdentifyView.m in Sources */,
 				2D4D60ED20B3E6BF00280033 /* ClassItemViewCell.m in Sources */,
@@ -3793,6 +3792,7 @@
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2DA0C39320B92BD70031AC47 /* BaseGoodSDetailViewCell.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
+				F2C1E79F20C133F300ECCFFE /* CKCouponCanUseCell.m in Sources */,
 				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
 				F2F3432620BAA2A500004E90 /* HXPhotoUIManager.m in Sources */,
@@ -3813,7 +3813,6 @@
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D791C6A20905BCA00E455F5 /* WBContentView.m in Sources */,
 				2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */,
-				F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */,
 				F2C1E78B20C1335D00ECCFFE /* ArrearsManagerViewController.m in Sources */,
 				2D072682208325E20030996F /* WBAdsImgView.m in Sources */,
 				2D0723E32082FEB30030996F /* CommunityViewController.m in Sources */,
@@ -3864,17 +3863,16 @@
 				2D20DDE82086142000095032 /* RequestManager+CK.m in Sources */,
 				2D808E8820BC2C2E002FADA8 /* ODGoodInfoViewCell.m in Sources */,
 				2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */,
+				F2C1E7A020C133F300ECCFFE /* CKCouponNotCanUseCell.m in Sources */,
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2DA0C35D20B867810031AC47 /* MJPhotoLoadingView.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
 				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
-				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
 				2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */,
 				F2F3430D20BAA2A500004E90 /* HXCustomNavigationController.m in Sources */,
-				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
 				F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */,
@@ -3886,6 +3884,7 @@
 				F2F3434920BBE71E00004E90 /* Goods.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
 				2D83E27520BED8B100F2D375 /* WBSQQKInfoViewCell.m in Sources */,
+				F2C1E79E20C133F300ECCFFE /* CKCouponCannotUseCell.m in Sources */,
 				2D20DED12088CAD400095032 /* CKShareManager.m in Sources */,
 				F2C1E78920C1335D00ECCFFE /* ArrearsTableCell.m in Sources */,
 				F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */,
@@ -3949,6 +3948,7 @@
 				2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */,
 				2D20DF282088CEC400095032 /* PPNetworkCache.m in Sources */,
 				2D20DEA82088C80D00095032 /* ZJTitleView.m in Sources */,
+				F2C1E7A520C133F300ECCFFE /* CKCouponDetailViewController.m in Sources */,
 				2D20DF6B2088D6D300095032 /* SelectedProviceViewController.m in Sources */,
 				2DA0C2EF20B79E1C0031AC47 /* CommDetailHeaderView.m in Sources */,
 				2D20DE022086147300095032 /* getUUID.m in Sources */,

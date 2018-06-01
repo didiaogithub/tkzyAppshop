@@ -226,7 +226,6 @@
 		2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB22088DAB200095032 /* SCCouponDetailModel.m */; };
 		2D20DFB62088DD0D00095032 /* SCReleaseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB42088DD0D00095032 /* SCReleaseCommentCell.m */; };
 		2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB82089898A00095032 /* SCMineViewController.m */; };
-		2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBA2089899E00095032 /* SCOrderListViewController.m */; };
 		2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBE208989AE00095032 /* YSCollectionViewController.m */; };
 		2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC0208989B900095032 /* YSMemberPointViewController.m */; };
 		2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC4208989C800095032 /* WebDetailViewController.m */; };
@@ -462,6 +461,7 @@
 		F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */; };
 		F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */; };
 		F2C1E7A520C133F300ECCFFE /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */; };
+		F2C1E7A820C1381B00ECCFFE /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -978,8 +978,6 @@
 		2D20DFB52088DD0D00095032 /* SCReleaseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReleaseCommentCell.h; sourceTree = "<group>"; };
 		2D20DFB72089898A00095032 /* SCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineViewController.h; sourceTree = "<group>"; };
 		2D20DFB82089898A00095032 /* SCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineViewController.m; sourceTree = "<group>"; };
-		2D20DFBA2089899E00095032 /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
-		2D20DFBB2089899E00095032 /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
 		2D20DFBD208989AD00095032 /* YSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCollectionViewController.h; sourceTree = "<group>"; };
 		2D20DFBE208989AE00095032 /* YSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCollectionViewController.m; sourceTree = "<group>"; };
 		2D20DFC0208989B900095032 /* YSMemberPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointViewController.m; sourceTree = "<group>"; };
@@ -1361,6 +1359,8 @@
 		F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
 		F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
 		F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
+		F2C1E7A620C1381B00ECCFFE /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
+		F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1890,8 +1890,8 @@
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
 				F20C4D55208CCD130086282A /* 分期还款 */,
 				F2C1E77020C1335D00ECCFFE /* 欠款管理 */,
-				2D20DFBB2089899E00095032 /* SCOrderListViewController.h */,
-				2D20DFBA2089899E00095032 /* SCOrderListViewController.m */,
+				F2C1E7A620C1381B00ECCFFE /* SCOrderListViewController.h */,
+				F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */,
 				F2FA14DE20B556A90066B153 /* MineInfoViewController.h */,
 				F2FA14DF20B556A90066B153 /* MineInfoViewController.m */,
 				F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */,
@@ -3827,6 +3827,7 @@
 				F2487F3120AE730B0005F624 /* SobotManager.m in Sources */,
 				2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */,
 				F2F3431C20BAA2A500004E90 /* HXPhotoCustomNavigationBar.m in Sources */,
+				F2C1E7A820C1381B00ECCFFE /* SCOrderListViewController.m in Sources */,
 				2D20DE74208629D300095032 /* SDCycleScrollView.m in Sources */,
 				2D83E27A20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.m in Sources */,
 				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
@@ -3942,7 +3943,6 @@
 				2D20DE5F2086187200095032 /* UIButton+Common.m in Sources */,
 				2D0723B52082FA050030996F /* AppDelegate.m in Sources */,
 				2D20DE22208614CE00095032 /* UITableView+PlaceHolder.m in Sources */,
-				2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */,
 				2D20DEA92088C80D00095032 /* ZJSegmentStyle.m in Sources */,
 				2D808E7020BA5BD4002FADA8 /* STCountDownConst.m in Sources */,
 				2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */,

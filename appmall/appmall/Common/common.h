@@ -294,7 +294,7 @@
 /**删除订单*/
 #define DelOrderUrl @"Order/deleteOrder"
 /**取消订单*/
-#define CancelOrderUrl @"Wxmall/Order/cancelOrder"
+#define CancelOrderUrl @"Order/cancelOrder"
 /**发表评论*/
 #define AddCommentUrl @"Order/addComment"
 /**退换货申请*/

@@ -249,9 +249,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     arrearsModel *model = self.dataArray[section];
-    view.orderNo.text = [NSString stringWithFormat:@"订单编号:%@",model.no];
+    view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
     int status = [self.statusString intValue];
-    view.orderStates.text = titleArr[status - 1];
+    
+    NSString *str = titleArr[status - 1];
+    if ([str isEqualToString:@"待还款"]) {
+        view.orderStates.text = [NSString stringWithFormat:@"距离最晚还款日还有%ld天",(long)model.limittime];
+        view.orderStates.adjustsFontSizeToFitWidth = YES;
+    }else{
+       view.orderStates.text = titleArr[status - 1];
+    }
+    
     return view;
 }
 
@@ -261,7 +269,25 @@
     view.leftBtn.tag = section;
     view.rightBtn.tag = section;
     arrearsModel  * model = self.dataArray[section];
-    view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%@",model.ordermoney];
+    view.orderTotal.font = [UIFont systemFontOfSize:18];
+    
+    int status = [self.statusString intValue];
+    NSString *str = titleArr[status - 1];
+    if ([str isEqualToString:@"待还款"]) {
+        view.leftBtn.hidden = YES;
+    }else if ([str isEqualToString:@"已还款"]){
+        view.orderTotal.textColor = [UIColor tt_grayBgColor];
+        view.orderTotal.font = [UIFont systemFontOfSize:14];
+        view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
+    }else{
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%@",model.ordermoney];
+        view.orderTotal.keyWord = @"合计：";
+        view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
+        
+    }
+   
+   
    
     return view;
 }

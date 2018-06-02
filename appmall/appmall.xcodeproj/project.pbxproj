@@ -444,8 +444,6 @@
 		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
 		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
 		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
-		F2C1E78320C1335D00ECCFFE /* arrearsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77320C1335D00ECCFFE /* arrearsModel.m */; };
-		F2C1E78420C1335D00ECCFFE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77520C1335D00ECCFFE /* Item.m */; };
 		F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */; };
 		F2C1E78620C1335D00ECCFFE /* ArrearsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */; };
 		F2C1E78720C1335D00ECCFFE /* ArrearsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77B20C1335D00ECCFFE /* ArrearsHeaderView.m */; };
@@ -532,6 +530,9 @@
 		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
 		F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */; };
 		F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */; };
+		F2FC5A3B20C171370040369E /* arrearsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3720C171360040369E /* arrearsModel.m */; };
+		F2FC5A3C20C171370040369E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3920C171360040369E /* Item.m */; };
+		F2FC5A3F20C171940040369E /* MGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3E20C171940040369E /* MGLabel.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -1331,10 +1332,6 @@
 		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F2C1E77220C1335D00ECCFFE /* arrearsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrearsModel.h; sourceTree = "<group>"; };
-		F2C1E77320C1335D00ECCFFE /* arrearsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrearsModel.m; sourceTree = "<group>"; };
-		F2C1E77420C1335D00ECCFFE /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		F2C1E77520C1335D00ECCFFE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		F2C1E77720C1335D00ECCFFE /* ArrearsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsFooterView.h; sourceTree = "<group>"; };
 		F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsFooterView.m; sourceTree = "<group>"; };
 		F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsFooterView.xib; sourceTree = "<group>"; };
@@ -1491,6 +1488,12 @@
 		F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
 		F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
 		F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
+		F2FC5A3720C171360040369E /* arrearsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrearsModel.m; sourceTree = "<group>"; };
+		F2FC5A3820C171360040369E /* arrearsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrearsModel.h; sourceTree = "<group>"; };
+		F2FC5A3920C171360040369E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F2FC5A3A20C171370040369E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		F2FC5A3D20C171940040369E /* MGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLabel.h; sourceTree = "<group>"; };
+		F2FC5A3E20C171940040369E /* MGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLabel.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2306,6 +2309,8 @@
 		2D20DDEA2086146300095032 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F2FC5A3D20C171940040369E /* MGLabel.h */,
+				F2FC5A3E20C171940040369E /* MGLabel.m */,
 				2D20DF192088CE9E00095032 /* Cache */,
 				2D20DE902088C7FE00095032 /* ZJScrollPageView */,
 				2D20DE6B208629A700095032 /* SDCycleScrollView */,
@@ -2951,10 +2956,10 @@
 		F2C1E77120C1335D00ECCFFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F2C1E77220C1335D00ECCFFE /* arrearsModel.h */,
-				F2C1E77320C1335D00ECCFFE /* arrearsModel.m */,
-				F2C1E77420C1335D00ECCFFE /* Item.h */,
-				F2C1E77520C1335D00ECCFFE /* Item.m */,
+				F2FC5A3820C171360040369E /* arrearsModel.h */,
+				F2FC5A3720C171360040369E /* arrearsModel.m */,
+				F2FC5A3A20C171370040369E /* Item.h */,
+				F2FC5A3920C171360040369E /* Item.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3685,6 +3690,7 @@
 				F2F3430F20BAA2A500004E90 /* HXDatePhotoCollectionViewLayout.m in Sources */,
 				2DA0C37B20B920A60031AC47 /* GoodsDetailViewController.m in Sources */,
 				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
+				F2FC5A3F20C171940040369E /* MGLabel.m in Sources */,
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				F2F3431720BAA2A500004E90 /* HXDatePhotoViewPresentTransition.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
@@ -3734,7 +3740,6 @@
 				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
 				F2F3432D20BAA2A500004E90 /* HXVideoPreviewViewController.m in Sources */,
 				2D20DEC72088CA2A00095032 /* OrderBottomView.m in Sources */,
-				F2C1E78320C1335D00ECCFFE /* arrearsModel.m in Sources */,
 				F2FA14D920B556940066B153 /* MineInfoCell.m in Sources */,
 				2D20DDE62086142000095032 /* HttpTool.m in Sources */,
 				2D20DF362088CEDF00095032 /* YYKVStorage.m in Sources */,
@@ -3746,6 +3751,7 @@
 				F2F3433420BAA2A500004E90 /* UIView+HXExtension.m in Sources */,
 				2DA0C35B20B867810031AC47 /* PictureCollectionViewCell.m in Sources */,
 				F23E655920B68DC500EB6720 /* AddInvoicesDataViewController.m in Sources */,
+				F2FC5A3C20C171370040369E /* Item.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				F2F3430C20BAA2A500004E90 /* HXCustomCameraViewController.m in Sources */,
@@ -3821,7 +3827,6 @@
 				2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */,
 				2D20DFDE20898AC700095032 /* SearchTopView.m in Sources */,
 				F2F3430820BAA2A500004E90 /* HXCameraViewController.m in Sources */,
-				F2C1E78420C1335D00ECCFFE /* Item.m in Sources */,
 				2D20DEDD2088CB2F00095032 /* XLImageContainer.m in Sources */,
 				2D791C6C20905BCA00E455F5 /* WBMenu.m in Sources */,
 				F2487F3120AE730B0005F624 /* SobotManager.m in Sources */,
@@ -3913,6 +3918,7 @@
 				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
+				F2FC5A3B20C171370040369E /* arrearsModel.m in Sources */,
 				F2F3432120BAA2A500004E90 /* HXPhotoPreviewViewCell.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
 				2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */,
@@ -4192,7 +4198,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22WA36MPYQ;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4222,7 +4228,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22WA36MPYQ;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",

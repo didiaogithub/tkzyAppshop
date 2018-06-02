@@ -67,7 +67,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *jsonStr = [responseObject mj_JSONString];
-        NSLog(@"\n\n\n[---POST----Result----]:%@     --request.URL-->%@\n\n\n", jsonStr, url);
+        NSLog(@"\n\n\n[---GET----Result----]:%@     --request.URL-->%@\n\n\n", jsonStr, url);
         if (success) {
             
             NSDictionary *dict = responseObject;

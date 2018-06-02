@@ -47,7 +47,7 @@
     //地址图标
     _addressImageView = [[UIImageView alloc] init];
     [_bankView addSubview:_addressImageView];
-    UIImage *headimage = [UIImage imageNamed:@"location"];
+    UIImage *headimage = [UIImage imageNamed:@"定位"];
     _addressImageView.image = [headimage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     //详细地址
     _addressDetailLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:14.0]];

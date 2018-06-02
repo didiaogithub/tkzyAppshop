@@ -26,6 +26,7 @@
             self.rightBtn.layer.borderWidth = 1;
             self.rightBtn.layer.masksToBounds = YES;
             self.rightBtn.layer.cornerRadius = 3;
+              self.orderTotal.textColor = [UIColor tt_redMoneyColor];
         }
     }
     self.frame = frame;

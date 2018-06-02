@@ -7,8 +7,11 @@
 #import "arrearsModel.h"
 
 NSString *const karrearsModelItems = @"items";
-NSString *const karrearsModelNo = @"no";
+NSString *const karrearsModelLimittime = @"limittime";
+NSString *const karrearsModelOrderid = @"orderid";
 NSString *const karrearsModelOrdermoney = @"ordermoney";
+NSString *const karrearsModelOrderno = @"orderno";
+NSString *const karrearsModelPaybacktime = @"paybacktime";
 
 @interface arrearsModel ()
 @end
@@ -33,11 +36,21 @@ NSString *const karrearsModelOrdermoney = @"ordermoney";
 		}
 		self.items = itemsItems;
 	}
-	if(![dictionary[karrearsModelNo] isKindOfClass:[NSNull class]]){
-		self.no = dictionary[karrearsModelNo];
+	if(![dictionary[karrearsModelLimittime] isKindOfClass:[NSNull class]]){
+		self.limittime = [dictionary[karrearsModelLimittime] integerValue];
+	}
+
+	if(![dictionary[karrearsModelOrderid] isKindOfClass:[NSNull class]]){
+		self.orderid = dictionary[karrearsModelOrderid];
 	}	
 	if(![dictionary[karrearsModelOrdermoney] isKindOfClass:[NSNull class]]){
 		self.ordermoney = dictionary[karrearsModelOrdermoney];
+	}	
+	if(![dictionary[karrearsModelOrderno] isKindOfClass:[NSNull class]]){
+		self.orderno = dictionary[karrearsModelOrderno];
+	}	
+	if(![dictionary[karrearsModelPaybacktime] isKindOfClass:[NSNull class]]){
+		self.paybacktime = dictionary[karrearsModelPaybacktime];
 	}	
 	return self;
 }
@@ -56,11 +69,18 @@ NSString *const karrearsModelOrdermoney = @"ordermoney";
 		}
 		dictionary[karrearsModelItems] = dictionaryElements;
 	}
-	if(self.no != nil){
-		dictionary[karrearsModelNo] = self.no;
+	dictionary[karrearsModelLimittime] = @(self.limittime);
+	if(self.orderid != nil){
+		dictionary[karrearsModelOrderid] = self.orderid;
 	}
 	if(self.ordermoney != nil){
 		dictionary[karrearsModelOrdermoney] = self.ordermoney;
+	}
+	if(self.orderno != nil){
+		dictionary[karrearsModelOrderno] = self.orderno;
+	}
+	if(self.paybacktime != nil){
+		dictionary[karrearsModelPaybacktime] = self.paybacktime;
 	}
 	return dictionary;
 
@@ -77,11 +97,17 @@ NSString *const karrearsModelOrdermoney = @"ordermoney";
 	if(self.items != nil){
 		[aCoder encodeObject:self.items forKey:karrearsModelItems];
 	}
-	if(self.no != nil){
-		[aCoder encodeObject:self.no forKey:karrearsModelNo];
+	[aCoder encodeObject:@(self.limittime) forKey:karrearsModelLimittime];	if(self.orderid != nil){
+		[aCoder encodeObject:self.orderid forKey:karrearsModelOrderid];
 	}
 	if(self.ordermoney != nil){
 		[aCoder encodeObject:self.ordermoney forKey:karrearsModelOrdermoney];
+	}
+	if(self.orderno != nil){
+		[aCoder encodeObject:self.orderno forKey:karrearsModelOrderno];
+	}
+	if(self.paybacktime != nil){
+		[aCoder encodeObject:self.paybacktime forKey:karrearsModelPaybacktime];
 	}
 
 }
@@ -93,8 +119,11 @@ NSString *const karrearsModelOrdermoney = @"ordermoney";
 {
 	self = [super init];
 	self.items = [aDecoder decodeObjectForKey:karrearsModelItems];
-	self.no = [aDecoder decodeObjectForKey:karrearsModelNo];
+	self.limittime = [[aDecoder decodeObjectForKey:karrearsModelLimittime] integerValue];
+	self.orderid = [aDecoder decodeObjectForKey:karrearsModelOrderid];
 	self.ordermoney = [aDecoder decodeObjectForKey:karrearsModelOrdermoney];
+	self.orderno = [aDecoder decodeObjectForKey:karrearsModelOrderno];
+	self.paybacktime = [aDecoder decodeObjectForKey:karrearsModelPaybacktime];
 	return self;
 
 }
@@ -107,8 +136,11 @@ NSString *const karrearsModelOrdermoney = @"ordermoney";
 	arrearsModel *copy = [arrearsModel new];
 
 	copy.items = [self.items copy];
-	copy.no = [self.no copy];
+	copy.limittime = self.limittime;
+	copy.orderid = [self.orderid copy];
 	copy.ordermoney = [self.ordermoney copy];
+	copy.orderno = [self.orderno copy];
+	copy.paybacktime = [self.paybacktime copy];
 
 	return copy;
 }

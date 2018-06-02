@@ -543,7 +543,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             
         }else{
             NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-            NSString *str = [NSString stringWithFormat:@"共%@件商品，合计:¥%@", count, allMoney];
+            NSString *str = [NSString stringWithFormat:@"合计:¥%@", allMoney];
             
             NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
             //获取要调整颜色的文字位置,调整颜色

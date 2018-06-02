@@ -9,7 +9,7 @@
 #import "AddInvoicesDataViewController.h"
 #import "LeftLabelRightTextFieldView.h"
 #import "QRadioButton.h"
-@interface AddInvoicesDataViewController ()<QRadioButtonDelegate>
+@interface AddInvoicesDataViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QRadioButtonDelegate>
 {
     UILabel *line2;
     UILabel *line3;
@@ -17,6 +17,7 @@
     UILabel *line5;
     UILabel *line6;
     UILabel *line7;
+    NSString *url;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contViewH;
 /**  抬头类型*/
@@ -33,9 +34,13 @@
 @property (nonatomic, strong) LeftLabelRightTextFieldView *dzView;
 /**  电话*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *dhView;
+/**  是否选中企业*/
+@property (nonatomic, assign) BOOL isQY;
 
 /**  发票证明材料*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *fpzmclView;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) NSMutableArray *headImageArr;
 
 /**  type*/
 @property (nonatomic, strong) NSString *type;
@@ -51,12 +56,22 @@
 @end
 
 @implementation AddInvoicesDataViewController
-
+-(NSMutableArray *)headImageArr{
+    if (_headImageArr == nil) {
+        _headImageArr = [NSMutableArray array];
+    }
+    return _headImageArr;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加发票信息";
-    
+    self.isQY = YES;
     [self initCompontments];
+    [self setRightButton:@"模板下载"];
+}
+
+- (void)rightBtnPressed{
+    NSLog(@"模板下载");
 }
 
 - (void)initCompontments{
@@ -303,6 +318,7 @@
         line5.hidden = YES;
         line6.hidden = YES;
         self.contViewH.constant = 250;
+        self.isQY = NO;
         self.type = @"1";
     }else{// 企业单位
         self.type = @"2";
@@ -318,13 +334,114 @@
         line4.hidden = NO;
         line5.hidden = NO;
         line6.hidden = NO;
+        self.isQY = YES;
     }
 }
 
 
 - (void)pzAction{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+    //添加Button
+    [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //处理点击拍照
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"Test on real device, camera is not available in simulator" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+            return;
+        }
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        _imagePicker.allowsEditing = YES;
+        _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:_imagePicker animated:YES completion:nil];
+        
+        
+    }]];
+    
+    [alertController addAction: [UIAlertAction actionWithTitle: @"从相册选取" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        //处理点击从相册选取
+        // 跳转到相机或相册页面
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        _imagePicker.allowsEditing = YES;
+        _imagePicker.editing = YES;
+        _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        if (@available(iOS 11, *)) {
+            UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
+        }
+        [self presentViewController:_imagePicker animated:YES completion:nil];
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController: alertController animated: YES completion: nil];
     
 }
+
+#pragma mark --- 选择照片代理方法UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage * oldImage = nil;
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        oldImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        //将图片保存到相册的方法的参数说明：image:需要保存的图片，self：代理对象，@selector :完成后执行的方法
+    }else if(picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary){
+        oldImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    }
+    
+    [self uploadImage:oldImage];
+    
+    if (@available(iOS 11, *)) {
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    if (@available(iOS 11, *)) {
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+/**拍照上传时，先保存图片到图库，再上传*/
+-(void)uploadImage:(UIImage*)image {
+    //旋转图片
+    UIImage *imageSales = [UIImage fixOrientation:image];
+    //显示头像
+//    [self.iconImage setImage:imageSales];
+    NSString *headDicUrl = [NSString stringWithFormat:@"%@%@",CommentResAPI,APIuploadfileimg];
+    //    NSString *dateStr = [NSDate dateNow];
+    //    NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
+    [self.headImageArr addObject:imageSales];
+    NSDictionary *pramaDic = @{@"file":imageSales};
+    
+    //保存头像
+    [HttpTool uploadWithUrl:headDicUrl andImages:self.headImageArr andPramaDic:pramaDic completion:^(NSString *url, NSError *error) {
+        NSLog(@"正在上传");
+        
+    } success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        
+        if ([dict[@"code"] integerValue] != 200) {
+            [self showNoticeView:dict[@"message"]];
+            return ;
+        }
+        url =  dict[@"data"][@"url"];
+      
+        [self showNoticeView:@"上传成功"];
+        
+    } fail:^(NSError *error){
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -332,6 +449,43 @@
 
 
 - (IBAction)tjBtnAction:(UIButton *)sender {
+    
+    if (self.isQY == YES) {
+        if (IsNilOrNull(self.fpttView.rightTextField.text)) {
+            [self showNoticeView:@"请输入发票抬头"];
+            return;
+        }
+        if (IsNilOrNull(self.shView.rightTextField.text)) {
+            [self showNoticeView:@"请输入税号"];
+             return;
+        }
+        if (IsNilOrNull(self.khhView.rightTextField.text)) {
+            [self showNoticeView:@"请输入开户行"];
+             return;
+        }
+        if (IsNilOrNull(self.zhView.rightTextField.text)) {
+            [self showNoticeView:@"请输入账号"];
+             return;
+        }
+        if (IsNilOrNull(self.dzView.rightTextField.text)) {
+            [self showNoticeView:@"请输入地址"];
+             return;
+        }
+        if (IsNilOrNull(self.dhView.rightTextField.text)) {
+            [self showNoticeView:@"请输入电话"];
+            return;
+        }
+        if (IsNilOrNull(url)) {
+            [self showNoticeView:@"请上传发票证明材料"];
+        }
+    }else{
+        if (IsNilOrNull(self.fpttView.rightTextField.text)) {
+            [self showNoticeView:@"请输入发票抬头"];
+            return;
+        }
+    }
+    
+    
     
     
     

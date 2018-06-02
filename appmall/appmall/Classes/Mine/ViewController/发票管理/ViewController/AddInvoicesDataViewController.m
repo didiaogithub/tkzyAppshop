@@ -13,13 +13,27 @@
 {
     UILabel *line2;
     UILabel *line3;
+    UILabel *line4;
+    UILabel *line5;
+    UILabel *line6;
+    UILabel *line7;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contViewH;
 /**  抬头类型*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *ttlxView;
 /**  发票抬头*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *fpttView;
 /**  税号*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *shView;
+/**  开户行*/
+@property (nonatomic, strong) LeftLabelRightTextFieldView *khhView;
+/**  账号*/
+@property (nonatomic, strong) LeftLabelRightTextFieldView *zhView;
+/**  地址*/
+@property (nonatomic, strong) LeftLabelRightTextFieldView *dzView;
+/**  电话*/
+@property (nonatomic, strong) LeftLabelRightTextFieldView *dhView;
+
 /**  发票证明材料*/
 @property (nonatomic, strong) LeftLabelRightTextFieldView *fpzmclView;
 
@@ -140,6 +154,101 @@
         make.height.mas_offset(1);
         make.top.mas_equalTo(self.shView.mas_bottom);
     }];
+    
+    // 开户行
+    self.khhView = [[LeftLabelRightTextFieldView alloc] init];
+    self.khhView.backgroundColor = [UIColor whiteColor];
+    [self.contView addSubview:self.khhView];
+    self.khhView.rightLabel.hidden = YES;
+    self.khhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*开户行"];
+    self.khhView.rightTextField.placeholder = @"请输入开户行";
+    [self.khhView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_offset(0);
+        make.top.equalTo(line2.mas_bottom);
+        make.height.mas_offset(44);
+    }];
+    line3 = [UILabel creatLineLable];
+    [self.contView addSubview:line3];
+    [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contView).mas_offset(15);
+        make.right.equalTo(self.contView).mas_offset(-15);
+        make.height.mas_offset(1);
+        make.top.mas_equalTo(self.khhView.mas_bottom);
+    }];
+    
+//    /**  账号*/
+//    @property (nonatomic, strong) LeftLabelRightTextFieldView *zhView;
+    self.zhView = [[LeftLabelRightTextFieldView alloc] init];
+    self.zhView.backgroundColor = [UIColor whiteColor];
+    [self.contView addSubview:self.zhView];
+    self.zhView.rightLabel.hidden = YES;
+    self.zhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*账号"];
+    self.zhView.rightTextField.placeholder = @"请输入账号";
+    [self.zhView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_offset(0);
+        make.top.equalTo(line3.mas_bottom);
+        make.height.mas_offset(44);
+    }];
+    line4 = [UILabel creatLineLable];
+    [self.contView addSubview:line4];
+    [line4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contView).mas_offset(15);
+        make.right.equalTo(self.contView).mas_offset(-15);
+        make.height.mas_offset(1);
+        make.top.mas_equalTo(self.zhView.mas_bottom);
+    }];
+    
+    
+    
+//    /**  地址*/
+//    @property (nonatomic, strong) LeftLabelRightTextFieldView *dzView;
+    
+    self.dzView = [[LeftLabelRightTextFieldView alloc] init];
+    self.dzView.backgroundColor = [UIColor whiteColor];
+    [self.contView addSubview:self.dzView];
+    self.dzView.rightLabel.hidden = YES;
+    self.dzView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*地址"];
+    self.dzView.rightTextField.placeholder = @"请输入地址";
+    [self.dzView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_offset(0);
+        make.top.equalTo(line4.mas_bottom);
+        make.height.mas_offset(44);
+    }];
+    line5 = [UILabel creatLineLable];
+    [self.contView addSubview:line5];
+    [line5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contView).mas_offset(15);
+        make.right.equalTo(self.contView).mas_offset(-15);
+        make.height.mas_offset(1);
+        make.top.mas_equalTo(self.dzView.mas_bottom);
+    }];
+    
+//    /**  电话*/
+//    @property (nonatomic, strong) LeftLabelRightTextFieldView *dhView;
+    
+    self.dhView = [[LeftLabelRightTextFieldView alloc] init];
+    self.dhView.backgroundColor = [UIColor whiteColor];
+    [self.contView addSubview:self.dhView];
+    self.dhView.rightLabel.hidden = YES;
+    self.dhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*电话"];
+    self.dhView.rightTextField.placeholder = @"请输入电话";
+    [self.dhView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_offset(0);
+        make.top.equalTo(line5.mas_bottom);
+        make.height.mas_offset(44);
+    }];
+    line6 = [UILabel creatLineLable];
+    [self.contView addSubview:line6];
+    [line6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contView).mas_offset(15);
+        make.right.equalTo(self.contView).mas_offset(-15);
+        make.height.mas_offset(1);
+        make.top.mas_equalTo(self.dhView.mas_bottom);
+    }];
+    
+    
+    
+    
 
     // 发票证明材料
     self.fpzmclView = [[LeftLabelRightTextFieldView alloc] init];
@@ -155,7 +264,7 @@
     [self.pzBtn addTarget:self action:@selector(pzAction) forControlEvents:UIControlEventTouchUpInside];
     [self.pzBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
-        make.top.equalTo(line2.mas_bottom);
+        make.top.equalTo(line6.mas_bottom);
          make.height.mas_offset(44);
     }];
     UIImageView *image = [[UIImageView alloc]init];
@@ -163,24 +272,17 @@
     [self.fpzmclView addSubview:image];
     [image mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-15);
-        make.top.equalTo(line2.mas_bottom).offset(17.5);
+        make.top.equalTo(line6.mas_bottom).offset(17.5);
         make.height.mas_offset(10);
         make.width.mas_offset(10);
     }];
     
     [self.fpzmclView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
-        make.top.equalTo(line2.mas_bottom);
+        make.top.equalTo(line6.mas_bottom);
         make.height.mas_offset(44);
     }];
-    line3 = [UILabel creatLineLable];
-    [self.contView addSubview:line3];
-    [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contView).mas_offset(15);
-        make.right.equalTo(self.contView).mas_offset(-15);
-        make.height.mas_offset(1);
-        make.top.mas_equalTo(self.fpzmclView.mas_bottom);
-    }];
+
     
     
 }
@@ -191,15 +293,31 @@
     if ([radio.titleLabel.text isEqualToString:@"个人/非企业单位"]) { // 个人/非企业单位
         self.shView.hidden = YES;
         self.fpzmclView.hidden = YES;
+        self.khhView.hidden = YES;
+        self.zhView.hidden = YES;
+        self.dhView.hidden = YES;
+        self.dzView.hidden = YES;
         line2.hidden = YES;
         line3.hidden = YES;
+        line4.hidden = YES;
+        line5.hidden = YES;
+        line6.hidden = YES;
+        self.contViewH.constant = 250;
         self.type = @"1";
     }else{// 企业单位
         self.type = @"2";
+        self.contViewH.constant = 500;
         self.shView.hidden = NO;
         self.fpzmclView.hidden = NO;
+        self.khhView.hidden = NO;
+        self.zhView.hidden = NO;
+        self.dhView.hidden = NO;
+        self.dzView.hidden = NO;
         line2.hidden = NO;
         line3.hidden = NO;
+        line4.hidden = NO;
+        line5.hidden = NO;
+        line6.hidden = NO;
     }
 }
 

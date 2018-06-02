@@ -151,9 +151,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-      LoanRuleListModel *model =  self.dataArray[indexPath.row];
+    if (self.dataArray.count > 0) {
+        LoanRuleListModel *model =  self.dataArray[indexPath.row];
+        
+        self.loadid = model.loanid;
+    }
     
-      self.loadid = model.loanid;
 }
 - (IBAction)sendDataAction:(id)sender {
     

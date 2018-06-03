@@ -226,7 +226,6 @@
 		2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB22088DAB200095032 /* SCCouponDetailModel.m */; };
 		2D20DFB62088DD0D00095032 /* SCReleaseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB42088DD0D00095032 /* SCReleaseCommentCell.m */; };
 		2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFB82089898A00095032 /* SCMineViewController.m */; };
-		2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBA2089899E00095032 /* SCOrderListViewController.m */; };
 		2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFBE208989AE00095032 /* YSCollectionViewController.m */; };
 		2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC0208989B900095032 /* YSMemberPointViewController.m */; };
 		2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFC4208989C800095032 /* WebDetailViewController.m */; };
@@ -391,7 +390,6 @@
 		2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
-		F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */; };
 		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
 		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
 		F2113A8F20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8D20B58CCE00C01DA4 /* InvoicesManagerDetailVC.m */; };
@@ -435,15 +433,7 @@
 		F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6520B81C5800F01D01 /* 引导页2.jpg */; };
 		F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6620B81C5800F01D01 /* 引导页1.jpg */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
-		F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */; };
-		F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */; };
-		F2487F4A20AE9F270005F624 /* CKCouponNotCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */; };
-		F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */; };
-		F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */; };
-		F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */; };
-		F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F4020AE9F260005F624 /* CKCouponModel.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
-		F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */; };
 		F255513D20BD44EE0097C2A4 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */; };
 		F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */; };
 		F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255514620BD450B0097C2A4 /* libPaymentControl.a */; };
@@ -454,12 +444,22 @@
 		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
 		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
 		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
-		F2A92D4D20BE3C01009F0F9C /* ArrearsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */; };
-		F2A92D4F20BE3C15009F0F9C /* ArrearsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */; };
-		F2A92D5220BE3C81009F0F9C /* ArrearsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */; };
-		F2A92D5420BE3C92009F0F9C /* ArrearsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */; };
-		F2A92D5820BE3CE5009F0F9C /* ArrearsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */; };
-		F2A92D5920BE3CE5009F0F9C /* ArrearsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */; };
+		F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */; };
+		F2C1E78620C1335D00ECCFFE /* ArrearsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */; };
+		F2C1E78720C1335D00ECCFFE /* ArrearsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77B20C1335D00ECCFFE /* ArrearsHeaderView.m */; };
+		F2C1E78820C1335D00ECCFFE /* ArrearsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77C20C1335D00ECCFFE /* ArrearsHeaderView.xib */; };
+		F2C1E78920C1335D00ECCFFE /* ArrearsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77E20C1335D00ECCFFE /* ArrearsTableCell.m */; };
+		F2C1E78A20C1335D00ECCFFE /* ArrearsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77F20C1335D00ECCFFE /* ArrearsTableCell.xib */; };
+		F2C1E78B20C1335D00ECCFFE /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */; };
+		F2C1E79E20C133F300ECCFFE /* CKCouponCannotUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */; };
+		F2C1E79F20C133F300ECCFFE /* CKCouponCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */; };
+		F2C1E7A020C133F300ECCFFE /* CKCouponNotCanUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */; };
+		F2C1E7A120C133F300ECCFFE /* expireCoupon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */; };
+		F2C1E7A220C133F300ECCFFE /* expireCoupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */; };
+		F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */; };
+		F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */; };
+		F2C1E7A520C133F300ECCFFE /* CKCouponDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */; };
+		F2C1E7A820C1381B00ECCFFE /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -530,6 +530,9 @@
 		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
 		F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */; };
 		F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */; };
+		F2FC5A3B20C171370040369E /* arrearsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3720C171360040369E /* arrearsModel.m */; };
+		F2FC5A3C20C171370040369E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3920C171360040369E /* Item.m */; };
+		F2FC5A3F20C171940040369E /* MGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3E20C171940040369E /* MGLabel.m */; };
 		F2FED0672081A1ED00DFBD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0662081A1ED00DFBD77 /* Assets.xcassets */; };
 		F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FED0682081A1ED00DFBD77 /* LaunchScreen.storyboard */; };
 		F2FED0772081A1ED00DFBD77 /* appmallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FED0762081A1ED00DFBD77 /* appmallTests.m */; };
@@ -976,8 +979,6 @@
 		2D20DFB52088DD0D00095032 /* SCReleaseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReleaseCommentCell.h; sourceTree = "<group>"; };
 		2D20DFB72089898A00095032 /* SCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineViewController.h; sourceTree = "<group>"; };
 		2D20DFB82089898A00095032 /* SCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineViewController.m; sourceTree = "<group>"; };
-		2D20DFBA2089899E00095032 /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
-		2D20DFBB2089899E00095032 /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
 		2D20DFBD208989AD00095032 /* YSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCollectionViewController.h; sourceTree = "<group>"; };
 		2D20DFBE208989AE00095032 /* YSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCollectionViewController.m; sourceTree = "<group>"; };
 		2D20DFC0208989B900095032 /* YSMemberPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointViewController.m; sourceTree = "<group>"; };
@@ -1250,8 +1251,6 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
-		F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
-		F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
 		F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerCell.h; sourceTree = "<group>"; };
 		F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerCell.m; sourceTree = "<group>"; };
 		F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesManagerCell.xib; sourceTree = "<group>"; };
@@ -1318,21 +1317,8 @@
 		F23F1A6620B81C5800F01D01 /* 引导页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页1.jpg"; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
-		F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
-		F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCannotUseCell.m; sourceTree = "<group>"; };
-		F2487F3620AE9F260005F624 /* CKCouponCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCanUseCell.h; sourceTree = "<group>"; };
-		F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCanUseCell.m; sourceTree = "<group>"; };
-		F2487F3820AE9F260005F624 /* CKCouponNotCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponNotCanUseCell.h; sourceTree = "<group>"; };
-		F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponNotCanUseCell.m; sourceTree = "<group>"; };
-		F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@1x.png"; sourceTree = "<group>"; };
-		F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@2x.png"; sourceTree = "<group>"; };
-		F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@3x.png"; sourceTree = "<group>"; };
-		F2487F3F20AE9F260005F624 /* CKCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponModel.h; sourceTree = "<group>"; };
-		F2487F4020AE9F260005F624 /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
 		F2487F5220AEA2CD0005F624 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
-		F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
-		F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
 		F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		F255514220BD450B0097C2A4 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
@@ -1346,15 +1332,32 @@
 		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F2A92D4B20BE3C01009F0F9C /* ArrearsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsHeaderView.h; sourceTree = "<group>"; };
-		F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsHeaderView.m; sourceTree = "<group>"; };
-		F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsHeaderView.xib; sourceTree = "<group>"; };
-		F2A92D5020BE3C81009F0F9C /* ArrearsFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsFooterView.h; sourceTree = "<group>"; };
-		F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsFooterView.m; sourceTree = "<group>"; };
-		F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsFooterView.xib; sourceTree = "<group>"; };
-		F2A92D5520BE3CE5009F0F9C /* ArrearsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrearsTableCell.h; sourceTree = "<group>"; };
-		F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrearsTableCell.m; sourceTree = "<group>"; };
-		F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrearsTableCell.xib; sourceTree = "<group>"; };
+		F2C1E77720C1335D00ECCFFE /* ArrearsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsFooterView.h; sourceTree = "<group>"; };
+		F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsFooterView.m; sourceTree = "<group>"; };
+		F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsFooterView.xib; sourceTree = "<group>"; };
+		F2C1E77A20C1335D00ECCFFE /* ArrearsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsHeaderView.h; sourceTree = "<group>"; };
+		F2C1E77B20C1335D00ECCFFE /* ArrearsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsHeaderView.m; sourceTree = "<group>"; };
+		F2C1E77C20C1335D00ECCFFE /* ArrearsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsHeaderView.xib; sourceTree = "<group>"; };
+		F2C1E77D20C1335D00ECCFFE /* ArrearsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsTableCell.h; sourceTree = "<group>"; };
+		F2C1E77E20C1335D00ECCFFE /* ArrearsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsTableCell.m; sourceTree = "<group>"; };
+		F2C1E77F20C1335D00ECCFFE /* ArrearsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsTableCell.xib; sourceTree = "<group>"; };
+		F2C1E78120C1335D00ECCFFE /* ArrearsManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsManagerViewController.h; sourceTree = "<group>"; };
+		F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
+		F2C1E78E20C133F300ECCFFE /* CKCouponCannotUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCannotUseCell.h; sourceTree = "<group>"; };
+		F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCannotUseCell.m; sourceTree = "<group>"; };
+		F2C1E79020C133F300ECCFFE /* CKCouponCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponCanUseCell.h; sourceTree = "<group>"; };
+		F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponCanUseCell.m; sourceTree = "<group>"; };
+		F2C1E79220C133F300ECCFFE /* CKCouponNotCanUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponNotCanUseCell.h; sourceTree = "<group>"; };
+		F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponNotCanUseCell.m; sourceTree = "<group>"; };
+		F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@1x.png"; sourceTree = "<group>"; };
+		F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@2x.png"; sourceTree = "<group>"; };
+		F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@3x.png"; sourceTree = "<group>"; };
+		F2C1E79920C133F300ECCFFE /* CKCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponModel.h; sourceTree = "<group>"; };
+		F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
+		F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponDetailViewController.h; sourceTree = "<group>"; };
+		F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponDetailViewController.m; sourceTree = "<group>"; };
+		F2C1E7A620C1381B00ECCFFE /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
+		F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1485,6 +1488,12 @@
 		F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
 		F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
 		F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
+		F2FC5A3720C171360040369E /* arrearsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrearsModel.m; sourceTree = "<group>"; };
+		F2FC5A3820C171360040369E /* arrearsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrearsModel.h; sourceTree = "<group>"; };
+		F2FC5A3920C171360040369E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F2FC5A3A20C171370040369E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		F2FC5A3D20C171940040369E /* MGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLabel.h; sourceTree = "<group>"; };
+		F2FC5A3E20C171940040369E /* MGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLabel.m; sourceTree = "<group>"; };
 		F2FED05A2081A1ED00DFBD77 /* appmall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appmall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FED0662081A1ED00DFBD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FED0692081A1ED00DFBD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1879,13 +1888,13 @@
 		2D0723CD2082FB560030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F2C1E78C20C133F300ECCFFE /* 产品优惠券 */,
 				F293ABDE20B4122C00722FE3 /* 收货地址 */,
-				F2487F3220AE9F260005F624 /* 产品优惠券 */,
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
 				F20C4D55208CCD130086282A /* 分期还款 */,
-				F20C4D51208CC35F0086282A /* 欠款管理 */,
-				2D20DFBB2089899E00095032 /* SCOrderListViewController.h */,
-				2D20DFBA2089899E00095032 /* SCOrderListViewController.m */,
+				F2C1E77020C1335D00ECCFFE /* 欠款管理 */,
+				F2C1E7A620C1381B00ECCFFE /* SCOrderListViewController.h */,
+				F2C1E7A720C1381B00ECCFFE /* SCOrderListViewController.m */,
 				F2FA14DE20B556A90066B153 /* MineInfoViewController.h */,
 				F2FA14DF20B556A90066B153 /* MineInfoViewController.m */,
 				F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */,
@@ -2300,6 +2309,8 @@
 		2D20DDEA2086146300095032 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F2FC5A3D20C171940040369E /* MGLabel.h */,
+				F2FC5A3E20C171940040369E /* MGLabel.m */,
 				2D20DF192088CE9E00095032 /* Cache */,
 				2D20DE902088C7FE00095032 /* ZJScrollPageView */,
 				2D20DE6B208629A700095032 /* SDCycleScrollView */,
@@ -2807,16 +2818,6 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		F20C4D51208CC35F0086282A /* 欠款管理 */ = {
-			isa = PBXGroup;
-			children = (
-				F2A92D4920BE3BC4009F0F9C /* Model */,
-				F2A92D4A20BE3BC4009F0F9C /* View */,
-				F2FB4FCB20B8490300BFBE5C /* ViewController */,
-			);
-			path = "欠款管理";
-			sourceTree = "<group>";
-		};
 		F20C4D55208CCD130086282A /* 分期还款 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2868,58 +2869,6 @@
 				F2487F3020AE730B0005F624 /* SobotManager.m */,
 			);
 			path = "Sobot(智齿)";
-			sourceTree = "<group>";
-		};
-		F2487F3220AE9F260005F624 /* 产品优惠券 */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F5520AEAA3E0005F624 /* ViewController */,
-				F2487F3320AE9F260005F624 /* cell */,
-				F2487F3A20AE9F260005F624 /* image */,
-				F2487F3E20AE9F260005F624 /* model */,
-			);
-			path = "产品优惠券";
-			sourceTree = "<group>";
-		};
-		F2487F3320AE9F260005F624 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3420AE9F260005F624 /* CKCouponCannotUseCell.h */,
-				F2487F3520AE9F260005F624 /* CKCouponCannotUseCell.m */,
-				F2487F3620AE9F260005F624 /* CKCouponCanUseCell.h */,
-				F2487F3720AE9F260005F624 /* CKCouponCanUseCell.m */,
-				F2487F3820AE9F260005F624 /* CKCouponNotCanUseCell.h */,
-				F2487F3920AE9F260005F624 /* CKCouponNotCanUseCell.m */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		F2487F3A20AE9F260005F624 /* image */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3B20AE9F260005F624 /* expireCoupon@1x.png */,
-				F2487F3C20AE9F260005F624 /* expireCoupon@2x.png */,
-				F2487F3D20AE9F260005F624 /* expireCoupon@3x.png */,
-			);
-			path = image;
-			sourceTree = "<group>";
-		};
-		F2487F3E20AE9F260005F624 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F3F20AE9F260005F624 /* CKCouponModel.h */,
-				F2487F4020AE9F260005F624 /* CKCouponModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		F2487F5520AEAA3E0005F624 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F2487F5720AEAA6E0005F624 /* CKCouponDetailViewController.h */,
-				F2487F5620AEAA6E0005F624 /* CKCouponDetailViewController.m */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F255513A20BD44ED0097C2A4 /* AlipaySDK */ = {
@@ -2994,27 +2943,102 @@
 			path = "收货地址";
 			sourceTree = "<group>";
 		};
-		F2A92D4920BE3BC4009F0F9C /* Model */ = {
+		F2C1E77020C1335D00ECCFFE /* 欠款管理 */ = {
 			isa = PBXGroup;
 			children = (
+				F2C1E77120C1335D00ECCFFE /* Model */,
+				F2C1E77620C1335D00ECCFFE /* View */,
+				F2C1E78020C1335D00ECCFFE /* ViewController */,
+			);
+			path = "欠款管理";
+			sourceTree = "<group>";
+		};
+		F2C1E77120C1335D00ECCFFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2FC5A3820C171360040369E /* arrearsModel.h */,
+				F2FC5A3720C171360040369E /* arrearsModel.m */,
+				F2FC5A3A20C171370040369E /* Item.h */,
+				F2FC5A3920C171360040369E /* Item.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F2A92D4A20BE3BC4009F0F9C /* View */ = {
+		F2C1E77620C1335D00ECCFFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F2A92D4B20BE3C01009F0F9C /* ArrearsHeaderView.h */,
-				F2A92D4C20BE3C01009F0F9C /* ArrearsHeaderView.m */,
-				F2A92D4E20BE3C15009F0F9C /* ArrearsHeaderView.xib */,
-				F2A92D5020BE3C81009F0F9C /* ArrearsFooterView.h */,
-				F2A92D5120BE3C81009F0F9C /* ArrearsFooterView.m */,
-				F2A92D5320BE3C92009F0F9C /* ArrearsFooterView.xib */,
-				F2A92D5520BE3CE5009F0F9C /* ArrearsTableCell.h */,
-				F2A92D5620BE3CE5009F0F9C /* ArrearsTableCell.m */,
-				F2A92D5720BE3CE5009F0F9C /* ArrearsTableCell.xib */,
+				F2C1E77720C1335D00ECCFFE /* ArrearsFooterView.h */,
+				F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */,
+				F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */,
+				F2C1E77A20C1335D00ECCFFE /* ArrearsHeaderView.h */,
+				F2C1E77B20C1335D00ECCFFE /* ArrearsHeaderView.m */,
+				F2C1E77C20C1335D00ECCFFE /* ArrearsHeaderView.xib */,
+				F2C1E77D20C1335D00ECCFFE /* ArrearsTableCell.h */,
+				F2C1E77E20C1335D00ECCFFE /* ArrearsTableCell.m */,
+				F2C1E77F20C1335D00ECCFFE /* ArrearsTableCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F2C1E78020C1335D00ECCFFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E78120C1335D00ECCFFE /* ArrearsManagerViewController.h */,
+				F2C1E78220C1335D00ECCFFE /* ArrearsManagerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F2C1E78C20C133F300ECCFFE /* 产品优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E78D20C133F300ECCFFE /* cell */,
+				F2C1E79420C133F300ECCFFE /* image */,
+				F2C1E79820C133F300ECCFFE /* model */,
+				F2C1E79B20C133F300ECCFFE /* ViewController */,
+			);
+			path = "产品优惠券";
+			sourceTree = "<group>";
+		};
+		F2C1E78D20C133F300ECCFFE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E78E20C133F300ECCFFE /* CKCouponCannotUseCell.h */,
+				F2C1E78F20C133F300ECCFFE /* CKCouponCannotUseCell.m */,
+				F2C1E79020C133F300ECCFFE /* CKCouponCanUseCell.h */,
+				F2C1E79120C133F300ECCFFE /* CKCouponCanUseCell.m */,
+				F2C1E79220C133F300ECCFFE /* CKCouponNotCanUseCell.h */,
+				F2C1E79320C133F300ECCFFE /* CKCouponNotCanUseCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		F2C1E79420C133F300ECCFFE /* image */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79520C133F300ECCFFE /* expireCoupon@1x.png */,
+				F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */,
+				F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		F2C1E79820C133F300ECCFFE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79920C133F300ECCFFE /* CKCouponModel.h */,
+				F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F2C1E79B20C133F300ECCFFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */,
+				F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F2F0E43D20B6D56B007775B1 /* View */ = {
@@ -3247,15 +3271,6 @@
 			path = mineinfocell;
 			sourceTree = "<group>";
 		};
-		F2FB4FCB20B8490300BFBE5C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F20C4D52208CC4760086282A /* ArrearsManagerViewController.h */,
-				F20C4D53208CC4760086282A /* ArrearsManagerViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		F2FE5BA4208471A4006E274A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -3430,14 +3445,13 @@
 			files = (
 				F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */,
 				2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */,
-				F2A92D4F20BE3C15009F0F9C /* ArrearsHeaderView.xib in Resources */,
 				F23F1A4720B78EFB00F01D01 /* InvoicesManCellHeadView.xib in Resources */,
 				2DA0C34B20B867810031AC47 /* radio_btn_onTwo.png in Resources */,
 				2DA0C37720B868170031AC47 /* PostCommViewController.xib in Resources */,
 				2D83E25F20BD9E4200F2D375 /* orderdetailline.png in Resources */,
+				F2C1E78820C1335D00ECCFFE /* ArrearsHeaderView.xib in Resources */,
 				2DA0C2E720B712F80031AC47 /* CommPingLunListViewController.xib in Resources */,
 				F23E654B20B670B300EB6720 /* MyInvoicesCell.xib in Resources */,
-				F2487F4C20AE9F270005F624 /* expireCoupon@2x.png in Resources */,
 				F23E658220B693D600EB6720 /* radio_unchecked@2x.png in Resources */,
 				2D7B8D6720BFCC1F000EAFB1 /* MessageOffDetailViewCell.xib in Resources */,
 				2D791C762090614000E455F5 /* ClassListCellViewController.xib in Resources */,
@@ -3447,7 +3461,6 @@
 				F2FED06A2081A1ED00DFBD77 /* LaunchScreen.storyboard in Resources */,
 				2DA0C34D20B867810031AC47 /* 添加@2x.png in Resources */,
 				2D0723E42082FEB30030996F /* CommunityViewController.xib in Resources */,
-				F2A92D5420BE3C92009F0F9C /* ArrearsFooterView.xib in Resources */,
 				F2113A9020B58CCE00C01DA4 /* InvoicesManagerDetailVC.xib in Resources */,
 				2D0726BC2083928A0030996F /* MedieaListViewCell.xib in Resources */,
 				2D6F9262208F4A78007DFD0B /* TeacherItemViewCell.xib in Resources */,
@@ -3458,11 +3471,13 @@
 				2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */,
 				2DA0C2F120B79E2B0031AC47 /* CommDetailHeaderView.xib in Resources */,
 				F236AE4220BF8DBE004B9A03 /* SQQKTableCell.xib in Resources */,
+				F2C1E78A20C1335D00ECCFFE /* ArrearsTableCell.xib in Resources */,
 				2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */,
 				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */,
 				2D4D60EE20B3E6BF00280033 /* ClassItemViewCell.xib in Resources */,
+				F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */,
 				2DA0C38620B925480031AC47 /* GoodSDetailBackViewCell.xib in Resources */,
 				2DA0C37C20B920A60031AC47 /* GoodsDetailViewController.xib in Resources */,
 				F2F3430120BAA2A500004E90 /* LICENSE in Resources */,
@@ -3484,7 +3499,6 @@
 				2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */,
 				2D83E27620BED8B100F2D375 /* WBSQQKInfoViewCell.xib in Resources */,
 				2D808E7A20BC2BEC002FADA8 /* ODWuliuCell.xib in Resources */,
-				F2487F4D20AE9F270005F624 /* expireCoupon@3x.png in Resources */,
 				2D83E28D20BF000200F2D375 /* MessageDetailViewCell.xib in Resources */,
 				2D6F9271208F5061007DFD0B /* TeacherInfoViewCell.xib in Resources */,
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
@@ -3494,6 +3508,7 @@
 				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
 				2D83E26C20BED5ED00F2D375 /* WBFenqiSelecView.xib in Resources */,
 				F23F1A6720B81C5800F01D01 /* 引导页3.jpg in Resources */,
+				F2C1E7A120C133F300ECCFFE /* expireCoupon@1x.png in Resources */,
 				2D83E27B20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.xib in Resources */,
 				2D6F926C208F5040007DFD0B /* TeacherDetailVC.xib in Resources */,
 				2D6F9258208E1B27007DFD0B /* MenuCollectionViewCell.xib in Resources */,
@@ -3511,10 +3526,8 @@
 				2D791C7120905C4900E455F5 /* ClassListVC.xib in Resources */,
 				F2F3432E20BAA2A500004E90 /* HXWeiboPhotoPicker.bundle in Resources */,
 				F23E655020B686D900EB6720 /* MyinvoicesCheckingCell.xib in Resources */,
-				F2487F4B20AE9F270005F624 /* expireCoupon@1x.png in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,
 				2D0723F32082FEE40030996F /* CollegeViewController.xib in Resources */,
-				F2A92D5920BE3CE5009F0F9C /* ArrearsTableCell.xib in Resources */,
 				2D0726A82083371B0030996F /* RecommendCollectionViewCell.xib in Resources */,
 				2D83E28820BEFD1700F2D375 /* MessageDetailViewController.xib in Resources */,
 				2D808E8920BC2C2E002FADA8 /* ODGoodInfoViewCell.xib in Resources */,
@@ -3523,10 +3536,12 @@
 				2D072670208311BE0030996F /* ic_close_grey2.png in Resources */,
 				2DA0C2D920B6DF480031AC47 /* CommunityViewCell.xib in Resources */,
 				F20039C62089A10600499D39 /* mine.xcassets in Resources */,
+				F2C1E7A220C133F300ECCFFE /* expireCoupon@2x.png in Resources */,
 				2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */,
 				F2F0E44420B6D5C0007775B1 /* AmortizationLoanCell.xib in Resources */,
 				2DA0C38B20B926ED0031AC47 /* GoodSdetailBottomViewCell.xib in Resources */,
 				2D7B8D7720C02768000EAFB1 /* WuliuDetailViewCell.xib in Resources */,
+				F2C1E78620C1335D00ECCFFE /* ArrearsFooterView.xib in Resources */,
 				2D83E27120BED81200F2D375 /* WBSQQKViewController.xib in Resources */,
 				2D0723F82082FEF10030996F /* HomeViewController.xib in Resources */,
 				2D07266F208311BE0030996F /* 搜索-拷贝@3x.png in Resources */,
@@ -3640,6 +3655,7 @@
 				F2F3432B20BAA2A500004E90 /* HXTransition.m in Sources */,
 				2D20DE652086187200095032 /* UIViewController+CurrentVC.m in Sources */,
 				2D20DE002086147300095032 /* SCNoDataView.m in Sources */,
+				F2C1E78720C1335D00ECCFFE /* ArrearsHeaderView.m in Sources */,
 				2D20DEB22088C8B800095032 /* SCGoodsDetailViewController.m in Sources */,
 				F236AE3A20BF87C8004B9A03 /* CKJPushManager.m in Sources */,
 				2D20DE612086187200095032 /* UIImage+Common.m in Sources */,
@@ -3656,7 +3672,6 @@
 				F2F3433120BAA2A500004E90 /* UIButton+HXExtension.m in Sources */,
 				F2F3432320BAA2A500004E90 /* HXPhotoResultModel.m in Sources */,
 				2DA0C2E620B712F80031AC47 /* CommPingLunListViewController.m in Sources */,
-				F2487F4820AE9F270005F624 /* CKCouponCannotUseCell.m in Sources */,
 				2DA0C36320B867810031AC47 /* SDWebImageManager+MJ.m in Sources */,
 				F2FA14D720B556940066B153 /* AddressTableCell.m in Sources */,
 				F2F3432520BAA2A500004E90 /* HXPhotoTools.m in Sources */,
@@ -3667,7 +3682,6 @@
 				2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */,
 				F2F3431A20BAA2A500004E90 /* HXFullScreenCameraViewController.m in Sources */,
 				2D20DE602086187200095032 /* NSString+Common.m in Sources */,
-				F2487F4A20AE9F270005F624 /* CKCouponNotCanUseCell.m in Sources */,
 				2D20DE632086187200095032 /* UILabel+configure.m in Sources */,
 				2D07268F20832B1C0030996F /* MenuCollectionViewCell.m in Sources */,
 				2D3B015520936423007CF4E6 /* TKHomeDataModel.m in Sources */,
@@ -3676,6 +3690,7 @@
 				F2F3430F20BAA2A500004E90 /* HXDatePhotoCollectionViewLayout.m in Sources */,
 				2DA0C37B20B920A60031AC47 /* GoodsDetailViewController.m in Sources */,
 				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
+				F2FC5A3F20C171940040369E /* MGLabel.m in Sources */,
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				F2F3431720BAA2A500004E90 /* HXDatePhotoViewPresentTransition.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
@@ -3736,7 +3751,7 @@
 				F2F3433420BAA2A500004E90 /* UIView+HXExtension.m in Sources */,
 				2DA0C35B20B867810031AC47 /* PictureCollectionViewCell.m in Sources */,
 				F23E655920B68DC500EB6720 /* AddInvoicesDataViewController.m in Sources */,
-				F20C4D54208CC4760086282A /* ArrearsManagerViewController.m in Sources */,
+				F2FC5A3C20C171370040369E /* Item.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
 				F2F3430C20BAA2A500004E90 /* HXCustomCameraViewController.m in Sources */,
@@ -3749,6 +3764,7 @@
 				2D20DFA72088DA1500095032 /* SCCommentGoodsCell.m in Sources */,
 				2D20DE81208629E700095032 /* TAPageControl.m in Sources */,
 				2DA0C35320B867810031AC47 /* ELCConsole.m in Sources */,
+				F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */,
 				2DA0C35720B867810031AC47 /* ELCAlbumPickerController.m in Sources */,
 				2D20DF122088CDE300095032 /* CKRealnameIdentifyView.m in Sources */,
 				2D4D60ED20B3E6BF00280033 /* ClassItemViewCell.m in Sources */,
@@ -3767,7 +3783,6 @@
 				F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */,
 				F2F3431B20BAA2A500004E90 /* HXPhoto3DTouchViewController.m in Sources */,
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
-				F2A92D4D20BE3C01009F0F9C /* ArrearsHeaderView.m in Sources */,
 				F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
 				2DA0C38520B925480031AC47 /* GoodSDetailBackViewCell.m in Sources */,
@@ -3779,11 +3794,11 @@
 				2D20DEA32088C80D00095032 /* UIViewController+ZJScrollPageController.m in Sources */,
 				2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */,
 				2D20DDD8208613C800095032 /* BKGuidePageCell.m in Sources */,
-				F2A92D5220BE3C81009F0F9C /* ArrearsFooterView.m in Sources */,
 				2D20DEBB2088C9A800095032 /* SCGDCommentViewController.m in Sources */,
 				2D20DFC2208989BA00095032 /* YSMemberPointViewController.m in Sources */,
 				2DA0C39320B92BD70031AC47 /* BaseGoodSDetailViewCell.m in Sources */,
 				2D07267B208311CB0030996F /* DWQTagView.m in Sources */,
+				F2C1E79F20C133F300ECCFFE /* CKCouponCanUseCell.m in Sources */,
 				F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */,
 				2D20DF092088CD9100095032 /* SCConfirmOrderAddressCell.m in Sources */,
 				F2F3432620BAA2A500004E90 /* HXPhotoUIManager.m in Sources */,
@@ -3804,10 +3819,9 @@
 				2D20DE112086149300095032 /* SCEnterRCloudOrToothManager.m in Sources */,
 				2D791C6A20905BCA00E455F5 /* WBContentView.m in Sources */,
 				2DA0C2D820B6DF480031AC47 /* CommunityViewCell.m in Sources */,
-				F2487F4920AE9F270005F624 /* CKCouponCanUseCell.m in Sources */,
+				F2C1E78B20C1335D00ECCFFE /* ArrearsManagerViewController.m in Sources */,
 				2D072682208325E20030996F /* WBAdsImgView.m in Sources */,
 				2D0723E32082FEB30030996F /* CommunityViewController.m in Sources */,
-				F2A92D5820BE3CE5009F0F9C /* ArrearsTableCell.m in Sources */,
 				2D20DF802088D8BB00095032 /* DetailLogisticsViewController.m in Sources */,
 				2D20DF0C2088CDAE00095032 /* SCUseCouponViewController.m in Sources */,
 				2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */,
@@ -3818,6 +3832,7 @@
 				F2487F3120AE730B0005F624 /* SobotManager.m in Sources */,
 				2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */,
 				F2F3431C20BAA2A500004E90 /* HXPhotoCustomNavigationBar.m in Sources */,
+				F2C1E7A820C1381B00ECCFFE /* SCOrderListViewController.m in Sources */,
 				2D20DE74208629D300095032 /* SDCycleScrollView.m in Sources */,
 				2D83E27A20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.m in Sources */,
 				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
@@ -3854,19 +3869,19 @@
 				2D20DDE82086142000095032 /* RequestManager+CK.m in Sources */,
 				2D808E8820BC2C2E002FADA8 /* ODGoodInfoViewCell.m in Sources */,
 				2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */,
+				F2C1E7A020C133F300ECCFFE /* CKCouponNotCanUseCell.m in Sources */,
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2DA0C35D20B867810031AC47 /* MJPhotoLoadingView.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
 				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
-				F2487F5820AEAA6E0005F624 /* CKCouponDetailViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
 				2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */,
 				F2F3430D20BAA2A500004E90 /* HXCustomNavigationController.m in Sources */,
-				F2487F4E20AE9F270005F624 /* CKCouponModel.m in Sources */,
 				2D20DFB92089898A00095032 /* SCMineViewController.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
+				F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */,
 				F236AE3B20BF87C8004B9A03 /* MessageAlert.m in Sources */,
 				2D808E9120BC3843002FADA8 /* OrderDetailModel.m in Sources */,
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
@@ -3875,7 +3890,9 @@
 				F2F3434920BBE71E00004E90 /* Goods.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
 				2D83E27520BED8B100F2D375 /* WBSQQKInfoViewCell.m in Sources */,
+				F2C1E79E20C133F300ECCFFE /* CKCouponCannotUseCell.m in Sources */,
 				2D20DED12088CAD400095032 /* CKShareManager.m in Sources */,
+				F2C1E78920C1335D00ECCFFE /* ArrearsTableCell.m in Sources */,
 				F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */,
 				2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */,
 				2D6F9250208E0731007DFD0B /* HomeTabTopAdsViewCell.m in Sources */,
@@ -3901,6 +3918,7 @@
 				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
+				F2FC5A3B20C171370040369E /* arrearsModel.m in Sources */,
 				F2F3432120BAA2A500004E90 /* HXPhotoPreviewViewCell.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
 				2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */,
@@ -3931,12 +3949,12 @@
 				2D20DE5F2086187200095032 /* UIButton+Common.m in Sources */,
 				2D0723B52082FA050030996F /* AppDelegate.m in Sources */,
 				2D20DE22208614CE00095032 /* UITableView+PlaceHolder.m in Sources */,
-				2D20DFBC2089899E00095032 /* SCOrderListViewController.m in Sources */,
 				2D20DEA92088C80D00095032 /* ZJSegmentStyle.m in Sources */,
 				2D808E7020BA5BD4002FADA8 /* STCountDownConst.m in Sources */,
 				2D20DEBE2088C9B700095032 /* SCGoodsDetailBottomView.m in Sources */,
 				2D20DF282088CEC400095032 /* PPNetworkCache.m in Sources */,
 				2D20DEA82088C80D00095032 /* ZJTitleView.m in Sources */,
+				F2C1E7A520C133F300ECCFFE /* CKCouponDetailViewController.m in Sources */,
 				2D20DF6B2088D6D300095032 /* SelectedProviceViewController.m in Sources */,
 				2DA0C2EF20B79E1C0031AC47 /* CommDetailHeaderView.m in Sources */,
 				2D20DE022086147300095032 /* getUUID.m in Sources */,
@@ -4180,7 +4198,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22WA36MPYQ;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4210,7 +4228,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22WA36MPYQ;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",

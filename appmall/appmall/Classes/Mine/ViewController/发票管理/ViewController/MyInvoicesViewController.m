@@ -12,7 +12,7 @@
 #import "MyInvoicesCheckFailCell.h"
 #import "AddInvoicesDataViewController.h"
 #import "MyInvoicesModel.h"
-@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCheckFailCellDelegate>
+@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCellDelegate,MyInvoicesCheckFailCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 - (IBAction)addinvoicesDataAction:(UIButton *)sender;
 /**  data*/
@@ -20,7 +20,7 @@
 /**  未处理*/
 @property (nonatomic, strong) NSMutableArray *wclDataArray;
 /**  已处理*/
-@property (nonatomic, strong) NSMutableArray *yclDataArray;
+@property (nonatomic, strong) NSMutableArray <MyInvoicesModel *>*yclDataArray;
 /**  已拒绝*/
 @property (nonatomic, strong) NSMutableArray *yjjDataArray;
 
@@ -97,6 +97,7 @@
                 [self.wclDataArray addObject:MyInvoicesM];
             }else if ([MyInvoicesM.disposestatus isEqualToString:@"1"]){
                 [self.yclDataArray addObject:MyInvoicesM];
+                 [self.yclDataArray firstObject].isSelect = YES;
             }else{
                 [self.yjjDataArray addObject:MyInvoicesM];
             }
@@ -125,7 +126,11 @@
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"MyInvoicesCell" owner:self options:nil]  lastObject];
         }
+         cell.delegate = self;
+         cell.selectBtn.selected = self.yclDataArray[indexPath.row].isSelect;
         [cell refreshData:self.yclDataArray[indexPath.row]];
+       
+        
         tcell = cell;
     }else if (indexPath.section == 1){
         static NSString *identifier = @"MyinvoicesCheckingCell";//这个identifier跟xib设置的一样
@@ -167,6 +172,14 @@
         return self.yjjDataArray.count;
     }
     return 0;
+}
+
+- (void)tableCellButtonDidSelected:(MyInvoicesModel *)model{
+    for (MyInvoicesModel *itemModel in self.yclDataArray) {
+        itemModel.isSelect = NO;
+    }
+    model.isSelect = YES;
+    [self.mTableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

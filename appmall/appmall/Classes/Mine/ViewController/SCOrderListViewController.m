@@ -266,7 +266,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 /**创建订单状态按钮*/
 -(void)createTopButton{
     
-    _searchView = [[SearchTopView alloc] initWithFrame:CGRectMake(0, 74+NaviAddHeight, SCREEN_WIDTH, 35) andHeight:35];
+    _searchView = [[SearchTopView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, 0) andHeight:0];
     _searchView.searchTextField.placeholder = @"商品名称/订单号/收件人/收件人电话/昵称";
     _searchView.delegate = self;
     [self.view addSubview:_searchView];
@@ -511,7 +511,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
         NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-        NSString *str = [NSString stringWithFormat:@"共%@件商品，合计:¥%@", count, allMoney];
+        NSString *str = [NSString stringWithFormat:@"合计:¥%@", allMoney];
         
         NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
         //获取要调整颜色的文字位置,调整颜色
@@ -543,7 +543,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             
         }else{
             NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-            NSString *str = [NSString stringWithFormat:@"共%@件商品，合计:¥%@", count, allMoney];
+            NSString *str = [NSString stringWithFormat:@"合计:¥%@", allMoney];
             
             NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
             //获取要调整颜色的文字位置,调整颜色
@@ -733,7 +733,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _orderModel = orderM;
     if ([btn.titleLabel.text isEqualToString:@"取消订单"]) {
         [self cancelOrder:orderM];//未付款的可以取消
-    }else if ([btn.titleLabel.text isEqualToString:@"删除订单"]) {
+    }else if ([btn.titleLabel.text isEqualToString:@"删除"]) {
         [self confirmCancelOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
         WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
@@ -746,7 +746,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 170];
     _orderModel = orderM;
     
-    if ([btn.titleLabel.text isEqualToString:@"去付款"]) {
+    if ([btn.titleLabel.text isEqualToString:@"立即付款"]) {
         [self payOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"再次购买"]) {
         [self buyAgain:orderM];//再次购买
@@ -754,7 +754,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self contactCS:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"确认收货"]) {
         [self confirmReceiveGoods:orderM];
-    }else if ([btn.titleLabel.text isEqualToString:@"去评价"]) {
+    }else if ([btn.titleLabel.text isEqualToString:@"去反馈"]) {
         NSMutableArray *temp = [NSMutableArray array];
         for (SCMyOrderGoodsModel *orderGoodsM in orderM.itemlistArr) {
             SCOrderDetailGoodsModel *commentM = [[SCOrderDetailGoodsModel alloc] init];
@@ -794,7 +794,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
     }else if ([btn.titleLabel.text isEqualToString:@"差价付款"]) {
         [self payOrder:orderM];
-    }else if ([btn.titleLabel.text isEqualToString:@"删除订单"]) {
+    }else if ([btn.titleLabel.text isEqualToString:@"删除"]) {
         [self confirmCancelOrder:orderM];
     }
 }
@@ -838,12 +838,13 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _deleteAlertView = [[XWAlterVeiw alloc] init];
     _deleteAlertView.delegate = self;
     _deleteAlertView.titleLable.text = @"确定删除该订单？";
-    _deleteAlertView.type = @"删除订单";
+    _deleteAlertView.type = @"删除";
     [_deleteAlertView show];
 }
 
 -(void)deleteOrder {
     NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+
     [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, DelOrderUrl];
     
@@ -897,11 +898,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self confirmReceiveGoods];
     }else if ([_deleteAlertView.type isEqualToString:@"取消订单"]) {
         [self confirmCancelOrder];
-    }else if ([_deleteAlertView.type isEqualToString:@"删除订单"]) {
+    }else if ([_deleteAlertView.type isEqualToString:@"删除"]) {
         [self deleteOrder];
     }
-    
-    
 }
 
 - (void)payOrder {
@@ -919,6 +918,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 -(void)confirmCancelOrder {
     NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+
     [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelOrderUrl];
     

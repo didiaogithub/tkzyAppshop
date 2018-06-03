@@ -48,8 +48,8 @@
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [bankView addSubview:_rightButton];
     _rightButton.layer.cornerRadius = 3;;
-    _rightButton.layer.borderColor = [UIColor tt_grayBgColor].CGColor;
-    _rightButton.layer.borderWidth = 1;
+    _rightButton.layer.borderColor = ThemeRedColor.CGColor;
+    _rightButton.layer.borderWidth = 0.5;
     _rightButton.clipsToBounds = YES;
     _rightButton.titleLabel.font = MAIN_TITLE_FONT;
     _rightButton.backgroundColor = [UIColor whiteColor];
@@ -59,8 +59,8 @@
     _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [bankView addSubview:_leftButton];
     _leftButton.layer.cornerRadius = 3;;
-    _leftButton.layer.borderColor = [UIColor tt_grayBgColor].CGColor;
-    _leftButton.layer.borderWidth = 1;
+    _leftButton.layer.borderColor = [UIColor tt_borderColor].CGColor;
+    _leftButton.layer.borderWidth = 0.5;
     _leftButton.clipsToBounds = YES;
     _leftButton.titleLabel.font = MAIN_TITLE_FONT;
     [_leftButton setTitleColor:[UIColor tt_bodyTitleColor] forState:UIControlStateNormal];
@@ -137,7 +137,7 @@
                 [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
             }else{
                 [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
-                [_rightButton setTitle:@"去评价" forState:UIControlStateNormal];
+                [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
                 [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
                 
             }
@@ -149,7 +149,7 @@
 
         }else if ([statustr isEqualToString:@"已完成"]) {
             [_rightButton setTitle:@"再次购买" forState:UIControlStateNormal];
-            [_leftButton setTitle:@"删除订单" forState:UIControlStateNormal];
+            [_leftButton setTitle:@"删除" forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"差价付款"]) {
             _leftButton.hidden = YES;
             [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
@@ -158,7 +158,8 @@
             [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"已取消"]) {
             _leftButton.hidden = YES;
-            [_rightButton setTitle:@"删除订单" forState:UIControlStateNormal];
+            [_rightButton setTitle:@"删除" forState:UIControlStateNormal];
+             [_rightButton setTitleColor:ThemeRedColor forState:UIControlStateNormal];
         }
     }else{
         if ([statustr isEqualToString:@"待付款"]) {
@@ -184,8 +185,9 @@
             _rightButton.backgroundColor = [UIColor whiteColor];
 
         }else if ([statustr isEqualToString:@"已完成"]) {
-            [_rightButton setTitle:@"再次购买" forState:UIControlStateNormal];
-            [_leftButton setTitle:@"删除订单" forState:UIControlStateNormal];
+            [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
+            [_leftButton setTitle:@"删除" forState:UIControlStateNormal];
+             [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"差价付款"]) {
             _leftButton.hidden = YES;
             [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
@@ -194,7 +196,8 @@
             [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"已取消"]) {
             _leftButton.hidden = YES;
-            [_rightButton setTitle:@"删除订单" forState:UIControlStateNormal];
+            [_rightButton setTitle:@"删除" forState:UIControlStateNormal];
+            [_rightButton setTitleColor:ThemeRedColor forState:UIControlStateNormal];
         }
     }
     
@@ -243,8 +246,9 @@
         _rightButton.backgroundColor = [UIColor whiteColor];
         
     }else if ([_statustring isEqualToString:@"已完成"]) {
-        [_rightButton setTitle:@"再次购买" forState:UIControlStateNormal];
-        [_leftButton setTitle:@"删除订单" forState:UIControlStateNormal];
+        [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
+        [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
+        [_leftButton setTitle:@"删除" forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"差价付款"]) {
         _leftButton.hidden = YES;
         [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
@@ -253,7 +257,9 @@
         [_rightButton setTitle:@"差价付款" forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"已完成"] || [_statustring isEqualToString:@"已取消"]) {
         _leftButton.hidden = YES;
-        [_rightButton setTitle:@"删除订单" forState:UIControlStateNormal];
+        [_rightButton setTitle:@"删除" forState:UIControlStateNormal];
+         [_rightButton setTitleColor:ThemeRedColor forState:UIControlStateNormal];
+        
     }
 }
 

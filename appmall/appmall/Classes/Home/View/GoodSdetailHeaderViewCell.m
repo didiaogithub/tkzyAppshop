@@ -39,8 +39,14 @@
     selfmodel = model;
     self.labBannerNum.text = [NSString stringWithFormat:@"1/%ld",model.banner.count];
     [self.bannerCollectionView reloadData];
+    if (IsNilOrNull(model.spec)) {
+        model.spec = @"";
+    }
     self.labTime.text = [NSString stringWithFormat:@"规格：%@kg",model.spec];
     self.labGoodName.text = model.goodname;
+    if (IsNilOrNull(model.price)) {
+        model.price = @"";
+    }
     self.labPrice.text = [NSString stringWithFormat:@"￥%@",model.price];
     self.labCollect.selected = [model.iscollect boolValue];
 }

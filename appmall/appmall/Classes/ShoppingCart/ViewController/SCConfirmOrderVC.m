@@ -20,6 +20,7 @@
 #import "TopTipView.h"
 #import "CKRealnameIdentifyView.h"
 #import "SCCouponTools.h"
+#import "CKCouponDetailViewController.h"
 @interface SCConfirmOrderVC ()<UITableViewDelegate,UITableViewDataSource,MoneyCountViewDelegate,AddAddressTableViewCellDelegate, GDConfirmOrderChooseCouponDelegate, TopTipViewDelegate>
 
 @property (nonatomic, strong) MoneyCountView *moneyCountView;
@@ -79,7 +80,7 @@
     NSDictionary *buyCountDic = userInfo.userInfo;
     NSString *count = [NSString stringWithFormat:@"%@", buyCountDic[@"BuyCount"]];
     self.buyCount = count;
-    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
     if (IsNilOrNull(money)) {
         money = @"0";
     }
@@ -246,7 +247,7 @@
         //选择优惠券后显示优惠金额
         [cell refreshCouponAndMoney:self.coupontMoney usablecount:self.coupontUsablecount];
         
-        NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+        NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
         if (IsNilOrNull(money)) {
             money = @"0.00";
         }else{
@@ -331,9 +332,11 @@
         return;
     }
     NSString *addressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
-    [pram setObject:@"addressid" forKey:addressId];
+    [pram setObject:addressId forKey:@"addressid"];
     NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:0];
-    [itemArray addObject:@{@"itemid":self.goodsDict[@"itemid"],@"count":@1}];
+    [itemArray addObject:@{@"itemid":self.goodsDict[@"itemid"],@"count":self.buyCount}];
+  NSString *itemlistStr =   [itemArray mj_JSONString];
+    [pram setObject:itemlistStr forKey:@"itemlist"];
         NSString *itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddActiveOrderUrl];
         [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:pram];
 }
@@ -524,27 +527,30 @@
 #pragma mark - 优惠券相关
 #pragma mark - 使用优惠券delegate
 - (void)goodsDetailConfirmOrderChooseCoupon {
-    SCUseCouponViewController *useCoupon = [[SCUseCouponViewController alloc] init];
-    __weak typeof(self) wSelf = self;
-    [useCoupon setCouponBlock:^(NSString *price, NSString *couponId) {
-        NSLog(@"price:%@, couponId:%@", price, couponId);
-        wSelf.coupontMoney = price;
-        wSelf.coupontId = couponId;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-        [wSelf.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }];
+//    SCUseCouponViewController *useCoupon = [[SCUseCouponViewController alloc] init];
+//    __weak typeof(self) wSelf = self;
+//    [useCoupon setCouponBlock:^(NSString *price, NSString *couponId) {
+//        NSLog(@"price:%@, couponId:%@", price, couponId);
+//        wSelf.coupontMoney = price;
+//        wSelf.coupontId = couponId;
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+//        [wSelf.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    }];
+//
+//    self.exitPay = NO;
+//
+//    NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
+//    useCoupon.goodsIdArray = @[itemid];
+//    useCoupon.orderMoney = [_moneyCountView.allMoneyLable.text componentsSeparatedByString:@"¥"].lastObject;
+//    //将当前请求的优惠券数据传到列表页面，如果没有则请求
+//    useCoupon.params = [self createCouponParametersWithType:@"1"];
+//    useCoupon.useabelCouponArray = [NSMutableArray arrayWithArray:self.useableCouponArray];
+//    useCoupon.unuseabelCouponArray = [NSMutableArray arrayWithArray:self.unuseableCouponArray];
+//    useCoupon.couponId = self.coupontId;
+//    useCoupon.coupontMoney = self.coupontMoney;
     
-    self.exitPay = NO;
+    CKCouponDetailViewController * useCoupon = [[CKCouponDetailViewController alloc]init];
     
-    NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
-    useCoupon.goodsIdArray = @[itemid];
-    useCoupon.orderMoney = [_moneyCountView.allMoneyLable.text componentsSeparatedByString:@"¥"].lastObject;
-    //将当前请求的优惠券数据传到列表页面，如果没有则请求
-    useCoupon.params = [self createCouponParametersWithType:@"1"];
-    useCoupon.useabelCouponArray = [NSMutableArray arrayWithArray:self.useableCouponArray];
-    useCoupon.unuseabelCouponArray = [NSMutableArray arrayWithArray:self.unuseableCouponArray];
-    useCoupon.couponId = self.coupontId;
-    useCoupon.coupontMoney = self.coupontMoney;
     [self.navigationController pushViewController:useCoupon animated:YES];
 }
 

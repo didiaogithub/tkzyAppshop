@@ -7,7 +7,7 @@
 //
 
 #import "ArrearsTableCell.h"
-
+#import "Item.h"
 @implementation ArrearsTableCell
 
 - (void)awakeFromNib {
@@ -19,6 +19,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)refreshData:(Item *)model{
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.path1] placeholderImage:nil];
+    self.nameLab.text = model.name;
+    self.NoAndGGLab.text = [NSString stringWithFormat:@"编号：%@；规格：%@",model.itemno,model.spec];
+    self.num.text = [NSString stringWithFormat:@"x%@",model.count];
+    self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.price];
 }
 
 @end

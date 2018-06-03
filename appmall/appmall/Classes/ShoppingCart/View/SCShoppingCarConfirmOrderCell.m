@@ -341,7 +341,7 @@
         make.right.mas_offset(-10);
     }];
     
-    _priceLabale.text = @"共0件商品 合计:¥0.00";
+    _priceLabale.text = @"合计:¥0.00";
     
 }
 
@@ -351,7 +351,8 @@
     if (IsNilOrNull(allMoney)) {
         allMoney = @"0.00";
     }
-    _priceLabale.text = [NSString stringWithFormat:@"共%ld件商品 %@", count, allMoney];
+    
+    _priceLabale.text = [NSString stringWithFormat:@"%@", allMoney];
 }
 
 #pragma mark - 刷新优惠券行
@@ -372,13 +373,14 @@
     NSDictionary *buyCountDic = userInfo.userInfo;
     NSString *count = [NSString stringWithFormat:@"%@", buyCountDic[@"BuyCount"]];
     
+    
     NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
     if (IsNilOrNull(money)) {
         money = @"0";
     }
     
     double totalMoney = [money doubleValue] * [count integerValue];
-    _priceLabale.text = [NSString stringWithFormat:@"共%@件商品 %.2f", count, totalMoney];
+    _priceLabale.text = [NSString stringWithFormat:@" %.2f", totalMoney];
 }
 
 -(void)chooseCoupon {

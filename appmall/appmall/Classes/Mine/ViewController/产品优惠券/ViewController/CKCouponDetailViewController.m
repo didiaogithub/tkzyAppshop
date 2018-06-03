@@ -11,7 +11,9 @@
 #import "CKCouponCannotUseCell.h"
 #import "CKCouponCanUseCell.h"
 #import "CKCouponNotCanUseCell.h"
-@interface CKCouponDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "UITableView+XY.h"
+#import "SCSCConfirmOrderViewController.h"
+@interface CKCouponDetailViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
 
 @property (nonatomic, strong) UIButton *canUseBtn; // 未使用
 @property (nonatomic, strong) UIButton *canNotUseBtn; // 已使用
@@ -39,8 +41,7 @@
     
     
      [self initComponents];
-    
-    [self setupRefresh];
+     [self resquestCouponData:@"0"];
     
     
     NSArray *couponListArray = [[XNArchiverManager shareInstance] xnUnarchiverObject:[NSString stringWithFormat:@"MJCouponCache_%@", self.couponType]];
@@ -60,19 +61,20 @@
 
 
 
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"产品券默认"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"多关注我们享有更多产品券哦";
+    return str;
+}
+
+
 -(void)initComponents {
-    
-    _noData = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 347*0.5, 339*0.5)];
-    _noData.center = self.view.center;
-    _noData.image = [UIImage imageNamed:@"产品券默认"];
-    [self.view addSubview:_noData];
-    _noData.hidden = YES;
-    _noDataLabel = [UILabel configureLabelWithTextColor:[UIColor colorWithHexString:@"#333333"] textAlignment:NSTextAlignmentCenter font:[UIFont systemFontOfSize:14]];
-    _noDataLabel.frame = CGRectMake(0, CGRectGetMaxY(_noData.frame), SCREEN_WIDTH, 30);
-    [self.view addSubview:_noDataLabel];
-    _noDataLabel.text = @"多关注我们享有更多产品券哦";
-    _noDataLabel.hidden = YES;
-    
+
     UIView *tagView = [UIView new];
     tagView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:tagView];
@@ -83,7 +85,7 @@
     }];
     
     self.canUseBtn = [[UIButton alloc] init];
-    [self.canUseBtn setTitle:@"未使用" forState:UIControlStateNormal];
+    [self.canUseBtn setTitle:@"待使用" forState:UIControlStateNormal];
     [self.canUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
     self.canUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [self.canUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -101,7 +103,7 @@
     [tagView addSubview:self.lineLabel];
     
     self.canNotUseBtn = [[UIButton alloc] init];
-    [self.canNotUseBtn setTitle:@"已使用" forState:UIControlStateNormal];
+    [self.canNotUseBtn setTitle:@"已过期" forState:UIControlStateNormal];
     [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
     self.canNotUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [self.canNotUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -115,7 +117,7 @@
     }];
     
     self.notCanUseBtn = [[UIButton alloc]init];
-    [self.notCanUseBtn setTitle:@"已过期" forState:UIControlStateNormal];
+    [self.notCanUseBtn setTitle:@"已使用" forState:UIControlStateNormal];
     [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
     self.notCanUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [self.notCanUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -167,7 +169,6 @@
         }
    
     }else if(button.tag == 45){
-        
         [self.canUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
         [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
         [UIView animateWithDuration:0.3 animations:^{
@@ -175,23 +176,6 @@
             self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*1.5 + 100, 44, 100, 2);
         }];
         
-        self.couponType = @"1";
-        
-        if (self.usedArray.count > 0) {
-            _noData.hidden = (self.usedArray.count > 0) ? YES : NO;
-            _noDataLabel.hidden = (self.usedArray.count > 0) ? YES : NO;
-            [self.couponTable reloadData];
-        }else{
-            //如果有值切换时不再请求
-            [self resquestCouponData:@"0"];
-        }
-    }else{
-        [self.canUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.notCanUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*2.5 + 200, 44, 100, 2);
-        }];
         self.couponType = @"2";
         
         if (self.expireArray.count > 0) {
@@ -200,9 +184,27 @@
             [self.couponTable reloadData];
         }else{
             //如果有值切换时不再请求
-            [self resquestCouponData:@"0"];
+            [self resquestCouponData:@"2"];
         }
+       
+       
+    }else{
+        [self.canUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
+        [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.notCanUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
+            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*2.5 + 200, 44, 100, 2);
+        }];
+        self.couponType = @"1";
         
+        if (self.usedArray.count > 0) {
+            _noData.hidden = (self.usedArray.count > 0) ? YES : NO;
+            _noDataLabel.hidden = (self.usedArray.count > 0) ? YES : NO;
+            [self.couponTable reloadData];
+        }else{
+            //如果有值切换时不再请求
+            [self resquestCouponData:@"1"];
+        }
         
     }
 }
@@ -227,7 +229,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 84;
+    return 110;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -275,6 +277,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // 这里处理点击优惠券带回金额
     
+    if (_couponBlock) {
+        _couponBlock(self.coupontMoney, self.couponId);
+    }
+    
     if (self.isMyProductLib == YES) {
         return;
     }
@@ -291,7 +297,7 @@
             money = @"";
         }
          UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-//        UIViewController *vc;
+        UIViewController *vc;
 //        if ([VC isKindOfClass:[YunDouToProductViewController class]]) {
 //             vc = (YunDouToProductViewController *)VC;
 //            self.delegate = vc;
@@ -302,39 +308,50 @@
 //            self.delegate = vc;
 //            [self.delegate returnMoney:money couponId:couponM.voucherid];
 //        }
-        //使用popToViewController返回并传值到上一页面
-//        [self.navigationController popToViewController:vc animated:true];
+        
+        if ([VC isKindOfClass:[SCSCConfirmOrderViewController class]]) {
+                         vc = (SCSCConfirmOrderViewController *)VC;
+                        self.delegate = vc;
+                        [self.delegate returnMoney:money couponId:couponM.couponId];
+        }else{
+            return;
+        }
+//        使用popToViewController返回并传值到上一页面
+        [self.navigationController popToViewController:vc animated:true];
        
     }else{
         
     }
 }
 
+
+-(void)setCouponBlock:(CouponBlock)couponBlock {
+    _couponBlock = couponBlock;
+}
+
 #pragma mark - 获取创客的充值抵用券列表
 -(void)resquestCouponData:(NSString*)lineNumber {
 
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Center/getMyCouponList"];
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary *pramaDic= @{@"appid":Appid,
-                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                              @"token":token,
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Center/getMyCouponList"];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Goods/getCouponList"];
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.couponType forKey:@"type"];
 //    NSDictionary *params = @{@"ckid":KCKidstring, @"voucherstatus":self.couponType, @"rowid":lineNumber, @"pagesize":@"50"};
 
-//    [self.view addSubview:self.viewDataLoading];
-//    [self.viewDataLoading startAnimation];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
 
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-//            [self.viewDataLoading stopAnimation];
+            [self.loadingView stopAnimation];
             [self.couponTable.mj_header endRefreshing];
             [self.couponTable.mj_footer endRefreshing];
             [self showNoticeView:dict[@"codeinfo"]];
             return ;
         }
 
-        NSArray *list = dict[@"list"];
+        NSArray *list = dict[@"data"][@"list"];
 
         if ([self.couponType isEqualToString:@"0"]) {
             if ([lineNumber isEqualToString:@"0"]) {
@@ -382,11 +399,11 @@
         }else{
             [self.couponTable.mj_footer endRefreshingWithNoMoreData];
         }
-//        [self.viewDataLoading stopAnimation];
+        [self.loadingView stopAnimation];
     } failure:^(NSError *error) {
         [self.couponTable.mj_header endRefreshing];
         [self.couponTable.mj_footer endRefreshing];
-//        [self.viewDataLoading stopAnimation];
+        [self.loadingView stopAnimation];
         if ([self.couponType isEqualToString:@"0"]){
             _noData.hidden = (self.cannotUseArray.count > 0) ? YES : NO;
             _noDataLabel.hidden = (self.cannotUseArray.count > 0) ? YES : NO;
@@ -411,68 +428,6 @@
 }
 
 
-#pragma mark - 设置刷新
--(void)setupRefresh {
-    __typeof (self) __weak weakSelf = self;
-//    self.couponTable.mj_header = [MJGearHeader headerWithRefreshingBlock:^{
-//        
-//        [weakSelf.couponTable.mj_header beginRefreshing];
-//        
-//        NSDate *nowDate = [NSDate date];
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-//        dateFormatter.dateFormat = @"yyy-MM-dd HH:mm:ss";
-//        weakSelf.endInterval = [nowDate timeIntervalSince1970];
-//        NSTimeInterval value = weakSelf.endInterval - weakSelf.startInterval;
-//        CGFloat second = [[NSString stringWithFormat:@"%.2f",value] floatValue];//秒
-//        NSLog(@"间隔------%f秒",second);
-//        weakSelf.startInterval = weakSelf.endInterval;
-//        
-//        RequestReachabilityStatus status = [RequestManager reachabilityStatus];
-//        switch (status) {
-//            case RequestReachabilityStatusReachableViaWiFi:
-//            case RequestReachabilityStatusReachableViaWWAN: {
-//                if (value >= Interval) {
-//                    [weakSelf resquestCouponData:@"0"];
-//                }else{
-//                    [weakSelf.couponTable.mj_header endRefreshing];
-//                    if (weakSelf.couponTable.mj_footer.state == MJRefreshStateNoMoreData) {
-//                        [weakSelf.couponTable.mj_footer endRefreshing];
-//                    }
-//                }
-//            }
-//                break;
-//            default: {
-//                [self showNoticeView:NetWorkNotReachable];
-//                [weakSelf.couponTable.mj_header endRefreshing];
-//            }
-//                break;
-//        }
-//        
-//    }];
-//    
-//    
-//    self.couponTable.mj_footer = [MJGearFooter footerWithRefreshingBlock:^{
-//        RequestReachabilityStatus status = [RequestManager reachabilityStatus];
-//        switch (status) {
-//            case RequestReachabilityStatusReachableViaWiFi:
-//            case RequestReachabilityStatusReachableViaWWAN: {
-//                if ([self.couponType isEqualToString:@"0"]) {
-//                    [weakSelf resquestCouponData:[NSString stringWithFormat:@"%ld", self.cannotUseArray.count]];
-//                }else{
-//                    [weakSelf resquestCouponData:[NSString stringWithFormat:@"%ld", self.cannotUseArray.count]];
-//                }
-//                
-//                [weakSelf.couponTable.mj_footer endRefreshing];
-//            }
-//                break;
-//            default: {
-//                [self showNoticeView:NetWorkNotReachable];
-//                [weakSelf.couponTable.mj_footer endRefreshing];
-//            }
-//                break;
-//        }
-//    }];
-}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([self.couponType isEqualToString:@"0"]) {

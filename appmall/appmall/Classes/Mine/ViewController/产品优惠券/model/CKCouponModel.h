@@ -13,7 +13,7 @@
 /**
  抵用券id
  */
-@property (nonatomic, copy) NSString *voucherid;
+@property (nonatomic, copy) NSString *couponId;
 /**
  抵用券金额
  */

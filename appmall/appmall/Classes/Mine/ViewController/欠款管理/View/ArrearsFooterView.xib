@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ArrearsFooterView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZT-Hc-bM4">
-                    <rect key="frame" x="215" y="5" width="150" height="30"/>
+                    <rect key="frame" x="215" y="6.5" width="150" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-ix-AYd">
                             <rect key="frame" x="72.5" y="0.0" width="5" height="30"/>
@@ -27,13 +27,27 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4U-Id-VRD">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4U-Id-VRD">
                             <rect key="frame" x="0.0" y="0.0" width="72.5" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="取消订单">
+                                <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionleft:" destination="iN0-l3-epB" eventType="touchUpInside" id="hjS-F3-jy0"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7e-bM-wc8">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7e-bM-wc8">
                             <rect key="frame" x="77.5" y="0.0" width="72.5" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="去付款">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="actionright:" destination="iN0-l3-epB" eventType="touchUpInside" id="5iS-2h-Fks"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-zt-O8s">
                             <rect key="frame" x="72.5" y="0.0" width="5" height="30"/>
@@ -63,19 +77,29 @@
                         <constraint firstAttribute="width" constant="150" id="yeJ-bX-2bM"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIK-WV-387" customClass="MGLabel">
+                    <rect key="frame" x="8" y="22" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DZT-Hc-bM4" secondAttribute="trailing" constant="10" id="Bl8-2n-gIs"/>
                 <constraint firstItem="DZT-Hc-bM4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CCb-iG-gMg"/>
+                <constraint firstItem="SIK-WV-387" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Uvl-zd-WO7"/>
+                <constraint firstItem="SIK-WV-387" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jjD-bf-PIJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="leftAction" destination="G4U-Id-VRD" id="tmG-2u-p8E"/>
                 <outlet property="leftBtn" destination="G4U-Id-VRD" id="qqE-Vg-xOw"/>
-                <outlet property="orderTotal" destination="mfh-ix-AYd" id="Src-c5-J52"/>
+                <outlet property="orderTotal" destination="SIK-WV-387" id="GZW-Qd-Ad0"/>
+                <outlet property="rightAction" destination="K7e-bM-wc8" id="tdv-h8-UcV"/>
                 <outlet property="rightBtn" destination="K7e-bM-wc8" id="4SO-FI-yn6"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="-49"/>
+            <point key="canvasLocation" x="33.5" y="-47.5"/>
         </view>
     </objects>
 </document>

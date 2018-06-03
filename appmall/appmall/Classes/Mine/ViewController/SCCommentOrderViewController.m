@@ -168,7 +168,6 @@
     }
 
     NSString *itemid = [NSString stringWithFormat:@"%@", _goodsM.itemid];
-    NSMutableArray *listArr = [NSMutableArray array];
     
     if (IsNilOrNull(itemid)) {
         itemid = @"";
@@ -180,17 +179,14 @@
         self.content = @"";
     }
     
-    if (IsNilOrNull(str)) {
-        NSDictionary *dict = @{@"itemid":itemid, @"score":self.score,@"content":self.content};
-        [listArr addObject:dict];
-    }else{
-        NSDictionary *dict = @{@"itemid":itemid, @"score":self.score,@"content":self.content,@"paths":str};
-        [listArr addObject:dict];
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:itemid forKey:@"itemid"];
+    [pramaDic setObject:self.score forKey:@"score"];
+    [pramaDic setObject:self.content forKey:@"comment"];
+    if (!IsNilOrNull(str)) {
+       [pramaDic setObject:str forKey:@"paths"];
     }
-    
-    NSString *commentlist = [listArr mj_JSONString];
-    
-    NSDictionary *pramaDic = @{@"orderid": self.orderid, @"openid":USER_OPENID, @"commentlist":commentlist};
+    [pramaDic setObject:self.orderid forKey:@"orderid"];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];

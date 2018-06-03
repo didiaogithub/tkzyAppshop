@@ -387,7 +387,7 @@
 
 -(void)initComponents {
     
-    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTotalMoney:) name:@"GDConfrimOrderChangeBuyCount" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTotalMoney:) name:@"GDConfrimOrderChangeBuyCount" object:nil];
     
     self.backgroundColor = [UIColor tt_grayBgColor];
     

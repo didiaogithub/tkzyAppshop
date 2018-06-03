@@ -843,7 +843,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 }
 
 -(void)deleteOrder {
-    NSDictionary *pramaDic = @{@"orderids": _orderModel.orderId};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, DelOrderUrl];
     
     [self.view addSubview:self.loadingView];
@@ -899,10 +900,26 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }else if ([_deleteAlertView.type isEqualToString:@"删除订单"]) {
         [self deleteOrder];
     }
+    
+    
+}
+
+- (void)payOrder {
+    SCOrderDetailModel *orderM = [self.orderDataArr firstObject];
+    SCPayViewController *payMoney = [[SCPayViewController alloc] init];
+    payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.money];
+    
+    payMoney.orderid = orderM.orderId;
+    NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.orderNo];
+    if ([orderNo hasPrefix:@"ckdlb"]) {
+        payMoney.isdlbitem = @"1";
+    }
+    [self.navigationController pushViewController:payMoney animated:YES];
 }
 
 -(void)confirmCancelOrder {
-    NSDictionary *pramaDic = @{@"orderid": _orderModel.orderId};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelOrderUrl];
     
     [self.view addSubview:self.loadingView];
@@ -945,7 +962,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 }
 
 -(void)confirmReceiveGoods {
-    NSDictionary *pramaDic = @{@"orderid": _orderModel.orderId};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, ConfirmReceiveUrl];
     
     [self.view addSubview:self.loadingView];

@@ -14,18 +14,23 @@
 #import "SCOrderDetailModel.h"
 #import "OrderDetailModel.h"
 #import "WBWuliuInfoVC.h"
-
+#import "XWAlterVeiw.h"
 #define KODWuliuCell @"ODWuliuCell"
 #define KODGoodInfoViewCell @"ODGoodInfoViewCell"
 #define KODOrderInfoViewCell @"ODOrderInfoViewCell"
 #define KODGoodsTableViewCell @"ODGoodsTableViewCell"
 
 
-@interface SCOrderDetailVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface SCOrderDetailVC ()<UITableViewDelegate,UITableViewDataSource,XWAlterVeiwDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
+@property (nonatomic, strong) XWAlterVeiw *deleteAlertView;
 @property (weak, nonatomic) IBOutlet UITableView *tabOrderDetaiol;
 @property (nonatomic, strong) OrderDetailModel *orderDetailModel;
+@property (weak, nonatomic) IBOutlet UIButton *btnItem1;
+@property (weak, nonatomic) IBOutlet UIButton *btnItem2;
+@property (weak, nonatomic) IBOutlet UIButton *btnItem3;
 @property(nonatomic,strong)UILabel *headLab;
+@property (weak, nonatomic) IBOutlet UIView *viewBottom;
 @end
 
 @implementation SCOrderDetailVC
@@ -33,10 +38,151 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";
-    
+
     self.topDis.constant = NaviHeight;
     [self setTableView];
     [self requestOrderDetailData];
+    [self setBtn:_btnItem1 isRed:NO];
+    [self setBtn:_btnItem2 isRed:NO];
+    [self setBtn:_btnItem3 isRed:YES];
+    [self setBottom:self.orderstatusString];
+}
+
+-(void)setBtn:(UIButton *)sender isRed:(BOOL)isRed{
+    sender.layer.cornerRadius = 3;
+    sender.layer.masksToBounds = YES;
+    if (!isRed) {
+        sender.layer.borderColor = RGBCOLOR(170, 170, 170).CGColor;
+        sender.layer.borderWidth = 1;
+    }else{
+        sender.backgroundColor = [UIColor redColor];
+    }
+}
+
+
+-(void)setBottom:(NSString *)state{
+    //    （， 99：全部）
+    
+    //交易取消  0：已取消，4：正在退货， 5：退货成功
+    //待付款  1：未付款
+    // 待发货  2：已付款；
+    // 待收货  7：已发货
+    //交易成功 6：已完成，3：已收货
+    if ([state isEqualToString:@"2"]) { //代发货
+        self.viewBottom.hidden = YES;
+    }
+    if ([state isEqualToString:@"6"] ||[state isEqualToString:@"3"]) {  //交易成功
+        
+        [self.btnItem1 setTitle:@"联系客服" forState:0];
+        [self.btnItem2 setTitle:@"查看物流" forState:0];
+                [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem3 setTitle:@"确认收货" forState:0];
+         [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
+    }
+    if ([state isEqualToString:@"1"]) { // 代付款
+        self.btnItem1.hidden = YES;
+        [self.btnItem2 setTitle:@"删除订单" forState:0];
+        [self.btnItem2 removeTarget:self  action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem2 addTarget:self action:@selector(deleteOrderAlert) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem3 setTitle:@"去付款" forState:0];
+    }
+    if ([state isEqualToString:@"7"]) { // 代收货
+        self.btnItem1.hidden = YES;
+        [self.btnItem2 setTitle:@"查看物流" forState:0];
+        [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem3 setTitle:@"确认收货" forState:0];
+        [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    if ([state isEqualToString:@"0"] || [state isEqualToString:@"4"] || [state isEqualToString:@"5"]) {
+        self.viewBottom .hidden = YES;
+    }
+}
+
+-(void)deleteOrder {
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:self.orderid forKey:@"orderid"];
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, DelOrderUrl];
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool postWithUrl:loveItemUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        NSString * status = [dic valueForKey:@"code"];
+        if ([status intValue] != 200) {
+            [self showNoticeView:[dic valueForKey:@"message"]];
+            return ;
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self showNoticeView:@"删除成功"];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+}
+
+-(void)confirmReceiveAlert{
+    _deleteAlertView = [[XWAlterVeiw alloc] init];
+    _deleteAlertView.delegate = self;
+    _deleteAlertView.titleLable.text = @"确定已经收到货物？";
+    _deleteAlertView.type = @"确认收货";
+    [_deleteAlertView show];
+}
+
+-(void)deleteOrderAlert{
+    _deleteAlertView = [[XWAlterVeiw alloc] init];
+    _deleteAlertView.delegate = self;
+    _deleteAlertView.titleLable.text = @"确定删除订单？";
+    _deleteAlertView.type = @"删除订单";
+    [_deleteAlertView show];
+}
+
+-(void)subuttonClicked{
+    
+    if ([_deleteAlertView.type isEqualToString:@"确认收货"]) {
+        [self confirmReceiveGoods];
+    }else if ([_deleteAlertView.type isEqualToString:@"删除订单"]) {
+        [self deleteOrder];
+    }
+}
+
+
+-(void)confirmReceiveGoods {
+    
+
+    NSMutableDictionary *paraDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:self.orderid forKey:@"orderid"];
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, ConfirmReceiveUrl];
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool postWithUrl:loveItemUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        NSString * status = [dic valueForKey:@"code"];
+        if ([status intValue] != 200) {
+            [self showNoticeView:[dic valueForKey:@"message"]];
+            return ;
+        }
+        
+        [self requestOrderDetailData];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
 }
 
 -(void)setTableView{
@@ -167,12 +313,16 @@
     return [UIView new];
 }
 
+-(void)lookWuLIU{
+    WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
+    wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+    wuliuVC.orderid = self.orderModel.orderId;
+    [self.navigationController pushViewController:wuliuVC animated:YES];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
-        wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
-        wuliuVC.orderid = self.orderModel.orderId;
-        [self.navigationController pushViewController:wuliuVC animated:YES];
+        [self lookWuLIU];
     }
 }
 

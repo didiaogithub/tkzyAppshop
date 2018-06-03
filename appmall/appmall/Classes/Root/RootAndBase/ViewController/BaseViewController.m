@@ -72,10 +72,19 @@
 
 - (void)setRightButton:(NSString *)btnName
 {
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:btnName style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnPressed)];
-    self.navigationItem.rightBarButtonItem = right;
-    self.navigationController.navigationBar.hidden = NO;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 60, 40);
+    [button setTitle:btnName forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(rightBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    [button setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    negativeSpacer.width = -17;
+   UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.rightBarButtonItems = @[negativeSpacer,right];
+   
 }
 
 - (void)setRightImageButton:(NSString *)btnName

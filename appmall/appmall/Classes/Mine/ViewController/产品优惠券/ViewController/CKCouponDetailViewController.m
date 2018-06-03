@@ -12,6 +12,7 @@
 #import "CKCouponCanUseCell.h"
 #import "CKCouponNotCanUseCell.h"
 #import "UITableView+XY.h"
+#import "SCSCConfirmOrderViewController.h"
 @interface CKCouponDetailViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
 
 @property (nonatomic, strong) UIButton *canUseBtn; // 未使用
@@ -183,7 +184,7 @@
             [self.couponTable reloadData];
         }else{
             //如果有值切换时不再请求
-            [self resquestCouponData:@"0"];
+            [self resquestCouponData:@"2"];
         }
        
        
@@ -202,7 +203,7 @@
             [self.couponTable reloadData];
         }else{
             //如果有值切换时不再请求
-            [self resquestCouponData:@"0"];
+            [self resquestCouponData:@"1"];
         }
         
     }
@@ -211,15 +212,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if ([self.couponType isEqualToString:@"0"]) {
-//        return self.cannotUseArray.count;
-        return 3;
+        return self.cannotUseArray.count;
     }
     
     if ([self.couponType isEqualToString:@"1"]) {
-//        return self.usedArray.count;
-        return 3;
+        return self.usedArray.count;
     }
-    return 3;
     
     return self.expireArray.count;
 }
@@ -251,8 +249,8 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-//        CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
-//        [cell refreshCouponWithCouponModel:couponM];
+        CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
+        [cell refreshCouponWithCouponModel:couponM];
         
         return cell;
     }else if([self.couponType isEqualToString:@"1"]){
@@ -261,8 +259,8 @@
             cell = [[CKCouponCanUseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CKCouponCanUseCell"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        CKCouponModel *couponM = self.usedArray[indexPath.section];
-//        [cell refreshCouponWithCouponModel:couponM];
+        CKCouponModel *couponM = self.usedArray[indexPath.section];
+        [cell refreshCouponWithCouponModel:couponM];
         return cell;
     }else{
         CKCouponNotCanUseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CKCouponNotCanUseCell"];
@@ -270,49 +268,66 @@
             cell = [[CKCouponNotCanUseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CKCouponNotCanUseCell"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        CKCouponModel *couponM = self.expireArray[indexPath.section];
-//        [cell refreshCouponWithCouponModel:couponM];
+        CKCouponModel *couponM = self.expireArray[indexPath.section];
+        [cell refreshCouponWithCouponModel:couponM];
         return cell;
     }
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    // 这里处理点击优惠券带回金额
-//    
-//    if (self.isMyProductLib == YES) {
-//        return;
-//    }
-//    if ([self.couponType isEqualToString:@"0"]) {
-//        if (self.cannotUseArray == nil) {
-//            return;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 这里处理点击优惠券带回金额
+    
+    if (_couponBlock) {
+        _couponBlock(self.coupontMoney, self.couponId);
+    }
+    
+    if (self.isMyProductLib == YES) {
+        return;
+    }
+    if ([self.couponType isEqualToString:@"0"]) {
+        if (self.cannotUseArray == nil) {
+            return;
+        }
+         CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
+        if (couponM == nil) {
+            return;
+        }
+        NSString *money = [NSString stringWithFormat:@"%@",couponM.money];
+        if (IsNilOrNull(money)) {
+            money = @"";
+        }
+         UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+        UIViewController *vc;
+//        if ([VC isKindOfClass:[YunDouToProductViewController class]]) {
+//             vc = (YunDouToProductViewController *)VC;
+//            self.delegate = vc;
+//            [self.delegate returnMoney:money couponId:couponM.voucherid];
 //        }
-//         CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
-//        if (couponM == nil) {
-//            return;
+//        if ([VC isKindOfClass:[TopUpViewController class]]){
+//             vc = (TopUpViewController *)VC;
+//            self.delegate = vc;
+//            [self.delegate returnMoney:money couponId:couponM.voucherid];
 //        }
-//        NSString *money = [NSString stringWithFormat:@"%@",couponM.money];
-//        if (IsNilOrNull(money)) {
-//            money = @"";
-//        }
-//         UIViewController *VC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-////        UIViewController *vc;
-////        if ([VC isKindOfClass:[YunDouToProductViewController class]]) {
-////             vc = (YunDouToProductViewController *)VC;
-////            self.delegate = vc;
-////            [self.delegate returnMoney:money couponId:couponM.voucherid];
-////        }
-////        if ([VC isKindOfClass:[TopUpViewController class]]){
-////             vc = (TopUpViewController *)VC;
-////            self.delegate = vc;
-////            [self.delegate returnMoney:money couponId:couponM.voucherid];
-////        }
-//        //使用popToViewController返回并传值到上一页面
-////        [self.navigationController popToViewController:vc animated:true];
-//       
-//    }else{
-//        
-//    }
-//}
+        
+        if ([VC isKindOfClass:[SCSCConfirmOrderViewController class]]) {
+                         vc = (SCSCConfirmOrderViewController *)VC;
+                        self.delegate = vc;
+                        [self.delegate returnMoney:money couponId:couponM.couponId];
+        }else{
+            return;
+        }
+//        使用popToViewController返回并传值到上一页面
+        [self.navigationController popToViewController:vc animated:true];
+       
+    }else{
+        
+    }
+}
+
+
+-(void)setCouponBlock:(CouponBlock)couponBlock {
+    _couponBlock = couponBlock;
+}
 
 #pragma mark - 获取创客的充值抵用券列表
 -(void)resquestCouponData:(NSString*)lineNumber {
@@ -320,6 +335,7 @@
 //    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Center/getMyCouponList"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Goods/getCouponList"];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.couponType forKey:@"type"];
 //    NSDictionary *params = @{@"ckid":KCKidstring, @"voucherstatus":self.couponType, @"rowid":lineNumber, @"pagesize":@"50"};
 
     [self.view addSubview:self.loadingView];
@@ -335,7 +351,7 @@
             return ;
         }
 
-        NSArray *list = dict[@"list"];
+        NSArray *list = dict[@"data"][@"list"];
 
         if ([self.couponType isEqualToString:@"0"]) {
             if ([lineNumber isEqualToString:@"0"]) {

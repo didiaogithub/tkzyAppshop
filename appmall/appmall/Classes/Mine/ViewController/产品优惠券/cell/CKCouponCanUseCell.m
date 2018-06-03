@@ -50,31 +50,30 @@
         make.width.mas_equalTo(AdaptedWidth(120));
     }];
     
-    //    self.nameLable = [UILabel new];
-    //    self.nameLable.text = @"产品券";
-    //    self.nameLable.backgroundColor = [UIColor clearColor];
-    //    self.nameLable.textColor = [UIColor whiteColor];
-    //    self.nameLable.textAlignment = NSTextAlignmentCenter;
-    //    self.nameLable.font = [UIFont systemFontOfSize:12];
-    //    self.nameLable.numberOfLines = 0;
-    //    [self.contentView addSubview:self.nameLable];
-    //    [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.top.equalTo(self.moneyLable.mas_bottom).offset(0);
-    //        make.width.mas_equalTo(AdaptedWidth(120));
-    //        make.left.mas_offset(0);
-    //        make.height.mas_equalTo(30);
-    //    }];
+        self.nameLable = [UILabel new];
+        self.nameLable.text = @"产品券";
+        self.nameLable.backgroundColor = [UIColor clearColor];
+        self.nameLable.textColor =  [UIColor tt_monthLittleBlackColor];
+        self.nameLable.textAlignment = NSTextAlignmentCenter;
+        self.nameLable.font = [UIFont systemFontOfSize:15];
+        self.nameLable.numberOfLines = 0;
+        [self.contentView addSubview:self.nameLable];
+        [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.mas_centerX);
+            make.height.mas_equalTo(30);
+            make.bottom.mas_equalTo(self.moneyLable.mas_bottom);
+        }];
     
-    self.typeLabel = [UILabel new];
-    self.typeLabel.text = @"产品进货抵用券";
-    self.typeLabel.textColor = [UIColor tt_monthLittleBlackColor];
-    self.typeLabel.font = [UIFont systemFontOfSize:15];
-    [self.contentView addSubview:self.typeLabel];
-    [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.mas_centerX);
-        make.height.mas_equalTo(30);
-        make.bottom.mas_equalTo(self.moneyLable.mas_bottom);
-    }];
+//    self.typeLabel = [UILabel new];
+//    self.typeLabel.text = @"产品进货抵用券";
+//    self.typeLabel.textColor = [UIColor tt_monthLittleBlackColor];
+//    self.typeLabel.font = [UIFont systemFontOfSize:15];
+//    [self.contentView addSubview:self.typeLabel];
+//    [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.mas_centerX);
+//        make.height.mas_equalTo(30);
+//        make.bottom.mas_equalTo(self.moneyLable.mas_bottom);
+//    }];
     
     self.validDate = [UILabel new];
     self.validDate.text = @"2017.03.01 00:00-2017.04.25 00:00";

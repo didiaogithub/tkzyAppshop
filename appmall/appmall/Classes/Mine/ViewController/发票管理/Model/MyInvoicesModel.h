@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MyInvoicesModel : NSObject
+@property(nonatomic,assign)BOOL isSelect;
 /**  发票id*/
 @property (nonatomic, copy) NSString *invoiceid;
 /**  公司抬头*/

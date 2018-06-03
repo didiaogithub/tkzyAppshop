@@ -141,7 +141,7 @@
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0 , btnW, 35)];
     [button setTitle:@"待开发票" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     button.selected = YES;
@@ -151,7 +151,7 @@
     
     UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(Space + btnW, 0 , btnW, 35)];
     [button1 setTitle:@"已开发票" forState:UIControlStateNormal];
-    button1.titleLabel.font = [UIFont systemFontOfSize:12];
+    button1.titleLabel.font = [UIFont systemFontOfSize:14];
     [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     [contentView addSubview:button1];

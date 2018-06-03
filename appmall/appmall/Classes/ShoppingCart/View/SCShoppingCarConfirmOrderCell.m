@@ -351,6 +351,7 @@
     if (IsNilOrNull(allMoney)) {
         allMoney = @"0.00";
     }
+    
     _priceLabale.text = [NSString stringWithFormat:@"%@", allMoney];
 }
 
@@ -371,6 +372,7 @@
     
     NSDictionary *buyCountDic = userInfo.userInfo;
     NSString *count = [NSString stringWithFormat:@"%@", buyCountDic[@"BuyCount"]];
+    
     
     NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
     if (IsNilOrNull(money)) {

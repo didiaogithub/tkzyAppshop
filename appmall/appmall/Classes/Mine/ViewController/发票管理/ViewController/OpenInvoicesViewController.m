@@ -27,7 +27,7 @@
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"OpenInvoicesCell" bundle:nil] forCellReuseIdentifier:@"OpenInvoicesCell"];
-    nameArray = @[@"抬头类型",@"发票抬头",@"税号",@"发票内容",@"收票邮箱",@"发票金额"];
+    nameArray = @[@"抬头类型",@"发票抬头",@"税号",@"开户行",@"账号",@"地址",@"电话",@"发票内容",@"收票邮箱",@"发票金额"];
     self.mTableView.tableFooterView = [UIView new];
     
     [self setUpRightItem];

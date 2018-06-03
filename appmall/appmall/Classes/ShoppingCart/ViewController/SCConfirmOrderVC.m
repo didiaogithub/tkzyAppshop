@@ -80,7 +80,7 @@
     NSDictionary *buyCountDic = userInfo.userInfo;
     NSString *count = [NSString stringWithFormat:@"%@", buyCountDic[@"BuyCount"]];
     self.buyCount = count;
-    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
     if (IsNilOrNull(money)) {
         money = @"0";
     }
@@ -247,7 +247,7 @@
         //选择优惠券后显示优惠金额
         [cell refreshCouponAndMoney:self.coupontMoney usablecount:self.coupontUsablecount];
         
-        NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+        NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
         if (IsNilOrNull(money)) {
             money = @"0.00";
         }else{
@@ -332,9 +332,11 @@
         return;
     }
     NSString *addressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
-    [pram setObject:@"addressid" forKey:addressId];
+    [pram setObject:addressId forKey:@"addressid"];
     NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:0];
-    [itemArray addObject:@{@"itemid":self.goodsDict[@"itemid"],@"count":@1}];
+    [itemArray addObject:@{@"itemid":self.goodsDict[@"itemid"],@"count":self.buyCount}];
+  NSString *itemlistStr =   [itemArray mj_JSONString];
+    [pram setObject:itemlistStr forKey:@"itemlist"];
         NSString *itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddActiveOrderUrl];
         [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:pram];
 }

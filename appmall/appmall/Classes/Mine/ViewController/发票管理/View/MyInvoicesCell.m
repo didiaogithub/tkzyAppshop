@@ -9,6 +9,9 @@
 #import "MyInvoicesCell.h"
 
 @implementation MyInvoicesCell
+{
+    MyInvoicesModel *selfModel;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,7 +25,7 @@
 }
 
 - (void)refreshData:(MyInvoicesModel *)model{
-    
+    selfModel = model;
     if ([model.invoiceheadtype isEqualToString:@"1"]) {
         self.typeLab.text = @"个人/非企业单位";
     }else{
@@ -31,6 +34,13 @@
     
     self.fpttLab.text = model.issuingoffice;
     self.shLab.text = model.taxpayer_identification_number;
+}
+- (IBAction)selectBtnAction:(UIButton *)sender {
+    sender.selected=!sender.selected;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableCellButtonDidSelected:)]) {
+        [self.delegate  tableCellButtonDidSelected:selfModel];
+        
+    }
 }
 
 @end

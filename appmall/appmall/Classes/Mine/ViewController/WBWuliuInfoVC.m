@@ -60,7 +60,10 @@
         return cell;
     }else{
         WuliuDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KWuliuDetailViewCell];
-        [cell loadData:self.wuluModel.infos[0] atIndex:indexPath.row andInfoCount:10];
+        if (self.wuluModel.infos.count > 0) {
+           [cell loadData:self.wuluModel.infos[0] atIndex:indexPath.row andInfoCount:10];
+        }
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

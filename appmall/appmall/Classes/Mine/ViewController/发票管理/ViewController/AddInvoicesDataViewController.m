@@ -514,7 +514,7 @@
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,addInvoiceTempApi];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {

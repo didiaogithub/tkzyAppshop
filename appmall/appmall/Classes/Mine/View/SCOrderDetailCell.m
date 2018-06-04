@@ -496,7 +496,7 @@
         make.bottom.equalTo(_iconImageView.mas_bottom);
     }];
     
-    _rightBtn = [UIButton configureButtonWithTitle:@"去评价" titleColor:[UIColor whiteColor] bankGroundColor:[UIColor tt_redMoneyColor] cornerRadius:5 font:MAIN_SUBTITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(clickDetailBtn:)];
+    _rightBtn = [UIButton configureButtonWithTitle:@"去反馈" titleColor:[UIColor whiteColor] bankGroundColor:[UIColor tt_redMoneyColor] cornerRadius:5 font:MAIN_SUBTITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(clickDetailBtn:)];
     _rightBtn.tag = 521;
     [self.contentView addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -650,7 +650,7 @@
         [_leftBtn setTitle:@"我要退货" forState:UIControlStateNormal];
         if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
             _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去评价" forState:UIControlStateNormal];
+            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
         }else{
             _rightBtn.hidden = YES;
             
@@ -714,7 +714,7 @@
         _leftBtn.hidden = YES;
         if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
             _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去评价" forState:UIControlStateNormal];
+            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
         }else{
             _rightBtn.hidden = YES;
             [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -735,7 +735,7 @@
         _leftBtn.hidden = YES;
         if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
             _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去评价" forState:UIControlStateNormal];
+            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
         }else{
             _rightBtn.hidden = YES;
             [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {

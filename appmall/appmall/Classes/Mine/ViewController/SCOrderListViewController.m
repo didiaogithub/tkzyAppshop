@@ -535,7 +535,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         _footerView.rightButton.tag = section + 170;
         _footerView.leftButton.tag = section + 160;
-        
+        _footerView.left0Button.tag = section + 150;
+        if ([orderModel.ordertypelabel containsString:@"欠"]) {
+            _footerView.left0Button.hidden = YES;
+            _footerView.leftButton.hidden = YES;
+            _footerView.rightButton.hidden = YES;
+        }
         NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
@@ -728,6 +733,16 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 }
 
 #pragma mark - FooterViewDelegate
+-(void)left0ButtonClick:(UIButton *)btn {
+    
+    SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 150];
+    _orderModel = orderM;
+    if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
+        [self jumpOpenInvoice];
+    }
+}
+
+
 -(void)leftButtonClick:(UIButton *)btn {
     
     SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 160];
@@ -1000,7 +1015,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 #pragma mark - 联系客服
 -(void)contactCS:(SCMyOrderModel *)orderM {
-//    [[SobotManager shareInstance] startSobotCustomerService];
+    [[SobotManager shareInstance] startSobotCustomerService];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -1009,4 +1024,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void)jumpOpenInvoice{
+    NSLog(@"跳转开发票");
+}
 @end

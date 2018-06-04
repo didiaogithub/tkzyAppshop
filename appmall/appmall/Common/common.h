@@ -295,6 +295,8 @@
 #define DelOrderUrl @"Order/deleteOrder"
 /**取消订单*/
 #define CancelOrderUrl @"Order/cancelOrder"
+/**取消欠款订单*/
+#define CancelLoanOrder @"Rule/cancelLoanOrder"
 /**发表评论*/
 #define AddCommentUrl @"Order/addComment"
 /**退换货申请*/

@@ -308,9 +308,13 @@
 
 - (void)leftBtnAction:(UIButton *)sender{
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
     arrearsModel  * model = self.dataArray[sender.tag];
-//    [pramaDic setObject:model.orderid forKey:@"orderid"];
-    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelOrderUrl];
+    if (IsNilOrNull(model.orderid)) {
+        return;
+    }
+    [pramaDic setObject:model.orderid forKey:@"orderid"];
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelLoanOrder];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];

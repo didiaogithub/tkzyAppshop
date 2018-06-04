@@ -278,7 +278,7 @@
         
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
         InvoicesManagerModel *model = self.dataArray[sender.tag];
-        if (model.invoice == 1) { // 0 是没有审核审核成功的发票模板 需要去添加
+        if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
 //            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
 //            [self.navigationController pushViewController:add animated:YES];
             [self showNoticeView:@"请点击开票信息，去添加发票模板"];

@@ -10,6 +10,8 @@
 
 @protocol OrderFooterViewDelegate <NSObject>
 
+-(void)left0ButtonClick:(UIButton*)btn;
+
 -(void)leftButtonClick:(UIButton*)btn;
 
 -(void)rightButtonClick:(UIButton*)btn;
@@ -28,6 +30,8 @@
 @property (nonatomic, strong)UIButton *rightButton;
 
 @property (nonatomic, strong)UIButton *leftButton;
+
+@property (nonatomic, strong)UIButton *left0Button;
 
 @property (nonatomic, copy) NSString *iscomment;
 

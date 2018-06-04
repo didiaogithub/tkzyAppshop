@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenInvoicesViewController">
             <connections>
                 <outlet property="mTableView" destination="lI2-aS-0p1" id="NSt-TS-oQs"/>
+                <outlet property="orderNoLab" destination="PrC-km-wyU" id="v8C-lJ-SOD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

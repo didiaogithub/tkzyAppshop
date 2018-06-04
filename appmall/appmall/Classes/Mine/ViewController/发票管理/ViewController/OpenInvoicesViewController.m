@@ -13,8 +13,11 @@
 {
     NSArray *nameArray;
 }
+/**  发票邮箱*/
+@property (nonatomic, strong) UITextField *ffyxTextField;
 - (IBAction)showinvoicesDetail:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UILabel *orderNoLab;
 
 @end
 
@@ -23,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"开发票";
-    
+    self.orderNoLab.text = [NSString stringWithFormat:@"订单号:%@",self.orderno];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"OpenInvoicesCell" bundle:nil] forCellReuseIdentifier:@"OpenInvoicesCell"];
@@ -32,15 +35,15 @@
     
     [self setUpRightItem];
     
-//    [self getData];
+    [self getData];
 }
 
 - (void)getData{
     
     
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:self.invoiceid forKey:@"invoiceid"];
-    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"];    
+    [pramaDic setObject:self.orderid forKey:@"orderid"];
+//    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"];    
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getInvoiceByIdApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
@@ -64,14 +67,40 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"OpenInvoicesCell";//这个identifier跟xib设置的一样
-    OpenInvoicesCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell == nil) {
-        cell= [[[NSBundle  mainBundle]
-                loadNibNamed:@"OpenInvoicesCell" owner:self options:nil]  lastObject];
+    OpenInvoicesCell *cell;
+    if (indexPath.row == nameArray.count - 2) {
+        static NSString *identifier = @"OpenInvoicesCell";//这个identifier跟xib设置的一样
+         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]
+                    loadNibNamed:@"OpenInvoicesCell" owner:self options:nil]  lastObject];
+        }
+        
+        cell.nameLab.text = nameArray[indexPath.row];
+        cell.contentLab.hidden = YES;
+        self.ffyxTextField = [[UITextField  alloc]init];
+        [cell.contentView addSubview:self.ffyxTextField];
+        [self.ffyxTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_offset(-10);
+            make.top.bottom.mas_equalTo(cell);
+        }];
+        self.ffyxTextField.placeholder = @"用于接受电子发票";
+        self.ffyxTextField.font = [UIFont systemFontOfSize:15];
+    }else{
+        static NSString *identifier = @"OpenInvoicesCell";//这个identifier跟xib设置的一样
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]
+                    loadNibNamed:@"OpenInvoicesCell" owner:self options:nil]  lastObject];
+        }
+        
+        cell.nameLab.text = nameArray[indexPath.row];
     }
-    cell.nameLab.text = nameArray[indexPath.row];
+   
+    
+    
     return cell;
 }
 

@@ -23,7 +23,7 @@
 
 static NSString *cellIdentifier = @"SCOrderListCell";
 
-@interface SCOrderListViewController()<UITableViewDelegate, UITableViewDataSource, XWAlterVeiwDelegate, UITextFieldDelegate, SearchTopViewDelegate, OrderFooterViewDelegate>
+@interface SCOrderListViewController()<UITableViewDelegate, UITableViewDataSource, XWAlterVeiwDelegate, UITextFieldDelegate, SearchTopViewDelegate, OrderFooterViewDelegate,XYTableViewDelegate>
 
 @property (nonatomic, strong) NSString *oidString;
 @property (nonatomic, strong) UILabel *indicateLine;
@@ -39,7 +39,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 @property (nonatomic, strong) UIButton *waitDispatchGoodsButton; //待发货
 @property (nonatomic, strong) UIButton *waitConsigneeButton; //待收货
 @property (nonatomic, strong) UIButton *afterSalesButton; //售后
-@property (nonatomic, strong) NodataLableView *nodataLableView;
 @property (nonatomic, strong) UILabel *orderNumberLable;  //订单编号
 @property (nonatomic, strong) UILabel *orderStateLable;  //订单状态
 @property (nonatomic, strong) SCMyOrderModel *orderModel;
@@ -60,13 +59,19 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     return _orderDataArr;
 }
 
--(NodataLableView *)nodataLableView {
-    if(_nodataLableView == nil) {
-        _nodataLableView = [[NodataLableView alloc] initWithFrame:CGRectMake(0,64, SCREEN_WIDTH,SCREEN_HEIGHT - 64-49-50)];
-        _nodataLableView.nodataLabel.text = @"暂无订单";
-    }
-    return _nodataLableView;
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"我的订单默认"];
+    return image;
 }
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类订单哦";
+    return str;
+}
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -108,7 +113,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     [self setAutomaticallyAdjustsScrollViewInsets:YES];
     
-    _nodataLableView.hidden = YES;
     
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
@@ -139,7 +143,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         if (!IsNilOrNull(self.searchView.searchTextField.text)) {
             NSArray *itemArr = itemDic[@"data"][@"orderlist"];
             if (itemArr.count == 0) {
-                _nodataLableView.hidden = NO;
                 [self.orderDataArr removeAllObjects];
 //                [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
             }
@@ -223,7 +226,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             [self showNoticeView:NetWorkTimeout];
         }
         if(self.orderDataArr.count == 0){
-            _nodataLableView.hidden = NO;
 //            [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
         }
         [self.loadingView stopAnimation];
@@ -253,7 +255,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         SCMyOrderModel *orderModel = orderArr.lastObject;
         _oidString = [NSString stringWithFormat:@"%@", orderModel.orderId];
     }else{
-        _nodataLableView.hidden = NO;
+
 //        [self.orderTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.orderDataArr.count];
     }
     
@@ -627,7 +629,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 #pragma mark - 上拉加载更多订单列表数据
 -(void)loadMoreData {
     _page ++;
-    _nodataLableView.hidden = YES;
     
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     

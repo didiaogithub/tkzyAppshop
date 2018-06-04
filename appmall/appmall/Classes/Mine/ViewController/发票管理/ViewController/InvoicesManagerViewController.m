@@ -283,7 +283,8 @@
 //            [self.navigationController pushViewController:add animated:YES];
             [self showNoticeView:@"请点击开票信息，去添加发票模板"];
         }else{ // 1是有 可以直接跳转到详情那个页面
-            open.invoiceid = model.orderid;
+            open.orderno = model.orderno;
+            open.orderid = model.orderid;
             [self.navigationController pushViewController:open animated:YES];
         }
         

@@ -434,6 +434,7 @@
 		F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6620B81C5800F01D01 /* 引导页1.jpg */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
+		F250E90220C4D6E600870D2F /* CKCouponUsableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F250E90120C4D6E600870D2F /* CKCouponUsableViewController.m */; };
 		F255513D20BD44EE0097C2A4 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */; };
 		F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */; };
 		F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255514620BD450B0097C2A4 /* libPaymentControl.a */; };
@@ -1319,6 +1320,8 @@
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F5220AEA2CD0005F624 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		F2487F5320AEA2CD0005F624 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
+		F250E90020C4D6E600870D2F /* CKCouponUsableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKCouponUsableViewController.h; sourceTree = "<group>"; };
+		F250E90120C4D6E600870D2F /* CKCouponUsableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKCouponUsableViewController.m; sourceTree = "<group>"; };
 		F255513B20BD44ED0097C2A4 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		F255513C20BD44ED0097C2A4 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		F255514220BD450B0097C2A4 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
@@ -3037,6 +3040,8 @@
 			children = (
 				F2C1E79C20C133F300ECCFFE /* CKCouponDetailViewController.h */,
 				F2C1E79D20C133F300ECCFFE /* CKCouponDetailViewController.m */,
+				F250E90020C4D6E600870D2F /* CKCouponUsableViewController.h */,
+				F250E90120C4D6E600870D2F /* CKCouponUsableViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -3897,6 +3902,7 @@
 				2D20DFBF208989AE00095032 /* YSCollectionViewController.m in Sources */,
 				2D6F9250208E0731007DFD0B /* HomeTabTopAdsViewCell.m in Sources */,
 				2DA0C36020B867810031AC47 /* MJPhoto.m in Sources */,
+				F250E90220C4D6E600870D2F /* CKCouponUsableViewController.m in Sources */,
 				2D0726CA20839F6C0030996F /* MessageListViewCell.m in Sources */,
 				2D791C792090685B00E455F5 /* WBMenuAllItem.m in Sources */,
 				2D0726AC2083923A0030996F /* MedieaListViewController.m in Sources */,

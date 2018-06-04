@@ -296,7 +296,7 @@
     }
     
     //商品图片
-    NSString *imageString = [NSString stringWithFormat:@"%@", goodsDict[@"path"]];
+    NSString *imageString = [NSString stringWithFormat:@"%@", goodsDict[@"banner"][0][@"picpath"]];
     if (![imageString hasPrefix:@"http"]) {
         imageString = [BaseImagestr_Url stringByAppendingString:imageString];
     }
@@ -492,30 +492,30 @@
         make.width.mas_equalTo(100);
     }];
     
-    //积分
-    _integralView = [[UIView alloc] init];
-    [self.contentView addSubview:_integralView];
-    _integralView.backgroundColor = [UIColor whiteColor];
-    [_integralView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.couponView.mas_bottom).offset(1);
-        make.left.right.mas_offset(0);
-        make.height.mas_equalTo(45);
-    }];
-    _useIntegral = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [_integralView addSubview:_useIntegral];
-    _useIntegral.text = @"使用积分:";
-    [_useIntegral mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_offset(0);
-        make.left.mas_offset(10);
-    }];
-    
-    _costIntegralLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [_integralView addSubview:_costIntegralLabel];
-    _costIntegralLabel.text = @"  ";
-    [_costIntegralLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(_useIntegral);
-        make.right.mas_offset(-10);
-    }];
+//    //积分
+//    _integralView = [[UIView alloc] init];
+//    [self.contentView addSubview:_integralView];
+//    _integralView.backgroundColor = [UIColor whiteColor];
+//    [_integralView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.couponView.mas_bottom).offset(1);
+//        make.left.right.mas_offset(0);
+//        make.height.mas_equalTo(45);
+//    }];
+//    _useIntegral = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+//    [_integralView addSubview:_useIntegral];
+//    _useIntegral.text = @"使用积分:";
+//    [_useIntegral mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.mas_offset(0);
+//        make.left.mas_offset(10);
+//    }];
+//
+//    _costIntegralLabel = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+//    [_integralView addSubview:_costIntegralLabel];
+//    _costIntegralLabel.text = @"  ";
+//    [_costIntegralLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.equalTo(_useIntegral);
+//        make.right.mas_offset(-10);
+//    }];
     
     _bottomView = [[UIView alloc] init];
     [self.contentView addSubview:_bottomView];
@@ -539,7 +539,7 @@
 
 #pragma mark-刷新金额
 -(void)refreshCellWithCount:(NSInteger)count money:(NSString *)allMoney{
-//    _priceLabale.text = [NSString stringWithFormat:@"共%ld件商品 合计:¥%@", count, allMoney];
+    _priceLabale.text = [NSString stringWithFormat:@"合计:¥%@", allMoney];
 }
 
 #pragma mark-刷新积分
@@ -561,6 +561,7 @@
     }
     self.couponCanUseL.text = [NSString stringWithFormat:@" %@张可用 ", usablecount];
 }
+
 
 -(void)setDict:(NSDictionary*)goodsDict {
     self.goodsDict = goodsDict;
@@ -636,6 +637,8 @@
 }
 
 -(void)chooseCoupon {
+    
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(goodsDetailConfirmOrderChooseCoupon)]) {
         [self.delegate goodsDetailConfirmOrderChooseCoupon];
     }

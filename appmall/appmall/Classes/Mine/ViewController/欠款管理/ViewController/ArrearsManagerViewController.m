@@ -12,6 +12,7 @@
 #import "ArrearsHeaderView.h"
 #import "arrearsModel.h"
 #import "SCPayViewController.h"
+#import "UITableView+XY.h"
 @interface ArrearsManagerViewController ()<UITableViewDelegate,UITableViewDataSource,ArrearsFooterViewDelegate>
 {
     NSArray *titleArr;
@@ -26,6 +27,8 @@
 @property (nonatomic, strong) UILabel *indicateLine;
 @property (nonatomic, strong) NSArray *statusArr;
 @property (nonatomic, copy)  NSString *statusString;
+@property (nonatomic, strong) UIImageView *noData;
+@property (nonatomic, strong) UILabel *noDataLabel;
 @property (assign,nonatomic)NSInteger page;
 /**  dataArray*/
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -49,6 +52,17 @@
     [self initComponments];
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
+}
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"无欠款"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类欠款哦";
+    return str;
 }
 
 -(void)loadNewData{

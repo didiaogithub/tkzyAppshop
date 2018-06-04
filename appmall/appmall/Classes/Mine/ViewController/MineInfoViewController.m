@@ -89,7 +89,7 @@
             make.right.equalTo(cell.mas_right).offset(-40);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
         [sex_women setTitle:@"女" forState:UIControlStateNormal];
@@ -101,7 +101,7 @@
             make.right.equalTo(sex_bm.mas_left).offset(-10);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         
         QRadioButton *sex_men = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
@@ -114,7 +114,7 @@
             make.right.equalTo(sex_women.mas_left).offset(-10);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         
         if ([self.model.sex isEqualToString:@"0"]) {

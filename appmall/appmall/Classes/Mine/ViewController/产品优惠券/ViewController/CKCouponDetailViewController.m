@@ -55,8 +55,7 @@
         _noDataLabel.hidden = (self.cannotUseArray.count > 0) ? YES : NO;
         [self.couponTable reloadData];
     }
-    
-    [self resquestCouponData:@"0"];
+
 }
 
 

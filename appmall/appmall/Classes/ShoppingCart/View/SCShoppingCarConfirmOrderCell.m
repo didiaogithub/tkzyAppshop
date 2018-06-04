@@ -276,7 +276,8 @@
         make.left.right.mas_offset(0);
         make.height.mas_equalTo(45);
     }];
-    
+
+    self.couponView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseCoupon)];
     [self.couponView addGestureRecognizer:tap];
     
@@ -333,15 +334,15 @@
         make.left.right.height.equalTo(_topView);
         make.bottom.mas_offset(0);
     }];
-    
-    _priceLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    [bottomView addSubview:_priceLabale];
-    [_priceLabale mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_offset(0);
-        make.right.mas_offset(-10);
-    }];
-    
-    _priceLabale.text = @"合计:¥0.00";
+//    
+//    _priceLabale = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+//    [bottomView addSubview:_priceLabale];
+//    [_priceLabale mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.mas_offset(0);
+//        make.right.mas_offset(-10);
+//    }];
+//    
+//    _priceLabale.text = @"合计:¥0.00";
     
 }
 
@@ -374,7 +375,7 @@
     NSString *count = [NSString stringWithFormat:@"%@", buyCountDic[@"BuyCount"]];
     
     
-    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"salesprice"]];
+    NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
     if (IsNilOrNull(money)) {
         money = @"0";
     }
@@ -384,6 +385,9 @@
 }
 
 -(void)chooseCoupon {
+   
+    
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(shoppingCarConfirmOrderChooseCoupon)]) {
         [self.delegate shoppingCarConfirmOrderChooseCoupon];
     }

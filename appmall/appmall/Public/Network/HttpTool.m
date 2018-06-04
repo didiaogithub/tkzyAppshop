@@ -73,7 +73,7 @@
             NSDictionary *dict = responseObject;
             NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
             //强制退出，重新登录
-            if ([code isEqualToString:@"9009"]){
+            if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
@@ -139,7 +139,7 @@
             NSDictionary *dict = responseObject;
             NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
             //强制退出，重新登录
-            if ([code isEqualToString:@"9009"]){
+            if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
@@ -236,7 +236,7 @@
             NSDictionary *dict = responseObject;
             NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
             //强制退出，重新登录
-            if ([code isEqualToString:@"9009"]){
+            if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
                 NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];

@@ -92,9 +92,11 @@
     _headImgV.layer.cornerRadius = 60/2;
     _headImgV.clipsToBounds = YES;
     _headImgV.userInteractionEnabled = YES;
-    _headImgV.backgroundColor = [UIColor greenColor];
+    _headImgV.layer.borderColor = [UIColor whiteColor].CGColor;
+    _headImgV.layer.borderWidth = 1;
+//    _headImgV.backgroundColor = [UIColor greenColor];
     NSString *headUrl = [KUserdefaults objectForKey:@"YDSC_USER_HEAD"];
-    [_headImgV sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:[UIImage imageNamed:@"name"]];
+    [_headImgV sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHeadButton)];
     [_headImgV addGestureRecognizer:tap];
@@ -132,14 +134,15 @@
     // 编辑
         _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:_editButton];
-    _editButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
-        _editButton.layer.cornerRadius = 35 * 0.5;
+    _editButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
+        _editButton.layer.cornerRadius = 30 * 0.5;
         _editButton.layer.masksToBounds = YES;
         [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        _editButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_editButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_offset(100);
+            make.top.mas_offset(105);
             make.right.mas_offset(-10);
-            make.size.mas_offset(CGSizeMake(90, 35));
+            make.size.mas_offset(CGSizeMake(70, 30));
         }];
         [_editButton addTarget:self action:@selector(clickEditButton) forControlEvents:UIControlEventTouchUpInside];
     
@@ -260,7 +263,7 @@
     }];
     
     //查看全部订单
-    _checkAllMyOrderLable = [UILabel configureLabelWithTextColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+    _checkAllMyOrderLable = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_checkAllMyOrderLable];
     _checkAllMyOrderLable.text = @"查看全部>";
     [_checkAllMyOrderLable mas_makeConstraints:^(MASConstraintMaker *make) {

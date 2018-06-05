@@ -20,6 +20,7 @@
 #import "SCWaitReleaseCommentViewController.h"
 #import "SearchTopView.h"
 #import "SCCommentOrderViewController.h"
+#import "InvoicesManagerViewController.h"
 
 static NSString *cellIdentifier = @"SCOrderListCell";
 
@@ -1026,5 +1027,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 
 - (void)jumpOpenInvoice{
     NSLog(@"跳转开发票");
+    InvoicesManagerViewController *manager = [[InvoicesManagerViewController alloc]init];
+    [self.navigationController pushViewController:manager animated:YES];
+    
 }
 @end

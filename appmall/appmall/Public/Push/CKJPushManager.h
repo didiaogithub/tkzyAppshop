@@ -16,11 +16,11 @@
 @interface CKJPushManager : NSObject <UNUserNotificationCenterDelegate, JPUSHRegisterDelegate>
 
 @property (nonatomic, copy)   NSString *isToothVc;
-@property (nonatomic,assign) int sysMessageCount;
-@property (nonatomic,assign) int gsMessageConut;
-@property (nonatomic,assign) int jcMessageCount;
-@property (nonatomic,assign) int hyMessageCount;
-@property (nonatomic,assign) int jsMessageCount;
+@property (nonatomic,assign) int gfMessageCount;
+@property (nonatomic,assign) int wlMessageConut;
+@property (nonatomic,assign) int ddMessageCount;
+@property (nonatomic,assign) int fqMessageCount;
+@property (nonatomic,assign) int fpMessageCount;
 
 +(instancetype)manager;
 

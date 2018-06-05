@@ -19,7 +19,7 @@
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
-@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate>
+@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate,XYTableViewDelegate>
 
 /**  headView*/
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
@@ -53,6 +53,17 @@
     [self loadNewData];    
     [self setRightButton:@"开票信息"];
 }
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"发票无"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类发票哦";
+    return str;
+}
+
 
 - (void)rightBtnPressed{
      MyInvoicesViewController *my = [[MyInvoicesViewController alloc]init];
@@ -88,7 +99,7 @@
     [pramaDic setObject:@(_page) forKey:@"pageNo"];
     [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
     [pramaDic setObject:type forKey:@"invoice"];
-    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
+//    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getOrderByInvoiceApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];

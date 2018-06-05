@@ -519,6 +519,7 @@
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
             [self showNoticeView:@"添加成功"];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
            [self showNoticeView:@"添加失败"];
         }

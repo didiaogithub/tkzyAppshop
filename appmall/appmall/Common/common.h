@@ -47,7 +47,7 @@
 #define JDAPPID @"JDJR110440579001"
 
 //北京智齿客服appKey
-#define WisdomTooth_AppKey @"78843e7d2f7a4f54bc894a34dbd2d968"
+#define WisdomTooth_AppKey @"2c7ea8b13c4b429fbd99dd70215424d6"
 #define sysNum @"b96b3e57c0814d9d987bd21efc7c5934"
 
 /**融云appkey*/

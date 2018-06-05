@@ -8,7 +8,9 @@
 
 #import "BaseViewController.h"
 #import "MyInvoicesModel.h"
-typedef void(^selectMyInvoicesBlock)(MyInvoicesModel *model);
+typedef void(^SelectMyInvoicesBlock)(MyInvoicesModel *model);
+
+
 @interface MyInvoicesViewController : BaseViewController
-@property (nonatomic,copy) selectMyInvoicesBlock selectMyInvoicesBlock;
+@property (nonatomic,copy) SelectMyInvoicesBlock selectMyInvoicesBlock;
 @end

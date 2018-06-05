@@ -12,7 +12,7 @@
 #import "PostCommViewController.h"
 #import "CommDetailViewController.h"
 #define KCommunityViewCell @"CommunityViewCell"
-@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property (assign,nonatomic)NSInteger page;
@@ -32,13 +32,24 @@
     [self loadNewData];
     [self creatRightItem];
 }
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@""];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"社区暂无内容哦";
+    return str;
+}
+
 
 -(void)creatRightItem{
 
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [itemBtn addTarget:self action:@selector(actionToPostComm) forControlEvents:UIControlEventTouchUpInside];
     itemBtn.frame = CGRectMake(0, 0, 33, 33);
-    [itemBtn setTitle:@"+" forState:0];
+    [itemBtn setTitle:@"➕" forState:0];
     [itemBtn setTitleColor:[UIColor redColor] forState:0];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:itemBtn];
 }
@@ -47,6 +58,7 @@
     self.tabCommunityList .delegate = self;
     self.tabCommunityList.dataSource = self;
     [self.tabCommunityList registerNib:[UINib nibWithNibName:KCommunityViewCell bundle:nil] forCellReuseIdentifier:KCommunityViewCell];
+    self.tabCommunityList.tableFooterView = [UIView new];
 }
 
 - (void)didReceiveMemoryWarning {

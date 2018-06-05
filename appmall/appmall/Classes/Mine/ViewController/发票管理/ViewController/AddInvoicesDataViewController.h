@@ -9,5 +9,8 @@
 #import "BaseViewController.h"
 
 @interface AddInvoicesDataViewController : BaseViewController
-
+/**  tempid*/
+@property (nonatomic, strong) NSString *tempid;
+/**  是否是从点击修改发票详情过来的*/
+@property (nonatomic, assign) BOOL isUpdateFaPDetail;
 @end

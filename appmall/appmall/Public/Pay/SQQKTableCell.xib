@@ -35,6 +35,9 @@
                     <constraint firstAttribute="trailing" secondItem="TwY-Y6-B0z" secondAttribute="trailing" constant="15" id="yYQ-4A-IQJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="sqqkBtn" destination="TwY-Y6-B0z" id="Y7q-Rk-mga"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

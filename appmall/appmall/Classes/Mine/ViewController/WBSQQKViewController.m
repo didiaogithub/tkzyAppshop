@@ -176,13 +176,27 @@
     [paraDic setObject:self.sqPerson.text forKey:@"applyname"];
     [paraDic setObject:self.sqPhone.text forKey:@"phone"];
     [paraDic setObject:self.sqRerson.text forKey:@"applyreason"];
-    [paraDic setObject:@"" forKey:@"loanid"];
+    [paraDic setObject:self.loadid forKey:@"loanid"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyForMoneyApi];
     
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
     [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
-        
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
+        if (![code isEqualToString:@"200"]) {
+            [self showNoticeView:dict[@"message"]];
+            return ;
+        }
+        [self showNoticeView:@"提交成功"];
     } failure:^(NSError *error) {
-        
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
     }];
     
     

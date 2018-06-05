@@ -28,13 +28,13 @@
     }
     
     self.fpttLab.text = model.issuingoffice;
-    self.shLab.text = model.taxpayer_identification_number;
+    self.shLab.text = model.number;
     self.failreasonLab.text = model.disposereason;
 }
 
 - (IBAction)jumpAddMyInvoicesDetailAction:(UIButton *)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(jumpAddInvoicesDataViewController)]) {
-        [self.delegate jumpAddInvoicesDataViewController];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jumpAddInvoicesDataViewController:)]) {
+        [self.delegate jumpAddInvoicesDataViewController:sender];
     }
 }
 @end

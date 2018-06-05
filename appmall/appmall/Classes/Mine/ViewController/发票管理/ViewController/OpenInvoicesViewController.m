@@ -212,9 +212,41 @@
     [myinvoices setSelectMyInvoicesBlock:^(MyInvoicesModel *model) {
         self.selectModel = model;
         NSLog(@"self.selectModel ======= %@",self.selectModel);
+        [self getData:self.orderid tempId:self.selectModel.invoicetempid];
     }];
     [self.navigationController pushViewController:myinvoices animated:YES];
     
     
 }
+
+- (void)getData:(NSString *)orderid tempId:(NSString *)tempid{
+
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.orderid forKey:@"orderid"];
+    [pramaDic setObject:tempid forKey:@"tempid"];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getInvoiceByIdApi];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self showNoticeView:dict[@"message"]];
+        }
+        NSDictionary *dic = dict[@"data"];
+        self.model = [[OpenInvoiceModel alloc]initWithDictionary:dic];
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+    
+}
+
 @end

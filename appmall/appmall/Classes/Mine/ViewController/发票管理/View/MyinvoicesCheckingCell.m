@@ -28,7 +28,7 @@
     }
     
     self.fpttLab.text = model.issuingoffice;
-    self.shLab.text = model.taxpayer_identification_number;
+    self.shLab.text = model.number;
 }
 
 @end

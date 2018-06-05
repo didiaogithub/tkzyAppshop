@@ -152,6 +152,7 @@
                     loadNibNamed:@"MyInvoicesCheckFailCell" owner:self options:nil]  lastObject];
         }
         cell.delegate = self;
+        cell.updataFaPDetail.tag = indexPath.row;
         [cell refreshData:self.yjjDataArray[indexPath.row]];
          tcell = cell;
         
@@ -272,8 +273,11 @@
     _selectMyInvoicesBlock = selectMyInvoicesBlock;
 }
 
--(void)jumpAddInvoicesDataViewController{
+-(void)jumpAddInvoicesDataViewController:(UIButton *)sender{
     AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+    MyInvoicesModel *model = self.yjjDataArray[sender.tag];
+    add.tempid = model.invoicetempid;
+    add.isUpdateFaPDetail = YES;
     [self.navigationController pushViewController:add animated:YES];
 }
 

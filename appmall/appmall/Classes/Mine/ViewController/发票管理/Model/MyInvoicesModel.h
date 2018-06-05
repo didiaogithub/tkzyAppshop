@@ -10,6 +10,8 @@
 
 @interface MyInvoicesModel : NSObject
 @property(nonatomic,assign)BOOL isSelect;
+/**  发票的模板id*/
+@property (nonatomic, copy) NSString *invoicetempid;
 /**  发票id*/
 @property (nonatomic, copy) NSString *invoiceid;
 /**  公司抬头*/
@@ -17,9 +19,10 @@
 /**  抬头类型*/
 @property (nonatomic, copy) NSString *invoiceheadtype;
 /**  税号*/
-@property (nonatomic, copy) NSString *taxpayer_identification_number;
+@property (nonatomic, copy) NSString *number;
 /**  审核状态*/
 @property (nonatomic, copy) NSString *disposestatus;
 /**  拒绝理由*/
 @property (nonatomic, copy) NSString *disposereason;
+
 @end

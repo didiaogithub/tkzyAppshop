@@ -22,6 +22,7 @@
 
 /** 是否是大礼包商品*/
 @property (nonatomic, copy) NSString *isdlbitem;
-
+/** 是否是欠款管理页面*/
+@property (nonatomic, assign) BOOL isqkglPage;
 
 @end

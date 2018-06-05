@@ -18,6 +18,7 @@
     UILabel *line6;
     UILabel *line7;
     NSString *url;
+    NSString *path;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contViewH;
 /**  抬头类型*/
@@ -64,7 +65,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"添加发票信息";
+ 
+    
+    if (self.isUpdateFaPDetail == YES) {
+        self.title = @"编辑发票信息";
+    }else{
+        self.title = @"添加发票信息";
+    }
     self.isQY = YES;
     [self initCompontments];
     [self setRightButton:@"模板下载"];
@@ -431,7 +438,7 @@
             return ;
         }
         url =  dict[@"data"][@"url"];
-      
+        path = dict[@"data"][@"path"];
         [self showNoticeView:@"上传成功"];
         
     } fail:^(NSError *error){
@@ -453,6 +460,10 @@
 - (IBAction)tjBtnAction:(UIButton *)sender {
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     if (self.isQY == YES) {
+        if (!IsNilOrNull(self.tempid)) {
+            [paraDic setObject:self.tempid forKey:@"tempid"];
+        }
+        
         if (IsNilOrNull(self.fpttView.rightTextField.text)) {
             [self showNoticeView:@"请输入发票抬头"];
             return;
@@ -489,11 +500,11 @@
         }else{
              [paraDic setObject:self.dhView.rightTextField.text forKey:@"mobile"];
         }
-        if (IsNilOrNull(url)) {
+        if (IsNilOrNull(path)) {
             [self showNoticeView:@"请上传发票证明材料"];
             return;
         }else{
-             [paraDic setObject:url forKey:@"prove"];
+             [paraDic setObject:path forKey:@"prove"];
         }
         [paraDic setObject:@"2" forKey:@"invoiceheadtype"];
         
@@ -504,29 +515,51 @@
         }else{
               [paraDic setObject:self.fpttView.rightTextField.text forKey:@"issuingoffice"];
         }
+        if (!IsNilOrNull(self.tempid)) {
+            [paraDic setObject:self.tempid forKey:@"tempid"];
+        }
         [paraDic setObject:@"1" forKey:@"invoiceheadtype"];
         
     }
     
     
     
+    NSString *requestUrl;
+    if (self.isUpdateFaPDetail == YES) {
+       requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,editInvoiceTempApi];
+    }else{
+       requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,addInvoiceTempApi];
+    }
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,addInvoiceTempApi];
+    
+    
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
         [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
-            [self showNoticeView:@"添加成功"];
+            if (self.isUpdateFaPDetail == YES) {
+                [self showNoticeView:@"修改成功"];
+            }else{
+               [self showNoticeView:@"添加成功"];
+            }
             [self.navigationController popViewControllerAnimated:YES];
         }else{
-           [self showNoticeView:@"添加失败"];
+            if (self.isUpdateFaPDetail == YES) {
+                [self showNoticeView:@"修改失败"];
+            }else{
+                [self showNoticeView:@"添加失败"];
+            }
         }
         
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
-        [self showNoticeView:@"添加失败"];
+        if (self.isUpdateFaPDetail == YES) {
+            [self showNoticeView:@"修改失败"];
+        }else{
+            [self showNoticeView:@"添加失败"];
+        }
     }];
     
     

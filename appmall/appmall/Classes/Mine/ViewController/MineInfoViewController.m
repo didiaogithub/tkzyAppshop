@@ -16,6 +16,7 @@
 {
     NSArray * titleArr;
     NSString *url;
+    NSString *path;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 - (IBAction)sciconAction:(UIButton *)sender;
@@ -290,6 +291,7 @@
             return ;
         }
         url =  dict[@"data"][@"url"];
+        path = dict[@"data"][@"path"];
         
     } fail:^(NSError *error){
         if (error.code == -1009) {
@@ -314,9 +316,9 @@
 //UpdateMeInfoUrl
 - (void)rightBtnPressed{
     NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    if (url) {
+    if (path) {
 //        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
-         [para setObject:url forKey:@"head"];
+         [para setObject:path forKey:@"head"];
     }else{
         [para setObject:self.model.head forKey:@"head"];
     }

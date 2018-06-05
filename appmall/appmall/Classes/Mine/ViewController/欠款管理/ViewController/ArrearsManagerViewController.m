@@ -42,8 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"欠款管理";
-    self.statusString = @"1";
-    _statusArr = @[@"1", @"2", @"3", @"4"];
+    self.statusString = @"0";
+    _statusArr = @[@"0", @"1", @"2", @"3"];
      [self createTopButton];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -266,12 +266,12 @@
     view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
     int status = [self.statusString intValue];
     
-    NSString *str = titleArr[status - 1];
+    NSString *str = titleArr[status];
     if ([str isEqualToString:@"待还款"]) {
         view.orderStates.text = [NSString stringWithFormat:@"距离最晚还款日还有%ld天",(long)model.limittime];
         view.orderStates.adjustsFontSizeToFitWidth = YES;
     }else{
-       view.orderStates.text = titleArr[status - 1];
+       view.orderStates.text = titleArr[status];
     }
     
     return view;
@@ -286,7 +286,7 @@
     view.orderTotal.font = [UIFont systemFontOfSize:18];
     
     int status = [self.statusString intValue];
-    NSString *str = titleArr[status - 1];
+    NSString *str = titleArr[status];
     if ([str isEqualToString:@"待还款"]) {
         view.leftBtn.hidden = YES;
     }else if ([str isEqualToString:@"已还款"]){

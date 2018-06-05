@@ -83,11 +83,7 @@
 
 -(void)getMeInfo {
     
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary *pramaDic= @{@"appid":Appid,
-                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                              @"token":token,
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    NSDictionary *pramaDic = [HttpTool getCommonPara];
     NSString *signUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetMeInfoUrl];
     
     [HttpTool getWithUrl:signUrl params:pramaDic success:^(id json) {

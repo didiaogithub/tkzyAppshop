@@ -504,7 +504,7 @@
             [realm commitWriteTransaction];
         }
         
-        
+        [self updateShoppingCarData];  //更新购物车
         [KUserdefaults setObject:@"ConfirmOrderRefreshShoppingCar" forKey:@"CKYS_RefreshCar"];
         
         [[SCCouponTools shareInstance] deleteUsedCoupon:self.coupontId];
@@ -525,6 +525,32 @@
         }else{
             [self showNoticeView:NetWorkTimeout];
         }
+    }];
+}
+
+-(void)updateShoppingCarData {
+    
+    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+//    [self.shoppingCarDataArray removeAllObjects];
+    
+    NSMutableArray *cartlist = [NSMutableArray array];
+    
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    for (GoodModel *goodsM in results) {
+        
+        NSString *status = @"0";
+        if (goodsM.isSelect == YES) {
+            status = @"1";
+        }
+        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status};
+        [cartlist addObject:dic];
+    }
+    NSString *itemsStr = [cartlist mj_JSONString];
+    [pramaDic setObject:itemsStr forKey:@"items"];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateShoppingCarInfoUrl];
+    
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+    } failure:^(NSError *error) {
     }];
 }
 

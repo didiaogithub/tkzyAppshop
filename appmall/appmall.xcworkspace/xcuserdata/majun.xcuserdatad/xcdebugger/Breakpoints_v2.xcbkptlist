@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCSCConfirmOrderViewController.m"
-            timestampString = "549793768.537064"
+            timestampString = "549905337.966319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "-shoppingCarConfirmOrderChooseCoupon"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCSCConfirmOrderViewController.m"
-            timestampString = "549793768.537529"
+            timestampString = "549905337.966851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "538"
-            endingLineNumber = "538"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
             landmarkName = "-shoppingCarConfirmOrderChooseCoupon"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,22 +106,6 @@
             startingLineNumber = "389"
             endingLineNumber = "389"
             landmarkName = "-chooseCoupon"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/ShoppingCart/View/SCShoppingCarConfirmOrderCell.m"
-            timestampString = "549793768.5382479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "-initComponents"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,22 +154,6 @@
             startingLineNumber = "223"
             endingLineNumber = "223"
             landmarkName = "-getData:tempId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Mine/ViewController/SCMineViewController.m"
-            timestampString = "549892476.068735"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-getMeInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

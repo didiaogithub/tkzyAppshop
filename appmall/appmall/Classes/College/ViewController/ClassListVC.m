@@ -60,6 +60,7 @@
             for (int i = 0; i < titleArray.count ; i ++) {
                 ClassListCellViewController * classListVC = [[ClassListCellViewController alloc]init];
                 classListVC.classItem = [self.classCateList objectAtIndex:i];
+                classListVC.navVC = self;
                 [_topMenu addViewController:classListVC atIndex:i];
             }
         }else{

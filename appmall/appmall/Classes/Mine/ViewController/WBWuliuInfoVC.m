@@ -48,7 +48,7 @@
     if (section == 0) {
         return 1;
     }else{
-        return   10;//self.wuluModel.infos.count;
+        return   self.wuluModel.infos.count;
     }
 }
 
@@ -60,7 +60,7 @@
         return cell;
     }else{
         WuliuDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KWuliuDetailViewCell];
-        [cell loadData:self.wuluModel.infos[0] atIndex:indexPath.row andInfoCount:10];
+        [cell loadData:self.wuluModel.infos[indexPath.row] atIndex:indexPath.row andInfoCount:self.wuluModel.infos.count];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

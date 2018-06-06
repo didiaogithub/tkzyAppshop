@@ -736,9 +736,13 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }else if ([btn.titleLabel.text isEqualToString:@"删除"]) {
         [self confirmCancelOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
-        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
-        wuluVC.orderid = orderM.orderId;
-        [self.navigationController pushViewController:wuluVC animated:YES];
+        WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
+        wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+        wuliuVC.orderid = self.orderModel.orderId;
+        [self.navigationController pushViewController:wuliuVC animated:YES];
+//        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
+//        wuluVC.orderid = orderM.orderId;
+//        [self.navigationController pushViewController:wuluVC animated:YES];
     }
 }
 
@@ -786,11 +790,16 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         if ([iftransno isEqualToString:@"false"] || [iftransno isEqualToString:@"0"] || IsNilOrNull(iftransno)) {
             
         }else{
-            NSString *oidString = [NSString stringWithFormat:@"%@",_orderModel.orderId];
-            //点击进入物流详情
-            DetailLogisticsViewController *detailLogist = [[DetailLogisticsViewController alloc] init];
-            detailLogist.oidString = oidString;
-            [self.navigationController pushViewController:detailLogist animated:YES];
+            WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
+            wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+            wuliuVC.orderid = self.orderModel.orderId;
+            [self.navigationController pushViewController:wuliuVC animated:YES];
+            
+//            NSString *oidString = [NSString stringWithFormat:@"%@",_orderModel.orderId];
+//            //点击进入物流详情
+//            DetailLogisticsViewController *detailLogist = [[DetailLogisticsViewController alloc] init];
+//            detailLogist.oidString = oidString;
+//            [self.navigationController pushViewController:detailLogist animated:YES];
         }
     }else if ([btn.titleLabel.text isEqualToString:@"差价付款"]) {
         [self payOrder:orderM];

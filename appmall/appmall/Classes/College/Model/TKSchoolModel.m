@@ -19,7 +19,7 @@
 @end
 @implementation TeacherListModel
 + (NSString *)primaryKey{
-    return @"courseId";
+    return @"teacherId";
 }
 @end
 @implementation LookListModel

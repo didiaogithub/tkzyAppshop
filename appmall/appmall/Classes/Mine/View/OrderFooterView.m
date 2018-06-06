@@ -237,7 +237,7 @@
             _rightButton.backgroundColor = [UIColor whiteColor];
         }else{
             [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
-            [_rightButton setTitle:@"去评价" forState:UIControlStateNormal];
+            [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
         }
     }else if ([_statustring isEqualToString:@"正在退货"]) {
         _leftButton.hidden = YES;

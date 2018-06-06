@@ -127,16 +127,16 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:
-            height = 190;
+            height = 190 * KscreenWidth / 375.0;;
             break;
         case 1:
-            height = 196;
+            height = 210* KscreenWidth / 375;
             break;
         case 2:
-            height = 211;
+            height = 211* KscreenWidth / 375;
             break;
         case 3:
-            height = 211;
+            height = 261 * KscreenWidth / 375;
             break;
         default:
             height  =0;

@@ -63,14 +63,10 @@
     
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];
-    AddressModel *addressModel = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+
     
-    if (addressModel == nil) {
-        [self requestDefaultAddress];
-    }else{
-        _addressModel = addressModel;
-    }
+    [self requestDefaultAddress];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTotalMoney:) name:@"GDConfrimOrderChangeBuyCount" object:nil];
 }
@@ -165,7 +161,7 @@
 #pragma mark - 请求默认地址数据
 -(void)requestDefaultAddress {
 
-    NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddrUrl];
+    NSString *getDefaultAddressUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetDefaultAddress1];
     NSDictionary *pramaDic = [HttpTool getCommonPara];
     [HttpTool getWithUrl:getDefaultAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
@@ -174,17 +170,10 @@
             return;
         }
 
-        NSString *addrId = [NSString stringWithFormat:@"%@", dict[@"id"]];
-        if (!IsNilOrNull(addrId)) {
             self.addressModel = [[AddressModel alloc] init];
-            [self.addressModel setValuesForKeysWithDictionary:dict];
+            [self.addressModel setValuesForKeysWithDictionary:dict[@"data"]];
             [self.sureOrderTableView reloadData];
 
-            NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-            NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];
-            [NSKeyedArchiver archiveRootObject:self.addressModel toFile:filePath];
-
-        }
     } failure:^(NSError *error) {
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];

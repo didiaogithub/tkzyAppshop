@@ -80,7 +80,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-    medieaDetailVC.strUrl = self.dataList[indexPath.row].link;
+    medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@%@",NewSDetail,self.dataList[indexPath.row].itemid]; 
     [self.navigationController pushViewController:medieaDetailVC animated:YES];
 }
 

@@ -231,7 +231,7 @@
 }
 #pragma HomeMenuItemViewDelegate
 -(void)itemClick:(NSInteger)index{
-    
+    [self actionGoto];
 }
 
 #pragma recommendViewCellDelegateMore
@@ -304,7 +304,7 @@
              category.titleArr = [NSMutableArray arrayWithCapacity:0];
             category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
             for(int i = 0; i < categoryList.count; i++){
-                NSDictionary * itemDic = [categoryList objectAtIndex:0];
+                NSDictionary * itemDic = [categoryList objectAtIndex:i];
                 [category.titleArr addObject:itemDic[@"name"]];
                 [category.categoryIdArr addObject:itemDic[@"styleid"]];
                 category.selectedIndex = 0;
@@ -328,7 +328,8 @@
     if(index == 3){
         
         MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-        medieaDetailVC.strUrl = model.mediaList[indexpath.row].link;
+        medieaDetailVC.strUrl =[NSString stringWithFormat:@"%@%@",NewSDetail,model.mediaList[indexpath.row].itemid] ;
+        
         medieaDetailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:medieaDetailVC animated:YES];
         
@@ -348,19 +349,19 @@
     }
 }
 
--(void)loadData{
-    NSDictionary *dic = [self readLocalFileWithName:@"HomeJson"]; // 模拟网络请求
-    if (dic != nil) {  //请求到数据
-        TKHomeDataModel * homeData = [[TKHomeDataModel alloc]initWith:dic];
-        homeData.modelId = @"1";
-        [self.realm beginWriteTransaction];
-        [self.realm addOrUpdateObject:homeData];
-        [self.realm commitWriteTransaction];
-    }
-    RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
-    model = [result firstObject];
-    [tabHomeList reloadData];
-}
+//-(void)loadData{
+//    NSDictionary *dic = [self readLocalFileWithName:@"HomeJson"]; // 模拟网络请求
+//    if (dic != nil) {  //请求到数据
+//        TKHomeDataModel * homeData = [[TKHomeDataModel alloc]initWith:dic];
+//        homeData.modelId = @"1";
+//        [self.realm beginWriteTransaction];
+//        [self.realm addOrUpdateObject:homeData];
+//        [self.realm commitWriteTransaction];
+//    }
+//    RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
+//    model = [result firstObject];
+//    [tabHomeList reloadData];
+//}
 
 -(void)actionToMessage{
     MessageViewController *messageVC = [[MessageViewController alloc]init];

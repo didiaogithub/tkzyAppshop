@@ -20,7 +20,7 @@
     self.title = @"报道详情";
     if(self.strUrl.length == 0){
         
-        [self.wbMediaDetail loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+        [self.wbMediaDetail loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strUrl]]];
     }else{
         [self.wbMediaDetail loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.strUrl]]];
     }

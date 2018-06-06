@@ -9,6 +9,7 @@
 #import "TeacherDetailVC.h"
 #import "TeacherInfoViewCell.h"
 #import "TeacherClassListViewCell.h"
+#import "WebDetailViewController.h"
 #import "ClassItemViewCell.h"
 
 #define KTeacherInfoViewCell @"TeacherInfoViewCell"
@@ -170,5 +171,10 @@
         header.font = [UIFont systemFontOfSize:15];
         return header;
     }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WebDetailViewController *webDetailVC = [[WebDetailViewController alloc]init];
+    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classList[indexPath.row].courseId];
+    [self.navigationController pushViewController:webDetailVC animated:YES];
 }
 @end

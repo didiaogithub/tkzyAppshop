@@ -13,6 +13,7 @@
 #import "ODGoodsTableViewCell.h"
 #import "SCOrderDetailModel.h"
 #import "OrderDetailModel.h"
+#import "SCPayViewController.h"
 #import "WBWuliuInfoVC.h"
 #import "XWAlterVeiw.h"
 #define KODWuliuCell @"ODWuliuCell"
@@ -86,6 +87,7 @@
         [self.btnItem2 removeTarget:self  action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem2 addTarget:self action:@selector(deleteOrderAlert) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem3 setTitle:@"去付款" forState:0];
+        [self.btnItem3 addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
     }
     if ([state isEqualToString:@"7"]) { // 代收货
         self.btnItem1.hidden = YES;
@@ -98,6 +100,16 @@
     if ([state isEqualToString:@"0"] || [state isEqualToString:@"4"] || [state isEqualToString:@"5"]) {
         self.viewBottom .hidden = YES;
     }
+}
+
+#pragma mark - 去付款
+- (void)payOrder {
+    SCMyOrderModel *orderM = self.orderModel;
+    SCPayViewController *payMoney = [[SCPayViewController alloc] init];
+    payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.ordermoney];
+    
+    payMoney.orderid = orderM.orderId;
+    [self.navigationController pushViewController:payMoney animated:YES];
 }
 
 -(void)deleteOrder {
@@ -174,7 +186,7 @@
         }
         
         [self requestOrderDetailData];
-        
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

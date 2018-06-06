@@ -191,8 +191,8 @@
 #define  Note_AddCommunity                             @"Note/addCommunity" //添加评论
 #define  Note_DeleteCommunity                          @"Note/deleteCommunity"  //删除评论
 #define  Note_GetCommunity                            @"Note/getCommunity"  //评论详情
-
-
+#define NewSDetail @"http://tkappmall.klboo.com/h5/html/mediareports.html?id="
+#define CollectionDetail @"http://tkappmall.klboo.com/h5/html/course.html?id="
 /**生成活动订单*/
 #define AddActiveOrderUrl @"Order/submitOrder"
 

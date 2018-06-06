@@ -21,11 +21,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.imgRecommend.layer.cornerRadius  = 5;
+    self.imgRecommend.layer.masksToBounds = YES;
 }
 
 -(void)loadCourseList:(CourseListModel *)model{
     [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:model.picUrl]];
+    [self isShowPrice:NO];
     self.labTitle.text = model.name;
 }
 -(void)loadTeacherList:(TeacherListModel *)model{
@@ -35,6 +37,7 @@
 }
 -(void)loadLookList:(LookListModel *)model{
     [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:model.picUrl]];
+    [self isShowPrice:NO];
     self.labTitle.text = model.name;
 }
 -(void)isShowPrice:(BOOL)show{

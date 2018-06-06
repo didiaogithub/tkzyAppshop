@@ -172,6 +172,7 @@
     if (self.selectIndex == 1) {
          MenuCollectionViewCell* cell= [collectionView dequeueReusableCellWithReuseIdentifier:KMenuCollectionViewCell forIndexPath:indexPath];
         [cell setItemIcom:self.model.sortList[indexPath.row]];
+        cell.delegate = self.delegate;
         return cell;
     }else{
         RecommendCollectionViewCell * cell= [collectionView dequeueReusableCellWithReuseIdentifier:KRecommendCollectionViewCell forIndexPath:indexPath];

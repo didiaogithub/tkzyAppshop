@@ -20,10 +20,10 @@
 }
 
 -(void)loadData:(OrderDetailModel *)model{
-    self.labZongeTr.text = [NSString stringWithFormat:@"%@￥", model.totalFee];
-    self.labYunfeiTr.text = [NSString stringWithFormat:@"%.2f￥",[model.freight doubleValue]] ;
-    self.labFuKuanTr.text =[NSString stringWithFormat:@"%@￥",model.money] ;
-    self.labJianMianTr.text = [NSString stringWithFormat:@"%@￥",model.discount ];
+    self.labZongeTr.text = [NSString stringWithFormat:@"￥%@", model.totalFee];
+    self.labYunfeiTr.text = [NSString stringWithFormat:@"￥%.2f",[model.freight doubleValue]] ;
+    self.labFuKuanTr.text =[NSString stringWithFormat:@"￥%@",model.money] ;
+    self.labJianMianTr.text = [NSString stringWithFormat:@"￥%@",model.discount ];
 }
 
 @end

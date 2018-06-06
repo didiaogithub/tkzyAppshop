@@ -9,6 +9,7 @@
 #import "ClassListCellViewController.h"
 #import "WBMenu.h"
 #import "ClassItemViewCell.h"
+#import "WebDetailViewController.h"
 #import "ClassListModel.h"
 #define KClassItemViewCell @"ClassItemViewCell"
 @interface ClassListCellViewController ()<WBMenuViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -111,6 +112,12 @@
     [cell refreshDataWIthModel:[self.classArray objectAtIndex:indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WebDetailViewController *webDetailVC = [[WebDetailViewController alloc]init];
+    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
+    [self.navVC.navigationController pushViewController:webDetailVC animated:YES];
 }
 
 @end

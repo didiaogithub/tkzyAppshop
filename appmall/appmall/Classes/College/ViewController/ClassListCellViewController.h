@@ -12,5 +12,6 @@
 @interface ClassListCellViewController : BaseViewController
 
 @property(nonatomic,strong)ClassCateItem *classItem;
+@property(nonatomic,strong)UIViewController *navVC;
 
 @end

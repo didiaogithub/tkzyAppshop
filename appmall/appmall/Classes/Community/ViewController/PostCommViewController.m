@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"发帖";
     self.imgUrls = [NSMutableArray arrayWithCapacity:0];
     _picturevc = [[PictureViewController alloc] init];
 
@@ -67,11 +68,12 @@
  
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setObject:self.labCommContent.text forKey:@"content"];
+    [pramaDic setObject:self.labCommTitle.text forKey:@"title"];
     for (int i =  0; i < self.imgUrls.count ; i ++) {
         [pramaDic setObject:self.imgUrls[i] forKey:[NSString stringWithFormat:@"path%d",i + 1]];
     }
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_AddCommunity];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_AddNote];
     
 
     [self.view addSubview:self.loadingView];
@@ -82,8 +84,14 @@
         [self.loadingView stopAnimation];
         
         NSDictionary *dic = json;
-        [self.loadingView showNoticeView:dic[@"message"]];
-        
+        if ([dic[@"code"] integerValue] == 200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return ;
+        }
+        [self.loadingView showNoticeView:@"帖子正在审核中"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {
@@ -112,8 +120,10 @@
         NSDictionary *dict = responseObject;
         if ([dict[@"code"] integerValue] != 200) {
             [self showNoticeView:dict[@"message"]];
+            
             return ;
         }
+        
         NSLog(@"%@", dict);
         NSString *pathStr = [NSString stringWithFormat:@"%@",dict[@"data"][@"url"]];
         [self .imgUrls addObject:pathStr];

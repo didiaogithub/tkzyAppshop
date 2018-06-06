@@ -35,7 +35,7 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(198, 196) ;
+    customLayout.itemSize = CGSizeMake(198 * KscreenWidth / 375, 160) ;
     return customLayout;
 }
 
@@ -53,14 +53,14 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake((KscreenWidth ) , 211) ;
+    customLayout.itemSize = CGSizeMake((KscreenWidth ) , 215 * KscreenWidth / 375) ;
     return customLayout;
 }
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
     switch (index) {
         case 0:
-            return 196;
+            return 160;
             break;
         case 1:
             return 211 ;
@@ -68,7 +68,7 @@
             break;
         case 2:
             
-            return 211;
+            return 215;
             
             break;
             
@@ -157,11 +157,11 @@
        [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }else if(self.selectIndex == 1){
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-        detailVC.detailUrl = _model.courseList[indexPath.row].detailUrl;
+        detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,_model.courseList [indexPath.row].courseId];
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }else if(self.selectIndex == 3){
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-        detailVC.detailUrl = _model.lookList[indexPath.row].detailUrl;
+//        detailVC.detailUrl =  ;
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }
 }

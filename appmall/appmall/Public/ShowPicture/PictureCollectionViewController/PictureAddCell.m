@@ -28,7 +28,7 @@
     [super layoutSubviews];
     
     addImageView.frame = CGRectMake(0, 0, 75, 75);
-    addImageView.image = [UIImage imageNamed:@"添加.png"];
+    addImageView.image = [UIImage imageNamed:@"添加照片.png"];
     
     
 }

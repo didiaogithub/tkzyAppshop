@@ -321,5 +321,8 @@
 - (IBAction)actionHomeView:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+- (IBAction)actionKefu:(id)sender {
+        [[SobotManager shareInstance] startSobotCustomerService];
+}
 
 @end

@@ -475,6 +475,8 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+      detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
+    [self.navigationController pushViewController:detailVC animated:YES];
 //    detailVC.detailUrl = self.classArray[indexPath.row]
 }
 

@@ -20,7 +20,7 @@
 }
 
 -(void)loadData:(TeacherListModel *)model{
-    [self.teacherIcon sd_setImageWithURL:[NSURL URLWithString:model.picUrl]];
+    [self.teacherIcon sd_setImageWithURL:[NSURL URLWithString:model.avater]];
     self.teacherName.text = model.name;
     self.teacherPostion.text = model.level;
 }

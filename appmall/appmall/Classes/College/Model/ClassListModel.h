@@ -13,6 +13,7 @@
 @property(nonatomic,copy)NSString * title;
 @property(nonatomic,copy)NSString * picUrl;
 @property(nonatomic,copy)NSString * courseId;
+@property(nonatomic,copy)NSString * courceId;
 @property(nonatomic,copy)NSString * type;
 @property(nonatomic,copy)NSString * duration;
 @end

@@ -34,7 +34,7 @@
     [super viewDidLoad];
     [self setNavtion];
     [self setTableView];
-    
+    self.classList = [NSMutableArray arrayWithCapacity:0];
     [UITableView refreshHelperWithScrollView:self.tabClassListView target:self loadNewData:@selector(loadData) loadMoreData:nil isBeginRefresh:NO];
     [self loadData];
 }

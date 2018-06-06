@@ -56,6 +56,11 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [tabHomeList scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+}
 
 -(void)tabReloadData{
     RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];

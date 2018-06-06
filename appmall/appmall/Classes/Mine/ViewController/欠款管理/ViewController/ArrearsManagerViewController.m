@@ -12,6 +12,7 @@
 #import "ArrearsHeaderView.h"
 #import "arrearsModel.h"
 #import "SCPayViewController.h"
+#import "UITableView+XY.h"
 @interface ArrearsManagerViewController ()<UITableViewDelegate,UITableViewDataSource,ArrearsFooterViewDelegate>
 {
     NSArray *titleArr;
@@ -26,6 +27,8 @@
 @property (nonatomic, strong) UILabel *indicateLine;
 @property (nonatomic, strong) NSArray *statusArr;
 @property (nonatomic, copy)  NSString *statusString;
+@property (nonatomic, strong) UIImageView *noData;
+@property (nonatomic, strong) UILabel *noDataLabel;
 @property (assign,nonatomic)NSInteger page;
 /**  dataArray*/
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -39,8 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"欠款管理";
-    self.statusString = @"1";
-    _statusArr = @[@"1", @"2", @"3", @"4"];
+    self.statusString = @"0";
+    _statusArr = @[@"0", @"1", @"2", @"3"];
      [self createTopButton];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -49,6 +52,17 @@
     [self initComponments];
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
+}
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"无欠款"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类欠款哦";
+    return str;
 }
 
 -(void)loadNewData{
@@ -252,12 +266,12 @@
     view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
     int status = [self.statusString intValue];
     
-    NSString *str = titleArr[status - 1];
+    NSString *str = titleArr[status];
     if ([str isEqualToString:@"待还款"]) {
         view.orderStates.text = [NSString stringWithFormat:@"距离最晚还款日还有%ld天",(long)model.limittime];
         view.orderStates.adjustsFontSizeToFitWidth = YES;
     }else{
-       view.orderStates.text = titleArr[status - 1];
+       view.orderStates.text = titleArr[status];
     }
     
     return view;
@@ -272,7 +286,7 @@
     view.orderTotal.font = [UIFont systemFontOfSize:18];
     
     int status = [self.statusString intValue];
-    NSString *str = titleArr[status - 1];
+    NSString *str = titleArr[status];
     if ([str isEqualToString:@"待还款"]) {
         view.leftBtn.hidden = YES;
     }else if ([str isEqualToString:@"已还款"]){
@@ -294,9 +308,13 @@
 
 - (void)leftBtnAction:(UIButton *)sender{
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
     arrearsModel  * model = self.dataArray[sender.tag];
-//    [pramaDic setObject:model.orderid forKey:@"orderid"];
-    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelOrderUrl];
+    if (IsNilOrNull(model.orderid)) {
+        return;
+    }
+    [pramaDic setObject:model.orderid forKey:@"orderid"];
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelLoanOrder];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];

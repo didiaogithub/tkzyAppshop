@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MyInvoicesModel.h"
 @protocol MyInvoicesCheckFailCellDelegate<NSObject>
-- (void)jumpAddInvoicesDataViewController;
+- (void)jumpAddInvoicesDataViewController:(UIButton *)sender;
 @end
 @interface MyInvoicesCheckFailCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *updataFaPDetail;
 - (IBAction)jumpAddMyInvoicesDetailAction:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *typeLab;
 @property (weak, nonatomic) IBOutlet UILabel *fpttLab;

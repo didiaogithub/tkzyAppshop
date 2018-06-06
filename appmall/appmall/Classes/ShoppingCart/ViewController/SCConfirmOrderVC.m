@@ -21,8 +21,15 @@
 #import "CKRealnameIdentifyView.h"
 #import "SCCouponTools.h"
 #import "CKCouponDetailViewController.h"
+#import "CKCouponModel.h"
+#import "CKCouponUsableViewController.h"
 @interface SCConfirmOrderVC ()<UITableViewDelegate,UITableViewDataSource,MoneyCountViewDelegate,AddAddressTableViewCellDelegate, GDConfirmOrderChooseCouponDelegate, TopTipViewDelegate>
-
+{
+    NSArray *list;
+    NSMutableArray *cannotUseArray;
+    SCConfirmOrderOtherMsgCell *curcell;
+    NSString *ordermoney;
+}
 @property (nonatomic, strong) MoneyCountView *moneyCountView;
 @property (nonatomic, strong) UITableView *sureOrderTableView;
 @property (nonatomic, strong) AddressModel *addressModel;
@@ -58,6 +65,7 @@
     self.navigationItem.title = @"确认订单";
     self.buyCount = @"1";
     self.exitPay = NO;
+     cannotUseArray = [NSMutableArray array];
     [self createTableView];
     [self refreshAllPayMoney];
     
@@ -85,8 +93,41 @@
     _moneyCountView.allMoneyLable.text = [NSString stringWithFormat:@"合计:¥%.2f", totalMoney];
     
     //获取可用优惠券张数
-    [self showUseableCouponCount:[NSString stringWithFormat:@"%.2f", totalMoney]];
+//    [self showUseableCouponCount:[NSString stringWithFormat:@"%.2f", totalMoney]];
+    NSString *totalMoneys = [NSString stringWithFormat:@"%.2f",totalMoney];
+    [self resquestCouponData:@"0" totalMoney:totalMoneys];
     
+}
+
+
+#pragma mark - 获取可用产品券列表
+-(void)resquestCouponData:(NSString*)lineNumber totalMoney:(NSString *)totalMoney{
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Goods/getCouponList"];
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:lineNumber forKey:@"type"];
+    ordermoney = totalMoney;
+    [pramaDic setObject:totalMoney forKey:@"ordermoney"];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] != 200) {
+            [self showNoticeView:dict[@"codeinfo"]];
+            return ;
+        }
+       
+        list = dict[@"data"][@"list"];
+        for (NSDictionary *couponDic in list) {
+            CKCouponModel *couponM = [[CKCouponModel alloc] init];
+            [couponM setValuesForKeysWithDictionary:couponDic];
+            [cannotUseArray addObject:couponM];
+        }
+        
+//        CKCouponModel *model = [cannotUseArray firstObject];
+        NSString *couponCount = [NSString stringWithFormat:@"%lu",(unsigned long)list.count];
+        [curcell refreshCouponAndMoney:@"" usablecount:couponCount];
+        
+    } failure:^(NSError *error) {
+  
+    }];
 }
 
 -(void)refreshAllPayMoney {
@@ -101,7 +142,9 @@
     _moneyCountView.allMoneyLable.text = [NSString stringWithFormat:@"合计:¥%@", salePrice];
     
     //获取可用优惠券张数
-    [self showUseableCouponCount:salePrice];
+//    [self showUseableCouponCount:salePrice];
+    NSString *totalMoneys = [NSString stringWithFormat:@"%@",salePrice];
+    [self resquestCouponData:@"0" totalMoney:totalMoneys];
 }
 
 -(void)createTableView{
@@ -232,9 +275,12 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
-        
+        curcell  = cell;
         //选择优惠券后显示优惠金额
-        [cell refreshCouponAndMoney:self.coupontMoney usablecount:self.coupontUsablecount];
+        [cell refreshCouponAndMoney:self.coupontMoney usablecount:[NSString stringWithFormat:@"%lu",(unsigned long)list.count]];
+        
+        
+       
         
         NSString *money = [NSString stringWithFormat:@"%@", self.goodsDict[@"price"]];
         if (IsNilOrNull(money)) {
@@ -516,90 +562,26 @@
 #pragma mark - 优惠券相关
 #pragma mark - 使用优惠券delegate
 - (void)goodsDetailConfirmOrderChooseCoupon {
-//    SCUseCouponViewController *useCoupon = [[SCUseCouponViewController alloc] init];
-//    __weak typeof(self) wSelf = self;
-//    [useCoupon setCouponBlock:^(NSString *price, NSString *couponId) {
-//        NSLog(@"price:%@, couponId:%@", price, couponId);
-//        wSelf.coupontMoney = price;
-//        wSelf.coupontId = couponId;
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-//        [wSelf.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    }];
-//
+     CKCouponUsableViewController * useCoupon = [[CKCouponUsableViewController alloc]init];
+
+    __weak typeof(self) wSelf = self;
+    [useCoupon setCouponBlock:^(NSString *price, NSString *couponId) {
+        NSLog(@"price:%@, couponId:%@", price, couponId);
+        wSelf.coupontMoney = price;
+        wSelf.coupontId = couponId;
+        [curcell refreshCouponAndMoney:price usablecount:[NSString stringWithFormat:@"%lu",(unsigned long)list.count]];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+        [wSelf.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+
 //    self.exitPay = NO;
-//
-//    NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
-//    useCoupon.goodsIdArray = @[itemid];
-//    useCoupon.orderMoney = [_moneyCountView.allMoneyLable.text componentsSeparatedByString:@"¥"].lastObject;
-//    //将当前请求的优惠券数据传到列表页面，如果没有则请求
-//    useCoupon.params = [self createCouponParametersWithType:@"1"];
-//    useCoupon.useabelCouponArray = [NSMutableArray arrayWithArray:self.useableCouponArray];
-//    useCoupon.unuseabelCouponArray = [NSMutableArray arrayWithArray:self.unuseableCouponArray];
-//    useCoupon.couponId = self.coupontId;
-//    useCoupon.coupontMoney = self.coupontMoney;
-    
-    CKCouponDetailViewController * useCoupon = [[CKCouponDetailViewController alloc]init];
-    
+
+    //将当前请求的优惠券数据传到列表页面，如果没有则请求
+    useCoupon.ordermoney = ordermoney;
     [self.navigationController pushViewController:useCoupon animated:YES];
 }
 
-- (NSMutableDictionary*)createCouponParametersWithType:(NSString*)type {
-    
-    NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
-    NSMutableArray *orderinfo = [NSMutableArray array];
-    NSDictionary *dic = @{@"id":itemid, @"num":self.buyCount};
-    [orderinfo addObject:dic];
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:USER_OPENID forKey:@"openid"];
-    [parameters setObject:[orderinfo mj_JSONString] forKey:@"item"];
-    [parameters setObject:type forKey:@"type"];//类型：1.可用优惠券，2.不可用优惠券；默认为1
-    return parameters;
-}
 
-- (void)showUseableCouponCount:(NSString *)orderMoney {
-    NSArray *myCoupons = [[XNArchiverManager shareInstance] xnUnarchiverObject:KMyCouponList];
-    if (myCoupons.count > 0) {
-        NSString *itemid = [NSString stringWithFormat:@"%@", self.goodsDict[@"itemid"]];
-        
-        NSArray *canUseArray = [[SCCouponTools shareInstance] showCoupons:@[itemid] orderMoney:orderMoney canUse:YES];
-        self.useableCouponArray = [NSMutableArray arrayWithArray:canUseArray];
-        self.coupontUsablecount = [NSString stringWithFormat:@"%ld", canUseArray.count];
-        
-        NSArray *canNotUseArray = [[SCCouponTools shareInstance] showCoupons:@[itemid] orderMoney:orderMoney canUse:NO];
-        self.unuseableCouponArray = [NSMutableArray arrayWithArray:canNotUseArray];
-        
-        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-        [self.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }else{
-        //请求可用的优惠券
-//        [self requestCouponCanUse];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-        [self.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }
-}
-
-- (void)requestCouponCanUse {
-    
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetCanUseCoupons];
-    
-    [HttpTool postWithUrl:requestUrl params:[self createCouponParametersWithType:@"1"] success:^(id json) {
-        NSDictionary *dict = json;
-        if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"message"]];
-            return ;
-        }
-        NSArray *list = dict[@"list"];
-        self.useableCouponArray = [NSMutableArray arrayWithArray:list];
-        
-        self.coupontUsablecount = [NSString stringWithFormat:@"%@", dict[@"usablecount"]];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
-        [self.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    } failure:^(NSError *error) {
-        
-    }];
-}
 
 
 

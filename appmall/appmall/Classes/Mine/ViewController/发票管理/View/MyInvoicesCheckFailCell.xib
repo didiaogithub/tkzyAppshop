@@ -118,6 +118,7 @@
                 <outlet property="fpttLab" destination="GKk-Ck-3GQ" id="dPT-Mq-orT"/>
                 <outlet property="shLab" destination="kjG-zB-H0K" id="gjH-UX-XAM"/>
                 <outlet property="typeLab" destination="NCi-2J-KoT" id="de1-ep-hAn"/>
+                <outlet property="updataFaPDetail" destination="ofY-dg-9Vn" id="O0t-Lw-hdg"/>
             </connections>
             <point key="canvasLocation" x="9" y="135"/>
         </tableViewCell>

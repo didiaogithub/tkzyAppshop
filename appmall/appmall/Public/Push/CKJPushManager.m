@@ -27,11 +27,11 @@ static BOOL isProduction = YES;
 -(instancetype)initPrivate {
     self = [super init];
     if(self) {
-        _sysMessageCount = 0;
-        _gsMessageConut = 0;
-        _jcMessageCount = 0;
-        _hyMessageCount = 0;
-        _jsMessageCount = 0;
+        _gfMessageCount = 0;
+        _wlMessageConut = 0;
+        _ddMessageCount = 0;
+        _fqMessageCount = 0;
+        _fpMessageCount = 0;
         
     }
     return self;
@@ -343,12 +343,12 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
 
 - (void)totalcount{
     
-    int gscount = [CKJPushManager manager].gsMessageConut;
-    int jccount = [CKJPushManager manager].jcMessageCount;
-    int hycount = [CKJPushManager manager].hyMessageCount;
-    int syscount = [CKJPushManager manager].sysMessageCount;
-    int jscount = [CKJPushManager manager].jsMessageCount;
-    int totalcount = gscount + jccount + hycount + syscount + jscount;
+    int gfcount = [CKJPushManager manager].gfMessageCount;
+    int wlcount = [CKJPushManager manager].wlMessageConut;
+    int ddcount = [CKJPushManager manager].ddMessageCount;
+    int fqcount = [CKJPushManager manager].fqMessageCount;
+    int fpcount = [CKJPushManager manager].fpMessageCount;
+    int totalcount = gfcount + wlcount + ddcount + fqcount + fpcount;
     if (totalcount == 0) {
         [CKCNotificationCenter postNotificationName:@"hiddenWhiteLab" object:nil];
     }
@@ -358,65 +358,65 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     
     NSLog(@"方法名称:%s\n收到消息:%@", __func__, userInfo);
     
-//    NSDictionary *apsDict = [userInfo objectForKey:@"aps"];
-//    NSString *content = [apsDict objectForKey:@"alert"];//内容
-//    NSString *title = [userInfo objectForKey:@"title"];
-//    if (IsNilOrNull(title)) {
-//        title = @"";
-//    }
-//    NSString *type = [userInfo objectForKey:@"type"];//内容
-//    if (IsNilOrNull(type)) {
-//        type = @"";
-//    }
-//    NSString *msgid = userInfo[@"id"];
-//    NSString *money = userInfo[@"money"];
-//    NSString *imageUrl = userInfo[@"url"];
-//    
-//    if(IsNilOrNull(msgid)){
-//        msgid = @"";
-//    }
-//    if(IsNilOrNull(money)){
-//        money = @"";
-//    }
-//    if(IsNilOrNull(imageUrl)){
-//        imageUrl = @"";
-//    }
-//    
-//    [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
-//    [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
-//    // 1公司政策 2奖惩通知 3会议报名 4系统通知
-//    
-//    if ([type isEqualToString:@"1"]) {
-//        _gsMessageConut++;
-//        
-//        
-//    }
-//    if ([type isEqualToString:@"2"]) {
-//        _jcMessageCount++;
-//    }
-//    if ([type isEqualToString:@"3"]) {
-//        _hyMessageCount++;
-//    }
-//    if ([type isEqualToString:@"4"]) {
-//        _sysMessageCount++;
-//    }
-//    if ([type isEqualToString:@"5"]) {
-//        _jsMessageCount++;
-//    }
-//    
-//    NSString *urlStr;
+    NSDictionary *apsDict = [userInfo objectForKey:@"aps"];
+    NSString *content = [apsDict objectForKey:@"alert"];//内容
+    NSString *title = [userInfo objectForKey:@"title"];
+    if (IsNilOrNull(title)) {
+        title = @"";
+    }
+    NSString *type = [userInfo objectForKey:@"type"];//内容
+    if (IsNilOrNull(type)) {
+        type = @"";
+    }
+    NSString *msgid = userInfo[@"id"];
+    NSString *money = userInfo[@"money"];
+    NSString *imageUrl = userInfo[@"url"];
+    
+    if(IsNilOrNull(msgid)){
+        msgid = @"";
+    }
+    if(IsNilOrNull(money)){
+        money = @"";
+    }
+    if(IsNilOrNull(imageUrl)){
+        imageUrl = @"";
+    }
+    
+    [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
+    [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
+    // 1官方提醒 2物流提醒 3订单提醒 4分期付款提醒 5发票凭证过期提醒
+    
+    if ([type isEqualToString:@"1"]) {
+        _gfMessageCount++;
+        
+        
+    }
+    if ([type isEqualToString:@"2"]) {
+        _wlMessageConut++;
+    }
+    if ([type isEqualToString:@"3"]) {
+        _ddMessageCount++;
+    }
+    if ([type isEqualToString:@"4"]) {
+        _fqMessageCount++;
+    }
+    if ([type isEqualToString:@"5"]) {
+        _fpMessageCount++;
+    }
+    
+    NSString *urlStr;
 //    UIViewController *currentVC = [self currentVC];
 //    if (![currentVC isKindOfClass:[OANewsCenterViewController class]]) {
 //        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
-//        
-//        
+    
+        
 //        NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[CommonMethod addNotSignComomPara:nil]];
 //         [para setObject:msgid forKey:@"msgid"];
-//        
+//
 //            if ([type isEqualToString:@"1"]){
 //                [para setObject:@"1" forKey:@"type"];
 //                urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/c_policy.html?"]];
-//               
+//
 //                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
 //                    detail.isJpush = YES;
 //                    detail.detailUrl = urlStr;
@@ -454,7 +454,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
 //                    [self totalcount];
 //                    [currentVC.navigationController pushViewController:detail animated:YES];
 //            }else if ([type isEqualToString:@"4"]){
-//               
+//
 //                    OAMessageListViewController *detail = [[OAMessageListViewController alloc] init];
 //                    detail.type = @"4";
 //                    _sysMessageCount = 0;
@@ -467,10 +467,10 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
 //                [self totalcount];
 //                [currentVC.navigationController pushViewController:detail animated:YES];
 //            }
-//        
+//
 //    }
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivePushNotification" object:@{@"type":type}];
+//
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivePushNotification" object:@{@"type":type}];
 }
 
 

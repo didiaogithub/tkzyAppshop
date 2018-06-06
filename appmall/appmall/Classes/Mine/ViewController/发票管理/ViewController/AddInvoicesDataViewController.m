@@ -18,6 +18,7 @@
     UILabel *line6;
     UILabel *line7;
     NSString *url;
+    NSString *path;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contViewH;
 /**  抬头类型*/
@@ -64,7 +65,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"添加发票信息";
+ 
+    
+    if (self.isUpdateFaPDetail == YES) {
+        self.title = @"编辑发票信息";
+    }else{
+        self.title = @"添加发票信息";
+    }
     self.isQY = YES;
     [self initCompontments];
     [self setRightButton:@"模板下载"];
@@ -93,7 +100,7 @@
     [self.ttlxView addSubview:sex_women];
     
     [sex_women mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.ttlxView.mas_right).offset(-20);
+        make.right.equalTo(self.ttlxView.mas_right).offset(-5);
         make.centerY.equalTo(self.ttlxView.mas_centerY);
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(140);
@@ -105,7 +112,7 @@
     [self.ttlxView addSubview:sex_men];
     [sex_men setChecked:YES];
     [sex_men mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(sex_women.mas_left).offset(-20);
+        make.right.equalTo(sex_women.mas_left).offset(-5);
         make.centerY.equalTo(self.ttlxView.mas_centerY);
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(80);
@@ -417,23 +424,25 @@
     //    NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];
     [self.headImageArr addObject:imageSales];
     NSDictionary *pramaDic = @{@"file":imageSales};
-    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
     //保存头像
     [HttpTool uploadWithUrl:headDicUrl andImages:self.headImageArr andPramaDic:pramaDic completion:^(NSString *url, NSError *error) {
         NSLog(@"正在上传");
         
     } success:^(id responseObject) {
         NSDictionary *dict = responseObject;
-        
+        [self.loadingView stopAnimation];
         if ([dict[@"code"] integerValue] != 200) {
             [self showNoticeView:dict[@"message"]];
             return ;
         }
         url =  dict[@"data"][@"url"];
-      
+        path = dict[@"data"][@"path"];
         [self showNoticeView:@"上传成功"];
         
     } fail:^(NSError *error){
+        [self.loadingView stopAnimation];
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];
         }else{
@@ -449,41 +458,112 @@
 
 
 - (IBAction)tjBtnAction:(UIButton *)sender {
-    
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     if (self.isQY == YES) {
+        if (!IsNilOrNull(self.tempid)) {
+            [paraDic setObject:self.tempid forKey:@"tempid"];
+        }
+        
         if (IsNilOrNull(self.fpttView.rightTextField.text)) {
             [self showNoticeView:@"请输入发票抬头"];
             return;
+        }else{
+            [paraDic setObject:self.fpttView.rightTextField.text forKey:@"issuingoffice"];
         }
         if (IsNilOrNull(self.shView.rightTextField.text)) {
             [self showNoticeView:@"请输入税号"];
              return;
+        }else{
+            [paraDic setObject:self.shView.rightTextField.text forKey:@"number"];
         }
         if (IsNilOrNull(self.khhView.rightTextField.text)) {
             [self showNoticeView:@"请输入开户行"];
              return;
+        }else{
+            [paraDic setObject:self.khhView.rightTextField.text forKey:@"bankname"];
         }
         if (IsNilOrNull(self.zhView.rightTextField.text)) {
             [self showNoticeView:@"请输入账号"];
              return;
+        }else{
+            [paraDic setObject:self.zhView.rightTextField.text forKey:@"cardno"];
         }
         if (IsNilOrNull(self.dzView.rightTextField.text)) {
             [self showNoticeView:@"请输入地址"];
              return;
+        }else{
+             [paraDic setObject:self.dzView.rightTextField.text forKey:@"address"];
         }
         if (IsNilOrNull(self.dhView.rightTextField.text)) {
             [self showNoticeView:@"请输入电话"];
             return;
+        }else{
+             [paraDic setObject:self.dhView.rightTextField.text forKey:@"mobile"];
         }
-        if (IsNilOrNull(url)) {
+        if (IsNilOrNull(path)) {
             [self showNoticeView:@"请上传发票证明材料"];
+            return;
+        }else{
+             [paraDic setObject:path forKey:@"prove"];
         }
+        [paraDic setObject:@"2" forKey:@"invoiceheadtype"];
+        
     }else{
         if (IsNilOrNull(self.fpttView.rightTextField.text)) {
             [self showNoticeView:@"请输入发票抬头"];
             return;
+        }else{
+              [paraDic setObject:self.fpttView.rightTextField.text forKey:@"issuingoffice"];
         }
+        if (!IsNilOrNull(self.tempid)) {
+            [paraDic setObject:self.tempid forKey:@"tempid"];
+        }
+        [paraDic setObject:@"1" forKey:@"invoiceheadtype"];
+        
     }
+    
+    
+    
+    NSString *requestUrl;
+    if (self.isUpdateFaPDetail == YES) {
+       requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,editInvoiceTempApi];
+    }else{
+       requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,addInvoiceTempApi];
+    }
+    
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] == 200) {
+            if (self.isUpdateFaPDetail == YES) {
+                [self showNoticeView:@"修改成功"];
+            }else{
+               [self showNoticeView:@"添加成功"];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            if (self.isUpdateFaPDetail == YES) {
+                [self showNoticeView:@"修改失败"];
+            }else{
+                [self showNoticeView:@"添加失败"];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (self.isUpdateFaPDetail == YES) {
+            [self showNoticeView:@"修改失败"];
+        }else{
+            [self showNoticeView:@"添加失败"];
+        }
+    }];
+    
+    
+    
     
     
     

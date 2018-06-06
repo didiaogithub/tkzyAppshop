@@ -70,7 +70,7 @@
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setObject:@(_page) forKey:@"pageNo"];
     [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
-    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
+//    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMyInvoiceApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         
@@ -152,6 +152,7 @@
                     loadNibNamed:@"MyInvoicesCheckFailCell" owner:self options:nil]  lastObject];
         }
         cell.delegate = self;
+        cell.updataFaPDetail.tag = indexPath.row;
         [cell refreshData:self.yjjDataArray[indexPath.row]];
          tcell = cell;
         
@@ -251,13 +252,32 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    MyInvoicesModel *model = self.wclDataArray[indexPath.row];
-//    self.selectMyInvoicesBlock(model);
+   
+    MyInvoicesModel *model = self.yclDataArray[indexPath.row];
+    for (MyInvoicesModel *itemModel in self.yclDataArray) {
+        itemModel.isSelect = NO;
+    }
+    model.isSelect = YES;
+    [self.mTableView reloadData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __weak typeof(self) weakself = self;
+        if (weakself.selectMyInvoicesBlock) {
+            weakself.selectMyInvoicesBlock(model);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+   
 }
 
--(void)jumpAddInvoicesDataViewController{
+- (void)setSelectMyInvoicesBlock:(SelectMyInvoicesBlock)selectMyInvoicesBlock{
+    _selectMyInvoicesBlock = selectMyInvoicesBlock;
+}
+
+-(void)jumpAddInvoicesDataViewController:(UIButton *)sender{
     AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+    MyInvoicesModel *model = self.yjjDataArray[sender.tag];
+    add.tempid = model.invoicetempid;
+    add.isUpdateFaPDetail = YES;
     [self.navigationController pushViewController:add animated:YES];
 }
 

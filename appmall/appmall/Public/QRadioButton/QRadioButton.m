@@ -8,7 +8,7 @@
 
 #import "QRadioButton.h"
 
-#define Q_RADIO_ICON_WH                     (12.0)
+#define Q_RADIO_ICON_WH                     (18.0)
 #define Q_ICON_TITLE_MARGIN                 (5.0)
 
 

@@ -19,11 +19,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwY-Y6-B0z">
-                        <rect key="frame" x="260" y="9" width="45" height="26"/>
+                        <rect key="frame" x="247" y="9" width="58" height="26"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="BAf-ex-TAW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="申请欠款"/>
                         <connections>
                             <action selector="clickSQQKBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oDH-Va-KcC"/>
@@ -35,6 +35,9 @@
                     <constraint firstAttribute="trailing" secondItem="TwY-Y6-B0z" secondAttribute="trailing" constant="15" id="yYQ-4A-IQJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="sqqkBtn" destination="TwY-Y6-B0z" id="Y7q-Rk-mga"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

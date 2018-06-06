@@ -61,6 +61,9 @@
     }else{
         WuliuDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KWuliuDetailViewCell];
         [cell loadData:self.wuluModel.infos[indexPath.row] atIndex:indexPath.row andInfoCount:self.wuluModel.infos.count];
+    
+        
+
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

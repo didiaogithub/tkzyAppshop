@@ -16,6 +16,7 @@
 {
     NSArray * titleArr;
     NSString *url;
+    NSString *path;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 - (IBAction)sciconAction:(UIButton *)sender;
@@ -89,7 +90,7 @@
             make.right.equalTo(cell.mas_right).offset(-40);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
         [sex_women setTitle:@"女" forState:UIControlStateNormal];
@@ -101,7 +102,7 @@
             make.right.equalTo(sex_bm.mas_left).offset(-10);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         
         QRadioButton *sex_men = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
@@ -114,7 +115,7 @@
             make.right.equalTo(sex_women.mas_left).offset(-10);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
-            make.width.mas_equalTo(45);
+            make.width.mas_equalTo(70);
         }];
         
         if ([self.model.sex isEqualToString:@"0"]) {
@@ -290,6 +291,7 @@
             return ;
         }
         url =  dict[@"data"][@"url"];
+        path = dict[@"data"][@"path"];
         
     } fail:^(NSError *error){
         if (error.code == -1009) {
@@ -314,9 +316,9 @@
 //UpdateMeInfoUrl
 - (void)rightBtnPressed{
     NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    if (url) {
+    if (path) {
 //        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
-         [para setObject:url forKey:@"head"];
+         [para setObject:path forKey:@"head"];
     }else{
         [para setObject:self.model.head forKey:@"head"];
     }

@@ -283,7 +283,12 @@
     }else if (indexPath.section == 2){
         static NSString *identifier = @"SQQKTableCell";//这个identifier跟xib设置的一样
         SQQKTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        
+        // 欠款管理付款时隐藏申请欠款按钮
+        if (self.isqkglPage == YES) {
+            cell.sqqkBtn.hidden = YES;
+        }else{
+            cell.sqqkBtn.hidden = NO;
+        }
         if (cell == nil) {
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"SQQKTableCell" owner:self options:nil]  lastObject];
@@ -296,6 +301,7 @@
         if (cell==nil) {
             cell = [[SCPaymentTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SCPaymentTableCell"];
         }
+       
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setBackgroundColor:[UIColor tt_grayBgColor]];
         
@@ -319,6 +325,9 @@
         }else{
             cell.rightButton.selected = NO;
         }
+        if (indexPath.row == 0) {
+            cell.rightButton.selected =  YES;
+        }
         return cell;
     }
 }
@@ -333,8 +342,16 @@
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     NSInteger newRow = [indexPath row];
     NSInteger oldRow = (self.selIndex != nil) ? (self.selIndex.row) : -1;
+    
+    if (newRow != 0) {
+        if (indexPath.row == 0) {
+            SCPaymentTableCell *cell = (SCPaymentTableCell *)[tableView cellForRowAtIndexPath:indexPath];
+            cell.rightButton.selected = NO;
+        }
+    }
     if(indexPath.section == 1){  //只有选择支付方式时才进入此判断，否则会crash
         if (newRow != oldRow){
             SCPaymentTableCell *cell = (SCPaymentTableCell *)[tableView cellForRowAtIndexPath:indexPath];

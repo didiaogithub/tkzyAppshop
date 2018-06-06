@@ -19,7 +19,7 @@
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
-@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate>
+@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate,XYTableViewDelegate>
 
 /**  headView*/
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
@@ -53,6 +53,17 @@
     [self loadNewData];    
     [self setRightButton:@"开票信息"];
 }
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"发票无"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类发票哦";
+    return str;
+}
+
 
 - (void)rightBtnPressed{
      MyInvoicesViewController *my = [[MyInvoicesViewController alloc]init];
@@ -88,7 +99,7 @@
     [pramaDic setObject:@(_page) forKey:@"pageNo"];
     [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
     [pramaDic setObject:type forKey:@"invoice"];
-    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
+//    [pramaDic setObject:@"df9e345e28349f5911a413026924f63c" forKey:@"token"]; // 目前是测试，正式上删除
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getOrderByInvoiceApi];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
@@ -278,12 +289,13 @@
         
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
         InvoicesManagerModel *model = self.dataArray[sender.tag];
-        if (model.invoice == 1) { // 0 是没有审核审核成功的发票模板 需要去添加
+        if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
 //            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
 //            [self.navigationController pushViewController:add animated:YES];
             [self showNoticeView:@"请点击开票信息，去添加发票模板"];
         }else{ // 1是有 可以直接跳转到详情那个页面
-            open.invoiceid = model.orderid;
+            open.orderno = model.orderno;
+            open.orderid = model.orderid;
             [self.navigationController pushViewController:open animated:YES];
         }
         

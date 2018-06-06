@@ -255,7 +255,7 @@
 }
 
 -(void)toWeiXinAuth{
-    if([WXApi isWXAppInstalled]){
+    if(![WXApi isWXAppInstalled]){
         //从欢迎页进入app 未登录 并且没有授权
         [self shownotice];
     }else{

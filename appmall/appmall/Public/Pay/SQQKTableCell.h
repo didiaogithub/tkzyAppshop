@@ -11,6 +11,7 @@
 - (void)showSQQKView;
 @end
 @interface SQQKTableCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *sqqkBtn;
 
 /**  delegate*/
 @property (nonatomic, weak) id<SQQKTableCellDelegate> delegate;

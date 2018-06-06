@@ -85,7 +85,7 @@
     }];
     
     
-    _rightBtn = [UIButton configureButtonWithTitle:@"去评价" titleColor:[UIColor whiteColor] bankGroundColor:[UIColor tt_redMoneyColor] cornerRadius:5 font:MAIN_SUBTITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(releaseComment)];
+    _rightBtn = [UIButton configureButtonWithTitle:@"去反馈" titleColor:[UIColor whiteColor] bankGroundColor:[UIColor tt_redMoneyColor] cornerRadius:5 font:MAIN_SUBTITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(releaseComment)];
     [self.contentView addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_iconImageView.mas_bottom).offset(10);

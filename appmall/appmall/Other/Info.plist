@@ -26,7 +26,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.tk.TkPlatform</string>
+			<string>com.tk.TkPlatforms</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx2e357209e6b05cad</string>

@@ -20,14 +20,14 @@
 #import "CKVersionCheckManager.h"
 
 
-@interface AppDelegate ()<ADTimerDelegate,WXApiDelegate>
+@interface AppDelegate ()<ADTimerDelegate,WXApiDelegate,UITabBarControllerDelegate>
 
 @property (nonatomic, assign) BOOL isFirst;
 @property (nonatomic, strong) UIViewController *tempRootVC;
 @property (nonatomic, copy)   NSString *statusStr;
 @property (nonatomic, strong) SCProgressTimerView *waitTimer;
 @property (nonatomic, strong) JGProgressHUD *viewNetError;
-
+@property(nonatomic,assign)NSInteger lastSelectedIndex;
 @end
 
 @implementation AppDelegate
@@ -212,12 +212,13 @@
         self.window.rootViewController = adVc;
         [self.window makeKeyAndVisible];
     }else{//没有则进入欢迎页面
-        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-        if (str == NO) {
-            [self goWelcom];
-        }else{
-            [self enterFirstPage];
-        }
+         [self enterFirstPage];
+//        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//        if (str == NO) {
+//            [self goWelcom];
+//        }else{
+//            [self enterFirstPage];
+//        }
     }
 }
 
@@ -252,38 +253,44 @@
                     self.window.rootViewController = gd;
                     [self.window makeKeyAndVisible];
                 }else{
-                    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-                    if (str == NO) {
-                        [self goWelcom];
-                    }else{
-                        [self enterFirstPage];
-                    }
+                    
+                     [self enterFirstPage];
+                    
+//                    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//                    if (str == NO) {
+//                        [self goWelcom];
+//                    }else{
+//                        [self enterFirstPage];
+//                    }
                 }
             }else{
-                BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-                if (str == NO) {
-                    [self goWelcom];
-                }else{
-                    [self enterFirstPage];
-                }
+                 [self enterFirstPage];
+//                BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//                if (str == NO) {
+//                    [self goWelcom];
+//                }else{
+//                    [self enterFirstPage];
+//                }
             }
         } failure:^(NSError *error) {
-            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-            if (str == NO) {
-                [self goWelcom];
-            }else{
-                [self enterFirstPage];
-            }
+             [self enterFirstPage];
+//            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//            if (str == NO) {
+//                [self goWelcom];
+//            }else{
+//                [self enterFirstPage];
+//            }
         }];
     }else{
         NSLog(@"不是第一次启动");
         if (IsNilOrNull(USER_OPENID)) {//没有openid不请求启动页广告
-            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-            if (str == NO) {
-                [self goWelcom];
-            }else{
-                [self enterFirstPage];
-            }
+             [self enterFirstPage];
+//            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//            if (str == NO) {
+//                [self goWelcom];
+//            }else{
+//                [self enterFirstPage];
+//            }
         }else{
             _waitTimer = [[SCProgressTimerView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65, 25, 40, 40)];
             _waitTimer.count = 0;
@@ -393,12 +400,13 @@
     if (!IsNilOrNull(path)) {
         [self loadAD];
     }else{
-        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-        if (str == NO) {
-            [self goWelcom];
-        }else{
-            [self enterFirstPage];
-        }
+         [self enterFirstPage];
+//        BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//        if (str == NO) {
+//            [self goWelcom];
+//        }else{
+//            [self enterFirstPage];
+//        }
     }
 }
 
@@ -424,8 +432,10 @@
     }
 }
 
+
 -(void)enterFirstPage {
     RootTabBarController *rootVC = [[RootTabBarController alloc]init];
+    rootVC.delegate = self;
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
 }
@@ -433,8 +443,9 @@
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
-    self.window.rootViewController = welcomeNav;
-    [self.window makeKeyAndVisible];
+    
+    [self.window.rootViewController presentViewController:welcomeNav animated:YES completion:nil];
+//    [self.window makeKeyAndVisible];
 }
 
 //-(void)showNewFeature{
@@ -724,5 +735,20 @@
     }
 }
 
-
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    if (tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 4){
+        //未登录
+        if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+            if (self.lastSelectedIndex == 4 || self.lastSelectedIndex == 3) {
+                tabBarController.selectedIndex = 0;
+            }else{
+                tabBarController.selectedIndex = self.lastSelectedIndex;
+            }
+            
+            [self goWelcom];
+            return;
+        }
+    }
+    self.lastSelectedIndex = tabBarController.selectedIndex;
+}
 @end

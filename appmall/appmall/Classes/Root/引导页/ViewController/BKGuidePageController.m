@@ -119,11 +119,13 @@ static NSString *ID = @"cell";
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
-    [UIApplication sharedApplication].keyWindow.rootViewController = welcomeNav;
-    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
-    AppDelegate *app = [AppDelegate shareAppDelegate];
-    app.window.rootViewController = welcomeNav;
-    [app.window makeKeyAndVisible];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+    
+//    [UIApplication sharedApplication].keyWindow.rootViewController = welcomeNav;
+//    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
+//    AppDelegate *app = [AppDelegate shareAppDelegate];
+//    app.window.rootViewController = welcomeNav;
+//    [app.window makeKeyAndVisible];
 }
 
 -(void)enterFirstPage {

@@ -24,7 +24,7 @@
 -(void)loadData:(GoodSmodel *)model{
     self.labGoodName.text = model.name;
     [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.picture]];
-    self.labGoodInfo.text = [NSString stringWithFormat:@"编号：%@    规格：%@",model.itemid,model.specification];
+    self.labGoodInfo.text = [NSString stringWithFormat:@"编号：%@    规格：%@",model.itemno,model.specification];
     self.labNum.text = [NSString stringWithFormat:@"X%@",model.number];
     self.btnBack.hidden =  ![model.feedback boolValue];
 }

@@ -173,7 +173,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.commListModel.comment.count + 1;
+    return self.commListModel.comments.count + 1;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -184,7 +184,7 @@
     if (indexPath .row == 0) {
         return [self.commListModel getCellHeightNoComment];
     }else{
-        return [self.commListModel.comment[indexPath.row-1] getCellHeight];
+        return [self.commListModel.comments[indexPath.row-1] getCellHeight];
     }
 }
 
@@ -193,7 +193,7 @@
     if (indexPath .row == 0) {
         [cell refreshData:self.commListModel IsneedCommView:NO];
     }else{
-        [cell refreshDataDetail:self.commListModel.comment[indexPath.row-1]];
+        [cell refreshDataDetail:self.commListModel.comments[indexPath.row-1]];
     }
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

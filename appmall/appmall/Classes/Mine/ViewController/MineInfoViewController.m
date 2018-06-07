@@ -273,6 +273,8 @@
     UIImage *imageSales = [UIImage fixOrientation:image];
     //显示头像
     [self.iconImage setImage:imageSales];
+//    http://tkre.klboo.com/resource/uploadfileimg
+//    http://tkre.klboo.com/resource/uploadfileimg
     NSString *headDicUrl = [NSString stringWithFormat:@"%@%@",CommentResAPI,APIuploadfileimg];
 //    NSString *dateStr = [NSDate dateNow];
 //    NSString *nameStr = [@"" stringByAppendingString:[NSString stringWithFormat:@"_%@",dateStr]];

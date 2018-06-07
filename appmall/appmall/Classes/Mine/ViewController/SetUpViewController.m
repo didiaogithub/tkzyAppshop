@@ -339,8 +339,14 @@
     NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager removeItemAtPath:filePath error:nil];
- [self goWelcom];
+ [self enterFirstPage];
 
+}
+-(void)enterFirstPage {
+    RootTabBarController *rootVC = [[RootTabBarController alloc]init];
+    rootVC.delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [UIApplication sharedApplication].keyWindow.rootViewController = rootVC;
+    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
 }
 
 -(void)goCheckLogin {
@@ -357,11 +363,13 @@
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+    
 //    [UIApplication sharedApplication].keyWindow.rootViewController = welcomeNav;
 //    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
-    AppDelegate *app = [AppDelegate shareAppDelegate];
-    app.window.rootViewController = welcomeNav;
-    [app.window makeKeyAndVisible];
+//    AppDelegate *app = [AppDelegate shareAppDelegate];
+//    app.window.rootViewController = welcomeNav;
+//    [app.window makeKeyAndVisible];
 }
 
 

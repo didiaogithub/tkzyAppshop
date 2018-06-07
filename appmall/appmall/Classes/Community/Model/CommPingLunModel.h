@@ -31,7 +31,7 @@
 @property (nonatomic,strong)NSString * name;
 @property (nonatomic,strong)NSString * head;
 @property (nonatomic,strong)NSString * praise;
-@property(nonatomic,strong)NSMutableArray<CommcommentList *> * comment;
+@property(nonatomic,strong)NSMutableArray<CommcommentList *> * comments;
 -(CGFloat)getCellHeight;
 -(CGFloat)getCellHeightNoComment;
 @end

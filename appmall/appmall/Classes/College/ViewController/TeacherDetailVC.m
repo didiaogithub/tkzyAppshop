@@ -77,7 +77,6 @@
         }else{
             [self.loadingView showNoticeView:NetWorkTimeout];
         }
-        
     }];
 }
 

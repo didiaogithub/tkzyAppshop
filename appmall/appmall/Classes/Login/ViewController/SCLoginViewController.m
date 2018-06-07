@@ -42,6 +42,7 @@
     
     [CKCNotificationCenter addObserver:self selector:@selector(loginByWeChat) name:@"YDSC_WxLogin_Click" object:nil];
     checkSec = KCheckSec;
+   
     self.loadingView = [[CKC_CustomProgressView alloc] init];
     self.viewNetError = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.viewNetError.indicatorView = nil;
@@ -65,7 +66,12 @@
     _wxLoginBtn.hidden = NO;
     _phoneLoginBtn.hidden = NO;
 
-
+    UIButton *btnCancelLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btnCancelLogin.frame = CGRectMake(5, NaviHeight -44, 44, 44);
+    [btnCancelLogin setImage:[UIImage imageNamed:@"返回"] forState:0];
+    [btnCancelLogin addTarget:self action:@selector(canCelLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnCancelLogin];
 }
 
 -(UITextField *)createTfText:(NSString *)title andFrame:(CGRect) frame{
@@ -360,10 +366,15 @@
     
 }
 
+-(void)canCelLogin{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)goFirstPage {
     RootTabBarController *rootVC = [[RootTabBarController alloc]init];
 //    [UIApplication sharedApplication].keyWindow.rootViewController = rootVC;
     AppDelegate *app = [AppDelegate shareAppDelegate];
+    rootVC.delegate = app;
     app.window.rootViewController = rootVC;
     [app.window makeKeyAndVisible];
 }
@@ -380,5 +391,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

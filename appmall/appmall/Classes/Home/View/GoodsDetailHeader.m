@@ -19,7 +19,7 @@
     return self;
 }
 - (IBAction)actionComm:(id)sender {
-    if (self.detailModel.commentList.count != 0) {
+    if (self.detailModel.commentList.count == 0) {
         BaseViewController *baseVC = (BaseViewController *)[self getCurrentVC];
         [baseVC showNoticeView:@"该商品暂无评价"];
     }else{

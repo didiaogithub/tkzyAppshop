@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"我的地址";
+    self.navigationItem.title = @"收货地址";
     
     [self createAddressView];
 }
@@ -95,18 +95,26 @@
     _addressBlock = addressBlock;
 }
 
+- (void)rightBtnPressed{
+    AddAddressViewController *addAddress = [[AddAddressViewController alloc] init];
+    addAddress.actionName = @"Add";
+    [self.navigationController pushViewController:addAddress animated:YES];
+}
+
 -(void)createAddressView{
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:addButton];
-    [addButton setBackgroundColor:[UIColor tt_bigRedBgColor]];
-    [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [addButton setTitle:@"+添加收货地址" forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(clickAddButton) forControlEvents:UIControlEventTouchUpInside];
-    [addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-BOTTOM_BAR_HEIGHT);
-        make.height.mas_offset(44);
-    }];
+    
+    [self setRightButton:@"添加" titleColor:[UIColor tt_monthLittleBlackColor]];
+//    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.view addSubview:addButton];
+//    [addButton setBackgroundColor:[UIColor tt_bigRedBgColor]];
+//    [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [addButton setTitle:@"+添加收货地址" forState:UIControlStateNormal];
+//    [addButton addTarget:self action:@selector(clickAddButton) forControlEvents:UIControlEventTouchUpInside];
+//    [addButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_offset(0);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-BOTTOM_BAR_HEIGHT);
+//        make.height.mas_offset(44);
+//    }];
     
     _addressTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _addressTableView.delegate  = self;
@@ -118,8 +126,8 @@
     [self.view addSubview:_addressTableView];
     [self.addressTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
-        make.top.equalTo(self.view.mas_top).offset(65.5+NaviAddHeight);
-        make.bottom.equalTo(addButton.mas_top);
+        make.top.equalTo(self.view.mas_top).offset(NaviAddHeight);
+        make.bottom.equalTo(self.view.mas_bottom);
     }];
 }
 /**跳转进更换地址页面*/

@@ -7,16 +7,16 @@
 //
 
 #import "CKShareManager.h"
-//#import <ShareSDK/ShareSDK.h>
-//#import <ShareSDKUI/ShareSDK+SSUI.h>
-//#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
-//#import <TencentOpenAPI/TencentOAuth.h>
-//#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
 //微信SDK头文件
-//#import "WXApi.h"
+#import "WXApi.h"
 //新浪微博SDK头文件
-//#import "WeiboSDK.h"
+#import "WeiboSDK.h"
 
 @implementation CKShareManager
 

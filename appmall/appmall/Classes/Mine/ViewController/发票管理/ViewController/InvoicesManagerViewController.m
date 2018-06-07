@@ -301,6 +301,8 @@
         
     }else{
         InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
+         InvoicesManagerModel *model = self.dataArray[sender.tag];
+        detail.orderid = model.orderid;
         [self.navigationController pushViewController:detail animated:YES];
     }
     

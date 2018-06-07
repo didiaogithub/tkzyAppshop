@@ -291,23 +291,29 @@
 //    //下一步
 //    float buttonH = 4*AdaptedHeight(50)+AdaptedHeight(40);
 //
-    _addAddressButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_bankView addSubview:_addAddressButton];
-    _addAddressButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    [_addAddressButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _addAddressButton.backgroundColor = [UIColor tt_redMoneyColor];
-    _addAddressButton.layer.cornerRadius = 3.0;
-    _addAddressButton.layer.masksToBounds = YES;
-    [_addAddressButton setTitle:@"保存" forState:UIControlStateNormal];
-    [_addAddressButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_offset(15);
-        make.left.equalTo(self.view.mas_left).offset(AdaptedWidth(15));
-        make.right.equalTo(self.view.mas_right).offset(-AdaptedWidth(15));
-        make.height.mas_equalTo(44);
-    }];
+//    _addAddressButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [_bankView addSubview:_addAddressButton];
+//    _addAddressButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+//    [_addAddressButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    _addAddressButton.backgroundColor = [UIColor tt_redMoneyColor];
+//    _addAddressButton.layer.cornerRadius = 3.0;
+//    _addAddressButton.layer.masksToBounds = YES;
+//    [_addAddressButton setTitle:@"保存" forState:UIControlStateNormal];
+//    [_addAddressButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_offset(15);
+//        make.left.equalTo(self.view.mas_left).offset(AdaptedWidth(15));
+//        make.right.equalTo(self.view.mas_right).offset(-AdaptedWidth(15));
+//        make.height.mas_equalTo(44);
+//    }];
+//
+//    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
     
-    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
+    [self setRightButton:@"完成" titleColor:[UIColor tt_monthLittleBlackColor]];
 
+}
+
+-(void)rightBtnPressed{
+    [self clickAddressButton];
 }
 
 -(void)isSelectDefaultAddr {

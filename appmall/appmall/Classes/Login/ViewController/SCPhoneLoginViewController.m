@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
-        self.navigationItem.title = @"设置手机号";
+        self.navigationItem.title = @"绑定手机号";
     }else{
         self.navigationItem.title = @"登录";
     }
@@ -120,7 +120,7 @@
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     loginBtn.backgroundColor = [UIColor tt_redMoneyColor];
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
-        [loginBtn setTitle:@"设置" forState:UIControlStateNormal];
+        [loginBtn setTitle:@"绑定" forState:UIControlStateNormal];
         [loginBtn addTarget:self action:@selector(loginWithPhoneAndOpenid) forControlEvents:UIControlEventTouchUpInside];
         
     }else{

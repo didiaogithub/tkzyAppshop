@@ -213,6 +213,10 @@
                 return;
             }
             
+            NSString * dealerId =  dic[@"data"][@"dealerId"];
+            NSString * customerId =  dic[@"data"][@"customerId"];
+            [KUserdefaults setObject:dealerId forKey:KdealerId];
+            [KUserdefaults setObject:customerId forKey:KcustomerId];
             NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
             if (!IsNilOrNull(meid)) {
                 
@@ -298,6 +302,11 @@
             if (!IsNilOrNull(uk)) {
                 [KUserdefaults setObject:uk forKey:@"YDSC_uk"];
             }
+            
+            NSString * dealerId =  dict[@"data"][@"dealerId"];
+            NSString * customerId =  dict[@"data"][@"customerId"];
+            [KUserdefaults setObject:dealerId forKey:KdealerId];
+            [KUserdefaults setObject:customerId forKey:KcustomerId];
             
             NSString *appopenid = [NSString stringWithFormat:@"%@",dict[@"appopenid"]];
             

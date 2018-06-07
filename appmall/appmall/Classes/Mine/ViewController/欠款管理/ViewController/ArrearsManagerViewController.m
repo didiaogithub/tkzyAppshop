@@ -210,13 +210,13 @@
     
     
     float leftX = 20;
-    if ([self.statusString isEqualToString:@"1"]){//申请中
+    if ([self.statusString isEqualToString:@"0"]){//申请中
         leftX = 20;
-    }else if ([self.statusString isEqualToString:@"2"]){//已拒绝
+    }else if ([self.statusString isEqualToString:@"1"]){//已拒绝
         leftX = SCREEN_WIDTH/4 + 20;
-    }else if ([self.statusString isEqualToString:@"3"]){//已还款
+    }else if ([self.statusString isEqualToString:@"2"]){//已还款
         leftX = SCREEN_WIDTH*2/4 + 20;
-    }else{ //4:全部
+    }else{ //3:全部
         leftX = SCREEN_WIDTH*3/4 + 20; // 待还款
     }
     [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {

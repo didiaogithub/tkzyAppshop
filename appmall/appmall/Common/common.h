@@ -69,7 +69,10 @@
 /**unionid(通过微信授权获得)*/
 #define Kunionid @"CKSC_unionid"
 #define kheamImageurl @"CKSC_headImageUrl"
-
+//绑定服务商id
+#define KdealerId @"CKSC_dealerId"
+//顾客id
+#define KcustomerId @"CKSC_customerId"
 #define KMyCouponList @"CKSC_myCouponList"
 
 
@@ -370,6 +373,8 @@
 #define getInvoiceByIdApi @"Invoice/getInvoiceById"
 /** 修改发票*/
 #define invoiceidApi @"Invocie/invoiceid"
+/** 获取已开发票*/
+#define getInvoicedetailByIdApi @"Invoice/getInvoicedetailById"
 
 /** 添加发票模板*/
 #define addInvoiceTempApi @"Invoice/addInvoiceTemp"

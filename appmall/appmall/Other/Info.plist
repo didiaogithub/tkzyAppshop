@@ -37,11 +37,13 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>jdpay</string>
 		<string>uppaysdk</string>
 		<string>uppaywallet</string>
 		<string>uppayx1</string>
 		<string>uppayx2</string>
 		<string>uppayx3</string>
+		<string>ckys</string>
 		<string>weixin</string>
 		<string>wechat</string>
 		<string>wtloginmqq2</string>

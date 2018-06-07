@@ -13,6 +13,7 @@
 #import "GoodsDetailViewController.h"
 #import "SCDownloadCKAPPWebVC.h"
 #import "XWAlterVeiw.h"
+#import "RootNavigationController.h"
 
 @interface SCCategoryChildVC ()<ZJScrollPageViewChildVcDelegate, UITableViewDelegate, UITableViewDataSource, CatogoryAddToShoppingCarDelete, XWAlterVeiwDelegate>
 
@@ -235,10 +236,18 @@
     detailVC.goodsM = self.dataArr[indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+}
 #pragma mark - 添加到购物车
 -(void)addGoodsToShoppingCar:(SCCategoryGoodsModel *)cateM {
     
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
     NSString *isdlbitem = @"";
     if ([isdlbitem isEqualToString:@"true"] || [isdlbitem isEqualToString:@"1"]) {
         //跳转到下载下载创客app页面

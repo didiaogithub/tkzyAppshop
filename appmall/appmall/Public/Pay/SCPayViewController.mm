@@ -75,7 +75,6 @@
     /**获取加盟需要支付的总金额和可用的支付方式*/
     [self getPayMethod];
     
-    
 }
 
 
@@ -317,17 +316,19 @@
         }else if ([paymentType isEqualToString:@"jdpay"]){  //jdpay
             cell.leftIamgeView.image = [UIImage imageNamed:@"中金支付"];
         }
-        
+       
         NSInteger row = [indexPath row];
         NSInteger oldRow = [_selIndex row];
+        _selectedType = [NSString stringWithFormat:@"%@", _payMethodArr[0]];
+        self.selIndex = [NSIndexPath indexPathForRow:0 inSection:1] ;
         if (row == oldRow && self.selIndex != nil){
             cell.rightButton.selected = YES;
         }else{
-            cell.rightButton.selected = NO;
+          
+                 cell.rightButton.selected = NO;
+
         }
-        if (indexPath.row == 0) {
-            cell.rightButton.selected =  YES;
-        }
+      
         return cell;
     }
 }

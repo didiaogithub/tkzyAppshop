@@ -59,10 +59,10 @@
     NSString *title;
     switch ([self.status integerValue]) {
         case 0:
-            title = @"已取消";
+            title = @"订单已取消";
             break;
         case 1:
-            title =@"未付款";
+            title =@"等待买家付款";
             break;
         case 2:
             title = @"已付款";

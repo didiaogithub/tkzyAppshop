@@ -59,7 +59,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [tabHomeList scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
 }
 
 -(void)tabReloadData{
@@ -267,6 +266,7 @@
 
 
 -(void)actionGoto{
+    
     NSString *token = [UserModel getCurUserToken];
     NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     //请求数据

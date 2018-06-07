@@ -68,14 +68,14 @@
     self.labName.text = model.name;
     self.labContent.text = model.content;
     self.labTime.text = [model.time substringWithRange:NSMakeRange(5, 11)];
-    if (model.comment.count == 0 || isNeed == NO) {
+    if (model.comments.count == 0 || isNeed == NO) {
         self.viewBottom.hidden = YES;
         self.labPersonNum.text = @"";
         [self.btnComDetail setTitle:@"" forState:0];
     }else{
         self.viewBottom.hidden = NO;
-        self.labPersonNum.text = [NSString stringWithFormat:@"%@等人",[model.comment firstObject].name];
-        [self.btnComDetail setTitle:[NSString stringWithFormat:@"共%ld回复 >",model.comment.count] forState:0];
+        self.labPersonNum.text = [NSString stringWithFormat:@"%@等人",[model.comments firstObject].name];
+        [self.btnComDetail setTitle:[NSString stringWithFormat:@"共%ld回复 >",model.comments.count] forState:0];
     }
 }
 - (IBAction)actionSubmitComm:(id)sender {

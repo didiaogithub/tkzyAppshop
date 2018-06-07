@@ -20,13 +20,13 @@
 @implementation CommPingLunModel
 
 -(void)setValue:(id)value forKey:(NSString *)key{
-    if ([key isEqualToString:@"comment"]) {
+    if ([key isEqualToString:@"comments"] ||[key isEqualToString:@"comment"]) {
         NSMutableArray *commentLsit = [NSMutableArray arrayWithCapacity:0];
         for (NSDictionary *itemDic in value) {
             CommcommentList *model = [[CommcommentList alloc]initWith:itemDic];
             [commentLsit addObject:model];
         }
-        self.comment = commentLsit;
+        self.comments = commentLsit;
     }else{
         [super setValue:value forKey:key];
     }
@@ -34,7 +34,7 @@
 
 -(CGFloat)getCellHeight{
     CGFloat imgHeight = 81;
-    if (self.comment.count > 0) {
+    if (self.comments.count > 0) {
         imgHeight  += 41;
     }
   

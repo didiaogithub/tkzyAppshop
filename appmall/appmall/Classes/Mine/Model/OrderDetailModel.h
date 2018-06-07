@@ -17,6 +17,7 @@
 @property(nonatomic,strong)NSString *price;
 @property(nonatomic,strong)NSString *specification;
 @property(nonatomic,strong)NSString *number;
+@property(nonatomic,copy)NSString * itemno;
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *isgift;
 
@@ -45,7 +46,7 @@
 @property(nonatomic,strong)NSString *money;
 @property(nonatomic,strong)NSString *orderTime;
 @property(nonatomic,strong)NSString *discount;
-
+@property(nonatomic,copy)NSString * itemno;
 @property(nonatomic,strong)NSString *payTime;
 @property(nonatomic,strong)NSString *paytn;
 

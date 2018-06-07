@@ -13,6 +13,7 @@
 #import "GoodSdetailHeaderViewCell.h"
 #import "GoodDetailModel.h"
 #import "SCConfirmOrderVC.h"
+#import "RootNavigationController.h"
 
 #define  KGoodsDetailHeader @"GoodsDetailHeader"
 #define  KGoodSDetailBackViewCell @"GoodSDetailBackViewCell"
@@ -273,6 +274,10 @@
     }];
 }
 - (IBAction)actionGoBuy:(id)sender {
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
     SCConfirmOrderVC *confirmOrder = [[SCConfirmOrderVC alloc] init];
     NSDictionary *goodsDict = [self.detailModel mj_keyValues];
     confirmOrder.goodsDict = goodsDict;
@@ -280,9 +285,12 @@
     [self.navigationController pushViewController:confirmOrder animated:YES];
 }
 - (IBAction)actionAddShopping:(id)sender {
-
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
             
-            NSLog(@"加入购物车");
+    NSLog(@"加入购物车");
     if (self.detailModel.itemid == nil  || self.detailModel.price == nil) {
         [self.loadingView showNoticeView:@"商品信息有误"];
         return;
@@ -317,12 +325,22 @@
             }];
 }
 
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+}
 
 - (IBAction)actionHomeView:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 - (IBAction)actionKefu:(id)sender {
-        [[SobotManager shareInstance] startSobotCustomerService];
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
+    [[SobotManager shareInstance] startSobotCustomerService];
 }
 
 @end

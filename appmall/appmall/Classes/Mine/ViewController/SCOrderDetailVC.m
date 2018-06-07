@@ -75,17 +75,18 @@
     if ([state isEqualToString:@"6"] ||[state isEqualToString:@"3"]) {  //交易成功
         
         [self.btnItem1 setTitle:@"联系客服" forState:0];
+        
+        [self.btnItem1 addTarget:self  action:@selector(contactCS) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem2 setTitle:@"查看物流" forState:0];
-                [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem3 setTitle:@"确认收货" forState:0];
          [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
     }
     if ([state isEqualToString:@"1"]) { // 代付款
         self.btnItem1.hidden = YES;
-        [self.btnItem2 setTitle:@"删除订单" forState:0];
-        [self.btnItem2 removeTarget:self  action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
-        [self.btnItem2 addTarget:self action:@selector(deleteOrderAlert) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem2 setTitle:@"取消订单" forState:0];
+        
+        [self.btnItem2 addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem3 setTitle:@"去付款" forState:0];
         [self.btnItem3 addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -97,9 +98,63 @@
         [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    if ([state isEqualToString:@"0"] || [state isEqualToString:@"4"] || [state isEqualToString:@"5"]) {
+    if ( [state isEqualToString:@"4"] || [state isEqualToString:@"5"]) {
         self.viewBottom .hidden = YES;
     }
+    if ([state isEqualToString:@"0"]) {
+        self.btnItem1.hidden = YES;
+        self.btnItem2.hidden = YES;
+        [self.btnItem3 setTitle:@"删除订单" forState:0];
+        [self.btnItem3 removeTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnItem3 addTarget:self action:@selector(deleteOrderAlert) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+-(void)cancelOrder {
+    
+    _deleteAlertView = [[XWAlterVeiw alloc] init];
+    _deleteAlertView.delegate = self;
+    _deleteAlertView.titleLable.text = @"确定取消该订单？";
+    _deleteAlertView.type = @"取消订单";
+    [_deleteAlertView show];
+    
+}
+
+-(void)confirmCancelOrder {
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    
+    [pramaDic setObject:_orderModel.orderId forKey:@"orderid"];
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelOrderUrl];
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool postWithUrl:loveItemUrl params:pramaDic success:^(id json) {
+        
+        NSDictionary *dic = json;
+        NSString * status = [dic valueForKey:@"code"];
+        if ([status intValue] != 200) {
+            [self.loadingView stopAnimation];
+            [self showNoticeView:[dic valueForKey:@"message"]];
+            return ;
+        }
+        [self showNoticeView:@"取消成功"];
+        //取消成功后更新优惠券缓存
+        [[SCCouponTools shareInstance] resquestValidCouponsData];
+        [self .navigationController popViewControllerAnimated:YES];
+        [self.loadingView stopAnimation];
+    } failure:^(NSError *error) {
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+        [self.loadingView stopAnimation];
+    }];
+}
+
+-(void)contactCS {
+        [[SobotManager shareInstance] startSobotCustomerService];
 }
 
 #pragma mark - 去付款
@@ -162,6 +217,8 @@
         [self confirmReceiveGoods];
     }else if ([_deleteAlertView.type isEqualToString:@"删除订单"]) {
         [self deleteOrder];
+    }else if([_deleteAlertView.type isEqualToString:@"取消订单"]){
+        [self confirmCancelOrder];
     }
 }
 

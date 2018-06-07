@@ -11,6 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvoicesManagerDetailVC">
             <connections>
+                <outlet property="downloadBtn" destination="xV5-tm-CgE" id="aav-5R-oAx"/>
+                <outlet property="invoiceImage" destination="2CT-1I-HcU" id="4gb-AF-1s3"/>
+                <outlet property="invoicecotent" destination="9sH-o0-qdV" id="rp1-g3-zJF"/>
+                <outlet property="invoicehead" destination="Yj1-BL-ROw" id="uD6-rQ-ghL"/>
+                <outlet property="invoicetype" destination="Wl0-vf-xw0" id="bdK-7d-0sZ"/>
+                <outlet property="orderno" destination="hCZ-GI-MNN" id="fNg-Fg-GXD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -80,6 +86,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="下载支票"/>
+                    <connections>
+                        <action selector="downloadBtnAction:" destination="-1" eventType="touchUpInside" id="mC0-gM-LZg"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

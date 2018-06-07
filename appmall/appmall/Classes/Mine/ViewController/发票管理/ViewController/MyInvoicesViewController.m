@@ -40,6 +40,7 @@
     self.yclDataArray = [NSMutableArray array];
     self.mTableView.dataSource = self;
     self.mTableView.delegate = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyinvoicesCheckingCell" bundle:nil] forCellReuseIdentifier:@"MyinvoicesCheckingCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCheckFailCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCheckFailCell"];

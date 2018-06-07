@@ -65,7 +65,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+  self.automaticallyAdjustsScrollViewInsets = NO;
     
     if (self.isUpdateFaPDetail == YES) {
         self.title = @"编辑发票信息";

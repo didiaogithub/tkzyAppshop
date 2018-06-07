@@ -9,7 +9,14 @@
 #import "InvoicesManagerDetailVC.h"
 
 @interface InvoicesManagerDetailVC ()
+@property (weak, nonatomic) IBOutlet UILabel *orderno;
+@property (weak, nonatomic) IBOutlet UILabel *invoicetype;
+@property (weak, nonatomic) IBOutlet UILabel *invoicecotent;
+@property (weak, nonatomic) IBOutlet UILabel *invoicehead;
+@property (weak, nonatomic) IBOutlet UIImageView *invoiceImage;
+@property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
 
+- (IBAction)downloadBtnAction:(UIButton *)sender;
 @end
 
 @implementation InvoicesManagerDetailVC
@@ -44,4 +51,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)downloadBtnAction:(UIButton *)sender {
+    
+    
+}
 @end

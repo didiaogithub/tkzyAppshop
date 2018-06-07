@@ -93,14 +93,10 @@
     if(IsNilOrNull(self.addressIdString)){
      self.addressIdString = @"";
     }
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary *pramaDic= @{@"appid":Appid,
-                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                              @"token":token,
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
 
-    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
         NSDictionary *dict = json;
         NSString *code  = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
@@ -190,7 +186,7 @@
 
 -(void)createOtherViews{
     
-    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(330))];
+    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(240))];
     [_bankView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_bankView];
     float h = 0;

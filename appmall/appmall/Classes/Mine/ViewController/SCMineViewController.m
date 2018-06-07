@@ -100,8 +100,12 @@
         NSString *smallname = [NSString stringWithFormat:@"%@", dict[@"nickname"]];
         NSString *mobile = [NSString stringWithFormat:@"%@", dict[@"phone"]];
         NSString *headPath = [NSString stringWithFormat:@"%@", dict[@"head"]];
+        NSString *realname = [NSString stringWithFormat:@"%@",dict[@"realname"]];
         if (!IsNilOrNull(smallname)) {
             [KUserdefaults setObject:smallname forKey:@"YDSC_USER_SMALLNAME"];
+        }
+        if (!IsNilOrNull(realname)) {
+            [KUserdefaults setObject:realname forKey:@"YDSC_USER_REALNAME"];
         }
         if (!IsNilOrNull(headPath)) {
             [KUserdefaults setObject:headPath forKey:@"YDSC_USER_HEAD"];
@@ -109,6 +113,7 @@
         if (!IsNilOrNull(mobile)) {
             [KUserdefaults setObject:mobile forKey:@"YDSC_USER_MOBILE"];
         }
+        [KUserdefaults synchronize];
         [self bindMineData];
     } failure:^(NSError *error) {
         [self bindMineData];

@@ -19,7 +19,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionTopViewHeight;
 @property (weak, nonatomic) IBOutlet UIView *topView;
-
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutRecom;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutHonnor ;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMedia ;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMenu ;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMarginViewHeight;
 @property(strong,nonatomic)TKHomeDataModel  * model;
 
@@ -28,41 +31,40 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self getLayoutMidea];
+    [self getLayoutHonour];
+    [self getLayoutRecommend];
+    [self getLayoutMenu];
 }
 
--(UICollectionViewFlowLayout *)getLayoutRecommend{
-     UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
-    customLayout.minimumLineSpacing = 0;
-    customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake((KscreenWidth ) / 2, 220) ;
-    return customLayout;
+-(void )getLayoutRecommend{
+     self.customLayoutRecom = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
+    self.customLayoutRecom.minimumLineSpacing = 0;
+    self.customLayoutRecom.minimumInteritemSpacing = 0;
+    self.customLayoutRecom.itemSize = CGSizeMake((KscreenWidth ) / 2, 220) ;
 }
 
--(UICollectionViewFlowLayout *)getLayoutHonour{
-    UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
-    customLayout.minimumLineSpacing = 0;
-    customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(220 , 180) ;
-    return customLayout;
+-(void )getLayoutHonour{
+    self.customLayoutHonnor = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
+    self.customLayoutHonnor.minimumLineSpacing = 0;
+    self.customLayoutHonnor.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.customLayoutHonnor.minimumInteritemSpacing = 0;
+    self.customLayoutHonnor.itemSize = CGSizeMake(220 , 180) ;
 }
 
--(UICollectionViewFlowLayout *)getLayoutMenu{
-    UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
-    customLayout.minimumLineSpacing = 0;
-    customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
-    return customLayout;
+-(void )  getLayoutMenu{
+    self.customLayoutMenu = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
+    self.customLayoutMenu.minimumLineSpacing = 0;
+    self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.customLayoutMenu.minimumInteritemSpacing = 0;
+    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
 }
 
--(UICollectionViewFlowLayout *)getLayoutMidea{
-    UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
-    customLayout.minimumLineSpacing = 0;
-    customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake((KscreenWidth ) , 221) ;
-    return customLayout;
+-(void )getLayoutMidea{
+    self.customLayoutMedia = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
+    self.customLayoutMedia.minimumLineSpacing = 0;
+    self.customLayoutMedia.minimumInteritemSpacing = 0;
+    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth ) , 221) ;
 }
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
@@ -113,25 +115,25 @@
     _collectionViewItem.dataSource = self;
     _collectionViewItem.delegate = self;
     [_collectionViewItem registerNib:[UINib nibWithNibName:KRecommendCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KRecommendCollectionViewCell];
-    [_collectionViewItem registerNib:[UINib nibWithNibName:KMenuCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KMenuCollectionViewCell];
+    [self.collectionViewItem registerNib:[UINib nibWithNibName:KMenuCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KMenuCollectionViewCell];
     if(index== 1){
-        UICollectionViewLayout *itemLayout =[self getLayoutMenu];
-        [_collectionViewItem setCollectionViewLayout:itemLayout];
+        UICollectionViewLayout *itemLayout =self.customLayoutMenu;
+        [self.collectionViewItem setCollectionViewLayout:itemLayout];
         [self isShowTopView:NO];
     }else if(index == 2){
         self.labTitle.text = @"为你推荐";
-        [_collectionViewItem setCollectionViewLayout:[self getLayoutRecommend]];
+        [self.collectionViewItem setCollectionViewLayout:self.customLayoutRecom];
         [self isShowTopView:YES];
     }else if(index == 3){
         self.labTitle.text = @"媒体报道";
-        [_collectionViewItem setCollectionViewLayout:[self getLayoutMidea]];
+        [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];
         [self isShowTopView:YES];
     }else if(index == 4){
         self.labTitle.text = @"企业荣誉";
-        [_collectionViewItem setCollectionViewLayout:[self getLayoutHonour]];
+        [self.collectionViewItem setCollectionViewLayout:self.customLayoutHonnor];
         [self isShowTopView:YES];
     }
-    [_collectionViewItem reloadData];
+    [self.collectionViewItem reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

@@ -9,5 +9,10 @@
 #import "ClassListModel.h"
 
 @implementation ClassListModel
-
+-(NSString *)courseId{
+    if (_courseId == nil) {
+        return _courceId;
+    }
+    return _courseId;
+}
 @end

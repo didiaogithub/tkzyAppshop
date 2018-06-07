@@ -93,14 +93,10 @@
     if(IsNilOrNull(self.addressIdString)){
      self.addressIdString = @"";
     }
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary *pramaDic= @{@"appid":Appid,
-                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                              @"token":token,
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
 
-    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
         NSDictionary *dict = json;
         NSString *code  = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
@@ -190,7 +186,7 @@
 
 -(void)createOtherViews{
     
-    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(330))];
+    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(240))];
     [_bankView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_bankView];
     float h = 0;
@@ -291,23 +287,29 @@
 //    //下一步
 //    float buttonH = 4*AdaptedHeight(50)+AdaptedHeight(40);
 //
-    _addAddressButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_bankView addSubview:_addAddressButton];
-    _addAddressButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    [_addAddressButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _addAddressButton.backgroundColor = [UIColor tt_redMoneyColor];
-    _addAddressButton.layer.cornerRadius = 3.0;
-    _addAddressButton.layer.masksToBounds = YES;
-    [_addAddressButton setTitle:@"保存" forState:UIControlStateNormal];
-    [_addAddressButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_offset(15);
-        make.left.equalTo(self.view.mas_left).offset(AdaptedWidth(15));
-        make.right.equalTo(self.view.mas_right).offset(-AdaptedWidth(15));
-        make.height.mas_equalTo(44);
-    }];
+//    _addAddressButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [_bankView addSubview:_addAddressButton];
+//    _addAddressButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+//    [_addAddressButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    _addAddressButton.backgroundColor = [UIColor tt_redMoneyColor];
+//    _addAddressButton.layer.cornerRadius = 3.0;
+//    _addAddressButton.layer.masksToBounds = YES;
+//    [_addAddressButton setTitle:@"保存" forState:UIControlStateNormal];
+//    [_addAddressButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_offset(15);
+//        make.left.equalTo(self.view.mas_left).offset(AdaptedWidth(15));
+//        make.right.equalTo(self.view.mas_right).offset(-AdaptedWidth(15));
+//        make.height.mas_equalTo(44);
+//    }];
+//
+//    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
     
-    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
+    [self setRightButton:@"完成" titleColor:[UIColor tt_monthLittleBlackColor]];
 
+}
+
+-(void)rightBtnPressed{
+    [self clickAddressButton];
 }
 
 -(void)isSelectDefaultAddr {

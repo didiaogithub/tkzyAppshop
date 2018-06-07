@@ -50,15 +50,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Khr-zl-obn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1c7-dd-pZW"/>
+                <constraint firstItem="Umb-mb-HfC" firstAttribute="top" secondItem="Khr-zl-obn" secondAttribute="bottom" id="7er-bF-w6t"/>
                 <constraint firstAttribute="bottom" secondItem="Umb-mb-HfC" secondAttribute="bottom" id="Ddz-vc-yKV"/>
-                <constraint firstAttribute="trailing" secondItem="Khr-zl-obn" secondAttribute="trailing" id="IVa-2e-53o"/>
-                <constraint firstItem="Khr-zl-obn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Sct-PW-W6T"/>
                 <constraint firstItem="Umb-mb-HfC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TiP-d6-4eI"/>
-                <constraint firstAttribute="bottom" secondItem="Khr-zl-obn" secondAttribute="bottom" constant="50" id="VJF-q7-DpO"/>
+                <constraint firstItem="Khr-zl-obn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bfD-bQ-pUL"/>
                 <constraint firstAttribute="trailing" secondItem="Umb-mb-HfC" secondAttribute="trailing" id="hA3-hB-bmF"/>
-                <constraint firstItem="Khr-zl-obn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xZI-ai-AzY"/>
+                <constraint firstAttribute="trailing" secondItem="Khr-zl-obn" secondAttribute="trailing" id="nbK-p3-PtD"/>
             </constraints>
-            <point key="canvasLocation" x="-194.5" y="77.5"/>
+            <point key="canvasLocation" x="-225" y="44"/>
         </view>
     </objects>
 </document>

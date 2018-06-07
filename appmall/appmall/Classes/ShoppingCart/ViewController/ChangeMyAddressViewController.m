@@ -18,13 +18,14 @@
 @property(nonatomic,strong)XWAlterVeiw *deletAlerView;
 @property(nonatomic,strong)UITableView *addressTableView;
 @property(nonatomic,strong)NSMutableArray *myAddressArray;
+@property(nonatomic,assign)NSInteger page;
 @end
 
 @implementation ChangeMyAddressViewController
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.myAddressArray removeAllObjects];
-
+    _page = 1;
     [self getMyAddressData];
 }
 
@@ -37,34 +38,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"我的地址";
+    self.navigationItem.title = @"收货地址";
     
+   
     [self createAddressView];
+    [UITableView refreshHelperWithScrollView:self.addressTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];
 }
+
+- (void)loadNewData{
+    _page = 1;
+    [self getMyAddressData];
+}
+
+- (void)loadMoreData{
+    _page ++;
+    [self getMyAddressData];
+}
+
 #pragma mark-请求收货地址
 -(void)getMyAddressData {
     [self.myAddressArray removeAllObjects];
     
-    NSString *token = [UserModel getCurUserToken];
-    NSDictionary *pramaDic= @{@"appid":Appid,
-                              @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                              @"token":token,
-                              @"pageNo":@"1",
-                              @"pageSize":@"10",
-                              @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"pageNo":@"1",
-                                                                            @"pageSize":@"10"} andNeedUrlEncode:YES andKeyToLower:YES]};
-    NSString *addressListUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:@(_page) forKey:@"pageNo"];
+    [paraDic setObject:@(KpageSize) forKey:@"pageSize"];
     
-    [HttpTool getWithUrl:addressListUrl params:pramaDic success:^(id json) {
+    NSString *addressListUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAddrListUrl];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool getWithUrl:addressListUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue]!=200) {
             [self showNoticeView:dict[@"message"]];
+             [self.addressTableView tableViewEndRefreshCurPageCount:0];
             return ;
         }
         NSArray *addressArr = dict[@"data"][@"addressList"];
         if (addressArr.count == 0) {
             return;
         }
+        [self.addressTableView tableViewEndRefreshCurPageCount:addressArr.count];
         [self.myAddressArray removeAllObjects];
         for (NSDictionary *addressDic in addressArr) {
             _addressModel = [[AddressModel alloc] init];
@@ -83,6 +98,7 @@
         [self.addressTableView reloadData];
         
     } failure:^(NSError *error) {
+         [self.loadingView stopAnimation];
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];
         }else{
@@ -95,18 +111,26 @@
     _addressBlock = addressBlock;
 }
 
+- (void)rightBtnPressed{
+    AddAddressViewController *addAddress = [[AddAddressViewController alloc] init];
+    addAddress.actionName = @"Add";
+    [self.navigationController pushViewController:addAddress animated:YES];
+}
+
 -(void)createAddressView{
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:addButton];
-    [addButton setBackgroundColor:[UIColor tt_bigRedBgColor]];
-    [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [addButton setTitle:@"+添加收货地址" forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(clickAddButton) forControlEvents:UIControlEventTouchUpInside];
-    [addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-BOTTOM_BAR_HEIGHT);
-        make.height.mas_offset(44);
-    }];
+    
+    [self setRightButton:@"添加" titleColor:[UIColor tt_monthLittleBlackColor]];
+//    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.view addSubview:addButton];
+//    [addButton setBackgroundColor:[UIColor tt_bigRedBgColor]];
+//    [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [addButton setTitle:@"+添加收货地址" forState:UIControlStateNormal];
+//    [addButton addTarget:self action:@selector(clickAddButton) forControlEvents:UIControlEventTouchUpInside];
+//    [addButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_offset(0);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-BOTTOM_BAR_HEIGHT);
+//        make.height.mas_offset(44);
+//    }];
     
     _addressTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _addressTableView.delegate  = self;
@@ -116,10 +140,11 @@
     self.addressTableView.rowHeight = UITableViewAutomaticDimension;
     self.addressTableView.estimatedRowHeight = 44;
     [self.view addSubview:_addressTableView];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.addressTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
-        make.top.equalTo(self.view.mas_top).offset(65.5+NaviAddHeight);
-        make.bottom.equalTo(addButton.mas_top);
+        make.top.mas_offset(NaviHeight);
+        make.bottom.equalTo(self.view.mas_bottom);
     }];
 }
 /**跳转进更换地址页面*/

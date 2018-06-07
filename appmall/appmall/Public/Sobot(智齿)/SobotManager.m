@@ -77,11 +77,27 @@
     // 企业编号 必填
     initInfo.appKey = WisdomTooth_AppKey;
     // 用户id，用于标识用户，建议填
-    NSString *mobile = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"YDSC_USER_MOBILE"]];
+//    NSString *mobile = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"YDSC_USER_MOBILE"]];
+//
+//    if (!IsNilOrNull(mobile)) {
+//        initInfo.userId = [NSString stringWithFormat:@"商城APP%@", mobile];
+//    }
     
-    if (!IsNilOrNull(mobile)) {
-        initInfo.userId = [NSString stringWithFormat:@"商城APP%@", mobile];
+//    智齿唯一标识 CZ服务商编号顾客编号 如 CZ_134_987 代表服务商编号是134 客户编号是987
+//
+//    uid 用户 CZ服务商编号顾客编号 如 CZ_134_987 代表服务商编号是134 客户编号是987 realname 客户昵称
+    // 用户id，用于标识用户
+    NSString *dealerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KdealerId]];
+    NSString *customerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KcustomerId]];
+    if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
+         NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
+        initInfo.userId = uid;
     }
+   
+    
+    
+    
+    
     //自定义用户参数
     [self customUserInformationWith:initInfo];
     
@@ -123,26 +139,18 @@
     
     NSString *mobile = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"YDSC_USER_MOBILE"]];
     
-//    RLMResults *result =  [SCFirstPageModel objectsWhere:@"firstPageKey = '1'"];
-//    SCFirstPageModel *firstPageM = result.firstObject;
-//    NSString *meid = [NSString stringWithFormat:@"%@", firstPageM.meid];
-//    NSString *smallname = [NSString stringWithFormat:@"%@", firstPageM.smallname];
-//    if (IsNilOrNull(smallname)) {
-//        smallname = meid;
-//    }
-//    NSString *head = [NSString stringWithFormat:@"%@", firstPageM.headimg];
-//    if(IsNilOrNull(head)){
-//        head = [NSString stringWithFormat:@"%@%@",WebServiceAPI,DefaultHeadPath];
-//    }
+    NSString *realname = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"YDSC_USER_REALNAME"]];
     
-//    // 用户手机号码
-//    initInfo.phone = mobile;
-//    // 用户昵称
-//    if (!IsNilOrNull(smallname)) {
-//        initInfo.realName = [NSString stringWithFormat:@"商城用户%@", smallname];
-//    }
+    NSString *head = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:@"YDSC_USER_HEAD"]];
+ 
+    // 用户手机号码
+    initInfo.phone = mobile;
+    // 用户昵称
+    if (!IsNilOrNull(realname)) {
+        initInfo.realName = [NSString stringWithFormat:@"%@",realname];
+    }
 //    // 用户头像链接地址
-//    initInfo.avatarUrl = head;
+    initInfo.avatarUrl = head;
 }
 
 @end

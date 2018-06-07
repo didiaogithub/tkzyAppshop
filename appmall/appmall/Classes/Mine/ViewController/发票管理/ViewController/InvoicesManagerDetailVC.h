@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface InvoicesManagerDetailVC : BaseViewController
-
+/**  orderid*/
+@property (nonatomic, copy) NSString *orderid;
 @end

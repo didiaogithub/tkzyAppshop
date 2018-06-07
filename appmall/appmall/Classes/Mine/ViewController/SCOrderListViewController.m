@@ -269,16 +269,16 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 /**创建订单状态按钮*/
 -(void)createTopButton{
     
-    _searchView = [[SearchTopView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, 0) andHeight:0];
+    _searchView = [[SearchTopView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, 0.1) andHeight:0.1];
     _searchView.searchTextField.placeholder = @"商品名称/订单号/收件人/收件人电话/昵称";
     _searchView.delegate = self;
-    [self.view addSubview:_searchView];
+//    [self.view addSubview:_searchView];
     
     self.statusView = [[UIView alloc] init];
     self.statusView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.statusView];
     [self.statusView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_searchView.mas_bottom).offset(10);
+        make.top.equalTo(self.view.mas_top).offset(64+NaviAddHeight +10);
         make.left.right.mas_offset(0);
         make.height.mas_equalTo(50);
     }];

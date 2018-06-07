@@ -3624,6 +3624,9 @@
 				"${PODS_ROOT}/SobotKit/ZCEmojiExpression.bundle",
 				"${PODS_ROOT}/SobotKit/en.lproj",
 				"${PODS_ROOT}/SobotKit/zh-Hans.lproj",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -3639,6 +3642,9 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZCEmojiExpression.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4210,7 +4216,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8RE52F5T9U;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4240,7 +4246,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8RE52F5T9U;
+				DEVELOPMENT_TEAM = RHTML55WR7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",

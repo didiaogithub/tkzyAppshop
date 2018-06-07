@@ -17,7 +17,7 @@
 #import "GoodsDetailViewController.h"
 
 
-@interface SCShoppingCarViewController ()<UITableViewDelegate, UITableViewDataSource, SCShoppingCarCellDelegate, OrderBottomViewDelegate, XWAlterVeiwDelegate>
+@interface SCShoppingCarViewController ()<UITableViewDelegate, UITableViewDataSource, SCShoppingCarCellDelegate, OrderBottomViewDelegate, XWAlterVeiwDelegate,XYTableViewDelegate>
 
 @property (nonatomic, strong) OrderBottomView *bottomView;
 @property (nonatomic, strong) XWAlterVeiw *deleteAlertView;
@@ -28,18 +28,14 @@
 @property (nonatomic, strong) NSMutableArray *selectedRowArr;
 @property (nonatomic, strong) UIButton *editBtn;
 @property (nonatomic, assign) NSInteger deleteRow;
-@property (nonatomic, strong) SCShoppingCarNoDataView *noDataView;
 
 @end
 
 @implementation SCShoppingCarViewController
 
--(SCShoppingCarNoDataView *)noDataView {
-    if (_noDataView == nil) {
-        _noDataView = [[SCShoppingCarNoDataView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-49)];
-    }
-    return _noDataView;
-}
+
+
+
 
 -(NSMutableArray *)shoppingCarDataArray{
     if (_shoppingCarDataArray == nil) {
@@ -128,14 +124,23 @@
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestShoppingCarData" object:nil];
-    
-    
-    [self.view addSubview:self.noDataView];
-    [self.view sendSubviewToBack:self.noDataView];
+
     
     [self createTableView];
     [self getshoppingCarData];
 }
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"购物车默认"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"去添加点什么呢";
+    return str;
+}
+
 
 #pragma mark-请求购物车数据
 -(void)getshoppingCarData{
@@ -151,7 +156,6 @@
     [self.selectedRowArr removeAllObjects];
     [self.shoppingCarTableView reloadData];
     
-    [self.view sendSubviewToBack:self.noDataView];
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, GetShoppingCarUrl];
     NSDictionary *pramaDic= [HttpTool getCommonPara];
@@ -173,7 +177,6 @@
         NSArray *itemArr = itemDic[@"data"][@"cartList"];
         if ([itemArr isKindOfClass:[NSArray class]]) {
             if (itemArr.count == 0) {
-                [self.view bringSubviewToFront:self.noDataView];
                 [self.shoppingCarDataArray removeAllObjects];
                 [self.shoppingCarTableView reloadData];
                 
@@ -204,7 +207,6 @@
                 [self.realm commitWriteTransaction];
             }
         }else{
-            [self.view bringSubviewToFront:self.noDataView];
             [self.shoppingCarDataArray removeAllObjects];
             [self.shoppingCarTableView reloadData];
             _editBtn.enabled = NO;
@@ -224,7 +226,6 @@
             [self.loadingView showNoticeView:NetWorkTimeout];
         }
         if(self.shoppingCarDataArray.count == 0){
-            [self.view bringSubviewToFront:self.noDataView];
             _editBtn.enabled = NO;
             
         }else{
@@ -246,11 +247,8 @@
         [self.shoppingCarTableView.mj_footer endRefreshing];
         [self.shoppingCarTableView reloadData];
         _editBtn.enabled = YES;
-        [self.view sendSubviewToBack:self.noDataView];
-
     }else{
         _editBtn.enabled = NO;
-        [self.view bringSubviewToFront:self.noDataView];
 
     }
 }

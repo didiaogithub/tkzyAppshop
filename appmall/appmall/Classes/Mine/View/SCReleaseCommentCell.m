@@ -155,7 +155,13 @@
     }else{
         spec = [NSString stringWithFormat:@"规格:%@",detailModel.spec];
     }
-    _specLabel.text = spec;
+    NSString *specno = [NSString stringWithFormat:@"%@",detailModel.itemno];
+    if (IsNilOrNull(spec)) {
+        specno = @"";
+    }else{
+        specno = [NSString stringWithFormat:@"规格:%@",detailModel.itemno];
+    }
+    _specLabel.text = [NSString stringWithFormat:@"%@    %@",specno,spec];
     
     NSString *number = [NSString stringWithFormat:@"%@",detailModel.count];
     if (IsNilOrNull(number)) {

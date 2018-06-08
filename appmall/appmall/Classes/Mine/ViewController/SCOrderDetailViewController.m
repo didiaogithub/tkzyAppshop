@@ -801,16 +801,7 @@
         [self showNoticeView:@"取消成功"];
         //取消成功后更新优惠券缓存
         [[SCCouponTools shareInstance] resquestValidCouponsData];
-        
-        NSString *predict = [NSString stringWithFormat:@"orderId = '%@'", self.orderid];
-        RLMResults *result = [SCMyOrderModel objectsWhere:predict];
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        if (result.count > 0) {
-            [realm beginWriteTransaction];
-            [realm deleteObject:result.firstObject];
-            [realm commitWriteTransaction];
-        }
-        
+
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

@@ -128,13 +128,22 @@
     }];
     
     //规格
+    
     NSString *spec = [NSString stringWithFormat:@"%@", model.itemspec];
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
         spec = [NSString stringWithFormat:@"规格:%@", model.itemspec];
     }
-    _textNumber.text = spec;
+    
+    NSString *specNo = [NSString stringWithFormat:@"%@", model.itemspec];
+    if (IsNilOrNull(specNo)) {
+        specNo = @"";
+    }else{
+        specNo = [NSString stringWithFormat:@"编号:%@", model.itemno];
+    }
+    
+    _textNumber.text = [NSString stringWithFormat:@"%@     %@",specNo,spec];
     if (IsNilOrNull(name)) {
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_goodsImageView.mas_right).offset(5);

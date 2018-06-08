@@ -27,6 +27,7 @@
 @property (nonatomic, strong) XWAlterVeiw *deleteAlertView;
 @property (weak, nonatomic) IBOutlet UITableView *tabOrderDetaiol;
 @property (nonatomic, strong) OrderDetailModel *orderDetailModel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottomHeight;
 @property (weak, nonatomic) IBOutlet UIButton *btnItem1;
 @property (weak, nonatomic) IBOutlet UIButton *btnItem2;
 @property (weak, nonatomic) IBOutlet UIButton *btnItem3;
@@ -71,16 +72,19 @@
     //交易成功 6：已完成，3：已收货
     if ([state isEqualToString:@"2"]) { //代发货
         self.viewBottom.hidden = YES;
+        self.viewBottomHeight.constant = 0;
     }
     if ([state isEqualToString:@"6"] ||[state isEqualToString:@"3"]) {  //交易成功
+        self.viewBottomHeight.constant = 0;
+        self.viewBottom.hidden = YES;
         
-        [self.btnItem1 setTitle:@"联系客服" forState:0];
-        
-        [self.btnItem1 addTarget:self  action:@selector(contactCS) forControlEvents:UIControlEventTouchUpInside];
-        [self.btnItem2 setTitle:@"查看物流" forState:0];
-        [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
-        [self.btnItem3 setTitle:@"确认收货" forState:0];
-         [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
+//        [self.btnItem1 setTitle:@"联系客服" forState:0];
+//
+//        [self.btnItem1 addTarget:self  action:@selector(contactCS) forControlEvents:UIControlEventTouchUpInside];
+//        [self.btnItem2 setTitle:@"查看物流" forState:0];
+//        [self.btnItem2 addTarget:self action:@selector(lookWuLIU) forControlEvents:UIControlEventTouchUpInside];
+//        [self.btnItem3 setTitle:@"确认收货" forState:0];
+//         [self.btnItem3 addTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
     }
     if ([state isEqualToString:@"1"]) { // 代付款
         self.btnItem1.hidden = YES;
@@ -100,6 +104,7 @@
     
     if ( [state isEqualToString:@"4"] || [state isEqualToString:@"5"]) {
         self.viewBottom .hidden = YES;
+        self.viewBottomHeight.constant = 0;
     }
     if ([state isEqualToString:@"0"]) {
         self.btnItem1.hidden = YES;
@@ -300,7 +305,9 @@
         cell = wuliuCell;
     }else{
         ODGoodsTableViewCell *wuliuCell = [tableView dequeueReusableCellWithIdentifier:KODGoodsTableViewCell];
+        wuliuCell.orderid = self.orderDetailModel.orderId;
         [wuliuCell loadData:self.orderDetailModel.goods[indexPath.row - 2]];
+        [wuliuCell setCellBtnState:[self.orderstatusString integerValue]];
         cell = wuliuCell;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -327,8 +334,8 @@
     if (indexPath.row == 3 + self.orderDetailModel.goods.count) {
         return 145;
     }
-    if ([self.orderDetailModel.goods[indexPath.row - 2].feedback boolValue] == YES) {
-        return  118;
+    if ([self.orderstatusString integerValue ] == 3 ||[self.orderstatusString integerValue ] == 6 ) {
+        return  140;
     }else{
         return 90;
     }
@@ -384,7 +391,7 @@
 
 -(void)lookWuLIU{
     WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
-    wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+    wuliuVC.goodSnum = self.orderModel.ordersheet.count;
     wuliuVC.orderid = self.orderModel.orderId;
     [self.navigationController pushViewController:wuliuVC animated:YES];
 }

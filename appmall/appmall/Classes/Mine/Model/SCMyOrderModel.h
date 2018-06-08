@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseModelRoot.h"
-#import <Realm.h>
+#import "BaseModel.h"
 
 
-@interface SCCommentOrderModel : NSObject
+
+@interface SCCommentOrderModel : BaseModel
 /** 图片路径*/
 @property (nonatomic, copy) NSString *path;
 /** 规格*/
@@ -29,7 +29,7 @@
 
 
 
-@interface SCMyOrderGoodsModel : BaseModelRoot
+@interface SCMyOrderGoodsModel : BaseModel
 /** 图片路径*/
 @property (nonatomic, copy) NSString *imgurl;
 /** 规格*/
@@ -44,16 +44,13 @@
 @property (nonatomic, copy) NSString *itemno;
 /** 金额*/
 @property (nonatomic, copy) NSString *price;
-//主键
-@property (nonatomic, copy) NSString *goodsKey;
-// 海外商品
-@property (nonatomic, copy) NSString *isoversea;
+@property (nonatomic, copy) NSString *feedback;
+
 @end
-RLM_ARRAY_TYPE(SCMyOrderGoodsModel)
 
 
 
-@interface SCMyOrderModel : RLMObject
+@interface SCMyOrderModel : BaseModel
 
 /** 订单id*/
 @property (nonatomic, copy) NSString *orderId;
@@ -79,8 +76,9 @@ RLM_ARRAY_TYPE(SCMyOrderGoodsModel)
 /** 订单类型（1 正常订单 2赊欠订单 3分期订单 4担保订单）*/
 @property (nonatomic, copy) NSString *order_type;
 
-/** 订单商品列表*/
-@property RLMArray<SCMyOrderGoodsModel*><SCMyOrderGoodsModel> *itemlistArr;
+@property (nonatomic, copy) NSString *feedback;
+
+@property(nonatomic,strong)NSMutableArray <SCMyOrderGoodsModel *> *ordersheet;
 
 @end
 

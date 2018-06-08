@@ -12,7 +12,6 @@
 @interface SCCommentOrderViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *commentTableView;
-
 @property (nonatomic, strong) NSMutableArray *imgPathArr;
 @property (nonatomic, copy)   NSString *content;
 @property (nonatomic, copy)   NSString *score;

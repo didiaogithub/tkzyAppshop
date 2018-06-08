@@ -65,10 +65,10 @@
             title =@"等待买家付款";
             break;
         case 2:
-            title = @"已付款";
+            title = @"等待卖家发货";
             break;
         case 3:
-            title = @"已收货";
+            title = @"已确认收货";
             break;
         case 4:
             title =@"正在退货";
@@ -77,10 +77,10 @@
             title = @"退货成功";
             break;
         case 6:
-            title = @"已完成";
+            title = @"交易完成";
             break;
         case 7:
-            title = @"已发货";
+            title = @"等待买家确认收货";
             break;
 
     }

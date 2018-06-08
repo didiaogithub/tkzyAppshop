@@ -14,7 +14,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *labNum;
 @property (weak, nonatomic) IBOutlet UILabel *labGoodInfo;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rebuyDisRight;
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
+@property (weak, nonatomic) IBOutlet UIButton *btnRebuy;
 
+@property(nonatomic,strong)NSString *orderid;
 -(void)loadData:(GoodSmodel *)model;
+-(void)setCellBtnState:(NSInteger) state;
 @end

@@ -25,6 +25,17 @@
 -(void)setValue:(id)value forKey:(NSString *)key{
     if ([key isEqualToString:@"orderid"]) {
         _orderId = value;
+        return;
+    }
+    
+    if ([key isEqualToString:@"ordersheet"]) {
+        NSMutableArray *orderList  = [NSMutableArray arrayWithCapacity:0];
+        for (NSDictionary *itemDic in value) {
+            SCMyOrderGoodsModel * model = [[SCMyOrderGoodsModel alloc]initWith:itemDic];
+            [orderList addObject:model];
+        }
+        self.ordersheet = orderList;
+        return;
     }
     [super setValue:value forKey:key];
 }

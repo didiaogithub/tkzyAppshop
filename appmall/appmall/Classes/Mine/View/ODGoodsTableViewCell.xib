@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="ODGoodsTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="ODGoodsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="132.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-SF-O46">
@@ -49,26 +49,45 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDE-6J-oDm">
-                        <rect key="frame" x="230" y="83" width="80" height="30"/>
+                        <rect key="frame" x="230" y="103" width="80" height="26"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="YrM-Ng-yeD"/>
-                            <constraint firstAttribute="height" constant="30" id="irz-Li-lUO"/>
+                            <constraint firstAttribute="height" constant="26" id="irz-Li-lUO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="去反馈">
                             <color key="titleColor" red="0.91372549020000005" green="0.094117647060000004" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="actionBack:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7Ka-7V-CvQ"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrg-9t-Hx3">
+                        <rect key="frame" x="140" y="103" width="80" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="ZCu-yV-cwZ"/>
+                            <constraint firstAttribute="width" constant="80" id="tDF-5B-7qf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="再次购买">
+                            <color key="titleColor" red="0.55294117649999996" green="0.55294117649999996" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="actionRebuy:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="p3n-dg-bov"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="3c6-sU-Rib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="1IK-M4-nme"/>
                     <constraint firstItem="YwC-if-Xlp" firstAttribute="leading" secondItem="Jpf-WR-ofM" secondAttribute="trailing" constant="5" id="D3f-QZ-lxv"/>
                     <constraint firstItem="XkG-SF-O46" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Mvf-sw-SA3"/>
+                    <constraint firstAttribute="trailing" secondItem="jrg-9t-Hx3" secondAttribute="trailing" constant="100" id="NIA-40-H9H"/>
                     <constraint firstAttribute="trailing" secondItem="3c6-sU-Rib" secondAttribute="trailing" constant="10" id="S9T-ZG-VQF"/>
-                    <constraint firstItem="lDE-6J-oDm" firstAttribute="top" secondItem="Jpf-WR-ofM" secondAttribute="bottom" constant="8" id="U2N-Xe-zSI"/>
+                    <constraint firstItem="lDE-6J-oDm" firstAttribute="top" secondItem="Jpf-WR-ofM" secondAttribute="bottom" constant="28" id="U2N-Xe-zSI"/>
                     <constraint firstItem="YwC-if-Xlp" firstAttribute="bottom" secondItem="Jpf-WR-ofM" secondAttribute="bottom" id="UIL-Ov-WlF"/>
                     <constraint firstItem="XkG-SF-O46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="eaB-L0-4o7"/>
                     <constraint firstAttribute="trailing" secondItem="YwC-if-Xlp" secondAttribute="trailing" constant="10" id="esz-yX-RgG"/>
+                    <constraint firstItem="lDE-6J-oDm" firstAttribute="top" secondItem="jrg-9t-Hx3" secondAttribute="top" id="gEu-xT-lR6"/>
                     <constraint firstItem="Jpf-WR-ofM" firstAttribute="bottom" secondItem="XkG-SF-O46" secondAttribute="bottom" id="k0W-8T-rhF"/>
                     <constraint firstAttribute="trailing" secondItem="lDE-6J-oDm" secondAttribute="trailing" constant="10" id="l0p-Sx-BeS"/>
                     <constraint firstItem="3c6-sU-Rib" firstAttribute="leading" secondItem="XkG-SF-O46" secondAttribute="trailing" constant="8" id="tPL-5m-H41"/>
@@ -77,12 +96,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnBack" destination="lDE-6J-oDm" id="biP-01-MR6"/>
+                <outlet property="btnRebuy" destination="jrg-9t-Hx3" id="K9h-ra-Z9s"/>
                 <outlet property="imgIcon" destination="XkG-SF-O46" id="ejo-nE-h8g"/>
                 <outlet property="labGoodInfo" destination="Jpf-WR-ofM" id="o9f-of-WZE"/>
                 <outlet property="labGoodName" destination="3c6-sU-Rib" id="JCn-rt-lu9"/>
                 <outlet property="labNum" destination="YwC-if-Xlp" id="jLX-qZ-NxW"/>
+                <outlet property="rebuyDisRight" destination="NIA-40-H9H" id="laG-np-Jxp"/>
             </connections>
-            <point key="canvasLocation" x="34" y="93.5"/>
+            <point key="canvasLocation" x="34" y="98.5"/>
         </tableViewCell>
     </objects>
 </document>

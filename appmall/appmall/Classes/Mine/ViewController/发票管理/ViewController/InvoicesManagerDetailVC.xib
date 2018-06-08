@@ -115,7 +115,7 @@
                 <constraint firstItem="Wl0-vf-xw0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="waP-fl-nCp"/>
                 <constraint firstItem="Yj1-BL-ROw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="zht-Ze-O6O"/>
             </constraints>
-            <point key="canvasLocation" x="56.5" y="109.5"/>
+            <point key="canvasLocation" x="-334" y="-37"/>
         </view>
     </objects>
 </document>

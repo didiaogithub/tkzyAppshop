@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CommListModel.h"
 
+@protocol CommunityViewCellDelegate <NSObject>
+-(void)communityViewCellGood:(CommListModelItem *)model;
+@end
+
 @interface CommunityViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgCommIcon;
 @property (weak, nonatomic) IBOutlet UILabel *labCommName;
@@ -22,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *img2;
 @property (weak, nonatomic) IBOutlet UIButton *img3;
 @property (weak, nonatomic) IBOutlet UIButton *img4;
+@property(nonatomic,weak)id <CommunityViewCellDelegate >delegate;
 
 -(void)refreshData:(CommListModelItem *)model;
 @end

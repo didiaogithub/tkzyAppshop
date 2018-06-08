@@ -12,7 +12,7 @@
 #import "CommPingLunModel.h"
 #import "CommPingLunViewCell.h"
 #define KCommPingLunViewCell @"CommPingLunViewCell"
-@interface CommPLDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommPingLunViewCellDelegate,UITextFieldDelegate>
+@interface CommPLDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CommPingLunViewCellDelegate,UITextFieldDelegate,CommPingLunViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property(nonatomic,assign)NSInteger page;
@@ -192,12 +192,52 @@
     CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
     if (indexPath .row == 0) {
         [cell refreshData:self.commListModel IsneedCommView:NO];
+        cell.delegate = self;
     }else{
         [cell refreshDataDetail:self.commListModel.comments[indexPath.row-1]];
+        cell.delegate = nil;
     }
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)communityViewCellGood:(CommPingLunModel *)model{
+    
+    NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [pramaDic setObject:self.notied forKey:@"noteid"];
+    [pramaDic setObject:@"2" forKey:@"type"];
+    [pramaDic setObject:model._id forKey:@"commentid"];
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_EditPraise];
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        
+        
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        
+        [self loadNewData];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
 }
 
 -(void)actionComment:(CommPingLunModel *)model{

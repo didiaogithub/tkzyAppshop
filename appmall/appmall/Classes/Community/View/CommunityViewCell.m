@@ -50,7 +50,7 @@ CommListModelItem * selfModel ;
     // Configure the view for the selected state
 }
 - (IBAction)actionGood:(id)sender {
-  
+    [self .delegate communityViewCellGood:selfModel];
 }
 - (IBAction)actionShare:(id)sender {
   [CKShareManager shareToFriendWithName:selfModel.name andHeadImages:nil andUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",CommShareUrl,selfModel.itemid]] andTitle:nil];

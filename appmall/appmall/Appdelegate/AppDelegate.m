@@ -20,7 +20,7 @@
 #import "CKVersionCheckManager.h"
 
 
-@interface AppDelegate ()<ADTimerDelegate,WXApiDelegate,UITabBarControllerDelegate>
+@interface AppDelegate ()<ADTimerDelegate,UITabBarControllerDelegate>
 
 @property (nonatomic, assign) BOOL isFirst;
 @property (nonatomic, strong) UIViewController *tempRootVC;

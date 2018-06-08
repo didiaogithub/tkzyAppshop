@@ -12,7 +12,7 @@
 #import "PostCommViewController.h"
 #import "CommDetailViewController.h"
 #define KCommunityViewCell @"CommunityViewCell"
-@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
+@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,CommunityViewCellDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property (assign,nonatomic)NSInteger page;
@@ -160,6 +160,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommunityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommunityViewCell];
     [cell refreshData:self.model.commList[indexPath.row]];
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -175,5 +176,44 @@
     PostCommViewController *postVC = [[PostCommViewController alloc]init];
     postVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:postVC animated:YES];
+}
+
+
+
+-(void)communityViewCellGood:(CommListModelItem *)model{
+    
+    NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [pramaDic setObject:model._id forKey:@"noteid"];
+    [pramaDic setObject:@"1" forKey:@"type"];
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_EditPraise];
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        
+        
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        
+        [self loadNewData];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
 }
 @end

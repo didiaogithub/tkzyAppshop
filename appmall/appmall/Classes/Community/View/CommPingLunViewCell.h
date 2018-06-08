@@ -11,6 +11,7 @@
 
 @protocol CommPingLunViewCellDelegate <NSObject>
 -(void)actionComment:(CommPingLunModel *)model;
+-(void)communityViewCellGood:(CommPingLunModel *)model;
 @end
 
 @interface CommPingLunViewCell : UITableViewCell

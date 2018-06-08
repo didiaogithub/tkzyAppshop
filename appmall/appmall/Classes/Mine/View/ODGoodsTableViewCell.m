@@ -59,6 +59,7 @@
     self.labGoodName.text = model.name;
     [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.picture]];
     self.labGoodInfo.text = [NSString stringWithFormat:@"编号：%@    规格：%@",model.itemno,model.specification];
+    self.labPrice.text = [NSString stringWithFormat:@"￥%.2f",[model.price doubleValue]];
     self.labNum.text = [NSString stringWithFormat:@"X%@",model.number];
 }
 - (IBAction)actionRebuy:(UIButton *)sender {

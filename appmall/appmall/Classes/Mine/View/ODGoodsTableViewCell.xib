@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c6-sU-Rib">
-                        <rect key="frame" x="83" y="15" width="227" height="18"/>
+                        <rect key="frame" x="83" y="15" width="37.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.16078431369999999" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -76,13 +76,23 @@
                             <action selector="actionRebuy:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="p3n-dg-bov"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhS-Hq-EPa">
+                        <rect key="frame" x="276.5" y="15" width="35.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="cAb-q6-JCU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="3c6-sU-Rib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="1IK-M4-nme"/>
+                    <constraint firstItem="QhS-Hq-EPa" firstAttribute="top" secondItem="3c6-sU-Rib" secondAttribute="top" id="5a0-h1-Xnk"/>
+                    <constraint firstAttribute="trailing" secondItem="QhS-Hq-EPa" secondAttribute="trailing" constant="8" id="6BL-0D-HWU"/>
                     <constraint firstItem="YwC-if-Xlp" firstAttribute="leading" secondItem="Jpf-WR-ofM" secondAttribute="trailing" constant="5" id="D3f-QZ-lxv"/>
                     <constraint firstItem="XkG-SF-O46" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Mvf-sw-SA3"/>
                     <constraint firstAttribute="trailing" secondItem="jrg-9t-Hx3" secondAttribute="trailing" constant="100" id="NIA-40-H9H"/>
-                    <constraint firstAttribute="trailing" secondItem="3c6-sU-Rib" secondAttribute="trailing" constant="10" id="S9T-ZG-VQF"/>
                     <constraint firstItem="lDE-6J-oDm" firstAttribute="top" secondItem="Jpf-WR-ofM" secondAttribute="bottom" constant="28" id="U2N-Xe-zSI"/>
                     <constraint firstItem="YwC-if-Xlp" firstAttribute="bottom" secondItem="Jpf-WR-ofM" secondAttribute="bottom" id="UIL-Ov-WlF"/>
                     <constraint firstItem="XkG-SF-O46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="eaB-L0-4o7"/>
@@ -101,6 +111,7 @@
                 <outlet property="labGoodInfo" destination="Jpf-WR-ofM" id="o9f-of-WZE"/>
                 <outlet property="labGoodName" destination="3c6-sU-Rib" id="JCn-rt-lu9"/>
                 <outlet property="labNum" destination="YwC-if-Xlp" id="jLX-qZ-NxW"/>
+                <outlet property="labPrice" destination="QhS-Hq-EPa" id="A4M-35-p3y"/>
                 <outlet property="rebuyDisRight" destination="NIA-40-H9H" id="laG-np-Jxp"/>
             </connections>
             <point key="canvasLocation" x="34" y="98.5"/>

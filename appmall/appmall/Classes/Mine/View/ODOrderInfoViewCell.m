@@ -30,14 +30,14 @@
         self.labWuliu.text =[NSString stringWithFormat:@"快递公司：%@",model.logistics.companyName];
         self.labWuliuNo.text =[NSString stringWithFormat:@"快递单号：%@",model.logistics.number];
     }else{
-        self.labWuliu.text =@"";
-        self.labWuliuNo.text =@"";
+        self.labWuliu.text =@"快递公司：";
+        self.labWuliuNo.text =@"快递单号：";
     }
 }
 
 -(void)labSetTitle:(NSString *)title andTitleEx:(NSString *)titEx andLable:(UILabel *)lab {
     if (title == nil) {
-        lab.text = [NSString stringWithFormat:@"%@：暂无",titEx];
+        lab.text = [NSString stringWithFormat:@"%@：暂无信息",titEx];
     }else{
          lab.text = [NSString stringWithFormat:@"%@%@",titEx,title];
     }

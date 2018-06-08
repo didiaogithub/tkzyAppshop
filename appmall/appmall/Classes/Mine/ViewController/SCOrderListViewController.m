@@ -250,7 +250,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
      3：已收货，4：正在退货，
      5：退货成功，6：已完成，7：已发货*/
     
-    [self.orderDataArr removeAllObjects];
     [self updateBtnSelectedState:button];
 
     [self loadNewData];

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labGoodName;
 @property (weak, nonatomic) IBOutlet UILabel *labNum;
 @property (weak, nonatomic) IBOutlet UILabel *labGoodInfo;
+@property (weak, nonatomic) IBOutlet UILabel *labPrice;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rebuyDisRight;
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;

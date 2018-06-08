@@ -44,12 +44,8 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         self.resultTableView.delegate = self;
         self.resultTableView.dataSource = self;
         self.resultTableView.hidden = YES;
-        if (self.seachVCIndex == 0) {
-               [self.resultTableView registerNib:[UINib nibWithNibName:KSCCategoryTableCell bundle:nil] forCellReuseIdentifier:KSCCategoryTableCell];
-            
-        }else if (self.seachVCIndex == 1){
-                    [self.resultTableView registerNib:[UINib nibWithNibName:@"ClassItemViewCell" bundle:nil] forCellReuseIdentifier:@"ClassItemViewCell"];
-        }
+         [self.resultTableView registerNib:[UINib nibWithNibName:@"ClassItemViewCell" bundle:nil] forCellReuseIdentifier:@"ClassItemViewCell"];
+           [self.resultTableView registerNib:[UINib nibWithNibName:KSCCategoryTableCell bundle:nil] forCellReuseIdentifier:KSCCategoryTableCell];
 
         [self.view addSubview:self.resultTableView];
     }
@@ -243,11 +239,11 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             return UITableViewCellEditingStyleDelete;
         }
     }
-
 }
 /** CELL */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [UITableViewCell new];
     if (tableView == self.resultTableView) {
         ClassItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassItemViewCell"];
         [cell refreshDataWIthModel:[self.classArray objectAtIndex:indexPath.row]];
@@ -291,6 +287,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             }
         }
     }
+    return cell;
 
 }
 /** HeaderView */
@@ -358,7 +355,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (tableView == self.resultTableView) {
-        return 0;
+        return 0.1;
     }else{
          return 45;
     }
@@ -393,7 +390,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 {
     
     if (tableView == self.resultTableView) {
-        return 0;
+        return 0.1;
     }else{
         if (self.historyArr.count == 0) {
             return 0.1;

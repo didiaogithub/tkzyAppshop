@@ -656,6 +656,8 @@
     });
 }
 
+
+
 #pragma mark 获取用户的信息
 - (void)getUserInfoWithAccessToken:(NSString *)accessToken andOpenId:(NSString *)openId andStateStr:(NSString *)stateStr
 {

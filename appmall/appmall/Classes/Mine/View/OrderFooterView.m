@@ -197,6 +197,7 @@
             [_left0Button setTitle:@"开发票" forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"已收货"]) {
             [_left0Button setTitle:@"开发票" forState:UIControlStateNormal];
+            
             [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
             [_rightButton setTitle:@"联系客服" forState:UIControlStateNormal];
             [_left0Button setTitleColor:[UIColor tt_bodyTitleColor] forState:UIControlStateNormal];
@@ -259,7 +260,7 @@
     if ([_statustring isEqualToString:@"未付款"]) {
         _left0Button.hidden = YES;
         [_leftButton setTitle:@"取消订单" forState:UIControlStateNormal];
-        [_rightButton setTitle:@"立即付款" forState:UIControlStateNormal];
+        [_rightButton setTitle:@"去付款" forState:UIControlStateNormal];
         [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"已付款"] || [_statustring isEqualToString:@"退货成功"]){
         _left0Button.hidden = YES;
@@ -274,11 +275,13 @@
         if ([_iscomment isEqualToString:@"1"] || [_iscomment isEqualToString:@"true"]) {
             _left0Button.hidden = YES;
             _leftButton.hidden = YES;
+            _rightButton.hidden = YES;
             [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
             [_rightButton setTitleColor:[UIColor tt_bodyTitleColor] forState:UIControlStateNormal];
             _rightButton.backgroundColor = [UIColor whiteColor];
         }else{
             _left0Button.hidden = YES;
+            _leftButton.hidden = YES;
             [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
             [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
         }

@@ -65,6 +65,8 @@
 @property (nonatomic, copy) NSString *status;
 
 @property (nonatomic, copy) NSString *isoversea;
+
+@property (nonatomic, copy) NSString *itemno;
 @end
 
 @interface SCOrderDetailModel : BaseEncodeModel

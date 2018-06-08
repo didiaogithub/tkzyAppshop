@@ -65,7 +65,8 @@
     NSString *orderDetailUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,OrderDetailUrl];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    NSDictionary *pramaDic = @{@"orderid": self.orderid};
+    NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:self.orderid forKey:@"orderid"];
     
     [HttpTool getWithUrl:orderDetailUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];

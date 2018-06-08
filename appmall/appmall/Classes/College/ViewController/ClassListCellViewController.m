@@ -12,7 +12,7 @@
 #import "WebDetailViewController.h"
 #import "ClassListModel.h"
 #define KClassItemViewCell @"ClassItemViewCell"
-@interface ClassListCellViewController ()<WBMenuViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ClassListCellViewController ()<WBMenuViewDelegate,UITableViewDataSource,UITableViewDelegate,XYTableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *classListView;
 @property(nonatomic,strong)NSMutableArray <ClassListModel *>*classArray;
 @property(nonatomic,assign)NSInteger page;
@@ -37,6 +37,16 @@
 -(void)loadMoreData{
     _page ++;
     [self loadData];
+}
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"商品分类默认"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无还没有此类课程哦";
+    return str;
 }
 
 -(void)setTableView{
@@ -96,7 +106,7 @@
 }
 
 -(void)refresh{
-    [self showNoticeView:@"刷新数据"];
+//    [self showNoticeView:@"刷新数据"];
 }
 
 -(BOOL)isRefresh{

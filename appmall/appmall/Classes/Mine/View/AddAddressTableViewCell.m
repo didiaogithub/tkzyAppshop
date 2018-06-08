@@ -36,7 +36,7 @@
     
     _rightImageView = [[UIImageView alloc] init];
     [_selectedAddressButton addSubview:_rightImageView];
-    [_rightImageView setImage:[UIImage imageNamed:@"address"]];
+    [_rightImageView setImage:[UIImage imageNamed:@"定位"]];
     [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(15*SCREEN_HEIGHT_SCALE);
         make.right.mas_offset(-10);
@@ -47,7 +47,7 @@
     //底边
     _bottomImageView = [[UIImageView alloc] init];
     [_selectedAddressButton addSubview:_bottomImageView];
-    [_bottomImageView setImage:[UIImage imageNamed:@"separateColorLine"]];
+    [_bottomImageView setImage:[UIImage imageNamed:@"orderdetailline.png"]];
     [_bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(0);
         make.right.mas_offset(0);

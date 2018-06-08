@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "550149333.865168"
+            timestampString = "550150333.534511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "739"
@@ -148,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "550149333.865273"
+            timestampString = "550149569.954439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "590"
@@ -164,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "550149333.865358"
+            timestampString = "550149569.954494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "606"
@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "550149333.865432"
+            timestampString = "550149569.954542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "610"
@@ -250,22 +250,6 @@
             startingLineNumber = "79"
             endingLineNumber = "79"
             landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
-            timestampString = "550143491.566401"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "-refreshButton:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

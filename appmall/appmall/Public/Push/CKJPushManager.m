@@ -77,18 +77,20 @@ static BOOL isProduction = YES;
     NSLog(@"\n[获取Token]---[%@]",deviceToken);
     //注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
-    
-    
-//    if (!IsNilOrNull(KMobileStr)) {
-//        [JPUSHService setAlias:[NSString stringWithFormat:@"oa_%@", KMobileStr] completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+    NSString *dealerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KdealerId]];
+    NSString *customerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KcustomerId]];
+    if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
+        NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
+        [JPUSHService setAlias:[NSString stringWithFormat:@"%@",uid] callbackSelector:nil object:nil];
+//        [JPUSHService setAlias: completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
 //            NSLog(@"\n[用户登录成功后设置别名]---[%@]",iAlias);
 //        } seq:0];
-//
-//        //查看registId
-//        [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
-//            NSLog(@"resCode : %d,registrationID: %@",resCode,registrationID);
-//        }];
-//    }
+        
+        //查看registId
+        [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+            NSLog(@"resCode : %d,registrationID: %@",resCode,registrationID);
+        }];
+    }
 }
 
 -(void)networkDidReceiveMessage:(NSNotification *)notification{

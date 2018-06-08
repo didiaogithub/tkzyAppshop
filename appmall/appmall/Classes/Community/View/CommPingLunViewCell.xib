@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,9 +60,12 @@
                                     <constraint firstAttribute="height" constant="25" id="tyY-Fs-uGl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="点赞">
+                                <state key="normal" title="0" image="点赞">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionGood:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="E7W-HJ-yVb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLk-LE-Sxg">
                                 <rect key="frame" x="266" y="59" width="50" height="25"/>
@@ -71,7 +74,7 @@
                                     <constraint firstAttribute="width" constant="50" id="eKY-s6-iym"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="评论">
+                                <state key="normal" title="0" image="评论1">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -158,4 +161,8 @@
             <point key="canvasLocation" x="603" y="108.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="点赞" width="30" height="14"/>
+        <image name="评论1" width="13" height="13"/>
+    </resources>
 </document>

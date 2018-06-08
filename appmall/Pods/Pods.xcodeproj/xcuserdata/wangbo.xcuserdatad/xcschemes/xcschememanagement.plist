@@ -13,66 +13,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>1</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>JGProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>MBProgressHUD.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>4</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>5</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>3</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>Pods-appmall.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>6</integer>
-=======
->>>>>>> 490d2766b44b53abda5d63e3ae7fa0243ee2a888
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>

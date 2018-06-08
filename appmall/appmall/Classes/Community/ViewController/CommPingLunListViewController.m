@@ -155,8 +155,48 @@
     [cell refreshData:self.commList[indexPath.row] IsneedCommView:YES];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.notId = self.notiID;
+    
     cell.delegate = self;
     return cell;
+}
+
+
+-(void)communityViewCellGood:(CommPingLunModel *)model{
+    
+    NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [pramaDic setObject:self.notiID forKey:@"noteid"];
+    [pramaDic setObject:@"2" forKey:@"type"];
+    [pramaDic setObject:model._id forKey:@"commentid"];
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_EditPraise];
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        
+        
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        
+        [self loadNewData];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
 }
 
 - (IBAction)actionSubmitComm:(id)sender {

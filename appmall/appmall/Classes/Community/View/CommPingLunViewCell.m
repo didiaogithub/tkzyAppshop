@@ -81,5 +81,8 @@
 - (IBAction)actionSubmitComm:(id)sender {
     [self.delegate actionComment:selfModel];
 }
+- (IBAction)actionGood:(id)sender {
+    [self.delegate communityViewCellGood:selfModel];
+}
 
 @end

@@ -4220,6 +4220,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4234,7 +4236,7 @@
 					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatforms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "80007b49-f9b6-4424-9ec7-f28db2c528a5";
 				PROVISIONING_PROFILE_SPECIFIER = devAppmallProfile;
@@ -4253,6 +4255,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RE52F5T9U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4267,7 +4271,7 @@
 					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatforms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

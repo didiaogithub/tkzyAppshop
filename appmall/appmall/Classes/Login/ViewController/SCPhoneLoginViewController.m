@@ -397,7 +397,7 @@
         SendAuthReq* req =[[SendAuthReq alloc ] init];
         req.scope = @"snsapi_userinfo";
         req.state = @"login123";
-        [WXApi sendReq:req];
+        [WXApi sendAuthReq:req viewController:self delegate:self];
     }
 }
 

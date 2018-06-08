@@ -36,6 +36,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // 极光推送
+    
+    [[CKJPushManager manager] registerJPushWithapplication:application didFinishLaunchingWithOptions:launchOptions];
+    
     if ([[CKVersionCheckManager shareInstance] isFirstLoadCurrentVersion]) {
         [[DefaultValue shareInstance] cleanLoginStatusCacheData];
     }
@@ -44,9 +48,6 @@
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
     
-    // 极光推送
-    
-    [[CKJPushManager manager] registerJPushWithapplication:application didFinishLaunchingWithOptions:launchOptions];
     
     [[DefaultValue shareInstance] defaultValue];
     

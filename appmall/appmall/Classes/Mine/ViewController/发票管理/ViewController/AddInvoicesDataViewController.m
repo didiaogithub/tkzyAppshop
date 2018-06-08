@@ -9,6 +9,7 @@
 #import "AddInvoicesDataViewController.h"
 #import "LeftLabelRightTextFieldView.h"
 #import "QRadioButton.h"
+#define getInvoiceProveApi @"Sys/getInvoiceProve"
 @interface AddInvoicesDataViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QRadioButtonDelegate>
 {
     UILabel *line2;
@@ -50,6 +51,9 @@
 /**  拍照*/
 @property (nonatomic, strong) UIButton *pzBtn;
 
+/**  path*/
+@property (nonatomic, strong) NSString *path;
+
 @property (weak, nonatomic) IBOutlet UIButton *tjBtn;
 
 - (IBAction)tjBtnAction:(UIButton *)sender;
@@ -79,6 +83,72 @@
 
 - (void)rightBtnPressed{
     NSLog(@"模板下载");
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [self getData];
+}
+
+- (void)getData{
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getInvoiceProveApi];
+    NSDictionary *paraDic = [HttpTool getCommonPara];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+           
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }else{
+            self.path = dic[@"data"][@"path"];
+            [self toSaveImage:self.path];
+        }
+    } failure:^(NSError *error) {
+         [self.loadingView stopAnimation];
+    }];
+}
+
+
+
+- (void)toSaveImage:(NSString *)urlString {
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    UIImage *img;
+    if ([manager diskImageExistsForURL:url])
+    {
+        img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
+    }
+    else
+    {
+        //从网络下载图片
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        img = [UIImage imageWithData:data];
+    }
+    // 保存图片到相册中
+    UIImageWriteToSavedPhotosAlbum(img,self, @selector(image:didFinishSavingWithError:contextInfo:),nil);
+    
+}
+//保存图片完成之后的回调
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo
+{
+    // Was there an error?
+    if (error != NULL)
+    {
+        [self.loadingView stopAnimation];
+        // Show error message…
+        [self showNoticeView:@"图片保存失败"];
+        
+    }
+    else  // No errors
+    {
+        [self.loadingView stopAnimation];
+        // Show message image successfully saved
+        [self showNoticeView:@"图片保存成功"];
+    }
 }
 
 - (void)initCompontments{
@@ -561,13 +631,6 @@
             [self showNoticeView:@"添加失败"];
         }
     }];
-    
-    
-    
-    
-    
-    
-    
     
     
 }

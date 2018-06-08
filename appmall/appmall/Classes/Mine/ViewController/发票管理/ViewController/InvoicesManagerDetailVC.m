@@ -34,8 +34,9 @@
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getInvoicedetailByIdApi];
 //    {"message":"成功","data":{"path":"","orderno":"SC152765970361","content":"","invoicetype":"1","issuingoffice":"Hhahsdfds","allprice":"0.00"},"code":200}
     [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
-        NSDictionary *dict = json;
-        if ([dict[@"code"] integerValue] == 200) {
+        NSDictionary *dic = json;
+        NSDictionary *dict = dic[@"data"];
+        if ([dic[@"code"] integerValue] == 200) {
             self.orderno.text = [NSString stringWithFormat:@"%@",dict[@"orderno"]];
             if ([dict[@"invoicetype"] isEqualToString:@"1"]) {
                 self.invoicetype.text = @"电子发票";

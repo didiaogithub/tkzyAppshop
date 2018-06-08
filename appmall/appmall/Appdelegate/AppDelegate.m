@@ -18,6 +18,7 @@
 #import "SCProgressTimerView.h"
 #import "SCEverydayGuideVC.h"//每天第一次启动显示的引导页
 #import "CKVersionCheckManager.h"
+#import "CKShareManager.h"
 
 
 @interface AppDelegate ()<ADTimerDelegate,WXApiDelegate,UITabBarControllerDelegate>
@@ -43,9 +44,16 @@
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
     
+    // 极光推送
+    
+    [[CKJPushManager manager] registerJPushWithapplication:application didFinishLaunchingWithOptions:launchOptions];
+    
     [[DefaultValue shareInstance] defaultValue];
     
     [RequestManager manager];
+    
+    //分享
+    [CKShareManager manager];
     
     [self initKeyWindow];
 

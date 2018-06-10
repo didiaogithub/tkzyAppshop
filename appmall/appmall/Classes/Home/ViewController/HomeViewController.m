@@ -234,8 +234,16 @@
     [self.navigationController pushViewController:dwqSearch animated:NO];
 }
 #pragma HomeMenuItemViewDelegate
--(void)itemClick:(NSInteger)index{
-    [self actionGoto];
+-(void)itemClick:(SortModel *)index{
+    for (int i = 0; i < model.sortList.count ; i++) {
+        SortModel *itemmodel =  model.sortList[i];
+        if ([itemmodel.sortname isEqualToString:index.sortname]) {
+            [self actionGoto:i + 1];
+            return;
+        }
+    }
+    [self actionGoto:0];
+    
 }
 
 #pragma recommendViewCellDelegateMore
@@ -247,7 +255,7 @@
     switch (index) {
             
         case 2:
-            [self actionGoto];
+            [self actionGoto:0];
             break;
         case 3:
             medieaVC.hidesBottomBarWhenPushed = YES;
@@ -265,7 +273,7 @@
 }
 
 
--(void)actionGoto{
+-(void)actionGoto:(NSInteger )index{
     
     NSString *token = [UserModel getCurUserToken];
     NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
@@ -308,11 +316,13 @@
             }
              category.titleArr = [NSMutableArray arrayWithCapacity:0];
             category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
+            [category.titleArr addObject:@"全部"];
+            [category.categoryIdArr addObject:@""];
             for(int i = 0; i < categoryList.count; i++){
                 NSDictionary * itemDic = [categoryList objectAtIndex:i];
                 [category.titleArr addObject:itemDic[@"name"]];
                 [category.categoryIdArr addObject:itemDic[@"styleid"]];
-                category.selectedIndex = 0;
+                category.selectedIndex = index;
             }
           [self.navigationController pushViewController:category animated:YES];
         }else{

@@ -45,7 +45,12 @@
 - (IBAction)actionSubmit:(id)sender {
         _index = 0;
         [self .loadingView showNoticeView:@"正在上传图片"];
-       [self uploadImage:self.picturevc.itemsSectionPictureArray[0]];
+    if (self.picturevc.itemsSectionPictureArray .count == 0) {
+   [self submitComm];
+    }else{
+        
+        [self uploadImage:self.picturevc.itemsSectionPictureArray[0]];
+    }
     
     dispatch_queue_t disqueue =  dispatch_queue_create("com.shidaiyinuo.NetWorkStudy", DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t disgroup = dispatch_group_create();

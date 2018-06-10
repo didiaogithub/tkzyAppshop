@@ -361,7 +361,7 @@
                 bindPhone.bindString = @"needBindPhone";
                 [self.navigationController pushViewController:bindPhone animated:YES];
         }else{
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
         }
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {

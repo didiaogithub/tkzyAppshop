@@ -166,7 +166,7 @@
     [HttpTool postWithUrl:codeUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         _valitedStr = [NSString stringWithFormat:@"%@", dict[@"validStr"]];
@@ -501,7 +501,7 @@
                 [self toWeiXinAuth];
             }
         }else{
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
         }
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {

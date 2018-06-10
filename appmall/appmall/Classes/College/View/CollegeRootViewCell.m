@@ -35,7 +35,7 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(198 * KscreenWidth / 375, 160) ;
+    customLayout.itemSize = CGSizeMake(198 * KscreenWidth / 375, AdaptedWidth(156)) ;
     return customLayout;
 }
 
@@ -44,7 +44,7 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(131 , 170) ;
+    customLayout.itemSize = CGSizeMake(AdaptedWidth(141) , AdaptedWidth(165)) ;
     return customLayout;
 }
 
@@ -53,23 +53,21 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake((KscreenWidth ) , 215 * KscreenWidth / 375) ;
+    customLayout.itemSize = CGSizeMake((KscreenWidth ) , 203 * KscreenWidth / 375) ;
     return customLayout;
 }
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
     switch (index) {
         case 0:
-            return 160;
+            return AdaptedHeight( 196 );
             break;
         case 1:
-            return 211 ;
+            return AdaptedHeight(222) ;
             
             break;
         case 2:
-            
-            return 215;
-            
+            return AdaptedHeight(258);
             break;
             
         default:

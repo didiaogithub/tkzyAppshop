@@ -133,10 +133,10 @@
             height = 210* KscreenWidth / 375;
             break;
         case 2:
-            height = 211* KscreenWidth / 375;
+            height = 222* KscreenWidth / 375;
             break;
         case 3:
-            height = 261 * KscreenWidth / 375;
+            height = 258 * KscreenWidth / 375;
             break;
         default:
             height  =0;

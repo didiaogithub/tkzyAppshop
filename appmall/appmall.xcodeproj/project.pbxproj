@@ -390,6 +390,7 @@
 		2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
+		F2070CC720CCE0130049590E /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2070CC620CCE0130049590E /* HyperlinksButton.m */; };
 		F20F5CD820C65CDF00DBEC82 /* OpenInvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F5CD720C65CDF00DBEC82 /* OpenInvoiceModel.m */; };
 		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
 		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
@@ -1253,6 +1254,8 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
+		F2070CC520CCE0130049590E /* HyperlinksButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperlinksButton.h; sourceTree = "<group>"; };
+		F2070CC620CCE0130049590E /* HyperlinksButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperlinksButton.m; sourceTree = "<group>"; };
 		F20F5CD620C65CDE00DBEC82 /* OpenInvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInvoiceModel.h; sourceTree = "<group>"; };
 		F20F5CD720C65CDF00DBEC82 /* OpenInvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInvoiceModel.m; sourceTree = "<group>"; };
 		F2113A8720B581BB00C01DA4 /* InvoicesManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerCell.h; sourceTree = "<group>"; };
@@ -2408,6 +2411,8 @@
 				2D20DE16208614CC00095032 /* UIViewController+BackButtonHandler.m */,
 				2D4D60FB20B449D700280033 /* UIView+GetVC.h */,
 				2D4D60FC20B449D700280033 /* UIView+GetVC.m */,
+				F2070CC520CCE0130049590E /* HyperlinksButton.h */,
+				F2070CC620CCE0130049590E /* HyperlinksButton.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3416,7 +3421,7 @@
 				TargetAttributes = {
 					F2FED0592081A1ED00DFBD77 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -3945,6 +3950,7 @@
 				2D0723F72082FEF10030996F /* HomeViewController.m in Sources */,
 				2DA0C2FB20B7F8C80031AC47 /* CommPLDetailViewController.m in Sources */,
 				2D20DE1E208614CE00095032 /* UICollectionView+PlaceHolder.m in Sources */,
+				F2070CC720CCE0130049590E /* HyperlinksButton.m in Sources */,
 				2D20DE7F208629E700095032 /* TADotView.m in Sources */,
 				2D20DDD2208613AF00095032 /* BKGuidePageController.m in Sources */,
 				2D83E28320BEF9DF00F2D375 /* MessagModel.m in Sources */,
@@ -4218,8 +4224,8 @@
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TSK429FVKW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 455K53L395;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4236,8 +4242,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6fa3f3c4-3bd8-42e2-b00d-4e7190389f15";
+				PROVISIONING_PROFILE_SPECIFIER = devAppmallProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4250,9 +4256,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TSK429FVKW;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 455K53L395;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4269,8 +4275,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "36d4a776-442c-43d5-9dfa-1c5b37c13107";
+				PROVISIONING_PROFILE_SPECIFIER = adhocAppmallProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

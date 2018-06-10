@@ -27,6 +27,9 @@
 /**  pageNo*/
 @property (nonatomic, assign)  NSInteger page;
 
+/**  path*/
+@property (nonatomic, strong) NSString *path;
+
 @end
 
 @implementation MyInvoicesViewController
@@ -48,10 +51,79 @@
     
     _page = 1;
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
-    [self loadNewData];    
+    [self loadNewData];
+    [self setRightButton:@"模板下载" titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
+}
+
+- (void)rightBtnPressed{
+    NSLog(@"模板下载");
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [self getmobanData];
+}
+
+- (void)getmobanData{
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getInvoiceProveApi];
+    NSDictionary *paraDic = [HttpTool getCommonPara];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }else{
+            self.path = dic[@"data"][@"path"];
+            [self toSaveImage:self.path];
+        }
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+    }];
 }
 
 
+
+- (void)toSaveImage:(NSString *)urlString {
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    UIImage *img;
+    if ([manager diskImageExistsForURL:url])
+    {
+        img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
+    }
+    else
+    {
+        //从网络下载图片
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        img = [UIImage imageWithData:data];
+    }
+    // 保存图片到相册中
+    UIImageWriteToSavedPhotosAlbum(img,self, @selector(image:didFinishSavingWithError:contextInfo:),nil);
+    
+}
+//保存图片完成之后的回调
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo
+{
+    // Was there an error?
+    if (error != NULL)
+    {
+        [self.loadingView stopAnimation];
+        // Show error message…
+        [self showNoticeView:@"图片保存失败"];
+        
+    }
+    else  // No errors
+    {
+        [self.loadingView stopAnimation];
+        // Show message image successfully saved
+        [self showNoticeView:@"图片保存成功"];
+    }
+}
 -(void)loadNewData{
     _page =  1;
     [self getData];
@@ -192,10 +264,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *view = [UIView new];
-    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 60);
+    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 45);
     view.backgroundColor = [UIColor tt_lineBgColor];
     UILabel *type = [UILabel new];
-    type.frame = CGRectMake(15,10, SCREEN_WIDTH, 20);
+    type.frame = CGRectMake(15,10, SCREEN_WIDTH, 14);
     type.font = [UIFont systemFontOfSize:14];
     type.text = @"审核中";
     if (section == 2) {
@@ -221,7 +293,7 @@
     if (indexPath.section == 2) {
         return 136;
     }
-    return 83;
+    return 89;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -229,13 +301,13 @@
     if (section == 0) {
         return 0;
     }else{
-        return 40;
+        return 45;
     }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 0 || section == 1) {
            return 10;
     }
     return 0;

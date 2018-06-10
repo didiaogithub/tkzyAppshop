@@ -304,7 +304,7 @@
 //
 //    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setRightButton:@"完成" titleColor:[UIColor tt_monthLittleBlackColor]];
+    [self setRightButton:@"完成" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
 
 }
 

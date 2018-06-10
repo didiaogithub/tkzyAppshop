@@ -41,7 +41,7 @@
     [super viewDidLoad];
     self.title = @"发票管理";
     self.dataArray = [NSMutableArray array];
-    self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT * 0.15)];
+    self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, AdaptedHeight(127))];
     [self.view addSubview:self.headView];
     _page = 1;
      [self setSegamentView];
@@ -135,7 +135,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + SCREEN_HEIGHT *0.15 + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + SCREEN_HEIGHT *0.15 + 45 + 10)) style:UITableViewStyleGrouped];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64 + AdaptedHeight(127) + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + AdaptedHeight(127) + 45 + 10)) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -144,7 +144,7 @@
 - (void)setSegamentView
 {
     CGFloat Space = 20;
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 64 + SCREEN_HEIGHT *0.15 + 10, SCREEN_WIDTH , 40)];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 64 + AdaptedHeight(127) + 10, SCREEN_WIDTH , 43)];
     contentView.backgroundColor = [UIColor whiteColor];
     CGFloat contentViewW = contentView.frame.size.width;
     CGFloat btnW = (contentViewW -  Space)/2;
@@ -173,8 +173,8 @@
     
     self.segementArr = [NSMutableArray arrayWithObjects:button,button1,nil];
     
-    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 50)/2 , 39,50, 1)];
-    self.sliderView.backgroundColor = [UIColor redColor];
+    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 50)/2 , 39,50, 2)];
+    self.sliderView.backgroundColor = [UIColor tt_redMoneyColor];
     [contentView addSubview:self.sliderView];
     self.currentIndex = 0;
     [self.view addSubview:contentView];

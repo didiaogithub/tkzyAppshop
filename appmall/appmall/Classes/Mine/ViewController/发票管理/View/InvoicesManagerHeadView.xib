@@ -15,25 +15,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InvoicesManagerHeadView" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-FI-TOU">
-                    <rect key="frame" x="10" y="0.0" width="355" height="150"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-FI-TOU">
+                    <rect key="frame" x="16" y="15" width="343" height="117"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Rw0-FI-TOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2ZX-ce-72H"/>
-                <constraint firstAttribute="bottom" secondItem="Rw0-FI-TOU" secondAttribute="bottom" id="NUd-is-Vo9"/>
-                <constraint firstItem="Rw0-FI-TOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="R3u-q8-3hH"/>
-                <constraint firstAttribute="trailing" secondItem="Rw0-FI-TOU" secondAttribute="trailing" constant="10" id="UEj-UN-5Ve"/>
+                <constraint firstAttribute="bottom" secondItem="Rw0-FI-TOU" secondAttribute="bottom" constant="18" id="Cdp-uc-eyA"/>
+                <constraint firstItem="Rw0-FI-TOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="QV5-rB-00w"/>
+                <constraint firstItem="Rw0-FI-TOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="R3u-q8-3hH"/>
+                <constraint firstAttribute="trailing" secondItem="Rw0-FI-TOU" secondAttribute="trailing" constant="16" id="UEj-UN-5Ve"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentLabel" destination="Rw0-FI-TOU" id="jGF-eU-JRC"/>
             </connections>
-            <point key="canvasLocation" x="-15.5" y="-271.5"/>
+            <point key="canvasLocation" x="-15.5" y="-272"/>
         </view>
     </objects>
 </document>

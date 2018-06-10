@@ -57,7 +57,7 @@
     [CKShareManager manager];
     
     [self initKeyWindow];
-
+   
     [CKCNotificationCenter addObserver:self selector:@selector(checkAppDoesOnCheck) name:RequestManagerReachabilityDidChangeNotification object:nil];
      [WXApi registerApp:kWXAPP_ID];
     [self configKeyboard];

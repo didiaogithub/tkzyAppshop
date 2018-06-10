@@ -381,7 +381,8 @@
 #define addInvoiceTempApi @"Invoice/addInvoiceTemp"
 /** 修改发票模板*/
 #define editInvoiceTempApi @"Invoice/editInvoiceTemp"
-
+/** 发票模板下载*/
+#define getInvoiceProveApi @"Sys/getInvoiceProve"
 /** 我的分期*/
 #define getMyDividePayList @"Rule/getMyDividePayList"
 /** 我的欠款*/

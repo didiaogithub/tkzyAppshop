@@ -9,7 +9,6 @@
 #import "AddInvoicesDataViewController.h"
 #import "LeftLabelRightTextFieldView.h"
 #import "QRadioButton.h"
-#define getInvoiceProveApi @"Sys/getInvoiceProve"
 @interface AddInvoicesDataViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QRadioButtonDelegate>
 {
     UILabel *line2;
@@ -78,7 +77,7 @@
     }
     self.isQY = YES;
     [self initCompontments];
-    [self setRightButton:@"模板下载"];
+    [self setRightButton:@"模板下载" titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
 }
 
 - (void)rightBtnPressed{

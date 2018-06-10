@@ -21,6 +21,6 @@
 - (void)setRightButton:(NSString *)btnName;
 
 - (void)setRightImageButton:(NSString *)btnName;
-- (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor;
+- (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor isTJXHX:(BOOL)isTJXHX;
 - (void)rightBtnPressed;
 @end

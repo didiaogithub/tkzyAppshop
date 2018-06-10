@@ -27,6 +27,8 @@
     [super viewDidLoad];
     self.title = @"发票详情";
     
+    self.downloadBtn.layer.masksToBounds = YES;
+    self.downloadBtn.layer.cornerRadius = 3;
     [self getData];
 }
 

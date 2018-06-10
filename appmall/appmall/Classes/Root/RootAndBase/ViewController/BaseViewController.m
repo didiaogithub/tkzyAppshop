@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "HyperlinksButton.h"
 @interface BaseViewController ()<UIGestureRecognizerDelegate>
 
 @end
@@ -87,15 +87,20 @@
    
 }
 - (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor
-{
+ isTJXHX:(BOOL)isTJXHX{
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    HyperlinksButton *button = [HyperlinksButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 60, 40);
     [button setTitle:btnName forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitleColor:titleColor forState:UIControlStateNormal];
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    if (isTJXHX == YES) {
+          [button setColor:titleColor];
+    }else{
+       [button setColor:[UIColor clearColor]];
+    }
     
     negativeSpacer.width = -17;
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];

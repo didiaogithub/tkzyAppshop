@@ -119,7 +119,7 @@
 
 -(void)createAddressView{
     
-    [self setRightButton:@"添加" titleColor:[UIColor tt_monthLittleBlackColor]];
+    [self setRightButton:@"添加" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
 //    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [self.view addSubview:addButton];
 //    [addButton setBackgroundColor:[UIColor tt_bigRedBgColor]];

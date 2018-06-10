@@ -41,7 +41,7 @@
      self.customLayoutRecom = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutRecom.minimumLineSpacing = 0;
     self.customLayoutRecom.minimumInteritemSpacing = 0;
-    self.customLayoutRecom.itemSize = CGSizeMake((KscreenWidth ) / 2, 220) ;
+    self.customLayoutRecom.itemSize = CGSizeMake((KscreenWidth ) / 2, AdaptedHeight(220) ) ;
 }
 
 -(void )getLayoutHonour{
@@ -49,7 +49,7 @@
     self.customLayoutHonnor.minimumLineSpacing = 0;
     self.customLayoutHonnor.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.customLayoutHonnor.minimumInteritemSpacing = 0;
-    self.customLayoutHonnor.itemSize = CGSizeMake(220 , 180) ;
+    self.customLayoutHonnor.itemSize = CGSizeMake(AdaptedHeight(220)  , AdaptedHeight(180) ) ;
 }
 
 -(void )  getLayoutMenu{
@@ -57,14 +57,14 @@
     self.customLayoutMenu.minimumLineSpacing = 0;
     self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.customLayoutMenu.minimumInteritemSpacing = 0;
-    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
+    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , AdaptedHeight(96) ) ;
 }
 
 -(void )getLayoutMidea{
     self.customLayoutMedia = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutMedia.minimumLineSpacing = 0;
     self.customLayoutMedia.minimumInteritemSpacing = 0;
-    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth ) , 221) ;
+    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth ) , AdaptedHeight(221 - 50) ) ;
 }
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
@@ -76,15 +76,15 @@
             return 96;
             break;
         case 2:
-            return 220 * 2 + 53;
+            return AdaptedHeight(220) * 2 + 53;
             break;
         case 3:
-            return 220 + 53 ;
+             return AdaptedHeight(221) ;
             
             break;
         case 4:
             
-            return 180 + 53 ;
+            return AdaptedHeight(224) ;
             
             break;
             

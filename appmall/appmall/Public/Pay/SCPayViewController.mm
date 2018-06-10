@@ -91,7 +91,7 @@
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            
             [_payMethodArr removeAllObjects];
             _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
             [self.paymentTableView reloadData];

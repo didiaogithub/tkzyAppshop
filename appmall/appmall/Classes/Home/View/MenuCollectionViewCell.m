@@ -26,7 +26,7 @@
 }
 
 
--(void)setItemIcom:(SortModel *)model;{
+-(void)setItemIcom:(SortModel *)model{
     self.model = model;
     self.imgItemIcon.layer.cornerRadius = self.imgItemIcon.mj_h/2;
     self.imgItemIcon.layer.masksToBounds = YES;

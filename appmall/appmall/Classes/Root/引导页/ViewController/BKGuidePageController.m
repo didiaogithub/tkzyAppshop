@@ -85,24 +85,25 @@ static NSString *ID = @"cell";
     
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.row == 2) {
-        NSString *iosCheckCode = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"IOS_CheckCode"]];
-        if ([iosCheckCode isEqualToString:@"200"]) {
-            [self normalLaunchApp];
-        }else{
-            [self goWelcom];
-        }
-    }
+    [self normalLaunchApp];
+//    if (indexPath.row == 2) {
+//        NSString *iosCheckCode = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"IOS_CheckCode"]];
+//        if ([iosCheckCode isEqualToString:@"200"]) {
+//            [self normalLaunchApp];
+//        }else{
+//            [self goWelcom];
+//        }
+//    }
 }
 
 -(void)normalLaunchApp {
-    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-    if (str == YES) {
-        [self goWelcom];
-    }else{
-        [self enterFirstPage];
-    }
+    [self enterFirstPage];
+//    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
+//    if (str == YES) {
+//        [self goWelcom];
+//    }else{
+//        [self enterFirstPage];
+//    }
 }
 
 -(void)showCheckLoginView {

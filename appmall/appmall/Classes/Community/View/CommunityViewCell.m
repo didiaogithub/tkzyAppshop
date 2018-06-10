@@ -39,8 +39,11 @@ CommListModelItem * selfModel ;
 }
 
 -(void)setImage:(UIButton *)imgV imgName:(NSString *)name{
-    if (name != nil) {
+    if (!IsNilOrNull(name)) {
+        imgV.hidden = NO;
         [imgV sd_setImageWithURL:[NSURL URLWithString:name] forState:0];
+    }else{
+        imgV.hidden = YES;
     }
 }
 

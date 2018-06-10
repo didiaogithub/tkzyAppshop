@@ -20,7 +20,7 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         if (adsView == nil) {
-            adsView = [[WBAdsImgView alloc]initWithFrame:CGRectMake(0,0, KscreenWidth, KscreenWidth/2)];
+            adsView = [[WBAdsImgView alloc]initWithFrame:CGRectMake(0,0, KscreenWidth,187 * (KscreenWidth / 375.0))];
             adsView.delegate = self;
             [self addSubview:adsView];
         }

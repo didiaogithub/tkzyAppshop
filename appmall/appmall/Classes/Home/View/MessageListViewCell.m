@@ -29,7 +29,7 @@
             [self.imageView setImage:[UIImage imageNamed:@"物流提醒"]];
             break;
         case 2:
-            [self.imageView setImage:[UIImage imageNamed:@"通知"]];
+            [self.imageView setImage:[UIImage imageNamed:@"订单提醒"]];
             break;
         case 3:
             [self.imageView setImage:[UIImage imageNamed:@"分期付款"]];

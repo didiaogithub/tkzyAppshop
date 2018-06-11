@@ -13,6 +13,7 @@
     UIImage *nomalImage;
     UIImage *selectedImage;
     UILabel *textLable;
+    UILabel *text1Lable;
     UIView *_countView;
     
 }
@@ -73,12 +74,13 @@
         make.top.equalTo(_iconImageView.mas_top);
         make.left.equalTo(_iconImageView.mas_right).offset(10*SCREEN_WIDTH_SCALE);
         make.right.mas_offset(-10);
+        make.height.equalTo(@30);
         
     }];
     //规格
     
     textLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    textLable.text = @"规格：";
+    textLable.text = @"产品编号：";
     [self.contentView addSubview:textLable];
 
     [textLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -86,13 +88,32 @@
         make.left.equalTo(_nameLable.mas_left);
     }];
     
-    //规格内容
+    //编号内容
     _standardLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_standardLable];
     _standardLable.text = @"规格";
     [_standardLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(textLable.mas_top);
         make.left.equalTo(textLable.mas_right);
+    }];
+    //规格
+    
+    text1Lable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    text1Lable.text = @"产品规格：";
+    [self.contentView addSubview:text1Lable];
+    
+    [text1Lable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(textLable.mas_bottom);
+        make.left.equalTo(textLable.mas_left);
+    }];
+    
+    //规格内容
+    _standardLable1 = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    [self.contentView addSubview:_standardLable1];
+    _standardLable1.text = @"规格";
+    [_standardLable1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(text1Lable.mas_top);
+        make.left.equalTo(text1Lable.mas_right);
     }];
     
     //价格
@@ -287,15 +308,26 @@
     _countLable.text = [NSString stringWithFormat:@"%@",model.num];
     
     //规格
-    NSString *spec = [NSString stringWithFormat:@"%@",model.spec];
-    if (IsNilOrNull(spec)) {
-        spec = @"";
+    NSString *no = [NSString stringWithFormat:@"%@",model.no];
+    if (IsNilOrNull(no)) {
+        no = @"";
     }
-    _standardLable.text = spec;
+    _standardLable.text = no;
     
     if ([UIScreen mainScreen].bounds.size.width <= 568) {
         _standardLable.font = [UIFont systemFontOfSize:12];
         textLable.font = [UIFont systemFontOfSize:12];
+    }
+    //规格
+    NSString *spec = [NSString stringWithFormat:@"%@",model.spec];
+    if (IsNilOrNull(spec)) {
+        spec = @"";
+    }
+    _standardLable1.text = spec;
+    
+    if ([UIScreen mainScreen].bounds.size.width <= 568) {
+        _standardLable1.font = [UIFont systemFontOfSize:12];
+        text1Lable.font = [UIFont systemFontOfSize:12];
     }
 }
 

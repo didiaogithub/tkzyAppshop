@@ -236,7 +236,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 90;
+    return 81;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -261,7 +261,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 31)];
     arrearsModel *model = self.dataArray[section];
     view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
     int status = [self.statusString intValue];
@@ -278,7 +278,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    ArrearsFooterView *view = [[ArrearsFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    ArrearsFooterView *view = [[ArrearsFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 46)];
     view.delegate = self;
     view.leftBtn.tag = section;
     view.rightBtn.tag = section;
@@ -291,11 +291,11 @@
         view.leftBtn.hidden = YES;
     }else if ([str isEqualToString:@"已还款"]){
         view.orderTotal.textColor = [UIColor tt_grayBgColor];
-        view.orderTotal.font = [UIFont systemFontOfSize:14];
+        view.orderTotal.font = [UIFont systemFontOfSize:13];
         view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
     }else{
         view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
-        view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%@",model.ordermoney];
+        view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
         
@@ -355,10 +355,10 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 40;
+    return 46;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
+    return 31;
 }
 
 

@@ -19,7 +19,6 @@
 //添加提示view
 - (void)showNoticeView:(NSString*)title;
 - (void)setRightButton:(NSString *)btnName;
-
 - (void)setRightImageButton:(NSString *)btnName;
 - (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor isTJXHX:(BOOL)isTJXHX;
 - (void)rightBtnPressed;

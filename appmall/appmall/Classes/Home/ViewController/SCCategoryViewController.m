@@ -10,6 +10,7 @@
 #import "ZJScrollPageViewDelegate.h"
 #import "ZJScrollPageView.h"
 #import "SCCategoryChildVC.h"
+#import "RootNavigationController.h"
 #import "CKShareManager.h"
 #import "SCFirstPageModel.h"
 #import "SCCategoryGoodsModel.h"
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"分类";
+    self.navigationItem.title = @"商品";
     self.view.backgroundColor = [UIColor whiteColor];
     [self initComponents];
     
@@ -90,7 +91,7 @@
 #pragma mark - 分享
 -(void)createShareButton {
     
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(shareGoods)];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"购物车-导航"] style:UIBarButtonItemStylePlain target:self action:@selector(shareGoods)];
     right.tintColor = [UIColor blackColor];
     if (@available(iOS 11.0, *)) {
         self.navigationItem.rightBarButtonItem = right;
@@ -102,30 +103,22 @@
     
     //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(shareGoods) image:[UIImage imageNamed:@"share"]];
 }
-
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+}
 -(void)shareGoods{
-    NSLog(@"列表分享");
-    
-    NSString *firstPageKey = @"1";
-    NSString *predicate = [NSString stringWithFormat:@"firstPageKey = '%@'", firstPageKey];
-    RLMResults *result = [[SCFirstPageModel class] objectsWhere:predicate];
-    
-    SCFirstPageModel *firstPageM = result.firstObject;
-    
-    NSString *title = [NSString stringWithFormat:@"%@", firstPageM.ckInfoM.name];
-    NSString *shareApi = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"YDSC_mallshareurl"]];
-    if (IsNilOrNull(shareApi)) {
-        shareApi = [NSString stringWithFormat:@"%@Wapmall/WeChat/share", WebServiceAPI];
+  
+     if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO)  {
+        [self goWelcom];
+         return;
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
+    self.tabBarController.selectedIndex = 3;
     
-    //    NSString *ckid = [NSString stringWithFormat:@"%@", firstPageM.ckInfoM.ckid];
-    //    if (IsNilOrNull(ckid)) {
-    //        ckid = @"0";
-    //    }
-    NSString *shareUrl = [NSString stringWithFormat:@"%@?type=list&openid=%@", shareApi, USER_OPENID];
-    
-    NSString *logoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, ShareLogoUrl];
-    [CKShareManager shareToFriendWithName:title andHeadImages:logoUrl andUrl:[NSURL URLWithString:shareUrl] andTitle:@"创客云商"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -39,6 +39,7 @@
     [super viewDidLoad];
     topDis.constant = NaviHeight;
     self.title = @"商品详情";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableView];
     [self createTitleView];
     

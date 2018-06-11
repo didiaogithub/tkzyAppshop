@@ -46,6 +46,23 @@
     //获取build版本号
     _localBuildStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     [self createViews];
+    
+    [self getData];
+}
+#define checkVersionApi @"Sys/checkVersion"
+- (void)getData{
+    NSDictionary *paraDic = [HttpTool getCommonPara];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,checkVersionApi];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+        NSDictionary *dic = json;
+        if([dic[@"code"] integerValue] != 200){
+            return;
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)getIsIosCheckData{

@@ -377,7 +377,6 @@
 //    model = [result firstObject];
 //    [tabHomeList reloadData];
 //}
-
 -(void)actionToMessage{
     MessageViewController *messageVC = [[MessageViewController alloc]init];
     messageVC.hidesBottomBarWhenPushed = YES;

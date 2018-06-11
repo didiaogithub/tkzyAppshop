@@ -57,7 +57,7 @@
     self.customLayoutMenu.minimumLineSpacing = 0;
     self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.customLayoutMenu.minimumInteritemSpacing = 0;
-    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , AdaptedHeight(96) ) ;
+    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
 }
 
 -(void )getLayoutMidea{

@@ -44,7 +44,12 @@
     customLayout.minimumLineSpacing = 0;
     customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     customLayout.minimumInteritemSpacing = 0;
-    customLayout.itemSize = CGSizeMake(AdaptedWidth(141) , AdaptedWidth(165)) ;
+    if (KscreenWidth == 320) {
+        customLayout.itemSize = CGSizeMake(141 , 165) ;
+    }else{
+        customLayout.itemSize = CGSizeMake(AdaptedWidth(141) , AdaptedWidth(165)) ;
+    }
+    
     return customLayout;
 }
 
@@ -63,7 +68,12 @@
             return AdaptedHeight( 196 );
             break;
         case 1:
-            return AdaptedHeight(222) ;
+            if (KscreenWidth == 320) {
+                 return 222;
+            }else{
+                 return AdaptedHeight(222) ;
+            }
+           
             
             break;
         case 2:

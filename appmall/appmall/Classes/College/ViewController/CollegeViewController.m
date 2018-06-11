@@ -133,7 +133,12 @@
             height = 210* KscreenWidth / 375;
             break;
         case 2:
-            height = 222* KscreenWidth / 375;
+            if (KscreenWidth == 320) {
+                height = 222;
+            }else{
+                height = 222* KscreenWidth / 375;
+            }
+            
             break;
         case 3:
             height = 258 * KscreenWidth / 375;

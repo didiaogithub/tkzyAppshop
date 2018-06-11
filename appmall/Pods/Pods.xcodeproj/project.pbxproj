@@ -456,10 +456,10 @@
 		12F3168424BF855971157E47011480B7 /* RLMSyncUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncUtil.mm; path = Realm/RLMSyncUtil.mm; sourceTree = "<group>"; };
 		12F70440305DAD1B65C7DB64ECABD9A1 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		12FDEF056DBF09E144275E2A50C5603F /* JGProgressHUDIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDIndicatorView.h; sourceTree = "<group>"; };
+		1328E512AE069C765288B69434CC213C /* libjcore-ios-1.1.7.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjcore-ios-1.1.7.a"; sourceTree = "<group>"; };
 		1371499AF09239194373C9A2E345B94E /* RLMAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMAccessor.h; path = include/RLMAccessor.h; sourceTree = "<group>"; };
 		13ED92A598747DF3DB62695AA1DC5C99 /* RLMSyncSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSession.h; path = include/RLMSyncSession.h; sourceTree = "<group>"; };
 		14474CA98FA2118A09CB4EA1FE66EC9F /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		15BB2CDED7AC5A3040EF86B6A657C8B7 /* libjcore-ios-1.1.9.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjcore-ios-1.1.9.a"; sourceTree = "<group>"; };
 		1624140F7F01DF90E00F096A6A176783 /* Pods-appmall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appmall.release.xcconfig"; sourceTree = "<group>"; };
 		1647E79A422F1E8CB719C1AD26002B34 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJRefresh.a; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D92BCBB980A84FC63E48806FDF69FD /* list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = list_notifier.cpp; path = Realm/ObjectStore/src/impl/list_notifier.cpp; sourceTree = "<group>"; };
@@ -536,6 +536,7 @@
 		3E3C69A8CEB77735D3CE1E13B18287E1 /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		3F6C81D31D7BF7A4F7CC064B7903CBC0 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		3FC17887F6ED78BC5A4D538CB34F27BC /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
+		402C22805EAA60C8FB25E712CD47A8C7 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		40E8A26A84DB959ADAFD45F0F229E04F /* RLMSyncManager.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncManager.mm; path = Realm/RLMSyncManager.mm; sourceTree = "<group>"; };
 		41152E8110E1CFF87555F31D5429412A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		41DC2EDACE266AEBAAB9DAB8E409FDA5 /* MJPropertyKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyKey.h; path = MJExtension/MJPropertyKey.h; sourceTree = "<group>"; };
@@ -697,7 +698,6 @@
 		A35F3BD35B0434BA47747B84D688CBF9 /* RLMSchema_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSchema_Private.h; path = include/RLMSchema_Private.h; sourceTree = "<group>"; };
 		A54D476B2B56C59A69E56B444297CC22 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		A5705C1AE9C5929099BF3DB40B5556DB /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+IQKeyboardToolbar.h"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
-		A5D6ABAD8EC8BC03668380988216CFFF /* libjpush-ios-3.0.9.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjpush-ios-3.0.9.a"; sourceTree = "<group>"; };
 		A717A6F6D97DE8BD21ECCA00AA35F62D /* sync_permission.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_permission.cpp; path = Realm/ObjectStore/src/sync/sync_permission.cpp; sourceTree = "<group>"; };
 		A7443DB16144957596E9EE8B6539BC3D /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
 		A86B2E474B3B11DA69107D39A00C26BF /* partial_sync.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = partial_sync.cpp; path = Realm/ObjectStore/src/sync/partial_sync.cpp; sourceTree = "<group>"; };
@@ -963,7 +963,7 @@
 		04EFD10E1EE5B0ED467CA82DCA762D4A /* JCore */ = {
 			isa = PBXGroup;
 			children = (
-				DEAC03A3482E2E95C5B9623902337E30 /* Frameworks */,
+				B54BAA31099FB81D2A13FD73342DB2BC /* Frameworks */,
 			);
 			name = JCore;
 			path = JCore;
@@ -987,14 +987,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AFNetworking";
-			sourceTree = "<group>";
-		};
-		104DE3E181926E2E3D7629A28AD3B6FF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A5D6ABAD8EC8BC03668380988216CFFF /* libjpush-ios-3.0.9.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		16DAEB6F7164BB517A5E330B2D516FD0 /* Resources */ = {
@@ -1534,6 +1526,14 @@
 			path = SobotKit;
 			sourceTree = "<group>";
 		};
+		AD0436A479BB765D841872D8535E6000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				402C22805EAA60C8FB25E712CD47A8C7 /* libjpush-ios-3.0.8.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B379DCED6DA227A9D5C19C8A27088F3E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1543,6 +1543,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJRefresh";
+			sourceTree = "<group>";
+		};
+		B54BAA31099FB81D2A13FD73342DB2BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1328E512AE069C765288B69434CC213C /* libjcore-ios-1.1.7.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BAF0027DAAF072905A1975A900DC3EBB /* Products */ = {
@@ -1718,14 +1726,6 @@
 			path = "../Target Support Files/Realm";
 			sourceTree = "<group>";
 		};
-		DEAC03A3482E2E95C5B9623902337E30 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				15BB2CDED7AC5A3040EF86B6A657C8B7 /* libjcore-ios-1.1.9.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DFE00D3254B6709AAC6A0EF56D477529 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1777,7 +1777,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1EEA05F8E14E4234B56F5F7B46657D /* JPUSHService.h */,
-				104DE3E181926E2E3D7629A28AD3B6FF /* Frameworks */,
+				AD0436A479BB765D841872D8535E6000 /* Frameworks */,
 			);
 			name = JPush;
 			path = JPush;

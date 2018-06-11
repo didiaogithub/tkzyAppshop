@@ -16,7 +16,7 @@
 
 #define KMessageDetailViewCell @"MessageDetailViewCell"
 #define KMessageOffDetailViewCell @"MessageOffDetailViewCell"
-@interface MessageDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MessageDetailViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property (weak, nonatomic) IBOutlet UITableView *messageListIView;
@@ -41,6 +41,17 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"商品分类默认"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类提醒哦";
+    return str;
+}
+
 
 -(void)loadNewData{
     _page =  1;

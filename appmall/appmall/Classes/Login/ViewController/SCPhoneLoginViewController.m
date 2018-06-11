@@ -385,6 +385,7 @@
 //    [UIApplication sharedApplication].keyWindow.rootViewController = rootVC;
     AppDelegate *app = [AppDelegate shareAppDelegate];
     app.window.rootViewController = rootVC;
+    app.isNewUser = YES;
     [app.window makeKeyAndVisible];
 }
 

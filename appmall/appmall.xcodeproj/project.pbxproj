@@ -3421,7 +3421,7 @@
 				TargetAttributes = {
 					F2FED0592081A1ED00DFBD77 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -4224,8 +4224,8 @@
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 455K53L395;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4242,8 +4242,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa3f3c4-3bd8-42e2-b00d-4e7190389f15";
-				PROVISIONING_PROFILE_SPECIFIER = devAppmallProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4257,8 +4257,8 @@
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 455K53L395;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4275,8 +4275,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "36d4a776-442c-43d5-9dfa-1c5b37c13107";
-				PROVISIONING_PROFILE_SPECIFIER = adhocAppmallProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

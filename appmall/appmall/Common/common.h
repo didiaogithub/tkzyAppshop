@@ -257,6 +257,8 @@
 /**评论列表*/
 #define CommentListUrl @"Goods/getGoodsComment"
 
+
+#define APIAddCouption @"Goods/addCouption"
 /**获取购物车列表*/
 #define GetShoppingCarUrl @"Cart/getShoppingCartInfo"
 /**删除购物车商品*/

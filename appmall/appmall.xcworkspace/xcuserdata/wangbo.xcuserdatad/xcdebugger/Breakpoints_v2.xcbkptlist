@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "550311048.28912"
+            timestampString = "550391381.73541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -196,7 +196,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.086542"
+                  timestampString = "550391382.222011"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -211,7 +211,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.089537"
+                  timestampString = "550391382.223904"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
@@ -226,7 +226,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.0924931"
+                  timestampString = "550391382.22577"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -243,7 +243,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "550311048.2891819"
+            timestampString = "550391381.7355731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
@@ -259,7 +259,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "550311048.289235"
+            timestampString = "550391381.735649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
@@ -275,7 +275,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.107107"
+                  timestampString = "550391382.236117"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "319"
@@ -290,7 +290,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.109482"
+                  timestampString = "550391382.23824"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "321"
@@ -305,7 +305,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-                  timestampString = "550382240.1130199"
+                  timestampString = "550391382.2403589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "319"
@@ -322,11 +322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "550311048.289282"
+            timestampString = "550391381.735711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
+            startingLineNumber = "423"
+            endingLineNumber = "423"
             landmarkName = "-loginWithPhoneAndOpenid"
             landmarkType = "7">
          </BreakpointContent>
@@ -338,7 +338,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCPhoneLoginViewController.m"
-            timestampString = "550311048.289327"
+            timestampString = "550391381.73577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "322"
@@ -354,7 +354,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Home/ViewController/NSMutableParagraphStyle+WB.m"
-            timestampString = "550382239.38612"
+            timestampString = "550391381.735833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
@@ -434,11 +434,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Home/ViewController/HomeViewController.m"
-            timestampString = "550382239.386333"
+            timestampString = "550391381.7360049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-adsImgViewClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -642,22 +642,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCLoginViewController.m"
-            timestampString = "550311048.289691"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
-            landmarkName = "-goFirstPage"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Login/ViewController/SCLoginViewController.m"
             timestampString = "550311048.289741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -674,7 +658,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCLoginViewController.m"
-                  timestampString = "550382240.233608"
+                  timestampString = "550391382.314677"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -689,7 +673,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCLoginViewController.m"
-                  timestampString = "550382240.236907"
+                  timestampString = "550391382.316962"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "304"
@@ -704,7 +688,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Login/ViewController/SCLoginViewController.m"
-                  timestampString = "550382240.239841"
+                  timestampString = "550391382.318964"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -765,39 +749,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Login/ViewController/SCLoginViewController.m"
-            timestampString = "550311048.2898639"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-getCheckCodeByPhone"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Login/ViewController/SCLoginViewController.m"
-            timestampString = "550311048.289911"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-getCheckCodeByPhone"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Login/ViewController/SCLoginViewController.m"
@@ -871,6 +823,38 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "-submitComm"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Home/ViewController/HomeViewController.m"
+            timestampString = "550391381.737021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-loadNewUser"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Home/ViewController/HomeViewController.m"
+            timestampString = "550391381.737515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-loadNewUser"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

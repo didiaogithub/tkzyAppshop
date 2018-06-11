@@ -45,6 +45,10 @@
     self.token = [self.realm addNotificationBlock:^(RLMNotification  _Nonnull notification, RLMRealm * _Nonnull realm) {
         [weakSelf tabReloadData];
     }];
+     AppDelegate *app = [AppDelegate shareAppDelegate];
+    if (app.isNewUser == NO) {
+        [self loadNewUser];
+    }
 
     [self creatSearchUI];
     [self creatRightItem];
@@ -55,6 +59,8 @@
     [self requestDataWithoutCache];
     
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -84,6 +90,36 @@
 
 -(void)requestDataWithoutCache {
     [self loadHomeData:YES];
+}
+
+-(void)loadNewUser{
+    
+    NSDictionary *pramaDic= [HttpTool getCommonPara];
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,APIAddCouption];
+
+    
+    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        [tabHomeList.mj_header endRefreshing];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return ;
+        }
+        
+        if (dic != nil) {  //请求到数据
+
+        }
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        [tabHomeList.mj_header endRefreshing];
+    }];
 }
 
 -(void)loadHomeData:(BOOL)showLoading {

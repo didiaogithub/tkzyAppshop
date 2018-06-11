@@ -9,7 +9,7 @@
 #import "CKJPushManager.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MessageAlert.h"
-static NSString *appKey = @"e19eca01f7fd1a6ff384d4bc";
+static NSString *appKey = @"7c0f313789218c8884f00832";
 static NSString *channel = @"App Store";
 static BOOL isProduction = YES;
 

@@ -33,6 +33,7 @@ typedef void(^CarryBySelfBlock)(GoodModel *model,NSInteger row);
 @property(nonatomic,strong)UILabel *nameLable;
 /**规格*/
 @property(nonatomic,strong)UILabel *standardLable;
+@property(nonatomic,strong)UILabel *standardLable1;
 @property(nonatomic,strong)UILabel *priceLable;
 @property(nonatomic,strong)UIButton *plusButton;
 @property(nonatomic,strong)UIButton *reduceButton;

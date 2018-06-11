@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *price;
 @property (nonatomic, strong) UILabel *comment;
 @property (nonatomic, strong) UILabel *specLabel;
+@property (nonatomic, strong) UILabel *noLabel;
 
 @end
 
@@ -60,9 +61,11 @@
     title.text = @"类人胶原蛋白类人胶原蛋白类人";
     title.numberOfLines = 2;
     [self.contentView addSubview:_title = title];
-    
-    self.specLabel = [UILabel configureLabelWithTextColor:[UIColor tt_bodyTitleColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
-    self.specLabel.text = @"规格：";
+    self.noLabel = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
+    self.noLabel.text = @"产品编号：";
+    [_title addSubview:self.noLabel];
+    self.specLabel = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
+    self.specLabel.text = @"产品规格：";
     [self.contentView addSubview:self.specLabel];
     
     UILabel *price = [UILabel configureLabelWithTextColor:[UIColor tt_redMoneyColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
@@ -71,7 +74,7 @@
     
     UILabel *comment = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentRight font:[UIFont systemFontOfSize:13]];
     comment.text = @"好评100%";
-    [self.contentView addSubview:_comment = comment];
+//    [self.contentView addSubview:_comment = comment];
     
     _touchCotrol = [[UIControl alloc]init];
     [_touchCotrol addTarget:self action:@selector(isSelectFavorGoods) forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +103,7 @@
         make.top.equalTo(self.mas_top).offset(10);
         make.left.equalTo(self.editBtn.mas_right).offset(10);
         make.bottom.equalTo(self.mas_bottom).offset(-10);
-        make.width.equalTo(@90);
+        make.width.equalTo(@100);
     }];
     
     [_title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,12 +126,20 @@
         make.left.equalTo(_imageViwe.mas_right).offset(10);
         make.right.equalTo(self.mas_right).offset(-10);
     }];
-    
-    [_comment mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_noLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.specLabel.mas_top).offset(-5);
+        make.height.mas_equalTo(20);
+        //        make.bottom.equalTo(self.price.mas_top);
+        //        make.centerY.equalTo(self.mas_centerY);
+        make.left.equalTo(_imageViwe.mas_right).offset(10);
         make.right.equalTo(self.mas_right).offset(-10);
-        make.bottom.equalTo(self.mas_bottom).offset(-10);
-        make.width.equalTo(@90);
     }];
+    
+//    [_comment mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.mas_right).offset(-10);
+//        make.bottom.equalTo(self.mas_bottom).offset(-10);
+//        make.width.equalTo(@90);
+//    }];
     
 }
 
@@ -167,11 +178,19 @@
     
     NSString *spec = [NSString stringWithFormat:@"%@", collectionM.itemSpec];
     if (!IsNilOrNull(spec)) {
-        spec = [NSString stringWithFormat:@"规格:%@", collectionM.itemSpec];
+        spec = [NSString stringWithFormat:@"产品规格:%@", collectionM.itemSpec];
     }else{
         spec = @"";
     }
     _specLabel.text = spec;
+    NSString *itemNo = [NSString stringWithFormat:@"%@", collectionM.itemNo];
+    if (!IsNilOrNull(itemNo)) {
+        itemNo = [NSString stringWithFormat:@"产品编号:%@", collectionM.itemNo];
+    }else{
+        itemNo = @"";
+    }
+    _noLabel.text = itemNo;
+    
     
     NSString *saleprice = [NSString stringWithFormat:@"%@", collectionM.price];
     if (!IsNilOrNull(saleprice)) {

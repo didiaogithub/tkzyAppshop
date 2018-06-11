@@ -447,6 +447,11 @@
 		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
 		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
 		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
+		F2B771A020CE838C00C34C21 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B7719F20CE838C00C34C21 /* CFNetwork.framework */; };
+		F2B771A220CE839500C34C21 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A120CE839500C34C21 /* CoreFoundation.framework */; };
+		F2B771A420CE83F400C34C21 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A320CE83F400C34C21 /* AdSupport.framework */; };
+		F2B771A620CE83FD00C34C21 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A520CE83FD00C34C21 /* UserNotifications.framework */; };
+		F2B771A820CE841900C34C21 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A720CE841800C34C21 /* libresolv.tbd */; };
 		F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */; };
 		F2C1E78620C1335D00ECCFFE /* ArrearsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */; };
 		F2C1E78720C1335D00ECCFFE /* ArrearsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E77B20C1335D00ECCFFE /* ArrearsHeaderView.m */; };
@@ -1342,6 +1347,11 @@
 		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F2B7719F20CE838C00C34C21 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F2B771A120CE839500C34C21 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F2B771A320CE83F400C34C21 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		F2B771A520CE83FD00C34C21 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		F2B771A720CE841800C34C21 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		F2C1E77720C1335D00ECCFFE /* ArrearsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsFooterView.h; sourceTree = "<group>"; };
 		F2C1E77820C1335D00ECCFFE /* ArrearsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsFooterView.m; sourceTree = "<group>"; };
 		F2C1E77920C1335D00ECCFFE /* ArrearsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrearsFooterView.xib; sourceTree = "<group>"; };
@@ -1521,17 +1531,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F255515420BD53230097C2A4 /* UIKit.framework in Frameworks */,
-				F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */,
-				F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */,
-				F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */,
+				F2B771A820CE841900C34C21 /* libresolv.tbd in Frameworks */,
+				F2B771A620CE83FD00C34C21 /* UserNotifications.framework in Frameworks */,
+				F2B771A420CE83F400C34C21 /* AdSupport.framework in Frameworks */,
 				2D808E6520BA575C002FADA8 /* libz.tbd in Frameworks */,
-				2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */,
+				F255515020BD52DE0097C2A4 /* Security.framework in Frameworks */,
+				F255515420BD53230097C2A4 /* UIKit.framework in Frameworks */,
 				F255515620BD532B0097C2A4 /* Foundation.framework in Frameworks */,
-				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
+				F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */,
 				2D808E6720BA5765002FADA8 /* SystemConfiguration.framework in Frameworks */,
 				F255515220BD52F70097C2A4 /* CoreTelephony.framework in Frameworks */,
-				F255515020BD52DE0097C2A4 /* Security.framework in Frameworks */,
+				F2B771A220CE839500C34C21 /* CoreFoundation.framework in Frameworks */,
+				F2B771A020CE838C00C34C21 /* CFNetwork.framework in Frameworks */,
+				F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */,
+				F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */,
+				2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */,
+				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
 				F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */,
 				2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */,
 				F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */,
@@ -2799,6 +2814,11 @@
 		91B284A98B2775F1FCAB3120 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2B771A720CE841800C34C21 /* libresolv.tbd */,
+				F2B771A520CE83FD00C34C21 /* UserNotifications.framework */,
+				F2B771A320CE83F400C34C21 /* AdSupport.framework */,
+				F2B771A120CE839500C34C21 /* CoreFoundation.framework */,
+				F2B7719F20CE838C00C34C21 /* CFNetwork.framework */,
 				F29193E920BD54BE007A5774 /* CoreGraphics.framework */,
 				F29193E720BD54B4007A5774 /* CoreText.framework */,
 				F29193E520BD54A7007A5774 /* QuartzCore.framework */,
@@ -3423,6 +3443,9 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -4245,6 +4268,7 @@
 					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
 					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
+					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatformssss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4278,6 +4302,7 @@
 					"$(PROJECT_DIR)/appmall/Public/WXpaySDK",
 					"$(PROJECT_DIR)/appmall/Public/银联支付/paymentcontrol/libs",
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
+					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatformssss;
 				PRODUCT_NAME = "$(TARGET_NAME)";

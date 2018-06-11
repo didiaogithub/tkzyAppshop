@@ -224,17 +224,28 @@
             [KUserdefaults setObject:dealerId forKey:KdealerId];
             [KUserdefaults setObject:customerId forKey:KcustomerId];
             NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
+            [CKJPushManager manager];
+            if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
+//                NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
+                NSString *uid = @"hello";
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [JPUSHService setAlias:uid completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+                        NSLog(@"注册成功：%@", iAlias);
+                    } seq:0];
+                   
+                });
+                //查看registId
+                [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+                    NSLog(@"resCode : %d,registrationID: %@",resCode,registrationID);
+                }];
+               
+            }
             if (!IsNilOrNull(meid)) {
                 
-                NSSet *setTags = [NSSet setWithObject:@"appmall"];
-                //            [JPUSHService setTags:setTags alias:[NSString stringWithFormat:@"m%@", meid] fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
-                //                NSLog(@"\n[用户登录成功后设置别名]---[%@]",iAlias);
-                //            }];
+              
                 
-                //查看registId
-                //            [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
-                //                NSLog(@"resCode : %d,registrationID: %@",resCode,registrationID);
-                //            }];
+                
+              
             }
             
             if (dic != nil) {  //请求到数据

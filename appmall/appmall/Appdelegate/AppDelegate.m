@@ -491,19 +491,10 @@
 }
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
+
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -762,4 +753,34 @@
     }
     self.lastSelectedIndex = tabBarController.selectedIndex;
 }
+
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    [[CKJPushManager manager] application:application didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    [[CKJPushManager manager] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+//收到推送消息 基于iOS 7 及以上的系统版本
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [[CKJPushManager manager] application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [[CKJPushManager manager] application:application didRegisterUserNotificationSettings:notificationSettings];
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[CKJPushManager manager] applicationWillEnterForeground:application];
+    //    //是否强制更新
+    //    [[CKVersionCheckManager shareInstance] showForceUpdate];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[CKJPushManager manager] applicationDidEnterBackground:application];
+}
+
+
 @end

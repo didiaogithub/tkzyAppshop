@@ -61,11 +61,11 @@
     self.mTableView.tableFooterView = [UIView new];
     
     self.iconImage.layer.masksToBounds = YES;
-    self.iconImage.layer.cornerRadius = 35;
+    self.iconImage.layer.cornerRadius = 40;
     self.iconImage.layer.borderColor = [UIColor tt_grayBgColor].CGColor;
     self.iconImage.layer.borderWidth = 1;
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@""]];
-    [self setRightButton:@"保存"];
+    [self setRightButton:@"保存" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
 }
 
 
@@ -343,6 +343,12 @@
         if ([dict[@"code"] integerValue] == 200) {
                [self showNoticeView:@"保存成功"];
         }
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+        
+        
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
         [self showNoticeView:@"保存失败"];

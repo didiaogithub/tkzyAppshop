@@ -100,7 +100,7 @@
         MessagDetailOffModel *model =(MessagDetailOffModel *)self.messageList[indexPath.row];
       return  [model getCellHeight];
     }else{
-        return 120;
+        return 140;
     }
     
 }

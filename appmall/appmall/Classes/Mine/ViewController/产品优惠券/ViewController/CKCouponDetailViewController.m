@@ -41,6 +41,8 @@
     
     
      [self initComponents];
+    
+    [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:NO];
      [self resquestCouponData:@"0"];
     
     
@@ -56,6 +58,10 @@
         [self.couponTable reloadData];
     }
 
+}
+
+- (void)loadNewData{
+    [self resquestCouponData:@"0"];
 }
 
 

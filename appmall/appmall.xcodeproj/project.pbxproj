@@ -447,8 +447,6 @@
 		F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E520BD54A7007A5774 /* QuartzCore.framework */; };
 		F29193E820BD54B4007A5774 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E720BD54B4007A5774 /* CoreText.framework */; };
 		F29193EA20BD54BE007A5774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29193E920BD54BE007A5774 /* CoreGraphics.framework */; };
-		F2B7719D20CE836F00C34C21 /* jcore-ios-1.1.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B7719920CE836E00C34C21 /* jcore-ios-1.1.9.a */; };
-		F2B7719E20CE836F00C34C21 /* jpush-ios-3.0.9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B7719A20CE836E00C34C21 /* jpush-ios-3.0.9.a */; };
 		F2B771A020CE838C00C34C21 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B7719F20CE838C00C34C21 /* CFNetwork.framework */; };
 		F2B771A220CE839500C34C21 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A120CE839500C34C21 /* CoreFoundation.framework */; };
 		F2B771A420CE83F400C34C21 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B771A320CE83F400C34C21 /* AdSupport.framework */; };
@@ -1349,10 +1347,6 @@
 		F29193E520BD54A7007A5774 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F29193E720BD54B4007A5774 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F29193E920BD54BE007A5774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F2B7719920CE836E00C34C21 /* jcore-ios-1.1.9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.9.a"; sourceTree = "<group>"; };
-		F2B7719A20CE836E00C34C21 /* jpush-ios-3.0.9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.9.a"; sourceTree = "<group>"; };
-		F2B7719B20CE836E00C34C21 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
-		F2B7719C20CE836E00C34C21 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		F2B7719F20CE838C00C34C21 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F2B771A120CE839500C34C21 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		F2B771A320CE83F400C34C21 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -1553,11 +1547,9 @@
 				F29193E620BD54A7007A5774 /* QuartzCore.framework in Frameworks */,
 				2D808E5F20BA573B002FADA8 /* libc++.tbd in Frameworks */,
 				2D808E6120BA5748002FADA8 /* libsqlite3.0.tbd in Frameworks */,
-				F2B7719D20CE836F00C34C21 /* jcore-ios-1.1.9.a in Frameworks */,
 				F255513E20BD44EE0097C2A4 /* AlipaySDK.framework in Frameworks */,
 				2D808E6320BA5753002FADA8 /* libsqlite3.tbd in Frameworks */,
 				F255514C20BD450C0097C2A4 /* libPaymentControl.a in Frameworks */,
-				F2B7719E20CE836F00C34C21 /* jpush-ios-3.0.9.a in Frameworks */,
 				2D808E5D20BA5702002FADA8 /* libWeChatSDK.a in Frameworks */,
 				4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */,
 			);
@@ -1597,7 +1589,6 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				F2B7719820CE836E00C34C21 /* JPush */,
 				F236AE3520BF87C8004B9A03 /* Push */,
 				F255513F20BD450B0097C2A4 /* 银联支付 */,
 				F255513A20BD44ED0097C2A4 /* AlipaySDK */,
@@ -2984,17 +2975,6 @@
 				2D20DEEE2088CC8B00095032 /* AddAddressViewController.m */,
 			);
 			path = "收货地址";
-			sourceTree = "<group>";
-		};
-		F2B7719820CE836E00C34C21 /* JPush */ = {
-			isa = PBXGroup;
-			children = (
-				F2B7719920CE836E00C34C21 /* jcore-ios-1.1.9.a */,
-				F2B7719A20CE836E00C34C21 /* jpush-ios-3.0.9.a */,
-				F2B7719B20CE836E00C34C21 /* JPushNotificationExtensionService.h */,
-				F2B7719C20CE836E00C34C21 /* JPUSHService.h */,
-			);
-			path = JPush;
 			sourceTree = "<group>";
 		};
 		F2C1E77020C1335D00ECCFFE /* 欠款管理 */ = {

@@ -312,10 +312,15 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _orderNumberLable = [UILabel configureLabelWithTextColor:[UIColor darkGrayColor] textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [headerView addSubview:_orderNumberLable];
     _orderNumberLable.text = @"订单编号:";
-    _orderNumberLable.frame = CGRectMake(10, 0, (SCREEN_WIDTH-150), 45);
+    [_orderNumberLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_offset(10);
+        make.top.mas_offset(0);
+        make.height.mas_offset(45);
+    }];
     _orderNumberLable.adjustsFontSizeToFitWidth = YES;
     UILabel *qian = [UILabel configureLabelWithTextColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter font:MAIN_TITLE_FONT];
-    qian.frame = CGRectMake((SCREEN_WIDTH-150) + 10,10, 25, 25);
+    qian.layer.masksToBounds = YES;
+    qian.layer.cornerRadius = 3;
     qian.text = @"欠";
   
     
@@ -352,6 +357,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //        }else{
             _orderNumberLable.text = [NSString stringWithFormat:@"订单编号：%@", orderModel.orderno];
         
+        qian.frame = CGRectMake(_orderNumberLable.mj_x + _orderNumberLable.mj_textWith + 15, 10, 25, 25);
         
         qian.backgroundColor = [UIColor redColor];
         if ([orderModel.ordertypelabel containsString:@"欠"]) {
@@ -359,6 +365,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }else{
             [headerView removeFromSuperview];
         }
+        
 //        }
     }
     return headerView;

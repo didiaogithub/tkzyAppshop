@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "550150333.534511"
+            timestampString = "550424058.506893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "739"
-            endingLineNumber = "739"
+            startingLineNumber = "746"
+            endingLineNumber = "746"
             landmarkName = "-payOrder:"
             landmarkType = "7">
          </BreakpointContent>

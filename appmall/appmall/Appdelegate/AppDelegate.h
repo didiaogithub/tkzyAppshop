@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, assign) NSInteger paymentType;
 @property (assign, nonatomic) CGFloat headButtonSize;
+@property(nonatomic,assign)BOOL isNewUser;
 
 + (AppDelegate* )shareAppDelegate;
 

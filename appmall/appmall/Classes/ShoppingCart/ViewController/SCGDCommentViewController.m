@@ -49,7 +49,7 @@
     if (self.detailModel == nil) {
         return;
     }
-    [param setObject:@"37" forKey:@"itemid"];
+    [param setObject:self.detailModel.itemid forKey:@"itemid"];
     
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CommentListUrl];
     [HttpTool getWithUrl:loveItemUrl params:param success:^(id json) {

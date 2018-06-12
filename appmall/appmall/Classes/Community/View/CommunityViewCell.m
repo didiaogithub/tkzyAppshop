@@ -25,6 +25,10 @@ CommListModelItem * selfModel ;
 
 -(void)refreshData:(CommListModelItem *)model{
     selfModel = model;
+    [self.btnDianzan setTitle:[NSString stringWithFormat:@"%@",model.praisenum] forState:0];
+    [self.btnComm setTitle:[NSString stringWithFormat:@"%@",model.commentnum] forState:0];
+    [self.btnShare setTitle:[NSString stringWithFormat:@"%@",model.forwardnum] forState:0];
+    self.btnDianzan.selected = [model.ispraise boolValue];
     [self.imgCommIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
     self.labCommName.text = model.name;
     self.labCommTime.text = [model.time substringWithRange:NSMakeRange(5, 11)];
@@ -53,11 +57,15 @@ CommListModelItem * selfModel ;
     // Configure the view for the selected state
 }
 - (IBAction)actionGood:(id)sender {
-    [self .delegate communityViewCellGood:selfModel];
+    [self .delegate communityViewCellGood:selfModel andIndex:self.index];
 }
 - (IBAction)actionShare:(id)sender {
-  [CKShareManager shareToFriendWithName:selfModel.name andHeadImages:nil andUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",CommShareUrl,selfModel.itemid]] andTitle:nil];
+
+    [self .delegate comunityShare:selfModel];
 }
+
+
+
 - (IBAction)actionComm:(id)sender {
     CommPingLunListViewController *listVC = [[CommPingLunListViewController alloc]init];
     listVC.hidesBottomBarWhenPushed = YES;

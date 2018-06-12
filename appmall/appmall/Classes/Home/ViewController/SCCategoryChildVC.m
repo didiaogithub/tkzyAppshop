@@ -40,6 +40,10 @@
     return _nodataLableView;
 }
 
+-(BOOL)shouldAutomaticallyForwardAppearanceMethods{
+    return NO;
+}
+
 -(void)passSortIdArray:(id)data {
     
     self.idArr = data;
@@ -54,57 +58,23 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initComponents];
+    
+    [UITableView refreshHelperWithScrollView:self.cateTableView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+   
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [self loadNewData];
+}
+
+-(void)loadNewData{
     _pageNo = 1;
-    [self refreshData];
+    [self requestData];
 }
-
--(void)zj_viewDidAppearForIndex:(NSInteger)index {
-    
-    if (index == 0) {
-        self.categoryId = [self.idArr firstObject];
-        RequestReachabilityStatus status = [RequestManager reachabilityStatus];
-        switch (status) {
-            case RequestReachabilityStatusReachableViaWiFi:
-            case RequestReachabilityStatusReachableViaWWAN: {
-                [self requestData];
-            }
-                break;
-            default: {
-                [self.cateTableView.mj_header endRefreshing];
-                [self.cateTableView.mj_footer endRefreshing];
-                if (self.dataArr.count == 0) {
-                    _nodataLableView.hidden = NO;
-                    [self.cateTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.dataArr.count];
-                }
-            }
-                break;
-        }
-    }
-}
-
--(void)zj_viewDidLoadForIndex:(NSInteger)index {
-    
-    if (index == 0) {
-        return;
-    }
-    self.categoryId = [NSString stringWithFormat:@"%@", self.idArr[index]];
-    RequestReachabilityStatus status = [RequestManager reachabilityStatus];
-    switch (status) {
-        case RequestReachabilityStatusReachableViaWiFi:
-        case RequestReachabilityStatusReachableViaWWAN: {
-            [self requestData];
-        }
-            break;
-        default: {
-            [self.cateTableView.mj_header endRefreshing];
-            [self.cateTableView.mj_footer endRefreshing];
-            if (self.dataArr.count == 0) {
-                _nodataLableView.hidden = NO;
-                [self.cateTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.dataArr.count];
-            }
-        }
-            break;
-    }
+-(void)zj_viewWillAppearForIndex:(NSInteger)index{
+    self.categoryId = self.idArr[index];
+    [self loadNewData];
 }
 
 -(void)requestData {
@@ -130,9 +100,10 @@
         [self.loadingView stopAnimation];
         
         NSDictionary *dic = json;
-        [self.cateTableView.mj_header endRefreshing];
-        [self.cateTableView.mj_footer endRefreshing];
-        
+      
+        if (_pageNo == 1) {
+            [self.dataArr removeAllObjects];
+        }
         if ([dic[@"code"] integerValue] !=  200) {
             [self showNoticeView:dic[@"message"]];
             return ;
@@ -140,6 +111,7 @@
         
         NSLog(@"%@", dic);
         NSArray *goodslist = dic[@"data"][@"goodsList"];
+        [self.cateTableView tableViewEndRefreshCurPageCount:goodslist.count];
         if (goodslist.count == 0) {
             
             _nodataLableView.hidden = NO;
@@ -164,8 +136,7 @@
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         
-        [self.cateTableView.mj_header endRefreshing];
-        [self.cateTableView.mj_footer endRefreshing];
+        [self.cateTableView tableViewEndRefreshCurPageCount:0];
         if (self.dataArr.count == 0) {
             _nodataLableView.hidden = NO;
             [self.cateTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.dataArr.count];
@@ -293,106 +264,10 @@
     [self.navigationController pushViewController:downVC animated:YES];
 }
 
--(void)refreshData{
-    
-    __weak typeof(self) weakSelf = self;
-    self.cateTableView.mj_header = [MJGearHeader headerWithRefreshingBlock:^{
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf.cateTableView.mj_header beginRefreshing];
-        [self.cateTableView.mj_footer endRefreshing];
-        
-        NSDate *nowDate = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"yyy-MM-dd HH:mm:ss";
-        strongSelf.endInterval = [nowDate timeIntervalSince1970];
-        NSTimeInterval value = strongSelf.endInterval - strongSelf.startInterval;
-        CGFloat second = [[NSString stringWithFormat:@"%.2f",value] floatValue];//秒
-        NSLog(@"间隔------%f秒",second);
-        strongSelf.startInterval = strongSelf.endInterval;
-        
-        RequestReachabilityStatus status = [RequestManager reachabilityStatus];
-        switch (status) {
-            case RequestReachabilityStatusReachableViaWiFi:
-            case RequestReachabilityStatusReachableViaWWAN: {
-                if (value >= Interval) {
-                    [strongSelf requestData];
-                }else{
-                    [strongSelf.cateTableView.mj_header endRefreshing];
-                }
-            }
-                break;
-            default: {
-                [strongSelf showNoticeView:NetWorkNotReachable];
-                [strongSelf.cateTableView.mj_header endRefreshing];
-                [strongSelf.cateTableView.mj_footer endRefreshing];
-                if (strongSelf.dataArr.count == 0) {
-                    strongSelf.nodataLableView.hidden = NO;
-                    [strongSelf.cateTableView tableViewDisplayView:strongSelf.nodataLableView ifNecessaryForRowCount:strongSelf.dataArr.count];
-                }
-            }
-                break;
-        }
-    }];
-    
-    self.cateTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf loadMoreData];
-    }];
-}
 
 -(void)loadMoreData {
-    NSString *startindex = [NSString stringWithFormat:@"%ld", self.dataArr.count+1];
-    NSString *endindex = [NSString stringWithFormat:@"%ld", [startindex integerValue]+20];
-    NSDictionary *pramaDic= @{@"openid":USER_OPENID, @"categoryId":self.categoryId, @"sorttype":@"2", @"startindex":startindex, @"endindex":endindex};
-    //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CategoryUrl];
-    
-    [self.view addSubview:self.loadingView];
-    [self.loadingView startAnimation];
-    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
-        [self.loadingView stopAnimation];
-        [self.cateTableView.mj_footer endRefreshing];
-        
-        NSDictionary *dic = json;
-        if ([dic[@"code"] integerValue] !=  200) {
-            [self showNoticeView:dic[@"message"]];
-            return ;
-        }
-        
-        NSLog(@"%@", dic);
-        NSArray *goodslist = dic[@"goodslist"];
-        if (goodslist.count == 0) {
-            [self.cateTableView.mj_footer endRefreshingWithNoMoreData];
-        }
-        
-        
-        
-        for (NSDictionary *listDic in goodslist){
-            SCCategoryGoodsModel *cateM = [[SCCategoryGoodsModel alloc] initWith:listDic];
-
-            [self.dataArr addObject:cateM];
-        }
-        
-        [self.cateTableView reloadData];
-        
-    } failure:^(NSError *error) {
-        [self.loadingView stopAnimation];
-        
-        [self.cateTableView.mj_footer endRefreshing];
-        //        [self loadCacheData:[self getCacheData]];
-        [self.cateTableView.mj_header endRefreshing];
-        [self.cateTableView.mj_footer endRefreshing];
-        if (self.dataArr.count == 0) {
-            _nodataLableView.hidden = NO;
-            [self.cateTableView tableViewDisplayView:self.nodataLableView ifNecessaryForRowCount:self.dataArr.count];
-        }
-        
-        if (error.code == -1009) {
-            [self showNoticeView:NetWorkNotReachable];
-        }else{
-            [self showNoticeView:NetWorkTimeout];
-        }
-    }];
-    
+    _pageNo ++;
+    [self requestData];
 }
 
 - (void)zj_viewWillDisappearForIndex:(NSInteger)index {

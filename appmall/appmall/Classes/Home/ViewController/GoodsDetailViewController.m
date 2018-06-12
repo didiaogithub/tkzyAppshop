@@ -83,11 +83,7 @@
     isDrag = NO;
     [self setTitleViewState:sender];
     NSIndexPath *indexp ;
-    if (self.detailModel.commentList.count == 0 && sender.tag == 1001) {
-        indexp = [NSIndexPath indexPathForRow:0 inSection:2];
-    }else{
-            indexp = [NSIndexPath indexPathForRow:0 inSection:sender.tag  - 1000];
-    }
+   indexp = [NSIndexPath indexPathForRow:0 inSection:sender.tag  - 1000];
 
     [self.tabGoodDetail scrollToRowAtIndexPath:indexp atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }

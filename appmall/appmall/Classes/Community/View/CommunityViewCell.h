@@ -10,7 +10,8 @@
 #import "CommListModel.h"
 
 @protocol CommunityViewCellDelegate <NSObject>
--(void)communityViewCellGood:(CommListModelItem *)model;
+-(void)communityViewCellGood:(CommListModelItem *)model andIndex:(NSInteger )index;
+-(void)comunityShare:(CommListModelItem *)model;
 @end
 
 @interface CommunityViewCell : UITableViewCell
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *img2;
 @property (weak, nonatomic) IBOutlet UIButton *img3;
 @property (weak, nonatomic) IBOutlet UIButton *img4;
+@property(assign,nonatomic)NSInteger index;
 @property(nonatomic,weak)id <CommunityViewCellDelegate >delegate;
 
 -(void)refreshData:(CommListModelItem *)model;

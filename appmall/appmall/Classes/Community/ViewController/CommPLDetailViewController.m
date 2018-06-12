@@ -33,7 +33,12 @@
     [self creataToolBar];
     [self setTableView];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
-    [self loadNewData];
+  
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+      [self loadNewData];
 }
 -(void)setTableView{
     self.tabCommunityList .delegate = self;
@@ -197,12 +202,14 @@
         [cell refreshDataDetail:self.commListModel.comments[indexPath.row-1]];
         cell.delegate = nil;
     }
+    cell.index = indexPath.row;
+    
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
--(void)communityViewCellGood:(CommPingLunModel *)model{
+-(void)communityViewCellGood:(CommPingLunModel *)model andIndex:(NSInteger )index{
     
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
@@ -216,7 +223,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+    [HttpTool postWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         
         [self.loadingView stopAnimation];
         
@@ -225,10 +232,26 @@
         if ([dic[@"code"] integerValue] != 200) {
             [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
             [self.loadingView showNoticeView:dic[@"message"]];
+            
+            
             return;
         }
+        model.ispraise = [NSString stringWithFormat:@"%d", ![model.ispraise boolValue]];
+        if ([model.ispraise boolValue]) {
+            model.praise = [NSString stringWithFormat:@"%ld", [model.praise integerValue]+1 ];
+        }else{
+            model.praise = [NSString stringWithFormat:@"%ld", [model.praise integerValue] -1 ];
+        }
         
-        [self loadNewData];
+        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tabCommunityList reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+        if ([model.ispraise boolValue]) {
+            [self.loadingView showNoticeView:@"点赞成功"];
+        }else{
+            [self.loadingView showNoticeView:@"取消点赞"];
+        }
+        
+        
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

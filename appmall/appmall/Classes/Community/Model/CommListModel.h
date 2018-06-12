@@ -19,6 +19,8 @@
 @property NSString *forwardnum;
 @property NSString *head;
 @property NSString *_id;
+@property NSString *title;
+
 @property NSString *ispublish;
 @property NSString *content;
 @property NSString *istop;
@@ -29,6 +31,7 @@
 @property NSString *path3;
 @property NSString *path4;
 @property NSString *praisenum;
+@property NSString * ispraise;
 @property NSString *time;
 -(CGFloat)getCellHeight;
 @end

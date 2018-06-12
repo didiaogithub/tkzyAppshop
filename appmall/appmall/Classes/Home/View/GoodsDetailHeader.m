@@ -31,6 +31,8 @@
 
 -(void)loadData{
     [self.actionFanKui setTitle:[NSString stringWithFormat:@"反馈(%ld)",self.detailModel.commentList.count] forState:0];
+    
+    [self.actionHaoping setTitle:[NSString stringWithFormat:@"好评度%.0f%%", [self.detailModel.commentnum doubleValue] / 5 * 100] forState:0];
 //    [self.actionHaoping setTitle:@"" forState:0];
 }
 

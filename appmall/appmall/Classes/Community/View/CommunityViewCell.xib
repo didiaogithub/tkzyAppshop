@@ -172,6 +172,9 @@
                                 <state key="normal" image="点赞灰色">
                                     <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="selected" image="点赞选中">
+                                    <color key="titleColor" red="0.92156862750000001" green="0.0" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="actionGood:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kUM-iY-znS"/>
                                 </connections>
@@ -257,6 +260,7 @@
     <resources>
         <image name="分享" width="25" height="21"/>
         <image name="点赞灰色" width="25" height="23"/>
+        <image name="点赞选中" width="25" height="23"/>
         <image name="评论2" width="28" height="23"/>
     </resources>
 </document>

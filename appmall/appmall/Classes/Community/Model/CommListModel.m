@@ -28,10 +28,10 @@
 
 -(CGFloat)getCellHeight{
     CGFloat imgHeight = (KscreenWidth - 76 - 20) / 3 + 5;
-    if (self.path4.length > 10) {
+    if (!IsNilOrNull(self.path4)){
         imgHeight = imgHeight * 2 + 5;
     }
-    if (self.path1 .length < 10) {
+    if (IsNilOrNull(self.path1)) {
         imgHeight = 0;
     }
     CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;

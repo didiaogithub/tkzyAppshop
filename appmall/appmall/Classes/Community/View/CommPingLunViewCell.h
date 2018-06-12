@@ -11,7 +11,7 @@
 
 @protocol CommPingLunViewCellDelegate <NSObject>
 -(void)actionComment:(CommPingLunModel *)model;
--(void)communityViewCellGood:(CommPingLunModel *)model;
+-(void)communityViewCellGood:(CommPingLunModel *)model andIndex:(NSInteger )index;
 @end
 
 @interface CommPingLunViewCell : UITableViewCell
@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentDisLeft;
 @property (weak, nonatomic) IBOutlet UIView *viewContent;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentDisRight;
+@property (assign,nonatomic)NSInteger index;
 @property(strong,nonatomic)NSString *notId;
 @property(weak,nonatomic)id <CommPingLunViewCellDelegate> delegate;
 -(void)refreshData:(CommPingLunModel *)model IsneedCommView:(BOOL) isNeed;

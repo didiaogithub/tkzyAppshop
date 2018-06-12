@@ -38,12 +38,14 @@
     [[self getCurrentVC].navigationController pushViewController:plDetailVC animated:YES];
 }
 
--(void)refreshDataDetail:(CommcommentList *)model{
-    
+-(void)refreshDataDetail:(CommPingLunModel *)model{
+    selfModel = model;
     self.contentDisLeft.constant = 65;
     self.contentDisRight.constant = 15;
     self.labName.font = [UIFont systemFontOfSize:13];
-    self.labGood.hidden =YES;
+    self.labGood.hidden =NO;
+    [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue]] forState:0];
+    self.labGood.selected = [model.ispraise boolValue];
     self.labPinglun.hidden = YES;
     self.viewContent.backgroundColor = self.viewBottom.backgroundColor;
     
@@ -58,6 +60,11 @@
 
 -(void)refreshData:(CommPingLunModel *)model IsneedCommView:(BOOL) isNeed{
     selfModel = model;
+    
+    
+    [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue]] forState:0];
+    [self.labPinglun setTitle:[NSString stringWithFormat:@"%ld",model.comments.count] forState:0];
+    self.labGood.selected = [model.ispraise boolValue];
     self.contentDisLeft.constant = 0;
     self.contentDisRight.constant = 0;
     self.labName.font = [UIFont systemFontOfSize:15];
@@ -82,7 +89,7 @@
     [self.delegate actionComment:selfModel];
 }
 - (IBAction)actionGood:(id)sender {
-    [self.delegate communityViewCellGood:selfModel];
+    [self.delegate communityViewCellGood:selfModel andIndex:self.index];
 }
 
 @end

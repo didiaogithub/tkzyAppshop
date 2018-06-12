@@ -12,11 +12,17 @@
 #import "PostCommViewController.h"
 #import "CommDetailViewController.h"
 #define KCommunityViewCell @"CommunityViewCell"
-@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,CommunityViewCellDelegate>
+@interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,CommunityViewCellDelegate>{
+    CommListModelItem *commModel;
+    CommListModel *itemModel;
+    CommListModel *model;
+}
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
+@property (weak, nonatomic) IBOutlet UIView *shareItemView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property (assign,nonatomic)NSInteger page;
-@property(nonatomic,strong)CommListModel *model;
+@property (strong, nonatomic) IBOutlet UIView *shareView;
 
 @end
 
@@ -24,14 +30,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    itemModel = [[CommListModel alloc]init];
     [self setTableView];
+    self.shareItemView.layer.cornerRadius = 5;
+    self.shareItemView.layer.masksToBounds = YES;
+    self.btnCancel.layer.cornerRadius = 5;
+    self.btnCancel.layer.masksToBounds = YES;
+    self.shareView .frame = [UIScreen mainScreen].bounds;
+    [[UIApplication sharedApplication].keyWindow addSubview: self.shareView];
+    self.shareView.hidden = YES;
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestHomePageData" object:nil];
+    [CKCNotificationCenter addObserver:self selector:@selector(wxShareBack:) name:WeiXinShare_CallBack object:nil];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
-    [self loadNewData];
+    
     [self creatRightItem];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+    [self loadNewData];
+}
+
 - (UIImage *)xy_noDataViewImage{
     
     UIImage *image= [UIImage imageNamed:@""];
@@ -117,20 +138,22 @@
         NSArray *itemArray = dic[@"data"][@"noteList"];
         [self.tabCommunityList tableViewEndRefreshCurPageCount:itemArray.count];
         if (dic != nil) {
-            CommListModel *itemModel = [[CommListModel alloc]init];
+            if (_page == 1) {
+                itemModel = [[CommListModel alloc]init];
+            }
             for (NSDictionary *itemDic in dic[@"data"][@"noteList"]) {
                 [itemModel.commList addObject:[[CommListModelItem alloc]initWith:itemDic]];
             }
-            itemModel.commId = @"1";
-            [self.realm beginWriteTransaction];
-            [self.realm addOrUpdateObject:itemModel];
-            [self.realm commitWriteTransaction];
+//            itemModel.commId = @"1";
+//            [self.realm beginWriteTransaction];
+//            [self.realm addOrUpdateObject:itemModel];
+//            [self.realm commitWriteTransaction];
         }else{
             [self.loadingView showNoticeView:@"无更多商品"];
         }
         
-        RLMResults *result = [CommListModel allObjectsInRealm:self.realm];
-        self.model = [result firstObject];
+//        RLMResults *result = [CommListModel allObjectsInRealm:self.realm];
+        model = itemModel;
         [self.tabCommunityList reloadData];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -146,7 +169,7 @@
 #pragma mark UITableViewDelegate,UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.model.commList.count;
+    return model.commList.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -154,13 +177,14 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self.model.commList[indexPath.row] getCellHeight];
+    return [model.commList[indexPath.row] getCellHeight];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommunityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommunityViewCell];
-    [cell refreshData:self.model.commList[indexPath.row]];
+    [cell refreshData:model.commList[indexPath.row]];
     cell.delegate = self;
+    cell.index = indexPath.row;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -168,7 +192,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CommDetailViewController *detailVC = [[CommDetailViewController alloc]init];
     detailVC.hidesBottomBarWhenPushed = YES;
-    detailVC.notiID = self.model.commList[indexPath.row]._id;
+    detailVC.notiID = model.commList[indexPath.row]._id;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -178,9 +202,12 @@
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
+-(void)comunityShare:(CommListModelItem *)model{
+    commModel = model;
+    self.shareView.hidden = NO;
+}
 
-
--(void)communityViewCellGood:(CommListModelItem *)model{
+-(void)communityViewCellGood:(CommListModelItem *)model andIndex:(NSInteger )index{
     
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
@@ -193,7 +220,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+    [HttpTool postWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
         
         [self.loadingView stopAnimation];
         
@@ -202,10 +229,26 @@
         if ([dic[@"code"] integerValue] != 200) {
             [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
             [self.loadingView showNoticeView:dic[@"message"]];
+           
+         
             return;
         }
+        model.ispraise = [NSString stringWithFormat:@"%d", ![model.ispraise boolValue]];
+        if ([model.ispraise boolValue]) {
+                   model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ];
+        }else{
+                   model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue] -1 ];
+        }
+ 
+        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tabCommunityList reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+        if ([model.ispraise boolValue]) {
+            [self.loadingView showNoticeView:@"点赞成功"];
+        }else{
+            [self.loadingView showNoticeView:@"取消点赞"];
+        }
         
-        [self loadNewData];
+        
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {
@@ -216,4 +259,56 @@
         
     }];
 }
+
+-(void)wxShareBack:(NSNotification *)noti{
+    if ([noti.object integerValue] == 0) {
+        [self.loadingView showNoticeView:@"分享成功"];
+    }else{
+        [self.loadingView showNoticeView:@"分享失败"];
+    }
+}
+- (IBAction)shareBack:(id)sender {
+    self.shareView.hidden = YES;
+}
+- (IBAction)shareFirend:(id)sender {
+    [self share:WXSceneSession];
+}
+- (IBAction)shareGroup:(id)sender {
+    [self share:WXSceneTimeline];
+}
+
+-(void)share:(int)type{
+    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+        //message是多媒体分享(链接/网页/图片/音乐各种)
+        //text是分享文本,两者只能选其一
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+        WXMediaMessage *message = [WXMediaMessage message];
+        message.title = commModel.title;
+        message.description = commModel.content;
+        [message setThumbImage:[UIImage imageNamed:@""]];
+        req.message = message;
+        WXAppExtendObject *ext = [WXAppExtendObject object];
+        ext.url = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/community.html?id=%@",commModel._id];
+        message.mediaObject = ext;
+        //默认是Session分享给朋友,Timeline是朋友圈,Favorite是收藏
+        req.scene = type;
+        [WXApi sendReq:req];
+        self.shareView.hidden = YES;
+    } else {
+        [self shownotice];
+    }
+}
+
+-(void)shownotice{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装客户端" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:otherAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 @end

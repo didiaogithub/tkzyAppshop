@@ -554,6 +554,13 @@
         PayResp *response = (PayResp *)resp;
         [CKCNotificationCenter postNotificationName:WeiXinPay_CallBack object:@(response.errCode)];
     }
+
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        SendMessageToWXResp *response = (SendMessageToWXResp *)resp;
+        [CKCNotificationCenter postNotificationName:WeiXinShare_CallBack object:@(response.errCode)];
+    }
+    
+    
 }
 
 #pragma mark-通过第一步code获取Accesontoken

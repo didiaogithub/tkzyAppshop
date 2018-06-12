@@ -60,8 +60,11 @@
                                     <constraint firstAttribute="height" constant="25" id="tyY-Fs-uGl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0" image="点赞">
+                                <state key="normal" title="0" image="点赞灰色">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" image="点赞选中">
+                                    <color key="titleColor" red="0.92156862750000001" green="0.0" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="actionGood:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="E7W-HJ-yVb"/>
@@ -74,7 +77,7 @@
                                     <constraint firstAttribute="width" constant="50" id="eKY-s6-iym"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="0" image="评论1">
+                                <state key="normal" title="0" image="评论2">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -162,7 +165,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="点赞" width="30" height="14"/>
-        <image name="评论1" width="13" height="13"/>
+        <image name="点赞灰色" width="25" height="23"/>
+        <image name="点赞选中" width="25" height="23"/>
+        <image name="评论2" width="28" height="23"/>
     </resources>
 </document>

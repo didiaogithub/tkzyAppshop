@@ -82,6 +82,7 @@
 #define WeiXinAuthSuccess @"WeiXinAuthSuccess"
 /* 微信支付回调 */
 #define WeiXinPay_CallBack @"weixinpay"
+#define WeiXinShare_CallBack @"WeiXinShare_CallBack"
 #define Alipay_CallBack @"AlipayBack"
 #define UnionPay_CallBack @"UnionpayCallBack"
 

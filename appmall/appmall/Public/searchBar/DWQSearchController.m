@@ -41,6 +41,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         self.historyArr = [NSMutableArray array];
         self.HotArr = [NSMutableArray array];
         self.resultTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NaviHeight, KscreenWidth, KscreenHeight)];
+        [UITableView refreshHelperWithScrollView:self.resultTableView target:self loadNewData:nil loadMoreData:nil isBeginRefresh:NO];
         self.resultTableView.delegate = self;
         self.resultTableView.dataSource = self;
         self.resultTableView.hidden = YES;
@@ -60,6 +61,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
   
     // Do any additional setup after loading the view.
 }
+
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -90,6 +92,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     //请求数据
     [pramaDic setObject:self.searchBar.text forKey:@"keyword"];
+    
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetCourseListByKey];
     
     
@@ -108,16 +111,18 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         
         
         NSArray *list = dic[@"data"][@"courseList"];
-        
-        if (dic != nil) {
+        [self.classArray removeAllObjects];
+        if (list.count != 0) {
             for (NSDictionary *itemDic in dic[@"data"][@"courseList"]) {
                 ClassListModel *model = [[ClassListModel alloc]initWith:itemDic];
                 [self.classArray addObject:model];
             }
-            [self.resultTableView reloadData];
         }else{
-            [self.loadingView showNoticeView:@"无更多商品"];
+            [self.loadingView showNoticeView:@"没有该类课程"];
         }
+        
+        
+        [self.resultTableView reloadData];
         [self createUI];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -459,7 +464,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     [hisMarray addObject:textField.text];
     self.historyArr = hisMarray;
     [KUserdefaults setObject:hisMarray forKey:@"historyArr"];
-    [self createUI];
+//    [self createUI];
     [self loadDataResutl];
   
        return YES;

@@ -409,7 +409,7 @@
     if (index == 2) {
         GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
         SCCategoryGoodsModel *modelItem = [[SCCategoryGoodsModel alloc]init];
-        modelItem.itemid = model.topicList[index].itemid;
+        modelItem.itemid = model.topicList[indexpath.row].itemid;
         detailVC.goodsM  = modelItem;
         [self.navigationController pushViewController:detailVC animated:YES];
     }

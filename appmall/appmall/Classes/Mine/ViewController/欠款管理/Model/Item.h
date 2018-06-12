@@ -11,6 +11,7 @@
 @property (nonatomic, strong) NSString * price;
 @property (nonatomic, strong) NSString * spec;
 
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)toDictionary;

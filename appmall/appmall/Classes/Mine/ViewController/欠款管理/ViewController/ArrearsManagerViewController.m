@@ -283,6 +283,9 @@
     view.leftBtn.tag = section;
     view.rightBtn.tag = section;
     arrearsModel  * model = self.dataArray[section];
+    
+ 
+    
     view.orderTotal.font = [UIFont systemFontOfSize:18];
     
     int status = [self.statusString intValue];
@@ -294,6 +297,8 @@
         view.orderTotal.font = [UIFont systemFontOfSize:13];
         view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
     }else{
+        view.leftBtn.hidden = YES;
+        view.rightBtn.hidden = YES;
         view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
@@ -328,6 +333,7 @@
             return ;
         }
         [self showNoticeView:@"取消成功"];
+        [self loadNewData];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

@@ -89,8 +89,9 @@
     // 用户id，用于标识用户
     NSString *dealerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KdealerId]];
     NSString *customerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KcustomerId]];
-    if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
-         NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
+    NSString *salesId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KsalesId]];
+    if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)&&!IsNilOrNull(salesId)) {
+         NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@_%@",dealerId,customerId,salesId];
         initInfo.userId = uid;
     }
    
@@ -147,7 +148,7 @@
     initInfo.phone = mobile;
     // 用户昵称
     if (!IsNilOrNull(realname)) {
-        initInfo.realName = [NSString stringWithFormat:@"%@",realname];
+        initInfo.realName = [NSString stringWithFormat:@"顾客_%@",realname];
     }
 //    // 用户头像链接地址
     initInfo.avatarUrl = head;

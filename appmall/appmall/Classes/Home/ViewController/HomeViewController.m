@@ -39,6 +39,7 @@
     
     __weak IBOutlet UITableView *tabHomeList;
     __weak IBOutlet UILabel *newUserInfo;
+    UILabel *numMsg ;
     
 }
 @end
@@ -54,6 +55,8 @@
     self.token = [self.realm addNotificationBlock:^(RLMNotification  _Nonnull notification, RLMRealm * _Nonnull realm) {
         [weakSelf tabReloadData];
     }];
+    [CKCNotificationCenter addObserver:self selector:@selector(showWhiteLab) name:@"showWhiteLab" object:nil];
+    [CKCNotificationCenter addObserver:self selector:@selector(hiddenWhiteLab) name:@"hiddenWhiteLab" object:nil];
 
     if ( [[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
         [self loadNewUser];
@@ -262,13 +265,13 @@
 
 -(void)creatRightItem{
     UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    UILabel *numMsg = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 13, 13)];
-    numMsg.text = @"2";
+    numMsg = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 13, 13)];
+    numMsg.hidden = YES;
     numMsg.textAlignment = NSTextAlignmentCenter;
     numMsg .font = [UIFont systemFontOfSize:8];
     numMsg.textColor = [UIColor whiteColor];
     numMsg.backgroundColor = [UIColor redColor];
-    numMsg.layer .cornerRadius = 5;
+    numMsg.layer .cornerRadius = 13 * 0.5;
     numMsg.layer.masksToBounds = YES;
     [rightView addSubview:numMsg];
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -300,6 +303,14 @@
     }
     [self actionGoto:0];
     
+}
+
+- (void)showWhiteLab{
+    numMsg.hidden = NO;
+}
+
+- (void)hiddenWhiteLab{
+    numMsg.hidden = YES;
 }
 
 #pragma recommendViewCellDelegateMore

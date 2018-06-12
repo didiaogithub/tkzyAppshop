@@ -1676,10 +1676,10 @@
 				2D0723AE2082F9EE0030996F /* NewFeatureViewController.h */,
 				2D0723AF2082F9EF0030996F /* NewFeatureViewController.m */,
 				2D0723F42082FEF10030996F /* HomeViewController.h */,
-				2D83E25920BD915700F2D375 /* NSMutableParagraphStyle+WB.h */,
-				2D83E25A20BD915700F2D375 /* NSMutableParagraphStyle+WB.m */,
 				2D0723F52082FEF10030996F /* HomeViewController.m */,
 				2D0723F62082FEF10030996F /* HomeViewController.xib */,
+				2D83E25920BD915700F2D375 /* NSMutableParagraphStyle+WB.h */,
+				2D83E25A20BD915700F2D375 /* NSMutableParagraphStyle+WB.m */,
 				2D0726A92083923A0030996F /* MedieaListViewController.h */,
 				2D0726AA2083923A0030996F /* MedieaListViewController.m */,
 				2D0726AB2083923A0030996F /* MedieaListViewController.xib */,
@@ -4266,7 +4266,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				PROVISIONING_PROFILE = "b17db9cd-1c11-4035-8ca2-7ab3482632c3";
+
 				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -4300,8 +4302,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "033d9449-77f5-4dfd-b8bc-dbb6959b2e55";
-				PROVISIONING_PROFILE_SPECIFIER = appstoreydappmall;
+
+				PROVISIONING_PROFILE = "f5a65f77-a1a9-4401-9169-86bc9739bb60";
+				PROVISIONING_PROFILE_SPECIFIER = adhocydappmall;
+
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

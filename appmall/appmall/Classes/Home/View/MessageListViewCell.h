@@ -10,6 +10,7 @@
 #import "MessagModel.h"
 
 @interface MessageListViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *LabRed;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messIcon;
 @property (weak, nonatomic) IBOutlet UILabel *messInfo;
 @property (weak, nonatomic) IBOutlet UILabel *messTime;

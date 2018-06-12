@@ -73,6 +73,8 @@
 #define KdealerId @"CKSC_dealerId"
 //顾客id
 #define KcustomerId @"CKSC_customerId"
+// 售货员id
+#define KsalesId @"CKSC_salesId"
 #define KMyCouponList @"CKSC_myCouponList"
 
 

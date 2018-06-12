@@ -47,7 +47,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[UIApplication sharedApplication].keyWindow addSubview:viewNewUser];
+    viewNewUser.frame = [UIScreen mainScreen].bounds;
         MJWeakSelf;
     self.token = [self.realm addNotificationBlock:^(RLMNotification  _Nonnull notification, RLMRealm * _Nonnull realm) {
         [weakSelf tabReloadData];

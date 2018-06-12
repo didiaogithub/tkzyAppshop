@@ -25,13 +25,27 @@
 @end
 @implementation MessageViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    int gfcount = [CKJPushManager manager].gfMessageCount;
+    int wlcount = [CKJPushManager manager].wlMessageConut;
+    int ddcount = [CKJPushManager manager].ddMessageCount;
+    int fpcount = [CKJPushManager manager].fpMessageCount;
+    int fqcount = [CKJPushManager manager].fqMessageCount;
+    int totalcount = gfcount + wlcount + ddcount + fqcount + fpcount;
+    if (totalcount == 0) {
+        [CKCNotificationCenter postNotificationName:@"hiddenWhiteLab" object:nil];
+    }
+    
+    [self setTableView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"消息中心";
     self.topDis.constant = NaviHeight;
     self.messageList = [NSMutableArray arrayWithCapacity:0];
-    [self setTableView];
     [self requestData];
     [CKCNotificationCenter addObserver:self selector:@selector(refreshMessageCount) name:@"refreshMessageCount" object:nil];
     // Do any additional setup after loading the view from its nib.
@@ -142,7 +156,20 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MessageDetailViewController *detailVC = [[MessageDetailViewController alloc]init];
+   
     detailVC.messageType = self.messageList[indexPath.row].messageType;
+    
+    if ([detailVC.messageType isEqualToString:@"1"]) {
+        [CKJPushManager manager].wlMessageConut = 0;
+    }else if ([detailVC.messageType isEqualToString:@"2"]){
+        [CKJPushManager manager].ddMessageCount = 0;
+    }else if ([detailVC.messageType isEqualToString:@"3"]){
+        [CKJPushManager manager].fqMessageCount = 0;
+    }else if ([detailVC.messageType isEqualToString:@"4"]){
+        [CKJPushManager manager].fpMessageCount = 0;
+    }else{
+        [CKJPushManager manager].gfMessageCount = 0;
+    }
     detailVC.titleStr = self.messageList[indexPath.row].name;
     [self.navigationController pushViewController:detailVC animated:YES];
     

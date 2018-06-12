@@ -180,7 +180,7 @@
                 [self.shoppingCarDataArray removeAllObjects];
                 [self.shoppingCarTableView reloadData];
                 
-                _editBtn.enabled = NO;
+//                _editBtn.enabled = NO;
                 
             }
 
@@ -209,7 +209,7 @@
         }else{
             [self.shoppingCarDataArray removeAllObjects];
             [self.shoppingCarTableView reloadData];
-            _editBtn.enabled = NO;
+//            _editBtn.enabled = NO;
         }
         _bottomView.realPayMoneyLable.text = @"合计:￥0.00";
         _bottomView.allSelectedButton.selected = NO;
@@ -226,10 +226,10 @@
             [self.loadingView showNoticeView:NetWorkTimeout];
         }
         if(self.shoppingCarDataArray.count == 0){
-            _editBtn.enabled = NO;
+//            _editBtn.enabled = NO;
             
         }else{
-            _editBtn.enabled = YES;
+//            _editBtn.enabled = YES;
         }
     }];
 }
@@ -246,9 +246,9 @@
         [self.shoppingCarTableView.mj_header endRefreshing];
         [self.shoppingCarTableView.mj_footer endRefreshing];
         [self.shoppingCarTableView reloadData];
-        _editBtn.enabled = YES;
+//        _editBtn.enabled = YES;
     }else{
-        _editBtn.enabled = NO;
+//        _editBtn.enabled = NO;
 
     }
 }
@@ -294,7 +294,7 @@
     [_editBtn setTitle:@"完成" forState:UIControlStateSelected];
     [_editBtn setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateSelected];
     
-    _editBtn.enabled = NO;
+//    _editBtn.enabled = NO;
     
     [_editBtn addTarget:self action:@selector(clickEditButton:) forControlEvents:UIControlEventTouchUpInside];
     [_editBtn setTitleColor:SubTitleColor forState:UIControlStateNormal];
@@ -522,7 +522,7 @@
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-    
+//    
 //    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
 //        [self.loadingView stopAnimation];
 //        NSDictionary *dic = json;
@@ -621,7 +621,7 @@
         [self getshoppingCarData];
         [self.loadingView showNoticeView:@"删除成功"];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

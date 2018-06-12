@@ -36,7 +36,7 @@
     
     _rightImageView = [[UIImageView alloc] init];
     [_selectedAddressButton addSubview:_rightImageView];
-    [_rightImageView setImage:[UIImage imageNamed:@"定位"]];
+    [_rightImageView setImage:[UIImage imageNamed:@"确认订单箭头"]];
     [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(15*SCREEN_HEIGHT_SCALE);
         make.right.mas_offset(-10);

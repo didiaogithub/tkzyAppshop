@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "MedieaDetailViewController.h"
+#import "RootNavigationController.h"
 #import "DWQSearchController.h"
 #import "WBAdsImgView.h"
 #import "RecommendViewCell.h"
@@ -24,15 +25,20 @@
 @interface HomeViewController ()<WBAdsImgViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
 {
     TKHomeDataModel *model;
+    __weak IBOutlet UILabel *labNewUserTime;
     __weak IBOutlet NSLayoutConstraint *tabDisBottom;
     __weak IBOutlet NSLayoutConstraint *tabDisTop;
-
+    __weak IBOutlet UIView *viewNewUser;
+    
     WBAdsImgView *adsView;
 
+    __weak IBOutlet UILabel *labNewUserCost;
     CGFloat curY;
     UIView  *menuView;
-
+    __weak IBOutlet UILabel *newUserTitle;
+    
     __weak IBOutlet UITableView *tabHomeList;
+    __weak IBOutlet UILabel *newUserInfo;
     
 }
 @end
@@ -41,12 +47,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication].keyWindow addSubview:viewNewUser];
         MJWeakSelf;
     self.token = [self.realm addNotificationBlock:^(RLMNotification  _Nonnull notification, RLMRealm * _Nonnull realm) {
         [weakSelf tabReloadData];
     }];
-     AppDelegate *app = [AppDelegate shareAppDelegate];
-    if (app.isNewUser == NO) {
+
+    if ( [[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
         [self loadNewUser];
     }
 
@@ -107,9 +114,20 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
-        
+        dic = dic[@"data"][@"coupons"];
         if (dic != nil) {  //请求到数据
-
+            viewNewUser.hidden = NO;
+            labNewUserCost.text  = [NSString stringWithFormat:@"%.0f",[dic[@"use_money"] doubleValue]];
+            newUserInfo.text = [NSString stringWithFormat:@"%@",dic[@"rule_name"]];
+            newUserInfo.adjustsFontSizeToFitWidth = YES;
+            newUserTitle.text = [NSString stringWithFormat:@" %@   ",dic[@"instructions"]];
+            newUserTitle.layer.cornerRadius = newUserTitle.mj_h / 2;
+            newUserTitle.layer.masksToBounds = YES;
+            NSString *endTime = [dic[@"end_time"] substringFromIndex:5];
+            endTime = [endTime stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+            NSString *start_time = [dic[@"start_time"] substringFromIndex:5];
+            start_time = [start_time stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+            labNewUserTime.text = [NSString stringWithFormat:@"%@~%@",start_time,endTime];
         }
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -418,4 +436,19 @@
     messageVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:messageVC animated:YES];
 }
+- (IBAction)newUserBackClick:(id)sender {
+    viewNewUser.hidden = YES;
+}
+- (IBAction)lookNewUserGoods:(id)sender {
+    viewNewUser.hidden = YES;
+    [self goWelcom];
+    
+}
+
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+}
+
 @end

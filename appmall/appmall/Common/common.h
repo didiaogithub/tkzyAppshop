@@ -258,7 +258,7 @@
 #define CommentListUrl @"Goods/getGoodsComment"
 
 
-#define APIAddCouption @"Goods/addCouption"
+#define APIAddCouption @"Goods/firstLogin"
 /**获取购物车列表*/
 #define GetShoppingCarUrl @"Cart/getShoppingCartInfo"
 /**删除购物车商品*/

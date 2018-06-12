@@ -54,6 +54,7 @@
     }
 }
 
+
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     
     if (self.navigationController.childViewControllers.count==1) {

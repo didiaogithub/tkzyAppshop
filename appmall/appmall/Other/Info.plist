@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>天康制药</string>
+	<string>天康生物</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -35,6 +35,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>jdpay</string>
@@ -43,7 +45,6 @@
 		<string>uppayx1</string>
 		<string>uppayx2</string>
 		<string>uppayx3</string>
-		<string>ckys</string>
 		<string>weixin</string>
 		<string>wechat</string>
 		<string>wtloginmqq2</string>

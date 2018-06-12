@@ -187,14 +187,14 @@
             
             for (NSDictionary *goodDic in itemArr) {
                 GoodModel *model = [[GoodModel alloc]initWith:goodDic];
-//                model.itemid = [NSString stringWithFormat:@"%@", model[@"itemid"]];
-//                model.imgpath = [NSString stringWithFormat:@"%@", goodDic[@"imgpath"]];
-//                model.name = [NSString stringWithFormat:@"%@", goodDic[@"name"]];
-//                model.price = [NSString stringWithFormat:@"%@", goodDic[@"price"]];
-//                model.spec = [NSString stringWithFormat:@"%@",goodDic[@"spec"]];
-//                model.chose = [NSString stringWithFormat:@"%@",goodDic[@"chose"]];
-//                model.num = [NSString stringWithFormat:@"%@",goodDic[@"num"]];
-//                model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
+                model.itemid = [NSString stringWithFormat:@"%@", model[@"itemid"]];
+                model.imgpath = [NSString stringWithFormat:@"%@", goodDic[@"imgpath"]];
+                model.name = [NSString stringWithFormat:@"%@", goodDic[@"name"]];
+                model.price = [NSString stringWithFormat:@"%@", goodDic[@"price"]];
+                model.spec = [NSString stringWithFormat:@"%@",goodDic[@"spec"]];
+                model.chose = [NSString stringWithFormat:@"%@",goodDic[@"chose"]];
+                model.num = [NSString stringWithFormat:@"%@",goodDic[@"num"]];
+                model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
                 model.isSelect = NO;
                 [self.shoppingCarDataArray addObject:model];
             }
@@ -346,9 +346,9 @@
     __weak typeof(self) weakSelf = self;
     [cell setBlock:^(GoodModel *model, NSInteger row) {
         NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.num);
-        [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0"];
+        [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0" andnum:model.num];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
     }];
     return cell;
 }
@@ -357,13 +357,13 @@
 
 
 #pragma mark-计算总价格
-- (void)numPrice:(GoodModel*)models andtype:(NSString *)type {
+- (void)numPrice:(GoodModel*)models andtype:(NSString *)type andnum:(NSString *)numCount {
     NSDecimalNumber *num = [[NSDecimalNumber alloc] initWithString:@"0.00"];
     NSString *result = nil;
     for (int i=0; i<self.shoppingCarDataArray.count; i++) {
         models = [self.shoppingCarDataArray objectAtIndex:i];
         NSString *pricestr = [NSString stringWithFormat:@"%@",models.price];
-        NSString *localCountStr = [NSString stringWithFormat:@"%@", models.num];
+        NSString *localCountStr = [NSString stringWithFormat:@"%@",numCount];
         if (IsNilOrNull(localCountStr)) {
             localCountStr = @"1";
         }
@@ -427,7 +427,7 @@
         }
     }
    goodModel =  self.shoppingCarDataArray[indexRow];
-    [self numPrice:goodModel andtype:@"0"];
+    [self numPrice:goodModel andtype:@"0" andnum:goodModel.num];
     //一个cell刷新
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexRow inSection:section]; //刷新第0段第2行
     [self.shoppingCarTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -469,7 +469,7 @@
                 [GoodModel createOrUpdateInRealm:self.realm withValue:classM];
                 [self.realm commitWriteTransaction];
             }
-            [self numPrice:_goodModel andtype:@"1"];
+            [self numPrice:_goodModel andtype:@"1" andnum:_goodModel.num];
             [self.shoppingCarTableView reloadData];
         }
     }else{

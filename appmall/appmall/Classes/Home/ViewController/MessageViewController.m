@@ -33,7 +33,12 @@
     self.messageList = [NSMutableArray arrayWithCapacity:0];
     [self setTableView];
     [self requestData];
+    [CKCNotificationCenter addObserver:self selector:@selector(refreshMessageCount) name:@"refreshMessageCount" object:nil];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)refreshMessageCount{
+    [self.messageListIView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

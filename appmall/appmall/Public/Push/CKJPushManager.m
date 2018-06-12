@@ -9,6 +9,9 @@
 #import "CKJPushManager.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MessageAlert.h"
+#import "MessageViewController.h"
+#import "MessageDetailViewController.h"
+#import "WebDetailViewController.h"
 static NSString *appKey = @"7c0f313789218c8884f00832";
 static NSString *channel = @"App Store";
 static BOOL isProduction = YES;
@@ -81,10 +84,9 @@ static BOOL isProduction = YES;
         [JPUSHService registerDeviceToken:deviceToken];
         
        });
-    NSString *dealerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KdealerId]];
     NSString *customerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KcustomerId]];
-    if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
-        NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
+    if (!IsNilOrNull(customerId)) {
+        NSString *uid = [NSString stringWithFormat:@"CZ_%@",customerId];
         [JPUSHService setAlias:uid completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
             NSLog(@"注册成功：%@", iAlias);
         } seq:0];
@@ -206,140 +208,110 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     
     NSLog(@"方法名称:%s\n收到消息:%@", __func__, userInfo);
     
-//    NSDictionary *apsDict = [userInfo objectForKey:@"aps"];
-//    NSString *content = [apsDict objectForKey:@"alert"];//内容
-//    NSString *title = [userInfo objectForKey:@"title"];
-//    if (IsNilOrNull(title)) {
-//        title = @"";
-//    }
-//    NSString *type = [userInfo objectForKey:@"type"];
-//    if (IsNilOrNull(type)) {
-//        type = @"";
-//    }
-//    NSString *msgid = userInfo[@"id"];
-//    NSString *money = userInfo[@"money"];
-//    NSString *imageUrl = userInfo[@"url"];
-//
-//    if(IsNilOrNull(msgid)){
-//        msgid = @"";
-//    }
-//    if(IsNilOrNull(money)){
-//        money = @"";
-//    }
-//    if(IsNilOrNull(imageUrl)){
-//        imageUrl = @"";
-//    }
-//
-//
-//    [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
-//    [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
-//    // 1公司政策 2奖惩通知 3会议报名 4系统通知
-//
-//    if ([type isEqualToString:@"1"]) {
-//        _gsMessageConut++;
-//
-//
-//    }
-//    if ([type isEqualToString:@"2"]) {
-//        _jcMessageCount++;
-//    }
-//    if ([type isEqualToString:@"3"]) {
-//        _hyMessageCount++;
-//    }
-//    if ([type isEqualToString:@"4"]) {
-//        _sysMessageCount++;
-//    }
-//    if ([type isEqualToString:@"5"]) {
-//        _jsMessageCount++;
-//    }
-//
-//    NSString *urlStr;
-//    UIViewController *currentVC = [self currentVC];
-//    if (![currentVC isKindOfClass:[OANewsCenterViewController class]]) {
-//        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
-//
-//        MessageAlert *messageByPushAler = [[MessageAlert alloc] init];
-//        messageByPushAler.isDealInBlock = YES;
-//
-//
-//        NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[CommonMethod addNotSignComomPara:nil]];
-//         [para setObject:msgid forKey:@"msgid"];
-//        UIApplication *application = [UIApplication sharedApplication];
-//        if (application.applicationState == UIApplicationStateActive){//在应用内时收到推送
-//            if ([type isEqualToString:@"1"]){
-//
-//                 [para setObject:@"1" forKey:@"type"];
-//                 urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/c_policy.html?"]];
-//                [messageByPushAler hiddenCancelBtn:NO];
-//                [messageByPushAler showAlert:title content:content btnClick:^{
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _gsMessageConut --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//                }];
-//            }else if([type isEqualToString:@"2"] ){
-//                 [para setObject:@"2" forKey:@"type"];
-//                 urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/rp_notice.html?"]];
-//                [messageByPushAler hiddenCancelBtn:NO];
-//                [messageByPushAler showAlert:title content:content btnClick:^{
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _jcMessageCount --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//                }];
-//            }else if ([type isEqualToString:@"3"]){
-//                [para setObject:@"3" forKey:@"type"];
-//                 urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/m_report.html?"]];
-//                [messageByPushAler hiddenCancelBtn:NO];
-//                [messageByPushAler showAlert:title content:content btnClick:^{
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _hyMessageCount --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//                }];
-//            }else if ([type isEqualToString:@"4"]){
-//                [messageByPushAler hiddenCancelBtn:NO];
-//                [messageByPushAler showAlert:title content:content btnClick:^{
-//                    OAMessageListViewController *detail = [[OAMessageListViewController alloc] init];
-//                    detail.type = @"4";
-//                    _sysMessageCount = 0;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//                }];
-//            }else{
-//                [messageByPushAler hiddenCancelBtn:NO];
-//                [messageByPushAler showAlert:title content:content btnClick:^{
-//                    OAMessageListViewController *detail = [[OAMessageListViewController alloc] init];
-//                    detail.type = @"5";
-//                    _jsMessageCount = 0;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//                }];
-//            }
-//
-//        }
-//    }
+    NSDictionary *apsDict = [userInfo objectForKey:@"aps"];
+    NSString *content = [apsDict objectForKey:@"alert"];//内容
+    NSString *title = [userInfo objectForKey:@"title"];
+    if (IsNilOrNull(title)) {
+        title = @"";
+    }
+    NSString *type = [userInfo objectForKey:@"type"];
+    if (IsNilOrNull(type)) {
+        type = @"";
+    }
+    NSString *viewId = [userInfo objectForKey:@"viewid"];
+    [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
+    [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
+     // 1官方提醒 2物流提醒 3订单提醒 4付款提醒 5发票提醒
+
+//    如果是系统消息 就有 type参数，代表的是系统消息分类，如果是官方通知就有viewid  代表的是官方通知的文章编号
+    
+    UIViewController *currentVC = [self currentVC];
+    
+    if (!IsNilOrNull(viewId)) {
+        _gfMessageCount ++;
+        if (![currentVC isKindOfClass:[WebDetailViewController class]]){
+            MessageAlert *messageByPushAler = [[MessageAlert alloc] init];
+            messageByPushAler.isDealInBlock = YES;
+            UIApplication *application = [UIApplication sharedApplication];
+            WebDetailViewController *detail = [[WebDetailViewController alloc]init];
+            [messageByPushAler hiddenCancelBtn:NO];
+            [messageByPushAler showAlert:title content:content btnClick:^{
+                detail.detailUrl =  [NSString stringWithFormat:@"%@h5/html/officialnotice.html?id=%@",WebServiceAPI,viewId];
+                _gfMessageCount -- ;
+                [self totalcount];
+                [currentVC.navigationController pushViewController:detail animated:YES];
+            }];
+        }
+    }else{
+        if ([type isEqualToString:@"1"]) {
+            _wlMessageConut++;
+        }
+        if ([type isEqualToString:@"2"]) {
+            _ddMessageCount++;
+        }
+        if ([type isEqualToString:@"3"]) {
+            _fqMessageCount++;
+        }
+        if ([type isEqualToString:@"4"]) {
+            _fpMessageCount++;
+        }
+    }
+    
+    if (![currentVC isKindOfClass:[MessageDetailViewController class]]) {
+        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
+
+        MessageAlert *messageByPushAler = [[MessageAlert alloc] init];
+        messageByPushAler.isDealInBlock = YES;
+        UIApplication *application = [UIApplication sharedApplication];
+        MessageDetailViewController *detail = [[MessageDetailViewController alloc]init];
+        if (application.applicationState == UIApplicationStateActive){//在应用内时收到推送
+            if ([type isEqualToString:@"1"]){
+                [messageByPushAler hiddenCancelBtn:NO];
+                [messageByPushAler showAlert:title content:content btnClick:^{
+        
+                    detail.messageType = @"1";
+                    detail.titleStr = title;
+                    _wlMessageConut = 0;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+                }];
+            }else if([type isEqualToString:@"2"] ){
+           
+                [messageByPushAler hiddenCancelBtn:NO];
+                [messageByPushAler showAlert:title content:content btnClick:^{
+                 
+                    _ddMessageCount = 0;
+                     detail.messageType = @"2";
+                    detail.titleStr = title;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+                }];
+            }else if ([type isEqualToString:@"3"]){
+            
+                [messageByPushAler hiddenCancelBtn:NO];
+                [messageByPushAler showAlert:title content:content btnClick:^{
+                    detail.messageType = @"3";
+                    _fqMessageCount = 0;
+                    detail.titleStr = title;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+                }];
+            }else if ([type isEqualToString:@"4"]){
+                [messageByPushAler hiddenCancelBtn:NO];
+                [messageByPushAler showAlert:title content:content btnClick:^{
+                    detail.messageType = @"4";
+                    detail.titleStr = title;
+                    _fpMessageCount = 0;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+                }];
+            }
+
+        }
+    }
    
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivePushNotification" object:@{@"type":type}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivePushNotification" object:@{@"type":type}];
 }
 
 - (void)totalcount{
@@ -365,112 +337,77 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     if (IsNilOrNull(title)) {
         title = @"";
     }
-    NSString *type = [userInfo objectForKey:@"type"];//内容
+    NSString *type = [userInfo objectForKey:@"type"];
     if (IsNilOrNull(type)) {
         type = @"";
     }
-    NSString *msgid = userInfo[@"id"];
-    NSString *money = userInfo[@"money"];
-    NSString *imageUrl = userInfo[@"url"];
+    NSString *viewId = [userInfo objectForKey:@"viewid"];
     
-    if(IsNilOrNull(msgid)){
-        msgid = @"";
-    }
-    if(IsNilOrNull(money)){
-        money = @"";
-    }
-    if(IsNilOrNull(imageUrl)){
-        imageUrl = @"";
-    }
-    
+
     [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
     [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
-    // 1官方提醒 2物流提醒 3订单提醒 4分期付款提醒 5发票凭证过期提醒
+    // 1官方提醒 2物流提醒 3订单提醒 4付款提醒 5发票提醒
+    //    如果是系统消息 就有 type参数，代表的是系统消息分类，如果是官方通知就有viewid  代表的是官方通知的文章编号
+    UIViewController *currentVC = [self currentVC];
+    if (!IsNilOrNull(viewId)) {
+        _gfMessageCount ++;
+        if (![currentVC isKindOfClass:[WebDetailViewController class]]){
+
+            WebDetailViewController *detail = [[WebDetailViewController alloc]init];
+                detail.detailUrl =  [NSString stringWithFormat:@"%@/h5/html/officialnotice.html?id=%@",WebServiceAPI,viewId];
+                _gfMessageCount -- ;
+                [self totalcount];
+            [currentVC.navigationController pushViewController:detail animated:YES];
+        }
+    }else{
+        if ([type isEqualToString:@"1"]) {
+            _wlMessageConut++;
+        }
+        if ([type isEqualToString:@"2"]) {
+            _ddMessageCount++;
+        }
+        if ([type isEqualToString:@"3"]) {
+            _fqMessageCount++;
+        }
+        if ([type isEqualToString:@"4"]) {
+            _fpMessageCount++;
+        }
+    }
     
-    if ([type isEqualToString:@"1"]) {
-        _gfMessageCount++;
-        
-        
-    }
-    if ([type isEqualToString:@"2"]) {
-        _wlMessageConut++;
-    }
-    if ([type isEqualToString:@"3"]) {
-        _ddMessageCount++;
-    }
-    if ([type isEqualToString:@"4"]) {
-        _fqMessageCount++;
-    }
-    if ([type isEqualToString:@"5"]) {
-        _fpMessageCount++;
-    }
     
-    NSString *urlStr;
-//    UIViewController *currentVC = [self currentVC];
-//    if (![currentVC isKindOfClass:[OANewsCenterViewController class]]) {
-//        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
     
+    if (![currentVC isKindOfClass:[MessageDetailViewController class]]) {
+        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
         
-//        NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[CommonMethod addNotSignComomPara:nil]];
-//         [para setObject:msgid forKey:@"msgid"];
-//
-//            if ([type isEqualToString:@"1"]){
-//                [para setObject:@"1" forKey:@"type"];
-//                urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/c_policy.html?"]];
-//
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _gsMessageConut --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//            }else if([type isEqualToString:@"2"] ){
-//                [para setObject:@"2" forKey:@"type"];
-//                urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/rp_notice.html?"]];
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _jcMessageCount --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//            }else if ([type isEqualToString:@"3"]){
-//                [para setObject:@"3" forKey:@"type"];
-//                urlStr = [CommonMethod connectUrl:para url:[NSString stringWithFormat:@"%@%@",WebServiceAPI,@"html/m_report.html?"]];
-//                    OAMessageDetailViewController *detail = [[OAMessageDetailViewController alloc]init];
-//                    detail.isJpush = YES;
-//                    detail.detailUrl = urlStr;
-//                    detail.msgtitle = title;
-//                    detail.msgmoney = money;
-//                    detail.imageUrl = imageUrl;
-//                    detail.msgcontent = content;
-//                    _hyMessageCount --;
-//                    [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//            }else if ([type isEqualToString:@"4"]){
-//
-//                    OAMessageListViewController *detail = [[OAMessageListViewController alloc] init];
-//                    detail.type = @"4";
-//                    _sysMessageCount = 0;
-//                   [self totalcount];
-//                    [currentVC.navigationController pushViewController:detail animated:YES];
-//            }else{
-//                OAMessageListViewController *detail = [[OAMessageListViewController alloc] init];
-//                detail.type = @"5";
-//                _jsMessageCount = 0;
-//                [self totalcount];
-//                [currentVC.navigationController pushViewController:detail animated:YES];
-//            }
-//
-//    }
-//
+        MessageDetailViewController *detail = [[MessageDetailViewController alloc]init];
+            if ([type isEqualToString:@"1"]){
+                    detail.messageType = @"1";
+                    detail.titleStr = title;
+                    _wlMessageConut = 0;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+            }else if([type isEqualToString:@"2"] ){
+                
+                    _ddMessageCount = 0;
+                    detail.messageType = @"2";
+                    detail.titleStr = title;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+            }else if ([type isEqualToString:@"3"]){
+                
+                    detail.messageType = @"3";
+                    _fqMessageCount = 0;
+                    detail.titleStr = title;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+            }else if ([type isEqualToString:@"4"]){
+                    detail.messageType = @"4";
+                    detail.titleStr = title;
+                    _fpMessageCount = 0;
+                    [self totalcount];
+                    [currentVC.navigationController pushViewController:detail animated:YES];
+            }
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivePushNotification" object:@{@"type":type}];
 }
 

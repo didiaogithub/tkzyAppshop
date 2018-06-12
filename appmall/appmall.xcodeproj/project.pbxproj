@@ -4270,10 +4270,10 @@
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatformsss;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa3f3c4-3bd8-42e2-b00d-4e7190389f15";
-				PROVISIONING_PROFILE_SPECIFIER = devAppmallProfile;
+				PROVISIONING_PROFILE = "ef02e49c-74ed-4383-bffc-644c4719494b";
+				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4304,10 +4304,10 @@
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatformsss;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bd447b9a-205f-42d1-be9d-74126071cf7a";
-				PROVISIONING_PROFILE_SPECIFIER = adhocAppmallProfile;
+				PROVISIONING_PROFILE = "f5a65f77-a1a9-4401-9169-86bc9739bb60";
+				PROVISIONING_PROFILE_SPECIFIER = adhocydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

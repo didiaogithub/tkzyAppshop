@@ -55,7 +55,7 @@
     [_welcomeImg setUserInteractionEnabled:YES];
     [self.view addSubview:_welcomeImg];
     
-    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 56  , 56)];
+    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 110  , 100)];
     _loginIcon.center = CGPointMake(SCREEN_WIDTH/ 2, _loginIcon.centerY);
     _loginIcon.image = [UIImage imageNamed:@"logo-商城"];
 //    _loginIcon.backgroundColor = [UIColor redColor];
@@ -168,6 +168,10 @@
 }
 
 -(void)getCheckCodeByPhone{
+    if(_tfPhone.text .length != 11){
+        [self showNoticeView:@"请输入正确的手机号"];
+        return;
+    }
     NSDictionary *pramaDic= @{@"apptype":Apptype,@"devtype":Devtype,@"telNo":_tfPhone.text};
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",CommentResAPI,Get_Validate_Code];
@@ -221,13 +225,16 @@
             
             NSString * dealerId =  dic[@"data"][@"dealerId"];
             NSString * customerId =  dic[@"data"][@"customerId"];
+            NSString * salesId = dic[@"data"][@"salesId"];
             [KUserdefaults setObject:dealerId forKey:KdealerId];
             [KUserdefaults setObject:customerId forKey:KcustomerId];
+            [KUserdefaults setObject:salesId forKey:KsalesId];
+             [KUserdefaults synchronize];
             NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
             [CKJPushManager manager];
-            if (!IsNilOrNull(dealerId)&& !IsNilOrNull(customerId)) {
-//                NSString *uid = [NSString stringWithFormat:@"CZ_%@_%@",dealerId,customerId];
-                NSString *uid = @"hello";
+            if (!IsNilOrNull(customerId)) {
+                NSString *uid = [NSString stringWithFormat:@"CZ_%@",customerId];
+                
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [JPUSHService setAlias:uid completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
                         NSLog(@"注册成功：%@", iAlias);
@@ -322,8 +329,10 @@
             
             NSString * dealerId =  dict[@"data"][@"dealerId"];
             NSString * customerId =  dict[@"data"][@"customerId"];
+            NSString * salesId = dict[@"data"][@"salesId"];
             [KUserdefaults setObject:dealerId forKey:KdealerId];
             [KUserdefaults setObject:customerId forKey:KcustomerId];
+            [KUserdefaults setObject:salesId forKey:KsalesId];
             
             NSString *appopenid = [NSString stringWithFormat:@"%@",dict[@"appopenid"]];
             
@@ -336,7 +345,7 @@
             //清除优惠券缓存
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
-            
+            [KUserdefaults synchronize];
             //删除订单购物车缓存
 //            RLMResults *result = [GoodModel allObjects];
 //            RLMRealm *realm = [RLMRealm defaultRealm];

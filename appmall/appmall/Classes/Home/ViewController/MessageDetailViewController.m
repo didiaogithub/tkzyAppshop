@@ -190,7 +190,7 @@
     if ([self.messageType integerValue] == 0) {
    MessagDetailOffModel *model =  self.messageList[indexPath.row];
         WebDetailViewController *webDetail = [[WebDetailViewController alloc]init];
-        webDetail.detailUrl = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/officialnotice.html?id=%@",model.msgId];
+        webDetail.detailUrl = [NSString stringWithFormat:@"%@h5/html/officialnotice.html?id=%@",WebServiceAPI,model.msgId];
         [self.navigationController pushViewController:webDetail animated:YES];
     }
 }

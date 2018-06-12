@@ -97,10 +97,10 @@
         self.userInfoM = [[SCUserInfoModel alloc] init];
         [self.userInfoM setValuesForKeysWithDictionary:dictD];
         
-        NSString *smallname = [NSString stringWithFormat:@"%@", dict[@"nickname"]];
-        NSString *mobile = [NSString stringWithFormat:@"%@", dict[@"phone"]];
-        NSString *headPath = [NSString stringWithFormat:@"%@", dict[@"head"]];
-        NSString *realname = [NSString stringWithFormat:@"%@",dict[@"realname"]];
+        NSString *smallname = [NSString stringWithFormat:@"%@", dictD[@"nickname"]];
+        NSString *mobile = [NSString stringWithFormat:@"%@", dictD[@"phone"]];
+        NSString *headPath = [NSString stringWithFormat:@"%@", dictD[@"head"]];
+        NSString *realname = [NSString stringWithFormat:@"%@",dictD[@"realname"]];
         if (!IsNilOrNull(smallname)) {
             [KUserdefaults setObject:smallname forKey:@"YDSC_USER_SMALLNAME"];
         }

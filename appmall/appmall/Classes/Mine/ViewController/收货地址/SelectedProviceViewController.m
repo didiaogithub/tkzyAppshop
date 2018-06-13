@@ -65,7 +65,7 @@
     [HttpTool getWithUrl:provinceUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
         }
     
         NSArray *areaList = dict[@"data"][@"areaList"];

@@ -393,6 +393,17 @@
 #define getMyDividePayList @"Rule/getMyDividePayList"
 /** 我的欠款*/
 #define getMyLoanList @"Rule/getMyLoanList"
+
+
+// 配置相关
+/** 获取全局配置*/
+#define getSettingsApi @"Sys/getSettings"
+/** 版本检查*/
+#define checkVersionApi @"Sys/checkVersion"
+/** 支付方式*/
+#define getPayMethodListApi @"Sys/getPayMethodList"
+
+
 /**判空处理*/
 #define IsNilOrNull(_ref) (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]])  || ([(_ref) isKindOfClass:[NSNull class]]) || ([(_ref) isEqualToString:@"(null)"]) || ([(_ref) isEqualToString:@""]) || ([(_ref) isEqualToString:@"null"]) || ([(_ref) isEqualToString:@"<null>"]))
 

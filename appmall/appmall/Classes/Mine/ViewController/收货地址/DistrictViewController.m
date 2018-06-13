@@ -46,7 +46,7 @@
     [HttpTool getWithUrl:districtUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
         }
         NSArray *districtArr = dict[@"data"][@"areaList"];
         for (NSDictionary *districtDict in districtArr) {

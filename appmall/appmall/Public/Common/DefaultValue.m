@@ -96,8 +96,8 @@
         [payMethod setObject:@"YES" forKey:@"alipay"];
         [payMethod setObject:@"YES" forKey:@"wxpay"];
         [payMethod setObject:@"YES" forKey:@"unionpay"];
-        [payMethod setObject:@"NO" forKey:@"applepay"];
-        [payMethod setObject:@"YES" forKey:@"jdpay"];
+        [payMethod setObject:@"NO" forKey:@"zjpay"];
+        [payMethod setObject:@"YES" forKey:@"zjcpay"];
 
         [rootDic setObject:payMethod forKey:@"PayMethod"];
         

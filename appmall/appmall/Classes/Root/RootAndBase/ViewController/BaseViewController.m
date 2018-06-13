@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createBaseUI];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 -(void)createBaseUI{
@@ -94,7 +95,7 @@
     button.frame = CGRectMake(0, 0, 60, 40);
     [button setTitle:btnName forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [button setTitleColor:titleColor forState:UIControlStateNormal];
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     if (isTJXHX == YES) {

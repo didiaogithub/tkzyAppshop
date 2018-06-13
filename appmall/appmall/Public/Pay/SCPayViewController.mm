@@ -20,6 +20,7 @@
 #import "FFWarnAlertView.h"
 #import "SQQKTableCell.h"
 #import "WBSQQKViewController.h"
+#import "MessageAlert.h"
 /**京东支付~*/
 #define JionPay_JD @"pay/appmall_pay/jdpay/action/app.php"
 
@@ -38,6 +39,8 @@
 @property (nonatomic, strong) NSMutableArray *shippingMethods;
 @property (nonatomic, strong) XWAlterVeiw *alertView;
 @property (nonatomic, strong) TopTipView *tipView;
+/**  payArr*/
+@property (nonatomic, strong) NSMutableArray *payArr;
 
 
 @end
@@ -47,6 +50,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initializeComponent];
+    self.payArr = [NSMutableArray array];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -78,14 +82,98 @@
 }
 
 
+//-(void)getPayMethod {
+//
+//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PayMethodUrl];
+//
+//    [self.view addSubview:self.loadingView];
+//    [self.loadingView startAnimation];
+//
+//    [HttpTool postWithUrl:requestUrl params:nil success:^(id json) {
+//        [self.loadingView stopAnimation];
+//
+//        NSDictionary *dict = json;
+//        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
+//        if (![code isEqualToString:@"200"]) {
+//
+//            [_payMethodArr removeAllObjects];
+//            _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
+//            [self.paymentTableView reloadData];
+//            return ;
+//        }
+//
+//        NSString *coupontime = [NSString stringWithFormat:@"%@", dict[@"coupontime"]];
+//        if (IsNilOrNull(coupontime)) {
+//            coupontime = @"600";
+//        }
+//        [KUserdefaults setObject:coupontime forKey:@"YDSC_coupontime"];
+//
+//        NSString *couponbgurl = [NSString stringWithFormat:@"%@", dict[@"couponbgurl"]];
+//        if (IsNilOrNull(couponbgurl)) {
+//            couponbgurl = @"";
+//        }
+//        [KUserdefaults setObject:couponbgurl forKey:@"YDSC_couponbgurl"];
+//
+//
+//
+//        NSString *payalertmsg = [NSString stringWithFormat:@"%@", dict[@"payalertmsg"]];
+//        if (IsNilOrNull(payalertmsg)) {
+//            payalertmsg = @"";
+//        }
+//        [KUserdefaults setObject:payalertmsg forKey:@"payalertmsg"];
+//
+//        NSString *appmallverinfo = [dict objectForKey:@"appmallverinfo"];
+//        if (!IsNilOrNull(appmallverinfo)) {
+//            [KUserdefaults setObject:appmallverinfo forKey:@"YDSC_updateInfo"];
+//        }
+//
+//        //是否显示积分商城
+//        NSString *mallintegralshow = [dict objectForKey:@"mallintegralshow"];
+//        if (!IsNilOrNull(mallintegralshow)) {
+//            [KUserdefaults setObject:mallintegralshow forKey:MallintegralShowOrNot];
+//        }
+//
+//        //是否显示消息中心
+//        NSString *appmallmsg = [dict objectForKey:@"appmallmsg"];
+//        if (!IsNilOrNull(appmallmsg)) {
+//            [KUserdefaults setObject:appmallmsg forKey:@"YDSC_msgShow"];
+//        }
+//
+//        NSString *ckappdownloadmsg = [dict objectForKey:@"ckappdownloadmsg"];
+//        if (!IsNilOrNull(ckappdownloadmsg)) {
+//            [KUserdefaults setObject:ckappdownloadmsg forKey:@"BecomeCKMsg"];
+//        }
+//        [KUserdefaults synchronize];
+//
+//        [self updatePaymentMethod:dict];
+//        [_payMethodArr removeAllObjects];
+//        _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
+//        [self.paymentTableView reloadData];
+//
+//        [self updateDomain:dict];
+//
+//    } failure:^(NSError *error) {
+//        [self.loadingView stopAnimation];
+//
+//        if (error.code == -1009) {
+//            [self showNoticeView:NetWorkNotReachable];
+//        }else{
+//            [self showNoticeView:NetWorkTimeout];
+//        }
+//        [_payMethodArr removeAllObjects];
+//        _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
+//        [self.paymentTableView reloadData];
+//    }];
+//}
+
 -(void)getPayMethod {
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PayMethodUrl];
-    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getPayMethodListApi];
+    NSMutableDictionary *paraDic  = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    [HttpTool postWithUrl:requestUrl params:nil success:^(id json) {
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
         [self.loadingView stopAnimation];
         
         NSDictionary *dict = json;
@@ -98,50 +186,9 @@
             return ;
         }
         
-        NSString *coupontime = [NSString stringWithFormat:@"%@", dict[@"coupontime"]];
-        if (IsNilOrNull(coupontime)) {
-            coupontime = @"600";
-        }
-        [KUserdefaults setObject:coupontime forKey:@"YDSC_coupontime"];
-        
-        NSString *couponbgurl = [NSString stringWithFormat:@"%@", dict[@"couponbgurl"]];
-        if (IsNilOrNull(couponbgurl)) {
-            couponbgurl = @"";
-        }
-        [KUserdefaults setObject:couponbgurl forKey:@"YDSC_couponbgurl"];
-        
-        
-        
-        NSString *payalertmsg = [NSString stringWithFormat:@"%@", dict[@"payalertmsg"]];
-        if (IsNilOrNull(payalertmsg)) {
-            payalertmsg = @"";
-        }
-        [KUserdefaults setObject:payalertmsg forKey:@"payalertmsg"];
-        
-        NSString *appmallverinfo = [dict objectForKey:@"appmallverinfo"];
-        if (!IsNilOrNull(appmallverinfo)) {
-            [KUserdefaults setObject:appmallverinfo forKey:@"YDSC_updateInfo"];
-        }
-        
-        //是否显示积分商城
-        NSString *mallintegralshow = [dict objectForKey:@"mallintegralshow"];
-        if (!IsNilOrNull(mallintegralshow)) {
-            [KUserdefaults setObject:mallintegralshow forKey:MallintegralShowOrNot];
-        }
-        
-        //是否显示消息中心
-        NSString *appmallmsg = [dict objectForKey:@"appmallmsg"];
-        if (!IsNilOrNull(appmallmsg)) {
-            [KUserdefaults setObject:appmallmsg forKey:@"YDSC_msgShow"];
-        }
-        
-        NSString *ckappdownloadmsg = [dict objectForKey:@"ckappdownloadmsg"];
-        if (!IsNilOrNull(ckappdownloadmsg)) {
-            [KUserdefaults setObject:ckappdownloadmsg forKey:@"BecomeCKMsg"];
-        }
-        [KUserdefaults synchronize];
-        
-        [self updatePaymentMethod:dict];
+        NSDictionary *dataDic = dict[@"data"];
+        self.payArr = dataDic[@"paymethod"];
+        [self updatePaymentMethod:dataDic];
         [_payMethodArr removeAllObjects];
         _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
         [self.paymentTableView reloadData];
@@ -162,28 +209,17 @@
     }];
 }
 
+
+
 -(void)updatePaymentMethod:(NSDictionary*)dict {
     
-    NSString *alipay = [NSString stringWithFormat:@"%@", [dict objectForKey:@"alipay"]];
-    if (!IsNilOrNull(alipay)) {
-        [[DefaultValue shareInstance] paymentAvaliable:alipay forKey:@"alipay"];
-    }
-    NSString *wxpay = [NSString stringWithFormat:@"%@", [dict objectForKey:@"wxpay"]];
-    if (!IsNilOrNull(wxpay)) {
-        [[DefaultValue shareInstance] paymentAvaliable:wxpay forKey:@"wxpay"];
-    }
-    NSString *unionpay = [NSString stringWithFormat:@"%@", [dict objectForKey:@"unionpay"]];
-    if (!IsNilOrNull(unionpay)) {
-        [[DefaultValue shareInstance] paymentAvaliable:unionpay forKey:@"unionpay"];
-    }
-    NSString *applepay = [NSString stringWithFormat:@"%@", [dict objectForKey:@"applepay"]];
-    if (!IsNilOrNull(applepay)) {
-        [[DefaultValue shareInstance] paymentAvaliable:applepay forKey:@"applepay"];
-    }
-    
-    NSString *jdpay = [NSString stringWithFormat:@"%@", [dict objectForKey:@"jdpay"]];
-    if (!IsNilOrNull(jdpay)) {
-        [[DefaultValue shareInstance] paymentAvaliable:jdpay forKey:@"jdpay"];
+    NSArray *paymethodArr = dict[@"paymethod"];
+    for (NSDictionary *dic in paymethodArr) {
+        NSString *skey = [NSString stringWithFormat:@"%@", [dic objectForKey:@"skey"]];
+        NSString *svalue = [NSString stringWithFormat:@"%@",[dic objectForKey:@"svalue"]];
+        if (!IsNilOrNull(skey) && !IsNilOrNull(svalue)) {
+            [[DefaultValue shareInstance] paymentAvaliable:svalue forKey:skey];
+        }
     }
 }
 
@@ -305,16 +341,21 @@
         [cell setBackgroundColor:[UIColor tt_grayBgColor]];
         
         NSString *paymentType = _payMethodArr[indexPath.row];
+        for (NSDictionary *dic in self.payArr) {
+            if ([paymentType isEqualToString:dic[@"skey"]]) {
+                cell.labPayType.text = dic[@"skname"];
+            }
+        }
         if([paymentType isEqualToString:@"alipay"]){  //支付宝
             cell.leftIamgeView.image = [UIImage imageNamed:@"支付宝"];
         }else if ([paymentType isEqualToString:@"wxpay"]){  //微信
             cell.leftIamgeView.image = [UIImage imageNamed:@"微信支付"];
         }else if ([paymentType isEqualToString:@"unionpay"]){  //银联
             cell.leftIamgeView.image = [UIImage imageNamed:@"银联支付"];
-        }else if ([paymentType isEqualToString:@"applepay"]){  //applePay
-            cell.leftIamgeView.image = [UIImage imageNamed:@"Apple-Pay"];
-        }else if ([paymentType isEqualToString:@"jdpay"]){  //jdpay
-            cell.leftIamgeView.image = [UIImage imageNamed:@"中金支付"];
+        }else if ([paymentType isEqualToString:@"zjcpay"]){  //中金网银
+            cell.leftIamgeView.image = [UIImage imageNamed:@"中金网银支付"];
+        }else if ([paymentType isEqualToString:@"zjpay"]){  //中金支付
+            cell.leftIamgeView.image = [UIImage imageNamed:@"中金网银支付"];
         }
        
         NSInteger row = [indexPath row];
@@ -402,10 +443,10 @@
         [self wxPayClick];
     }else if ([_selectedType isEqualToString:@"unionpay"]){  //银联
         [self UPPayClick];
-    }else if ([_selectedType isEqualToString:@"applepay"]){  //applePay
+    }else if ([_selectedType isEqualToString:@"zjpay"]){  //中金快捷
         //        [self applePayClick];
-    }else if ([_selectedType isEqualToString:@"jdpay"]){  //京东支付
-//        [self jdPayClick];
+    }else if ([_selectedType isEqualToString:@"zjcpay"]){  //中金网银
+        [self  zjcpayClick];
     }else{
         [self showNoticeView:@"请选择支付方式"];
     }
@@ -431,11 +472,11 @@
 //        [self.loadingView stopAnimation];
 ////        NSDictionary *dict = json;
 ////        NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
-////        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+////        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
 //        if (![code isEqualToString:@"200"]){
-//            if(codeinfo && codeinfo.length > 0){
+//            if(message && message.length > 0){
 //                FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-//                alertV.titleLable.text = codeinfo;
+//                alertV.titleLable.text = message;
 //                [alertV showFFWarnAlertView];
 //            }
 //            return;
@@ -538,11 +579,11 @@
         
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
-        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
         if (![code isEqualToString:@"200"]){
-            if(codeinfo && codeinfo.length > 0){
+            if(message && message.length > 0){
                 FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-                alertV.titleLable.text = codeinfo;
+                alertV.titleLable.text = message;
                 [alertV showFFWarnAlertView];
             }
             return;
@@ -623,16 +664,16 @@
         NSLog(@"json===%@",json);
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
-        if (IsNilOrNull(codeinfo)){
-            codeinfo = @"";
+        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
+        if (IsNilOrNull(message)){
+            message = @"";
         }
         if (![code isEqualToString:@"200"]){
-            if(codeinfo && codeinfo.length > 0){
+            if(message && message.length > 0){
                 FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-                alertV.titleLable.text = codeinfo;
+                alertV.titleLable.text = message;
                 [alertV showFFWarnAlertView];
-//                [self showNoticeView:codeinfo];
+//                [self showNoticeView:message];
             }
             return ;
         }
@@ -669,6 +710,38 @@
     }
 }
 
+#pragma mark - 中金网银
+#define getCpcnPayInfoApi @"Sys/getCpcnPayInfo"
+- (void)zjcpayClick{
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getCpcnPayInfoApi];
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+           NSDictionary *dict = json;
+        if ([[dict objectForKey:@"code"] integerValue] == 200) {
+            NSString *payInfo = dict[@"data"][@"payInfo"];
+            NSString *payUrl = dict[@"data"][@"payUrl"];
+            
+            MessageAlert *messageByPushAler = [[MessageAlert alloc] init];
+            messageByPushAler.isDealInBlock = YES;
+      
+            [messageByPushAler hiddenCancelBtn:NO];
+            [messageByPushAler showzjcAlert:nil content:payInfo btnClick:^{
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = payUrl;
+                if(pasteboard == nil){
+                    [self.loadingView showNoticeView:@"复制失败"];
+                }else{
+                    [self.loadingView showNoticeView:@"复制成功"];
+                }
+            }];
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
 #pragma mark - 京东支付
 //-(void)jdPayClick {
 //
@@ -691,13 +764,13 @@
 //        [self.loadingView stopAnimation];
 //        NSDictionary *dict = json;
 //        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-//        NSString *codeinfo = dict[@"codeinfo"];
+//        NSString *message = dict[@"message"];
 //
 //        if (![code isEqualToString:@"200"]){
 //            FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-//            alertV.titleLable.text = codeinfo;
+//            alertV.titleLable.text = message;
 //            [alertV showFFWarnAlertView];
-////            [self.loadingView showNoticeView:codeinfo];
+////            [self.loadingView showNoticeView:message];
 //        }else{
 //            NSDictionary *res = dict[@"res"];
 //            NSString *signdata = [NSString stringWithFormat:@"%@", res[@"signdata"]];
@@ -758,13 +831,13 @@
 //        NSLog(@"json===%@",json);
 //        NSDictionary *dict = json;
 //        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-//        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
-//        if (IsNilOrNull(codeinfo)){
-//            codeinfo = @"";
+//        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
+//        if (IsNilOrNull(message)){
+//            message = @"";
 //        }
 //        if (![code isEqualToString:@"200"]){
-//            if(codeinfo && codeinfo.length > 0){
-//                [self showNoticeView:codeinfo];
+//            if(message && message.length > 0){
+//                [self showNoticeView:message];
 //            }
 //            return ;
 //        }

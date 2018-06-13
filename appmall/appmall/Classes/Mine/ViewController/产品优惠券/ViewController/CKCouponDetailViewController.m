@@ -352,7 +352,7 @@
             [self.loadingView stopAnimation];
             [self.couponTable.mj_header endRefreshing];
             [self.couponTable.mj_footer endRefreshing];
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
 

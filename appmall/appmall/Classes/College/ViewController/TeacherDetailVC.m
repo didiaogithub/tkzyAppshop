@@ -41,6 +41,9 @@
 
 -(void)loadData{
     
+    if (IsNilOrNull(self.teacherId)) {
+        return;
+    }
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setValuesForKeysWithDictionary:@{@"teacherId":self.teacherId}];
     //请求数据

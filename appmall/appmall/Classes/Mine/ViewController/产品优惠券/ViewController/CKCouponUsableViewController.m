@@ -35,6 +35,10 @@
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Goods/getCouponList"];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    if ([self.ordermoney containsString:@"合计:¥"]) {
+        self.ordermoney = [self.ordermoney substringFromIndex:4];
+    }
     [pramaDic setObject:self.couponType forKey:@"type"];
     [pramaDic setObject:self.ordermoney forKey:@"ordermoney"];
     [self.view addSubview:self.loadingView];
@@ -46,7 +50,7 @@
             [self.loadingView stopAnimation];
             [self.couponTable.mj_header endRefreshing];
             [self.couponTable.mj_footer endRefreshing];
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         

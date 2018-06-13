@@ -136,6 +136,10 @@
             return ;
         }
         
+        if (_page == 1) {
+            [self.messageList removeAllObjects];
+        }
+        
         NSLog(@"%@", dic);
         if (dic == nil) {
             

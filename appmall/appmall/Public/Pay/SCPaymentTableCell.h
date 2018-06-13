@@ -13,6 +13,8 @@
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) NSIndexPath *indexPath;
 @property (nonatomic, strong) UIImageView *leftIamgeView;
+/**  支付方式名字*/
+@property (nonatomic, strong) UILabel *labPayType;
 @property (nonatomic, strong) UIButton *rightButton;
 
 @end

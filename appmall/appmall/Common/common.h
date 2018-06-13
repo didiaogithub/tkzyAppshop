@@ -169,7 +169,7 @@
 
 //首页
 #define Home_Url @"Index/getMainData"/**商品首页*/
-#define Home_HonorList_Url  @"index/getHonorList"/**获取企业荣誉*/
+#define Home_HonorList_Url  @"Index/getHonorList"/**获取企业荣誉*/
 #define Home_MediaLit_Url  @"Index/getMediaList"/**获取媒体列表*/
 #define Home_Goods_Class_Url @"Index/getCategoryList"/**获取商品分类列表*/
 #define Get_Goods_ListBySortid  @"Goods/getGoodsListBySortid"

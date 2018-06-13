@@ -212,6 +212,7 @@
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
     [self presentViewController:welcomeNav animated:YES completion:nil];
 }
+
 #pragma mark - 添加到购物车
 -(void)addGoodsToShoppingCar:(SCCategoryGoodsModel *)cateM {
     

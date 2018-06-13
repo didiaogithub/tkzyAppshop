@@ -14,6 +14,8 @@
 #define KClassItemViewCell @"ClassItemViewCell"
 @interface ClassListCellViewController ()<WBMenuViewDelegate,UITableViewDataSource,UITableViewDelegate,XYTableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *classListView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomDis;
 @property(nonatomic,strong)NSMutableArray <ClassListModel *>*classArray;
 @property(nonatomic,assign)NSInteger page;
 
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTableView];
+    self.bottomDis.constant = BOTTOM_BAR_HEIGHT + 84;
     [UITableView refreshHelperWithScrollView:self.classListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
     self.classArray = [NSMutableArray arrayWithCapacity:0];
@@ -40,12 +43,12 @@
 }
 - (UIImage *)xy_noDataViewImage{
     
-    UIImage *image= [UIImage imageNamed:@"商品分类默认"];
+    UIImage *image= [UIImage imageNamed:@"无课程"];
     return image;
 }
 
 - (NSString *)xy_noDataViewMessage{
-    NSString *str = @"暂无还没有此类课程哦";
+    NSString *str = @"暂无此类课程哦";
     return str;
 }
 
@@ -91,7 +94,7 @@
             }
             [self .classListView reloadData];
         }else{
-            [self.loadingView showNoticeView:@"无更多商品"];
+            [self.loadingView showNoticeView:@"无更多课程"];
         }
 
     } failure:^(NSError *error) {

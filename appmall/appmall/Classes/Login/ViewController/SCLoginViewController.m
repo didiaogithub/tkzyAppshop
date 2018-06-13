@@ -247,13 +247,6 @@
                 }];
                
             }
-            if (!IsNilOrNull(meid)) {
-                
-              
-                
-                
-              
-            }
             
             if (dic != nil) {  //请求到数据
                 UserModel *curModel = [[UserModel alloc]initWith:dic[@"data"]];

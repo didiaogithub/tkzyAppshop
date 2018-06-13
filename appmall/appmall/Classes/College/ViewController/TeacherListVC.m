@@ -31,6 +31,7 @@
     _teacherArray = [NSMutableArray arrayWithCapacity:0];
     [UITableView refreshHelperWithScrollView:self.tabTeaCherListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self setTableView];
+    tabDisTop.constant = NaviHeight;
     [self loadNewData];
 }
 
@@ -62,6 +63,9 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             [self.tabTeaCherListView tableViewEndRefreshCurPageCount:0];
             return;
+        }
+        if (self.page == 1) {
+            [_teacherArray removeAllObjects];
         }
         NSArray *teacherList = dic[@"data"][@"teacherList"];
         [self.tabTeaCherListView tableViewEndRefreshCurPageCount:teacherList.count];

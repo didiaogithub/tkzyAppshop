@@ -49,6 +49,11 @@
         
         if (dic != nil) {
     NSMutableArray *titleArray = [NSMutableArray arrayWithCapacity:0];
+            [titleArray addObject:@"全部"];
+         ClassCateItem *first =    [[ClassCateItem alloc]init];
+            first.categoryId = @"0";
+            first.categoryName = @"全部";
+            [self.classCateList addObject:first];
             for (NSDictionary *itemDic in dic[@"data"][@"categories"]) {
                 ClassCateItem *item = [[ClassCateItem alloc]initWith:itemDic];
                 [self.classCateList addObject:item];
@@ -82,14 +87,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

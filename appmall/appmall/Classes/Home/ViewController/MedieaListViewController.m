@@ -27,6 +27,8 @@
     [super viewDidLoad];
     self.dataList = [NSMutableArray arrayWithCapacity:0];
     _page  =1;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tabTopDis.constant = NaviHeight;
     self.dataList = [NSMutableArray arrayWithCapacity:0];
     [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
 

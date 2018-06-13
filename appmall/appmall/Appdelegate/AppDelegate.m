@@ -549,19 +549,16 @@
     //    WXErrCodeSentFail   = -3,   /**< 发送失败    */
     //    WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
     //    WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
-    
     //微信支付回调 处理
     if ([resp isKindOfClass:[PayResp class]]) {
         PayResp *response = (PayResp *)resp;
         [CKCNotificationCenter postNotificationName:WeiXinPay_CallBack object:@(response.errCode)];
     }
-
+    
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         SendMessageToWXResp *response = (SendMessageToWXResp *)resp;
         [CKCNotificationCenter postNotificationName:WeiXinShare_CallBack object:@(response.errCode)];
     }
-    
-    
 }
 
 #pragma mark-通过第一步code获取Accesontoken

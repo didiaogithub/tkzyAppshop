@@ -55,7 +55,7 @@
         TopicModel *tModel = [model.topicList objectAtIndex:index.row];
         [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
         self.labTitle.text = tModel.itemname;
-        self.labPrice.text = tModel.price;
+        self.labPrice.text = [NSString stringWithFormat:@"￥%@",tModel.price];
         self.labWeight.text = tModel.spec;
         self.labPrice.hidden = NO;
         self.labWeight.hidden = NO;

@@ -103,6 +103,7 @@
     
     //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(shareGoods) image:[UIImage imageNamed:@"share"]];
 }
+
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];

@@ -42,7 +42,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableView];
     [self createTitleView];
-    
     [self refreshUI];
 }
 
@@ -83,6 +82,7 @@
     isDrag = NO;
     [self setTitleViewState:sender];
     NSIndexPath *indexp ;
+    
    indexp = [NSIndexPath indexPathForRow:0 inSection:sender.tag  - 1000];
 
     [self.tabGoodDetail scrollToRowAtIndexPath:indexp atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -111,7 +111,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -120,13 +120,11 @@
             return 1;
             break;
         case 1:
-            return self.detailModel.commentList.count;
+            return self.detailModel.commentList.count == 0?1:self.detailModel.commentList.count;
             break;
         case 2:
             return 1;
             break;
-            
-            
         default:
             break;
     }
@@ -144,11 +142,18 @@
         [cell loadDataWithModel:self.detailModel];
     }else if(indexPath .section == 1){
         cell = [tableView dequeueReusableCellWithIdentifier:KGoodSDetailBackViewCell];
-        [cell loadDataWithModel:self.detailModel.commentList[indexPath.row]];
+        if (self.detailModel.commentList.count == 0) {
+            [cell loadDataWithModel:nil];
+        }else{
+            [cell loadDataWithModel:self.detailModel.commentList[indexPath.row]];
+        }
+        
+        
     }else if(indexPath.section == 2){
         cell = [tableView dequeueReusableCellWithIdentifier:KGoodSdetailBottomViewCell];
         [cell loadDataWithModel:self.detailModel];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -156,7 +161,12 @@
     if (indexPath.section == 0) {
         return  KscreenWidth + 90;
     }else if (indexPath.section == 1){
-        return [self.detailModel.commentList[indexPath.row] getCellHeight];
+        if (self.detailModel.commentList.count == 0) {
+            return 60;
+        }else{
+            
+            return [self.detailModel.commentList[indexPath.row] getCellHeight];
+        }
     }else if(indexPath.section == 2){
         return [self.detailModel getWebDetail];
     }

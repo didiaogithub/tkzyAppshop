@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,24 +50,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  暂无评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd7-kd-OZq">
+                        <rect key="frame" x="0.0" y="0.0" width="323" height="71"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="o66-7u-WXK" secondAttribute="trailing" constant="10" id="1Ko-ai-5Jb"/>
                     <constraint firstItem="Afx-hm-cZi" firstAttribute="top" secondItem="bXr-FT-wSV" secondAttribute="bottom" constant="8" id="2GN-bL-3vo"/>
+                    <constraint firstAttribute="bottom" secondItem="Bd7-kd-OZq" secondAttribute="bottom" id="8y6-tO-ZDm"/>
                     <constraint firstAttribute="trailing" secondItem="Afx-hm-cZi" secondAttribute="trailing" constant="10" id="AiU-jd-5L1"/>
+                    <constraint firstItem="Bd7-kd-OZq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CE7-2i-won"/>
                     <constraint firstItem="o66-7u-WXK" firstAttribute="leading" secondItem="bXr-FT-wSV" secondAttribute="trailing" id="Hvg-Dx-bQh"/>
+                    <constraint firstAttribute="trailing" secondItem="Bd7-kd-OZq" secondAttribute="trailing" id="NsK-Yw-bAr"/>
                     <constraint firstItem="o66-7u-WXK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="VeY-nq-hj8"/>
                     <constraint firstItem="Afx-hm-cZi" firstAttribute="leading" secondItem="urH-e5-mLw" secondAttribute="trailing" constant="8" id="YWN-10-DfO"/>
                     <constraint firstItem="urH-e5-mLw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Yly-Wi-wEK"/>
                     <constraint firstItem="bXr-FT-wSV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="c8d-Ww-Wtc"/>
                     <constraint firstItem="urH-e5-mLw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="irh-i7-PSI"/>
                     <constraint firstItem="bXr-FT-wSV" firstAttribute="leading" secondItem="urH-e5-mLw" secondAttribute="trailing" constant="7" id="w7y-Yl-gQT"/>
+                    <constraint firstItem="Bd7-kd-OZq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wHv-M6-y5h"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgIcon" destination="urH-e5-mLw" id="vnn-v4-QJ5"/>
                 <outlet property="labComm" destination="Afx-hm-cZi" id="hhA-hs-I2v"/>
                 <outlet property="labName" destination="bXr-FT-wSV" id="c2W-Kk-VnK"/>
+                <outlet property="labNoPinglun" destination="Bd7-kd-OZq" id="dDC-5N-oRb"/>
                 <outlet property="labTime" destination="o66-7u-WXK" id="Fpm-WO-8C6"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="11.5"/>

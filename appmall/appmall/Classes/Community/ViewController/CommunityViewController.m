@@ -11,11 +11,14 @@
 #import "CommListModel.h"
 #import "PostCommViewController.h"
 #import "CommDetailViewController.h"
+#import "RootNavigationController.h"
 #define KCommunityViewCell @"CommunityViewCell"
 @interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,CommunityViewCellDelegate>{
     CommListModelItem *commModel;
+    CommListModelItem *shareModel;
     CommListModel *itemModel;
     CommListModel *model;
+    NSInteger shareIndex;
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (weak, nonatomic) IBOutlet UIView *shareItemView;
@@ -202,12 +205,14 @@
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
--(void)comunityShare:(CommListModelItem *)model{
-    commModel = model;
+-(void)comunityShare:(CommListModelItem *)model  andIndex:(NSInteger )index{
+    shareModel = model;
+    shareIndex = index;
     self.shareView.hidden = NO;
 }
 
 -(void)communityViewCellGood:(CommListModelItem *)model andIndex:(NSInteger )index{
+
     
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
@@ -260,9 +265,40 @@
     }];
 }
 
+-(void)sumShareNum:(CommListModelItem *)model :(NSInteger )index{
+    NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:model._id forKey:@"noteid"];
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_AddforwardNum];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return;
+        }
+        model.forwardnum = [NSString stringWithFormat:@"%ld", [model.forwardnum integerValue]+1 ];
+        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tabCommunityList reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
+}
+
 -(void)wxShareBack:(NSNotification *)noti{
     if ([noti.object integerValue] == 0) {
         [self.loadingView showNoticeView:@"分享成功"];
+        [self sumShareNum:shareModel :shareIndex];
     }else{
         [self.loadingView showNoticeView:@"分享失败"];
     }

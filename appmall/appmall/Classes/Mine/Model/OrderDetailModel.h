@@ -49,6 +49,7 @@
 @property(nonatomic,copy)NSString * itemno;
 @property(nonatomic,strong)NSString *payTime;
 @property(nonatomic,strong)NSString *paytn;
+@property(nonatomic,strong)NSString *serviceMoney;
 
 @property(nonatomic,strong)NSArray <GoodSmodel *> * goods;
 @property (nonatomic,strong)LogisticsModel *logistics;

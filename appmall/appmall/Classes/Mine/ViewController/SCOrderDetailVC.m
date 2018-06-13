@@ -328,7 +328,7 @@
     }
     
     if (indexPath.row == 2 + self.orderDetailModel.goods.count) {
-        return 90;
+        return 110;
     }
     
     if (indexPath.row == 3 + self.orderDetailModel.goods.count) {

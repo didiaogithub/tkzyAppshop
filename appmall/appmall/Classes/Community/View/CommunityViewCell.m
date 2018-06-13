@@ -61,7 +61,7 @@ CommListModelItem * selfModel ;
 }
 - (IBAction)actionShare:(id)sender {
 
-    [self .delegate comunityShare:selfModel];
+    [self .delegate comunityShare:selfModel andIndex:self.index];
 }
 
 

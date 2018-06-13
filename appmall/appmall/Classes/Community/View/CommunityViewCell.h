@@ -11,7 +11,7 @@
 
 @protocol CommunityViewCellDelegate <NSObject>
 -(void)communityViewCellGood:(CommListModelItem *)model andIndex:(NSInteger )index;
--(void)comunityShare:(CommListModelItem *)model;
+-(void)comunityShare:(CommListModelItem *)model andIndex:(NSInteger)index;
 @end
 
 @interface CommunityViewCell : UITableViewCell

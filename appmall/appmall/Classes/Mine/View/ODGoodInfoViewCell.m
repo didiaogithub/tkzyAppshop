@@ -24,6 +24,7 @@
     self.labYunfeiTr.text = [NSString stringWithFormat:@"+￥%.2f",[model.freight doubleValue]] ;
     self.labFuKuanTr.text =[NSString stringWithFormat:@"￥%.2f",[model.money doubleValue]] ;
     self.labJianMianTr.text = [NSString stringWithFormat:@"-￥%.2f",[model.discount  doubleValue]];
+    self.labserviceMoney.text = [NSString stringWithFormat:@"￥%.2f",[model.serviceMoney  doubleValue]];
 }
 
 @end

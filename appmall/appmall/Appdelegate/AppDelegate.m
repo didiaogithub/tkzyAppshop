@@ -746,10 +746,10 @@
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 4){
+    if (tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 4 || tabBarController.selectedIndex == 2){
         //未登录
         if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
-            if (self.lastSelectedIndex == 4 || self.lastSelectedIndex == 3) {
+            if (self.lastSelectedIndex == 4 || self.lastSelectedIndex == 3||self.lastSelectedIndex == 2) {
                 tabBarController.selectedIndex = 0;
             }else{
                 tabBarController.selectedIndex = self.lastSelectedIndex;

@@ -9,6 +9,7 @@
 #import "BaseGoodSDetailViewCell.h"
 
 @interface GoodSDetailBackViewCell : BaseGoodSDetailViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labNoPinglun;
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
 @property (weak, nonatomic) IBOutlet UILabel *labName;
 @property (weak, nonatomic) IBOutlet UILabel *labTime;

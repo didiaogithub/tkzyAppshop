@@ -10,6 +10,7 @@
 #import "OrderDetailModel.h"
 
 @interface ODGoodInfoViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labserviceMoney;
 @property (weak, nonatomic) IBOutlet UILabel *labZonge;
 @property (weak, nonatomic) IBOutlet UILabel *labJianMian;
 @property (weak, nonatomic) IBOutlet UILabel *labYunfei;

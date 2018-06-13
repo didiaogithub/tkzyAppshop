@@ -23,10 +23,16 @@
 }
 
 -(void)loadDataWithModel:(GoodCommentModel *)model{
-    self.labTime.text = model.time;
-    self.labComm.text = model.content;
-    self.labName.text = model.smallname;
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    if (model == nil) {
+        self.labNoPinglun.hidden = NO;
+    }else{
+        self.labNoPinglun.hidden = YES;
+        self.labTime.text = model.time;
+        self.labComm.text = model.content;
+        self.labName.text = model.smallname;
+        [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    }
+   
 }
 
 @end

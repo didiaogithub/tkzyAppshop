@@ -213,7 +213,7 @@
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             [self.loadingView stopAnimation];
             return ;
         }
@@ -290,7 +290,7 @@
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             [self.loadingView stopAnimation];
             return ;
         }

@@ -278,7 +278,7 @@
 //                [self toWeiXinAuth];
 //            }
 //        }else{
-//            [self showNoticeView:dict[@"codeinfo"]];
+//            [self showNoticeView:dict[@"message"]];
 //        }
 //    } failure:^(NSError *error) {
 //        [self.loadingView stopAnimation];

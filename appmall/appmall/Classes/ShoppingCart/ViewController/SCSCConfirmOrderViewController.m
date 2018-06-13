@@ -253,7 +253,7 @@
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             return ;
         }
         
@@ -339,7 +339,7 @@
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             [self.loadingView stopAnimation];
             return ;
         }
@@ -415,7 +415,7 @@
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if (![code isEqualToString:@"200"]) {
-            [self showNoticeView:dict[@"codeinfo"]];
+            [self showNoticeView:dict[@"message"]];
             [self.loadingView stopAnimation];
             return ;
         }

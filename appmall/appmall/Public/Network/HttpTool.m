@@ -76,7 +76,7 @@
             if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
-                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"message"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
                 [alert showMsgAlert:noticeString btnClick:nil];
                 return;
@@ -142,7 +142,7 @@
             if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
-                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"message"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
                 [alert showMsgAlert:noticeString btnClick:nil];
                 return;
@@ -239,7 +239,7 @@
             if ([code isEqualToString:@"9999"]){
                 [[DefaultValue shareInstance] cleanLoginStatusCacheData];
 
-                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+                NSString *noticeString = [NSString stringWithFormat:@"%@",dict[@"message"]];
                 MessageAlert *alert = [MessageAlert shareInstance];
                 [alert showMsgAlert:noticeString btnClick:nil];
                 return;

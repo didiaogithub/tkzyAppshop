@@ -472,11 +472,11 @@
 //        [self.loadingView stopAnimation];
 ////        NSDictionary *dict = json;
 ////        NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
-////        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+////        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
 //        if (![code isEqualToString:@"200"]){
-//            if(codeinfo && codeinfo.length > 0){
+//            if(message && message.length > 0){
 //                FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-//                alertV.titleLable.text = codeinfo;
+//                alertV.titleLable.text = message;
 //                [alertV showFFWarnAlertView];
 //            }
 //            return;
@@ -579,11 +579,11 @@
         
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
-        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
+        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
         if (![code isEqualToString:@"200"]){
-            if(codeinfo && codeinfo.length > 0){
+            if(message && message.length > 0){
                 FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-                alertV.titleLable.text = codeinfo;
+                alertV.titleLable.text = message;
                 [alertV showFFWarnAlertView];
             }
             return;
@@ -664,16 +664,16 @@
         NSLog(@"json===%@",json);
         NSDictionary *dict = json;
         NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
-        if (IsNilOrNull(codeinfo)){
-            codeinfo = @"";
+        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
+        if (IsNilOrNull(message)){
+            message = @"";
         }
         if (![code isEqualToString:@"200"]){
-            if(codeinfo && codeinfo.length > 0){
+            if(message && message.length > 0){
                 FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-                alertV.titleLable.text = codeinfo;
+                alertV.titleLable.text = message;
                 [alertV showFFWarnAlertView];
-//                [self showNoticeView:codeinfo];
+//                [self showNoticeView:message];
             }
             return ;
         }
@@ -764,13 +764,13 @@
 //        [self.loadingView stopAnimation];
 //        NSDictionary *dict = json;
 //        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-//        NSString *codeinfo = dict[@"codeinfo"];
+//        NSString *message = dict[@"message"];
 //
 //        if (![code isEqualToString:@"200"]){
 //            FFWarnAlertView *alertV = [[FFWarnAlertView alloc] init];
-//            alertV.titleLable.text = codeinfo;
+//            alertV.titleLable.text = message;
 //            [alertV showFFWarnAlertView];
-////            [self.loadingView showNoticeView:codeinfo];
+////            [self.loadingView showNoticeView:message];
 //        }else{
 //            NSDictionary *res = dict[@"res"];
 //            NSString *signdata = [NSString stringWithFormat:@"%@", res[@"signdata"]];
@@ -831,13 +831,13 @@
 //        NSLog(@"json===%@",json);
 //        NSDictionary *dict = json;
 //        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-//        NSString *codeinfo = [NSString stringWithFormat:@"%@",dict[@"codeinfo"]];
-//        if (IsNilOrNull(codeinfo)){
-//            codeinfo = @"";
+//        NSString *message = [NSString stringWithFormat:@"%@",dict[@"message"]];
+//        if (IsNilOrNull(message)){
+//            message = @"";
 //        }
 //        if (![code isEqualToString:@"200"]){
-//            if(codeinfo && codeinfo.length > 0){
-//                [self showNoticeView:codeinfo];
+//            if(message && message.length > 0){
+//                [self showNoticeView:message];
 //            }
 //            return ;
 //        }

@@ -30,6 +30,7 @@
     [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
     [self setTableView];
     self.title = @"企业荣誉";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestHomePageData" object:nil];

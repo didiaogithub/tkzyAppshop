@@ -35,6 +35,16 @@
     [_leftIamgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(AdaptedHeight(15));
         make.left.mas_offset(15);
+        make.width.mas_offset(AdaptedHeight(30));
+        make.bottom.mas_offset(-AdaptedHeight(15));
+    }];
+    
+    _labPayType = [[UILabel alloc]init];
+    _labPayType.font = [UIFont boldSystemFontOfSize:17];
+    [bankView addSubview:_labPayType];
+    [_labPayType mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_leftIamgeView.mas_right).offset(1);
+        make.top.mas_offset(AdaptedHeight(15));
         make.bottom.mas_offset(-AdaptedHeight(15));
     }];
     

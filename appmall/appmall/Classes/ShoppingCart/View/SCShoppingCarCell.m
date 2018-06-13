@@ -243,10 +243,10 @@
     classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
 
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [GoodModel createOrUpdateInRealm:realm withValue:classM];
-    [realm commitWriteTransaction];
+    BaseViewController *itemVC =(BaseViewController *) [self getCurrentVC];
+    [itemVC.realm beginWriteTransaction];
+    [GoodModel createOrUpdateInRealm:itemVC.realm withValue:classM];
+    [itemVC.realm commitWriteTransaction];
     if (_block){
         _block(classM,self.indexRow);
     }

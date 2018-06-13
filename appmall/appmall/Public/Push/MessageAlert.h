@@ -35,6 +35,10 @@ typedef void(^SureBtnDidClick)(void);
  */
 - (void)showAlert:(NSString *)title content:(NSString*)content btnClick:(void(^)(void))block;
 /**
+ * 中金网银
+ */
+- (void)showzjcAlert:(NSString *)title content:(NSString*)content btnClick:(void(^)(void))block;
+/**
  * 接口请求 错误 9001 8001 201 非200展示弹框 有的需要处理点击事件 有的不需要
  */
 - (void)showRequestErrorCode:(NSString *)code errorContent:(NSString *)title;

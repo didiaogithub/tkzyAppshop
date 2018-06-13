@@ -449,8 +449,9 @@
     addressId = defaultAddressId;
     
     NSMutableArray *itemlist = [NSMutableArray array];
-    NSMutableDictionary *item = [NSMutableDictionary dictionary];
+    
     for (GoodModel *model in self.dataArray) {
+        NSMutableDictionary *item = [NSMutableDictionary dictionary];
         [item setObject:model.itemid forKey:@"itemid"];
         [item setObject:model.num forKey:@"count"];
         [itemlist addObject:item];

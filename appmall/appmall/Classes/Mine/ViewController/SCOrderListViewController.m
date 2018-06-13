@@ -405,11 +405,11 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
 //        NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-        NSString *str = [NSString stringWithFormat:@"合计:¥%@", allMoney];
+        NSString *str = [NSString stringWithFormat:@"支付合计:¥%@", allMoney];
         
         NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
         //获取要调整颜色的文字位置,调整颜色
-        NSRange range1 = [[hintString string]rangeOfString:@"合计:"];
+        NSRange range1 = [[hintString string]rangeOfString:@"支付合计:"];
         NSRange range = NSMakeRange(range1.location+range1.length, hintString.length - range1.location-range1.length);
         [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor tt_redMoneyColor] range:range];
         label.attributedText = hintString;

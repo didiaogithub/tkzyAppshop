@@ -319,6 +319,20 @@
     [self setAlertText:content];
 }
 
+#pragma mark - 专门处理中金网银弹框
+- (void)showzjcAlert:(NSString *)title content:(NSString*)content btnClick:(void(^)(void))block {
+    if (!IsNilOrNull(title)) {
+        self.mainTitleL.text = title;
+    }
+    
+    
+    [_leftCancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [_rightSureBtn setTitle:@"复制" forState:UIControlStateNormal];
+    self.sureBlock = block;
+    //添加到窗口上
+    [self setAlertText:content];
+}
+
 
 
 

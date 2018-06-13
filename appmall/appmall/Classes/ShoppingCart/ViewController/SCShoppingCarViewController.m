@@ -65,12 +65,12 @@
     
     _deleteRow = 0;
     
-//    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
-//    if (IsNilOrNull(str)) {
-//        [self loadCacheData];
-//    }else{
+    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
+    if (IsNilOrNull(str)) {
+        [self loadCacheData];
+    }else{
         [self getshoppingCarData];
-//    }
+    }
     
     NSString *changedShoppingCar = [[NSUserDefaults standardUserDefaults] objectForKey:@"SCChangedShopingCar"];
     if ([changedShoppingCar isEqualToString:@"AddToShoppingCarSuccess"]) {
@@ -206,11 +206,12 @@
                 [GoodModel createOrUpdateInRealm:self.realm withValue:classM];
                 [self.realm commitWriteTransaction];
             }
-        }else{
-            [self.shoppingCarDataArray removeAllObjects];
-            [self.shoppingCarTableView reloadData];
-//            _editBtn.enabled = NO;
         }
+//        else{
+//            [self.shoppingCarDataArray removeAllObjects];
+//            [self.shoppingCarTableView reloadData];
+//            _editBtn.enabled = NO;
+//        }
         _bottomView.realPayMoneyLable.text = @"合计:￥0.00";
         _bottomView.allSelectedButton.selected = NO;
        
@@ -348,7 +349,7 @@
         NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.num);
         [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0" andnum:model.num];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
     }];
     return cell;
 }
@@ -448,7 +449,7 @@
             classM.itemid = _goodModel.itemid;
             
             classM.price = _goodModel.price;
-            classM.num = @"1";
+            classM.num = _goodModel.num;
             classM.spec = _goodModel.spec;
             classM.imgpath = _goodModel.imgpath;
             classM.name = _goodModel.name;
@@ -621,7 +622,7 @@
         [self getshoppingCarData];
         [self.loadingView showNoticeView:@"删除成功"];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

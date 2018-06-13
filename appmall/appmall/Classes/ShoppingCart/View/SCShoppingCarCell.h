@@ -41,7 +41,6 @@ typedef void(^CarryBySelfBlock)(GoodModel *model,NSInteger row);
 
 @property(nonatomic,strong)UILabel *rightNumberLable;
 
-
 @property (nonatomic, copy) CarryBySelfBlock block;
 
 -(void)setBlock:(CarryBySelfBlock)block;

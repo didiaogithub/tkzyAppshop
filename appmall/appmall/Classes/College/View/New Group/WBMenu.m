@@ -47,7 +47,8 @@
     [self addSubview:menuView];
     UIButton *btnAll = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnAll addTarget:self action:@selector(showAllItem) forControlEvents:UIControlEventTouchUpInside];
-    [btnAll setTitle:@"全部" forState:0];
+//    [btnAll setTitle:@"全部" forState:0];
+    [btnAll setImage:[UIImage imageNamed:@"下拉箭头"] forState:0];
     btnAll .frame  =CGRectMake([UIScreen mainScreen].bounds.size.width - 65, 20, 65, 30);
     [btnAll.titleLabel setFont: [UIFont systemFontOfSize:14]];
     [btnAll setTitleColor:RGBCOLOR(72, 72, 72) forState:0];

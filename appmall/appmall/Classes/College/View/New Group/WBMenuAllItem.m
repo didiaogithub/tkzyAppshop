@@ -39,7 +39,8 @@
     contentView.mj_h = selectItem.count / 4 * 30  + 130;
     UIButton *btnAll = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnAll addTarget:self action:@selector(closeAllItem) forControlEvents:UIControlEventTouchUpInside];
-    [btnAll setTitle:@"收起" forState:0];
+//    [btnAll setTitle:@"收起" forState:0];
+    [btnAll setImage:[UIImage imageNamed:@"上拉箭头"] forState:0];
     btnAll .frame  =CGRectMake([UIScreen mainScreen].bounds.size.width - 80, 5, 65, 30);
     [btnAll.titleLabel setFont: [UIFont systemFontOfSize:14]];
     [btnAll setTitleColor:RGBCOLOR(72, 72, 72) forState:0];

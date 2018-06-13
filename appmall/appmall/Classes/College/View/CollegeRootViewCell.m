@@ -169,7 +169,7 @@
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }else if(self.selectIndex == 3){
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-//        detailVC.detailUrl =  ;
+        detailVC.detailUrl =  [NSString stringWithFormat:@"%@%@",CollectionDetail,_model.lookList [indexPath.row].courseId];;
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }
 }

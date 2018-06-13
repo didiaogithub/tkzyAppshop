@@ -112,6 +112,9 @@
 #pragma  mark UITableViewDataSource,UITableViewDelegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if ( self.classList.count == 0) {
+        return 1;
+    }
     return 2;
 }
 

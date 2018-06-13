@@ -122,7 +122,7 @@
         dic = dic[@"data"][@"coupons"];
         if (dic != nil) {  //请求到数据
             viewNewUser.hidden = NO;
-            labNewUserCost.text  = [NSString stringWithFormat:@"%.0f",[dic[@"use_money"] doubleValue]];
+            labNewUserCost.text  = [NSString stringWithFormat:@"%.0f",[dic[@"money"] doubleValue]];
             newUserInfo.text = [NSString stringWithFormat:@"%@",dic[@"rule_name"]];
             newUserInfo.adjustsFontSizeToFitWidth = YES;
             newUserTitle.text = [NSString stringWithFormat:@" %@   ",dic[@"instructions"]];
@@ -422,6 +422,10 @@
         SCCategoryGoodsModel *modelItem = [[SCCategoryGoodsModel alloc]init];
         modelItem.itemid = model.topicList[indexpath.row].itemid;
         detailVC.goodsM  = modelItem;
+        if ([model.topicList[indexpath.row].auth boolValue] == YES) {
+            [self.loadingView showNoticeView:model.topicList[indexpath.row].auth_msg];
+            return;
+        }
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     if (index == 4) {

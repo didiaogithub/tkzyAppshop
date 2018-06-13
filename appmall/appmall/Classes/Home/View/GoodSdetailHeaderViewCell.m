@@ -8,6 +8,7 @@
 
 #import "GoodSdetailHeaderViewCell.h"
 #import "ImageCollViewCell.h"
+#import "RootNavigationController.h"
 #define  KImageCollViewCell @"ImageCollViewCell"
 
 @interface GoodSdetailHeaderViewCell()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -78,10 +79,19 @@
     NSInteger num = scrollView.contentOffset.x / KscreenWidth + 1;
     self.labBannerNum.text = [NSString stringWithFormat:@"%ld/3",num];
 }
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+   [ [self getCurrentVC] presentViewController:welcomeNav animated:YES completion:nil];
+    
+}
 
 
 - (IBAction)actionCollect:(id)sender {
-        
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
         NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
         
         [pramaDic setObject:selfmodel.itemid forKey:@"itemid"];

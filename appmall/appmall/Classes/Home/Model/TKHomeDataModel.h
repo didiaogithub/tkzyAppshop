@@ -28,6 +28,8 @@ RLM_ARRAY_TYPE(BannerModel)
 @property NSString *link;
 @property NSString *price;
 @property NSString *activityid ;
+@property NSString *auth_msg ;
+@property NSString *auth ;
 
 @end
 RLM_ARRAY_TYPE(TopicModel)

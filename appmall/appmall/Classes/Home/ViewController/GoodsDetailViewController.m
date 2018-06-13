@@ -120,7 +120,13 @@
             return 1;
             break;
         case 1:
-            return self.detailModel.commentList.count == 0?1:self.detailModel.commentList.count;
+            if (self.detailModel.commentList.count == 0) {
+                return 1;
+            }else if (self.detailModel.commentList.count > 2){
+                return 2;
+            }else{
+                return self.detailModel.commentList.count;
+            }
             break;
         case 2:
             return 1;

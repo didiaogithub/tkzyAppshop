@@ -147,6 +147,8 @@
                 <outlet property="labFuKuan" destination="rlg-v0-Txt" id="sdH-nX-Ga0"/>
                 <outlet property="labFuKuanTr" destination="Tg4-KG-Srh" id="6ee-E7-GIP"/>
                 <outlet property="labJianMian" destination="BkZ-KA-3G8" id="1A8-RS-XGH"/>
+                <outlet property="labJianMianHeight" destination="g7h-PD-c72" id="o1J-b4-aDX"/>
+                <outlet property="labJianMianHeightTr" destination="nh9-P1-NAA" id="8kd-r9-o4b"/>
                 <outlet property="labJianMianTr" destination="yRH-aG-o8O" id="CY1-XI-5Sj"/>
                 <outlet property="labYunfei" destination="mPW-i9-TwT" id="AHQ-Ds-FAw"/>
                 <outlet property="labYunfeiTr" destination="Ebk-pC-SYm" id="0Xf-6p-B0V"/>

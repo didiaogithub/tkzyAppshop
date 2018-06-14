@@ -69,6 +69,7 @@
     [CKCNotificationCenter addObserver:self selector:@selector(changeTableViewFrame) name:@"NoNetNotification" object:nil];
     [CKCNotificationCenter addObserver:self selector:@selector(requestDataWithoutCache) name:@"RequestHomePageData" object:nil];
     [self requestDataWithoutCache];
+    [UITableView refreshHelperWithScrollView:tabHomeList target:self loadNewData:@selector(requestDataWithoutCache) loadMoreData:nil isBeginRefresh:NO];
     
 }
 

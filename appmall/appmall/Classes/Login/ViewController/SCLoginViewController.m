@@ -226,11 +226,17 @@
             NSString * dealerId =  dic[@"data"][@"dealerId"];
             NSString * customerId =  dic[@"data"][@"customerId"];
             NSString * salesId = dic[@"data"][@"salesId"];
-            if (!IsNilOrNull(dealerId) && !IsNilOrNull(customerId)&&!IsNilOrNull(salesId)) {
+            if (!IsNilOrNull(dealerId)) {
                 [KUserdefaults setObject:dealerId forKey:KdealerId];
+            }
+            if (!IsNilOrNull(customerId)) {
                 [KUserdefaults setObject:customerId forKey:KcustomerId];
+            }
+            
+            if (!IsNilOrNull(salesId)) {
                 [KUserdefaults setObject:salesId forKey:KsalesId];
             }
+            
              [KUserdefaults synchronize];
             [self.view endEditing:YES];
             [CKJPushManager manager];

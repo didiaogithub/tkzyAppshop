@@ -20,6 +20,7 @@
         self.list = itemArray;
         return;
     }
+ 
     [super setValue:value forKey:key];
 }
 
@@ -40,5 +41,11 @@
     }
     return item;
 }
-
+-(void)setValue:(id)value forKey:(NSString *)key{
+    if ([key isEqualToString:@"itemscore"]) {
+        self.itemscore = value;
+        return;
+    }
+    [super setValue:value forKey:key];
+}
 @end

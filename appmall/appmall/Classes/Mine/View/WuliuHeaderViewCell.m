@@ -23,8 +23,8 @@
 -(void)loadData:(WuliuModel *)model{
     [self.imgIcon sd_setImageWithURL: [NSURL URLWithString:model.img]];
     self.labGoodNum.text = [NSString stringWithFormat:@"%@件商品",model.goodNum];
-    self.labComPname.text = [NSString stringWithFormat:@"快递公司  %@",model.companyName];
-    self.labOrderNum.text = [NSString stringWithFormat:@"快递单号  %@",model.number];
+    self.labComPname.text = [NSString stringWithFormat:@"快递公司  %@",model.companyName == nil?@"暂无信息":model.companyName ];
+    self.labOrderNum.text = [NSString stringWithFormat:@"快递单号  %@",model.number == nil?@"暂无信息":model.number];
 }
 
 @end

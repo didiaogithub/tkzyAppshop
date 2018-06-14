@@ -31,7 +31,7 @@
     if (!IsNilOrNull(self.path4)){
         imgHeight = imgHeight * 2 + 5;
     }
-    if (IsNilOrNull(self.path1)) {
+    if (IsNilOrNull(self.path1) &&IsNilOrNull(self.path2) &&IsNilOrNull(self.path3) ) {
         imgHeight = 0;
     }
     CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;

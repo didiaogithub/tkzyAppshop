@@ -85,14 +85,13 @@
 //                // 调整frame参数
 //                [photoView adjustFrame];
 //            }];
-            
-            [_imageView setImageWithURL:_photo.url placeholderImage:_photo.placeholder options:SDWebImageRetryFailed|SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+
+            [_imageView sd_setImageWithURL:photo.url placeholderImage:photo.placeholder options:SDWebImageRetryFailed|SDWebImageLowPriority completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                 photo.image = image;
                 
                 // 调整frame参数
                 [photoView adjustFrame];
             }];
-
         }
     } else {
         [self photoStartLoad];
@@ -131,13 +130,14 @@
 //            [photoView photoDidFinishLoadWithImage:image];
 //        }];
         
-        [_imageView setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [_imageView sd_setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             if (receivedSize > kMinProgress) {
                 loading.progress = (float)receivedSize/expectedSize;
             }
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            [photoView photoDidFinishLoadWithImage:image];
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+             [photoView photoDidFinishLoadWithImage:image];
         }];
+    
     }
 }
 
@@ -294,6 +294,6 @@
 - (void)dealloc
 {
     // 取消请求
-    [_imageView setImageWithURL:[NSURL URLWithString:@"file:///abc"]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"file:///abc"]];
 }
 @end

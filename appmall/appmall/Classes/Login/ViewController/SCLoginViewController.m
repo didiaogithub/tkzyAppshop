@@ -226,9 +226,11 @@
             NSString * dealerId =  dic[@"data"][@"dealerId"];
             NSString * customerId =  dic[@"data"][@"customerId"];
             NSString * salesId = dic[@"data"][@"salesId"];
-            [KUserdefaults setObject:dealerId forKey:KdealerId];
-            [KUserdefaults setObject:customerId forKey:KcustomerId];
-            [KUserdefaults setObject:salesId forKey:KsalesId];
+            if (!IsNilOrNull(dealerId) && !IsNilOrNull(customerId)&&!IsNilOrNull(salesId)) {
+                [KUserdefaults setObject:dealerId forKey:KdealerId];
+                [KUserdefaults setObject:customerId forKey:KcustomerId];
+                [KUserdefaults setObject:salesId forKey:KsalesId];
+            }
              [KUserdefaults synchronize];
             [self.view endEditing:YES];
             [CKJPushManager manager];
@@ -323,9 +325,12 @@
             NSString * dealerId =  dict[@"data"][@"dealerId"];
             NSString * customerId =  dict[@"data"][@"customerId"];
             NSString * salesId = dict[@"data"][@"salesId"];
-            [KUserdefaults setObject:dealerId forKey:KdealerId];
-            [KUserdefaults setObject:customerId forKey:KcustomerId];
-            [KUserdefaults setObject:salesId forKey:KsalesId];
+            if (!IsNilOrNull(dealerId) && !IsNilOrNull(customerId)&&!IsNilOrNull(salesId)) {
+                [KUserdefaults setObject:dealerId forKey:KdealerId];
+                [KUserdefaults setObject:customerId forKey:KcustomerId];
+                [KUserdefaults setObject:salesId forKey:KsalesId];
+            }
+            [KUserdefaults synchronize];
             
             NSString *appopenid = [NSString stringWithFormat:@"%@",dict[@"appopenid"]];
             

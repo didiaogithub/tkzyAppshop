@@ -180,7 +180,7 @@
                 [self.shoppingCarDataArray removeAllObjects];
                 [self.shoppingCarTableView reloadData];
                 
-//                _editBtn.enabled = NO;
+                _editBtn.enabled = NO;
                 
             }
 
@@ -197,6 +197,15 @@
                 model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
                 model.isSelect = NO;
                 [self.shoppingCarDataArray addObject:model];
+            }
+            
+            if(self.shoppingCarDataArray.count == 0){
+                _editBtn.enabled = NO;
+                _bottomView.hidden = YES;
+                
+            }else{
+                _editBtn.enabled = YES;
+                _bottomView.hidden = NO;
             }
             
             for (NSInteger i = 0; i < self.shoppingCarDataArray.count; i++) {
@@ -227,10 +236,12 @@
             [self.loadingView showNoticeView:NetWorkTimeout];
         }
         if(self.shoppingCarDataArray.count == 0){
-//            _editBtn.enabled = NO;
+            _editBtn.enabled = NO;
+            _bottomView.hidden = YES;
             
         }else{
-//            _editBtn.enabled = YES;
+            _editBtn.enabled = YES;
+            _bottomView.hidden = NO;
         }
     }];
 }
@@ -247,10 +258,18 @@
         [self.shoppingCarTableView.mj_header endRefreshing];
         [self.shoppingCarTableView.mj_footer endRefreshing];
         [self.shoppingCarTableView reloadData];
-//        _editBtn.enabled = YES;
+        _editBtn.enabled = YES;
     }else{
-//        _editBtn.enabled = NO;
+        _editBtn.enabled = NO;
 
+    }
+    if(self.shoppingCarDataArray.count == 0){
+        _editBtn.enabled = NO;
+        _bottomView.hidden = YES;
+        
+    }else{
+        _editBtn.enabled = YES;
+        _bottomView.hidden = NO;
     }
 }
 
@@ -295,7 +314,7 @@
     [_editBtn setTitle:@"完成" forState:UIControlStateSelected];
     [_editBtn setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateSelected];
     
-//    _editBtn.enabled = NO;
+    _editBtn.enabled = NO;
     
     [_editBtn addTarget:self action:@selector(clickEditButton:) forControlEvents:UIControlEventTouchUpInside];
     [_editBtn setTitleColor:SubTitleColor forState:UIControlStateNormal];
@@ -327,6 +346,14 @@
 
 #pragma mark-tableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if(self.shoppingCarDataArray.count == 0){
+        _editBtn.enabled = NO;
+        _bottomView.hidden = YES;
+        
+    }else{
+        _editBtn.enabled = YES;
+        _bottomView.hidden = NO;
+    }
     return self.shoppingCarDataArray.count;
 }
 
@@ -427,6 +454,7 @@
             _bottomView.allSelectedButton.selected = NO;
         }
     }
+    
    goodModel =  self.shoppingCarDataArray[indexRow];
     [self numPrice:goodModel andtype:@"0" andnum:goodModel.num];
     //一个cell刷新
@@ -600,7 +628,7 @@
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, DelShoppingCarUrl];
    
     NSMutableDictionary *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:itemids forKey:@"itemids"];
+    [pramaDic setObject:itemids forKey:@"items"];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
@@ -671,6 +699,7 @@
         [self.selectedRowArr removeAllObjects];
         [self.loadingView showNoticeView:@"收藏成功"];
         [self deleteShoppingCarGoods:itemids indexArr:result];
+        
         
     } failure:^(NSError *error) {
         if (error.code == -1009) {

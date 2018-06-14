@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *invoicehead;
 @property (weak, nonatomic) IBOutlet UIImageView *invoiceImage;
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
+/**  image*/
+@property (nonatomic, strong) UIImage *img;
 /**  path*/
 @property (nonatomic, strong) NSString *path;
 
@@ -80,19 +82,21 @@
     
     NSURL *url = [NSURL URLWithString: urlString];
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    UIImage *img;
-    if ([manager diskImageExistsForURL:url])
-    {
-        img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
-    }
-    else
-    {
-        //从网络下载图片
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        img = [UIImage imageWithData:data];
-    }
+    [manager diskImageExistsForURL:url completion:^(BOOL isInCache) {
+        if (isInCache)
+        {
+            _img =  [[manager imageCache] imageFromDiskCacheForKey:url.absoluteString];
+        }
+        else
+        {
+            //从网络下载图片
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            _img = [UIImage imageWithData:data];
+        }
+    }];
+   
     // 保存图片到相册中
-    UIImageWriteToSavedPhotosAlbum(img,self, @selector(image:didFinishSavingWithError:contextInfo:),nil);
+    UIImageWriteToSavedPhotosAlbum(_img,self, @selector(image:didFinishSavingWithError:contextInfo:),nil);
     
 }
 //保存图片完成之后的回调

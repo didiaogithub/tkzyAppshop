@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - HXWeiboPhotoPicker (2.0.9):
+    - SDWebImage (~> 4.0)
   - IQKeyboardManager (5.0.8)
   - JCore (1.1.7)
   - JGProgressHUD (2.0.1)
@@ -25,13 +27,14 @@ PODS:
   - Realm (3.3.0):
     - Realm/Headers (= 3.3.0)
   - Realm/Headers (3.3.0)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
   - SobotKit (2.3.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - HXWeiboPhotoPicker (~> 2.0.9)
   - IQKeyboardManager
   - JGProgressHUD
   - JPush
@@ -39,12 +42,13 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - Realm
-  - SDWebImage (~> 3.7.2)
+  - SDWebImage (~> 4.0)
   - SobotKit (~> 2.3.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - HXWeiboPhotoPicker
     - IQKeyboardManager
     - JCore
     - JGProgressHUD
@@ -58,6 +62,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  HXWeiboPhotoPicker: e395ed32275b05f6c90822ffca1275522f32000c
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   JCore: f7459c81c135281a874a6beafdd321666adcc834
   JGProgressHUD: 63ad7d8850702a91625fb9ed8e94eab706c03d81
@@ -66,9 +71,9 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SobotKit: 09bdd69653356c3cbe687e1455a65424de3b6287
 
-PODFILE CHECKSUM: db7b1584da425c32ee9807133bd4b03e517c59f9
+PODFILE CHECKSUM: c6a2c69f40e008a404b523314767ce24ba54d9b0
 
 COCOAPODS: 1.5.0

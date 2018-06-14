@@ -81,91 +81,6 @@
     
 }
 
-
-//-(void)getPayMethod {
-//
-//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PayMethodUrl];
-//
-//    [self.view addSubview:self.loadingView];
-//    [self.loadingView startAnimation];
-//
-//    [HttpTool postWithUrl:requestUrl params:nil success:^(id json) {
-//        [self.loadingView stopAnimation];
-//
-//        NSDictionary *dict = json;
-//        NSString *code = [NSString stringWithFormat:@"%@",dict[@"code"]];
-//        if (![code isEqualToString:@"200"]) {
-//
-//            [_payMethodArr removeAllObjects];
-//            _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
-//            [self.paymentTableView reloadData];
-//            return ;
-//        }
-//
-//        NSString *coupontime = [NSString stringWithFormat:@"%@", dict[@"coupontime"]];
-//        if (IsNilOrNull(coupontime)) {
-//            coupontime = @"600";
-//        }
-//        [KUserdefaults setObject:coupontime forKey:@"YDSC_coupontime"];
-//
-//        NSString *couponbgurl = [NSString stringWithFormat:@"%@", dict[@"couponbgurl"]];
-//        if (IsNilOrNull(couponbgurl)) {
-//            couponbgurl = @"";
-//        }
-//        [KUserdefaults setObject:couponbgurl forKey:@"YDSC_couponbgurl"];
-//
-//
-//
-//        NSString *payalertmsg = [NSString stringWithFormat:@"%@", dict[@"payalertmsg"]];
-//        if (IsNilOrNull(payalertmsg)) {
-//            payalertmsg = @"";
-//        }
-//        [KUserdefaults setObject:payalertmsg forKey:@"payalertmsg"];
-//
-//        NSString *appmallverinfo = [dict objectForKey:@"appmallverinfo"];
-//        if (!IsNilOrNull(appmallverinfo)) {
-//            [KUserdefaults setObject:appmallverinfo forKey:@"YDSC_updateInfo"];
-//        }
-//
-//        //是否显示积分商城
-//        NSString *mallintegralshow = [dict objectForKey:@"mallintegralshow"];
-//        if (!IsNilOrNull(mallintegralshow)) {
-//            [KUserdefaults setObject:mallintegralshow forKey:MallintegralShowOrNot];
-//        }
-//
-//        //是否显示消息中心
-//        NSString *appmallmsg = [dict objectForKey:@"appmallmsg"];
-//        if (!IsNilOrNull(appmallmsg)) {
-//            [KUserdefaults setObject:appmallmsg forKey:@"YDSC_msgShow"];
-//        }
-//
-//        NSString *ckappdownloadmsg = [dict objectForKey:@"ckappdownloadmsg"];
-//        if (!IsNilOrNull(ckappdownloadmsg)) {
-//            [KUserdefaults setObject:ckappdownloadmsg forKey:@"BecomeCKMsg"];
-//        }
-//        [KUserdefaults synchronize];
-//
-//        [self updatePaymentMethod:dict];
-//        [_payMethodArr removeAllObjects];
-//        _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
-//        [self.paymentTableView reloadData];
-//
-//        [self updateDomain:dict];
-//
-//    } failure:^(NSError *error) {
-//        [self.loadingView stopAnimation];
-//
-//        if (error.code == -1009) {
-//            [self showNoticeView:NetWorkNotReachable];
-//        }else{
-//            [self showNoticeView:NetWorkTimeout];
-//        }
-//        [_payMethodArr removeAllObjects];
-//        _payMethodArr = [NSMutableArray arrayWithArray:[[DefaultValue shareInstance] getAvailablePaymentMethod]];
-//        [self.paymentTableView reloadData];
-//    }];
-//}
-
 -(void)getPayMethod {
     
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getPayMethodListApi];
@@ -211,16 +126,29 @@
 
 
 
+
+
+
+
 -(void)updatePaymentMethod:(NSDictionary*)dict {
     
     NSArray *paymethodArr = dict[@"paymethod"];
-    for (NSDictionary *dic in paymethodArr) {
+    for (int i = 0; i < paymethodArr.count; i++) {
+        NSDictionary *dic = paymethodArr[i];
         NSString *skey = [NSString stringWithFormat:@"%@", [dic objectForKey:@"skey"]];
         NSString *svalue = [NSString stringWithFormat:@"%@",[dic objectForKey:@"svalue"]];
         if (!IsNilOrNull(skey) && !IsNilOrNull(svalue)) {
             [[DefaultValue shareInstance] paymentAvaliable:svalue forKey:skey];
         }
     }
+    
+//    for (NSDictionary *dic in paymethodArr) {
+//        NSString *skey = [NSString stringWithFormat:@"%@", [dic objectForKey:@"skey"]];
+//        NSString *svalue = [NSString stringWithFormat:@"%@",[dic objectForKey:@"svalue"]];
+//        if (!IsNilOrNull(skey) && !IsNilOrNull(svalue)) {
+//            [[DefaultValue shareInstance] paymentAvaliable:svalue forKey:skey];
+//        }
+//    }
 }
 
 -(void)createTableView{
@@ -341,11 +269,18 @@
         [cell setBackgroundColor:[UIColor tt_grayBgColor]];
         
         NSString *paymentType = _payMethodArr[indexPath.row];
-        for (NSDictionary *dic in self.payArr) {
+        for (int i = 0; i < self.payArr.count; i++) {
+            NSDictionary *dic = self.payArr[i];
             if ([paymentType isEqualToString:dic[@"skey"]]) {
                 cell.labPayType.text = dic[@"skname"];
             }
         }
+        
+//        for (NSDictionary *dic in self.payArr) {
+//            if ([paymentType isEqualToString:dic[@"skey"]]) {
+//                cell.labPayType.text = dic[@"skname"];
+//            }
+//        }
         if([paymentType isEqualToString:@"alipay"]){  //支付宝
             cell.leftIamgeView.image = [UIImage imageNamed:@"支付宝"];
         }else if ([paymentType isEqualToString:@"wxpay"]){  //微信

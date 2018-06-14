@@ -98,8 +98,9 @@
                 <outlet property="orderTotal" destination="SIK-WV-387" id="GZW-Qd-Ad0"/>
                 <outlet property="rightAction" destination="K7e-bM-wc8" id="tdv-h8-UcV"/>
                 <outlet property="rightBtn" destination="K7e-bM-wc8" id="4SO-FI-yn6"/>
+                <outlet property="rwitdh" destination="Bl8-2n-gIs" id="6Hd-Pc-i0m"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="-47.5"/>
+            <point key="canvasLocation" x="-175" y="-76"/>
         </view>
     </objects>
 </document>

@@ -72,7 +72,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-1I-HcU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页媒体报道" translatesAutoresizingMaskIntoConstraints="NO" id="2CT-1I-HcU">
                     <rect key="frame" x="10" y="228" width="355" height="227"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="227" id="WZ3-4a-UQF"/>
@@ -118,4 +118,7 @@
             <point key="canvasLocation" x="-334" y="-37"/>
         </view>
     </objects>
+    <resources>
+        <image name="首页媒体报道" width="351" height="143"/>
+    </resources>
 </document>

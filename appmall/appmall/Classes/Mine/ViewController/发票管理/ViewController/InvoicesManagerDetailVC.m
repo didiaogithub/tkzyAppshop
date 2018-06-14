@@ -43,14 +43,14 @@
         NSDictionary *dic = json;
         NSDictionary *dict = dic[@"data"];
         if ([dic[@"code"] integerValue] == 200) {
-            self.orderno.text = [NSString stringWithFormat:@"%@",dict[@"orderno"]];
+            self.orderno.text = [NSString stringWithFormat:@"订单号：%@",dict[@"orderno"]];
             if ([dict[@"invoicetype"] isEqualToString:@"1"]) {
-                self.invoicetype.text = @"电子发票";
+                self.invoicetype.text = @"发票类型：电子发票";
             }else{
-                self.invoicetype.text = @"电子发票";
+                self.invoicetype.text = @"发票类型：电子发票";
             }
-            self.invoicehead.text = dict[@"issuingoffice"];
-            self.invoicecotent.text = dict[@"content"];
+            self.invoicehead.text = [NSString stringWithFormat:@"发票类型：%@",dict[@"issuingoffice"]];
+            self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
             self.path = dict[@"path"];
             
         }

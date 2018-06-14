@@ -173,7 +173,7 @@
     
     self.segementArr = [NSMutableArray arrayWithObjects:button,button1,nil];
     
-    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 50)/2 , 39,50, 2)];
+    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 70)/2 , 39,70, 2)];
     self.sliderView.backgroundColor = [UIColor tt_redMoneyColor];
     [contentView addSubview:self.sliderView];
     self.currentIndex = 0;
@@ -198,8 +198,8 @@
        
     }
     [self.mTableView reloadData];
-    self.sliderView.x = sender.x + (sender.width - 50)/2;
-    self.sliderView.width = 50;
+    self.sliderView.x = sender.x + (sender.width - 70)/2;
+    self.sliderView.width = 70;
     
     for (UIButton *btn in self.segementArr) {
         btn.selected = NO;
@@ -270,7 +270,7 @@
     }
     
     InvoicesManagerModel *model = self.dataArray[section];
-    view.orderTimeLab.text = [NSString stringWithFormat:@"订单时间：%@",model.ordertime];
+    view.orderTimeLab.text = [NSString stringWithFormat:@"下单时间：%@",model.ordertime];
     return view;
 }
 

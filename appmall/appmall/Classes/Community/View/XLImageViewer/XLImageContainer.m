@@ -115,14 +115,17 @@ static CGFloat minPanLength = 100.0f;
 {
     _imageUrl = imageUrl;
     
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+
         dispatch_async(dispatch_get_main_queue(), ^{
             _loading.progress = (CGFloat)receivedSize/(CGFloat)expectedSize;
         });
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
         [self setImageViewFrame];
         //隐藏加载
         [_loading hide];
+        
     }];
 }
 

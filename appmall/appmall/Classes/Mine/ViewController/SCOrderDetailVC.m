@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.topDis.constant = NaviHeight;
     [self setTableView];
     [self requestOrderDetailData];

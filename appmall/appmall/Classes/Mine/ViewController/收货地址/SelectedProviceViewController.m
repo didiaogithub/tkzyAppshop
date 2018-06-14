@@ -60,9 +60,10 @@
 -(void)createCollectedListData{
 //    地区类型（0：省   1：市    2：县（区））
     
-    NSDictionary *pramaDic = @{@"areaCode":@"0"};
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:@"0" forKey:@"areaCode"];
     NSString *provinceUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAreaUrl];
-    [HttpTool getWithUrl:provinceUrl params:pramaDic success:^(id json) {
+    [HttpTool getWithUrl:provinceUrl params:paraDic success:^(id json) {
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
             [self showNoticeView:dict[@"message"]];

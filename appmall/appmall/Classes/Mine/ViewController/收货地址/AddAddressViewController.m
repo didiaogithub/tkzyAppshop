@@ -87,6 +87,10 @@
     if (self.addressIdString && self.addressIdString.length > 0) {
          [self getAddressInfoData];
     }
+    
+    [_nameTextFiedld addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_telePhoneFiedld addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_detailedAddressFiedld addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 #pragma mark-通过id获取地址
 -(void)getAddressInfoData{
@@ -141,6 +145,8 @@
         _cityLabel.text = threeAddress;
     }
     _detailedAddressFiedld.text = detailAddress;
+    
+   
     
 }
 
@@ -485,6 +491,27 @@
         [_nameTextFiedld resignFirstResponder];
         [_detailedAddressFiedld resignFirstResponder];
     }
+}
+
+// 限制手机号码只能输入11位 (这个不是textField的代理方法)
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    if (textField == _telePhoneFiedld) {
+        if (textField.text.length > 11) {
+            textField.text = [textField.text substringToIndex:11];
+        }
+    }
+    if (textField == _detailedAddressFiedld) {
+        if (textField.text.length > 20) {
+            textField.text = [textField.text substringToIndex:20];
+        }
+    }
+    if (textField == _nameTextFiedld) {
+        if (textField.text.length > 12) {
+            textField.text = [textField.text substringToIndex:12];
+        }
+    }
+    
 }
 #pragma mark-添加单击手势  点击任意一处收回键盘
 -(void)keyboardHide:(UITapGestureRecognizer*)tap{

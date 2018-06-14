@@ -41,9 +41,10 @@
     if (IsNilOrNull(codestr)) {
         codestr = @"";
     }
-    NSDictionary *pramaDic = @{@"areaCode":codestr};
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:codestr forKey:@"areaCode"];
      NSString *cityUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetAreaUrl];
-    [HttpTool getWithUrl:cityUrl params:pramaDic success:^(id json) {
+    [HttpTool getWithUrl:cityUrl params:paraDic success:^(id json) {
         NSDictionary *dict = json;
         if([dict[@"code"] integerValue] != 200){
             [self showNoticeView:dict[@"message"]];

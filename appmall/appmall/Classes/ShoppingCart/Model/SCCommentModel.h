@@ -22,6 +22,9 @@
 @property (nonatomic, copy) NSString *content;
 /** 时间 */
 @property (nonatomic, copy) NSString *time;
+
+@property(nonatomic,copy)NSString * qualityscore;
+ @property(nonatomic,copy)NSString * itemscore;
 /** 图像 */
 @property (nonatomic, copy) NSString *head;
 @property (nonatomic, copy) NSString *path1;

@@ -85,6 +85,9 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
+        if (_page == 1) {
+            [self.classArray removeAllObjects];
+        }
         NSArray *list = dic[@"data"][@"courseList"];
         [self.classListView tableViewEndRefreshCurPageCount:list.count];
         if (dic != nil) {

@@ -27,7 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"物流信息";
+    
     self.topDis.constant = NaviHeight;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableView];
     [self requestOrderDetailData];
 }

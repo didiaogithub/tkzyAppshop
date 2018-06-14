@@ -14,12 +14,19 @@
 #import "SCMyOrderModel.h"
 #import "SCCategoryGoodsModel.h"
 #import "common.h"
+#define KCheckSec 60
+@interface SCPhoneLoginViewController ()<UITextFieldDelegate>{
 
-@interface SCPhoneLoginViewController ()<UITextFieldDelegate>
+    NSTimer *timer;
+    NSInteger checkSec;
+       
+}
 
 @property (nonatomic, strong) UITextField *phoneTF;
 @property (nonatomic, strong) UITextField *idcodeTF;
-@property (nonatomic, strong) STCountDownButton *countDownCode;
+@property (nonatomic, strong) UIButton *countDownCode;
+@property(nonatomic,strong)UIImageView *welcomeImg;
+@property (nonatomic, strong) UIImageView *loginIcon;
 @property (nonatomic, copy) NSString *valitedStr;
 
 @end
@@ -39,7 +46,17 @@
         self.navigationItem.title = @"登录";
     }
     self.view.backgroundColor = [UIColor whiteColor];
+    _welcomeImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    _welcomeImg.image = [UIImage imageNamed:@"bg"];
+    [_welcomeImg setUserInteractionEnabled:YES];
+    [self.view addSubview:_welcomeImg];
     
+    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 110  , 100)];
+    _loginIcon.center = CGPointMake(SCREEN_WIDTH/ 2, _loginIcon.centerY);
+    _loginIcon.image = [UIImage imageNamed:@"logo-商城"];
+    //    _loginIcon.backgroundColor = [UIColor redColor];
+    [_loginIcon setUserInteractionEnabled:YES];
+    [self.view addSubview:_loginIcon];
     [self initUI];
 }
 
@@ -56,71 +73,47 @@
     title.frame = CGRectMake(0, 74+NaviAddHeight, SCREEN_WIDTH, 30);
     [self.view addSubview:title];
     
-    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(10, 114+NaviAddHeight, SCREEN_WIDTH - 20, 44)];
+    _phoneTF =  [self createTfText:@"手机号码" andFrame:CGRectMake(30, 265, SCREEN_WIDTH - 60, 57)];
     _phoneTF.keyboardType = UIKeyboardTypePhonePad;
     _phoneTF.delegate = self;
     [self.view addSubview:_phoneTF];
-    _phoneTF.placeholder = @"请输入手机号码";
-    UILabel *phoneLine = [UILabel creatLineLable];
-    phoneLine.frame = CGRectMake(10, 158+NaviAddHeight, SCREEN_WIDTH - 20, 1);
-    [self.view addSubview:phoneLine];
-    
-    NSString *tipStr = @"*非大陆手机用户请在手机号码前输入国际电话区号。例如香港手机用户：0852手机号码";
-    CGFloat h = [tipStr boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size.height + 1;
-    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 159+NaviAddHeight, SCREEN_WIDTH - 20, h)];
-    tipLabel.text = tipStr;
-    tipLabel.numberOfLines = 0;
-    tipLabel.textColor = [UIColor tt_monthGrayColor];
-    tipLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.view addSubview:tipLabel];
     
     
-    
-    _idcodeTF = [[UITextField alloc] initWithFrame:CGRectMake(10, 168 + h+5+NaviAddHeight, SCREEN_WIDTH - 140, 44)];
+    _idcodeTF = [self createTfText:@"验证码" andFrame:CGRectMake(30, 335, SCREEN_WIDTH - 60, 57)];
     _idcodeTF.keyboardType = UIKeyboardTypePhonePad;
     _idcodeTF.delegate = self;
     [self.view addSubview:_idcodeTF];
-    _idcodeTF.placeholder = @"请输入验证码";
     
-    //发送验证码
-    _countDownCode = [[STCountDownButton alloc]init];
-    [self.view addSubview:_countDownCode];
-    [_countDownCode mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(_idcodeTF.mas_top).offset(2);
-        make.right.equalTo(self.view.mas_right).offset(-10);
-        make.width.mas_equalTo(120);
-        make.height.mas_equalTo(40);
-    }];
-    //设置背景颜色
+    
+    _countDownCode = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [_countDownCode setTitle:@"获取验证码" forState:0];
     _countDownCode.backgroundColor = [UIColor clearColor];
-    _countDownCode.layer.borderWidth = 1;
-    _countDownCode.layer.cornerRadius = 2;
-    _countDownCode.layer.masksToBounds = YES;
-    _countDownCode.layer.borderColor = [UIColor tt_lineBgColor].CGColor;
-    //设置倒计时时长
-    [_countDownCode setSecond:60];
-    //设置字体大小
-    if(iphone4){
-        _countDownCode.titleLabel.font = CHINESE_SYSTEM(AdaptedWidth(10));
-    }else{
-        _countDownCode.titleLabel.font = MAIN_TITLE_FONT;
-    }
     
-    //设置字体颜色
-    [_countDownCode setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
-    [_countDownCode addTarget:self
-                       action:@selector(startCountDown:)
-             forControlEvents:UIControlEventTouchUpInside];
+    _countDownCode.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_countDownCode addTarget:self action:@selector(startTimer) forControlEvents:UIControlEventTouchUpInside];
+    _countDownCode.frame = CGRectMake(0, 0, 100, 33);
     
-    UILabel *line = [UILabel creatLineLable];
-    line.frame = CGRectMake(10, 208 + h+5+NaviAddHeight, SCREEN_WIDTH - 150, 1);
-    [self.view addSubview:line];
+    [_idcodeTF setRightView:_countDownCode];
+    _idcodeTF.rightViewMode = UITextFieldViewModeAlways;
+    
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginBtn.backgroundColor = [UIColor tt_redMoneyColor];
+    
+    [loginBtn setBackgroundColor:[UIColor colorWithHexString:@"ee3837"]];
+    [_welcomeImg addSubview:loginBtn];
+    loginBtn.frame =CGRectMake(30, 408, SCREEN_WIDTH - 60, 57);
+    loginBtn.layer.cornerRadius = loginBtn.mj_h / 2;
+    
+    UIButton *login = [UIButton buttonWithType:UIButtonTypeCustom];
+    login.frame = CGRectMake(30, 480, SCREEN_WIDTH - 60, 30);
+    [login setTitle:@"已有账号，去登录" forState:0];
+    login.titleLabel .font = [UIFont systemFontOfSize:15];
+    [login addTarget:self  action:@selector(loginGo) forControlEvents:UIControlEventTouchUpInside];
+    [self.welcomeImg addSubview:login];
+    
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
-        [loginBtn setTitle:@"绑定" forState:UIControlStateNormal];
+        [loginBtn setTitle:@"绑定手机号" forState:UIControlStateNormal];
         [loginBtn addTarget:self action:@selector(loginWithPhoneAndOpenid) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
@@ -131,20 +124,11 @@
     
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:loginBtn];
-    loginBtn.layer.cornerRadius = 3.0;
-    loginBtn.layer.masksToBounds = YES;
-    loginBtn.frame = CGRectMake(10, 250 + h+5+NaviAddHeight, SCREEN_WIDTH - 20, 44);
-    
-}
 
-/**点击获取验证码*/
--(void)startCountDown:(STCountDownButton *)button{
-    //点击获取验证码 后开始倒计时
-    [self getVertifyCodeWithButton:button];
 }
 
 #pragma mark - 获取验证码
--(void)getVertifyCodeWithButton:(STCountDownButton*)button {
+-(void)getVertifyCodeWithButton{
     if (IsNilOrNull(_phoneTF.text)){
         [self showNoticeView:@"请输入手机号码"];
         return;
@@ -158,7 +142,6 @@
         }
     }
     
-    [button start];
     
     NSDictionary *pramaDic= @{@"apptype":Apptype,@"devtype":Devtype,@"telNo":_phoneTF.text};
     //请求数据
@@ -542,4 +525,51 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(UITextField *)createTfText:(NSString *)title andFrame:(CGRect) frame{
+    UITextField *  textF = [[UITextField   alloc]initWithFrame:frame];
+    NSMutableAttributedString * firstPart = [[NSMutableAttributedString alloc] initWithString:title attributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    [textF setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
+    textF.attributedPlaceholder = firstPart;
+    textF.tintColor = [UIColor whiteColor];
+    textF.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 25, 0)];
+    //设置显示模式为永远显示(默认不显示 必须设置 否则没有效果)
+    textF.leftViewMode = UITextFieldViewModeAlways;
+    textF.layer.cornerRadius = textF.mj_h /  2;
+    textF.backgroundColor = RGBCOLOR(194,180,177);
+    textF.layer.borderColor   = RGBCOLOR(255, 255, 255).CGColor;
+    textF.layer.borderWidth  =1;
+    textF.layer.masksToBounds = YES;
+    [self.view addSubview:textF];
+    return textF;
+}
+
+
+-(void)startTimer{
+    [_countDownCode setEnabled:NO];
+    [self getVertifyCodeWithButton];
+    [_countDownCode setTitle:[NSString stringWithFormat:@"重新发送(%lds)",checkSec] forState:UIControlStateDisabled];
+    
+    if (@available(iOS 10.0, *)) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            if (checkSec > 0) {
+                checkSec --;
+                [_countDownCode setTitle:[NSString stringWithFormat:@"重新发送(%lds)",checkSec] forState:UIControlStateDisabled];
+            }else{
+                checkSec = KCheckSec;
+                [timer invalidate];
+                [_countDownCode setTitle:@"获取验证码" forState:0];
+                [_countDownCode setTitle:[NSString stringWithFormat:@"重新发送(%lds)",checkSec] forState:UIControlStateDisabled];
+                [_countDownCode setEnabled: YES];
+            }
+        }];
+    } else {
+        
+    }
+    
+}
+
+-(void)loginGo{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

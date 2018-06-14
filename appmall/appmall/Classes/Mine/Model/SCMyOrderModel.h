@@ -55,7 +55,7 @@
 /** 订单id*/
 @property (nonatomic, copy) NSString *orderId;
 /** 是否存在物流信息*/
-@property (nonatomic, assign)NSInteger logistics;
+@property (nonatomic, assign) NSInteger logistics;
 /** 订单状态 汉字形式状态*/
 @property (nonatomic, copy) NSString *orderstatuslabel;
 /** 订单状态 数字形式状态*/

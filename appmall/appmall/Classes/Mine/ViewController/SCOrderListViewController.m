@@ -113,8 +113,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    
-    NSString *searchStr = _searchView.searchTextField.text;
   
         [pramaDic setValuesForKeysWithDictionary:@{@"pageNo":@(_page),@"pageSize":@(KpageSize),@"orderstatus":self.statusString}];
     

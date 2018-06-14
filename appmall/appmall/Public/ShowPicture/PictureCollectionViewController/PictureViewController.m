@@ -166,7 +166,7 @@
         NSLog(@"点击了从手机选择");
         
         ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
-        elcPicker.maximumImagesCount = 9 - self.itemsSectionPictureArray.count;
+        elcPicker.maximumImagesCount = 3 - self.itemsSectionPictureArray.count;
         elcPicker.returnsOriginalImage = YES;
         elcPicker.returnsImage = YES;
         elcPicker.onOrder = NO;
@@ -224,6 +224,7 @@
         for (unsigned long i = wself.itemsSectionPictureArray.count; i < wself.itemsSectionPictureArray.count + images.count; i++) {
             [indexPathes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
         }
+  
         [wself.itemsSectionPictureArray addObjectsFromArray:images];
         // 调整集合视图的高度
         

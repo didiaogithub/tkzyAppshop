@@ -105,6 +105,9 @@ static CGFloat ImageContainMargin = 10.0f;
 
 -(void)showImagesFromNet:(BOOL)fromNet images:(NSArray*)images index:(NSInteger)index from:(UIView*)imageView
 {
+    if (_currentIndex >= _containers.count) {
+        return;
+    }
     _startIndex = index;
     _currentIndex = index;
     
@@ -153,6 +156,7 @@ static CGFloat ImageContainMargin = 10.0f;
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     
     //显示动画
+  
     XLImageContainer *container = _containers[_currentIndex];
     _startRect = [imageView convertRect:imageView.bounds toView:self];
     [container showAnimateFromRect:_startRect finish:^{

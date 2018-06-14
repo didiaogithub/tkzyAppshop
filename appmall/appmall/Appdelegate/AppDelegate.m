@@ -266,30 +266,15 @@
                     
                      [self enterFirstPage];
                     
-//                    BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-//                    if (str == NO) {
-//                        [self goWelcom];
-//                    }else{
-//                        [self enterFirstPage];
-//                    }
+
                 }
             }else{
                  [self enterFirstPage];
-//                BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-//                if (str == NO) {
-//                    [self goWelcom];
-//                }else{
-//                    [self enterFirstPage];
-//                }
+
             }
         } failure:^(NSError *error) {
              [self enterFirstPage];
-//            BOOL str = [[KUserdefaults objectForKey:KloginStatus] boolValue];
-//            if (str == NO) {
-//                [self goWelcom];
-//            }else{
-//                [self enterFirstPage];
-//            }
+
         }];
     }else{
         NSLog(@"不是第一次启动");
@@ -428,20 +413,6 @@
     manager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
     manager.toolbarManageBehaviour = IQAutoToolbarByTag; // 最新版的设置键盘的returnKey的关键字 ,可以点击键盘上的next键，自动跳转到下一个输入框，最后一个输入框点击完成，自动收起键盘。
 }
-
--(void)showCheckLoginView {
-    NSString *loginWithCheckPhone = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:@"loginWithCheckPhone"]];
-    if (IsNilOrNull(loginWithCheckPhone)) {
-        NSLog(@"去注册登录吧");
-        CommonLoginViewController *login = [[CommonLoginViewController alloc] init];
-        RootNavigationController *loginNavi = [[RootNavigationController alloc] initWithRootViewController:login];
-        self.window.rootViewController = loginNavi;
-        [self.window makeKeyAndVisible];
-    }else{
-        [self enterFirstPage];
-    }
-}
-
 
 -(void)enterFirstPage {
     RootTabBarController *rootVC = [[RootTabBarController alloc]init];

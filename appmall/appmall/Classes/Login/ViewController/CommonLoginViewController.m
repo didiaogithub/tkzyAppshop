@@ -122,7 +122,7 @@
     
     NSString *pw = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:_userNameTextField.text]];
     if ([pw isEqualToString:_passwordTextField.text]) {
-        [KUserdefaults setObject:@"loginWithCheckPhone" forKey:@"loginWithCheckPhone"];
+        
         
         NSString *key = [NSString stringWithFormat:@"user%@", _userNameTextField.text];
         NSString *appopenid = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:key]];

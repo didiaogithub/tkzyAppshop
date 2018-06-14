@@ -45,7 +45,7 @@
     [realm commitWriteTransaction];
     
     [KUserdefaults setValue:@(self.isLogin) forKey:KloginStatus];
-    [KUserdefaults setValue:@(self.isLogin) forKey:@"loginWithCheckPhone"];
+    
 }
 
 -(void)Login{
@@ -60,7 +60,7 @@
         [self.realm addOrUpdateObject:model];
         [self.realm commitWriteTransaction];
         [KUserdefaults setValue:@(model.isLogin) forKey:KloginStatus];
-        [KUserdefaults setValue:@(model.isLogin) forKey:@"loginWithCheckPhone"];
+        
     }
     
 }
@@ -74,7 +74,6 @@
     if(model.token == nil){
         return @"";
     }else{
-        
         return model.token;
     }
 }
@@ -91,7 +90,7 @@
         [self.realm addOrUpdateObject:model];
         [self.realm commitWriteTransaction];
         [KUserdefaults setValue:@(model.isLogin) forKey:KloginStatus];
-        [KUserdefaults setValue:@(model.isLogin) forKey:@"loginWithCheckPhone"];
+        
     }
 }
 

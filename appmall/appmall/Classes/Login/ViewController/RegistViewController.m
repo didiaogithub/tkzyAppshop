@@ -145,7 +145,6 @@
         return;
     }else{
         [KUserdefaults setObject:_passwordTextField.text forKey:_userNameTextField.text];
-        [KUserdefaults setObject:@"loginWithCheckPhone" forKey:@"loginWithCheckPhone"];
         [self showNoticeView:@"注册成功"];
             
         NSString *key = [NSString stringWithFormat:@"user%@", _userNameTextField.text];

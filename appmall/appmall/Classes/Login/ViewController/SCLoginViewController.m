@@ -331,10 +331,7 @@
             
             [KUserdefaults setObject:appopenid forKey:@"USER_OPENID"];
             
-            [KUserdefaults setObject:@"loginWithPhoneAndWxSucc" forKey:KloginStatus];
-            
-            [KUserdefaults removeObjectForKey:@"loginWithCheckPhone"];
-            
+            [KUserdefaults setObject:@(YES) forKey:KloginStatus];
             //清除优惠券缓存
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];

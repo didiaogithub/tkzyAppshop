@@ -7,7 +7,10 @@
 //
 
 #import "RecommendCollectionViewCell.h"
-@interface RecommendCollectionViewCell()
+#import "WebDetailViewController.h"
+@interface RecommendCollectionViewCell(){
+    TKHomeDataModel *tkmodel;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imgRecommend;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labPrice;
@@ -49,7 +52,7 @@
     }
 }
 -(void)loadDataModel:(TKHomeDataModel *)model andIndex:(NSIndexPath  *)index andSuperSection:(NSInteger)section{
-    
+    tkmodel = model;
     if (section ==2) {
         self.viewReMen.hidden =YES;
         TopicModel *tModel = [model.topicList objectAtIndex:index.row];
@@ -92,6 +95,25 @@
         self.labTitleDisBottom.constant  = -15;
     }
 
+}
+- (IBAction)actionErmen:(id)sender {
+    if (tkmodel.hotNews[1] == nil) {
+        return;
+    }
+    WebDetailViewController *webDetail = [[WebDetailViewController alloc]init];
+    webDetail .detailUrl = tkmodel.hotNews[1].link;
+    webDetail.hidesBottomBarWhenPushed = YES;
+    [[self getCurrentVC].navigationController pushViewController:webDetail animated:YES];
+    
+}
+- (IBAction)actionTouTiao:(id)sender {
+    if (tkmodel.hotNews[0] == nil) {
+        return;
+    }
+    WebDetailViewController *webDetail = [[WebDetailViewController alloc]init];
+    webDetail .detailUrl = tkmodel.hotNews[0].link;
+    webDetail.hidesBottomBarWhenPushed = YES;
+    [[self getCurrentVC].navigationController pushViewController:webDetail animated:YES];
 }
 
 @end

@@ -182,6 +182,7 @@
 #define     GetTkSchoolIndexURl           @"Tkschool/getIndex"                 //获取天康学院首页
 #define     GetTeacherById                   @"Tkschool/getTeacherById"         // 获取名师详情
 #define     GetCourseCatoryList            @"Tkschool/getCourseCatoryList"  //获取所有的课程分类
+#define     Goods_search                    @"Goods/search"  //根据关键字搜索课程列表
 #define     GetCourseListByKey             @"Tkschool/getCourseListByKey"  //根据关键字搜索课程列表
 #define     GetCourseList                      @"Tkschool/getCourseList"        // 获取课程列表
 #define     GetTeacherList                     @"Tkschool/getTeacherList"        //获取名师列表

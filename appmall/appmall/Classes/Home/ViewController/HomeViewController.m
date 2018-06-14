@@ -77,6 +77,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [tabHomeList scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+  
 }
 
 -(void)tabReloadData{
@@ -248,7 +249,7 @@
 
 -(void)creatSearchUI{
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    itemBtn.frame = CGRectMake(0, 0, KscreenWidth - 80, 30);
+    itemBtn.frame = CGRectMake(0, 0, KscreenWidth - 55, 30);
     [itemBtn setImage:[UIImage imageNamed:@"搜索"] forState:0];
     [itemBtn setTitleColor:RGBCOLOR(72, 72, 72) forState:0];
     itemBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -290,7 +291,7 @@
     DWQSearchController *dwqSearch=[[DWQSearchController alloc]init];
     dwqSearch.seachVCIndex = 0;
     dwqSearch.hidesBottomBarWhenPushed  = YES;
-    [self.navigationController pushViewController:dwqSearch animated:NO];
+    [self.navigationController pushViewController:dwqSearch animated:YES];
 }
 #pragma HomeMenuItemViewDelegate
 -(void)itemClick:(SortModel *)index{
@@ -339,9 +340,13 @@
     }
 }
 
-
 -(void)actionGoto:(NSInteger )index{
-    
+   
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
+    [HttpTool getCommonPara];
     NSString *token = [UserModel getCurUserToken];
     NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
     //请求数据

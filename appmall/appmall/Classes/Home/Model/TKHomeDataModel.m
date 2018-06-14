@@ -119,7 +119,7 @@
 @implementation HotNewsModel
 
 + (NSString *)primaryKey{
-    return @"link";
+    return @"title";
 }
 
 @end

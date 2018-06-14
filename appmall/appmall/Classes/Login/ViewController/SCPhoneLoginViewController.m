@@ -330,9 +330,8 @@
             
             [KUserdefaults setObject:appopenid forKey:@"USER_OPENID"];
             
-            [KUserdefaults setObject:@"loginWithPhoneAndWxSucc" forKey:KloginStatus];
+            [KUserdefaults setObject:@(YES) forKey:KloginStatus];
             
-            [KUserdefaults removeObjectForKey:@"loginWithCheckPhone"];
             UserModel *curModel = [[UserModel alloc]initWith:dict[@"data"]];
             curModel.isLogin = YES;
             curModel.userId = @"1";
@@ -451,8 +450,6 @@
             
             [KUserdefaults setObject:appopenid forKey:@"USER_OPENID"];
             
-            [KUserdefaults removeObjectForKey:@"loginWithCheckPhone"];
-            
             //清除优惠券缓存
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
@@ -488,7 +485,7 @@
                 [KUserdefaults setObject:_phoneTF.text forKey:Kmobile];
             }
             
-            [KUserdefaults setObject:@"loginWithPhoneAndWxSucc" forKey:KloginStatus];
+            [KUserdefaults setObject:@(YES) forKey:KloginStatus];
             [KUserdefaults synchronize];
             [self goFirstPage];
         }else if([dict[@"code"] integerValue] == 300) {

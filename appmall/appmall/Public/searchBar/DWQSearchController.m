@@ -9,18 +9,22 @@
 #define DWQMainScreenBounds [UIScreen mainScreen].bounds
 #import "DWQSearchController.h"
 #import "DWQSearchBar.h"
+#import "RootNavigationController.h"
 #import "DWQTagView.h"
+#import "XWAlterVeiw.h"
+#import "GoodsDetailViewController.h"
 #import "HistorySearchCell.h"
 #import "ClassListModel.h"
 #import "HotSerachCell.h"
 #import "ClassItemViewCell.h"
 #import "WebDetailViewController.h"
 #import "SCCategoryTableCell.h"
+#import "SCCategoryGoodsModel.h"
 #define KSCCategoryTableCell @"SCCategoryTableCell"
 static NSString *const HotCellID = @"HotCellID";
 static NSString *const HistoryCellID = @"HistoryCellID";
 
-@interface DWQSearchController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,DWQTagViewDelegate>
+@interface DWQSearchController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,DWQTagViewDelegate,CatogoryAddToShoppingCarDelete>
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,strong) DWQSearchBar *searchBar;
 @property(nonatomic,strong)UITableView *resultTableView;
@@ -32,6 +36,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 @property (nonatomic ,assign) CGFloat tagViewHeight;
 @property (nonatomic ,assign) CGFloat hisViewHeight;
 @property(nonatomic,strong)NSMutableArray <ClassListModel *> *classArray;
+@property(nonatomic,strong)NSMutableArray <SCCategoryGoodsModel *> *goodsArray;
 @end
 
 @implementation DWQSearchController
@@ -56,6 +61,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.classArray = [NSMutableArray arrayWithCapacity:0];
+    self.goodsArray = [NSMutableArray arrayWithCapacity:0];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     [self initData];
   
@@ -91,9 +97,18 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     [self.view sendSubviewToBack:self.tableview];
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     //请求数据
-    [pramaDic setObject:self.searchBar.text forKey:@"keyword"];
-    
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetCourseListByKey];
+    NSString *homeInfoUrl ;
+    if (self.seachVCIndex == 0) {
+        if (self.searchBar.text .length != 0) {
+            
+            [pramaDic setObject:self.searchBar.text forKey:@"name"];
+        }
+        homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Goods_search];
+    }else{
+        [pramaDic setObject:self.searchBar.text forKey:@"keyword"];
+        homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetCourseListByKey];
+    }
+ 
     
     
     [self.view addSubview:self.loadingView];
@@ -108,19 +123,35 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             [self createUI];
             return;
         }
-        
-        
-        NSArray *list = dic[@"data"][@"courseList"];
-        [self.classArray removeAllObjects];
-        if (list.count != 0) {
-            for (NSDictionary *itemDic in dic[@"data"][@"courseList"]) {
-                ClassListModel *model = [[ClassListModel alloc]initWith:itemDic];
-                [self.classArray addObject:model];
+        if (self.seachVCIndex == 0) {
+            
+            
+            NSArray *list = dic[@"data"][@"goodsList"];
+            [self.goodsArray removeAllObjects];
+            
+            if (list.count != 0) {
+                for (NSDictionary *itemDic in dic[@"data"][@"goodsList"]) {
+                    SCCategoryGoodsModel *model = [[SCCategoryGoodsModel alloc]initWith:itemDic];
+                    [self.goodsArray addObject:model];
+                }
+            }else{
+                [self.loadingView showNoticeView:@"没有该商品"];
             }
+            
         }else{
-            [self.loadingView showNoticeView:@"没有该类课程"];
+            NSArray *list = dic[@"data"][@"courseList"];
+            [self.classArray removeAllObjects];
+            
+            if (list.count != 0) {
+                for (NSDictionary *itemDic in dic[@"data"][@"courseList"]) {
+                    ClassListModel *model = [[ClassListModel alloc]initWith:itemDic];
+                    [self.classArray addObject:model];
+                }
+            }else{
+                [self.loadingView showNoticeView:@"没有该类课程"];
+            }
         }
-        
+      
         
         [self.resultTableView reloadData];
         [self createUI];
@@ -155,12 +186,16 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             return;
         }
         
-        
-        if (dic != nil) {
-           self.HotArr = dic[@"data"][@"hotSearchList"];
+        if (self.seachVCIndex == 0) {
+            
         }else{
-            self.HotArr = @[];
+            if (dic != nil) {
+                self.HotArr = dic[@"data"][@"hotSearchList"];
+            }else{
+                self.HotArr = @[];
+            }
         }
+       
           [self createUI];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -176,14 +211,13 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 -(void)createUI{
 
     self.view.backgroundColor=[UIColor whiteColor];
-    DWQSearchBar *bar = [[DWQSearchBar alloc] initWithFrame:CGRectMake(0, 0, DWQMainScreenWidth, 30)];
+    DWQSearchBar *bar = [[DWQSearchBar alloc] initWithFrame:CGRectMake(0, 0, KscreenWidth-100, 30)];
     bar.layer.cornerRadius=4;
     bar.layer.masksToBounds=YES;
     bar.placeholder=@"输入你想要找的产品名称";
     _searchBar = bar;
     
     bar.delegate = self;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:[UIView new]];
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
     [rightBtn setTitle:@"取消" forState:0];
     [rightBtn setTitleColor:[UIColor grayColor] forState:0];
@@ -196,13 +230,18 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 }
 
 -(void)actionCancell{
-    [self .navigationController popViewControllerAnimated:NO];
+    [self .navigationController popViewControllerAnimated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.resultTableView) {
-        return self.classArray.count;
+        if (self.seachVCIndex == 0) {
+            return self.goodsArray.count;
+        }else{
+            
+            return self.classArray.count;
+        }
     }else{
         if (self.historyArr.count == 0) {
             return 1;
@@ -250,10 +289,20 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 {
     UITableViewCell *cell = [UITableViewCell new];
     if (tableView == self.resultTableView) {
-        ClassItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassItemViewCell"];
-        [cell refreshDataWIthModel:[self.classArray objectAtIndex:indexPath.row]];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+        if (self.seachVCIndex == 0) {
+            SCCategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:KSCCategoryTableCell];
+            [cell refreshCellWithModel:[self.goodsArray objectAtIndex:indexPath.row]];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.delegate = self;
+            
+            return cell;
+        }else{
+            ClassItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClassItemViewCell"];
+            [cell refreshDataWIthModel:[self.classArray objectAtIndex:indexPath.row]];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+  
     }else{
         if (self.historyArr.count == 0) {
             HotSerachCell *hotCell = [tableView dequeueReusableCellWithIdentifier:HotCellID forIndexPath:indexPath];
@@ -476,10 +525,63 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-      detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if (self.seachVCIndex == 0) {
+        if (self.goodsArray.count <= indexPath.row) {
+            return;
+        }
+        GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
+        detailVC.goodsM = self.goodsArray[indexPath.row];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }else{
+        WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
+        detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+
 //    detailVC.detailUrl = self.classArray[indexPath.row]
 }
+-(void)goWelcom{
+    SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
+    RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
+    
+    [self presentViewController:welcomeNav animated:YES completion:nil];
+}
+-(void)addGoodsToShoppingCar:(SCCategoryGoodsModel *)cateM {
+    
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
+
+        NSLog(@"加入购物车");
+        
+        NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+        NSString* itemsStr  = [@[@{@"itemid":cateM.itemid,@"num":@"1"}] mj_JSONString];
+        [pramaDic setObject:itemsStr forKey:@"items"];
+        NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
+        
+        [self.view addSubview:self.loadingView];
+        [self.loadingView startAnimation];
+        
+        [HttpTool postWithUrl:loveItemUrl params:pramaDic success:^(id json) {
+            [self.loadingView stopAnimation];
+            NSDictionary *dic = json;
+            NSString * status = [dic valueForKey:@"code"];
+            if ([status intValue] != 200) {
+                [self showNoticeView:[dic valueForKey:@"message"]];
+                return ;
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
+            [self showNoticeView:@"亲，在购物车等你哦"];
+        } failure:^(NSError *error) {
+            [self.loadingView stopAnimation];
+            if (error.code == -1009) {
+                [self showNoticeView:NetWorkNotReachable];
+            }else{
+                [self showNoticeView:NetWorkTimeout];
+            }
+        }];
+}
+
 
 @end

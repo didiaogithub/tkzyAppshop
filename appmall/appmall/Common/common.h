@@ -187,7 +187,7 @@
 #define     GetCourseList                      @"Tkschool/getCourseList"        // 获取课程列表
 #define     GetTeacherList                     @"Tkschool/getTeacherList"        //获取名师列表
 #define     GetHotSearchList                  @"Tkschool/getHotSearchList"    // 获取热门搜索标签
-
+#define     GoodsgetHotSearchList                  @"/Goods/getHotSearchList" 
 //社区
 #define  Note_GetNoteList                                @"Note/getNoteList"  //: 帖子列表
 #define  Note_AddNote                                     @"Note/addNote"  //添加帖子

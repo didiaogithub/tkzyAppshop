@@ -63,9 +63,8 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     self.classArray = [NSMutableArray arrayWithCapacity:0];
     self.goodsArray = [NSMutableArray arrayWithCapacity:0];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self initData];
+
   
-    // Do any additional setup after loading the view.
 }
 
 
@@ -86,6 +85,11 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     
 
     [self loadDataHot];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+        [self initData];
 }
 
 -(void)loadDataResutl{
@@ -170,7 +174,13 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     
     NSMutableDictionary *pramaDic =[NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetHotSearchList];
+    NSString *homeInfoUrl;
+    if (self.seachVCIndex == 0) {
+         homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GoodsgetHotSearchList];
+    }else{
+            homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,GetHotSearchList];
+    }
+    
     
     
     [self.view addSubview:self.loadingView];
@@ -187,7 +197,11 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         }
         
         if (self.seachVCIndex == 0) {
-            
+            if (dic != nil) {
+                self.HotArr = dic[@"data"][@"hotSearchList"];
+            }else{
+                self.HotArr = @[];
+            }
         }else{
             if (dic != nil) {
                 self.HotArr = dic[@"data"][@"hotSearchList"];
@@ -485,6 +499,11 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 -(void)removeAllHistoryBtnClick
 {
     [self.historyArr removeAllObjects];
+    if (self.seachVCIndex == 0) {
+        [KUserdefaults setObject:@[] forKey:@"historyArrHome"];
+    }else{
+        [KUserdefaults setObject:@[] forKey:@"historyArr"];
+    }
     [self.tableview reloadData];
 }
 - (void)didReceiveMemoryWarning {
@@ -512,7 +531,12 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     NSMutableArray *hisMarray = [NSMutableArray arrayWithArray:self.historyArr];
     [hisMarray addObject:textField.text];
     self.historyArr = hisMarray;
-    [KUserdefaults setObject:hisMarray forKey:@"historyArr"];
+    if (self.seachVCIndex == 0) {
+        [KUserdefaults setObject:hisMarray forKey:@"historyArrHome"];
+    }else{
+        [KUserdefaults setObject:hisMarray forKey:@"historyArr"];
+    }
+    
 //    [self createUI];
     [self loadDataResutl];
   
@@ -533,12 +557,13 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         detailVC.goodsM = self.goodsArray[indexPath.row];
         [self.navigationController pushViewController:detailVC animated:YES];
     }else{
+        if (self.classArray.count <= indexPath.row) {
+            return;
+        }
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
         detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
-
-//    detailVC.detailUrl = self.classArray[indexPath.row]
 }
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];

@@ -89,8 +89,9 @@
 
 - (void)actionSearch{
     DWQSearchController *dwqSearch=[[DWQSearchController alloc]init];
+     dwqSearch.seachVCIndex = 1;
     dwqSearch.hidesBottomBarWhenPushed  = YES;
-    dwqSearch.seachVCIndex = 1;
+   
     [self.navigationController pushViewController:dwqSearch animated:NO];
 }
 

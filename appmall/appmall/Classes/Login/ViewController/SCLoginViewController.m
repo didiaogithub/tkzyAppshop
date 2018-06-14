@@ -230,7 +230,7 @@
             [KUserdefaults setObject:customerId forKey:KcustomerId];
             [KUserdefaults setObject:salesId forKey:KsalesId];
              [KUserdefaults synchronize];
-            NSString *meid = [NSString stringWithFormat:@"%@", dic[@"meid"]];
+            [self.view endEditing:YES];
             [CKJPushManager manager];
             if (!IsNilOrNull(customerId)) {
                 NSString *uid = [NSString stringWithFormat:@"CZ_%@",customerId];
@@ -361,7 +361,7 @@
             curModel.isLogin = YES;
             curModel.userId = @"1";
             [curModel saveUserInfo];
-    
+            [self.view endEditing:YES];
             [KUserdefaults synchronize];
             [self goFirstPage];
             

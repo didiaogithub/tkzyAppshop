@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"名师指路";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     _teacherArray = [NSMutableArray arrayWithCapacity:0];
     [UITableView refreshHelperWithScrollView:self.tabTeaCherListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self setTableView];

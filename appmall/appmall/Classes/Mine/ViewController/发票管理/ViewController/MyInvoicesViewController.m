@@ -272,6 +272,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+   
     UIView *view = [UIView new];
     view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 45);
     view.backgroundColor = [UIColor tt_lineBgColor];
@@ -298,7 +299,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
     if (indexPath.section == 2) {
         return 136;
     }
@@ -307,11 +307,27 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    if (section == 0) {
-        return 0;
-    }else{
-        return 45;
+    if (_yjjDataArray.count == 0) {
+        if (section == 2 || section == 0) {
+            return 0;
+        }else{
+            return 45;
+        }
+    }else if (_yclDataArray.count == 0){
+        if (section == 1 || section == 0) {
+            return 0;
+        }else{
+            return 45;
+        }
     }
+    else{
+        if (section == 0) {
+            return 0;
+        }else{
+            return 45;
+        }
+        
+   }
     return 0;
 }
 

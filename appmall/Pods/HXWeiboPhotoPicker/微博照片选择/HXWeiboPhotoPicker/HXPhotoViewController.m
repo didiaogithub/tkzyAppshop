@@ -447,7 +447,7 @@ static NSString *PhotoViewCellId = @"PhotoViewCellId";
 }
 - (UINavigationBar *)navBar {
     if (!_navBar) {
-        _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.hx_w, 64)];
+        _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20, self.view.hx_w, 64)];
         [_navBar pushNavigationItem:self.navItem animated:NO];
         
         _navBar.tintColor = self.manager.UIManager.navLeftBtnTitleColor;
@@ -534,11 +534,11 @@ static NSString *PhotoViewCellId = @"PhotoViewCellId";
             self.rightBtn.layer.borderWidth = 0;
             CGFloat rightBtnH = self.rightBtn.frame.size.height;
             CGFloat rightBtnW = [HXPhotoTools getTextWidth:self.rightBtn.currentTitle height:rightBtnH fontSize:14];
-            self.rightBtn.frame = CGRectMake(0, 0, rightBtnW + 20, rightBtnH);
+            self.rightBtn.frame = CGRectMake(0, 0, rightBtnW, rightBtnH);
         }else {
-            self.navItem.rightBarButtonItem.enabled = NO;
-            [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
-            [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnDisabledBgColor];
+            
+            [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"取消"] forState:UIControlStateNormal];
+            [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
             self.rightBtn.frame = CGRectMake(0, 0, 60, 25);
             self.rightBtn.layer.borderWidth = 0.5;
         }
@@ -1380,16 +1380,16 @@ static NSString *PhotoViewCellId = @"PhotoViewCellId";
         self.rightBtn.layer.borderWidth = 0;
         CGFloat rightBtnH = self.rightBtn.frame.size.height;
         CGFloat rightBtnW = [HXPhotoTools getTextWidth:self.rightBtn.currentTitle height:rightBtnH fontSize:14];
-        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW + 20, rightBtnH);
+        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW, rightBtnH);
     }else { // 没有选中时 全部恢复成初始状态
         [self changeOriginalState:NO IsChange:NO];
         self.manager.isOriginal = NO;
         self.bottomView.originalBtn.selected = NO;
         self.bottomView.previewBtn.enabled = NO;
         self.bottomView.originalBtn.enabled = NO;
-        self.navItem.rightBarButtonItem.enabled = NO;
-        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
-        [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnDisabledBgColor];
+        
+        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"取消"] forState:UIControlStateNormal];
+        [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
         self.rightBtn.frame = CGRectMake(0, 0, 60, 25);
         self.rightBtn.layer.borderWidth = 0.5;
     }

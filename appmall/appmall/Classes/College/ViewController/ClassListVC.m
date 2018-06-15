@@ -20,9 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"课程列表";
     self.classCateList = [NSMutableArray arrayWithCapacity:0];
-    _topMenu = [[WBMenu alloc]initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)];
+    _topMenu = [[WBMenu alloc]initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44)];
  
     [self loadData];
     [self.view addSubview:_topMenu];

@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTableView];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.bottomDis.constant = BOTTOM_BAR_HEIGHT + 84;
     [UITableView refreshHelperWithScrollView:self.classListView target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];

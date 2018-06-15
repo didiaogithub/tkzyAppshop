@@ -45,6 +45,8 @@
     self.menuView = menuView;
     menuView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width - 65, 30);
     [self addSubview:menuView];
+    
+    
     UIButton *btnAll = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnAll addTarget:self action:@selector(showAllItem) forControlEvents:UIControlEventTouchUpInside];
 //    [btnAll setTitle:@"全部" forState:0];
@@ -97,7 +99,7 @@
 -(void)addViewController:(UIViewController*)vc atIndex:(NSInteger)index{
 
     [self.VClist addObject:vc];
-    vc.view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,vc.view.frame.size.height);
+    vc.view.frame = CGRectMake(index*[UIScreen mainScreen].bounds.size.width,0,[UIScreen mainScreen].bounds.size.width ,KscreenHeight);
     [self.menuView.contentScrollView addSubview:vc.view];
 
 }

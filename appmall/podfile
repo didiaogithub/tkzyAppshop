@@ -6,7 +6,7 @@ inhibit_all_warnings! #忽略第三方代码警告
 target 'appmall' do
 
 pod 'AFNetworking', '~> 3.1.0'
-  pod 'SDWebImage', '~> 4.0'
+  pod 'SDWebImage', '~> 4.4.1'
   pod 'MJExtension'
   pod 'IQKeyboardManager'
   pod 'JPush'

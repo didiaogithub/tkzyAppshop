@@ -18,6 +18,5 @@
 
 + (AppDelegate* )shareAppDelegate;
 
-
 @end
 

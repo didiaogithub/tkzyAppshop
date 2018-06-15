@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface CommPingLunListViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
 @property(nonatomic,strong)NSString *notiID;
 @end

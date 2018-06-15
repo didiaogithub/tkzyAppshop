@@ -31,7 +31,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 {
 	self = [super init];
 	if(![dictionary[kInvoicesManagerModelDisposestatus] isKindOfClass:[NSNull class]]){
-		self.disposestatus = dictionary[kInvoicesManagerModelDisposestatus];
+		self.disposestatus = [dictionary[kInvoicesManagerModelDisposestatus] integerValue];
 	}	
 	if(![dictionary[kInvoicesManagerModelInvoice] isKindOfClass:[NSNull class]]){
 		self.invoice = [dictionary[kInvoicesManagerModelInvoice] integerValue];
@@ -74,9 +74,9 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 -(NSDictionary *)toDictionary
 {
 	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	if(self.disposestatus != nil){
-		dictionary[kInvoicesManagerModelDisposestatus] = self.disposestatus;
-	}
+	
+    dictionary[kInvoicesManagerModelDisposestatus] = @(self.disposestatus);
+	
 	dictionary[kInvoicesManagerModelInvoice] = @(self.invoice);
 	if(self.orderType != nil){
 		dictionary[kInvoicesManagerModelOrderType] = self.orderType;
@@ -115,10 +115,11 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	if(self.disposestatus != nil){
-		[aCoder encodeObject:self.disposestatus forKey:kInvoicesManagerModelDisposestatus];
-	}
-	[aCoder encodeObject:@(self.invoice) forKey:kInvoicesManagerModelInvoice];	if(self.orderType != nil){
+	
+   [aCoder encodeObject:@(self.disposestatus) forKey:kInvoicesManagerModelDisposestatus];
+
+	[aCoder encodeObject:@(self.invoice) forKey:kInvoicesManagerModelInvoice];
+    if(self.orderType != nil){
 		[aCoder encodeObject:self.orderType forKey:kInvoicesManagerModelOrderType];
 	}
 	if(self.orderid != nil){
@@ -148,7 +149,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super init];
-	self.disposestatus = [aDecoder decodeObjectForKey:kInvoicesManagerModelDisposestatus];
+	self.disposestatus = [[aDecoder decodeObjectForKey:kInvoicesManagerModelDisposestatus] integerValue];
 	self.invoice = [[aDecoder decodeObjectForKey:kInvoicesManagerModelInvoice] integerValue];
 	self.orderType = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderType];
 	self.orderid = [aDecoder decodeObjectForKey:kInvoicesManagerModelOrderid];
@@ -168,7 +169,7 @@ NSString *const kInvoicesManagerModelOrdertime = @"ordertime";
 {
 	InvoicesManagerModel *copy = [InvoicesManagerModel new];
 
-	copy.disposestatus = [self.disposestatus copy];
+	copy.disposestatus = self.disposestatus;
 	copy.invoice = self.invoice;
 	copy.orderType = [self.orderType copy];
 	copy.orderid = [self.orderid copy];

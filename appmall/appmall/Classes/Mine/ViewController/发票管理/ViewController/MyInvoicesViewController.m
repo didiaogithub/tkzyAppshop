@@ -189,6 +189,7 @@
         [self.mTableView reloadData];
         
     } failure:^(NSError *error) {
+//        self.loadingView 
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];
         }else{

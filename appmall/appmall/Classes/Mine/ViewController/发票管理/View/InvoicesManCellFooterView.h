@@ -12,6 +12,7 @@
 @end
 
 @interface InvoicesManCellFooterView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *labRight;
 @property (weak, nonatomic) IBOutlet UILabel *orderTimeLab;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 /**  delegate*/

@@ -124,6 +124,7 @@
         [self.mTableView reloadData];
         
     } failure:^(NSError *error) {
+         [self.loadingView stopAnimation];
         if (error.code == -1009) {
             [self showNoticeView:NetWorkNotReachable];
         }else{
@@ -256,20 +257,45 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,46)];
+    InvoicesManagerModel *model = self.dataArray[section];
     view.rightBtn.layer.masksToBounds = YES;
     view.rightBtn.layer.cornerRadius = 3;
     view.rightBtn.layer.borderColor = [UIColor redColor].CGColor;
     view.rightBtn.layer.borderWidth = 1;
     view.delegate = self;
+    view.labRight.hidden = YES;
     view.rightBtn.tag = section;
+     //        0-未开票，1-申请中，2-申请拒绝，3-开票中，4-开票成功，5-开票失败
     if (self.selectFirstState == YES) {
         [view.rightBtn setTitle:@"开发票" forState:0];
+        if ( model.disposestatus ==0 || model.disposestatus == 2) { // 0-未开票 2-申请拒绝 显示开发票按钮
+            view.rightBtn.hidden = NO;
+        }else{ // 1-申请中 隐藏开发票按钮
+            view.rightBtn.hidden = YES;
+            view.labRight.hidden = NO;
+            view.labRight.text = @"申请中";
+        }
         
     }else{
         [view.rightBtn setTitle:@"发票详情" forState:0];
+        if ( model.disposestatus == 4) { // 4-开票成功
+            view.rightBtn.hidden = NO;
+        }else{ // 1-申请中 隐藏开发票按钮
+            view.rightBtn.hidden = YES;
+            view.labRight.hidden = NO;
+            if (model.disposestatus == 3) {
+               view.labRight.text = @"开票中";
+            }else if(model.disposestatus == 5){
+               view.labRight.text = @"开票失败";
+            }
+            
+        }
+        
     }
     
-    InvoicesManagerModel *model = self.dataArray[section];
+   
+    
+    
     view.orderTimeLab.text = [NSString stringWithFormat:@"下单时间：%@",model.ordertime];
     return view;
 }
@@ -289,16 +315,15 @@
         
         OpenInvoicesViewController *open = [[OpenInvoicesViewController alloc]init];
         InvoicesManagerModel *model = self.dataArray[sender.tag];
-        if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
-//            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
-//            [self.navigationController pushViewController:add animated:YES];
-            [self showNoticeView:@"请点击开票信息，去添加发票模板"];
-        }else{ // 1是有 可以直接跳转到详情那个页面
-            open.orderno = model.orderno;
-            open.orderid = model.orderid;
-            [self.navigationController pushViewController:open animated:YES];
-        }
-        
+            if (model.invoice == 0) { // 0 是没有审核审核成功的发票模板 需要去添加
+                //            AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];
+                //            [self.navigationController pushViewController:add animated:YES];
+                [self showNoticeView:@"请点击开票信息，去添加发票模板"];
+            }else{ // 1是有 可以直接跳转到详情那个页面
+                open.orderno = model.orderno;
+                open.orderid = model.orderid;
+                [self.navigationController pushViewController:open animated:YES];
+            }
     }else{
         InvoicesManagerDetailVC *detail = [[InvoicesManagerDetailVC alloc]init];
          InvoicesManagerModel *model = self.dataArray[sender.tag];

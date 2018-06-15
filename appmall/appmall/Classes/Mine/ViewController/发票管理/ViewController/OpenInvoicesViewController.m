@@ -10,7 +10,7 @@
 #import "OpenInvoicesCell.h"
 #import "MyInvoicesViewController.h"
 #import "OpenInvoiceModel.h"
-@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
 {
     NSArray *nameArray;
 }
@@ -44,6 +44,18 @@
     
     [self getData];
 }
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"发票无"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无我的发票哦";
+    return str;
+}
+
 
 - (void)getData{
     

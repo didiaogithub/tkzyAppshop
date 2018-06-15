@@ -20,6 +20,7 @@
     UILabel *line7;
     NSString *url;
     NSString *path;
+    UIImageView *jiantouimage;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contViewH;
 /**  抬头类型*/
@@ -52,7 +53,7 @@
 @property (nonatomic, strong) UIButton *pzBtn;
 
 /**  path*/
-@property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSString *path1;
 
 /**  image*/
 @property (nonatomic, strong) UIImage *img;
@@ -107,8 +108,8 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }else{
-            self.path = dic[@"data"][@"path"];
-            [[XLImageViewer shareInstanse]showNetImages:@[self.path] index:0 from:self.view];
+            self.path1 = dic[@"data"][@"path"];
+            [[XLImageViewer shareInstanse]showNetImages:@[self.path1] index:0 from:self.view];
 //            [self toSaveImage:self.path];
         }
     } failure:^(NSError *error) {
@@ -367,10 +368,10 @@
         make.top.equalTo(line6.mas_bottom);
          make.height.mas_offset(44);
     }];
-    UIImageView *image = [[UIImageView alloc]init];
-    image.image = [UIImage imageNamed:@"查看详情"];
-    [self.fpzmclView addSubview:image];
-    [image mas_makeConstraints:^(MASConstraintMaker *make) {
+    jiantouimage = [[UIImageView alloc]init];
+    jiantouimage.image = [UIImage imageNamed:@"查看详情"];
+    [self.fpzmclView addSubview:jiantouimage];
+    [jiantouimage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-15);
         make.top.equalTo(line6.mas_bottom).offset(17.5);
         make.height.mas_offset(10);
@@ -517,6 +518,10 @@
         }
         url =  dict[@"data"][@"url"];
         path = dict[@"data"][@"path"];
+        self.fpzmclView.rightLabel.hidden = NO;
+        self.fpzmclView.rightLabel.text = @"已上传";
+        jiantouimage.hidden = YES;
+//        [jiantouimage removeFromSuperview];
         [self showNoticeView:@"上传成功"];
         
     } fail:^(NSError *error){

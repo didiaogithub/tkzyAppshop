@@ -36,8 +36,13 @@
 #define AppStoreUrl @"YDSC_appstoreurl"
 
 /**微信授权登录,获取微信用户信息,移动商城的*/
+//  2018.6.15 最新微信key
 #define kWXAPP_ID @"wx2e357209e6b05cad"
 #define kWXAPP_SECRET @"da44061e0229ba12fa4295e322af151c"
+
+//#define kWXAPP_ID @"wx2e357209e6b05cad"
+//#define kWXAPP_SECRET @"da44061e0229ba12fa4295e322af151c"
+
 #define WXCommercialTenantId @"1427373102"
 
 //京东支付相关

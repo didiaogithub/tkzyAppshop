@@ -134,6 +134,7 @@ static NSString *ID = @"cell";
     [UIApplication sharedApplication].keyWindow.rootViewController = rootVC;
     [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
     AppDelegate *app = [AppDelegate shareAppDelegate];
+    rootVC.delegate = app;
     app.window.rootViewController = rootVC;
     [app.window makeKeyAndVisible];
 }

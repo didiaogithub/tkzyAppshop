@@ -388,6 +388,9 @@
 		2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C39520B942F60031AC47 /* GoodDetailModel.m */; };
 		2DA0C39A20B947C10031AC47 /* ImageCollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */; };
 		2DA0C39B20B947C10031AC47 /* ImageCollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */; };
+		2DA9339620D2931000801633 /* CommHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9339320D2930F00801633 /* CommHeaderViewCell.m */; };
+		2DA9339720D2931000801633 /* CommHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA9339520D2931000801633 /* CommHeaderViewCell.xib */; };
+		2DA9339A20D29F8D00801633 /* CommDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9339920D29F8D00801633 /* CommDetail.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
 		F2070CC720CCE0130049590E /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2070CC620CCE0130049590E /* HyperlinksButton.m */; };
@@ -1204,6 +1207,11 @@
 		2DA0C39720B947C10031AC47 /* ImageCollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCollViewCell.h; sourceTree = "<group>"; };
 		2DA0C39820B947C10031AC47 /* ImageCollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCollViewCell.m; sourceTree = "<group>"; };
 		2DA0C39920B947C10031AC47 /* ImageCollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollViewCell.xib; sourceTree = "<group>"; };
+		2DA9339320D2930F00801633 /* CommHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommHeaderViewCell.m; sourceTree = "<group>"; };
+		2DA9339420D2930F00801633 /* CommHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommHeaderViewCell.h; sourceTree = "<group>"; };
+		2DA9339520D2931000801633 /* CommHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommHeaderViewCell.xib; sourceTree = "<group>"; };
+		2DA9339820D29F8D00801633 /* CommDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommDetail.h; sourceTree = "<group>"; };
+		2DA9339920D29F8D00801633 /* CommDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommDetail.m; sourceTree = "<group>"; };
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
@@ -1981,6 +1989,9 @@
 		2D0723D32082FBBC0030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DA9339420D2930F00801633 /* CommHeaderViewCell.h */,
+				2DA9339320D2930F00801633 /* CommHeaderViewCell.m */,
+				2DA9339520D2931000801633 /* CommHeaderViewCell.xib */,
 				2D20DFAC2088DA4D00095032 /* JSTextView.h */,
 				2D20DFAB2088DA4D00095032 /* JSTextView.m */,
 				2D20DED52088CB2100095032 /* XLImageViewer */,
@@ -2568,6 +2579,8 @@
 				2DA0C2DC20B6F0480031AC47 /* CommListModel.m */,
 				2DA0C2F220B7A7F90031AC47 /* CommPingLunModel.h */,
 				2DA0C2F320B7A7F90031AC47 /* CommPingLunModel.m */,
+				2DA9339820D29F8D00801633 /* CommDetail.h */,
+				2DA9339920D29F8D00801633 /* CommDetail.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3281,6 +3294,7 @@
 				F23E658020B693D600EB6720 /* radio_checked@2x.png in Resources */,
 				2D7B8D6D20C01E74000EAFB1 /* WBWuliuInfoVC.xib in Resources */,
 				2D83E25D20BD93D700F2D375 /* teacherBack.png in Resources */,
+				2DA9339720D2931000801633 /* CommHeaderViewCell.xib in Resources */,
 				2DA0C39020B928980031AC47 /* GoodsDetailHeader.xib in Resources */,
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
@@ -3429,6 +3443,7 @@
 				2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */,
 				2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */,
 				2D20DFDB20898AAB00095032 /* SCWaitReleaseCommentViewController.m in Sources */,
+				2DA9339620D2931000801633 /* CommHeaderViewCell.m in Sources */,
 				2D20DFAA2088DA2200095032 /* SCRefundReasonModel.m in Sources */,
 				2DA0C2EB20B715F90031AC47 /* CommPingLunViewCell.m in Sources */,
 				2DA0C2E620B712F80031AC47 /* CommPingLunListViewController.m in Sources */,
@@ -3713,6 +3728,7 @@
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D7B8D6820BFCC1F000EAFB1 /* MessageOffDetailViewCell.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
+				2DA9339A20D29F8D00801633 /* CommDetail.m in Sources */,
 				2D20DEAF2088C88700095032 /* SCCategoryTableCell.m in Sources */,
 				2D2280FE20B53C2700F4C8B9 /* TKSchoolModel.m in Sources */,
 				2D20DE7E208629E700095032 /* TAAnimatedDotView.m in Sources */,

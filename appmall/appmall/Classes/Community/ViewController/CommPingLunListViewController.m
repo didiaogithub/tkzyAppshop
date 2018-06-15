@@ -11,7 +11,7 @@
 #import "CommPingLunModel.h"
 #define KCommPingLunViewCell @"CommPingLunViewCell"
 @interface CommPingLunListViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,CommPingLunViewCellDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property(nonatomic,assign)NSInteger page;
 @property(strong,nonatomic)NSMutableArray <CommPingLunModel *>*commList;
@@ -34,6 +34,7 @@
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     
     [self creataToolBar];
+     [self loadNewData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

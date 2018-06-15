@@ -368,6 +368,7 @@
     AppDelegate *app = [AppDelegate shareAppDelegate];
     app.window.rootViewController = rootVC;
     app.isNewUser = YES;
+    rootVC.delegate = app;
     [app.window makeKeyAndVisible];
 }
 

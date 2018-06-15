@@ -19,8 +19,11 @@
 @property (nonatomic,strong)NSString * name;
 @property (nonatomic,strong)NSString * head;
 @property (nonatomic,strong)NSString * praise;
+@property (nonatomic,strong)NSString * praisenum;
 @property(nonatomic,copy)NSString * ispraise;
+@property(nonatomic,strong)NSMutableArray<CommcommentList *> * comments;
 -(CGFloat)getCellHeight;
+-(CGFloat)getCellHeightCommdetail;
 @end
 
 @interface CommPingLunModel : BaseModel

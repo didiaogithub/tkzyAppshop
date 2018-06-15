@@ -18,6 +18,7 @@
 
     if (self = [super initWithFrame:frame]) {
         self.pagingEnabled = YES;
+        
     }
     return self;
 
@@ -29,8 +30,8 @@
     
     for (int i = 0; i<titles.count; i++) {
         
-        contentView = [[UIView alloc]initWithFrame:CGRectMake(i*MAINBOUND.size.width, 0, MAINBOUND.size.width, MAINBOUND.size.height)];
-        [contentView setBackgroundColor:[UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]];
+        contentView = [[UIView alloc]initWithFrame:CGRectMake(i*MAINBOUND.size.width, 0, KscreenWidth, KscreenHeight)];
+    
         [self addSubview:contentView];
         
     }

@@ -20,7 +20,7 @@
 -(instancetype)init{
 
     if (self = [super init]) {
-    
+        
     }
     return self;
 }
@@ -46,7 +46,8 @@
         [self addSubview:button];
         [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    self.contentSize = CGSizeMake(itemSize.width*items.count, itemSize.height);
+    self.contentSize = CGSizeMake(itemSize.width*items.count, 30);
+    
 }
 
 -(void)clickAction:(UIButton*)btn{

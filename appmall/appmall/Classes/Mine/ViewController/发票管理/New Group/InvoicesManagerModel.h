@@ -3,6 +3,7 @@
 
 @interface InvoicesManagerModel : NSObject
 
+@property (nonatomic, strong) NSString * disposestatus;
 @property (nonatomic, assign) NSInteger invoice;
 @property (nonatomic, strong) NSString * orderType;
 @property (nonatomic, strong) NSString * orderid;

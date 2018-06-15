@@ -45,12 +45,13 @@
         if ([dic[@"code"] integerValue] == 200) {
             self.orderno.text = [NSString stringWithFormat:@"订单号：%@",dict[@"orderno"]];
             if ([dict[@"invoicetype"] isEqualToString:@"1"]) {
-                self.invoicetype.text = @"发票类型：电子发票";
+                self.invoicetype.text = @"发票类型：电子专用发票";
             }else{
-                self.invoicetype.text = @"发票类型：电子发票";
+                self.invoicetype.text = @"发票类型：电子专用发票";
             }
-            self.invoicehead.text = [NSString stringWithFormat:@"发票类型：%@",dict[@"issuingoffice"]];
+            
             self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
+            self.invoicehead.text = [NSString stringWithFormat:@"发票抬头：%@",dict[@"issuingoffice"]];
             self.path = dict[@"path"];
             
         }

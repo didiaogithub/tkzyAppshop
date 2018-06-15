@@ -45,8 +45,6 @@ static CGFloat minPanLength = 100.0f;
 {
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.frame = self.bounds;
-//    _scrollView.backgroundColor = [UIColor whiteColor];
-
     _scrollView.delegate = self;
     _scrollView.maximumZoomScale = maxZoomScale;
     _scrollView.minimumZoomScale = minZoomScale;
@@ -114,27 +112,23 @@ static CGFloat minPanLength = 100.0f;
 -(void)setImageUrl:(NSString *)imageUrl
 {
     _imageUrl = imageUrl;
-    
     [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-
         dispatch_async(dispatch_get_main_queue(), ^{
             _loading.progress = (CGFloat)receivedSize/(CGFloat)expectedSize;
         });
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
         [self setImageViewFrame];
         //隐藏加载
         [_loading hide];
-        
     }];
 }
 
--(void)setImagePath:(NSString *)imagePath
+-(void)setImagePath:(UIImage *)imagePath
 {
     _imagePath = imagePath;
     //隐藏加载
     [_loading hide];
-    _imageView.image = [UIImage imageWithContentsOfFile:imagePath];
+    _imageView.image = imagePath;
     [self setImageViewFrame];
 }
 

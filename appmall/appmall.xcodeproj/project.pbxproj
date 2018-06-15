@@ -152,9 +152,6 @@
 		2D20DECD2088CA9B00095032 /* SCConfirmOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DECB2088CA9A00095032 /* SCConfirmOrderVC.m */; };
 		2D20DED12088CAD400095032 /* CKShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED02088CAD400095032 /* CKShareManager.m */; };
 		2D20DED42088CAE800095032 /* SCGoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED22088CAE800095032 /* SCGoodsDetailCell.m */; };
-		2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED62088CB2E00095032 /* XLImageViewer.m */; };
-		2D20DEDD2088CB2F00095032 /* XLImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DED72088CB2E00095032 /* XLImageContainer.m */; };
-		2D20DEDE2088CB2F00095032 /* XLImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEDA2088CB2F00095032 /* XLImageLoading.m */; };
 		2D20DEE12088CB4100095032 /* SCDownloadCKAPPWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE02088CB4100095032 /* SCDownloadCKAPPWebVC.m */; };
 		2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE32088CB6200095032 /* SCFirstPageModel.m */; };
 		2D20DEE72088CBBB00095032 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DEE52088CBBB00095032 /* AddressModel.m */; };
@@ -393,6 +390,11 @@
 		2DA9339A20D29F8D00801633 /* CommDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9339920D29F8D00801633 /* CommDetail.m */; };
 		4AF3CB1E303E7136091D8180 /* libPods-appmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A62A5DA8A5214778B42E06 /* libPods-appmall.a */; };
 		F20039C62089A10600499D39 /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20039C52089A10600499D39 /* mine.xcassets */; };
+		F203A3D920D3549A00E2E102 /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3D620D3549A00E2E102 /* Ordersheet.m */; };
+		F203A3DA20D3549A00E2E102 /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3D820D3549A00E2E102 /* InvoicesManagerModel.m */; };
+		F203A3E420D35A2F00E2E102 /* XLImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3DF20D35A2F00E2E102 /* XLImageContainer.m */; };
+		F203A3E520D35A2F00E2E102 /* XLImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3E120D35A2F00E2E102 /* XLImageLoading.m */; };
+		F203A3E620D35A2F00E2E102 /* XLImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3E320D35A2F00E2E102 /* XLImageViewer.m */; };
 		F2070CC720CCE0130049590E /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2070CC620CCE0130049590E /* HyperlinksButton.m */; };
 		F20F5CD820C65CDF00DBEC82 /* OpenInvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F5CD720C65CDF00DBEC82 /* OpenInvoiceModel.m */; };
 		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
@@ -487,8 +489,6 @@
 		F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14D620B556940066B153 /* SexTableCell.xib */; };
 		F2FA14E020B556A90066B153 /* MineInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */; };
 		F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FA14DF20B556A90066B153 /* MineInfoViewController.m */; };
-		F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */; };
-		F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */; };
 		F2FC5A3F20C171940040369E /* MGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC5A3E20C171940040369E /* MGLabel.m */; };
 		F2FC9C9F20D2900F0023E59C /* arrearsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC9C9C20D2900E0023E59C /* arrearsModel.m */; };
 		F2FC9CA020D2900F0023E59C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC9C9E20D2900F0023E59C /* Item.m */; };
@@ -790,12 +790,6 @@
 		2D20DED02088CAD400095032 /* CKShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKShareManager.m; sourceTree = "<group>"; };
 		2D20DED22088CAE800095032 /* SCGoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGoodsDetailCell.m; sourceTree = "<group>"; };
 		2D20DED32088CAE800095032 /* SCGoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGoodsDetailCell.h; sourceTree = "<group>"; };
-		2D20DED62088CB2E00095032 /* XLImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageViewer.m; sourceTree = "<group>"; };
-		2D20DED72088CB2E00095032 /* XLImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageContainer.m; sourceTree = "<group>"; };
-		2D20DED82088CB2F00095032 /* XLImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageContainer.h; sourceTree = "<group>"; };
-		2D20DED92088CB2F00095032 /* XLImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageLoading.h; sourceTree = "<group>"; };
-		2D20DEDA2088CB2F00095032 /* XLImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageLoading.m; sourceTree = "<group>"; };
-		2D20DEDB2088CB2F00095032 /* XLImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageViewer.h; sourceTree = "<group>"; };
 		2D20DEDF2088CB4000095032 /* SCDownloadCKAPPWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDownloadCKAPPWebVC.h; sourceTree = "<group>"; };
 		2D20DEE02088CB4100095032 /* SCDownloadCKAPPWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDownloadCKAPPWebVC.m; sourceTree = "<group>"; };
 		2D20DEE22088CB6200095032 /* SCFirstPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFirstPageModel.h; sourceTree = "<group>"; };
@@ -1215,6 +1209,16 @@
 		87A62A5DA8A5214778B42E06 /* libPods-appmall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appmall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D94648FAFB3AE60D42DC59 /* Pods-appmall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appmall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appmall/Pods-appmall.debug.xcconfig"; sourceTree = "<group>"; };
 		F20039C52089A10600499D39 /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
+		F203A3D520D3549900E2E102 /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
+		F203A3D620D3549A00E2E102 /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
+		F203A3D720D3549A00E2E102 /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
+		F203A3D820D3549A00E2E102 /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
+		F203A3DE20D35A2F00E2E102 /* XLImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageContainer.h; sourceTree = "<group>"; };
+		F203A3DF20D35A2F00E2E102 /* XLImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageContainer.m; sourceTree = "<group>"; };
+		F203A3E020D35A2F00E2E102 /* XLImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageLoading.h; sourceTree = "<group>"; };
+		F203A3E120D35A2F00E2E102 /* XLImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageLoading.m; sourceTree = "<group>"; };
+		F203A3E220D35A2F00E2E102 /* XLImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageViewer.h; sourceTree = "<group>"; };
+		F203A3E320D35A2F00E2E102 /* XLImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageViewer.m; sourceTree = "<group>"; };
 		F2070CC520CCE0130049590E /* HyperlinksButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperlinksButton.h; sourceTree = "<group>"; };
 		F2070CC620CCE0130049590E /* HyperlinksButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperlinksButton.m; sourceTree = "<group>"; };
 		F20F5CD620C65CDE00DBEC82 /* OpenInvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInvoiceModel.h; sourceTree = "<group>"; };
@@ -1359,10 +1363,6 @@
 		F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoViewController.xib; sourceTree = "<group>"; };
 		F2FA14DE20B556A90066B153 /* MineInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoViewController.h; sourceTree = "<group>"; };
 		F2FA14DF20B556A90066B153 /* MineInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoViewController.m; sourceTree = "<group>"; };
-		F2FB4FCC20B8520700BFBE5C /* Ordersheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ordersheet.h; sourceTree = "<group>"; };
-		F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ordersheet.m; sourceTree = "<group>"; };
-		F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesManagerModel.h; sourceTree = "<group>"; };
-		F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesManagerModel.m; sourceTree = "<group>"; };
 		F2FC5A3D20C171940040369E /* MGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLabel.h; sourceTree = "<group>"; };
 		F2FC5A3E20C171940040369E /* MGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLabel.m; sourceTree = "<group>"; };
 		F2FC9C9B20D2900E0023E59C /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -1444,6 +1444,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				F203A3DD20D35A2F00E2E102 /* XLImageViewer */,
 				F236AE3520BF87C8004B9A03 /* Push */,
 				F255513F20BD450B0097C2A4 /* 银联支付 */,
 				F255513A20BD44ED0097C2A4 /* AlipaySDK */,
@@ -1994,7 +1995,6 @@
 				2DA9339520D2931000801633 /* CommHeaderViewCell.xib */,
 				2D20DFAC2088DA4D00095032 /* JSTextView.h */,
 				2D20DFAB2088DA4D00095032 /* JSTextView.m */,
-				2D20DED52088CB2100095032 /* XLImageViewer */,
 				2DA0C2D520B6DF480031AC47 /* CommunityViewCell.h */,
 				2DA0C2D620B6DF480031AC47 /* CommunityViewCell.m */,
 				2DA0C2D720B6DF480031AC47 /* CommunityViewCell.xib */,
@@ -2404,19 +2404,6 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
-		2D20DED52088CB2100095032 /* XLImageViewer */ = {
-			isa = PBXGroup;
-			children = (
-				2D20DED82088CB2F00095032 /* XLImageContainer.h */,
-				2D20DED72088CB2E00095032 /* XLImageContainer.m */,
-				2D20DED92088CB2F00095032 /* XLImageLoading.h */,
-				2D20DEDA2088CB2F00095032 /* XLImageLoading.m */,
-				2D20DEDB2088CB2F00095032 /* XLImageViewer.h */,
-				2D20DED62088CB2E00095032 /* XLImageViewer.m */,
-			);
-			path = XLImageViewer;
-			sourceTree = "<group>";
-		};
 		2D20DEF42088CD1900095032 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2695,15 +2682,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F203A3DD20D35A2F00E2E102 /* XLImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				F203A3DE20D35A2F00E2E102 /* XLImageContainer.h */,
+				F203A3DF20D35A2F00E2E102 /* XLImageContainer.m */,
+				F203A3E020D35A2F00E2E102 /* XLImageLoading.h */,
+				F203A3E120D35A2F00E2E102 /* XLImageLoading.m */,
+				F203A3E220D35A2F00E2E102 /* XLImageViewer.h */,
+				F203A3E320D35A2F00E2E102 /* XLImageViewer.m */,
+			);
+			path = XLImageViewer;
+			sourceTree = "<group>";
+		};
 		F208D35520B70DDF0098E64A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F203A3D720D3549A00E2E102 /* InvoicesManagerModel.h */,
+				F203A3D820D3549A00E2E102 /* InvoicesManagerModel.m */,
+				F203A3D520D3549900E2E102 /* Ordersheet.h */,
+				F203A3D620D3549A00E2E102 /* Ordersheet.m */,
 				F20F5CD620C65CDE00DBEC82 /* OpenInvoiceModel.h */,
 				F20F5CD720C65CDF00DBEC82 /* OpenInvoiceModel.m */,
-				F2FB4FCE20B8520800BFBE5C /* InvoicesManagerModel.h */,
-				F2FB4FCF20B8520900BFBE5C /* InvoicesManagerModel.m */,
-				F2FB4FCC20B8520700BFBE5C /* Ordersheet.h */,
-				F2FB4FCD20B8520800BFBE5C /* Ordersheet.m */,
 				F23F1A3F20B78ED900F01D01 /* MyInvoicesModel.h */,
 				F23F1A4220B78EDA00F01D01 /* MyInvoicesModel.m */,
 			);
@@ -3441,7 +3441,6 @@
 				F23E654A20B670B300EB6720 /* MyInvoicesCell.m in Sources */,
 				F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */,
 				2D20DEA52088C80D00095032 /* ZJContentView.m in Sources */,
-				2D20DEDC2088CB2F00095032 /* XLImageViewer.m in Sources */,
 				2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */,
 				2D20DFDB20898AAB00095032 /* SCWaitReleaseCommentViewController.m in Sources */,
 				2DA9339620D2931000801633 /* CommHeaderViewCell.m in Sources */,
@@ -3465,7 +3464,6 @@
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
 				2D20DEC12088C9FE00095032 /* GoodModel.m in Sources */,
-				F2FB4FD120B8520900BFBE5C /* InvoicesManagerModel.m in Sources */,
 				2D20DF712088D6F600095032 /* SelecteAreaModel.m in Sources */,
 				2D20DF6E2088D6EA00095032 /* CityViewController.m in Sources */,
 				2D20DDC72086135000095032 /* SCEverydayGuideVC.m in Sources */,
@@ -3494,6 +3492,7 @@
 				2D20DE8B2086367C00095032 /* SCLoginViewController.m in Sources */,
 				2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */,
 				F23F1A5920B7E2B800F01D01 /* AmortizationHeadView.m in Sources */,
+				F203A3DA20D3549A00E2E102 /* InvoicesManagerModel.m in Sources */,
 				2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */,
 				2DA0C35A20B867810031AC47 /* PictureAddCell.m in Sources */,
 				2D20DE032086147300095032 /* Reachability.m in Sources */,
@@ -3504,7 +3503,6 @@
 				2D20DDE72086142000095032 /* RequestManager.m in Sources */,
 				2D20DDD5208613BA00095032 /* BKGuidePageAppearToll.m in Sources */,
 				2D20DFCF20898A2800095032 /* SetUpViewController.m in Sources */,
-				2D20DEDE2088CB2F00095032 /* XLImageLoading.m in Sources */,
 				2D20DF172088CE6A00095032 /* CellModel.m in Sources */,
 				2D808E7420BC2B9B002FADA8 /* SCOrderDetailVC.m in Sources */,
 				2D20DECA2088CA3600095032 /* SCSCConfirmOrderViewController.m in Sources */,
@@ -3568,7 +3566,6 @@
 				2D20DDB92086131D00095032 /* LoadingAndMsgTipView.m in Sources */,
 				2D20DFEA20898B2E00095032 /* SCDeleteView.m in Sources */,
 				F23E653B20B65AC000EB6720 /* OpenInvoicesViewController.m in Sources */,
-				F2FB4FD020B8520900BFBE5C /* Ordersheet.m in Sources */,
 				2D20DE622086187200095032 /* NSDecimalNumber+Addtion.m in Sources */,
 				F23E657E20B693D600EB6720 /* QRadioButton.m in Sources */,
 				2D20DE75208629D300095032 /* UIView+SDExtension.m in Sources */,
@@ -3586,12 +3583,12 @@
 				2D20DF0C2088CDAE00095032 /* SCUseCouponViewController.m in Sources */,
 				2D20DF3F2088D10E00095032 /* SCCommentModel.m in Sources */,
 				2D20DFDE20898AC700095032 /* SearchTopView.m in Sources */,
-				2D20DEDD2088CB2F00095032 /* XLImageContainer.m in Sources */,
 				2D791C6C20905BCA00E455F5 /* WBMenu.m in Sources */,
 				F2487F3120AE730B0005F624 /* SobotManager.m in Sources */,
 				2DA0C2DD20B6F0480031AC47 /* CommListModel.m in Sources */,
 				F2C1E7A820C1381B00ECCFFE /* SCOrderListViewController.m in Sources */,
 				2D20DE74208629D300095032 /* SDCycleScrollView.m in Sources */,
+				F203A3E420D35A2F00E2E102 /* XLImageContainer.m in Sources */,
 				2D83E27A20BED9CD00F2D375 /* WBSelectFeQiItemViewCell.m in Sources */,
 				2D20DF9B2088D99B00095032 /* SCLogisticsDetailCell.m in Sources */,
 				2D20DEE42088CB6200095032 /* SCFirstPageModel.m in Sources */,
@@ -3629,6 +3626,7 @@
 				2D0726C02083929D0030996F /* HonourListViewCell.m in Sources */,
 				2D20DF062088CD8400095032 /* SCShoppingCarConfirmOrderCell.m in Sources */,
 				2DA0C35D20B867810031AC47 /* MJPhotoLoadingView.m in Sources */,
+				F203A3D920D3549A00E2E102 /* Ordersheet.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
 				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
@@ -3645,6 +3643,7 @@
 				F2F3434920BBE71E00004E90 /* Goods.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
 				2D83E27520BED8B100F2D375 /* WBSQQKInfoViewCell.m in Sources */,
+				F203A3E520D35A2F00E2E102 /* XLImageLoading.m in Sources */,
 				F2C1E79E20C133F300ECCFFE /* CKCouponCannotUseCell.m in Sources */,
 				2D20DED12088CAD400095032 /* CKShareManager.m in Sources */,
 				F2C1E78920C1335D00ECCFFE /* ArrearsTableCell.m in Sources */,
@@ -3666,6 +3665,7 @@
 				2DA0C34C20B867810031AC47 /* ELCAssetTablePicker.m in Sources */,
 				2D20DFB32088DAB200095032 /* SCCouponDetailModel.m in Sources */,
 				2D20DE80208629E700095032 /* TAAbstractDotView.m in Sources */,
+				F203A3E620D35A2F00E2E102 /* XLImageViewer.m in Sources */,
 				2D20DDDC208613E400095032 /* CKVersionCheckManager.m in Sources */,
 				2D07267D208311CB0030996F /* HotSerachCell.m in Sources */,
 				2D20DF212088CEAE00095032 /* XNArchiverManager.m in Sources */,
@@ -3727,11 +3727,8 @@
 				2D20DE372086151E00095032 /* FFWarnAlertView.m in Sources */,
 				2D7B8D6820BFCC1F000EAFB1 /* MessageOffDetailViewCell.m in Sources */,
 				2D20DDBA2086131D00095032 /* CKC_CustomProgressView.m in Sources */,
-
 				2DA9339A20D29F8D00801633 /* CommDetail.m in Sources */,
-
 				F2FC9CA020D2900F0023E59C /* Item.m in Sources */,
-
 				2D20DEAF2088C88700095032 /* SCCategoryTableCell.m in Sources */,
 				2D2280FE20B53C2700F4C8B9 /* TKSchoolModel.m in Sources */,
 				2D20DE7E208629E700095032 /* TAAnimatedDotView.m in Sources */,

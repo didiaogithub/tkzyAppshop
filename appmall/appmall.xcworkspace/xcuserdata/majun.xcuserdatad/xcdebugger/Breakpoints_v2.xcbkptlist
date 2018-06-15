@@ -356,7 +356,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Public/Common/DefaultValue.m"
-                  timestampString = "550683115.096965"
+                  timestampString = "550722811.924726"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
@@ -371,7 +371,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Public/Common/DefaultValue.m"
-                  timestampString = "550683115.099966"
+                  timestampString = "550722811.927641"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -442,6 +442,22 @@
             startingLineNumber = "539"
             endingLineNumber = "539"
             landmarkName = "-clickBuyUpdateShoppingCar"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/&#x53d1;&#x7968;&#x7ba1;&#x7406;/ViewController/InvoicesManagerDetailVC.m"
+            timestampString = "550724314.777365"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-getData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

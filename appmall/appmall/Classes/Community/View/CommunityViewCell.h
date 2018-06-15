@@ -12,6 +12,8 @@
 @protocol CommunityViewCellDelegate <NSObject>
 -(void)communityViewCellGood:(CommListModelItem *)model andIndex:(NSInteger )index;
 -(void)comunityShare:(CommListModelItem *)model andIndex:(NSInteger)index;
+// 点击图片放大代理
+-(void)showBigImageWithModel:(CommListModelItem *)model andBtn:(UIButton *)sender;
 @end
 
 @interface CommunityViewCell : UITableViewCell
@@ -28,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *img3;
 @property (weak, nonatomic) IBOutlet UIButton *img4;
 @property(assign,nonatomic)NSInteger index;
+- (IBAction)showBigImage:(UIButton *)sender;
 @property(nonatomic,weak)id <CommunityViewCellDelegate >delegate;
 
 -(void)refreshData:(CommListModelItem *)model;

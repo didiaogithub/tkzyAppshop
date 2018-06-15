@@ -73,4 +73,9 @@ CommListModelItem * selfModel ;
     [[self getCurrentVC].navigationController pushViewController:listVC animated:YES];
 }
 
+- (IBAction)showBigImage:(UIButton *)sender {
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(showBigImageWithModel: andBtn:)]) {
+        [self.delegate showBigImageWithModel:selfModel andBtn:sender];
+    }
+}
 @end

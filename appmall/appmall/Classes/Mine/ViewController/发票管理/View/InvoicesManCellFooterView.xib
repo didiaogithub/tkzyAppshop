@@ -38,10 +38,18 @@
                                 <action selector="rightBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xYN-eq-byE"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-4A-eqA">
+                            <rect key="frame" x="360" y="22" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.94901960780000005" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4WJ-4A-eqA" secondAttribute="trailing" constant="15" id="9Qc-cx-gyN"/>
                         <constraint firstItem="6uP-bw-wp8" firstAttribute="centerY" secondItem="tpD-Sn-Eta" secondAttribute="centerY" id="Ret-RF-stb"/>
+                        <constraint firstItem="4WJ-4A-eqA" firstAttribute="centerY" secondItem="tpD-Sn-Eta" secondAttribute="centerY" id="cgy-TP-ntI"/>
                         <constraint firstItem="DiO-n4-tGb" firstAttribute="centerY" secondItem="tpD-Sn-Eta" secondAttribute="centerY" id="kk8-P4-SkL"/>
                         <constraint firstItem="6uP-bw-wp8" firstAttribute="leading" secondItem="tpD-Sn-Eta" secondAttribute="leading" constant="15" id="tSt-Yg-qY1"/>
                         <constraint firstAttribute="trailing" secondItem="DiO-n4-tGb" secondAttribute="trailing" constant="15" id="zO2-Gr-69A"/>
@@ -57,10 +65,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="labRight" destination="4WJ-4A-eqA" id="mcU-cp-imj"/>
                 <outlet property="orderTimeLab" destination="6uP-bw-wp8" id="eje-9S-vLs"/>
                 <outlet property="rightBtn" destination="DiO-n4-tGb" id="k8f-BU-Z3C"/>
             </connections>
-            <point key="canvasLocation" x="31.5" y="-208"/>
+            <point key="canvasLocation" x="-204" y="-207"/>
         </view>
     </objects>
 </document>

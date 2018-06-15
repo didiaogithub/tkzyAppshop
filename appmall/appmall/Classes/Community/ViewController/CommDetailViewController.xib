@@ -15,6 +15,7 @@
                 <outlet property="item" destination="wA9-mC-Bwz" id="F48-K8-SfM"/>
                 <outlet property="sadf" destination="UDn-zd-Drv" id="SY3-jV-XDI"/>
                 <outlet property="tabCommDetail" destination="wA9-mC-Bwz" id="Fgl-Az-fgA"/>
+                <outlet property="topDis" destination="xqh-hf-VDv" id="Gmc-97-40r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,8 +31,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wA9-mC-Bwz">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wA9-mC-Bwz">
+                    <rect key="frame" x="0.0" y="92" width="375" height="575"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </subviews>
@@ -42,6 +43,7 @@
                 <constraint firstItem="wA9-mC-Bwz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="14e-my-Wtj"/>
                 <constraint firstItem="wA9-mC-Bwz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xqh-hf-VDv"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
         <view contentMode="scaleToFill" id="xRZ-Ug-rLN">
             <rect key="frame" x="0.0" y="0.0" width="427" height="44"/>

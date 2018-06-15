@@ -23,6 +23,7 @@
 }
 @property(nonatomic,strong)NSString * commId;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDis;
 @property(nonatomic,strong)UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UITextField *sadf;
 
@@ -38,10 +39,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.topDis.constant = NaviHeight;
     self.title = @"详情";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableView];
     [self loadData];
-   
+    [self creataToolBar];
     
 }
 
@@ -133,6 +136,7 @@
         CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
         [cell refreshData:commDetail.comments[indexPath.row] IsneedCommView:YES];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.notId = commDetail._id;
         cell.index = indexPath.row;
         cell.delegate   = self;
         return cell;
@@ -185,8 +189,9 @@
     
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
-    [pramaDic setObject:model._id forKey:@"noteid"];
-    [pramaDic setObject:@"1" forKey:@"type"];
+    [pramaDic setObject:self.notiID forKey:@"noteid"];
+    [pramaDic setObject:model._id forKey:@"commentid"];
+    [pramaDic setObject:@"2" forKey:@"type"];
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_EditPraise];
     
@@ -223,7 +228,7 @@
         }else{
             [self.loadingView showNoticeView:@"取消点赞"];
         }
-        
+//        [self loadData];
         
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -263,5 +268,56 @@
     self.commInput.layer.masksToBounds = YES;
     [self.toolBar setItems:buttonsArray];
     [self.sadf setInputAccessoryView:self.toolBar];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.sadf resignFirstResponder];
+    [self.commInput resignFirstResponder];
+    [self  submitComm:textField.text commId:self.commId];
+    
+    return YES;
+}
+
+-(void)submitComm:(NSString *)comm commId:(NSString *)commid{
+    if (comm .length == 0) {
+        [self.loadingView showNoticeView:@"评论不能为空"];
+        
+    }
+    NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [pramaDic setObject:self.notiID forKey:@"noteid"];
+    if (commid == nil) {
+        [pramaDic setObject:@"1" forKey:@"type"];
+    }else{
+        [pramaDic setObject:@"2" forKey:@"type"];
+        [pramaDic setObject:commid forKey:@"commentid"];
+    }
+    
+    [pramaDic setObject:comm forKey:@"content"];
+    //请求数据
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_AddCommunity];
+    
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    
+    [HttpTool postWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+        
+        [self.loadingView stopAnimation];
+        
+        NSDictionary *dic = json;
+        [self.loadingView showNoticeView:dic[@"message"]];
+        self.commInput.text = @"";
+        [self loadData];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+        
+    }];
 }
 @end

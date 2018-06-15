@@ -43,7 +43,7 @@
     [super viewDidLoad];
     self.title = @"欠款管理";
     self.statusString = @"0";
-    _statusArr = @[@"0", @"1", @"2", @"3"];
+    _statusArr = @[@"0", @"1", @"2", @"4"];
      [self createTopButton];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -77,7 +77,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64  + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0, 64  + 45 + 10, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 45 - 10) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -214,10 +214,10 @@
         leftX = 20;
     }else if ([self.statusString isEqualToString:@"1"]){//已拒绝
         leftX = SCREEN_WIDTH/4 + 20;
-    }else if ([self.statusString isEqualToString:@"2"]){//已还款
+    }else if ([self.statusString isEqualToString:@"2"]){//待还款
         leftX = SCREEN_WIDTH*2/4 + 20;
-    }else{ //3:全部
-        leftX = SCREEN_WIDTH*3/4 + 20; // 待还款
+    }else{ //4:已还款
+        leftX = SCREEN_WIDTH*3/4 + 20;
     }
     [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(leftX);
@@ -271,7 +271,7 @@
         view.orderStates.text = [NSString stringWithFormat:@"距离最晚还款日还有%ld天",(long)model.limittime];
         view.orderStates.adjustsFontSizeToFitWidth = YES;
     }else{
-       view.orderStates.text = titleArr[status];
+       view.orderStates.text = model.statusLabel;
     }
     
     return view;
@@ -284,18 +284,34 @@
     view.rightBtn.tag = section;
     arrearsModel  * model = self.dataArray[section];
     
- 
-    
     view.orderTotal.font = [UIFont systemFontOfSize:18];
-    
-    int status = [self.statusString intValue];
-    NSString *str = titleArr[status];
+    NSString *str = model.statusLabel;
     if ([str isEqualToString:@"待还款"]) {
         view.leftBtn.hidden = YES;
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
+        view.orderTotal.keyWord = @"合计：";
+        view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
     }else if ([str isEqualToString:@"已还款"]){
-        view.orderTotal.textColor = [UIColor tt_grayBgColor];
+        view.orderTotal.textColor = [UIColor colorWithHexString:@"#6E6E6E"];
         view.orderTotal.font = [UIFont systemFontOfSize:13];
+        view.leftBtn.hidden = YES;
+        view.rightBtn.hidden = YES;
         view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
+    }else if (model.status == 1){ // 已拒绝
+        if ([model.statusLabel isEqualToString:@"已取消"]) {
+            view.leftBtn.hidden = YES;
+            view.rightBtn.hidden = YES;
+        }else{
+            view.leftBtn.hidden = NO;
+            view.rightBtn.hidden = YES;
+            view.rwitdh.constant = - 70;
+        }
+    
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
+        view.orderTotal.keyWord = @"合计：";
+        view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
     }else{
         view.leftBtn.hidden = YES;
         view.rightBtn.hidden = YES;
@@ -348,7 +364,7 @@
     SCPayViewController *payMoney = [[SCPayViewController alloc] init];
      arrearsModel  * model = self.dataArray[sender.tag];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", model.ordermoney];
-    
+    payMoney.isqkglPage = YES;
 
 //    payMoney.orderid = orderM.orderId;
 //    NSString *orderNo = [NSString stringWithFormat:@"%@", model.orderno];

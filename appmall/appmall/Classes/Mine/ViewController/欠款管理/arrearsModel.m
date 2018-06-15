@@ -12,6 +12,8 @@ NSString *const karrearsModelOrderid = @"orderid";
 NSString *const karrearsModelOrdermoney = @"ordermoney";
 NSString *const karrearsModelOrderno = @"orderno";
 NSString *const karrearsModelPaybacktime = @"paybacktime";
+NSString *const karrearsModelStatus = @"status";
+NSString *const karrearsModelStatusLabel = @"statusLabel";
 
 @interface arrearsModel ()
 @end
@@ -52,6 +54,13 @@ NSString *const karrearsModelPaybacktime = @"paybacktime";
 	if(![dictionary[karrearsModelPaybacktime] isKindOfClass:[NSNull class]]){
 		self.paybacktime = dictionary[karrearsModelPaybacktime];
 	}	
+	if(![dictionary[karrearsModelStatus] isKindOfClass:[NSNull class]]){
+		self.status = [dictionary[karrearsModelStatus] integerValue];
+	}
+
+	if(![dictionary[karrearsModelStatusLabel] isKindOfClass:[NSNull class]]){
+		self.statusLabel = dictionary[karrearsModelStatusLabel];
+	}	
 	return self;
 }
 
@@ -82,6 +91,10 @@ NSString *const karrearsModelPaybacktime = @"paybacktime";
 	if(self.paybacktime != nil){
 		dictionary[karrearsModelPaybacktime] = self.paybacktime;
 	}
+	dictionary[karrearsModelStatus] = @(self.status);
+	if(self.statusLabel != nil){
+		dictionary[karrearsModelStatusLabel] = self.statusLabel;
+	}
 	return dictionary;
 
 }
@@ -109,6 +122,9 @@ NSString *const karrearsModelPaybacktime = @"paybacktime";
 	if(self.paybacktime != nil){
 		[aCoder encodeObject:self.paybacktime forKey:karrearsModelPaybacktime];
 	}
+	[aCoder encodeObject:@(self.status) forKey:karrearsModelStatus];	if(self.statusLabel != nil){
+		[aCoder encodeObject:self.statusLabel forKey:karrearsModelStatusLabel];
+	}
 
 }
 
@@ -124,6 +140,8 @@ NSString *const karrearsModelPaybacktime = @"paybacktime";
 	self.ordermoney = [aDecoder decodeObjectForKey:karrearsModelOrdermoney];
 	self.orderno = [aDecoder decodeObjectForKey:karrearsModelOrderno];
 	self.paybacktime = [aDecoder decodeObjectForKey:karrearsModelPaybacktime];
+	self.status = [[aDecoder decodeObjectForKey:karrearsModelStatus] integerValue];
+	self.statusLabel = [aDecoder decodeObjectForKey:karrearsModelStatusLabel];
 	return self;
 
 }
@@ -141,6 +159,8 @@ NSString *const karrearsModelPaybacktime = @"paybacktime";
 	copy.ordermoney = [self.ordermoney copy];
 	copy.orderno = [self.orderno copy];
 	copy.paybacktime = [self.paybacktime copy];
+	copy.status = self.status;
+	copy.statusLabel = [self.statusLabel copy];
 
 	return copy;
 }

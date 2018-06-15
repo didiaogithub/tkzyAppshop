@@ -10,7 +10,7 @@
 #import "LoanRuleListModel.h"
 #import "WBSelectFeQiItemViewCell.h"
 #import "WBSQQKInfoViewCell.h"
-
+#import "ArrearsManagerViewController.h"
 #define applyForMoneyApi @"Rule/applyForMoney"
 #define getLoanRuleListApi @"Rule/getLoanRuleList"
 @interface WBSQQKViewController ()<UITableViewDelegate,UITableViewDataSource,WBSelectFeQiItemViewCellDelegate>
@@ -162,12 +162,18 @@
     
     if (IsNilOrNull(self.sqPerson.text)) {
         [self showNoticeView:@"请输入申请人"];
+        return;
     }
     if (IsNilOrNull(self.sqPhone.text)) {
         [self showNoticeView:@"请输入联系方式"];
+        return;
     }
     if (IsNilOrNull(self.sqPerson.text)) {
         [self showNoticeView:@"请输入申请理由"];
+        return;
+    }
+    if (IsNilOrNull(self.loadid)) {
+        return;
     }
     
     
@@ -189,7 +195,12 @@
             [self showNoticeView:dict[@"message"]];
             return ;
         }
+        
+        
         [self showNoticeView:@"提交成功"];
+        
+        ArrearsManagerViewController *arrersM = [[ArrearsManagerViewController alloc]init];
+        [self.navigationController pushViewController:arrersM animated:YES];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

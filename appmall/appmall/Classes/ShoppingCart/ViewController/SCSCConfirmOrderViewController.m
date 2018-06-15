@@ -546,6 +546,9 @@
         NSDictionary *dic = @{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status};
         [cartlist addObject:dic];
     }
+    if (cartlist.count == 0) {
+        return;
+    }
     NSString *itemsStr = [cartlist mj_JSONString];
     [pramaDic setObject:itemsStr forKey:@"items"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateShoppingCarInfoUrl];

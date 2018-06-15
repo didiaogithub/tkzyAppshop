@@ -43,7 +43,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALf-bu-gHI">
-                    <rect key="frame" x="0.0" y="135" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="195" width="375" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票详情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Y-57-weq">
                             <rect key="frame" x="15" y="20.5" width="100" height="20"/>
@@ -51,8 +51,8 @@
                                 <constraint firstAttribute="height" constant="20" id="R29-9z-6hq"/>
                                 <constraint firstAttribute="width" constant="100" id="gxb-Ti-Qw5"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="查看全部" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-Ib-QTK">
@@ -64,6 +64,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Elv-Yu-UP2">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <connections>
                                 <action selector="showinvoicesDetail:" destination="-1" eventType="touchUpInside" id="66F-b0-uZ0"/>
                             </connections>
@@ -96,20 +97,48 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lI2-aS-0p1">
-                    <rect key="frame" x="0.0" y="195" width="375" height="472"/>
+                    <rect key="frame" x="0.0" y="255" width="375" height="412"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYi-iU-xtv">
+                    <rect key="frame" x="0.0" y="130" width="375" height="54"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV8-uP-MK6">
+                            <rect key="frame" x="14" y="18.5" width="61.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电子专用发票" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnQ-7I-hX2">
+                            <rect key="frame" x="268" y="18" width="92" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="TnQ-7I-hX2" firstAttribute="centerY" secondItem="iYi-iU-xtv" secondAttribute="centerY" id="BcX-9t-qBw"/>
+                        <constraint firstAttribute="trailing" secondItem="TnQ-7I-hX2" secondAttribute="trailing" constant="15" id="Lo7-Jf-r4H"/>
+                        <constraint firstItem="uV8-uP-MK6" firstAttribute="centerY" secondItem="iYi-iU-xtv" secondAttribute="centerY" id="bOO-6F-K0k"/>
+                        <constraint firstItem="uV8-uP-MK6" firstAttribute="leading" secondItem="iYi-iU-xtv" secondAttribute="leading" constant="14" id="db5-G9-yyF"/>
+                        <constraint firstAttribute="height" constant="54" id="zYQ-Wm-Zah"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="TAg-HF-d1y" secondAttribute="trailing" id="5Cn-02-k94"/>
+                <constraint firstItem="iYi-iU-xtv" firstAttribute="top" secondItem="TAg-HF-d1y" secondAttribute="bottom" constant="10" id="5iB-j8-Do5"/>
+                <constraint firstItem="iYi-iU-xtv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5oM-rK-vwK"/>
                 <constraint firstItem="TAg-HF-d1y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BfN-rd-4A1"/>
                 <constraint firstItem="lI2-aS-0p1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BnK-vO-kxQ"/>
+                <constraint firstAttribute="trailing" secondItem="iYi-iU-xtv" secondAttribute="trailing" id="O70-Ho-Rxz"/>
                 <constraint firstItem="ALf-bu-gHI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pmf-5a-s4m"/>
                 <constraint firstItem="lI2-aS-0p1" firstAttribute="top" secondItem="ALf-bu-gHI" secondAttribute="bottom" id="Ppu-sN-jWk"/>
                 <constraint firstItem="TAg-HF-d1y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="YRB-kL-BIO"/>
                 <constraint firstAttribute="trailing" secondItem="lI2-aS-0p1" secondAttribute="trailing" id="dKd-aD-c7A"/>
-                <constraint firstItem="ALf-bu-gHI" firstAttribute="top" secondItem="TAg-HF-d1y" secondAttribute="bottom" constant="15" id="eJ2-pR-WLc"/>
+                <constraint firstItem="ALf-bu-gHI" firstAttribute="top" secondItem="TAg-HF-d1y" secondAttribute="bottom" constant="75" id="eJ2-pR-WLc"/>
                 <constraint firstAttribute="trailing" secondItem="ALf-bu-gHI" secondAttribute="trailing" id="tnA-ER-uZN"/>
                 <constraint firstAttribute="bottom" secondItem="lI2-aS-0p1" secondAttribute="bottom" id="vrv-fE-6zx"/>
             </constraints>

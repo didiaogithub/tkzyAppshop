@@ -9,8 +9,9 @@
 @property (nonatomic, strong) NSString * ordermoney;
 @property (nonatomic, strong) NSString * orderno;
 @property (nonatomic, strong) NSString * paybacktime;
-/**  states*/
-@property (nonatomic, strong) NSString *states;
+@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSString * statusLabel;
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)toDictionary;

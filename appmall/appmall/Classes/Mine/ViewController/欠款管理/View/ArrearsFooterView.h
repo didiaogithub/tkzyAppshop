@@ -12,6 +12,7 @@
 - (void)rightBtnAction:(UIButton *)sender;
 @end
 @interface ArrearsFooterView : UIView
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rwitdh;
 @property (weak, nonatomic) IBOutlet MGLabel *orderTotal;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;

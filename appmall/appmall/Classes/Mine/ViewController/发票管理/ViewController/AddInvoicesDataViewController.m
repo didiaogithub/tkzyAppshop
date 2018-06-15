@@ -171,7 +171,7 @@
     
     QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
     [sex_women setTitle:@"个人/非企业单位" forState:UIControlStateNormal];
-    [sex_women setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [sex_women setTitleColor:[UIColor colorWithHexString:@"#888888"] forState:UIControlStateNormal];
     [sex_women.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
     [self.ttlxView addSubview:sex_women];
     
@@ -183,7 +183,7 @@
     }];
     QRadioButton *sex_men = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
     [sex_men setTitle:@"企业单位" forState:UIControlStateNormal];
-    [sex_men setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [sex_men setTitleColor:[UIColor colorWithHexString:@"#888888"] forState:UIControlStateNormal];
     [sex_men.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
     [self.ttlxView addSubview:sex_men];
     [sex_men setChecked:YES];

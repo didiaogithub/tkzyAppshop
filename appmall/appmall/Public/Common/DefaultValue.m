@@ -118,12 +118,23 @@
     
     NSMutableArray *values = [NSMutableArray array];
     NSDictionary *payMethod = [self getDefaultObjectWithKey:@"PayMethod"];
-    for (NSString *keyStr in payMethod.allKeys) {
+    NSArray*sortedArray = [payMethod.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1,id obj2) {
+        return[obj1 compare:obj2 options:NSNumericSearch];//正序
+    }];
+    for (int i = 0; i < sortedArray.count; i++) {
+        NSString *keyStr = sortedArray[i];
         NSString *valueStr = [payMethod objectForKey:keyStr];
         if ([valueStr isEqualToString:@"YES"]) {
             [values addObject:keyStr];
         }
     }
+    
+//    for (NSString *keyStr in payMethod.allKeys) {
+//        NSString *valueStr = [payMethod objectForKey:keyStr];
+//        if ([valueStr isEqualToString:@"YES"]) {
+//            [values addObject:keyStr];
+//        }
+//    }
     return values;
 }
 

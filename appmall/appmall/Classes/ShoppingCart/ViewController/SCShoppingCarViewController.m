@@ -65,12 +65,12 @@
     
     _deleteRow = 0;
     
-    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
-    if (IsNilOrNull(str)) {
-        [self loadCacheData];
-    }else{
+//    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
+//    if (IsNilOrNull(str)) {
+//        [self loadCacheData];
+//    }else{
         [self getshoppingCarData];
-    }
+//    }
     
     NSString *changedShoppingCar = [[NSUserDefaults standardUserDefaults] objectForKey:@"SCChangedShopingCar"];
     if ([changedShoppingCar isEqualToString:@"AddToShoppingCarSuccess"]) {
@@ -532,7 +532,8 @@
 }
 
 -(void) clickBuyUpdateShoppingCar {
-    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+//    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     NSMutableArray *cartlist = [NSMutableArray array];
     
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
@@ -544,6 +545,9 @@
         }
         NSDictionary *dic = @{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status};
         [cartlist addObject:dic];
+    }
+    if (cartlist.count == 0) {
+        return;
     }
     NSString *itemsStr = [cartlist mj_JSONString];
     [pramaDic setObject:itemsStr forKey:@"items"];
@@ -648,7 +652,7 @@
         [self.selectedRowArr removeAllObjects];
         
         [self getshoppingCarData];
-        [self.loadingView showNoticeView:@"删除成功"];
+        [self.loadingView showNoticeView:@"操作成功"];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
         [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
         [self.loadingView stopAnimation];
@@ -697,7 +701,7 @@
         [self.shoppingCarTableView reloadData];
         
         [self.selectedRowArr removeAllObjects];
-        [self.loadingView showNoticeView:@"收藏成功"];
+        [self.loadingView showNoticeView:@"操作成功"];
         [self deleteShoppingCarGoods:itemids indexArr:result];
         
         
@@ -723,7 +727,8 @@
 
 -(void)updateShoppingCarData {
     
-    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+//    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     [self.shoppingCarDataArray removeAllObjects];
     
     NSMutableArray *cartlist = [NSMutableArray array];
@@ -737,6 +742,9 @@
         }
         NSDictionary *dic = @{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status};
         [cartlist addObject:dic];
+    }
+    if (cartlist.count == 0) {
+        return;
     }
     NSString *itemsStr = [cartlist mj_JSONString];
     [pramaDic setObject:itemsStr forKey:@"items"];

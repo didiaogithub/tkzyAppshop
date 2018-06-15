@@ -38,10 +38,9 @@
     [_selectedAddressButton addSubview:_rightImageView];
     [_rightImageView setImage:[UIImage imageNamed:@"确认订单箭头"]];
     [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(15*SCREEN_HEIGHT_SCALE);
+        make.centerY.equalTo(self.mas_centerY);
         make.right.mas_offset(-10);
-        make.bottom.mas_offset(-15*SCREEN_HEIGHT_SCALE);
-        make.size.mas_offset(CGSizeMake(26, 36));
+        make.size.mas_offset(CGSizeMake(13, 15));
     }];
     
     //底边

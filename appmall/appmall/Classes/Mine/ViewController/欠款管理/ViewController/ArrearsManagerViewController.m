@@ -32,6 +32,8 @@
 @property (nonatomic, strong) UIImageView *noData;
 @property (nonatomic, strong) UILabel *noDataLabel;
 @property (assign,nonatomic)NSInteger page;
+/**  是否选择了担保*/
+@property (nonatomic, assign) BOOL isMyspon;
 /**  dataArray*/
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -45,7 +47,7 @@
     [super viewDidLoad];
     self.title = @"欠款管理";
     self.statusString = @"0";
-    _statusArr = @[@"0", @"1", @"2", @"4",@"99"];
+    _statusArr = @[@"0", @"1", @"2", @"4",@"5"];
      [self createTopButton];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -54,6 +56,7 @@
     [self initComponments];
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
+    self.isMyspon = NO;
 }
 
 - (UIImage *)xy_noDataViewImage{
@@ -69,12 +72,21 @@
 
 -(void)loadNewData{
     _page =  1;
-    [self getData:self.statusString];
+    if (self.isMyspon == YES) {
+        [self getMySponListData];
+    }else{
+      [self getData:self.statusString];
+    }
+    
 }
 
 -(void)loadMoreData{
     _page ++;
-   [self getData:self.statusString];
+    if (self.isMyspon == YES) {
+        [self getMySponListData];
+    }else{
+        [self getData:self.statusString];
+    }
 }
 - (void)initComponments{
     
@@ -86,6 +98,42 @@
 }
 
 
+- (void)getMySponListData{
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI,getMySponList];
+    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        [self.mTableView.mj_header endRefreshing];
+        NSDictionary *dict = json;
+        if([dict[@"code"] integerValue] != 200){
+            [self.mTableView tableViewEndRefreshCurPageCount:0];
+            [self showNoticeView:dict[@"message"]];
+            return ;
+        }
+        
+        if (_page == 1) {
+            [self.dataArray removeAllObjects];
+        }
+        NSArray *Arr = dict[@"data"][@"list"];
+        [self.mTableView tableViewEndRefreshCurPageCount:Arr.count];
+        for (NSDictionary *dic in Arr) {
+            arrearsModel *model = [[arrearsModel alloc]initWithDictionary:dic];
+            [self.dataArray addObject:model];
+        }
+        
+        [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+}
 
 - (void)getData:(NSString *)statusString{
     [self.view addSubview:self.loadingView];
@@ -215,15 +263,22 @@
     float leftX = 20;
     if ([self.statusString isEqualToString:@"0"]){//申请中
         leftX = 20;
+        self.isMyspon = NO;
     }else if ([self.statusString isEqualToString:@"1"]){//已拒绝
         leftX = SCREEN_WIDTH/5 + 20;
+        self.isMyspon = NO;
     }else if ([self.statusString isEqualToString:@"2"]){//待还款
         leftX = SCREEN_WIDTH*2/5 + 20;
+        self.isMyspon = NO;
     }else if ([self.statusString isEqualToString:@"4"]){ //4:已还款
         leftX = SCREEN_WIDTH*3/5 + 20;
+        self.isMyspon = NO;
     }else{ // 担保
        leftX = SCREEN_WIDTH*4/5 + 20;
+        self.isMyspon = YES;
+        
     }
+    [self loadNewData];
     [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(leftX);
     }];
@@ -269,10 +324,8 @@
     ArrearsHeaderView *view = [[ArrearsHeaderView  alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 31)];
     arrearsModel *model = self.dataArray[section];
     view.orderNo.text = [NSString stringWithFormat:@"订单编码:%@",model.orderno];
-    int status = [self.statusString intValue];
-    
-    NSString *str = titleArr[status];
-    if ([str isEqualToString:@"待还款"]) {
+
+    if ([model.statusLabel isEqualToString:@"待还款"]) {
         view.orderStates.text = [NSString stringWithFormat:@"距离最晚还款日还有%ld天",(long)model.limittime];
         view.orderStates.adjustsFontSizeToFitWidth = YES;
     }else{
@@ -297,12 +350,24 @@
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
+        view.labserverFee.text = [NSString stringWithFormat:@"(手续费：%ld.00)",model.serviceCharge];
     }else if ([str isEqualToString:@"已还款"]){
-        view.orderTotal.textColor = [UIColor colorWithHexString:@"#6E6E6E"];
-        view.orderTotal.font = [UIFont systemFontOfSize:13];
-        view.leftBtn.hidden = YES;
-        view.rightBtn.hidden = YES;
-        view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
+        if (self.isMyspon == YES) {
+            view.leftBtn.hidden = YES;
+            view.rightBtn.hidden = YES;
+            view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+            view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
+            view.orderTotal.keyWord = @"合计：";
+            view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
+            view.labserverFee.text = [NSString stringWithFormat:@"(手续费：%ld.00)",(long)model.serviceCharge];
+            
+        }else{
+            view.orderTotal.textColor = [UIColor colorWithHexString:@"#6E6E6E"];
+            view.orderTotal.font = [UIFont systemFontOfSize:13];
+            view.leftBtn.hidden = YES;
+            view.rightBtn.hidden = YES;
+            view.orderTotal.text = [NSString stringWithFormat:@"还款时间：%@",model.paybacktime];
+        }
     }else if (model.status == 1){ // 已拒绝
         if ([model.statusLabel isEqualToString:@"已取消"]) {
             view.leftBtn.hidden = YES;
@@ -317,6 +382,7 @@
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
+        view.labserverFee.text = [NSString stringWithFormat:@"(手续费：%ld.00)",(long)model.serviceCharge];
     }else{
         view.leftBtn.hidden = YES;
         view.rightBtn.hidden = YES;
@@ -324,6 +390,7 @@
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
+        view.labserverFee.text = [NSString stringWithFormat:@"(手续费：%ld.00)",(long)model.serviceCharge];
         
     }
    

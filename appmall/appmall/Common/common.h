@@ -37,8 +37,8 @@
 
 /**微信授权登录,获取微信用户信息,移动商城的*/
 //  2018.6.15 最新微信key
-#define kWXAPP_ID @"wx2e357209e6b05cad"
-#define kWXAPP_SECRET @"da44061e0229ba12fa4295e322af151c"
+#define kWXAPP_ID @"wx30577f4fc10601f0"
+#define kWXAPP_SECRET @"7547d0feef94aa7f2b8107ab443bbe4e"
 
 //#define kWXAPP_ID @"wx2e357209e6b05cad"
 //#define kWXAPP_SECRET @"da44061e0229ba12fa4295e322af151c"
@@ -400,6 +400,8 @@
 #define getMyDividePayList @"Rule/getMyDividePayList"
 /** 我的欠款*/
 #define getMyLoanList @"Rule/getMyLoanList"
+/** 我的担保*/
+#define getMySponList @"Rule/getMySponList"
 
 
 // 配置相关

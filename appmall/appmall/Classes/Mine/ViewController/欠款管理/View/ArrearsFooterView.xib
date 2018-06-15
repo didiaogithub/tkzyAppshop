@@ -83,9 +83,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqe-G8-SJM">
+                    <rect key="frame" x="9" y="21.5" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="bqe-G8-SJM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1eh-mW-jM6"/>
+                <constraint firstItem="bqe-G8-SJM" firstAttribute="leading" secondItem="SIK-WV-387" secondAttribute="trailing" constant="1" id="1tN-ql-Kva"/>
                 <constraint firstAttribute="trailing" secondItem="DZT-Hc-bM4" secondAttribute="trailing" constant="10" id="Bl8-2n-gIs"/>
                 <constraint firstItem="DZT-Hc-bM4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CCb-iG-gMg"/>
                 <constraint firstItem="SIK-WV-387" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Uvl-zd-WO7"/>
@@ -93,6 +101,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="labserverFee" destination="bqe-G8-SJM" id="ThM-SL-Xln"/>
                 <outlet property="leftAction" destination="G4U-Id-VRD" id="tmG-2u-p8E"/>
                 <outlet property="leftBtn" destination="G4U-Id-VRD" id="qqE-Vg-xOw"/>
                 <outlet property="orderTotal" destination="SIK-WV-387" id="GZW-Qd-Ad0"/>
@@ -100,7 +109,7 @@
                 <outlet property="rightBtn" destination="K7e-bM-wc8" id="4SO-FI-yn6"/>
                 <outlet property="rwitdh" destination="Bl8-2n-gIs" id="6Hd-Pc-i0m"/>
             </connections>
-            <point key="canvasLocation" x="-175" y="-76"/>
+            <point key="canvasLocation" x="-385" y="-136"/>
         </view>
     </objects>
 </document>

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIButton *leftAction;
+@property (weak, nonatomic) IBOutlet UILabel *labserverFee;
 @property (weak, nonatomic) IBOutlet UIButton *rightAction;
 /**  delegate*/
 @property (nonatomic, strong) id<ArrearsFooterViewDelegate> delegate;

@@ -12,6 +12,7 @@
 #import "PostCommViewController.h"
 #import "CommDetailViewController.h"
 #import "RootNavigationController.h"
+#import "XLImageViewer.h"
 #define KCommunityViewCell @"CommunityViewCell"
 @interface CommunityViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,CommunityViewCellDelegate>{
     CommListModelItem *commModel;
@@ -345,6 +346,21 @@
     [alertController addAction:cancelAction];
     [alertController addAction:otherAction];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+// 点击图片放大代理
+- (void)showBigImageWithModel:(CommListModelItem *)model andBtn:(UIButton *)sender{
+    
+    NSMutableArray *imageArr = [NSMutableArray array];
+    if (!IsNilOrNull(model.path1)) {
+        [imageArr addObject:model.path1];
+    }
+    if (!IsNilOrNull(model.path2)) {
+        [imageArr addObject:model.path2];
+    }
+    if (!IsNilOrNull(model.path3)) {
+        [imageArr addObject:model.path3];
+    }
+    [[XLImageViewer shareInstanse]showNetImages:imageArr index:sender.tag from:self.view];
 }
 
 @end

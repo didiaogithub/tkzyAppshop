@@ -18,7 +18,7 @@ typedef void(^BoolBlock)(Boolean);
 
 @property (nonatomic,copy) NSString *imageUrl;
 
-@property (nonatomic,copy) NSString *imagePath;
+@property (nonatomic,copy) UIImage *imagePath;
 
 @property (nonatomic,assign) UIViewContentMode imageContentMode;
 

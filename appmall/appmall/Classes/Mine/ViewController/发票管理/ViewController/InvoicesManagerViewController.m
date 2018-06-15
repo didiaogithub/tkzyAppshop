@@ -261,7 +261,7 @@
     view.rightBtn.layer.borderColor = [UIColor redColor].CGColor;
     view.rightBtn.layer.borderWidth = 1;
     view.delegate = self;
-    view.tag = section;
+    view.rightBtn.tag = section;
     if (self.selectFirstState == YES) {
         [view.rightBtn setTitle:@"开发票" forState:0];
         

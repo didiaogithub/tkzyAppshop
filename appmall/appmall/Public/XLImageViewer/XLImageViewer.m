@@ -105,9 +105,6 @@ static CGFloat ImageContainMargin = 10.0f;
 
 -(void)showImagesFromNet:(BOOL)fromNet images:(NSArray*)images index:(NSInteger)index from:(UIView*)imageView
 {
-    if (_currentIndex >= _containers.count) {
-        return;
-    }
     _startIndex = index;
     _currentIndex = index;
     
@@ -124,7 +121,7 @@ static CGFloat ImageContainMargin = 10.0f;
         if (fromNet) {
             container.imageUrl = picUrl;
         }else{
-            container.imagePath = picUrl;
+            container.imagePath = images[index];
         }
         container.imageContentMode = [self getContentViewOf:imageView];
         [container addTapBlack:^{
@@ -156,7 +153,6 @@ static CGFloat ImageContainMargin = 10.0f;
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     
     //显示动画
-  
     XLImageContainer *container = _containers[_currentIndex];
     _startRect = [imageView convertRect:imageView.bounds toView:self];
     [container showAnimateFromRect:_startRect finish:^{
@@ -177,16 +173,16 @@ static CGFloat ImageContainMargin = 10.0f;
         [self removeFromSuperview];
     }];
     
-//        [UIView animateWithDuration:0.35 animations:^{
-//            self.backgroundColor = [UIColor clearColor];
-//            if (_currentIndex != _startIndex) {self.alpha = 0;}
-//        }completion:^(BOOL finished) {
-//            [self removeFromSuperview];
-//        }];
-//        if (_currentIndex == _startIndex) {
-//            XLImageContainer *container = _containers[_currentIndex];
-//            [container showHideAnimateToRect:_startRect];
-//        }
+//    [UIView animateWithDuration:0.35 animations:^{
+//        self.backgroundColor = [UIColor clearColor];
+//        if (_currentIndex != _startIndex) {self.alpha = 0;}
+//    }completion:^(BOOL finished) {
+//        [self removeFromSuperview];
+//    }];
+//    if (_currentIndex == _startIndex) {
+//        XLImageContainer *container = _containers[_currentIndex];
+//        [container showHideAnimateToRect:_startRect];
+//    }
 }
 
 -(UIViewContentMode)getContentViewOf:(UIView*)view{
@@ -241,4 +237,3 @@ static CGFloat ImageContainMargin = 10.0f;
 }
 
 @end
-

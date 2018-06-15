@@ -123,7 +123,10 @@
     _progress = progress <= 0 ? 0 : progress;
     _progress = progress >= 1 ? 1 : progress;
     
-    _loadingLabel.text = [NSString stringWithFormat:@"%.0f%%",_progress*100.0f];
+    int x = _progress*100;
+    int absx = abs(x);
+    
+    _loadingLabel.text = [NSString stringWithFormat:@"%d%%", absx];
     
     _progressLayer.strokeEnd = _progress;
 }

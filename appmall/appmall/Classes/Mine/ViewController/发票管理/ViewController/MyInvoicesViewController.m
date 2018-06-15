@@ -12,6 +12,7 @@
 #import "MyInvoicesCheckFailCell.h"
 #import "AddInvoicesDataViewController.h"
 #import "MyInvoicesModel.h"
+#import "XLImageViewer.h"
 
 @interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCellDelegate,MyInvoicesCheckFailCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -81,7 +82,9 @@
             return;
         }else{
             self.path = dic[@"data"][@"path"];
-            [self toSaveImage:self.path];
+        
+            [[XLImageViewer shareInstanse]showNetImages:@[self.path] index:0 from:self.view];
+//            [self toSaveImage:self.path];
         }
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

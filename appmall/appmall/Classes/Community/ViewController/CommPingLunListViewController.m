@@ -28,6 +28,7 @@
     [super viewDidLoad];
     
     self.title= @"全部评论";
+    self.automaticallyAdjustsScrollViewInsets = YES;
     self.commList = [NSMutableArray arrayWithCapacity:0];
     self.topDis.constant =NaviHeight;
     [self setTableView];

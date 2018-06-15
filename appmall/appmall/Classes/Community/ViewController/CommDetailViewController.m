@@ -133,6 +133,7 @@
         CommPingLunViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommPingLunViewCell];
         [cell refreshData:commDetail.comments[indexPath.row] IsneedCommView:YES];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.index = indexPath.row;
         cell.delegate   = self;
         return cell;
     }
@@ -209,11 +210,13 @@
         model.ispraise = [NSString stringWithFormat:@"%d", ![model.ispraise boolValue]];
         if ([model.ispraise boolValue]) {
             model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ];
+            [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ] forKey:@"praise"];
         }else{
-            model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue] -1 ];
+             model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue] -1 ];
+             [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]-1 ] forKey:@"praise"];
         }
         
-        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:1];
         [self.tabCommDetail reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
         if ([model.ispraise boolValue]) {
             [self.loadingView showNoticeView:@"点赞成功"];

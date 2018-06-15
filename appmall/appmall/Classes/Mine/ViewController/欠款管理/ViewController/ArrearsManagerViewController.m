@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UIButton *refusedButton; //已拒绝
 @property (nonatomic, strong) UIButton *waitPayButton; //待还款
 @property (nonatomic, strong) UIButton *afterPayButton; //已还款
+/**  担保*/
+@property (nonatomic, strong) UIButton *danbaoButton;
 @property (nonatomic, strong) NSMutableArray *statusBtnArr;
 @property (nonatomic, strong) UILabel *indicateLine;
 @property (nonatomic, strong) NSArray *statusArr;
@@ -43,7 +45,7 @@
     [super viewDidLoad];
     self.title = @"欠款管理";
     self.statusString = @"0";
-    _statusArr = @[@"0", @"1", @"2", @"4"];
+    _statusArr = @[@"0", @"1", @"2", @"4",@"99"];
      [self createTopButton];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -137,10 +139,9 @@
     }];
     float buttonH = 50;
     _statusBtnArr = [NSMutableArray array];
-    titleArr = @[@"申请中", @"已拒绝", @"待还款", @"已还款"];
-    
+    titleArr = @[@"申请中", @"已拒绝", @"待还款", @"已还款",@"担保"];
     for (NSInteger i = 0; i < titleArr.count; i++) {
-        UIButton *btn = [self createOrderButtonWithframe:CGRectMake((SCREEN_WIDTH/4)*i, 0, SCREEN_WIDTH/4, buttonH) andTag:140+i andAction:@selector(clickOrderButton:) andtitle:titleArr[i]];
+        UIButton *btn = [self createOrderButtonWithframe:CGRectMake((SCREEN_WIDTH/5)*i, 0, SCREEN_WIDTH/5, buttonH) andTag:140+i andAction:@selector(clickOrderButton:) andtitle:titleArr[i]];
         [self.statusView addSubview:btn];
         [_statusBtnArr addObject:btn];
     }
@@ -151,7 +152,7 @@
     [self.indicateLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(47);
         make.left.mas_offset(20);
-        make.width.mas_offset(SCREEN_WIDTH/4 - 40);
+        make.width.mas_offset(SCREEN_WIDTH/5 - 40);
         make.height.mas_offset(3);
     }];
     
@@ -179,6 +180,8 @@
         case 3:
             _afterPayButton = button;
             break;
+        case 4:
+            _danbaoButton  = button;
         default:
             break;
     }
@@ -213,11 +216,13 @@
     if ([self.statusString isEqualToString:@"0"]){//申请中
         leftX = 20;
     }else if ([self.statusString isEqualToString:@"1"]){//已拒绝
-        leftX = SCREEN_WIDTH/4 + 20;
+        leftX = SCREEN_WIDTH/5 + 20;
     }else if ([self.statusString isEqualToString:@"2"]){//待还款
-        leftX = SCREEN_WIDTH*2/4 + 20;
-    }else{ //4:已还款
-        leftX = SCREEN_WIDTH*3/4 + 20;
+        leftX = SCREEN_WIDTH*2/5 + 20;
+    }else if ([self.statusString isEqualToString:@"4"]){ //4:已还款
+        leftX = SCREEN_WIDTH*3/5 + 20;
+    }else{ // 担保
+       leftX = SCREEN_WIDTH*4/5 + 20;
     }
     [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(leftX);

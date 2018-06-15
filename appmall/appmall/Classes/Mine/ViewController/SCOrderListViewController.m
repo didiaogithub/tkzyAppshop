@@ -360,6 +360,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         qian.backgroundColor = [UIColor redColor];
         if ([orderModel.ordertypelabel containsString:@"欠"]) {
             [headerView addSubview:qian];
+        }else if([orderModel.ordertypelabel containsString:@"保"]){
+            qian.text = @"保";
+            [headerView addSubview:qian];
         }else{
             [headerView removeFromSuperview];
         }
@@ -431,7 +434,14 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             _footerView.left0Button.hidden = YES;
             _footerView.leftButton.hidden = YES;
             _footerView.rightButton.hidden = YES;
+        }else if([statustr isEqualToString:@"未付款"]){
+            if ([orderModel.ordertypelabel containsString:@"欠"] || [orderModel.ordertypelabel containsString:@"保"]) {
+                _footerView.left0Button.hidden = YES;
+                _footerView.leftButton.hidden = YES;
+                _footerView.rightButton.hidden = YES;
+            }
         }
+        
     
         NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {

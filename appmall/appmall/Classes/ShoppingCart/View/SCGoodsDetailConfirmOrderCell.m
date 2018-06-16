@@ -83,7 +83,7 @@
     [_nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_iconImageView.mas_top).offset(10);
         make.left.equalTo(_iconImageView.mas_right).offset(5);
-        make.right.mas_offset(-100);
+        make.right.mas_offset(-10);
     }];
     
     //价格

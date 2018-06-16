@@ -64,10 +64,16 @@
     self.iconImage.layer.cornerRadius = 40;
     self.iconImage.layer.borderColor = [UIColor tt_grayBgColor].CGColor;
     self.iconImage.layer.borderWidth = 1;
+    self.iconImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+    [self.iconImage addGestureRecognizer:singleTap];
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@""]];
     [self setRightButton:@"保存" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
 }
 
+- (void)singleTap{
+    [self updateIconImage];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *tcell;
@@ -201,6 +207,12 @@
 
 
 - (IBAction)sciconAction:(UIButton *)sender {
+   
+    [self updateIconImage];
+}
+
+
+- (void)updateIconImage{
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
     //添加Button
     [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -236,7 +248,6 @@
     [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
     
     [self presentViewController: alertController animated: YES completion: nil];
-    
 }
 
 #pragma mark --- 选择照片代理方法UIImagePickerControllerDelegate

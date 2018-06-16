@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "CKCouponModel.h"
+@protocol CKCouponCannotUseCellDelegate<NSObject>
+- (void)jumpShoppingList;
+@end
 // 未使用
 @interface CKCouponCannotUseCell : UITableViewCell
 
+/**  dalagate*/
+@property (nonatomic,weak)  id <CKCouponCannotUseCellDelegate>delegate;
 -(void)refreshCouponWithCouponModel:(CKCouponModel*)couponM;
 @end

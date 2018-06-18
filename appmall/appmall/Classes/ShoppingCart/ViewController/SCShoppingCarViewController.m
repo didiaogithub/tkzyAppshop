@@ -65,12 +65,12 @@
     
     _deleteRow = 0;
     
-//    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
-//    if (IsNilOrNull(str)) {
-//        [self loadCacheData];
-//    }else{
+    NSString *str = [KUserdefaults objectForKey:@"CKYS_RefreshCar"];
+    if (IsNilOrNull(str)) {
+        [self loadCacheData];
+    }else{
         [self getshoppingCarData];
-//    }
+    }
     
     NSString *changedShoppingCar = [[NSUserDefaults standardUserDefaults] objectForKey:@"SCChangedShopingCar"];
     if ([changedShoppingCar isEqualToString:@"AddToShoppingCarSuccess"]) {
@@ -375,7 +375,7 @@
         NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.num);
         [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0" andnum:model.num];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
     }];
     return cell;
 }

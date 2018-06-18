@@ -249,7 +249,10 @@
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setObject:lineNumber forKey:@"type"];
     ordermoney = totalMoney;
-    [pramaDic setObject:totalMoney forKey:@"ordermoney"];
+    if ([ordermoney containsString:@"合计:¥"]) {
+        ordermoney = [ordermoney substringFromIndex:4];
+    }
+    [pramaDic setObject:ordermoney forKey:@"ordermoney"];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {

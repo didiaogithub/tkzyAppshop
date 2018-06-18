@@ -10,7 +10,7 @@
 #import "LeftLabelRightTextFieldView.h"
 #import "QRadioButton.h"
 #import "XLImageViewer.h"
-@interface AddInvoicesDataViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QRadioButtonDelegate>
+@interface AddInvoicesDataViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QRadioButtonDelegate,UITextFieldDelegate>
 {
     UILabel *line2;
     UILabel *line3;
@@ -239,8 +239,10 @@
     self.shView = [[LeftLabelRightTextFieldView alloc] init];
     self.shView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.shView];
+       [self.shView.rightTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.shView.rightLabel.hidden = YES;
     self.shView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*税号"];
+    self.shView.rightTextField.delegate = self;
     self.shView.rightTextField.placeholder = @"请输入税号";
     [self.shView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
@@ -280,10 +282,13 @@
 //    /**  账号*/
 //    @property (nonatomic, strong) LeftLabelRightTextFieldView *zhView;
     self.zhView = [[LeftLabelRightTextFieldView alloc] init];
+    self.zhView.rightTextField.delegate = self;
     self.zhView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.zhView];
+    [self.zhView.rightTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.zhView.rightLabel.hidden = YES;
     self.zhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*账号"];
+    self.zhView.rightTextField.delegate = self;
     self.zhView.rightTextField.placeholder = @"请输入账号";
     [self.zhView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_offset(0);
@@ -331,6 +336,7 @@
     self.dhView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.dhView];
     self.dhView.rightLabel.hidden = YES;
+    self.dhView.rightTextField.delegate = self;
     self.dhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*电话"];
     self.dhView.rightTextField.placeholder = @"请输入电话";
     [self.dhView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -646,5 +652,39 @@
     }];
     
     
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    if (menuController) {
+        [UIMenuController sharedMenuController].menuVisible = NO;
+    }
+    return NO;
+}
+
+// 限制只能输入数字
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField == self.shView.rightTextField || textField == self.zhView.rightTextField) {
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"] invertedSet];
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        return [string isEqualToString:filtered];
+    }else if (textField == self.dhView.rightTextField){
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"-0123456789"] invertedSet];
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        return [string isEqualToString:filtered];
+    }
+    return YES;
+    
+}
+
+// 限制手机号码只能输入11位
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    if (textField == self.zhView.rightTextField || self.shView.rightTextField) {
+        if (textField.text.length > 18) {
+            textField.text = [textField.text substringToIndex:18];
+        }
+    }
 }
 @end

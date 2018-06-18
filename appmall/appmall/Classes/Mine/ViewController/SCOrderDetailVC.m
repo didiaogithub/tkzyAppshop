@@ -188,8 +188,8 @@
             [self showNoticeView:[dic valueForKey:@"message"]];
             return ;
         }
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        [self showNoticeView:@"删除成功"];
+        
+        [self showNoticeView:@"订单已删除成功"];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

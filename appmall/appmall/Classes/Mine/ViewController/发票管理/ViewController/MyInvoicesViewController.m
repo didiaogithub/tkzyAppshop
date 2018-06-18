@@ -96,6 +96,7 @@
             self.path = dic[@"data"][@"path"];
         
             [[XLImageViewer shareInstanse]showNetImages:@[self.path] index:0 from:self.view];
+            [self.mTableView reloadData];
 //            [self toSaveImage:self.path];
         }
     } failure:^(NSError *error) {
@@ -280,7 +281,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
+    if (self.dataArray.count == 0) {
+        return 0;
+    }
     return 3;
 }
 

@@ -265,11 +265,9 @@
     [self.loadingView startAnimation];
     
     [HttpTool postWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
-        
         [self.loadingView stopAnimation];
-        
-        NSDictionary *dic = json;
-        [self.loadingView showNoticeView:dic[@"message"]];
+        [self.commInput resignFirstResponder];
+        [self.sadf resignFirstResponder];
         self.commInput.text = @"";
         [self loadNewData];
     } failure:^(NSError *error) {

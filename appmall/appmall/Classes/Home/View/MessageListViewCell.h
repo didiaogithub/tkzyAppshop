@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *LabRed;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messIcon;
 @property (weak, nonatomic) IBOutlet UILabel *messInfo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleOffest;
 @property (weak, nonatomic) IBOutlet UILabel *messTime;
 @property (weak, nonatomic) IBOutlet UILabel *messTitle;
 -(void)loadData:(MessagModel *)model;

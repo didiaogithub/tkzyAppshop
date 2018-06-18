@@ -72,7 +72,13 @@
             break;
     }
     self.messTitle.text = model.name;
-    self.messInfo.text = model.title;
+    
+    if ([model.title isEqualToString:@""] || model.title == nil) {
+        self.titleOffest.constant = -8;
+    }else{
+        self.titleOffest.constant = 0;
+        self.messInfo.text = model.title;
+    }
     self.messTime.text = model.time;
 }
 

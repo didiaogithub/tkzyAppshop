@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "550748438.358395"
+            timestampString = "551032545.851402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Appdelegate/AppDelegate.m"
-            timestampString = "550748438.3584991"
+            timestampString = "551032545.851482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551026660.590265"
+            timestampString = "551033823.962936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "707"
@@ -324,7 +324,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Mine/ViewController/MineInfoViewController.m"
-                  timestampString = "551026662.259078"
+                  timestampString = "551032547.593343"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
@@ -339,7 +339,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Mine/ViewController/MineInfoViewController.m"
-                  timestampString = "551026662.261975"
+                  timestampString = "551032547.596602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
@@ -354,7 +354,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Mine/ViewController/MineInfoViewController.m"
-                  timestampString = "551026662.265022"
+                  timestampString = "551032547.5998189"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "300"
@@ -369,7 +369,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/Mine/ViewController/MineInfoViewController.m"
-                  timestampString = "551026662.268503"
+                  timestampString = "551032547.6029609"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
@@ -386,44 +386,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderDetailVC.m"
-            timestampString = "551026660.590485"
+            timestampString = "551033823.96312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
             landmarkName = "-deleteOrder"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Community/ViewController/CommPingLunListViewController.m"
-            timestampString = "550744018.330369"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "-submitComm:commId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Community/ViewController/CommPingLunListViewController.m"
-            timestampString = "550744018.330492"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-submitComm:commId:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -466,7 +434,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Community/ViewController/PostCommViewController.m"
-            timestampString = "551026660.590621"
+            timestampString = "551033823.963228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -482,7 +450,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Community/ViewController/PostCommViewController.m"
-            timestampString = "551026660.590673"
+            timestampString = "551033823.963279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -520,22 +488,6 @@
             startingLineNumber = "125"
             endingLineNumber = "125"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Community/ViewController/CommPingLunListViewController.m"
-            timestampString = "550744018.330651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "-actionComment:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

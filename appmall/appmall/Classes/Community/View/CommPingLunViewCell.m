@@ -44,7 +44,12 @@
     self.contentDisRight.constant = 15;
     self.labName.font = [UIFont systemFontOfSize:13];
     self.labGood.hidden =NO;
-    [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue]] forState:0];
+    if ([model.praise integerValue] == 0) {
+        [self.labGood setTitle:@"赞" forState:0];
+    }else{
+        [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue] ] forState:0];
+    }
+    
     self.labGood.selected = [model.ispraise boolValue];
     self.labPinglun.hidden = YES;
     self.viewContent.backgroundColor = self.viewBottom.backgroundColor;
@@ -60,10 +65,18 @@
 
 -(void)refreshData:(CommPingLunModel *)model IsneedCommView:(BOOL) isNeed{
     selfModel = model;
+    if ([model.praise integerValue] == 0) {
+        [self.labGood setTitle:@"赞" forState:0];
+    }else{
+        [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue] ] forState:0];
+    }
     
+    if (model.comments.count == 0) {
+        [self.labPinglun setTitle:@"" forState:0];
+    }else{
+         [self.labPinglun setTitle:[NSString stringWithFormat:@"%ld",model.comments.count] forState:0];
+    }
     
-    [self.labGood setTitle:[NSString stringWithFormat:@"%ld",[model.praise integerValue]] forState:0];
-    [self.labPinglun setTitle:[NSString stringWithFormat:@"%ld",model.comments.count] forState:0];
     self.labGood.selected = [model.ispraise boolValue];
     self.contentDisLeft.constant = 0;
     self.contentDisRight.constant = 0;

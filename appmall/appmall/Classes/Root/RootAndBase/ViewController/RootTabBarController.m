@@ -124,11 +124,11 @@
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getSettingsApi];
     [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
         NSDictionary *dic = json;
-        if ([dic[@"code"] integerValue] != 200) {
+        if ([dic[@"code"] integerValue] != 200 ||  [[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
             
-            self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
+            self.viewControllers = @[homeNavVC,collegeNavVC, shoppingNavVC,mineNavVC];
         }else{
-            if ([dic[@"data"][@"note_status"]  boolValue] == YES) {
+            if ([dic[@"data"][@"note_status"]  boolValue] == NO) {
                 
                 self.viewControllers = @[homeNavVC,collegeNavVC, shoppingNavVC,mineNavVC];
             }else{

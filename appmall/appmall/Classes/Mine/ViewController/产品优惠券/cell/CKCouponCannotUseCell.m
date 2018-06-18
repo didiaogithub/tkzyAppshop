@@ -98,6 +98,7 @@
     self.usecouponBtn.layer.cornerRadius = 3;
     self.usecouponBtn.layer.borderColor = [UIColor tt_redMoneyColor].CGColor;
     self.usecouponBtn.layer.borderWidth = 1;
+    [self.usecouponBtn addTarget:self action:@selector(actionUsecouponBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.usecouponBtn];
     [self.usecouponBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.moneyLable.mas_top);
@@ -109,6 +110,12 @@
     
     
     
+}
+
+- (void)actionUsecouponBtn{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jumpShoppingList)]) {
+        [self.delegate jumpShoppingList];
+    }
 }
 
 - (void)refreshCouponWithCouponModel:(CKCouponModel *)couponM{

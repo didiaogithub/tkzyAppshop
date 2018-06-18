@@ -127,7 +127,6 @@
 
     
     [self createTableView];
-    [self getshoppingCarData];
 }
 
 - (UIImage *)xy_noDataViewImage{

@@ -142,7 +142,7 @@
     
     _imageArr = [NSMutableArray array];
     for (NSInteger i = 0; i < commontModel.imgPathArray.count; i++) {
-        
+
         NSString *path = commontModel.imgPathArray[i];
         
         UIImageView *imageV = [[UIImageView alloc] init];
@@ -164,6 +164,7 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigImage:)];
         [imageV addGestureRecognizer:tap];
     }
+    _imageArr = commontModel.imgPathArray;
 }
 
 -(void)bigImage:(UITapGestureRecognizer*)tap {

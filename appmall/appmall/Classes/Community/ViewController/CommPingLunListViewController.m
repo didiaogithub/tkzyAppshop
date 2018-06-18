@@ -241,6 +241,7 @@
 }
 
 -(void)submitComm:(NSString *)comm commId:(NSString *)commid{
+    [self.view endEditing:YES];
     if (comm .length == 0) {
         [self.loadingView showNoticeView:@"评论不能为空"];
         

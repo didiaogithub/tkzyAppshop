@@ -12,6 +12,7 @@ NSString *const karrearsModelOrderid = @"orderid";
 NSString *const karrearsModelOrdermoney = @"ordermoney";
 NSString *const karrearsModelOrderno = @"orderno";
 NSString *const karrearsModelPaybacktime = @"paybacktime";
+NSString *const karrearsModelServiceCharge = @"service_charge";
 NSString *const karrearsModelStatus = @"status";
 NSString *const karrearsModelStatusLabel = @"statusLabel";
 
@@ -38,9 +39,9 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 		}
 		self.items = itemsItems;
 	}
-	if(![dictionary[karrearsModelLimittime] isKindOfClass:[NSNull class]]){
-		self.limittime = [dictionary[karrearsModelLimittime] integerValue];
-	}
+    if(![dictionary[karrearsModelLimittime] isKindOfClass:[NSNull class]]){
+        self.limittime = [dictionary[karrearsModelLimittime] integerValue];
+    }
 
 	if(![dictionary[karrearsModelOrderid] isKindOfClass:[NSNull class]]){
 		self.orderid = dictionary[karrearsModelOrderid];
@@ -54,6 +55,10 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 	if(![dictionary[karrearsModelPaybacktime] isKindOfClass:[NSNull class]]){
 		self.paybacktime = dictionary[karrearsModelPaybacktime];
 	}	
+	if(![dictionary[karrearsModelServiceCharge] isKindOfClass:[NSNull class]]){
+		self.serviceCharge = [dictionary[karrearsModelServiceCharge] integerValue];
+	}
+
 	if(![dictionary[karrearsModelStatus] isKindOfClass:[NSNull class]]){
 		self.status = [dictionary[karrearsModelStatus] integerValue];
 	}
@@ -78,7 +83,7 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 		}
 		dictionary[karrearsModelItems] = dictionaryElements;
 	}
-	dictionary[karrearsModelLimittime] = @(self.limittime);
+        dictionary[karrearsModelLimittime] = @(self.limittime);
 	if(self.orderid != nil){
 		dictionary[karrearsModelOrderid] = self.orderid;
 	}
@@ -91,6 +96,7 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 	if(self.paybacktime != nil){
 		dictionary[karrearsModelPaybacktime] = self.paybacktime;
 	}
+	dictionary[karrearsModelServiceCharge] = @(self.serviceCharge);
 	dictionary[karrearsModelStatus] = @(self.status);
 	if(self.statusLabel != nil){
 		dictionary[karrearsModelStatusLabel] = self.statusLabel;
@@ -107,10 +113,11 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+    [aCoder encodeObject:@(self.limittime) forKey:karrearsModelLimittime];
 	if(self.items != nil){
 		[aCoder encodeObject:self.items forKey:karrearsModelItems];
 	}
-	[aCoder encodeObject:@(self.limittime) forKey:karrearsModelLimittime];	if(self.orderid != nil){
+	if(self.orderid != nil){
 		[aCoder encodeObject:self.orderid forKey:karrearsModelOrderid];
 	}
 	if(self.ordermoney != nil){
@@ -122,7 +129,7 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 	if(self.paybacktime != nil){
 		[aCoder encodeObject:self.paybacktime forKey:karrearsModelPaybacktime];
 	}
-	[aCoder encodeObject:@(self.status) forKey:karrearsModelStatus];	if(self.statusLabel != nil){
+	[aCoder encodeObject:@(self.serviceCharge) forKey:karrearsModelServiceCharge];	[aCoder encodeObject:@(self.status) forKey:karrearsModelStatus];	if(self.statusLabel != nil){
 		[aCoder encodeObject:self.statusLabel forKey:karrearsModelStatusLabel];
 	}
 
@@ -135,11 +142,12 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 {
 	self = [super init];
 	self.items = [aDecoder decodeObjectForKey:karrearsModelItems];
-	self.limittime = [[aDecoder decodeObjectForKey:karrearsModelLimittime] integerValue];
+    self.limittime = [[aDecoder decodeObjectForKey:karrearsModelLimittime] integerValue];
 	self.orderid = [aDecoder decodeObjectForKey:karrearsModelOrderid];
 	self.ordermoney = [aDecoder decodeObjectForKey:karrearsModelOrdermoney];
 	self.orderno = [aDecoder decodeObjectForKey:karrearsModelOrderno];
 	self.paybacktime = [aDecoder decodeObjectForKey:karrearsModelPaybacktime];
+	self.serviceCharge = [[aDecoder decodeObjectForKey:karrearsModelServiceCharge] integerValue];
 	self.status = [[aDecoder decodeObjectForKey:karrearsModelStatus] integerValue];
 	self.statusLabel = [aDecoder decodeObjectForKey:karrearsModelStatusLabel];
 	return self;
@@ -154,11 +162,12 @@ NSString *const karrearsModelStatusLabel = @"statusLabel";
 	arrearsModel *copy = [arrearsModel new];
 
 	copy.items = [self.items copy];
-	copy.limittime = self.limittime;
+    copy.limittime = self.limittime;
 	copy.orderid = [self.orderid copy];
 	copy.ordermoney = [self.ordermoney copy];
 	copy.orderno = [self.orderno copy];
 	copy.paybacktime = [self.paybacktime copy];
+	copy.serviceCharge = self.serviceCharge;
 	copy.status = self.status;
 	copy.statusLabel = [self.statusLabel copy];
 

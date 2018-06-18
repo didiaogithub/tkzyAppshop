@@ -322,7 +322,7 @@
             //清除优惠券缓存
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
-            
+            [self.view endEditing:YES];
             //删除订单购物车缓存
 //            RLMResults *result = [GoodModel allObjects];
 //            RLMRealm *realm = [RLMRealm defaultRealm];
@@ -437,7 +437,7 @@
             //清除优惠券缓存
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
-            
+            [self.view endEditing:YES];
             //删除订单购物车缓存
 //            RLMResults *result = [GoodModel allObjects];
 //            RLMRealm *realm = [RLMRealm defaultRealm];

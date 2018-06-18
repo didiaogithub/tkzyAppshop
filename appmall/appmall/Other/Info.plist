@@ -39,12 +39,12 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSCameraUsageDescription</key>
-	<string>App需要您的同意,才能访问相机</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>App需要您的同意,才能访问相机</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -58,12 +58,12 @@
 	</dict>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -84,7 +84,7 @@
 			<string>wexin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx2e357209e6b05cad</string>
+				<string>wx30577f4fc10601f0</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>

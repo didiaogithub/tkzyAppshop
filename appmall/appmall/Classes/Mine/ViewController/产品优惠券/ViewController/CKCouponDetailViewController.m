@@ -12,8 +12,9 @@
 #import "CKCouponCanUseCell.h"
 #import "CKCouponNotCanUseCell.h"
 #import "UITableView+XY.h"
+#import "SCCategoryViewController.h"
 #import "SCSCConfirmOrderViewController.h"
-@interface CKCouponDetailViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
+@interface CKCouponDetailViewController ()<UITableViewDelegate,UITableViewDataSource,CKCouponCannotUseCellDelegate,XYTableViewDelegate>
 
 @property (nonatomic, strong) UIButton *canUseBtn; // 未使用
 @property (nonatomic, strong) UIButton *canNotUseBtn; // 已使用
@@ -252,6 +253,7 @@
         if (!cell) {
             cell = [[CKCouponCannotUseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CKCouponCannotUseCell"];
         }
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
@@ -279,6 +281,52 @@
     }
 }
 
+- (void)jumpShoppingList{
+    
+      NSDictionary *pramaDic=   [HttpTool getCommonPara];
+        //请求数据
+        NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_Goods_Class_Url];
+        [self.view addSubview:self.loadingView];
+        [self.loadingView startAnimation];
+        [HttpTool getWithUrl:homeInfoUrl params:pramaDic success:^(id json) {
+            [self.loadingView stopAnimation];
+            NSDictionary *dic = json;
+            if ([dic[@"code"] integerValue] != 200) {
+                [self.loadingView showNoticeView:dic[@"message"]];
+                return;
+            }
+            
+            if (dic != nil) {  //请求到数据
+                SCCategoryViewController *category = [[SCCategoryViewController alloc]init];
+                NSArray *categoryList = dic[@"data"][@"categoryList"];
+                if (categoryList .count == 0) {
+                    [self.loadingView showNoticeView:@"暂无更多商品"];
+                    return;
+                }
+                category.titleArr = [NSMutableArray arrayWithCapacity:0];
+                category.categoryIdArr = [NSMutableArray arrayWithCapacity:0];
+                [category.titleArr addObject:@"全部"];
+                [category.categoryIdArr addObject:@""];
+                for(int i = 0; i < categoryList.count; i++){
+                    NSDictionary * itemDic = [categoryList objectAtIndex:i];
+                    [category.titleArr addObject:itemDic[@"name"]];
+                    [category.categoryIdArr addObject:itemDic[@"styleid"]];
+                    category.selectedIndex  = 0;
+                }
+                [self.navigationController pushViewController:category animated:YES];
+            }else{
+                [self.loadingView showNoticeView:@"无更多商品"];
+            }
+        } failure:^(NSError *error) {
+            [self.loadingView stopAnimation];
+            if (error.code == -1009) {
+                [self.loadingView showNoticeView:NetWorkNotReachable];
+            }else{
+                [self.loadingView showNoticeView:NetWorkTimeout];
+            }
+            
+        }];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // 这里处理点击优惠券带回金额
     

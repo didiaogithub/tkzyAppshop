@@ -9,6 +9,7 @@
 @property (nonatomic, strong) NSString * ordermoney;
 @property (nonatomic, strong) NSString * orderno;
 @property (nonatomic, strong) NSString * paybacktime;
+@property (nonatomic, assign) NSInteger serviceCharge;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSString * statusLabel;
 

@@ -181,9 +181,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     [self.statusView addSubview:self.indicateLine];
     [self.indicateLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(47);
-        make.left.mas_offset(0);
-        make.width.mas_offset(SCREEN_WIDTH/5);
-        make.height.mas_offset(3);
+        make.left.mas_offset(20);
+        make.width.mas_offset(SCREEN_WIDTH/5 - 40);
+        make.height.mas_offset(1);
     }];
     
 }
@@ -224,19 +224,37 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     float leftX = 0;
     if ([self.statusString isEqualToString:@"99"]){//全部
-        leftX = 0;
+        leftX = 0 + 25;
+        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(leftX);
+            make.width.mas_offset(SCREEN_WIDTH / 5 - 50);
+        }];
     }else if ([self.statusString isEqualToString:@"1"]){//待付款
-        leftX = SCREEN_WIDTH/5;
+        leftX = SCREEN_WIDTH/5 + 15;
+        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(leftX);
+            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
+        }];
     }else if ([self.statusString isEqualToString:@"2"]){//待发货
-        leftX = SCREEN_WIDTH*2/5;
+        leftX = SCREEN_WIDTH*2/5 + 15;
+        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(leftX);
+            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
+        }];
     }else if ([self.statusString isEqualToString:@"4,5,7"]){//待收货
-        leftX = SCREEN_WIDTH*3/5;
+        leftX = SCREEN_WIDTH*3/5 + 15;
+        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(leftX);
+            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
+        }];
     }else{ // 使用反馈 3,6
-        leftX = SCREEN_WIDTH*4/5;
+        leftX = SCREEN_WIDTH*4/5 + 10;
+        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(leftX);
+            make.width.mas_offset(SCREEN_WIDTH / 5 - 20);
+        }];
     }
-    [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(leftX);
-    }];
+    
 }
 
 -(void)clickOrderButton:(UIButton *)button{

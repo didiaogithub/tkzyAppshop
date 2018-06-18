@@ -182,8 +182,8 @@
             [self.yclDataArray removeAllObjects];
             [self.yjjDataArray removeAllObjects];
         }
-//        NSArray *Arr = dict[@"data"][@"invoices"];
-        NSArray *Arr = @[];
+        NSArray *Arr = dict[@"data"][@"invoices"];
+//        NSArray *Arr = @[];
         [self.mTableView tableViewEndRefreshCurPageCount:Arr.count];
         for (NSDictionary *dic in Arr) {
             MyInvoicesModel *MyInvoicesM = [[MyInvoicesModel alloc] init];
@@ -281,10 +281,8 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.dataArray.count == 0) {
-        return 0;
-    }
-    return 3;
+    return self.yjjDataArray.count + self.yclDataArray.count +self.wclDataArray.count;
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -387,10 +385,12 @@
         });
     }
 }
-
 - (void)setSelectMyInvoicesBlock:(SelectMyInvoicesBlock)selectMyInvoicesBlock{
     _selectMyInvoicesBlock = selectMyInvoicesBlock;
 }
+//- (BOOL)havData{
+//    return NO;
+//}
 
 -(void)jumpAddInvoicesDataViewController:(UIButton *)sender{
     AddInvoicesDataViewController *add = [[AddInvoicesDataViewController alloc]init];

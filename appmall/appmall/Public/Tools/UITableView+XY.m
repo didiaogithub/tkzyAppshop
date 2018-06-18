@@ -10,6 +10,9 @@
 #import "XYNoDataView.h"
 #import <objc/runtime.h>
 
+/**
+ 消除警告
+ */
 
 
 
@@ -54,25 +57,24 @@
         NSInteger numberOfSections = [self numberOfSections];
         if (numberOfSections == 0) {
             havingData = NO;
-        }else if (numberOfSections >1) {
-            havingData = YES;
-        }else{
-            
-            if ([self.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)] && [self.delegate tableView:self viewForHeaderInSection:0] != nil) {
-                
-                havingData = YES;
+        }else {
+            if ([self.delegate respondsToSelector:@selector(havData)]) {
+                havingData =[self.delegate performSelector:@selector(havData)];
             }else{
-                for (NSInteger i = 0; i < numberOfSections; i++) {
-                    if ([self numberOfRowsInSection:i] > 0) {
-                        havingData = YES;
-                        break;
+                if ([self.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)] && [self.delegate tableView:self viewForHeaderInSection:0] != nil) {
+                    
+                    havingData = YES;
+                }else{
+                    for (NSInteger i = 0; i < numberOfSections; i++) {
+                        if ([self numberOfRowsInSection:i] > 0) {
+                            havingData = YES;
+                            break;
+                        }
                     }
                 }
+
             }
-           
         }
-        
-        
         [self xy_havingData:havingData];
     });
 }
@@ -101,8 +103,8 @@
     }
     
     //  使用自带
-    UIImage  *img = [UIImage imageNamed:@"pic_zanwushuju"];
-    NSString *msg = @"暂无数据";
+    UIImage  *img = [UIImage imageNamed:@"pic_zanwushuju_tongyong"];
+    NSString *msg = @"暂无数据~";
     
     
     
@@ -136,17 +138,17 @@
  默认的占位图
  */
 - (UIView *)xy_defaultNoDataViewWithImage:(UIImage *)image message:(NSString *)message color:(UIColor *)color offsetY:(CGFloat)offset {
-    
-    //  计算位置, 垂直居中, 图片默认中心偏上.
+
+
     CGFloat sW = self.bounds.size.width;
     CGFloat cX = sW / 2;
     CGFloat cY = self.bounds.size.height * (1 - 0.618) + offset;
     CGFloat iW = image.size.width;
     CGFloat iH = image.size.height;
-    
+   CGRect  frame = CGRectMake(cX - iW / 2, cY - iH / 2, iW, iH);
     //  图片
     UIImageView *imgView = [[UIImageView alloc] init];
-    imgView.frame        = CGRectMake(cX - iW / 2, cY - iH / 2, iW, iH);
+    imgView.frame        =frame;
     imgView.image        = image;
     
     //  文字

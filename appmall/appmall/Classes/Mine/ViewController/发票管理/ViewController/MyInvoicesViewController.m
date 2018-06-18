@@ -14,7 +14,7 @@
 #import "MyInvoicesModel.h"
 #import "XLImageViewer.h"
 
-@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCellDelegate,MyInvoicesCheckFailCellDelegate>
+@interface MyInvoicesViewController ()<UITableViewDataSource,UITableViewDelegate,MyInvoicesCellDelegate,MyInvoicesCheckFailCellDelegate,XYTableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 - (IBAction)addinvoicesDataAction:(UIButton *)sender;
 /**  data*/
@@ -59,6 +59,18 @@
     [self loadNewData];
     [self setRightButton:@"模板下载" titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
 }
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"发票无"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无我的发票哦";
+    return str;
+}
+
 
 - (void)rightBtnPressed{
     NSLog(@"模板下载");
@@ -169,7 +181,8 @@
             [self.yclDataArray removeAllObjects];
             [self.yjjDataArray removeAllObjects];
         }
-        NSArray *Arr = dict[@"data"][@"invoices"];
+//        NSArray *Arr = dict[@"data"][@"invoices"];
+        NSArray *Arr = @[];
         [self.mTableView tableViewEndRefreshCurPageCount:Arr.count];
         for (NSDictionary *dic in Arr) {
             MyInvoicesModel *MyInvoicesM = [[MyInvoicesModel alloc] init];
@@ -280,14 +293,17 @@
     UILabel *type = [UILabel new];
     type.frame = CGRectMake(15,10, SCREEN_WIDTH, 14);
     type.font = [UIFont systemFontOfSize:14];
-    type.text = @"审核中";
+    
     if (section == 2) {
        type.text = @"审核失败";
+         [view addSubview:type];
         type.textColor = [UIColor redColor];
+    }else if (section == 1){
+        type.text = @"审核中";
+         [view addSubview:type];
+    }else{
+        [view removeFromSuperview];
     }
-    
-    [view addSubview:type];
-    
     return view;
 }
 
@@ -314,7 +330,7 @@
         }else{
             return 45;
         }
-    }else if (_yclDataArray.count == 0){
+    }else if (_wclDataArray.count == 0){
         if (section == 1 || section == 0) {
             return 0;
         }else{

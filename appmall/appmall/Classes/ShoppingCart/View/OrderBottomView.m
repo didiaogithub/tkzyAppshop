@@ -129,8 +129,8 @@
 }
 -(void)clickBottomButton:(UIButton *)button{
     
-    self.nowGoToBuyButton.enabled =NO;
-    [self performSelector:@selector(changeButtonStatus) withObject:nil afterDelay:2.0];//防止重复点击
+//    self.nowGoToBuyButton.enabled =NO;
+//    [self performSelector:@selector(changeButtonStatus) withObject:nil afterDelay:2.0];//防止重复点击
     
     if (self.delegate  && [self.delegate respondsToSelector:@selector(bottomViewButtonClicked:)]) {
         [self.delegate bottomViewButtonClicked:button];

@@ -93,6 +93,7 @@
         [self.tabCommDetail tableViewEndRefreshCurPageCount:0];
         if (dic != nil) {
             commDetail = [[CommDetail alloc]initWith:dic[@"data"]];
+            
         }else{
             [self.loadingView showNoticeView:@"暂无数据"];
         }

@@ -53,8 +53,8 @@
             tag.backgroundColor = [UIColor whiteColor];
         }
         tag.textAlignment = NSTextAlignmentCenter;
-        tag.textColor = [UIColor blackColor];
-        tag.font = [UIFont boldSystemFontOfSize:15];
+        tag.textColor = [UIColor grayColor ];
+        tag.font = [UIFont systemFontOfSize:15];
         tag.text = textStr;
 //        [tag setTitle:textStr forState:0];
 //        tag.titleLabel.font = [UIFont boldSystemFontOfSize:15];

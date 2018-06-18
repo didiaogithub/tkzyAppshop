@@ -201,7 +201,7 @@
         make.top.mas_offset(47);
         make.left.mas_offset(20);
         make.width.mas_offset(SCREEN_WIDTH/5 - 40);
-        make.height.mas_offset(3);
+        make.height.mas_offset(1);
     }];
     
 }

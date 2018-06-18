@@ -174,7 +174,7 @@
     
     self.segementArr = [NSMutableArray arrayWithObjects:button,button1,nil];
     
-    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 70)/2 , 39,70, 2)];
+    self.sliderView = [[UIView alloc] initWithFrame:CGRectMake((btnW - 70)/2 , 39,70, 1)];
     self.sliderView.backgroundColor = [UIColor tt_redMoneyColor];
     [contentView addSubview:self.sliderView];
     self.currentIndex = 0;

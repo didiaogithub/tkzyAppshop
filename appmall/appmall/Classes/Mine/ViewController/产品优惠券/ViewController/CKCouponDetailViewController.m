@@ -105,7 +105,7 @@
     
     self.lineLabel = [[UILabel alloc] init];
     self.lineLabel.backgroundColor = [UIColor colorWithHexString:@"#E2231A"];
-    self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 - 100) * 0.5, 44, 100, 2);
+    self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 - 50) * 0.5, 44, 50, 1);
     [tagView addSubview:self.lineLabel];
     
     self.canNotUseBtn = [[UIButton alloc] init];
@@ -161,7 +161,7 @@
         [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
         [UIView animateWithDuration:0.3 animations:^{
             [self.canUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*0.5, 44, 100, 2);
+            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*0.5, 44, 50, 1);
         }];
         self.couponType = @"0";
         
@@ -179,7 +179,7 @@
         [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
         [UIView animateWithDuration:0.3 animations:^{
             [self.canNotUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*1.5 + 100, 44, 100, 2);
+            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*1.5 + 50, 44, 50, 1);
         }];
         
         self.couponType = @"2";
@@ -199,7 +199,7 @@
         [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
         [UIView animateWithDuration:0.3 animations:^{
             [self.notCanUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -100)*2.5 + 200, 44, 100, 2);
+            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*2.5 + 100, 44, 50, 1);
         }];
         self.couponType = @"1";
         

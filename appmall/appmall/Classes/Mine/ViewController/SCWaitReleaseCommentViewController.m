@@ -78,9 +78,9 @@
         
         
         _dataArray = [NSMutableArray array];
-        for (NSDictionary *goodsDic in dict[@"itemlist"]) {
+        for (NSDictionary *goodsDic in dict[@"data"][@"goods"]) {
             
-            NSString *iscomment = [NSString stringWithFormat:@"%@", goodsDic[@"iscomment"]];
+            NSString *iscomment = [NSString stringWithFormat:@"%@", goodsDic[@"feedback"]];
             if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
                 SCOrderDetailGoodsModel *goodsM = [[SCOrderDetailGoodsModel alloc] init];
                 [goodsM setValuesForKeysWithDictionary:goodsDic];

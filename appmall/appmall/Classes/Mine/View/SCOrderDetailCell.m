@@ -547,7 +547,7 @@
     _orderDetailGoodsM = detailGoodsM;
     self.orderid = [NSString stringWithFormat:@"%@", [data objectForKey:@"orderid"]];
 
-    NSString *imageString = [NSString stringWithFormat:@"%@", detailGoodsM.path];
+    NSString *imageString = [NSString stringWithFormat:@"%@", detailGoodsM.picture];
     if (![imageString hasPrefix:@"http"]) {
         imageString = [BaseImagestr_Url stringByAppendingString:imageString];
     }
@@ -569,7 +569,7 @@
     _priceLable.text = price;
     
     
-    NSString *spec = [NSString stringWithFormat:@"%@", detailGoodsM.spec];
+    NSString *spec = [NSString stringWithFormat:@"%@", detailGoodsM.specification];
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
@@ -577,19 +577,16 @@
     }
     _specLabel.text = spec;
     
-    NSString *number = [NSString stringWithFormat:@"%@", detailGoodsM.count];
+    NSString *number = [NSString stringWithFormat:@"%@", detailGoodsM.number];
     if (IsNilOrNull(number)) {
         number = @"";
     }else{
-        number = [NSString stringWithFormat:@"x%@", detailGoodsM.count];
+        number = [NSString stringWithFormat:@"x%@", detailGoodsM.number];
     }
     _numberLable.text = number;
     
     
-    NSString *iscomment = [NSString stringWithFormat:@"%@", detailGoodsM.iscomment];
-    
-    NSString *itemStatus = [NSString stringWithFormat:@"%@", detailGoodsM.status];
-    
+    NSString *iscomment = [NSString stringWithFormat:@"%@", detailGoodsM.feedback];
     
     [_specLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20));
@@ -626,174 +623,172 @@
     }];
     
     //商品item订单状态（0：已取消 1：待付款；2：已付款，3：已收货；4:正在退货 5：退货成功，6：已完成，7：已发货 ）
-    if ([itemStatus isEqualToString:@"1"] || [itemStatus isEqualToString:@"2"] || [itemStatus isEqualToString:@"0"] || [itemStatus isEqualToString:@"7"]) {
-        _leftBtn.hidden = YES;
-        _rightBtn.hidden = YES;
-        
-        [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(0);
-        }];
-        
-        [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(0);
-        }];
-        
-        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_iconImageView.mas_bottom).offset(10);
-            make.left.right.bottom.mas_offset(0);
-            make.height.mas_offset(1);
-        }];
-        
-        
-    }else if ([itemStatus isEqualToString:@"3"]) {
-        _leftBtn.hidden = NO;
-        [_leftBtn setTitle:@"我要退货" forState:UIControlStateNormal];
-        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
-            _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
-        }else{
-            _rightBtn.hidden = YES;
-            
-            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
-                make.right.mas_offset(-5);
-                make.width.mas_offset(80);
-                make.height.mas_offset(25);
-            }];
-        }
-        
-    }else if ([itemStatus isEqualToString:@"4"] || [itemStatus isEqualToString:@"5"]) {
-        
-        [_returnLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(20);
-            make.left.equalTo(_iconImageView.mas_right).offset(5);
-            make.bottom.equalTo(_iconImageView.mas_bottom);
-        }];
-        
-        [_specLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_nameLable.mas_bottom);
-            make.left.equalTo(_iconImageView.mas_right).offset(5);
-            make.bottom.equalTo(_returnLabel.mas_top).offset(-3);
-        }];
-        
-        [_numberLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_nameLable.mas_bottom);
-            make.right.mas_offset(-5);
-            make.bottom.equalTo(_returnLabel.mas_top).offset(-3);
-        }];
-        
+//    if ([itemStatus isEqualToString:@"1"] || [itemStatus isEqualToString:@"2"] || [itemStatus isEqualToString:@"0"] || [itemStatus isEqualToString:@"7"]) {
+//        _leftBtn.hidden = YES;
+//        _rightBtn.hidden = YES;
+//
+//        [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_offset(0);
+//        }];
+//
+//        [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_offset(0);
+//        }];
+//
+//        [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(_iconImageView.mas_bottom).offset(10);
+//            make.left.right.bottom.mas_offset(0);
+//            make.height.mas_offset(1);
+//        }];
+//    }else if ([itemStatus isEqualToString:@"3"]) {
+//        _leftBtn.hidden = NO;
+//        [_leftBtn setTitle:@"我要退货" forState:UIControlStateNormal];
+//        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
+//            _rightBtn.hidden = NO;
+//            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
+//        }else{
+//            _rightBtn.hidden = YES;
+//
+//            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
+//                make.right.mas_offset(-5);
+//                make.width.mas_offset(80);
+//                make.height.mas_offset(25);
+//            }];
+//        }
+//
+//    }else if ([itemStatus isEqualToString:@"4"] || [itemStatus isEqualToString:@"5"]) {
+//
+//        [_returnLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(20);
+//            make.left.equalTo(_iconImageView.mas_right).offset(5);
+//            make.bottom.equalTo(_iconImageView.mas_bottom);
+//        }];
+//
+//        [_specLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(_nameLable.mas_bottom);
+//            make.left.equalTo(_iconImageView.mas_right).offset(5);
+//            make.bottom.equalTo(_returnLabel.mas_top).offset(-3);
+//        }];
+//
+//        [_numberLable mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(_nameLable.mas_bottom);
+//            make.right.mas_offset(-5);
+//            make.bottom.equalTo(_returnLabel.mas_top).offset(-3);
+//        }];
+    
         
         
-        if ([itemStatus isEqualToString:@"4"]) {
-            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" 正在退货中"];
-            // 添加表情
-            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
-            // 表情图片
-            attch.image = [UIImage imageNamed:@"orderReturn"];
-            // 设置图片大小
-            attch.bounds = CGRectMake(0, -5, 21, 20);
-            
-            // 创建带有图片的富文本
-            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
-            [attri insertAttributedString:string atIndex:0];
-            _returnLabel.attributedText = attri;
-        }else if ([itemStatus isEqualToString:@"5"]){
-            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" 退货完成"];
-            // 添加表情
-            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
-            // 表情图片
-            attch.image = [UIImage imageNamed:@"orderReturn"];
-            // 设置图片大小
-            attch.bounds = CGRectMake(0, -5, 21, 20);
-            
-            // 创建带有图片的富文本
-            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
-            [attri insertAttributedString:string atIndex:0];
-            _returnLabel.attributedText = attri;
-        }
-        _leftBtn.hidden = YES;
-        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
-            _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
-        }else{
-            _rightBtn.hidden = YES;
-            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_offset(0);
-            }];
-            
-            [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_offset(0);
-            }];
-            
-            [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
-                make.left.right.bottom.mas_offset(0);
-                make.height.mas_offset(1);
-            }];
-        }
-    }else if ([itemStatus isEqualToString:@"6"]) {
-        _leftBtn.hidden = YES;
-        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
-            _rightBtn.hidden = NO;
-            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
-        }else{
-            _rightBtn.hidden = YES;
-            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_offset(0);
-            }];
-            
-            [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_offset(0);
-            }];
-            
-            [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
-                make.left.right.bottom.mas_offset(0);
-                make.height.mas_offset(1);
-            }];
-        }
-    }else if ([itemStatus isEqualToString:@"8"]) {
-        _leftBtn.hidden = YES;
-        _rightBtn.hidden = YES;
-        [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(0);
-        }];
-        
-        [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(0);
-        }];
-    }
+//        if ([itemStatus isEqualToString:@"4"]) {
+//            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" 正在退货中"];
+//            // 添加表情
+//            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+//            // 表情图片
+//            attch.image = [UIImage imageNamed:@"orderReturn"];
+//            // 设置图片大小
+//            attch.bounds = CGRectMake(0, -5, 21, 20);
+//
+//            // 创建带有图片的富文本
+//            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+//            [attri insertAttributedString:string atIndex:0];
+//            _returnLabel.attributedText = attri;
+//        }else if ([itemStatus isEqualToString:@"5"]){
+//            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" 退货完成"];
+//            // 添加表情
+//            NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+//            // 表情图片
+//            attch.image = [UIImage imageNamed:@"orderReturn"];
+//            // 设置图片大小
+//            attch.bounds = CGRectMake(0, -5, 21, 20);
+//
+//            // 创建带有图片的富文本
+//            NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+//            [attri insertAttributedString:string atIndex:0];
+//            _returnLabel.attributedText = attri;
+//        }
+//        _leftBtn.hidden = YES;
+//        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
+//            _rightBtn.hidden = NO;
+//            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
+//        }else{
+//            _rightBtn.hidden = YES;
+//            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_offset(0);
+//            }];
+//
+//            [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_offset(0);
+//            }];
+//
+//            [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
+//                make.left.right.bottom.mas_offset(0);
+//                make.height.mas_offset(1);
+//            }];
+//        }
+//    }else if ([itemStatus isEqualToString:@"6"]) {
+//        _leftBtn.hidden = YES;
+//        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
+//            _rightBtn.hidden = NO;
+//            [_rightBtn setTitle:@"去反馈" forState:UIControlStateNormal];
+//        }else{
+//            _rightBtn.hidden = YES;
+//            [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_offset(0);
+//            }];
+//
+//            [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_offset(0);
+//            }];
+//
+//            [_bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(_iconImageView.mas_bottom).offset(10);
+//                make.left.right.bottom.mas_offset(0);
+//                make.height.mas_offset(1);
+//            }];
+//        }
+//    }else if ([itemStatus isEqualToString:@"8"]) {
+//        _leftBtn.hidden = YES;
+//        _rightBtn.hidden = YES;
+//        [_leftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_offset(0);
+//        }];
+//
+//        [_rightBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_offset(0);
+//        }];
+//    }
 }
 
-+(CGFloat)computeHeight:(id)data {
-    
-    SCOrderDetailGoodsModel *detailGoodsM = data;
-    NSString *iscomment = [NSString stringWithFormat:@"%@", detailGoodsM.iscomment];
-    NSString *itemStatus = [NSString stringWithFormat:@"%@", detailGoodsM.status];
-    
-    
-    if ([itemStatus isEqualToString:@"1"] || [itemStatus isEqualToString:@"2"] || [itemStatus isEqualToString:@"0"] || [itemStatus isEqualToString:@"7"]) {
-        return 110;
-    }else if ([itemStatus isEqualToString:@"3"]) {
-        return 140;
-    }else if ([itemStatus isEqualToString:@"4"] || [itemStatus isEqualToString:@"5"]) {
-        
-        
-        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
-            return 140;
-        }else{
-            return 110;
-        }
-    }else if ([itemStatus isEqualToString:@"6"]) {
-        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
-            return 140;
-        }else{
-            return 110;
-        }
-    }
-    
-    return 110;
-}
+//+(CGFloat)computeHeight:(id)data {
+//    
+//    SCOrderDetailGoodsModel *detailGoodsM = data;
+//    NSString *iscomment = [NSString stringWithFormat:@"%@", detailGoodsM.iscomment];
+//    NSString *itemStatus = [NSString stringWithFormat:@"%@", detailGoodsM.status];
+//    
+//    
+//    if ([itemStatus isEqualToString:@"1"] || [itemStatus isEqualToString:@"2"] || [itemStatus isEqualToString:@"0"] || [itemStatus isEqualToString:@"7"]) {
+//        return 110;
+//    }else if ([itemStatus isEqualToString:@"3"]) {
+//        return 140;
+//    }else if ([itemStatus isEqualToString:@"4"] || [itemStatus isEqualToString:@"5"]) {
+//        
+//        
+//        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
+//            return 140;
+//        }else{
+//            return 110;
+//        }
+//    }else if ([itemStatus isEqualToString:@"6"]) {
+//        if ([iscomment isEqualToString:@"0"] || [iscomment isEqualToString:@"false"]) {
+//            return 140;
+//        }else{
+//            return 110;
+//        }
+//    }
+//    
+//    return 110;
+//}
 
 @end
 

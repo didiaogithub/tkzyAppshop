@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageDetailController">
             <connections>
                 <outlet property="contentHeight" destination="hGd-1o-ekk" id="ne9-0O-SYh"/>
-                <outlet property="contentWidth" destination="VyK-tH-xD4" id="4nL-f6-tjl"/>
                 <outlet property="cotentView" destination="U1n-YJ-32e" id="Ovw-mj-Ytb"/>
                 <outlet property="imgView" destination="n2D-BK-tgp" id="vjM-pr-iG8"/>
                 <outlet property="scrContent" destination="9Nt-UX-xf5" id="STp-To-V20"/>
@@ -39,7 +38,6 @@
                                 <constraint firstAttribute="trailing" secondItem="n2D-BK-tgp" secondAttribute="trailing" id="4PJ-NA-XPs"/>
                                 <constraint firstAttribute="bottom" secondItem="n2D-BK-tgp" secondAttribute="bottom" id="9SH-N7-pYD"/>
                                 <constraint firstItem="n2D-BK-tgp" firstAttribute="leading" secondItem="U1n-YJ-32e" secondAttribute="leading" id="R6z-J1-vxG"/>
-                                <constraint firstAttribute="width" constant="375" id="VyK-tH-xD4"/>
                                 <constraint firstAttribute="height" constant="667" id="hGd-1o-ekk"/>
                                 <constraint firstItem="n2D-BK-tgp" firstAttribute="top" secondItem="U1n-YJ-32e" secondAttribute="top" id="zxZ-DV-ApN"/>
                             </constraints>
@@ -68,6 +66,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9Nt-UX-xf5" secondAttribute="bottom" id="KtC-3b-WWp"/>
                 <constraint firstAttribute="trailing" secondItem="9Nt-UX-xf5" secondAttribute="trailing" id="TmL-d1-w42"/>
+                <constraint firstItem="U1n-YJ-32e" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bWK-AM-NPV"/>
                 <constraint firstItem="9Nt-UX-xf5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hDq-wg-njL"/>
                 <constraint firstItem="9Nt-UX-xf5" firstAttribute="top" secondItem="VYT-X6-b7c" secondAttribute="bottom" id="hNA-WA-cLX"/>
                 <constraint firstItem="9Nt-UX-xf5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hVH-9a-FDK"/>

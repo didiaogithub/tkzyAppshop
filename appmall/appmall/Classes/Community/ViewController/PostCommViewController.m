@@ -44,7 +44,7 @@
 
 - (IBAction)actionSubmit:(id)sender {
         _index = 0;
-        [self .loadingView showNoticeView:@"正在上传图片"];
+    
     if (self.picturevc.itemsSectionPictureArray .count == 0) {
    [self submitComm];
     }else{
@@ -70,7 +70,15 @@
 
 
 -(void)submitComm{
- 
+    if (self.labCommTitle.text.length == 0) {
+        [self.loadingView showNoticeView:@"帖子标题不能为空"];
+        return;
+    }
+    
+    if (self.labCommContent.text.length == 0) {
+        [self.loadingView showNoticeView:@"帖子内容不能为空"];
+        return;
+    }
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setObject:self.labCommContent.text forKey:@"content"];
     [pramaDic setObject:self.labCommTitle.text forKey:@"title"];

@@ -209,7 +209,7 @@
     [HttpTool getWithUrl:getDefaultAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] != 200) {
-            [self showNoticeView:dict[@"message"]];
+//            [self showNoticeView:dict[@"message"]];
             return;
         }
 

@@ -673,9 +673,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         NSMutableArray *temp = [NSMutableArray array];
         for (SCMyOrderGoodsModel *orderGoodsM in orderM.ordersheet) {
             SCOrderDetailGoodsModel *commentM = [[SCOrderDetailGoodsModel alloc] init];
-            commentM.path = [NSString stringWithFormat:@"%@", orderGoodsM.imgurl];
-            commentM.spec = [NSString stringWithFormat:@"%@", orderGoodsM.itemspec];
-            commentM.count = [NSString stringWithFormat:@"%@", orderGoodsM.count];
+            commentM.picture = [NSString stringWithFormat:@"%@", orderGoodsM.imgurl];
+            commentM.specification = [NSString stringWithFormat:@"%@", orderGoodsM.itemspec];
+            commentM.number = [NSString stringWithFormat:@"%@", orderGoodsM.count];
             commentM.name = [NSString stringWithFormat:@"%@", orderGoodsM.name];
             commentM.itemid = [NSString stringWithFormat:@"%@", orderGoodsM.itemid];
             commentM.price = [NSString stringWithFormat:@"%@", orderGoodsM.price];

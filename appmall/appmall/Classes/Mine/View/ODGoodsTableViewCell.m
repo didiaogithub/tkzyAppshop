@@ -72,9 +72,9 @@
     releaseComment.orderid = self.orderid;
 //    SCOrderDetailGoodsModel *commentM = temp.firstObject;
     SCOrderDetailGoodsModel *commentM = [[SCOrderDetailGoodsModel alloc] init];
-    commentM.path = [NSString stringWithFormat:@"%@", selfmodel.picture];
-    commentM.spec = [NSString stringWithFormat:@"%@", selfmodel.specification];
-    commentM.count = [NSString stringWithFormat:@"%@", selfmodel.number];
+    commentM.picture = [NSString stringWithFormat:@"%@", selfmodel.picture];
+    commentM.specification = [NSString stringWithFormat:@"%@", selfmodel.specification];
+    commentM.number = [NSString stringWithFormat:@"%@", selfmodel.number];
     commentM.name = [NSString stringWithFormat:@"%@", selfmodel.name];
     commentM.itemid = [NSString stringWithFormat:@"%@", selfmodel.itemid];
     commentM.price = [NSString stringWithFormat:@"%@", selfmodel.price];

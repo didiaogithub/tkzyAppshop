@@ -48,25 +48,23 @@
 
 @interface SCOrderDetailGoodsModel : BaseEncodeModel
 /** 图片路径*/
-@property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) NSString *picture;
 /** 规格*/
-@property (nonatomic, copy) NSString *spec;
+@property (nonatomic, copy) NSString *specification;
 /** 数量*/
-@property (nonatomic, copy) NSString *count;
+@property (nonatomic, copy) NSString *number;
 /** 商品名称*/
 @property (nonatomic, copy) NSString *name;
 /** 商品id*/
+
+@property (nonatomic, copy) NSString *itemno;
 @property (nonatomic, copy) NSString *itemid;
 /** 商品金额*/
 @property (nonatomic, copy) NSString *price;
 /**是否有评论*/
-@property (nonatomic, copy) NSString *iscomment;
+@property (nonatomic, copy) NSString *feedback;
 /** 状态*/
-@property (nonatomic, copy) NSString *status;
 
-@property (nonatomic, copy) NSString *isoversea;
-
-@property (nonatomic, copy) NSString *itemno;
 @end
 
 @interface SCOrderDetailModel : BaseEncodeModel

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="254" height="228"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页媒体报道" translatesAutoresizingMaskIntoConstraints="NO" id="wQM-MT-4nk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页媒体报道" translatesAutoresizingMaskIntoConstraints="NO" id="wQM-MT-4nk">
                         <rect key="frame" x="0.0" y="0.0" width="254" height="228"/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>

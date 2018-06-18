@@ -127,7 +127,7 @@
 }
 
 -(void)refreshWithDetailModel:(SCOrderDetailGoodsModel*)detailModel {
-    NSString *imageString = [NSString stringWithFormat:@"%@",detailModel.path];
+    NSString *imageString = [NSString stringWithFormat:@"%@",detailModel.picture];
     if (![imageString hasPrefix:@"http"]) {
         imageString = [BaseImagestr_Url stringByAppendingString:imageString];
     }
@@ -149,11 +149,11 @@
     _priceLable.text = price;
     
     
-    NSString *spec = [NSString stringWithFormat:@"%@",detailModel.spec];
+    NSString *spec = [NSString stringWithFormat:@"%@",detailModel.specification];
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@",detailModel.spec];
+        spec = [NSString stringWithFormat:@"规格:%@",detailModel.specification];
     }
     NSString *specno = [NSString stringWithFormat:@"%@",detailModel.itemno];
     if (IsNilOrNull(spec)) {
@@ -163,11 +163,11 @@
     }
     _specLabel.text = [NSString stringWithFormat:@"%@    %@",specno,spec];
     
-    NSString *number = [NSString stringWithFormat:@"%@",detailModel.count];
+    NSString *number = [NSString stringWithFormat:@"%@",detailModel.number];
     if (IsNilOrNull(number)) {
         number = @"";
     }else{
-        number = [NSString stringWithFormat:@"x%@",detailModel.count];
+        number = [NSString stringWithFormat:@"x%@",detailModel.number];
     }
     _numberLable.text = number;
     

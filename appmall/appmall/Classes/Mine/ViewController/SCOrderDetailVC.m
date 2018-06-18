@@ -316,7 +316,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        if (self.orderDetailModel.logistics == nil) {
+        if (self.orderDetailModel.logistics == nil ||(IsNilOrNull(self.orderDetailModel.logistics.companyName)&&IsNilOrNull(self.orderDetailModel.logistics.info) && IsNilOrNull(self.orderDetailModel.logistics.time) && IsNilOrNull(self.orderDetailModel.logistics.number))) {
             return 0;
         }else{
             return 80;
@@ -328,6 +328,9 @@
     }
     
     if (indexPath.row == 2 + self.orderDetailModel.goods.count) {
+        if ([self.orderDetailModel.serviceMoney doubleValue] == 0) {
+            return 90;
+        }
         return 110;
     }
     

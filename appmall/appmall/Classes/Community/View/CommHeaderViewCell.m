@@ -45,6 +45,7 @@
         _heightImg.constant = 300;
         self.bannerCollectionView.hidden = NO;
     }
+    
     self.bannerCollectionView.delegate = self;
     self.bannerCollectionView.dataSource = self;
      [self.bannerCollectionView reloadData];
@@ -52,7 +53,9 @@
     self.labComm.text = [NSString stringWithFormat:@"评论%@",model.commentnum];
     self.labGood.text = [NSString stringWithFormat:@"点赞%@",model.praisenum];
     self.labShare.text = [NSString stringWithFormat:@"分享%@",model.forwardnum];
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.path1]];
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
+    self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
     self.labContent.text = model.content;
     self.labTitle.text = model.title;
     self.labTime.text = model.time;

@@ -61,7 +61,6 @@
     [CKCNotificationCenter addObserver:self selector:@selector(checkAppDoesOnCheck) name:RequestManagerReachabilityDidChangeNotification object:nil];
      [WXApi registerApp:kWXAPP_ID];
     [self configKeyboard];
-    [self getSettings];
     return YES;
 }
 
@@ -759,22 +758,7 @@
 }
 
 // 获取全局配置
-- (void)getSettings{
-    
-    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getSettingsApi];
-    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
-        NSDictionary *dic = json;
-        if ([dic[@"code"] integerValue] != 200) {
-            return;
-        }else{
-            
-        }
-        
-    } failure:^(NSError *error) {
-        
-    }];
-}
+
 
 
 @end

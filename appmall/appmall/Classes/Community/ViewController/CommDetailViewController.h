@@ -10,4 +10,5 @@
 
 @interface CommDetailViewController : BaseViewController
 @property(nonatomic,strong)NSString *notiID;
+@property(nonatomic,strong)NSString *headerUrl;
 @end

@@ -93,7 +93,7 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return ;
         }
-        [self.loadingView showNoticeView:@"帖子正在审核中"];
+        [self.loadingView showNoticeView:@"发帖"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:YES];
         });

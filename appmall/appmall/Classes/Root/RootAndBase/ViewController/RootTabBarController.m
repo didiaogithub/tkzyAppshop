@@ -118,7 +118,30 @@
     tabAttrs[@"itemSelected"] = @"我";
     tabAttrs[@"rootVC"] = @"SCMineViewController";
     RootNavigationController *mineNavVC = [self tabNavVCWithAttr: tabAttrs];
+    
+    
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getSettingsApi];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] != 200) {
+            
+            self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
+        }else{
+            if ([dic[@"data"][@"note_status"]  boolValue] == YES) {
+                
+                self.viewControllers = @[homeNavVC,collegeNavVC, shoppingNavVC,mineNavVC];
+            }else{
+                self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        
         self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
+    }];
+   
+
         self.tabBar.backgroundColor =   RGBCOLOR(245, 245, 245);;
         self.tabBar.barTintColor =   RGBCOLOR(245, 245, 245);
 }

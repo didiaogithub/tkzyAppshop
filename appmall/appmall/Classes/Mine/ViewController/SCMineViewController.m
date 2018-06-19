@@ -9,7 +9,7 @@
 #import "SCMineViewController.h"
 #import "SCOrderListViewController.h"
 #import "YSCollectionViewController.h"
-#import "CKCouponDetailViewController.h"
+#import "CKCouponManagerViewController.h"
 #import "ChangeMyAddressViewController.h"
 #import "WebDetailViewController.h"
 #import "CleanCache.h"
@@ -22,7 +22,7 @@
 #import "SectionModel.h"
 #import "ArrearsManagerViewController.h"
 #import "MineInfoViewController.h"
-
+#import "SCOrderManagerViewController.h"
 
 @interface SCMineViewController ()<UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource, SCUserInfoSignUpDelegate, SCMineOrderCellDelegate>
 
@@ -243,7 +243,7 @@
     
     NSMutableArray *vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
-                                         @"CKCouponDetailViewController",
+                                         @"CKCouponManagerViewController",
                                          @"ArrearsManagerViewController",
 //                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
@@ -294,21 +294,21 @@
 #pragma mark-查看我的订单跳转
 -(void)enterOrderListWithType:(NSInteger)buttonTag{
     NSInteger tag = buttonTag - 20;
-    NSString *status;
+    NSInteger index;
     if(tag == 0){
-        status = @"1";
+        index = 1;
     }else if (tag == 1){
-        status = @"2";
+        index = 2;
     }else if (tag == 2){
-        status = @"4,5,7";
+        index = 3;
     }else if (tag == 3){
-        status = @"3,6";
+        index = 4;
     }else{
-        status = @"99";
+        index = 0; // 全部
     }
     
-    SCOrderListViewController *myorder = [[SCOrderListViewController alloc] init];
-    myorder.statusString = status;
+    SCOrderManagerViewController *myorder = [[SCOrderManagerViewController alloc] init];
+    myorder.selectedIndex =  index;
     [self.navigationController pushViewController:myorder animated:YES];
 }
 

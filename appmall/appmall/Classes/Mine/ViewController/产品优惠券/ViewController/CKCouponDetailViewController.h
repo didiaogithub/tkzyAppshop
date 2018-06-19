@@ -28,4 +28,5 @@ typedef void (^CouponBlock)(NSString *price, NSString *couponId);
 @property (nonatomic, strong) NSArray *goodsIdArray;
 @property (nonatomic, copy)   NSString *couponId;
 @property (nonatomic, copy)   NSString *coupontMoney;
+@property (nonatomic, copy)   NSString *couponType;
 @end

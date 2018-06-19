@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *cannotUseArray;
 @property (nonatomic, strong) NSMutableArray *usedArray;
 @property (nonatomic, strong) NSMutableArray *expireArray;
-@property (nonatomic, copy)   NSString *couponType;
+
 @end
 
 @implementation CKCouponDetailViewController
@@ -37,16 +37,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"产品券";
-    self.couponType = @"0";
-    
-    
+//    self.navigationItem.title = @"产品券";
      [self initComponents];
     
-    [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:NO];
-     [self resquestCouponData:@"0"];
-    
-    
+    [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:YES];
+     [self resquestCouponData:self.couponType];
+
     NSArray *couponListArray = [[XNArchiverManager shareInstance] xnUnarchiverObject:[NSString stringWithFormat:@"MJCouponCache_%@", self.couponType]];
     if (couponListArray.count > 0) {
         for (NSDictionary *couponDic in couponListArray) {
@@ -64,9 +60,6 @@
 - (void)loadNewData{
     [self resquestCouponData:@"0"];
 }
-
-
-
 - (UIImage *)xy_noDataViewImage{
     
     UIImage *image= [UIImage imageNamed:@"产品券默认"];
@@ -80,63 +73,8 @@
 
 
 -(void)initComponents {
-
-    UIView *tagView = [UIView new];
-    tagView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:tagView];
-    [tagView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_offset(0);
-        make.top.equalTo(self.view.mas_top).offset(NaviAddHeight+64);
-        make.height.mas_equalTo(46);
-    }];
     
-    self.canUseBtn = [[UIButton alloc] init];
-    [self.canUseBtn setTitle:@"待使用" forState:UIControlStateNormal];
-    [self.canUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-    self.canUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.canUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [tagView addSubview:self.canUseBtn];
-    self.canUseBtn.tag = 44;
-    [self.canUseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(0);
-        make.bottom.mas_offset(-2);
-        make.width.mas_equalTo(SCREEN_WIDTH / 3);
-    }];
-    
-    self.lineLabel = [[UILabel alloc] init];
-    self.lineLabel.backgroundColor = [UIColor colorWithHexString:@"#E2231A"];
-    self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 - 50) * 0.5, 44, 50, 1);
-    [tagView addSubview:self.lineLabel];
-    
-    self.canNotUseBtn = [[UIButton alloc] init];
-    [self.canNotUseBtn setTitle:@"已过期" forState:UIControlStateNormal];
-    [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-    self.canNotUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.canNotUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [tagView addSubview:self.canNotUseBtn];
-    self.canNotUseBtn.tag = 45;
-    [self.canNotUseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_canUseBtn.mas_right);
-        make.top.mas_offset(AdaptedHeight(0));
-        make.bottom.mas_offset(-2);
-        make.width.mas_equalTo(SCREEN_WIDTH / 3);
-    }];
-    
-    self.notCanUseBtn = [[UIButton alloc]init];
-    [self.notCanUseBtn setTitle:@"已使用" forState:UIControlStateNormal];
-    [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-    self.notCanUseBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.notCanUseBtn addTarget:self action:@selector(clickTagBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [tagView addSubview:self.notCanUseBtn];
-     self.notCanUseBtn.tag = 46;
-    [self.notCanUseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.mas_equalTo(0);
-        make.bottom.mas_offset(-2);
-        make.width.mas_equalTo(SCREEN_WIDTH / 3);
-    }];
-    
-    
-    self.couponTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.couponTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0 , SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_BAR_HEIGHT - NaviHeight - 43) style:UITableViewStyleGrouped];
     self.couponTable.delegate = self;
     self.couponTable.dataSource = self;
     self.couponTable.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -146,74 +84,8 @@
         self.couponTable.estimatedSectionFooterHeight = 0.1;
     }
     [self.view addSubview:self.couponTable];
-    [self.couponTable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_offset(0);
-        make.top.equalTo(tagView.mas_bottom).offset(0);
-        make.bottom.mas_offset(-BOTTOM_BAR_HEIGHT);
-    }];
 }
 
-
-- (void)clickTagBtn:(UIButton *)button{
-    NSLog(@"%@", button.titleLabel.text);
-    if (button.tag == 44) {
-        [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.canUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*0.5, 44, 50, 1);
-        }];
-        self.couponType = @"0";
-        
-        if (self.cannotUseArray.count > 0) {
-            _noData.hidden = (self.cannotUseArray.count > 0) ? YES : NO;
-            _noDataLabel.hidden = (self.cannotUseArray.count > 0) ? YES : NO;
-            [self.couponTable reloadData];
-        }else{
-            //如果有值切换时不再请求
-            [self resquestCouponData:@"0"];
-        }
-   
-    }else if(button.tag == 45){
-        [self.canUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [self.notCanUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.canNotUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*1.5 + 50, 44, 50, 1);
-        }];
-        
-        self.couponType = @"2";
-        
-        if (self.expireArray.count > 0) {
-            _noData.hidden = (self.expireArray.count > 0) ? YES : NO;
-            _noDataLabel.hidden = (self.expireArray.count > 0) ? YES : NO;
-            [self.couponTable reloadData];
-        }else{
-            //如果有值切换时不再请求
-            [self resquestCouponData:@"2"];
-        }
-       
-       
-    }else{
-        [self.canUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [self.canNotUseBtn setTitleColor:TitleColor forState:UIControlStateNormal];
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.notCanUseBtn setTitleColor:[UIColor colorWithHexString:@"#E2231A"] forState:UIControlStateNormal];
-            self.lineLabel.frame = CGRectMake((SCREEN_WIDTH / 3 -50)*2.5 + 100, 44, 50, 1);
-        }];
-        self.couponType = @"1";
-        
-        if (self.usedArray.count > 0) {
-            _noData.hidden = (self.usedArray.count > 0) ? YES : NO;
-            _noDataLabel.hidden = (self.usedArray.count > 0) ? YES : NO;
-            [self.couponTable reloadData];
-        }else{
-            //如果有值切换时不再请求
-            [self resquestCouponData:@"1"];
-        }
-        
-    }
-}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

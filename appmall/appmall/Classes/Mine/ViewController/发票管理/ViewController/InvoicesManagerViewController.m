@@ -19,7 +19,11 @@
 #import "Ordersheet.h"
 #define leftTag 2000
 #define rightTag 2001
-@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate,XYTableViewDelegate>
+@interface InvoicesManagerViewController ()<UITableViewDelegate,UITableViewDataSource,InvoicesManCellFooterViewDelegate,XYTableViewDelegate,MLMSegmentScrollDelegate>
+
+{
+    NSArray *list;
+}
 
 /**  headView*/
 @property (nonatomic, strong) InvoicesManagerHeadView *headView;
@@ -33,6 +37,11 @@
 @property (nonatomic,strong) UITableView *mTableView;
 /**  pageNo*/
 @property (nonatomic, assign)  NSInteger page;
+
+@property (nonatomic, assign) MLMSegmentHeadStyle style;
+@property (nonatomic, assign) MLMSegmentLayoutStyle layout;
+@property (nonatomic, strong) MLMSegmentHead *segHead;
+@property (nonatomic, strong) MLMSegmentScroll *segScroll;
 @end
 
 @implementation InvoicesManagerViewController
@@ -44,10 +53,13 @@
     self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, AdaptedHeight(127))];
     [self.view addSubview:self.headView];
     _page = 1;
-     [self setSegamentView];
-     [self.mTableView registerNib:[UINib nibWithNibName:@"InvoicesManagerCell" bundle:nil] forCellReuseIdentifier:@"InvoicesManagerCell"];
-    
+//     [self setSegamentView];
+      [self.mTableView registerNib:[UINib nibWithNibName:@"InvoicesManagerCell" bundle:nil] forCellReuseIdentifier:@"InvoicesManagerCell"];
     [self initComponments];
+    [self segmentStyle5];
+   
+    
+    
     self.selectFirstState = YES;
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];    
@@ -331,5 +343,55 @@
         [self.navigationController pushViewController:detail animated:YES];
     }
     
+}
+
+#pragma mark - 居中下划线
+- (void)segmentStyle5 {
+    list = @[@"待开发票",@"已开发票"
+             ];
+    _style = SegmentHeadStyleLine;
+    _layout = MLMSegmentLayoutDefault;
+    
+    _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake(0, 64 + AdaptedHeight(127) + 10, SCREEN_WIDTH , 43) titles:list headStyle:_style layoutStyle:_layout];
+    _segHead.headColor = [UIColor whiteColor];
+    _segHead.fontScale = 1.0;
+    _segHead.fontSize = 16;
+    _segHead.lineScale = .3;
+    _segHead.lineColor = [UIColor tt_redMoneyColor];
+    _segHead.lineHeight = 1;
+    _segHead.equalSize = YES;
+    _segHead.bottomLineHeight = 1;
+    _segHead.bottomLineColor = [UIColor clearColor];
+    _segHead.selectColor = [UIColor tt_redMoneyColor];
+    _segHead.deSelectColor = [UIColor blackColor];
+    _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 64 + AdaptedHeight(127) + 60, SCREEN_WIDTH , SCREEN_HEIGHT - 64 - AdaptedHeight(127) - 60) vcOrViews:[self vcArr:list.count]];
+    
+    _segScroll.loadAll = NO;
+    _segScroll.showIndex = 0;
+    _segScroll.segDelegate = self;
+    [MLMSegmentManager associateHead:_segHead withScroll:_segScroll completion:^{
+        [self.view  addSubview: _segHead];
+        [self.view addSubview:_segScroll];
+    }];
+}
+
+- (NSArray *)vcArr:(NSInteger)count {
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSInteger i = 0; i < count; i ++) {
+        UITableView *Tc;
+        Tc = self.mTableView;
+        [arr addObject:Tc];
+    }
+    return arr;
+}
+///滑动结束
+- (void)scrollEndIndex:(NSInteger)index{
+    if (index == 0) {
+        self.selectFirstState = YES;
+        [self getData:@"0"];
+    }else{
+        self.selectFirstState = NO;
+        [self getData:@"1"];
+    }
 }
 @end

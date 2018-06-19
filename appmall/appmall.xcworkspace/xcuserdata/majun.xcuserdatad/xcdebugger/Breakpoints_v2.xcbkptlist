@@ -260,13 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/&#x53d1;&#x7968;&#x7ba1;&#x7406;/ViewController/InvoicesManagerViewController.m"
-            timestampString = "551069874.6893899"
+            timestampString = "551101878.074653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-getData:"
-            landmarkType = "7">
+            startingLineNumber = "133"
+            endingLineNumber = "133">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -276,13 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/&#x53d1;&#x7968;&#x7ba1;&#x7406;/ViewController/InvoicesManagerViewController.m"
-            timestampString = "551069874.689649"
+            timestampString = "551101878.074738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-getData:"
-            landmarkType = "7">
+            startingLineNumber = "133"
+            endingLineNumber = "133">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

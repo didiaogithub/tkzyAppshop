@@ -53,8 +53,25 @@
     [self segmentStyle5];
 
     [self setRightButton:@"开票信息"];
+    
+    [self getInvoiceTipData];
 }
 
+
+- (void)getInvoiceTipData{
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getInvoiceTipApi];
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
+        NSDictionary *dict = json;
+        if ([dict[@"code"] integerValue] == 200) {
+            NSString *info = dict[@"data"][@"info"];
+            //处理返回数据
+            self.headView.contentLabel.text = info;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 
 - (void)rightBtnPressed{

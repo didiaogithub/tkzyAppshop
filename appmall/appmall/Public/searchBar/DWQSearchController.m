@@ -139,7 +139,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
                     [self.goodsArray addObject:model];
                 }
             }else{
-                [self.loadingView showNoticeView:@"没有该商品"];
+                [self showNoticeView:@"没有该商品"];
             }
             
         }else{
@@ -152,7 +152,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
                     [self.classArray addObject:model];
                 }
             }else{
-                [self.loadingView showNoticeView:@"没有该类课程"];
+                [self showNoticeView:@"没有该类课程"];
             }
         }
       

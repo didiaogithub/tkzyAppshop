@@ -205,7 +205,7 @@
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
         [self.tabCommunityList reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
         if ([model.ispraise boolValue]) {
-            [self.loadingView showNoticeView:@"点赞成功"];
+            [self showNoticeView:@"点赞成功"];
         }else{
             [self.loadingView showNoticeView:@"取消点赞"];
         }

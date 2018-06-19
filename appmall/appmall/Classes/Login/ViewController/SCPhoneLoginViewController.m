@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
-        self.navigationItem.title = @"绑定手机号";
+//        self.navigationItem.title = @"绑定手机号";
     }else{
         self.navigationItem.title = @"登录";
     }

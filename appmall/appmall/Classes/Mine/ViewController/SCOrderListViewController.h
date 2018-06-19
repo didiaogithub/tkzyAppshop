@@ -7,8 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
-@interface SCOrderListViewController : BaseViewController
+#import "ZJScrollPageViewDelegate.h"
+@interface SCOrderListViewController : BaseViewController<ZJScrollPageViewChildVcDelegate>
 
 @property (nonatomic, copy) NSString *statusString;
 

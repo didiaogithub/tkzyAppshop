@@ -65,28 +65,38 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90e-AW-0gq">
+                        <rect key="frame" x="83" y="36.5" width="207" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="0y6-iW-tnF" secondAttribute="trailing" constant="15" id="94j-qQ-NwR"/>
                     <constraint firstAttribute="bottom" secondItem="rlD-D8-7fP" secondAttribute="bottom" id="FXl-rR-f6y"/>
                     <constraint firstItem="OQg-9k-wXa" firstAttribute="top" secondItem="09z-e7-DQB" secondAttribute="top" id="GuQ-xb-p1y"/>
+                    <constraint firstItem="90e-AW-0gq" firstAttribute="trailing" secondItem="ghc-cL-TeP" secondAttribute="trailing" id="PbC-4J-yQg"/>
                     <constraint firstItem="09z-e7-DQB" firstAttribute="leading" secondItem="hji-sJ-yIj" secondAttribute="trailing" constant="8" id="Sxq-Le-Lme"/>
                     <constraint firstItem="hji-sJ-yIj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="XM4-LZ-3pd"/>
                     <constraint firstItem="09z-e7-DQB" firstAttribute="top" secondItem="hji-sJ-yIj" secondAttribute="top" id="aNF-yr-NIw"/>
                     <constraint firstItem="ghc-cL-TeP" firstAttribute="bottom" secondItem="hji-sJ-yIj" secondAttribute="bottom" id="atF-QD-fgF"/>
                     <constraint firstItem="ghc-cL-TeP" firstAttribute="leading" secondItem="hji-sJ-yIj" secondAttribute="trailing" constant="8" id="bnj-30-bLF"/>
+                    <constraint firstItem="90e-AW-0gq" firstAttribute="leading" secondItem="ghc-cL-TeP" secondAttribute="leading" id="dln-kP-dm3"/>
                     <constraint firstItem="rlD-D8-7fP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e4s-uU-DVx"/>
                     <constraint firstItem="OQg-9k-wXa" firstAttribute="leading" secondItem="09z-e7-DQB" secondAttribute="trailing" constant="10" id="iln-uQ-5Z8"/>
                     <constraint firstAttribute="trailing" secondItem="rlD-D8-7fP" secondAttribute="trailing" id="jww-wZ-Wx4"/>
                     <constraint firstItem="0y6-iW-tnF" firstAttribute="bottom" secondItem="ghc-cL-TeP" secondAttribute="bottom" id="nxD-wR-rpl"/>
                     <constraint firstAttribute="trailing" secondItem="OQg-9k-wXa" secondAttribute="trailing" constant="15" id="qZG-dH-ua1"/>
                     <constraint firstItem="hji-sJ-yIj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="r2h-Xj-NsG"/>
+                    <constraint firstItem="90e-AW-0gq" firstAttribute="top" secondItem="OQg-9k-wXa" secondAttribute="bottom" constant="9" id="rbh-BI-ZW0"/>
                     <constraint firstItem="0y6-iW-tnF" firstAttribute="leading" secondItem="ghc-cL-TeP" secondAttribute="trailing" constant="20" id="uVC-qR-H8a"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="NoAndGGLab" destination="ghc-cL-TeP" id="pKA-Bm-bjg"/>
                 <outlet property="iconImage" destination="hji-sJ-yIj" id="4VD-QL-RdZ"/>
+                <outlet property="labGG" destination="ghc-cL-TeP" id="l8I-aS-vrd"/>
+                <outlet property="labNo" destination="90e-AW-0gq" id="823-cR-fmR"/>
                 <outlet property="moneyLab" destination="OQg-9k-wXa" id="Z55-t4-3cH"/>
                 <outlet property="nameLab" destination="09z-e7-DQB" id="wEw-sc-7YF"/>
                 <outlet property="num" destination="0y6-iW-tnF" id="jj7-2a-dNI"/>

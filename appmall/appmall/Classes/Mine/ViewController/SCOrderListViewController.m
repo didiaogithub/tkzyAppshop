@@ -6,6 +6,17 @@
 //  Copyright © 2018年 com.tcsw.tkzy. All rights reserved.
 //
 
+
+
+
+//    订单状态（99：全部0：已取消 1：未付款；2：已付款；3:已收货 4：正在退货，5：退货成功，6：已完成，7：已发货 8  支付中）
+//    订单状态（0：未付款 1：已取消 2：已付款 3：确认收货 4：退货中 5：退货完成 6：已完成 7：已发货 99：全部）
+//1 - > 2 -> 7 -> 3 ->6
+//
+/*0：已取消；1：未付款；2：已付款；
+ 3：已收货，4：正在退货，
+ 5：退货成功，6：已完成，7：已发货*/
+
 #import "SCOrderListViewController.h"
 #import "SCOrderListCell.h"
 #import "WBWuliuInfoVC.h"
@@ -52,6 +63,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 @property(nonatomic,strong)NSMutableArray <SCMyOrderModel * >*orderDataArr;
 @end
 
+
+
 @implementation SCOrderListViewController
 
 -(NSMutableArray *)orderDataArr {
@@ -92,14 +105,20 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _page  =1;
     _statusArr = @[@"99", @"1", @"2", @"4,5,7", @"3,6"];
     
-    [self createTopButton];
-    [self moveStatusLineWithStatus:self.statusString];
+//    [self createTopButton];
+//    [self moveStatusLineWithStatus:self.statusString];
     [self createTableView];
     [self refreshData];
     
     [UITableView refreshHelperWithScrollView:self.orderTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
 }
+
+-(void)zj_viewWillAppearForIndex:(NSInteger)index{
+    self.statusString = _statusArr[index];
+    [self loadNewData];
+}
+
 
 -(void)loadNewData{
     _page =  1;
@@ -156,36 +175,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     _searchView.searchTextField.placeholder = @"商品名称/订单号/收件人/收件人电话/昵称";
     _searchView.delegate = self;
 //    [self.view addSubview:_searchView];
-    
-    self.statusView = [[UIView alloc] init];
-    self.statusView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.statusView];
-    [self.statusView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(64+NaviAddHeight +10);
-        make.left.right.mas_offset(0);
-        make.height.mas_equalTo(50);
-    }];
-    float buttonH = 50;
-    _statusBtnArr = [NSMutableArray array];
-    NSArray *titleArr = @[@"全部",@"待付款", @"待发货", @"待收货", @"使用反馈"];
-    
-    for (NSInteger i = 0; i < titleArr.count; i++) {
-        UIButton *btn = [self createOrderButtonWithframe:CGRectMake((SCREEN_WIDTH/5)*i, 0, SCREEN_WIDTH/5, buttonH) andTag:140+i andAction:@selector(clickOrderButton:) andtitle:titleArr[i]];
-        [self.statusView addSubview:btn];
-        [_statusBtnArr addObject:btn];
-    }
-    _allOrderButton.selected = YES;
-    
-    self.indicateLine = [[UILabel alloc] init];
-    self.indicateLine.backgroundColor = [UIColor tt_redMoneyColor];
-    [self.statusView addSubview:self.indicateLine];
-    [self.indicateLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(47);
-        make.left.mas_offset(20);
-        make.width.mas_offset(SCREEN_WIDTH/5 - 40);
-        make.height.mas_offset(1);
-    }];
-    
 }
 
 #pragma mark - 搜索代理方法
@@ -202,79 +191,11 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 }
 
 
--(void)updateBtnSelectedState:(UIButton*)button {
-    for (NSInteger i = 0; i < _statusBtnArr.count; i++) {
-        UIButton *btn = _statusBtnArr[i];
-        btn.selected = NO;
-        btn.userInteractionEnabled = YES;
-    }
-    self.statusString = _statusArr[button.tag - 140];
-    [self moveStatusLineWithStatus:self.statusString];
-    button.selected = YES;
-    [button setUserInteractionEnabled:NO];
-}
-//移动红线
--(void)moveStatusLineWithStatus:(NSString *)status{
-    
-//    待付款  1
-//    待发货  2
-//    待收货 4,5,7
-//    使用反馈 3,6
-//    全部 99
-    
-    float leftX = 0;
-    if ([self.statusString isEqualToString:@"99"]){//全部
-        leftX = 0 + 25;
-        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(leftX);
-            make.width.mas_offset(SCREEN_WIDTH / 5 - 50);
-        }];
-    }else if ([self.statusString isEqualToString:@"1"]){//待付款
-        leftX = SCREEN_WIDTH/5 + 15;
-        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(leftX);
-            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
-        }];
-    }else if ([self.statusString isEqualToString:@"2"]){//待发货
-        leftX = SCREEN_WIDTH*2/5 + 15;
-        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(leftX);
-            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
-        }];
-    }else if ([self.statusString isEqualToString:@"4,5,7"]){//待收货
-        leftX = SCREEN_WIDTH*3/5 + 15;
-        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(leftX);
-            make.width.mas_offset(SCREEN_WIDTH / 5 - 30);
-        }];
-    }else{ // 使用反馈 3,6
-        leftX = SCREEN_WIDTH*4/5 + 10;
-        [self.indicateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_offset(leftX);
-            make.width.mas_offset(SCREEN_WIDTH / 5 - 20);
-        }];
-    }
-    
-}
-
--(void)clickOrderButton:(UIButton *)button{
-    //    订单状态（99：全部0：已取消 1：未付款；2：已付款；3:已收货 4：正在退货，5：退货成功，6：已完成，7：已发货 8  支付中）
-//    订单状态（0：未付款 1：已取消 2：已付款 3：确认收货 4：退货中 5：退货完成 6：已完成 7：已发货 99：全部）
-    //1 - > 2 -> 7 -> 3 ->6
-    //
-    /*0：已取消；1：未付款；2：已付款；
-     3：已收货，4：正在退货，
-     5：退货成功，6：已完成，7：已发货*/
-    
-    [self updateBtnSelectedState:button];
-
-    [self loadNewData];
-}
 
 #pragma mark-创建tableView
 -(void)createTableView{
     
-    _orderTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _orderTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,2, SCREEN_WIDTH, SCREEN_HEIGHT - 110) style:UITableViewStyleGrouped];
     _orderTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_orderTableView];
     
@@ -285,12 +206,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     [_orderTableView registerClass:[SCOrderListCell class] forCellReuseIdentifier:cellIdentifier];
     _orderTableView.delegate = self;
     _orderTableView.dataSource = self;
-    [_orderTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-BOTTOM_BAR_HEIGHT);
-        make.top.equalTo(self.statusView.mas_bottom).offset(7);
-    }];
-    
 }
 
 #pragma mark - tableViewDelegate
@@ -390,6 +305,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     return headerView;
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 45;
 }
@@ -401,12 +317,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     if ([statustr isEqualToString:@"已付款"] || [statustr isEqualToString:@"退货成功"]) {
     
-        UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+        UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55)];
         bgview.backgroundColor = [UIColor tt_grayBgColor];
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 35)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
         view.backgroundColor = [UIColor whiteColor];
         [bgview addSubview:view];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, 35)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, 50)];
         NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
@@ -491,7 +407,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     
     NSString *statustr = [NSString stringWithFormat:@"%@",orderModel.orderstatus];
     if ([statustr isEqualToString:@"已付款"] || [statustr isEqualToString:@"退货成功"]){
-        return 40;
+        return 55;
     }else{
         if ([statustr isEqualToString:@"已取消"]){
             return 55;
@@ -610,39 +526,6 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             [self showNoticeView:NetWorkTimeout];
         }
     }];
-}
-
-/**创建 统一 button*/
--(UIButton *)createOrderButtonWithframe:(CGRect)frame andTag:(NSInteger)tag andAction:(SEL)action andtitle:(NSString *)title{
-    UIButton *button  = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:TitleColor forState:UIControlStateNormal];
-    button.titleLabel.font = MAIN_TITLE_FONT;
-    button.frame = frame;
-    button.tag = tag;
-    [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
-    switch (tag-140) {
-        case 0:
-            _allOrderButton = button;
-            break;
-        case 1:
-            _waitPayMoneyButton = button;
-            break;
-        case 2:
-            _waitDispatchGoodsButton = button;
-            break;
-        case 3:
-            _waitConsigneeButton = button;
-            break;
-        case 4:
-            _afterSalesButton = button;
-            break;
-            
-        default:
-            break;
-    }
-    
-    return button;
 }
 
 #pragma mark - FooterViewDelegate

@@ -11,7 +11,8 @@
 @interface SCOrderListCell()
 
 @property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, strong) UILabel *textNumber;
+@property (nonatomic, strong) UILabel *textNumber; // 规格
+@property (nonatomic, strong) UILabel *textNumber1; // 编号
 @property (nonatomic, strong) UILabel *lineLable;
 /**购买商品图标*/
 @property (nonatomic, strong) UIImageView *goodsImageView;
@@ -69,6 +70,9 @@
     _textNumber = [UILabel configureLabelWithTextColor:CKYS_Color(157, 158, 159) textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [_bgView addSubview: _textNumber];
     _textNumber.text = @"规格：";
+    _textNumber1 = [UILabel configureLabelWithTextColor:CKYS_Color(157, 158, 159) textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    [_bgView addSubview: _textNumber1];
+    _textNumber1.text = @"编号：";
     
     //数量
     _numberLable = [UILabel configureLabelWithTextColor:CKYS_Color(77, 77, 78) textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
@@ -91,7 +95,8 @@
         name = @"";
     }
     _descriptionLable.text = name;
-    _descriptionLable.numberOfLines = 2;
+    _descriptionLable.numberOfLines = 1;
+    _descriptionLable.adjustsFontSizeToFitWidth = YES;
     [_descriptionLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_goodsImageView.mas_top).offset(10);
         make.left.equalTo(_goodsImageView.mas_right).offset(5);
@@ -133,17 +138,18 @@
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@", model.itemspec];
+        spec = [NSString stringWithFormat:@"%@", model.itemspec];
     }
     
     NSString *specNo = [NSString stringWithFormat:@"%@", model.itemspec];
     if (IsNilOrNull(specNo)) {
         specNo = @"";
     }else{
-        specNo = [NSString stringWithFormat:@"编号:%@", model.itemno];
+        specNo = [NSString stringWithFormat:@"%@", model.itemno];
     }
     
-    _textNumber.text = [NSString stringWithFormat:@"%@     %@",specNo,spec];
+    _textNumber.text = [NSString stringWithFormat:@"产品规格：%@",spec];
+    _textNumber1.text = [NSString stringWithFormat:@"产品编号：%@",specNo];
     if (IsNilOrNull(name)) {
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
@@ -155,6 +161,11 @@
             make.height.equalTo(@(20));
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
             make.bottom.equalTo(_goodsImageView.mas_bottom).offset(-10);
+        }];
+        [_textNumber1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(20));
+            make.left.equalTo(_goodsImageView.mas_right).offset(5);
+            make.top.equalTo(_descriptionLable.mas_bottom).offset(9);
         }];
     }
     

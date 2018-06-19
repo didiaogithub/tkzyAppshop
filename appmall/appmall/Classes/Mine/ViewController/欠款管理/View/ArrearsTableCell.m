@@ -24,7 +24,8 @@
 - (void)refreshData:(Item *)model{
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.path1] placeholderImage:nil];
     self.nameLab.text = model.name;
-    self.NoAndGGLab.text = [NSString stringWithFormat:@"编号：%@；规格：%@",model.itemno,model.spec];
+    self.labNo.text = [NSString stringWithFormat:@"产品编号：%@",model.itemno];
+    self.labGG.text = [NSString stringWithFormat:@"产品规格：%@",model.spec];
     self.num.text = [NSString stringWithFormat:@"x%@",model.count];
     self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.price];
 }

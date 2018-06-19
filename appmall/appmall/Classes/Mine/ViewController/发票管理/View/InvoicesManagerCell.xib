@@ -35,8 +35,8 @@
                             <constraint firstAttribute="height" constant="60" id="gU4-t1-XC9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVD-pi-XkI">
-                        <rect key="frame" x="76" y="22" width="0.0" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="撒的发生的法师打发斯蒂芬" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVD-pi-XkI">
+                        <rect key="frame" x="76" y="22" width="159.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -72,6 +72,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编号：5800；规格：40kg" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dom-v5-42v">
+                        <rect key="frame" x="76" y="47" width="145" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UXk-UB-K5B" firstAttribute="top" secondItem="82C-cM-zIx" secondAttribute="top" id="2zj-HB-tKz"/>
@@ -79,10 +85,13 @@
                     <constraint firstItem="82C-cM-zIx" firstAttribute="bottom" secondItem="Uwh-jZ-Wkd" secondAttribute="bottom" id="Ady-Q4-7Zy"/>
                     <constraint firstItem="Uwh-jZ-Wkd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BYc-5B-VXo"/>
                     <constraint firstAttribute="trailing" secondItem="n8k-Wq-fUH" secondAttribute="trailing" constant="15" id="IaX-dK-kdM"/>
+                    <constraint firstItem="dom-v5-42v" firstAttribute="top" secondItem="GVD-pi-XkI" secondAttribute="bottom" constant="9" id="KGc-8E-pHV"/>
                     <constraint firstAttribute="trailing" secondItem="UXk-UB-K5B" secondAttribute="trailing" constant="15" id="LDz-f5-89K"/>
                     <constraint firstItem="82C-cM-zIx" firstAttribute="leading" secondItem="Uwh-jZ-Wkd" secondAttribute="trailing" constant="8" id="NSH-Uw-PNX"/>
                     <constraint firstItem="n5w-qD-7XR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nhk-sl-RnJ"/>
                     <constraint firstAttribute="trailing" secondItem="n5w-qD-7XR" secondAttribute="trailing" id="PM9-0V-wwL"/>
+                    <constraint firstItem="dom-v5-42v" firstAttribute="leading" secondItem="82C-cM-zIx" secondAttribute="leading" id="U2T-4H-QG6"/>
+                    <constraint firstItem="dom-v5-42v" firstAttribute="trailing" secondItem="82C-cM-zIx" secondAttribute="trailing" id="Zid-lz-F7u"/>
                     <constraint firstAttribute="trailing" secondItem="dEx-tD-h8L" secondAttribute="trailing" id="gBN-wd-7Kf"/>
                     <constraint firstItem="dEx-tD-h8L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jcU-dA-EsU"/>
                     <constraint firstItem="Uwh-jZ-Wkd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lZm-0V-PFf"/>
@@ -95,9 +104,10 @@
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="iconImage" destination="Uwh-jZ-Wkd" id="bdW-i0-dKf"/>
+                <outlet property="labGG" destination="82C-cM-zIx" id="f3y-1O-krE"/>
+                <outlet property="labNo" destination="dom-v5-42v" id="EVJ-c8-a7h"/>
                 <outlet property="moneyLab" destination="n8k-Wq-fUH" id="C8O-gl-8WS"/>
                 <outlet property="nameLab" destination="GVD-pi-XkI" id="dBm-lH-n25"/>
-                <outlet property="numAndGgLab" destination="82C-cM-zIx" id="b3y-Dx-aZV"/>
                 <outlet property="numLab" destination="UXk-UB-K5B" id="LeB-m1-TGX"/>
             </connections>
             <point key="canvasLocation" x="-425" y="-109"/>

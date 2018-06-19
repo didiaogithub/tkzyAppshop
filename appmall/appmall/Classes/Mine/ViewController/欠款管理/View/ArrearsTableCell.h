@@ -11,7 +11,8 @@
 @interface ArrearsTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *NoAndGGLab;
+@property (weak, nonatomic) IBOutlet UILabel *labGG;
+@property (weak, nonatomic) IBOutlet UILabel *labNo;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UILabel *num;
 - (void)refreshData:(Item *)model;

@@ -33,7 +33,8 @@
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@""]];
     self.nameLab.text = model.name;
     self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.price];
-    self.numAndGgLab.text = [NSString stringWithFormat:@"编号：%@；规格：%@",model.itemno,model.itemspec];
+    self.labNo.text = [NSString stringWithFormat:@"产品编号：%@",model.itemno];
+    self.labGG.text = [NSString stringWithFormat:@"产品规格：%@",model.itemspec];
     self.numLab.text = [NSString stringWithFormat:@"X%@",model.count];
 }
 @end

@@ -441,6 +441,11 @@
 		F23F1A6720B81C5800F01D01 /* 引导页3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6420B81C5700F01D01 /* 引导页3.jpg */; };
 		F23F1A6820B81C5800F01D01 /* 引导页2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6520B81C5800F01D01 /* 引导页2.jpg */; };
 		F23F1A6920B81C5800F01D01 /* 引导页1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F23F1A6620B81C5800F01D01 /* 引导页1.jpg */; };
+		F241F6CE20D8A092001EC42B /* MLMSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6C420D8A092001EC42B /* MLMSegmentHead.m */; };
+		F241F6CF20D8A092001EC42B /* MLMSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6C620D8A092001EC42B /* MLMSegmentManager.m */; };
+		F241F6D020D8A092001EC42B /* MLMSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6C820D8A092001EC42B /* MLMSegmentScroll.m */; };
+		F241F6D120D8A092001EC42B /* UIView+EasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6CB20D8A092001EC42B /* UIView+EasyFrame.m */; };
+		F241F6D220D8A092001EC42B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6CD20D8A092001EC42B /* UIView+ViewController.m */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
 		F2487F5420AEA2CD0005F624 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F5220AEA2CD0005F624 /* MineModel.m */; };
 		F250E90220C4D6E600870D2F /* CKCouponUsableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F250E90120C4D6E600870D2F /* CKCouponUsableViewController.m */; };
@@ -1291,6 +1296,17 @@
 		F23F1A6420B81C5700F01D01 /* 引导页3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页3.jpg"; sourceTree = "<group>"; };
 		F23F1A6520B81C5800F01D01 /* 引导页2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页2.jpg"; sourceTree = "<group>"; };
 		F23F1A6620B81C5800F01D01 /* 引导页1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "引导页1.jpg"; sourceTree = "<group>"; };
+		F241F6C320D8A092001EC42B /* MLMSegmentHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentHead.h; sourceTree = "<group>"; };
+		F241F6C420D8A092001EC42B /* MLMSegmentHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentHead.m; sourceTree = "<group>"; };
+		F241F6C520D8A092001EC42B /* MLMSegmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentManager.h; sourceTree = "<group>"; };
+		F241F6C620D8A092001EC42B /* MLMSegmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentManager.m; sourceTree = "<group>"; };
+		F241F6C720D8A092001EC42B /* MLMSegmentScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentScroll.h; sourceTree = "<group>"; };
+		F241F6C820D8A092001EC42B /* MLMSegmentScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentScroll.m; sourceTree = "<group>"; };
+		F241F6C920D8A092001EC42B /* SegmentPageHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentPageHead.h; sourceTree = "<group>"; };
+		F241F6CA20D8A092001EC42B /* UIView+EasyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyFrame.h"; sourceTree = "<group>"; };
+		F241F6CB20D8A092001EC42B /* UIView+EasyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyFrame.m"; sourceTree = "<group>"; };
+		F241F6CC20D8A092001EC42B /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		F241F6CD20D8A092001EC42B /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		F2487F2F20AE730B0005F624 /* SobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SobotManager.h; sourceTree = "<group>"; };
 		F2487F3020AE730B0005F624 /* SobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SobotManager.m; sourceTree = "<group>"; };
 		F2487F5220AEA2CD0005F624 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
@@ -1444,6 +1460,7 @@
 		2D0723B92082FA570030996F /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				F241F6C220D8A092001EC42B /* MLMSegmentPageView */,
 				F203A3DD20D35A2F00E2E102 /* XLImageViewer */,
 				F236AE3520BF87C8004B9A03 /* Push */,
 				F255513F20BD450B0097C2A4 /* 银联支付 */,
@@ -2766,6 +2783,24 @@
 			path = QRadioButton;
 			sourceTree = "<group>";
 		};
+		F241F6C220D8A092001EC42B /* MLMSegmentPageView */ = {
+			isa = PBXGroup;
+			children = (
+				F241F6C320D8A092001EC42B /* MLMSegmentHead.h */,
+				F241F6C420D8A092001EC42B /* MLMSegmentHead.m */,
+				F241F6C520D8A092001EC42B /* MLMSegmentManager.h */,
+				F241F6C620D8A092001EC42B /* MLMSegmentManager.m */,
+				F241F6C720D8A092001EC42B /* MLMSegmentScroll.h */,
+				F241F6C820D8A092001EC42B /* MLMSegmentScroll.m */,
+				F241F6C920D8A092001EC42B /* SegmentPageHead.h */,
+				F241F6CA20D8A092001EC42B /* UIView+EasyFrame.h */,
+				F241F6CB20D8A092001EC42B /* UIView+EasyFrame.m */,
+				F241F6CC20D8A092001EC42B /* UIView+ViewController.h */,
+				F241F6CD20D8A092001EC42B /* UIView+ViewController.m */,
+			);
+			path = MLMSegmentPageView;
+			sourceTree = "<group>";
+		};
 		F2487F2E20AE730B0005F624 /* Sobot(智齿) */ = {
 			isa = PBXGroup;
 			children = (
@@ -3462,6 +3497,7 @@
 				F2FC5A3F20C171940040369E /* MGLabel.m in Sources */,
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
+				F241F6D120D8A092001EC42B /* UIView+EasyFrame.m in Sources */,
 				2D20DEC12088C9FE00095032 /* GoodModel.m in Sources */,
 				2D20DF712088D6F600095032 /* SelecteAreaModel.m in Sources */,
 				2D20DF6E2088D6EA00095032 /* CityViewController.m in Sources */,
@@ -3541,6 +3577,7 @@
 				F23E655420B6886200EB6720 /* MyInvoicesCheckFailCell.m in Sources */,
 				2D165FF5209C0EB500C1C7E7 /* UserModel.m in Sources */,
 				F23E656520B6911200EB6720 /* LeftLabelRightLabelView.m in Sources */,
+				F241F6CE20D8A092001EC42B /* MLMSegmentHead.m in Sources */,
 				2D6F926B208F5040007DFD0B /* TeacherDetailVC.m in Sources */,
 				F2F18BB42090D715002984A9 /* InvoicesManagerViewController.m in Sources */,
 				2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */,
@@ -3628,6 +3665,7 @@
 				F203A3D920D3549A00E2E102 /* Ordersheet.m in Sources */,
 				2D072685208325F90030996F /* ADSModel.m in Sources */,
 				F2FA14E120B556A90066B153 /* MineInfoViewController.m in Sources */,
+				F241F6D020D8A092001EC42B /* MLMSegmentScroll.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
 				2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */,
@@ -3671,6 +3709,7 @@
 				2D20DF9E2088D9BA00095032 /* ReturnGoodsViewController.m in Sources */,
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
+				F241F6D220D8A092001EC42B /* UIView+ViewController.m in Sources */,
 				2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */,
 				2D20DF592088D4E600095032 /* SCCouponCanUseCell.m in Sources */,
 				2D0723F72082FEF10030996F /* HomeViewController.m in Sources */,
@@ -3691,6 +3730,7 @@
 				2DA0C36220B867810031AC47 /* MJPhotoProgressView.m in Sources */,
 				2D20DE2F208614EC00095032 /* UINavigationItem+SXFixSpace.m in Sources */,
 				2D20DFC5208989C800095032 /* WebDetailViewController.m in Sources */,
+				F241F6CF20D8A092001EC42B /* MLMSegmentManager.m in Sources */,
 				2D165FF2209C0EA200C1C7E7 /* RegistViewController.m in Sources */,
 				2D20DDE92086142000095032 /* CKFileObject.m in Sources */,
 				2D20DE5F2086187200095032 /* UIButton+Common.m in Sources */,

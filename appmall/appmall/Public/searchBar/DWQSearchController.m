@@ -593,11 +593,11 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             NSDictionary *dic = json;
             NSString * status = [dic valueForKey:@"code"];
             if ([status intValue] != 200) {
-                [self showNoticeView:[dic valueForKey:@"message"]];
+                [self showAddShoppingNoticeViewIsSuccess:NO andTitle:nil];
                 return ;
             }
             [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
-            [self showNoticeView:@"亲，在购物车等你哦"];
+            [self showAddShoppingNoticeViewIsSuccess:YES andTitle:nil];
         } failure:^(NSError *error) {
             [self.loadingView stopAnimation];
             if (error.code == -1009) {

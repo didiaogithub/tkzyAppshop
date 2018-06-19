@@ -124,7 +124,7 @@
             }
             [self .tabCommunityList reloadData];
         }else{
-            [self.loadingView showNoticeView:@"无更多评论"];
+            [self showNoticeView:@"无更多评论"];
         }
         
         [self.tabCommunityList reloadData];

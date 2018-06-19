@@ -84,6 +84,7 @@
     [self createNoticeView];
     if (self.viewNetError && !self.viewNetError.visible && title.length > 0) {
         self.viewNetError.textLabel.text = title;
+        
         [self.viewNetError showInView:[UIApplication sharedApplication].keyWindow];
         [self.viewNetError dismissAfterDelay:1.5f];
     }
@@ -94,7 +95,8 @@
     self.viewNetError = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.viewNetError.indicatorView = nil;
     self.viewNetError.userInteractionEnabled = NO;
-    self.viewNetError.position = JGProgressHUDPositionBottomCenter;
+    self.viewNetError.alpha = 0.4;
+    self.viewNetError.position = JGProgressHUDPositionCenter;
     self.viewNetError.marginInsets = UIEdgeInsetsMake(0.0f, 0.0f, 60.0f, 0.0f);
 }
 

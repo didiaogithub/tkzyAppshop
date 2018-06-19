@@ -479,6 +479,23 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 #pragma mark -- 实现点击热门搜索tag  Delegate
 -(void)DWQTagView:(UIView *)dwq fetchWordToTextFiled:(NSString *)KeyWord
 {
+    for (UILabel *itemLab in dwq.subviews) {
+        if ([itemLab isKindOfClass:[UILabel class]]) {
+            if ([itemLab.text isEqualToString:KeyWord]) {
+                itemLab.textColor = RGBCOLOR(180,41,44);
+                itemLab.layer.cornerRadius = 4;
+                itemLab.layer.masksToBounds = YES;
+                itemLab.layer.borderColor = RGBCOLOR(180,41,44).CGColor;
+                itemLab.layer.borderWidth = 1;
+            }else{
+                itemLab.textColor = [UIColor colorWithWhite:0.6 alpha:1.000];
+                itemLab.layer.cornerRadius = 2.0;
+                itemLab.layer.borderWidth = 1.0;
+                itemLab.layer.borderColor = [[UIColor colorWithWhite:0.895 alpha:1.000] CGColor];
+                itemLab.clipsToBounds = YES;
+            }
+        }
+    }
     NSLog(@"点击了%@",KeyWord);
        [self.searchBar becomeFirstResponder];
     self.searchBar.text=KeyWord;
@@ -528,6 +545,10 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 }
 //textfield的代理方法：自行写逻辑
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField.text.length == 0) {
+        [self showNoticeView: @"请输入搜索内容"];
+        return YES;
+    }
     NSMutableArray *hisMarray = [NSMutableArray arrayWithArray:self.historyArr];
     [hisMarray addObject:textField.text];
     self.historyArr = hisMarray;

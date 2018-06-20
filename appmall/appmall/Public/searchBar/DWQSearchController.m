@@ -24,7 +24,7 @@
 static NSString *const HotCellID = @"HotCellID";
 static NSString *const HistoryCellID = @"HistoryCellID";
 
-@interface DWQSearchController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,DWQTagViewDelegate,CatogoryAddToShoppingCarDelete>
+@interface DWQSearchController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,DWQTagViewDelegate,CatogoryAddToShoppingCarDelete,XYTableViewDelegate>
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,strong) DWQSearchBar *searchBar;
 @property(nonatomic,strong)UITableView *resultTableView;
@@ -66,6 +66,18 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 
   
 }
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"无课程"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类课程哦";
+    return str;
+}
+
 
 
 -(void)viewDidDisappear:(BOOL)animated{

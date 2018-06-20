@@ -251,6 +251,8 @@
     ordermoney = totalMoney;
     if ([ordermoney containsString:@"合计:¥"]) {
         ordermoney = [ordermoney substringFromIndex:4];
+    }else{
+      ordermoney =  [ordermoney componentsSeparatedByString:@"¥"].lastObject;
     }
     [pramaDic setObject:ordermoney forKey:@"ordermoney"];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
@@ -516,6 +518,12 @@
         SCPayViewController *payMoney = [[SCPayViewController alloc] init];
         payMoney.payfeeStr = [self.moneyCountView.allMoneyLable.text componentsSeparatedByString:@"¥"].lastObject;
         payMoney.orderid = self.oidStr;
+        if ([self.allMoneyString containsString:@"合计:¥"]) {
+            self.allMoneyString = [self.allMoneyString substringFromIndex:4];
+        }else{
+         self.allMoneyString =  [self.allMoneyString componentsSeparatedByString:@"¥"].lastObject;
+        }
+        payMoney.money = self.allMoneyString;
         payMoney.enterType = @"shoppingCar";
         [self.navigationController pushViewController:payMoney animated:YES];
         

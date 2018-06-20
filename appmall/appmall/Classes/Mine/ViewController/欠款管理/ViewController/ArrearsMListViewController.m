@@ -32,7 +32,7 @@
     self.dataArray = [NSMutableArray array];
     _page = 1;
     [self initComponments];
-    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
     [self loadNewData];
     self.isMyspon = NO;
 }
@@ -303,7 +303,8 @@
     arrearsModel  * model = self.dataArray[sender.tag];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", model.ordermoney];
     payMoney.isqkglPage = YES;
-    
+    payMoney.money = model.ordermoney;
+    payMoney.orderid = model.orderid;
     //    payMoney.orderid = orderM.orderId;
     //    NSString *orderNo = [NSString stringWithFormat:@"%@", model.orderno];
     //    if ([orderNo hasPrefix:@"ckdlb"]) {

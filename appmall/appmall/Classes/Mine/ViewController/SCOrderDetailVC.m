@@ -167,7 +167,7 @@
     SCMyOrderModel *orderM = self.orderModel;
     SCPayViewController *payMoney = [[SCPayViewController alloc] init];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", orderM.ordermoney];
-    
+    payMoney.money = orderM.orderpaymoney;
     payMoney.orderid = orderM.orderId;
     [self.navigationController pushViewController:payMoney animated:YES];
 }

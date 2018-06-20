@@ -14,13 +14,14 @@
 //#import "UPPaymentControl.h"
 #import "UIViewController+BackButtonHandler.h"
 #import "XWAlterVeiw.h"
-#import "PaySuccessViewController.h"
+//#import "PaySuccessViewController.h"
 #import "TopTipView.h"
 //#import "JDPAuthSDK.h" //京东支付
 #import "FFWarnAlertView.h"
 #import "SQQKTableCell.h"
 #import "WBSQQKViewController.h"
 #import "MessageAlert.h"
+#import "ZJPayWebViewController.h"
 /**京东支付~*/
 #define JionPay_JD @"pay/appmall_pay/jdpay/action/app.php"
 
@@ -380,6 +381,7 @@
         [self UPPayClick];
     }else if ([_selectedType isEqualToString:@"zjpay"]){  //中金快捷
         //        [self applePayClick];
+        [self zjpayClick];
     }else if ([_selectedType isEqualToString:@"zjcpay"]){  //中金网银
         [self  zjcpayClick];
     }else{
@@ -471,12 +473,12 @@
     NSDictionary *userInfo = notification.userInfo;
     NSInteger errCode = [[userInfo objectForKey:@"resultStatus"]integerValue];
     if (errCode == 9000) {
-        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
-        paySucc.paymentType = self.paymentType;
-        paySucc.payfeeStr = self.payfeeStr;
-        paySucc.orderid = self.orderid;
-        paySucc.isdlbitem = self.isdlbitem;
-        [self.navigationController pushViewController:paySucc animated:YES];
+//        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
+//        paySucc.paymentType = self.paymentType;
+//        paySucc.payfeeStr = self.payfeeStr;
+//        paySucc.orderid = self.orderid;
+//        paySucc.isdlbitem = self.isdlbitem;
+//        [self.navigationController pushViewController:paySucc animated:YES];
     }else if(errCode == 6001){
         [self showNoticeView:@"用户中途取消"];
     }else if(errCode == 8000){
@@ -502,12 +504,17 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@", @"", payForJoinByWX_Url];
+    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@",@"http://tkre.klboo.com/", payForJoinByWX_Url];
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app版本
-    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSDictionary *pramaDic = @{@"orderId":self.orderid,@"ver":app_Version};
+//    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *paraDic = @{@"cid":@"1",
+                           @"token":token,
+                           @"oid":self.orderid
+                           };
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:paraDic];
     
     [HttpTool postWithUrl:WeixinUrl params:pramaDic success:^(id json) {
         [self.loadingView stopAnimation];
@@ -525,20 +532,23 @@
         }
         
         NSLog(@"json===%@",json);
-        NSString *nonce_str = [json objectForKey:@"noncestr"];
-        NSString *prepayId = [json objectForKey:@"prepayid"];
-        NSString *sign = [json objectForKey:@"sign"];
-        NSString *timestamp = [json objectForKey:@"timestamp"];
-        NSString *package = [json objectForKey:@"package"];
-        
-//        PayReq* req             = [[PayReq alloc]init];
-//        req.partnerId           = WXCommercialTenantId; //微信商户ID
-//        req.prepayId            = prepayId;
-//        req.nonceStr            = nonce_str;
-//        req.timeStamp           = timestamp.intValue;
-//        req.package             = package;
-//        req.sign                = sign;
-//        [WXApi sendReq:req];
+        NSDictionary *jsonDic = dict[@"data"][@"payInfo"];
+//         NSString *paramStr1 = [data stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        NSDictionary *jsonDic = [self dictionaryWithJsonString:paramStr1];
+        NSString *nonce_str = [jsonDic objectForKey:@"noncestr"];
+        NSString *prepayId = [jsonDic objectForKey:@"prepayid"];
+        NSString *sign = [jsonDic objectForKey:@"sign"];
+        NSString *timestamp = [jsonDic objectForKey:@"timestamp"];
+        NSString *package = [jsonDic objectForKey:@"package"];
+        NSString *partnerid = [jsonDic objectForKey:@"partnerid"];
+        PayReq* req             = [[PayReq alloc]init];
+        req.partnerId           = partnerid; //微信商户ID
+        req.prepayId            = prepayId;
+        req.nonceStr            = nonce_str;
+        req.timeStamp           = timestamp.intValue;
+        req.package             = package;
+        req.sign                = sign;
+        [WXApi sendReq:req];
 //        NSLog(@"partid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign);
         
     } failure:^(NSError *error){
@@ -558,12 +568,12 @@
     self.appDelegate.paymentType = self.paymentType;
     NSString *object= [NSString stringWithFormat:@"%@",notification.object];
     if ([object isEqualToString:@"0"]) { //成功之后
-        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
-        paySucc.paymentType = self.paymentType;
-        paySucc.payfeeStr = self.payfeeStr;
-        paySucc.orderid = self.orderid;
-        paySucc.isdlbitem = self.isdlbitem;
-        [self.navigationController pushViewController:paySucc animated:YES];
+//        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
+//        paySucc.paymentType = self.paymentType;
+//        paySucc.payfeeStr = self.payfeeStr;
+//        paySucc.orderid = self.orderid;
+//        paySucc.isdlbitem = self.isdlbitem;
+//        [self.navigationController pushViewController:paySucc animated:YES];
     }else if ([object isEqualToString:@"-1"]){
         [self showNoticeView:@"支付失败"];
     }else if ([object isEqualToString:@"-2"]){
@@ -632,12 +642,12 @@
     
     NSString *code = [NSString stringWithFormat:@"%@",notice.object];
     if([code isEqualToString:@"success"]){
-        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
-        paySucc.paymentType = self.paymentType;
-        paySucc.payfeeStr = self.payfeeStr;
-        paySucc.orderid = self.orderid;
-        paySucc.isdlbitem = self.isdlbitem;
-        [self.navigationController pushViewController:paySucc animated:YES];
+//        PaySuccessViewController *paySucc = [[PaySuccessViewController alloc] init];
+//        paySucc.paymentType = self.paymentType;
+//        paySucc.payfeeStr = self.payfeeStr;
+//        paySucc.orderid = self.orderid;
+//        paySucc.isdlbitem = self.isdlbitem;
+//        [self.navigationController pushViewController:paySucc animated:YES];
     }else if([code isEqualToString:@"fail"]) { //结果code为成功时，去商户后台查询一下确保交易是成功的再展示成
         [self showNoticeView:@"银联支付失败"];
     }else if([code isEqualToString:@"cancel"]) {
@@ -675,6 +685,27 @@
         
     }];
     
+}
+
+#pragma mark - 中金快捷
+
+- (void)zjpayClick{
+    
+//    http://tkre.klboo.com/payhtml/orderpay.html?cid=1&token=d590537b12b7b7b0c902d804d393d98d&money=1000&oid=订单编号(订单表id) cid:固定值1 token:
+    
+    NSString *token = [UserModel getCurUserToken];
+    NSDictionary *para = @{@"cid":@"1",
+                           @"token":token,
+                           @"money":self.money,
+                           @"oid":self.orderid
+                           };
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:para];
+    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.klboo.com/payhtml/orderpay.html?"];
+    ZJPayWebViewController *pay = [[ZJPayWebViewController alloc]init];
+    pay.requestUrl = requestUrl;
+    pay.isqkglPage = self.isqkglPage;
+    [self.navigationController pushViewController:pay animated:YES];
+   
 }
 
 #pragma mark - 京东支付
@@ -884,6 +915,36 @@
 -(void)dealloc{
     [CKCNotificationCenter removeObserver:self name:WeiXinPay_CallBack object:nil];
     [CKCNotificationCenter removeObserver:self name:Alipay_CallBack object:nil];
+}
+
+- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    
+    if (jsonString == nil) {
+        
+        return nil;
+        
+    }
+    
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *err;
+    
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                         
+                                                        options:NSJSONReadingMutableContainers
+                         
+                                                          error:&err];
+    
+    if(err) {
+        
+        NSLog(@"json解析失败：%@",err);
+        
+        return nil;
+        
+    }
+    
+    return dic;
+    
 }
 
 - (void)didReceiveMemoryWarning {

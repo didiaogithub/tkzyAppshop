@@ -54,7 +54,7 @@
     [self.contentView addSubview:_editBtn];
     
     UIImageView *imageViwe = [UIImageView new];
-    imageViwe.image = [UIImage imageNamed:@"defaultover"];
+    imageViwe.image = [UIImage imageNamed:@"我的订单页面产品图"];
     [self.contentView addSubview: _imageViwe = imageViwe];
     
     UILabel *title = [UILabel configureLabelWithTextColor:[UIColor tt_bodyTitleColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:14]];
@@ -165,7 +165,7 @@
         [self.editBtn setSelected:NO];
     }
     
-    [_imageViwe sd_setImageWithURL:[NSURL URLWithString:collectionM.pic] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+    [_imageViwe sd_setImageWithURL:[NSURL URLWithString:collectionM.pic] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
     
     NSString *name = [NSString stringWithFormat:@"%@",collectionM.name];
 //    NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName:[UIColor tt_bodyTitleColor]}];

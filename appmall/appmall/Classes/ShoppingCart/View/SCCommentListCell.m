@@ -148,7 +148,7 @@
         UIImageView *imageV = [[UIImageView alloc] init];
         imageV.userInteractionEnabled = YES;
         imageV.tag = 1314+i;
-        [imageV sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+        [imageV sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         [_bankView addSubview:imageV];
         
         float x = (SCREEN_WIDTH - 58) / 3;

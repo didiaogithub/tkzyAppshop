@@ -47,7 +47,7 @@
     [super viewDidLoad];
     self.title = @"发票管理";
     
-    self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, AdaptedHeight(127))];
+    self.headView = [[InvoicesManagerHeadView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH,140)];
     [self.view addSubview:self.headView];
 
     [self segmentStyle5];
@@ -85,7 +85,7 @@
     _style = SegmentHeadStyleLine;
     _layout = MLMSegmentLayoutDefault;
     
-    _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake(0, 64 + AdaptedHeight(127) + 10, SCREEN_WIDTH , 43) titles:list headStyle:_style layoutStyle:_layout];
+    _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake(0, 64 + 140 + 10, SCREEN_WIDTH , 43) titles:list headStyle:_style layoutStyle:_layout];
     _segHead.headColor = [UIColor whiteColor];
     _segHead.fontScale = 1.0;
     _segHead.fontSize = 14;
@@ -97,7 +97,7 @@
     _segHead.bottomLineColor = [UIColor clearColor];
     _segHead.selectColor = [UIColor colorWithHexString:@"#F23030"];
     _segHead.deSelectColor = [UIColor blackColor];
-    _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 64 + AdaptedHeight(127) + 54, SCREEN_WIDTH , SCREEN_HEIGHT - 64 - AdaptedHeight(127) - 54) vcOrViews:[self vcArr:list.count]];
+    _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 64 +140 + 54, SCREEN_WIDTH , SCREEN_HEIGHT - 64 - 140 - 54) vcOrViews:[self vcArr:list.count]];
     
     _segScroll.loadAll = NO;
     _segScroll.showIndex = 0;

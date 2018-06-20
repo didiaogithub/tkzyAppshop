@@ -68,11 +68,15 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
     [self.iconImage addGestureRecognizer:singleTap];
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@""]];
-    [self setRightButton:@"保存" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
+    [self setRightButton:@"保存" titleColor:[UIColor colorWithHexString:@"#333333"] isTJXHX:NO];
 }
 
 - (void)singleTap{
     [self updateIconImage];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 52;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -85,44 +89,47 @@
             cell= [[[NSBundle  mainBundle]  loadNibNamed:@"SexTableCell" owner:self options:nil]  lastObject];
         }
         cell.nameLab.text = titleArr[indexPath.row];
-        
-        QRadioButton *sex_bm = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
-        [sex_bm setTitle:@"保密" forState:UIControlStateNormal];
-        [sex_bm setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [sex_bm.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
-        [cell addSubview:sex_bm];
-        
-        [sex_bm mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(cell.mas_right).offset(-40);
-            make.centerY.equalTo(cell.mas_centerY);
-            make.height.mas_equalTo(35);
-            make.width.mas_equalTo(70);
-        }];
-        QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
-        [sex_women setTitle:@"女" forState:UIControlStateNormal];
-        [sex_women setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [sex_women.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
-        [cell addSubview:sex_women];
-        [sex_women setChecked:YES];
-        [sex_women mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(sex_bm.mas_left).offset(-10);
-            make.centerY.equalTo(cell.mas_centerY);
-            make.height.mas_equalTo(35);
-            make.width.mas_equalTo(70);
-        }];
-        
         QRadioButton *sex_men = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
         [sex_men setTitle:@"男" forState:UIControlStateNormal];
-        [sex_men setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [sex_men setTitleColor:[UIColor colorWithHexString:@"#888888"] forState:UIControlStateNormal];
         [sex_men.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
         [cell addSubview:sex_men];
         [sex_men setChecked:YES];
         [sex_men mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(sex_women.mas_left).offset(-10);
+            make.left.equalTo(cell.nameLab.mas_right).offset(18);
             make.centerY.equalTo(cell.mas_centerY);
             make.height.mas_equalTo(35);
             make.width.mas_equalTo(70);
         }];
+        
+        QRadioButton *sex_women = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
+        [sex_women setTitle:@"女" forState:UIControlStateNormal];
+        [sex_women setTitleColor:[UIColor colorWithHexString:@"#888888"] forState:UIControlStateNormal];
+        [sex_women.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+        [cell addSubview:sex_women];
+        [sex_women setChecked:YES];
+        [sex_women mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(sex_men.mas_right).offset(10);
+            make.centerY.equalTo(cell.mas_centerY);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(70);
+        }];
+        
+        QRadioButton *sex_bm = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
+        [sex_bm setTitle:@"保密" forState:UIControlStateNormal];
+        [sex_bm setTitleColor:[UIColor colorWithHexString:@"#888888"] forState:UIControlStateNormal];
+        [sex_bm.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+        [cell addSubview:sex_bm];
+        
+        [sex_bm mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(sex_women.mas_right).offset(10);
+            make.centerY.equalTo(cell.mas_centerY);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(70);
+        }];
+      
+        
+      
         
         if ([self.model.sex isEqualToString:@"0"]) {
             [sex_bm setChecked:YES];

@@ -38,6 +38,8 @@
     
     if ([self.ordermoney containsString:@"合计:¥"]) {
         self.ordermoney = [self.ordermoney substringFromIndex:4];
+    }else{
+        self.ordermoney =  [self.ordermoney componentsSeparatedByString:@"¥"].lastObject;
     }
     [pramaDic setObject:self.couponType forKey:@"type"];
     [pramaDic setObject:self.ordermoney forKey:@"ordermoney"];

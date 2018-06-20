@@ -487,6 +487,8 @@
 		F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */; };
 		F2E5522020D9FDB5005A5A52 /* BankManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5521E20D9FDB5005A5A52 /* BankManagerViewController.m */; };
 		F2E5522120D9FDB5005A5A52 /* BankManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E5521F20D9FDB5005A5A52 /* BankManagerViewController.xib */; };
+		F2E5522920DA1F8B005A5A52 /* ZJPayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */; };
+		F2E5522A20DA1F8B005A5A52 /* ZJPayWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -1377,6 +1379,9 @@
 		F2E5521D20D9FDB5005A5A52 /* BankManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankManagerViewController.h; sourceTree = "<group>"; };
 		F2E5521E20D9FDB5005A5A52 /* BankManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankManagerViewController.m; sourceTree = "<group>"; };
 		F2E5521F20D9FDB5005A5A52 /* BankManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankManagerViewController.xib; sourceTree = "<group>"; };
+		F2E5522620DA1F8B005A5A52 /* ZJPayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPayWebViewController.h; sourceTree = "<group>"; };
+		F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPayWebViewController.m; sourceTree = "<group>"; };
+		F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJPayWebViewController.xib; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1795,6 +1800,9 @@
 				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CD2082FB560030996F /* ViewController */,
 				F20039C52089A10600499D39 /* mine.xcassets */,
+				F2E5522620DA1F8B005A5A52 /* ZJPayWebViewController.h */,
+				F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */,
+				F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -3370,6 +3378,7 @@
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
 				2D808E8420BC2C18002FADA8 /* ODGoodsTableViewCell.xib in Resources */,
+				F2E5522A20DA1F8B005A5A52 /* ZJPayWebViewController.xib in Resources */,
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
@@ -3737,6 +3746,7 @@
 				2D20DE122086149300095032 /* SCCommon.m in Sources */,
 				F23E656620B6911200EB6720 /* LeftLabelRightTextFieldView.m in Sources */,
 				2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */,
+				F2E5522920DA1F8B005A5A52 /* ZJPayWebViewController.m in Sources */,
 				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
 				2D165FF9209D9A0500C1C7E7 /* HonorListModel.m in Sources */,

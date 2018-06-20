@@ -263,7 +263,7 @@
     }];
     
     //查看全部订单
-    _checkAllMyOrderLable = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
+    _checkAllMyOrderLable = [UILabel configureLabelWithTextColor:[UIColor colorWithHexString:@"#454545"] textAlignment:NSTextAlignmentRight font:[UIFont systemFontOfSize:13]];
     [self.contentView addSubview:_checkAllMyOrderLable];
     _checkAllMyOrderLable.text = @"查看全部>";
     [_checkAllMyOrderLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -310,7 +310,7 @@
         
         [_statusButton setImage:stutsImage forState:UIControlStateNormal];
         [_statusButton setTitle:titleArr[i] forState:UIControlStateNormal];
-        [_statusButton setTitleColor:TitleColor forState:UIControlStateNormal];
+        [_statusButton setTitleColor:[UIColor colorWithHexString:@"#454545"] forState:UIControlStateNormal];
         _statusButton.titleLabel.font = MAIN_TITLE_FONT;
         [_statusButton setBackgroundColor:[UIColor clearColor]];
         [_statusButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -362,7 +362,7 @@
         make.left.mas_offset(15);
         make.size.mas_offset(CGSizeMake(25, 20));
     }];
-    _minefunctionLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    _minefunctionLable = [UILabel configureLabelWithTextColor:[UIColor colorWithHexString:@"#454545"] textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_minefunctionLable];
     
     

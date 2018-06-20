@@ -71,4 +71,9 @@
 +(NSMutableAttributedString *)attributedStrWthStr:(NSString *)commonStr;
 /*带*号的变色,星号在最前面*/
 +(NSMutableAttributedString *)attributedStarWthStr:(NSString *)commonStr;
+
+/**
+ * 传入参数与url，拼接为一个带参数的url
+ **/
++(NSString *) connectUrl:(NSMutableDictionary *)params url:(NSString *) urlLink;
 @end

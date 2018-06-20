@@ -520,7 +520,7 @@
             return ;
         }
         [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
-        [self showNoticeView:@"亲，在购物车等你哦"];
+        [self showAddShoppingNoticeViewIsSuccess:YES andTitle:nil];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

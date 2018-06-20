@@ -14,6 +14,8 @@
 @property(atomic,strong)RLMRealm *realm;
 @property (nonatomic, strong) CKC_CustomProgressView *loadingView;
 @property (nonatomic, strong) JGProgressHUD *viewNetError;
+@property (nonatomic, strong) JGProgressHUD *shoppingViewNetError;
+@property (nonatomic, strong) JGProgressHUD *shoppingViewNetSuccess;
 @property (nonatomic, strong) AppDelegate * appDelegate;
 
 //添加提示view
@@ -22,4 +24,5 @@
 - (void)setRightImageButton:(NSString *)btnName;
 - (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor isTJXHX:(BOOL)isTJXHX;
 - (void)rightBtnPressed;
+- (void)showAddShoppingNoticeViewIsSuccess:(BOOL) success andTitle:(NSString *)title;
 @end

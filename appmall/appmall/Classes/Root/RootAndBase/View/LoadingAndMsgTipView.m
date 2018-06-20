@@ -96,7 +96,7 @@
     self.viewNetError = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.viewNetError.indicatorView = nil;
     self.viewNetError.userInteractionEnabled = NO;
-    self.viewNetError.position = JGProgressHUDPositionBottomCenter;
+    self.viewNetError.position = JGProgressHUDPositionCenter;
     self.viewNetError.marginInsets = UIEdgeInsetsMake(0.0f, 0.0f, 60.0f, 0.0f);
 }
 

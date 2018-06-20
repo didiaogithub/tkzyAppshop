@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createBaseUI];
+    [self createShoppingBaseUI];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
@@ -34,11 +35,38 @@
     self.loadingView = [[CKC_CustomProgressView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     // 增加网络错误时提示
     self.viewNetError = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    self.viewNetError.indicatorView = nil;
+    self.viewNetError.alpha = 0.4;
+    self.viewNetError.indicatorView =  nil;
     self.viewNetError.userInteractionEnabled = NO;
-    self.viewNetError.position = JGProgressHUDPositionBottomCenter;
+    self.viewNetError.position = JGProgressHUDPositionCenter;
     self.viewNetError.marginInsets = UIEdgeInsetsMake(0, 0, 60, 0);
 
+}
+
+-(void)createShoppingBaseUI{
+    
+    self.view.backgroundColor = [UIColor tt_grayBgColor];
+    self.shoppingViewNetError = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    self.shoppingViewNetError.alpha = 0.4;
+    self.shoppingViewNetError.indicatorView =  nil;
+    UIImageView * image =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"叉号"]];
+    image.size = [UIImage imageNamed:@"叉号"].size;
+    image.center = CGPointMake(KscreenWidth / 2   , KscreenHeight/ 2  -50 );
+    [self.shoppingViewNetError addSubview:image];
+    self.shoppingViewNetError.userInteractionEnabled = NO;
+    self.shoppingViewNetError.position = JGProgressHUDPositionCenter;
+    self.shoppingViewNetError.marginInsets = UIEdgeInsetsMake(0, 0, 60, 0);
+    
+    self.shoppingViewNetSuccess = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    self.shoppingViewNetSuccess.alpha = 0.4;
+    self.shoppingViewNetSuccess.indicatorView =  nil;
+    UIImageView * imagesu =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    imagesu.size = [UIImage imageNamed:@""].size;
+    imagesu.center = CGPointMake(KscreenWidth / 2   , KscreenHeight/ 2  -50 );
+    [self.shoppingViewNetSuccess addSubview:imagesu];
+    self.shoppingViewNetSuccess.userInteractionEnabled = NO;
+    self.shoppingViewNetSuccess.position = JGProgressHUDPositionCenter;
+    self.shoppingViewNetSuccess.marginInsets = UIEdgeInsetsMake(0, 0, 60, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +81,35 @@
         [self.viewNetError showInView:[UIApplication sharedApplication].keyWindow];
         [self.viewNetError dismissAfterDelay:1.0f];
     }
+}
+
+- (void)showAddShoppingNoticeViewIsSuccess:(BOOL) success andTitle:(NSString *)title
+{
+    if (success == YES) {
+        if (self.shoppingViewNetSuccess && !self.shoppingViewNetSuccess.visible) {
+            if (title == nil) {
+                  self.shoppingViewNetSuccess.textLabel.text = @"\n添加成功，在购物车等亲~";
+            }else{
+                title = [NSString stringWithFormat:@"\n%@",title];
+                self.shoppingViewNetSuccess.textLabel.text = title;
+            }
+            [self.shoppingViewNetSuccess showInView:[UIApplication sharedApplication].keyWindow];
+            [self.shoppingViewNetSuccess dismissAfterDelay:1.0f];
+        }
+    }else{
+        if (self.shoppingViewNetError && !self.shoppingViewNetError.visible) {
+            
+            if (title == nil) {
+               self.shoppingViewNetError.textLabel.text = @"\n添加失败，请稍等下再试~";
+            }else{
+                title = [NSString stringWithFormat:@"\n%@",title];
+                self.shoppingViewNetError.textLabel.text = title;
+            }
+            [self.shoppingViewNetError showInView:[UIApplication sharedApplication].keyWindow];
+            [self.shoppingViewNetError dismissAfterDelay:1.0f];
+        }
+    }
+ 
 }
 
 

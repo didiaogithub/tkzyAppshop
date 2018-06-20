@@ -305,7 +305,8 @@
             
     NSLog(@"加入购物车");
     if (self.detailModel.itemid == nil  || self.detailModel.price == nil) {
-        [self.loadingView showNoticeView:@"商品信息有误"];
+        
+        [self showAddShoppingNoticeViewIsSuccess:NO andTitle:@"商品信息有误"];
         return;
     }
             NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
@@ -323,11 +324,11 @@
                 NSDictionary *dic = json;
                 NSString * status = [dic valueForKey:@"code"];
                 if ([status intValue] != 200) {
-                    [self showNoticeView:[dic valueForKey:@"message"]];
+                    [self showAddShoppingNoticeViewIsSuccess:NO andTitle:nil];
                     return ;
                 }
                 [[NSUserDefaults standardUserDefaults] setObject:@"AddToShoppingCarSuccess" forKey:@"SCChangedShopingCar"];
-                [self showNoticeView:@"亲，在购物车等你哦"];
+                [self showAddShoppingNoticeViewIsSuccess:YES andTitle:nil];
             } failure:^(NSError *error) {
                 [self.loadingView stopAnimation];
                 if (error.code == -1009) {

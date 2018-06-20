@@ -95,7 +95,7 @@
             commDetail = [[CommDetail alloc]initWith:dic[@"data"]];
             
         }else{
-            [self.loadingView showNoticeView:@"暂无数据"];
+            [self showNoticeView:@"暂无数据"];
         }
         
         [self.tabCommDetail reloadData];
@@ -225,9 +225,9 @@
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:1];
         [self.tabCommDetail reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
         if ([model.ispraise boolValue]) {
-            [self.loadingView showNoticeView:@"点赞成功"];
+            [self showNoticeView:@"点赞成功"];
         }else{
-            [self.loadingView showNoticeView:@"取消点赞"];
+            [self showNoticeView:@"取消点赞"];
         }
 //        [self loadData];
         
@@ -283,7 +283,7 @@
 -(void)submitComm:(NSString *)comm commId:(NSString *)commid{
     [self.view endEditing:YES];
     if (comm .length == 0) {
-        [self.loadingView showNoticeView:@"评论不能为空"];
+        [self showNoticeView:@"评论不能为空"];
         
     }
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];

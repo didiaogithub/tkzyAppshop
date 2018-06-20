@@ -60,8 +60,8 @@
     self.shoppingViewNetSuccess = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.shoppingViewNetSuccess.alpha = 0.4;
     self.shoppingViewNetSuccess.indicatorView =  nil;
-    UIImageView * imagesu =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
-    imagesu.size = [UIImage imageNamed:@""].size;
+    UIImageView * imagesu =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"对号"]];
+    imagesu.size = [UIImage imageNamed:@"对号"].size;
     imagesu.center = CGPointMake(KscreenWidth / 2   , KscreenHeight/ 2  -50 );
     [self.shoppingViewNetSuccess addSubview:imagesu];
     self.shoppingViewNetSuccess.userInteractionEnabled = NO;

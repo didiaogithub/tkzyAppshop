@@ -46,7 +46,7 @@
     _style.normalTitleColor = TitleColor;
     _style.selectedTitleColor = [UIColor tt_redMoneyColor];
     _style.scrollLineColor = [UIColor tt_redMoneyColor];
-    _style.scrollLineHeight = 1.5;
+    _style.scrollLineHeight = 2;
     
     //显示滚动条
     _style.showLine = YES;

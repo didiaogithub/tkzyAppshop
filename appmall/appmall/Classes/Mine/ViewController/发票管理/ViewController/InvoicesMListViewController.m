@@ -165,7 +165,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,46)];
+    InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,56)];
     InvoicesManagerModel *model = self.dataArray[section];
     view.rightBtn.layer.masksToBounds = YES;
     view.rightBtn.layer.cornerRadius = 3;

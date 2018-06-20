@@ -22,6 +22,8 @@
 #import "WBSQQKViewController.h"
 #import "MessageAlert.h"
 #import "ZJPayWebViewController.h"
+#import "ArrearsManagerViewController.h"
+#import "SCOrderManagerViewController.h"
 /**京东支付~*/
 #define JionPay_JD @"pay/appmall_pay/jdpay/action/app.php"
 
@@ -574,6 +576,17 @@
 //        paySucc.orderid = self.orderid;
 //        paySucc.isdlbitem = self.isdlbitem;
 //        [self.navigationController pushViewController:paySucc animated:YES];
+        
+        
+        if (self.isqkglPage == YES) {
+            ArrearsManagerViewController *arrearsM = [[ArrearsManagerViewController alloc]init];
+            arrearsM.selectedIndex = 3;
+            [self.navigationController pushViewController:arrearsM animated:YES];
+        }else{
+            SCOrderManagerViewController *orderM = [[SCOrderManagerViewController alloc]init];
+            orderM.selectedIndex = 2;
+            [self.navigationController pushViewController:orderM animated:YES];
+        }
     }else if ([object isEqualToString:@"-1"]){
         [self showNoticeView:@"支付失败"];
     }else if ([object isEqualToString:@"-2"]){

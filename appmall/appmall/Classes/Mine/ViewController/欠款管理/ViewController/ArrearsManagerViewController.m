@@ -47,6 +47,7 @@
     _style.selectedTitleColor = [UIColor tt_redMoneyColor];
     _style.scrollLineColor = [UIColor tt_redMoneyColor];
     _style.scrollLineHeight = 2;
+    _style.segmentHeight = 43;
     
     //显示滚动条
     _style.showLine = YES;
@@ -124,7 +125,7 @@
 //    _segHead.fontSize = 16;
 //    _segHead.lineScale = .5;
 //    _segHead.lineColor = [UIColor tt_redMoneyColor];
-//    _segHead.lineHeight = 1;
+//    _segHead.lineHeight = 2;
 //    _segHead.equalSize = YES;
 //    _segHead.bottomLineHeight = 1;
 //    _segHead.bottomLineColor = [UIColor clearColor];

@@ -378,6 +378,9 @@
   NSString *itemlistStr =   [itemArray mj_JSONString];
     [pram setObject:itemlistStr forKey:@"itemlist"];
         NSString *itemCarOrderUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddActiveOrderUrl];
+    if (!IsNilOrNull(self.coupontId)) {
+        [pram setObject:self.coupontId forKey:@"couponsid"];//优惠券id
+    }
         [self canPayGoodsRequestWithUrl:itemCarOrderUrl pramaDic:pram];
 }
 

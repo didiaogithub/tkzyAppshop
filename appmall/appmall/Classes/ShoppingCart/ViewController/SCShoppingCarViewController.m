@@ -483,7 +483,7 @@
         
             GoodModel *classM = [[GoodModel alloc] init];
             classM.itemid = _goodModel.itemid;
-            
+    
             classM.price = _goodModel.price;
             classM.num = _goodModel.num;
             classM.spec = _goodModel.spec;
@@ -545,10 +545,10 @@
 //    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
     RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     NSMutableArray *cartlist = [NSMutableArray array];
-    
+
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     for (GoodModel *goodsM in results) {
-        
+
         NSString *status = @"0";
         if (goodsM.isSelect == YES) {
             status = @"1";
@@ -562,26 +562,26 @@
     NSString *itemsStr = [cartlist mj_JSONString];
     [pramaDic setObject:itemsStr forKey:@"items"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateShoppingCarInfoUrl];
-    
+
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-//    
-//    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
-//        [self.loadingView stopAnimation];
-//        NSDictionary *dic = json;
-//        if ([dic[@"code"] integerValue] !=  200) {
-//            [self.loadingView showNoticeView:dic[@"message"]];
-//            return ;
-//        }
+
+    [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] !=  200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return ;
+        }
         SCSCConfirmOrderViewController *sureMySelf = [[SCSCConfirmOrderViewController alloc]init];
         sureMySelf.goodOrderModel = _goodModel;
         sureMySelf.allMoneyString = _bottomView.realPayMoneyLable.text;
         sureMySelf.dataArray = self.selectedArray;        
         [self.navigationController pushViewController:sureMySelf animated:YES];
-//    } failure:^(NSError *error) {
-//        [self.loadingView stopAnimation];
-//        NSLog(@"%@", error);
-//    }];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        NSLog(@"%@", error);
+    }];
 }
 
 -(void)subuttonClicked {

@@ -23,6 +23,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getReaml];
     [self createBaseUI];
     [self createShoppingBaseUI];
 //    self.automaticallyAdjustsScrollViewInsets = NO;

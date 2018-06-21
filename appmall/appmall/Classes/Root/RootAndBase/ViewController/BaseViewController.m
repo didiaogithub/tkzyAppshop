@@ -129,7 +129,6 @@
     self.realm = [RLMRealm realmWithURL:[NSURL URLWithString:dbPath]];
 }
 
-
 - (void)setRightButton:(NSString *)btnName
 {
 

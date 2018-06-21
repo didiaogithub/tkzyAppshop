@@ -60,6 +60,7 @@
 		2D165FFC209DA57700C1C7E7 /* MediaListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D165FFB209DA57700C1C7E7 /* MediaListModel.m */; };
 		2D165FFF209DAD4500C1C7E7 /* UITableView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D165FFE209DAD4400C1C7E7 /* UITableView+XY.m */; };
 		2D166002209DADC400C1C7E7 /* XYNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D166001209DADC400C1C7E7 /* XYNoDataView.m */; };
+		2D1AA3D520DB33EF00BDBD21 /* NSObject+Center.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1AA3D420DB33EF00BDBD21 /* NSObject+Center.m */; };
 		2D20DD9F20860F9F00095032 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D20DD9E20860F9F00095032 /* images.xcassets */; };
 		2D20DDB12086130B00095032 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DDA92086130A00095032 /* RootNavigationController.m */; };
 		2D20DDB22086130B00095032 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DDAB2086130A00095032 /* BaseViewController.m */; };
@@ -618,6 +619,8 @@
 		2D165FFE209DAD4400C1C7E7 /* UITableView+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XY.m"; sourceTree = "<group>"; };
 		2D166000209DADC400C1C7E7 /* XYNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNoDataView.h; sourceTree = "<group>"; };
 		2D166001209DADC400C1C7E7 /* XYNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNoDataView.m; sourceTree = "<group>"; };
+		2D1AA3D320DB33EE00BDBD21 /* NSObject+Center.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Center.h"; sourceTree = "<group>"; };
+		2D1AA3D420DB33EF00BDBD21 /* NSObject+Center.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Center.m"; sourceTree = "<group>"; };
 		2D20DD9E20860F9F00095032 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		2D20DDA92086130A00095032 /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		2D20DDAA2086130A00095032 /* RootBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootBaseViewController.h; sourceTree = "<group>"; };
@@ -2330,6 +2333,8 @@
 				2D4D60FC20B449D700280033 /* UIView+GetVC.m */,
 				F2070CC520CCE0130049590E /* HyperlinksButton.h */,
 				F2070CC620CCE0130049590E /* HyperlinksButton.m */,
+				2D1AA3D320DB33EE00BDBD21 /* NSObject+Center.h */,
+				2D1AA3D420DB33EF00BDBD21 /* NSObject+Center.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3543,6 +3548,7 @@
 				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
 				F2FC5A3F20C171940040369E /* MGLabel.m in Sources */,
 				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
+				2D1AA3D520DB33EF00BDBD21 /* NSObject+Center.m in Sources */,
 				F241F70C20D910DC001EC42B /* ArrearsManagerViewController.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
 				F241F6D120D8A092001EC42B /* UIView+EasyFrame.m in Sources */,
@@ -4025,7 +4031,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;

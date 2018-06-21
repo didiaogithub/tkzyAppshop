@@ -241,7 +241,7 @@
             [self.view endEditing:YES];
             [CKJPushManager manager];
             if (!IsNilOrNull(customerId)) {
-                NSString *uid = [NSString stringWithFormat:@"CZ_%@",customerId];
+                NSString *uid = [NSString stringWithFormat:@"C_%@",customerId];
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [JPUSHService setAlias:uid completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {

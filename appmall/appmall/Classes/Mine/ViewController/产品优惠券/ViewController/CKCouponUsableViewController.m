@@ -146,7 +146,7 @@
             cell = [[CKCouponCannotUseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CKCouponCannotUseCell"];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        cell.usecouponBtn.userInteractionEnabled = NO;
         CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
         [cell refreshCouponWithCouponModel:couponM];
         
@@ -167,7 +167,6 @@
     [self.navigationController popViewControllerAnimated:YES];
         
 }
-
 
 -(void)setCouponBlock:(CouponBlock)couponBlock {
     _couponBlock = couponBlock;

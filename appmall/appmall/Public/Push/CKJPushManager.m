@@ -86,7 +86,7 @@ static BOOL isProduction = YES;
        });
     NSString *customerId = [NSString stringWithFormat:@"%@",[KUserdefaults objectForKey:KcustomerId]];
     if (!IsNilOrNull(customerId)) {
-        NSString *uid = [NSString stringWithFormat:@"CZ_%@",customerId];
+        NSString *uid = [NSString stringWithFormat:@"C_%@",customerId];
         [JPUSHService setAlias:uid completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
             NSLog(@"注册成功：%@", iAlias);
         } seq:0];
@@ -258,8 +258,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     }
     
     if (![currentVC isKindOfClass:[MessageDetailViewController class]]) {
-        //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
-
+        
         MessageAlert *messageByPushAler = [[MessageAlert alloc] init];
         messageByPushAler.isDealInBlock = YES;
         UIApplication *application = [UIApplication sharedApplication];

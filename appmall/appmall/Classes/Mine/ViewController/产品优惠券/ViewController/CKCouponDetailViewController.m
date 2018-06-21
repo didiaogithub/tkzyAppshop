@@ -39,7 +39,7 @@
     
 //    self.navigationItem.title = @"产品券";
      [self initComponents];
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:YES];
      [self resquestCouponData:self.couponType];
 
@@ -74,7 +74,7 @@
 
 -(void)initComponents {
     
-    self.couponTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0 , SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_BAR_HEIGHT - NaviHeight - 43) style:UITableViewStyleGrouped];
+    self.couponTable = [[UITableView alloc] initWithFrame:CGRectMake(0,43, SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_BAR_HEIGHT - NaviHeight - 43) style:UITableViewStyleGrouped];
     self.couponTable.delegate = self;
     self.couponTable.dataSource = self;
     self.couponTable.separatorStyle = UITableViewCellSeparatorStyleNone;

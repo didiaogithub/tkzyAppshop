@@ -34,7 +34,6 @@
     [self initComponments];
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
     [self loadNewData];
-    self.isMyspon = NO;
 }
 - (UIImage *)xy_noDataViewImage{
     

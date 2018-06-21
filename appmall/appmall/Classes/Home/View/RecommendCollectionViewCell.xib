@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="16" id="78M-pM-Mrn"/>
                                     <constraint firstAttribute="width" constant="100" id="RKE-ht-R4R"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,8 +40,8 @@
                                     <constraint firstAttribute="width" constant="100" id="8Sj-gf-ICS"/>
                                     <constraint firstAttribute="height" constant="16" id="aTx-Sv-s9z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.56667226550000005" green="0.57052165269999999" blue="0.5741731524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBy-Lh-9h9">
@@ -50,11 +50,11 @@
                                     <constraint firstAttribute="height" constant="19" id="VO9-OX-qTL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpq-Vx-R90">
-                                <rect key="frame" x="164" y="32" width="180" height="91"/>
+                                <rect key="frame" x="164" y="42" width="180" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSd-6X-rkD">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="91"/>
@@ -166,7 +166,7 @@
                             <constraint firstAttribute="bottom" secondItem="iub-6C-veq" secondAttribute="bottom" constant="13" id="HGX-Jf-IQo"/>
                             <constraint firstItem="VRC-sk-44E" firstAttribute="leading" secondItem="aFK-zP-IG4" secondAttribute="leading" constant="5" id="IVu-hA-QC0"/>
                             <constraint firstAttribute="trailing" secondItem="Lpq-Vx-R90" secondAttribute="trailing" constant="22" id="Kcg-VF-4RE"/>
-                            <constraint firstItem="Lpq-Vx-R90" firstAttribute="centerY" secondItem="VRC-sk-44E" secondAttribute="centerY" constant="-10" id="YEL-Pl-sdm"/>
+                            <constraint firstItem="Lpq-Vx-R90" firstAttribute="centerY" secondItem="VRC-sk-44E" secondAttribute="centerY" id="YEL-Pl-sdm"/>
                             <constraint firstItem="EBy-Lh-9h9" firstAttribute="top" secondItem="VRC-sk-44E" secondAttribute="bottom" constant="5" id="Yiy-71-0u0"/>
                             <constraint firstAttribute="trailing" secondItem="iub-6C-veq" secondAttribute="trailing" constant="10" id="Yk9-6F-Z0n"/>
                             <constraint firstAttribute="trailing" secondItem="VRC-sk-44E" secondAttribute="trailing" constant="5" id="fmx-pV-PwP"/>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,8 +32,8 @@
                             <constraint firstAttribute="height" constant="17" id="XQu-oI-4uw"/>
                             <constraint firstAttribute="width" constant="90" id="vMr-5b-Bdo"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-Ui-Wte">
@@ -42,7 +42,7 @@
                             <constraint firstAttribute="height" constant="19" id="TBV-bS-jtT"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-oE-yKu">
@@ -135,7 +135,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blD-Rm-MCr">
                                 <rect key="frame" x="0.0" y="0.0" width="247" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -168,7 +168,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
                                 <state key="normal" image="评论2">
-                                    <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="actionComm:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jdw-TA-CBM"/>
@@ -179,7 +179,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
                                 <state key="normal" image="点赞灰色">
-                                    <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="selected" image="点赞选中">
                                     <color key="titleColor" red="0.92156862750000001" green="0.0" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -193,7 +193,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
                                 <state key="normal" image="分享">
-                                    <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="actionShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xjh-58-ZZU"/>

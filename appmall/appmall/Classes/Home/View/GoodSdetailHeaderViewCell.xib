@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="367" id="icz-h8-ejd"/>
+                            <constraint firstAttribute="width" secondItem="Tq9-EW-JxD" secondAttribute="height" multiplier="375:367" id="oMr-lA-bJY"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Ky-I2-TX6">
                             <size key="itemSize" width="50" height="50"/>
@@ -48,7 +49,7 @@
                             <constraint firstAttribute="height" constant="43" id="b6J-9u-b5E"/>
                             <constraint firstAttribute="width" constant="62" id="cmr-X5-Goz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <inset key="titleEdgeInsets" minX="0.0" minY="20" maxX="19" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="18" minY="0.0" maxX="0.0" maxY="16"/>
                         <state key="normal" title="收藏" image="未选中">
@@ -77,8 +78,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="19" id="RKP-PE-ZtZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJa-oj-xf4">
@@ -87,7 +88,7 @@
                             <constraint firstAttribute="height" constant="15" id="Nle-aG-Y4K"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-fc-07G">
@@ -96,8 +97,8 @@
                             <constraint firstAttribute="width" constant="100" id="Ep4-Fz-4i8"/>
                             <constraint firstAttribute="height" constant="19" id="tAY-8a-chG"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.99607843139999996" green="0.2274509804" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.94901960784313721" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

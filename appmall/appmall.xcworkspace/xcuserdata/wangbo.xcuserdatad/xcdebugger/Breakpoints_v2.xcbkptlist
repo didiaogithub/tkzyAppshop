@@ -356,12 +356,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Public/Pay/SCPayViewController.mm"
-                  timestampString = "551275968.7913409"
+                  timestampString = "551282032.34674"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
                   endingLineNumber = "94"
-                  offsetFromSymbolStart = "540">
+                  offsetFromSymbolStart = "693">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -371,12 +371,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Public/Pay/SCPayViewController.mm"
-                  timestampString = "551275968.7952"
+                  timestampString = "551282032.349862"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
                   endingLineNumber = "94"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "15">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -386,12 +386,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Public/Pay/SCPayViewController.mm"
-                  timestampString = "551275968.798404"
+                  timestampString = "551282032.352044"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
                   endingLineNumber = "94"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -403,7 +403,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Community/ViewController/PostCommViewController.m"
-            timestampString = "551276447.726089"
+            timestampString = "551282029.466421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -419,7 +419,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Community/ViewController/PostCommViewController.m"
-            timestampString = "551276447.7261519"
+            timestampString = "551282029.466594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -563,28 +563,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Community/ViewController/CommDetailViewController.m"
-            timestampString = "551276447.7264071"
+            timestampString = "551282029.467001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "306"
             endingLineNumber = "306"
             landmarkName = "-submitComm:commId:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Community/View/CommHeaderViewCell.m"
-            timestampString = "551276447.726472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-loadDataWithModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

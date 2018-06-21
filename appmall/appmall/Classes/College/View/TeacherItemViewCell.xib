@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="16" id="NP1-ry-6BQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" red="0.19997966289520264" green="0.20001339912414551" blue="0.19996902346611023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckY-iu-sre">
@@ -40,13 +40,13 @@
                             <constraint firstAttribute="height" constant="14" id="FmU-SY-XDl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.047037760419999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw2-2N-1qy">
                         <rect key="frame" x="10" y="91" width="340" height="35.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.55294117649999996" green="0.55294117649999996" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

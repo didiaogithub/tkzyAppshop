@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,10 +20,10 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="LXy-j4-ZBH"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                     <state key="normal" title="反馈(100)" image="评论2">
-                        <color key="titleColor" red="0.16078431369999999" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1c-6D-kfc">
@@ -31,8 +31,9 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="sft-ou-tWe"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="好评度100%&gt;">
-                        <color key="titleColor" red="0.16078431369999999" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQq-m0-nf6">

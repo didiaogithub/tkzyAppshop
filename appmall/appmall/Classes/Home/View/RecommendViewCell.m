@@ -88,7 +88,7 @@
             return AdaptedHeight(225) * 2 + 53;
             break;
         case 3:
-             return AdaptedHeight(221) ;
+             return AdaptedHeight(235) ;
             
             break;
         case 4:

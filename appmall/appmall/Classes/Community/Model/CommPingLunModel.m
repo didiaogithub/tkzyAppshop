@@ -35,7 +35,7 @@
         imgHeight  += 41;
     }
     
-    CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 76,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
+    CGFloat labHeight = [self.content boundingRectWithSize:CGSizeMake(KscreenWidth - 80,0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
     return  imgHeight + labHeight;
 }
 

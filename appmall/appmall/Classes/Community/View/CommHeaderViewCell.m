@@ -50,9 +50,12 @@
     self.bannerCollectionView.dataSource = self;
      [self.bannerCollectionView reloadData];
         self.labBannerNum.text = [NSString stringWithFormat:@"1/%ld",commDetail.getImgArray.count];
-    self.labComm.text = [NSString stringWithFormat:@"评论%@",model.commentnum];
-    self.labGood.text = [NSString stringWithFormat:@"点赞%@",model.praisenum];
-    self.labShare.text = [NSString stringWithFormat:@"分享%@",model.forwardnum];
+
+    [self.labComm setTitle:[NSString stringWithFormat:@"评论%@",model.commentnum] forState:0];
+    self.labGood .selected = [model.ispraise boolValue];
+    [self.labGood setTitle:[NSString stringWithFormat:@"点赞%@",model.praisenum] forState:0];
+    [self.labShare setTitle:[NSString stringWithFormat:@"分享%@",model.forwardnum] forState:0];
+    
     [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
     self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
     self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
@@ -95,5 +98,17 @@
     
 }
 
+- (IBAction)actionGood:(id)sender {
+    [self.delegate actionCommDetailGood:commDetail];
+    
+}
+
+- (IBAction)actionComm:(id)sender {
+    [self.delegate actionCommDetailComm:commDetail];
+}
+
+- (IBAction)actionShare:(id)sender {
+    [self.delegate actionCommDetailShare:commDetail];
+}
 
 @end

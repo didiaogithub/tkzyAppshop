@@ -587,7 +587,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self confirmCancelOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"查看物流"]) {
         WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
-        
+        wuliuVC.goodSnum = self.orderModel.ordersheet.count;
         wuliuVC.orderid = self.orderModel.orderId;
         [self.navigationController pushViewController:wuliuVC animated:YES];
 //        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
@@ -642,7 +642,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             
         }else{
             WBWuliuInfoVC  *wuliuVC = [[WBWuliuInfoVC alloc]init];
-//            wuliuVC.goodSnum = self.orderModel.itemlistArr.count;
+            wuliuVC.goodSnum = self.orderModel.ordersheet.count;
             wuliuVC.orderid = self.orderModel.orderId;
             [self.navigationController pushViewController:wuliuVC animated:YES];
             

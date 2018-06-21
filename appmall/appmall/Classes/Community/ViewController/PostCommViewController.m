@@ -31,6 +31,7 @@
 
     [self addChildViewController:_picturevc];
     _picturevc.view.frame =   self.viewPhotoContent.frame;
+    _picturevc.view.mj_w = KscreenWidth;
     _picturevc.view.mj_y = 0;
     [self.viewPhotoContent addSubview:_picturevc.pictureCollectonView];
     self.labCommTitle.delegate = self;
@@ -176,14 +177,21 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
    
-    self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length - string.length];
+
     if ([string isEqualToString:@""]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length];
+        });
         return YES;
     }
     if (textField.text.length + string.length > 30) {
         [self showNoticeView:@"标题不能超过30个字符"];
         return NO;
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length];
+    });
+    
     return YES;
 }
 

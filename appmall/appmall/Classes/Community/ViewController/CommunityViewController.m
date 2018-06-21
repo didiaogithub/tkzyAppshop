@@ -196,6 +196,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CommDetailViewController *detailVC = [[CommDetailViewController alloc]init];
     detailVC.hidesBottomBarWhenPushed = YES;
+    detailVC.commVC = self;
+    detailVC.index = indexPath.row;
     detailVC.notiID = model.commList[indexPath.row]._id;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
@@ -320,12 +322,12 @@
         //text是分享文本,两者只能选其一
         SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
         WXMediaMessage *message = [WXMediaMessage message];
-        message.title = commModel.title;
-        message.description = commModel.content;
+        message.title = shareModel.title;
+        message.description = shareModel.content;
         [message setThumbImage:[UIImage imageNamed:@""]];
         req.message = message;
         WXAppExtendObject *ext = [WXAppExtendObject object];
-        ext.url = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/community.html?id=%@",commModel._id];
+        ext.url = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/community.html?id=%@",shareModel._id];
         message.mediaObject = ext;
         //默认是Session分享给朋友,Timeline是朋友圈,Favorite是收藏
         req.scene = type;

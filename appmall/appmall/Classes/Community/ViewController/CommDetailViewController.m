@@ -16,7 +16,7 @@
 #define KCommHeaderViewCell @"CommHeaderViewCell"
 #define KCommPingLunViewCell @"CommPingLunViewCell"
 
-@interface CommDetailViewController ()<UITableViewDataSource,UITableViewDelegate,CommPingLunViewCellDelegate,UITextFieldDelegate>{
+@interface CommDetailViewController ()<UITableViewDataSource,UITableViewDelegate,CommPingLunViewCellDelegate,UITextFieldDelegate,CommHeaderViewCellDelegate>{
     CommPingLunListViewController *listVC;
     CommDetail *commDetail;
     
@@ -41,6 +41,8 @@
     [super viewDidLoad];
     self.topDis.constant = NaviHeight;
     self.title = @"详情";
+    
+    [CKCNotificationCenter addObserver:self selector:@selector(wxShareBack:) name:WeiXinShare_CallBack object:nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setTableView];
     [self loadData];
@@ -131,6 +133,7 @@
     if (indexPath.section == 0) {
         CommHeaderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KCommHeaderViewCell];
         [cell loadDataWithModel:commDetail];
+        cell.delegate  =self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
@@ -191,8 +194,13 @@
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
     [pramaDic setObject:self.notiID forKey:@"noteid"];
-    [pramaDic setObject:model._id forKey:@"commentid"];
-    [pramaDic setObject:@"2" forKey:@"type"];
+    if (model == nil) {
+        [pramaDic setObject:@"1" forKey:@"type"];
+    }else{
+         [pramaDic setObject:model._id forKey:@"commentid"];
+        [pramaDic setObject:@"2" forKey:@"type"];
+    }
+
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_EditPraise];
     
@@ -209,27 +217,40 @@
         if ([dic[@"code"] integerValue] != 200) {
             [self.tabCommDetail tableViewEndRefreshCurPageCount:0];
             [self.loadingView showNoticeView:dic[@"message"]];
-            
-            
             return;
         }
-        model.ispraise = [NSString stringWithFormat:@"%d", ![model.ispraise boolValue]];
-        if ([model.ispraise boolValue]) {
-            model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ];
-            [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ] forKey:@"praise"];
+        if (index != -1) {
+            model.ispraise = [NSString stringWithFormat:@"%d", ![model.ispraise boolValue]];
         }else{
-             model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue] -1 ];
-             [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]-1 ] forKey:@"praise"];
+//            commDetail.ispraise = [NSString stringWithFormat:@"%d", [commDetail.ispraise boolValue]];
         }
         
-        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:1];
-        [self.tabCommDetail reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
-        if ([model.ispraise boolValue]) {
-            [self showNoticeView:@"点赞成功"];
+        if (index == -1) {
+            if ([commDetail.ispraise boolValue] == NO) {
+                [self showNoticeView:@"点赞成功"];
+            }else{
+                [self showNoticeView:@"取消点赞"];
+            }
+            [self loadData];
         }else{
-            [self showNoticeView:@"取消点赞"];
+            if ([model.ispraise boolValue]) {
+                model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ];
+                [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]+1 ] forKey:@"praise"];
+            }else{
+                model.praisenum = [NSString stringWithFormat:@"%ld", [model.praisenum integerValue] -1 ];
+                [model setValue:[NSString stringWithFormat:@"%ld", [model.praisenum integerValue]-1 ] forKey:@"praise"];
+            }
+            NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:1];
+            [self.tabCommDetail reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+            if ([model.ispraise boolValue]) {
+                [self showNoticeView:@"点赞成功"];
+            }else{
+                [self showNoticeView:@"取消点赞"];
+            }
         }
-//        [self loadData];
+     
+     
+
         
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -321,5 +342,29 @@
         }
         
     }];
+}
+
+-(void)actionCommDetailShare:(CommDetail *)model{
+    [self.commVC comunityShare:model andIndex:self.index];
+}
+
+-(void)actionCommDetailComm:(CommDetail *)model{
+    self.commInput.returnKeyType = UIReturnKeySend;
+    [self.sadf becomeFirstResponder];
+    [self.commInput becomeFirstResponder];
+    [self.sadf resignFirstResponder];
+    self.commInput.delegate = self;
+}
+
+-(void)actionCommDetailGood:(CommDetail *)model{
+    commDetail = model;
+    [self communityViewCellGood:nil andIndex:-1];
+}
+
+-(void)wxShareBack:(NSNotification *)noti{
+    if ([noti.object integerValue] == 0) {
+        [self loadData];
+        
+    }
 }
 @end

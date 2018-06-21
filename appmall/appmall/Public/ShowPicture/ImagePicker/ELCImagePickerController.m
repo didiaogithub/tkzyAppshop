@@ -71,7 +71,7 @@
 {
     BOOL shouldSelect = previousCount < self.maximumImagesCount;
     if (!shouldSelect) {
-        NSString *message = [NSString stringWithFormat:@"最多选择 %ld 张照片！",self.maximumImagesCount];
+        NSString *message = [NSString stringWithFormat:@"最多选择3张照片！"];
         [[[UIAlertView alloc] initWithTitle:@"温馨提醒" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }
     return shouldSelect;

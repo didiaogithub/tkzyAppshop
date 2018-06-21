@@ -11,6 +11,9 @@
 @implementation SDWebImageManager (MJ)
 + (void)downloadWithURL:(NSURL *)url
 {
+    if (url == nil) {
+        return;
+    }
     // cmp不能为空
     if (url == nil) {
         return;

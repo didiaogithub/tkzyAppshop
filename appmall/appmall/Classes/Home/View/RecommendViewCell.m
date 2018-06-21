@@ -16,13 +16,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMore;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property(assign,nonatomic)NSInteger selectIndex;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewItem;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionViewItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionTopViewHeight;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutRecom;
-@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutHonnor ;
-@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMedia ;
-@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMenu ;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutHonnor;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMedia;
+@property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMenu;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMarginViewHeight;
 @property(strong,nonatomic)TKHomeDataModel  * model;
 
@@ -31,13 +31,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self getLayoutMidea];
-    [self getLayoutHonour];
-    [self getLayoutRecommend];
-    [self getLayoutMenu];
+   
 }
 
 -(void )getLayoutRecommend{
+    if (self.customLayoutRecom  != nil) {
+        return;
+    }
      self.customLayoutRecom = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutRecom.minimumLineSpacing = 0;
     self.customLayoutRecom.minimumInteritemSpacing = 0;
@@ -45,6 +45,9 @@
 }
 
 -(void )getLayoutHonour{
+    if (self.customLayoutHonnor  != nil) {
+        return;
+    }
     self.customLayoutHonnor = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutHonnor.minimumLineSpacing = 0;
     self.customLayoutHonnor.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -53,6 +56,9 @@
 }
 
 -(void )  getLayoutMenu{
+    if (self.customLayoutMenu  != nil) {
+        return;
+    }
     self.customLayoutMenu = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutMenu.minimumLineSpacing = 0;
     self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -61,10 +67,13 @@
 }
 
 -(void )getLayoutMidea{
+    if (self.customLayoutMedia  != nil) {
+        return;
+    }
     self.customLayoutMedia = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutMedia.minimumLineSpacing = 0;
     self.customLayoutMedia.minimumInteritemSpacing = 0;
-    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth ) , AdaptedHeight(221 - 50) ) ;
+    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth - 2 ) , AdaptedHeight(221 - 50) ) ;
 }
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
@@ -109,36 +118,47 @@
 }
 
 -(void)setCollection:(NSInteger )index andData:(TKHomeDataModel *)model{
+    if (model == nil) {
+        return;
+    }
     self.model = model;
     self.selectIndex = index;
-    _collectionViewItem.backgroundColor = [UIColor whiteColor];
-    _collectionViewItem.dataSource = self;
-    _collectionViewItem.delegate = self;
-    [_collectionViewItem registerNib:[UINib nibWithNibName:KRecommendCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KRecommendCollectionViewCell];
+    self.collectionViewItem.backgroundColor = [UIColor whiteColor];
+    self.collectionViewItem.dataSource = self;
+    self.collectionViewItem.delegate = self;
+    [self.collectionViewItem registerNib:[UINib nibWithNibName:KRecommendCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KRecommendCollectionViewCell];
     [self.collectionViewItem registerNib:[UINib nibWithNibName:KMenuCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KMenuCollectionViewCell];
     if(index== 1){
-        UICollectionViewLayout *itemLayout =self.customLayoutMenu;
-        [self.collectionViewItem setCollectionViewLayout:itemLayout];
+     
+        [self getLayoutMenu];
+        [self.collectionViewItem setCollectionViewLayout:self.customLayoutMenu];
         [self isShowTopView:NO];
     }else if(index == 2){
+    
+        [self getLayoutRecommend];
         self.labTitle.text = @"为你推荐";
         [self.collectionViewItem setCollectionViewLayout:self.customLayoutRecom];
         [self isShowTopView:YES];
     }else if(index == 3){
+      
+        [self getLayoutMidea];
+    
         self.labTitle.text = @"媒体报道";
-        [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];
+        @try {
+            [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];
+        } @catch (NSException *e) {
+            NSLog(@"++++++++++++++++++++++++++++=haha");
+        } @finally {
+        }
+
         [self isShowTopView:YES];
     }else if(index == 4){
+        [self getLayoutHonour];
         self.labTitle.text = @"企业荣誉";
         [self.collectionViewItem setCollectionViewLayout:self.customLayoutHonnor];
         [self isShowTopView:YES];
     }
     [self.collectionViewItem reloadData];
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
 }
 
 
@@ -157,7 +177,8 @@
         return [self getArrayCount:self.model.honorList];
         
     }
-    return 1;
+    return 0;
+    
 }
 
 -(NSInteger )getArrayCount:(NSArray *)itemArray{

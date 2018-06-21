@@ -50,20 +50,18 @@
     NSString *type;
     if (dic != nil) {
         type = dic[@"type"];
-        if ([type isEqualToString:@"1"]) {
+        if ([type isEqualToString:@"1"] ||[type isEqualToString:@"2"]) {
             if (self.isqkglPage == YES) {
                 ArrearsManagerViewController *arrearsM = [[ArrearsManagerViewController alloc]init];
                 arrearsM.selectedIndex = 3;
+                arrearsM.fromVC = @"PaySuccess";
                 [self.navigationController pushViewController:arrearsM animated:YES];
             }else{
                 SCOrderManagerViewController *orderM = [[SCOrderManagerViewController alloc]init];
                 orderM.selectedIndex = 2;
+                orderM.fromVC = @"PaySuccess";
                 [self.navigationController pushViewController:orderM animated:YES];
             }
-        }
-        
-        if ([type isEqualToString:@"2"]) {
-            
         }
         
         

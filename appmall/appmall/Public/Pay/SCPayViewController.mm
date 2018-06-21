@@ -581,10 +581,12 @@
         if (self.isqkglPage == YES) {
             ArrearsManagerViewController *arrearsM = [[ArrearsManagerViewController alloc]init];
             arrearsM.selectedIndex = 3;
+            arrearsM.fromVC = @"PaySuccess";
             [self.navigationController pushViewController:arrearsM animated:YES];
         }else{
             SCOrderManagerViewController *orderM = [[SCOrderManagerViewController alloc]init];
             orderM.selectedIndex = 2;
+            orderM.fromVC = @"PaySuccess";
             [self.navigationController pushViewController:orderM animated:YES];
         }
     }else if ([object isEqualToString:@"-1"]){

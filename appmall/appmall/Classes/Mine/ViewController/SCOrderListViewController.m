@@ -322,15 +322,21 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
         view.backgroundColor = [UIColor whiteColor];
         [bgview addSubview:view];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, 50)];
+       
         NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
         }
-        
+         UILabel *label = [[UILabel alloc]init];
         label.textColor = [UIColor tt_monthGrayColor];
         label.backgroundColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentLeft;
+        // 手续费
+//        UILabel *label1 = [[UILabel alloc]init];
+//        label1.textColor = [UIColor tt_monthGrayColor];
+//        label1.backgroundColor = [UIColor whiteColor];
+//        label1.textAlignment = NSTextAlignmentLeft;
+        
         if (iphone4) {
             label.font = CHINESE_SYSTEM(11);
         }else if (iphone5){
@@ -338,9 +344,17 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }else{
             label.font = CHINESE_SYSTEM(15);
         }
+//        if (iphone4) {
+//            label1.font = CHINESE_SYSTEM(11);
+//        }else if (iphone5){
+//            label1.font = CHINESE_SYSTEM(14);
+//        }else{
+//            label1.font = CHINESE_SYSTEM(15);
+//        }
         
 //        NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
         NSString *str = [NSString stringWithFormat:@"支付合计:¥%@", allMoney];
+      
         
         NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
         //获取要调整颜色的文字位置,调整颜色
@@ -349,7 +363,31 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor tt_redMoneyColor] range:range];
         label.attributedText = hintString;
         
+        
         [view addSubview:label];
+       
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_offset(10);
+            make.top.mas_offset(0);
+            make.height.mas_offset(50);
+        }];
+        
+//        [view addSubview:label1];
+//
+//        [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(label.mas_right);
+//            make.top.mas_offset(0);
+//            make.height.mas_offset(50);
+//        }];
+        
+//        if ([orderModel.ordertypelabel containsString:@"欠"] || [orderModel.ordertypelabel containsString:@"保"]) {
+//
+//            label1.text = [NSString stringWithFormat:@"(手续费:%@)",orderModel.service_charge];
+//        }else{
+//
+//        }
+       
+        
         return bgview;
         
     }else{
@@ -386,11 +424,11 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             
         }else{
 //            NSString *count = [NSString stringWithFormat:@"%lu",(unsigned long)orderModel.itemlistArr.count];
-            NSString *str = [NSString stringWithFormat:@"合计:¥%@", allMoney];
+            NSString *str = [NSString stringWithFormat:@"支付合计:¥%@", allMoney];
             
             NSMutableAttributedString *hintString = [[NSMutableAttributedString alloc]initWithString:str];
             //获取要调整颜色的文字位置,调整颜色
-            NSRange range1 = [[hintString string]rangeOfString:@"合计:"];
+            NSRange range1 = [[hintString string]rangeOfString:@"支付合计:"];
             NSRange range = NSMakeRange(range1.location+range1.length, hintString.length - range1.location-range1.length);
             [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor tt_redMoneyColor] range:range];
             _footerView.priceLable.attributedText = hintString;

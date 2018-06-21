@@ -16,8 +16,7 @@
 @property (nonatomic, strong) UILabel *typeLabel;
 @property (nonatomic, strong) UILabel *validDate;
 @property (nonatomic, strong) UILabel *sendReasonL;
-/**  立即使用*/
-@property (nonatomic, strong) UIButton *usecouponBtn;
+
 @property (nonatomic, strong) CKCouponModel *couponM;
 @end
 @implementation CKCouponCannotUseCell

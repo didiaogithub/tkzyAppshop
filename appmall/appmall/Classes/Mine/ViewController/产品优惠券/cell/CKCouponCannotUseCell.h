@@ -14,7 +14,8 @@
 @end
 // 未使用
 @interface CKCouponCannotUseCell : UITableViewCell
-
+/**  立即使用*/
+@property (nonatomic, strong) UIButton *usecouponBtn;
 /**  dalagate*/
 @property (nonatomic,weak)  id <CKCouponCannotUseCellDelegate>delegate;
 -(void)refreshCouponWithCouponModel:(CKCouponModel*)couponM;

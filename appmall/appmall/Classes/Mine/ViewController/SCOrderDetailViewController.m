@@ -721,7 +721,7 @@
 //        //实付款
 //        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
 //    }
-    
+    payMoney.money = orderM.money;
     payMoney.orderid = orderM.orderId;
     NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.orderNo];
     if ([orderNo hasPrefix:@"ckdlb"]) {

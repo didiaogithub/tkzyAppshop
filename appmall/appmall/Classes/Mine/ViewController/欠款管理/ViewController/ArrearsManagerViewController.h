@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ArrearsManagerViewController : BaseViewController
-
+@property (nonatomic, assign) NSInteger selectedIndex;
 @end

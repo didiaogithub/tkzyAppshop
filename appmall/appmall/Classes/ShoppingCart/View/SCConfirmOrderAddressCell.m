@@ -73,12 +73,12 @@
     _rightImageView = [[UIImageView alloc] init];
     [_bankView addSubview:_rightImageView];
     _rightImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_rightImageView setImage:[UIImage imageNamed:@"rightdirection"]];
+    [_rightImageView setImage:[UIImage imageNamed:@"确认订单箭头"]];
     
     //底边
     _bottomImageView = [[UIImageView alloc] init];
     [_bankView addSubview:_bottomImageView];
-    [_bottomImageView setImage:[UIImage imageNamed:@"separateColorLine"]];
+    [_bottomImageView setImage:[UIImage imageNamed:@"orderdetailline.png"]];
     
     
     //联系人

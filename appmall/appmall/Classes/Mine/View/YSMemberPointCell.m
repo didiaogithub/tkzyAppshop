@@ -40,7 +40,7 @@
 
 - (void)initComponents {
     _imageViwe = [UIImageView new];
-    _imageViwe.image = [UIImage imageNamed:@"defaultover"];
+    _imageViwe.image = [UIImage imageNamed:@"我的订单页面产品图"];
     _imageViwe.layer.cornerRadius = 30;
     _imageViwe.layer.masksToBounds = YES;
     [self.contentView addSubview:_imageViwe];
@@ -104,7 +104,7 @@
     NSString *path = [NSString stringWithFormat:@"%@", integraModel.path];
     if (!IsNilOrNull(path)) {
         
-        [_imageViwe sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+        [_imageViwe sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         _imageViwe.hidden = NO;
         [_imageViwe mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top).offset(10);

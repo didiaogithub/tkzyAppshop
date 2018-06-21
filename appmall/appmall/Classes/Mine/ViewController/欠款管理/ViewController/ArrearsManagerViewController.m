@@ -46,7 +46,8 @@
     _style.normalTitleColor = TitleColor;
     _style.selectedTitleColor = [UIColor tt_redMoneyColor];
     _style.scrollLineColor = [UIColor tt_redMoneyColor];
-    _style.scrollLineHeight = 1.5;
+    _style.scrollLineHeight = 2;
+    _style.segmentHeight = 43;
     
     //显示滚动条
     _style.showLine = YES;
@@ -58,7 +59,12 @@
     _scrollPageView = [[ZJScrollPageView alloc] initWithFrame:CGRectMake(0, 65+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT - 65-NaviAddHeight-BOTTOM_BAR_HEIGHT) segmentStyle:_style titles:list parentViewController:self delegate:self];
     [_scrollPageView setBackgroundColor:[UIColor tt_grayBgColor]];
     
-    [_scrollPageView setSelectedIndex:0 animated:YES];
+    if (self.selectedIndex != nil) {
+       [_scrollPageView setSelectedIndex:self.selectedIndex animated:YES];
+    }else{
+        [_scrollPageView setSelectedIndex:0 animated:YES];
+    }
+    
     
     [self.view addSubview:_scrollPageView];
 }
@@ -119,7 +125,7 @@
 //    _segHead.fontSize = 16;
 //    _segHead.lineScale = .5;
 //    _segHead.lineColor = [UIColor tt_redMoneyColor];
-//    _segHead.lineHeight = 1;
+//    _segHead.lineHeight = 2;
 //    _segHead.equalSize = YES;
 //    _segHead.bottomLineHeight = 1;
 //    _segHead.bottomLineColor = [UIColor clearColor];

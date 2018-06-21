@@ -89,7 +89,7 @@
     if (![imageStr hasPrefix:@"http"]) {
         imageStr = [BaseImagestr_Url stringByAppendingString:imageStr];
     }
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
     NSString *name = [NSString stringWithFormat:@"%@",model.name];
     if (IsNilOrNull(name)) {
         name = @"";

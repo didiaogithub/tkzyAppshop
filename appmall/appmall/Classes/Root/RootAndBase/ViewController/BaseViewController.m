@@ -23,6 +23,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getReaml];
     [self createBaseUI];
     [self createShoppingBaseUI];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
@@ -148,10 +149,10 @@
  isTJXHX:(BOOL)isTJXHX{
     
     HyperlinksButton *button = [HyperlinksButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 60, 40);
+    button.frame = CGRectMake(0, 0, 80, 40);
     [button setTitle:btnName forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitleColor:titleColor forState:UIControlStateNormal];
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     if (isTJXHX == YES) {
@@ -160,7 +161,7 @@
        [button setColor:[UIColor clearColor]];
     }
     
-    negativeSpacer.width = -17;
+    negativeSpacer.width = -5;
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
     self.navigationItem.rightBarButtonItems = @[negativeSpacer,right];
     

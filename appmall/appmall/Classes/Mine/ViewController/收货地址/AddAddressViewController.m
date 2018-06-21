@@ -192,7 +192,7 @@
 
 -(void)createOtherViews{
     
-    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(240))];
+    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(240 + 40))];
     [_bankView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_bankView];
     float h = 0;

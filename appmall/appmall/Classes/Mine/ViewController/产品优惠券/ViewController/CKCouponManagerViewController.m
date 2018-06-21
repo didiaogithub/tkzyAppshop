@@ -41,7 +41,7 @@
     _segHead.fontSize = 16;
     _segHead.lineScale = .3;
     _segHead.lineColor = [UIColor tt_redMoneyColor];
-    _segHead.lineHeight = 1;
+    _segHead.lineHeight = 2;
     _segHead.equalSize = YES;
     _segHead.bottomLineHeight = 1;
     _segHead.bottomLineColor = [UIColor clearColor];

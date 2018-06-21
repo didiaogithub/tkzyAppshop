@@ -132,7 +132,7 @@
         imageString = [BaseImagestr_Url stringByAppendingString:imageString];
     }
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIImage imageNamed:@"defaultover"]];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
     
     NSString *name = [NSString stringWithFormat:@"%@",detailModel.name];
     if (IsNilOrNull(name)) {

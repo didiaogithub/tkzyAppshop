@@ -648,6 +648,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //        //实付款
 //        payMoney.money = [NSString stringWithFormat:@"%@", orderM.money];
 //    }
+    payMoney.money = orderM.orderpaymoney;
     payMoney.orderid = orderM.orderId;
     NSString *orderNo = [NSString stringWithFormat:@"%@", orderM.orderno];
     if ([orderNo hasPrefix:@"ckdlb"]) {

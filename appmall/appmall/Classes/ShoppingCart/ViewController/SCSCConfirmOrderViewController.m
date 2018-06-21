@@ -47,8 +47,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"订单确认";
     
+    self.navigationItem.title = @"订单确认";
     [self createTableView];
     [self refreshAllPayMoney];
     
@@ -251,6 +251,8 @@
     ordermoney = totalMoney;
     if ([ordermoney containsString:@"合计:¥"]) {
         ordermoney = [ordermoney substringFromIndex:4];
+    }else{
+      ordermoney =  [ordermoney componentsSeparatedByString:@"¥"].lastObject;
     }
     [pramaDic setObject:ordermoney forKey:@"ordermoney"];
     [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
@@ -314,6 +316,7 @@
 /**点击立即购买 跳转按钮*/
 -(void)moneyCountViewButtonClicked{
     
+   
     if (IsNilOrNull(self.addressModel.addressid)) {
         [self showNoticeView:@"请添加收货地址"];
         self.moneyCountView.nowToBuyButton.enabled = YES;
@@ -445,6 +448,7 @@
 }
 
 - (void)prepareSubmitOrder{
+    
     NSString *addressId = nil;
     
     NSString *defaultAddressId = [NSString stringWithFormat:@"%@",self.addressModel.addressid];
@@ -478,6 +482,7 @@
 #pragma mark - 选择好可以支付的商品 先生成订单  再去支付
 -(void)canPayGoodsRequestWithUrl:(NSString *)orderUrl pramaDic:(NSDictionary *)pramaDic{
     
+    
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     self.moneyCountView.nowToBuyButton.enabled = NO;
@@ -500,22 +505,28 @@
             self.oidStr = @"";
         }
         
-        RLMResults *result = [GoodModel allObjects];
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        if (result.count > 0) {
-            [realm beginWriteTransaction];
-            [realm deleteObjects:result];
-            [realm commitWriteTransaction];
-        }
+//        RLMResults *result = [GoodModel allObjects];
+//        if (result.count > 0) {
+//            [self.realm beginWriteTransaction];
+//            [self.realm deleteObjects:result];
+//            [self.realm commitWriteTransaction];
+//        }
         
-        [self updateShoppingCarData];  //更新购物车
+       
+//        [self deleteShoppingCarData];  // 删除购物车
+        
         [KUserdefaults setObject:@"ConfirmOrderRefreshShoppingCar" forKey:@"CKYS_RefreshCar"];
-        
         [[SCCouponTools shareInstance] deleteUsedCoupon:self.coupontId];
         
         SCPayViewController *payMoney = [[SCPayViewController alloc] init];
         payMoney.payfeeStr = [self.moneyCountView.allMoneyLable.text componentsSeparatedByString:@"¥"].lastObject;
         payMoney.orderid = self.oidStr;
+        if ([self.allMoneyString containsString:@"合计:¥"]) {
+            self.allMoneyString = [self.allMoneyString substringFromIndex:4];
+        }else{
+         self.allMoneyString =  [self.allMoneyString componentsSeparatedByString:@"¥"].lastObject;
+        }
+        payMoney.money = self.allMoneyString;
         payMoney.enterType = @"shoppingCar";
         [self.navigationController pushViewController:payMoney animated:YES];
         
@@ -532,22 +543,61 @@
     }];
 }
 
--(void)updateShoppingCarData {
-    
-    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
-//    [self.shoppingCarDataArray removeAllObjects];
-    
-    NSMutableArray *cartlist = [NSMutableArray array];
+- (void)deleteShoppingCarData{
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     for (GoodModel *goodsM in results) {
+        if (goodsM.isSelect == YES) {
+           [pramaDic setObject:goodsM.itemid forKey:@"items"];
+        }
+   }
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI, DelShoppingCarUrl];
+    
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] !=  200) {
+            [self.loadingView stopAnimation];
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return ;
+        }
+//        [self updateShoppingCarData];  //更新购物车
+        [self.loadingView showNoticeView:@"操作成功"];
+        //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
+        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+        [self.loadingView stopAnimation];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self.loadingView showNoticeView:NetWorkNotReachable];
+        }else{
+            [self.loadingView showNoticeView:NetWorkTimeout];
+        }
+    }];
+
+}
+-(void)updateShoppingCarData {
+    
+//    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
+    RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
+//     RLMResults *results = [GoodModel allObjects];
+    NSMutableArray *cartlist = [NSMutableArray array];
+    
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    for (GoodModel *goodsM in results) {
         
-        NSString *status = @"0";
+        NSString *status = @"1";
+        
         if (goodsM.isSelect == YES) {
             status = @"1";
         }
-        NSDictionary *dic = @{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status};
+        dic = [NSMutableDictionary dictionaryWithDictionary:@{@"itemid":goodsM.itemid, @"num":goodsM.num, @"chose":status}];
         [cartlist addObject:dic];
+        
     }
     if (cartlist.count == 0) {
         return;

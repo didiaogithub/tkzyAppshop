@@ -32,7 +32,7 @@
     self.dataArray = [NSMutableArray array];
     _page = 1;
     [self initComponments];
-    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
     [self loadNewData];
     self.isMyspon = NO;
 }
@@ -43,7 +43,7 @@
 }
 
 - (NSString *)xy_noDataViewMessage{
-    NSString *str = @"暂无此类欠款哦";
+    NSString *str = @"还无此类欠款哦";
     return str;
 }
 
@@ -68,7 +68,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0,0, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 45 - 10) style:UITableViewStyleGrouped];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0,10, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 45 - 10) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -212,7 +212,7 @@
     NSString *str = model.statusLabel;
     if ([str isEqualToString:@"待还款"]) {
         view.leftBtn.hidden = YES;
-        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:13];
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
@@ -221,7 +221,7 @@
         if (self.isMyspon == YES) {
             view.leftBtn.hidden = YES;
             view.rightBtn.hidden = YES;
-            view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+            view.orderTotal.keyWordFont = [UIFont systemFontOfSize:13];
             view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
             view.orderTotal.keyWord = @"合计：";
             view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
@@ -244,7 +244,7 @@
             view.rwitdh.constant = - 70;
         }
         
-        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:13];
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
@@ -252,7 +252,7 @@
     }else{
         view.leftBtn.hidden = YES;
         view.rightBtn.hidden = YES;
-        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:14];
+        view.orderTotal.keyWordFont = [UIFont systemFontOfSize:13];
         view.orderTotal.text = [NSString stringWithFormat:@"合计：¥%.2f",[model.ordermoney floatValue]];
         view.orderTotal.keyWord = @"合计：";
         view.orderTotal.keyWordColor = [UIColor tt_bodyTitleColor];
@@ -303,7 +303,8 @@
     arrearsModel  * model = self.dataArray[sender.tag];
     payMoney.payfeeStr = [NSString stringWithFormat:@"%@", model.ordermoney];
     payMoney.isqkglPage = YES;
-    
+    payMoney.money = model.ordermoney;
+    payMoney.orderid = model.orderid;
     //    payMoney.orderid = orderM.orderId;
     //    NSString *orderNo = [NSString stringWithFormat:@"%@", model.orderno];
     //    if ([orderNo hasPrefix:@"ckdlb"]) {

@@ -220,7 +220,8 @@
 //            [self.shoppingCarTableView reloadData];
 //            _editBtn.enabled = NO;
 //        }
-        _bottomView.realPayMoneyLable.text = @"合计:￥0.00";
+        _bottomView.realPayMoneyLable.text = @"￥0.00";
+        _bottomView.textLable.text = @"";
         _bottomView.allSelectedButton.selected = NO;
        
         [self loadCacheData];
@@ -309,7 +310,7 @@
     _editBtn.titleLabel.font=[UIFont systemFontOfSize:15.0f];
     _editBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
-    [_editBtn setTitleColor:TitleColor forState:UIControlStateNormal];
+    [_editBtn setTitleColor:[UIColor colorWithHexString:@"#666666"] forState:UIControlStateNormal];
     [_editBtn setTitle:@"完成" forState:UIControlStateSelected];
     [_editBtn setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateSelected];
     
@@ -334,10 +335,14 @@
     button.selected = !button.selected;
     if (button.selected){
         _bottomView.realPayMoneyLable.hidden = YES;
+        _bottomView.textLable.hidden = YES;
+        _bottomView.LabTotal.hidden = YES;
         _bottomView.deleteButton.hidden = NO;
         _bottomView.collectedButton.hidden = NO;
     }else{
         _bottomView.realPayMoneyLable.hidden = NO;
+        _bottomView.textLable.hidden = NO;
+        _bottomView.LabTotal.hidden = NO;
         _bottomView.deleteButton.hidden = YES;
         _bottomView.collectedButton.hidden = YES;
     }
@@ -402,6 +407,8 @@
                 [self.selectedRowArr addObject:indexStr];
             }
             
+           
+            
             num = SNAdd(SNMul(@(count), pricestr), num);
             NSLog(@"pricestr:%@*count:%ld =totalMoney:%@", pricestr, (long)count, num);
             result = [NSString stringWithFormat:@"%@",num];
@@ -419,7 +426,9 @@
         result = @"0.00";
     }
     double total = [result doubleValue];
-    _bottomView.realPayMoneyLable.text = [NSString stringWithFormat:@"合计:¥%.2f", total];
+    _bottomView.realPayMoneyLable.text = [NSString stringWithFormat:@"¥%.2f", total];
+     _bottomView.textLable.text = [NSString stringWithFormat:@"全选(%lu)",(unsigned long)self.selectedRowArr.count];
+    
 }
 
 #pragma mark-点击cell事件
@@ -471,10 +480,10 @@
         for (int i =0; i<self.shoppingCarDataArray.count; i++) {
             
             _goodModel = [self.shoppingCarDataArray objectAtIndex:i];
-            
+        
             GoodModel *classM = [[GoodModel alloc] init];
             classM.itemid = _goodModel.itemid;
-            
+    
             classM.price = _goodModel.price;
             classM.num = _goodModel.num;
             classM.spec = _goodModel.spec;
@@ -508,6 +517,8 @@
                 [self.selectedArray addObject:_goodModel];
             }
         }
+        
+        
         if (![self.selectedArray count]) {
             [self.loadingView showNoticeView:@"请先选择商品"];
             return;
@@ -534,10 +545,10 @@
 //    RLMResults *results = [[CacheData shareInstance] search:[GoodModel class]];
     RLMResults *results = [GoodModel allObjectsInRealm:self.realm];
     NSMutableArray *cartlist = [NSMutableArray array];
-    
+
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     for (GoodModel *goodsM in results) {
-        
+
         NSString *status = @"0";
         if (goodsM.isSelect == YES) {
             status = @"1";
@@ -551,26 +562,26 @@
     NSString *itemsStr = [cartlist mj_JSONString];
     [pramaDic setObject:itemsStr forKey:@"items"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateShoppingCarInfoUrl];
-    
+
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
-//    
-//    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
-//        [self.loadingView stopAnimation];
-//        NSDictionary *dic = json;
-//        if ([dic[@"code"] integerValue] !=  200) {
-//            [self.loadingView showNoticeView:dic[@"message"]];
-//            return ;
-//        }
+
+    [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dic = json;
+        if ([dic[@"code"] integerValue] !=  200) {
+            [self.loadingView showNoticeView:dic[@"message"]];
+            return ;
+        }
         SCSCConfirmOrderViewController *sureMySelf = [[SCSCConfirmOrderViewController alloc]init];
         sureMySelf.goodOrderModel = _goodModel;
         sureMySelf.allMoneyString = _bottomView.realPayMoneyLable.text;
         sureMySelf.dataArray = self.selectedArray;        
         [self.navigationController pushViewController:sureMySelf animated:YES];
-//    } failure:^(NSError *error) {
-//        [self.loadingView stopAnimation];
-//        NSLog(@"%@", error);
-//    }];
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        NSLog(@"%@", error);
+    }];
 }
 
 -(void)subuttonClicked {

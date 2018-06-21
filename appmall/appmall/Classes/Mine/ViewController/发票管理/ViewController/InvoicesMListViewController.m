@@ -113,7 +113,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + AdaptedHeight(127) + 45 + 10)) style:UITableViewStyleGrouped];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT - (64 + 140 + 45 + 10)) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];
@@ -165,7 +165,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,46)];
+    InvoicesManCellFooterView *view = [[InvoicesManCellFooterView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,56)];
     InvoicesManagerModel *model = self.dataArray[section];
     view.rightBtn.layer.masksToBounds = YES;
     view.rightBtn.layer.cornerRadius = 3;

@@ -29,12 +29,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEW-OD-Ugo">
-                        <rect key="frame" x="103" y="18" width="217" height="21"/>
+                        <rect key="frame" x="113" y="18" width="207" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="dc6-Hc-b9u"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -42,7 +42,7 @@
                     <constraint firstItem="0MI-nA-xdR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6Hw-Ue-Q9J"/>
                     <constraint firstItem="YEW-OD-Ugo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6k0-MN-4S7"/>
                     <constraint firstAttribute="trailing" secondItem="YEW-OD-Ugo" secondAttribute="trailing" id="Ymz-Ql-6iM"/>
-                    <constraint firstItem="YEW-OD-Ugo" firstAttribute="leading" secondItem="0MI-nA-xdR" secondAttribute="trailing" constant="8" id="c2n-4K-ioA"/>
+                    <constraint firstItem="YEW-OD-Ugo" firstAttribute="leading" secondItem="0MI-nA-xdR" secondAttribute="trailing" constant="18" id="c2n-4K-ioA"/>
                     <constraint firstItem="0MI-nA-xdR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vVV-76-bzt"/>
                 </constraints>
             </tableViewCellContentView>

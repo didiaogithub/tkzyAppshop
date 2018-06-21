@@ -240,7 +240,7 @@
 #define AdUrl @"Wxmall/Index/getAdvertisementItem"
 
 /**微信*/
-#define payForJoinByWX_Url @"pay/appmall_pay/weixin/example/app.php"
+#define payForJoinByWX_Url @"wxpay/getPayInfo"
 /**支付宝*/
 #define payForJoinByAli_Url @"pay/appmall_pay/alipay/app.php"
 /**银联支付~*/

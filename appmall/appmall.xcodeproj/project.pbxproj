@@ -486,6 +486,10 @@
 		F2C1E7A220C133F300ECCFFE /* expireCoupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79620C133F300ECCFFE /* expireCoupon@2x.png */; };
 		F2C1E7A320C133F300ECCFFE /* expireCoupon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */; };
 		F2C1E7A420C133F300ECCFFE /* CKCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */; };
+		F2E5522020D9FDB5005A5A52 /* BankManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5521E20D9FDB5005A5A52 /* BankManagerViewController.m */; };
+		F2E5522120D9FDB5005A5A52 /* BankManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E5521F20D9FDB5005A5A52 /* BankManagerViewController.xib */; };
+		F2E5522920DA1F8B005A5A52 /* ZJPayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */; };
+		F2E5522A20DA1F8B005A5A52 /* ZJPayWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */; };
 		F2F0E43720B6B63B007775B1 /* AmortizationLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */; };
 		F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */; };
 		F2F0E44320B6D5C0007775B1 /* AmortizationLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E44120B6D5C0007775B1 /* AmortizationLoanCell.m */; };
@@ -1375,6 +1379,12 @@
 		F2C1E79720C133F300ECCFFE /* expireCoupon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expireCoupon@3x.png"; sourceTree = "<group>"; };
 		F2C1E79920C133F300ECCFFE /* CKCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCouponModel.h; sourceTree = "<group>"; };
 		F2C1E79A20C133F300ECCFFE /* CKCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCouponModel.m; sourceTree = "<group>"; };
+		F2E5521D20D9FDB5005A5A52 /* BankManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankManagerViewController.h; sourceTree = "<group>"; };
+		F2E5521E20D9FDB5005A5A52 /* BankManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankManagerViewController.m; sourceTree = "<group>"; };
+		F2E5521F20D9FDB5005A5A52 /* BankManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankManagerViewController.xib; sourceTree = "<group>"; };
+		F2E5522620DA1F8B005A5A52 /* ZJPayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPayWebViewController.h; sourceTree = "<group>"; };
+		F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPayWebViewController.m; sourceTree = "<group>"; };
+		F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJPayWebViewController.xib; sourceTree = "<group>"; };
 		F2F0E43420B6B63B007775B1 /* AmortizationLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmortizationLoanViewController.h; sourceTree = "<group>"; };
 		F2F0E43520B6B63B007775B1 /* AmortizationLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmortizationLoanViewController.m; sourceTree = "<group>"; };
 		F2F0E43620B6B63B007775B1 /* AmortizationLoanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmortizationLoanViewController.xib; sourceTree = "<group>"; };
@@ -1793,6 +1803,9 @@
 				2D0723D02082FB6F0030996F /* Model */,
 				2D0723CD2082FB560030996F /* ViewController */,
 				F20039C52089A10600499D39 /* mine.xcassets */,
+				F2E5522620DA1F8B005A5A52 /* ZJPayWebViewController.h */,
+				F2E5522720DA1F8B005A5A52 /* ZJPayWebViewController.m */,
+				F2E5522820DA1F8B005A5A52 /* ZJPayWebViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1800,6 +1813,7 @@
 		2D0723CD2082FB560030996F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F2E5521920D9FD57005A5A52 /* 银行卡管理 */,
 				F2C1E78C20C133F300ECCFFE /* 产品优惠券 */,
 				F293ABDE20B4122C00722FE3 /* 收货地址 */,
 				F20C4D5A208CCE4F0086282A /* 发票管理 */,
@@ -2994,6 +3008,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		F2E5521920D9FD57005A5A52 /* 银行卡管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F2E5521D20D9FDB5005A5A52 /* BankManagerViewController.h */,
+				F2E5521E20D9FDB5005A5A52 /* BankManagerViewController.m */,
+				F2E5521F20D9FDB5005A5A52 /* BankManagerViewController.xib */,
+			);
+			path = "银行卡管理";
+			sourceTree = "<group>";
+		};
 		F2F0E43D20B6D56B007775B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3339,6 +3363,7 @@
 				F2F0E43820B6B63B007775B1 /* AmortizationLoanViewController.xib in Resources */,
 				F241F6FF20D910A8001EC42B /* OpenInvoicesViewController.xib in Resources */,
 				2D808E5C20BA5702002FADA8 /* README.txt in Resources */,
+				F2E5522120D9FDB5005A5A52 /* BankManagerViewController.xib in Resources */,
 				2D6F9267208F4CB3007DFD0B /* TeacherListVC.xib in Resources */,
 				2D0726A3208332360030996F /* RecommendViewCell.xib in Resources */,
 				F23E654120B6632E00EB6720 /* OpenInvoicesCell.xib in Resources */,
@@ -3358,6 +3383,7 @@
 				2DA0C35820B867810031AC47 /* radio_btn_offTwo.png in Resources */,
 				2D20DD9F20860F9F00095032 /* images.xcassets in Resources */,
 				2D808E8420BC2C18002FADA8 /* ODGoodsTableViewCell.xib in Resources */,
+				F2E5522A20DA1F8B005A5A52 /* ZJPayWebViewController.xib in Resources */,
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
@@ -3695,6 +3721,7 @@
 				F241F6D020D8A092001EC42B /* MLMSegmentScroll.m in Sources */,
 				2D20DFD220898A3700095032 /* SCMineTableViewCell.m in Sources */,
 				2D20DE8A2086367C00095032 /* CommonLoginViewController.m in Sources */,
+				F2E5522020D9FDB5005A5A52 /* BankManagerViewController.m in Sources */,
 				2DA0C39620B942F60031AC47 /* GoodDetailModel.m in Sources */,
 				F23F1A6020B7ED7600F01D01 /* AmortizationLoan.m in Sources */,
 				F2C1E78520C1335D00ECCFFE /* ArrearsFooterView.m in Sources */,
@@ -3725,6 +3752,7 @@
 				2D20DE122086149300095032 /* SCCommon.m in Sources */,
 				F23E656620B6911200EB6720 /* LeftLabelRightTextFieldView.m in Sources */,
 				2D20DFED20898B4000095032 /* SCCollectBottomView.m in Sources */,
+				F2E5522920DA1F8B005A5A52 /* ZJPayWebViewController.m in Sources */,
 				2D20DF392088D0D200095032 /* SCCommentListCell.m in Sources */,
 				2D20DE052086147300095032 /* NodataLableView.m in Sources */,
 				2D165FF9209D9A0500C1C7E7 /* HonorListModel.m in Sources */,
@@ -4058,8 +4086,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "033d9449-77f5-4dfd-b8bc-dbb6959b2e55";
-				PROVISIONING_PROFILE_SPECIFIER = appstoreydappmall;
+				PROVISIONING_PROFILE = "a4620178-6811-4a84-aabd-b24ea2e0fd20";
+				PROVISIONING_PROFILE_SPECIFIER = adhocydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

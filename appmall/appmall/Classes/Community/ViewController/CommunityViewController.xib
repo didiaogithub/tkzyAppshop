@@ -36,7 +36,7 @@
                 <constraint firstItem="1C1-Yd-OKk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qVJ-bV-Fvg"/>
                 <constraint firstAttribute="bottom" secondItem="1C1-Yd-OKk" secondAttribute="bottom" constant="49" id="tA1-4A-aeX"/>
             </constraints>
-            <point key="canvasLocation" x="133.5" y="53.5"/>
+            <point key="canvasLocation" x="462" y="400"/>
         </view>
         <view contentMode="scaleToFill" id="lcf-iy-6jW">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -122,7 +122,7 @@
                 <constraint firstAttribute="trailing" secondItem="Tti-u4-1Px" secondAttribute="trailing" id="oR1-nR-7aB"/>
                 <constraint firstAttribute="bottom" secondItem="v65-M4-Xhx" secondAttribute="bottom" constant="20" id="xHG-ja-ejU"/>
             </constraints>
-            <point key="canvasLocation" x="27" y="584"/>
+            <point key="canvasLocation" x="-37" y="400"/>
         </view>
     </objects>
     <resources>

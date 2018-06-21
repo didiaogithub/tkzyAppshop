@@ -164,7 +164,11 @@
 {
     if (buttonIndex == 0) {
         NSLog(@"点击了从手机选择");
-        
+        if (self.itemsSectionPictureArray.count >= 3) {
+            NSString *message = [NSString stringWithFormat:@"最多选择3张照片！"];
+            [[[UIAlertView alloc] initWithTitle:@"温馨提醒" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+            return;
+        }
         ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
         elcPicker.maximumImagesCount = 3 - self.itemsSectionPictureArray.count;
         elcPicker.returnsOriginalImage = YES;
@@ -178,7 +182,11 @@
     }else if (buttonIndex == 1)
     {
         NSLog(@"点击了拍照");
-        
+        if (self.itemsSectionPictureArray.count >= 3) {
+            NSString *message = [NSString stringWithFormat:@"最多选择3张照片！"];
+            [[[UIAlertView alloc] initWithTitle:@"温馨提醒" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+            return;
+        }
         UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
         if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];

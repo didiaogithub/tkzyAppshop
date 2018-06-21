@@ -7,8 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "CommunityViewController.h"
 
 @interface CommDetailViewController : BaseViewController
+@property(nonatomic,weak)CommunityViewController *commVC;
+@property(nonatomic,assign)NSInteger index;
 @property(nonatomic,strong)NSString *notiID;
 @property(nonatomic,strong)NSString *headerUrl;
 @end

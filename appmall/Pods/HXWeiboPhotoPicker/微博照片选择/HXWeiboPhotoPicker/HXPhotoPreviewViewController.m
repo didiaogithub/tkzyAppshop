@@ -51,7 +51,7 @@
 - (UINavigationBar *)navBar {
     if (!_navBar) {
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, 64)];
+        _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20, width, 64)];
         [self.view addSubview:_navBar];
         [_navBar pushNavigationItem:self.navItem animated:NO];
         _navBar.tintColor = self.manager.UIManager.navLeftBtnTitleColor;
@@ -70,6 +70,7 @@
         _navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle hx_localizedStringForKey:@"取消"] style:UIBarButtonItemStylePlain target:self action:@selector(dismissClick)];
         _navItem.titleView = self.titleLb;
     }
+    
     return _navItem;
 }
 - (void)setup {
@@ -139,15 +140,19 @@
 - (void)setupNavRightBtn {
     if (self.manager.selectedList.count > 0) {
         self.navItem.rightBarButtonItem.enabled = YES;
+        [self.rightBtn removeTarget:self  action:@selector(dismissClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.rightBtn addTarget:self action:@selector(didNextClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.rightBtn setTitle:[NSString stringWithFormat:@"%@(%ld)",[NSBundle hx_localizedStringForKey:@"下一步"],self.manager.selectedList.count] forState:UIControlStateNormal];
         [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
         self.rightBtn.layer.borderWidth = 0;
         CGFloat rightBtnH = self.rightBtn.frame.size.height;
         CGFloat rightBtnW = [HXPhotoTools getTextWidth:self.rightBtn.currentTitle height:rightBtnH fontSize:14];
-        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW + 20, rightBtnH);
+        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW, rightBtnH);
     }else {
-        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"取消"] forState:UIControlStateNormal];
         [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
+        [self.rightBtn removeTarget:self  action:@selector(didNextClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.rightBtn addTarget:self action:@selector(dismissClick) forControlEvents:UIControlEventTouchUpInside];
         self.rightBtn.frame = CGRectMake(0, 0, 60, 25);
         self.rightBtn.layer.borderWidth = 0;
     }
@@ -405,22 +410,27 @@
     model.selected = button.selected;
     
     if (self.manager.selectedList.count > 0) {
+        [self.rightBtn removeTarget:self  action:@selector(dismissClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.rightBtn addTarget:self action:@selector(didNextClick:) forControlEvents:UIControlEventTouchUpInside];
         self.navItem.rightBarButtonItem.enabled = YES;
         [self.rightBtn setTitle:[NSString stringWithFormat:@"%@(%ld)",[NSBundle hx_localizedStringForKey:@"下一步"],self.manager.selectedList.count] forState:UIControlStateNormal];
         [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
         self.rightBtn.layer.borderWidth = 0;
         CGFloat rightBtnH = self.rightBtn.frame.size.height;
         CGFloat rightBtnW = [HXPhotoTools getTextWidth:self.rightBtn.currentTitle height:rightBtnH fontSize:14];
-        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW + 20, rightBtnH);
+        self.rightBtn.frame = CGRectMake(0, 0, rightBtnW, rightBtnH);
+        if ([self.delegate respondsToSelector:@selector(didSelectedClick:AddOrDelete:)]) {
+            [self.delegate didSelectedClick:model AddOrDelete:button.selected];
+        }
     }else {
-        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        [self.rightBtn setTitle:[NSBundle hx_localizedStringForKey:@"取消"] forState:UIControlStateNormal];
         [self.rightBtn setBackgroundColor:self.manager.UIManager.navRightBtnNormalBgColor];
         self.rightBtn.frame = CGRectMake(0, 0, 60, 25);
         self.rightBtn.layer.borderWidth = 0;
+        [self.rightBtn removeTarget:self  action:@selector(didNextClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.rightBtn addTarget:self action:@selector(dismissClick) forControlEvents:UIControlEventTouchUpInside];
     }
-    if ([self.delegate respondsToSelector:@selector(didSelectedClick:AddOrDelete:)]) {
-        [self.delegate didSelectedClick:model AddOrDelete:button.selected];
-    }
+  
 }
 
 - (UIButton *)rightBtn {

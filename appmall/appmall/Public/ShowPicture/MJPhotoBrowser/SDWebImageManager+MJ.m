@@ -12,6 +12,9 @@
 + (void)downloadWithURL:(NSURL *)url
 {
     // cmp不能为空
+    if (url == nil) {
+        return;
+    }
     [[self sharedManager]downloadImageWithURL:url options:SDWebImageLowPriority|SDWebImageRetryFailed progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
         
     }];

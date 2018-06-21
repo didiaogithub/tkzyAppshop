@@ -94,6 +94,15 @@
 
 }
 
+-(BOOL)navigationShouldPopOnBackButton {
+    if ([self.fromVC isEqualToString:@"PaySuccess"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return NO;
+    }
+    return YES;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -113,6 +113,16 @@
     return childVc;
 }
 
+
+-(BOOL)navigationShouldPopOnBackButton {
+    if ([self.fromVC isEqualToString:@"PaySuccess"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return NO;
+    }
+    return YES;
+}
+
+
 #pragma mark - 居中下划线
 //- (void)segmentStyle5 {
 //

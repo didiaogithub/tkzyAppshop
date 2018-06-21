@@ -10,4 +10,5 @@
 
 @interface SCOrderManagerViewController : BaseViewController
 @property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, copy)   NSString *fromVC;
 @end

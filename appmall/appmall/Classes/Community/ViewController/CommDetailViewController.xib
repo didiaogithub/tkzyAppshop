@@ -95,7 +95,7 @@
                 <constraint firstItem="kbH-GO-dEj" firstAttribute="centerY" secondItem="xRZ-Ug-rLN" secondAttribute="centerY" id="wVf-qn-O5e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-357.5" y="856"/>
+            <point key="canvasLocation" x="-369" y="781"/>
         </view>
     </objects>
 </document>

@@ -180,7 +180,8 @@
 
     if ([string isEqualToString:@""]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length];
+            NSInteger wordNum= 30 -textField.text.length <0?0:30 -textField.text.length;
+            self.labWordNum.text= [NSString stringWithFormat:@"%ld",wordNum];
         });
         return YES;
     }
@@ -189,7 +190,8 @@
         return NO;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.labWordNum.text= [NSString stringWithFormat:@"%ld", 30 -textField.text.length];
+        NSInteger wordNum= 30 -textField.text.length <0?0:30 -textField.text.length;
+        self.labWordNum.text= [NSString stringWithFormat:@"%ld", wordNum];
     });
     
     return YES;

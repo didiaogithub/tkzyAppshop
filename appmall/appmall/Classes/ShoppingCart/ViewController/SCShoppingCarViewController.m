@@ -72,6 +72,21 @@
         [self getshoppingCarData];
     }
     
+    if (self.selectedArray.count == self.shoppingCarDataArray.count) {
+        _bottomView.allSelectedButton.selected = YES;
+    }
+    
+//    for (GoodModel *model in self.shoppingCarDataArray) {
+//        if (model.isSelect == 1) {
+////           _bottomView.allSelectedButton.selected = YES;
+//            [self bottomViewButtonClicked:_bottomView.allSelectedButton];
+//        }else{
+//           _bottomView.allSelectedButton.selected = NO;
+//            break;
+//        }
+//    }
+    
+    
     NSString *changedShoppingCar = [[NSUserDefaults standardUserDefaults] objectForKey:@"SCChangedShopingCar"];
     if ([changedShoppingCar isEqualToString:@"AddToShoppingCarSuccess"]) {
         [self getshoppingCarData];
@@ -373,6 +388,7 @@
     if ([self.shoppingCarDataArray count]) {
         _goodModel = [self.shoppingCarDataArray objectAtIndex:indexPath.row];
         [cell setModel:_goodModel];
+        
     }
     
     __weak typeof(self) weakSelf = self;
@@ -408,7 +424,6 @@
             }
             
            
-            
             num = SNAdd(SNMul(@(count), pricestr), num);
             NSLog(@"pricestr:%@*count:%ld =totalMoney:%@", pricestr, (long)count, num);
             result = [NSString stringWithFormat:@"%@",num];

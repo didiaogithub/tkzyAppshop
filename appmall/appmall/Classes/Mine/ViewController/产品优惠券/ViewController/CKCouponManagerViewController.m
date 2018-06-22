@@ -36,7 +36,7 @@
     _layout = MLMSegmentLayoutDefault;
     self.automaticallyAdjustsScrollViewInsets = NO;
     _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH , 43) titles:list headStyle:_style layoutStyle:_layout];
-    _segHead.headColor = [UIColor whiteColor];
+//    _segHead.headColor = [UIColor whiteColor];
     _segHead.fontScale = 1.0;
     _segHead.fontSize = 16;
     _segHead.lineScale = .3;

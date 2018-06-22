@@ -381,27 +381,43 @@
         model.isSelect = YES;
         [self.mTableView reloadData];
         
-        NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,setDefaultApi];
-        NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-        [paraDic setObject:model.invoicetempid forKey:@"tempid"];
-        [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
-            NSDictionary *dict = json;
-            if([dict[@"code"] integerValue] != 200){
-                [self showNoticeView:dict[@"message"]];
-                return ;
-            }
+        if (self.isOpenPXXBtn == YES) {
+            [self.view addSubview:self.loadingView];
+            [self.loadingView startAnimation];
+            NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,setDefaultApi];
+            NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+            [paraDic setObject:model.invoicetempid forKey:@"tempid"];
+            [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+                NSDictionary *dict = json;
+                [self.loadingView stopAnimation];
+                if([dict[@"code"] integerValue] != 200){
+                    [self showNoticeView:dict[@"message"]];
+                    return ;
+                }
+                 [self.loadingView showNoticeView:@"设置默认发票模板成功"];
+                [self getData];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    __weak typeof(self) weakself = self;
+                    if (weakself.selectMyInvoicesBlock) {
+                        weakself.selectMyInvoicesBlock(model);
+                    }
+//                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            } failure:^(NSError *error) {
+                 [self.loadingView stopAnimation];
+                
+            }];
+            
+        }else{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 __weak typeof(self) weakself = self;
                 if (weakself.selectMyInvoicesBlock) {
                     weakself.selectMyInvoicesBlock(model);
                 }
-                [self.navigationController popViewControllerAnimated:YES];
+               [self.navigationController popViewControllerAnimated:YES];
             });
-        } failure:^(NSError *error) {
-          
-            
-        }];
-        
+        }
+      
         
     }
 }

@@ -629,16 +629,16 @@
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
             if (self.isUpdateFaPDetail == YES) {
-                [self showNoticeView:@"修改成功"];
+                 [self showNoticeView:dict[@"message"]];
             }else{
-               [self showNoticeView:@"添加成功"];
+                [self showNoticeView:dict[@"message"]];
             }
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             if (self.isUpdateFaPDetail == YES) {
-                [self showNoticeView:@"修改失败"];
+                [self showNoticeView:dict[@"message"]];
             }else{
-                [self showNoticeView:@"添加失败"];
+               [self showNoticeView:dict[@"message"]];
             }
         }
         

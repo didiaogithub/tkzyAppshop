@@ -193,7 +193,7 @@
                 [self.wclDataArray addObject:MyInvoicesM];
             }else if ([MyInvoicesM.disposestatus isEqualToString:@"1"]){
                 [self.yclDataArray addObject:MyInvoicesM];
-                 [self.yclDataArray firstObject].isSelect = YES;
+//                 [self.yclDataArray firstObject].isSelect = YES;
             }else{
                 [self.yjjDataArray addObject:MyInvoicesM];
             }
@@ -224,7 +224,11 @@
                     loadNibNamed:@"MyInvoicesCell" owner:self options:nil]  lastObject];
         }
          cell.delegate = self;
-         cell.selectBtn.selected = self.yclDataArray[indexPath.row].isSelect;
+        if ([self.yclDataArray[indexPath.row].isdefault isEqualToString:@"1"]) {
+         cell.selectBtn.selected = YES;
+        }else{
+         cell.selectBtn.selected = NO;
+        }
         [cell refreshData:self.yclDataArray[indexPath.row]];
        
         
@@ -376,15 +380,33 @@
         }
         model.isSelect = YES;
         [self.mTableView reloadData];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            __weak typeof(self) weakself = self;
-            if (weakself.selectMyInvoicesBlock) {
-                weakself.selectMyInvoicesBlock(model);
+        
+        NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,setDefaultApi];
+        NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+        [paraDic setObject:model.invoicetempid forKey:@"tempid"];
+        [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+            NSDictionary *dict = json;
+            if([dict[@"code"] integerValue] != 200){
+                [self showNoticeView:dict[@"message"]];
+                return ;
             }
-            [self.navigationController popViewControllerAnimated:YES];
-        });
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                __weak typeof(self) weakself = self;
+                if (weakself.selectMyInvoicesBlock) {
+                    weakself.selectMyInvoicesBlock(model);
+                }
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        } failure:^(NSError *error) {
+          
+            
+        }];
+        
+        
     }
 }
+
+
 - (void)setSelectMyInvoicesBlock:(SelectMyInvoicesBlock)selectMyInvoicesBlock{
     _selectMyInvoicesBlock = selectMyInvoicesBlock;
 }

@@ -389,9 +389,10 @@
 #define invoiceidApi @"Invocie/invoiceid"
 /** 获取已开发票*/
 #define getInvoicedetailByIdApi @"Invoice/getInvoicedetailById"
-
+//
 #define getInvoiceTipApi @"Sys/getInvoiceTip"
-
+/** 设置默认发票模板*/
+#define setDefaultApi    @"Invoice/setDefault"
 /** 添加发票模板*/
 #define addInvoiceTempApi @"Invoice/addInvoiceTemp"
 /** 修改发票模板*/

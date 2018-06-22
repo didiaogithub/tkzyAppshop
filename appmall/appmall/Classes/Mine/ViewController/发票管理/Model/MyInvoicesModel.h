@@ -24,5 +24,6 @@
 @property (nonatomic, copy) NSString *disposestatus;
 /**  拒绝理由*/
 @property (nonatomic, copy) NSString *disposereason;
-
+/**  是否默认*/
+@property (nonatomic, copy) NSString *isdefault;
 @end

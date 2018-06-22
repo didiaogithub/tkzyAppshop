@@ -45,16 +45,17 @@
         _heightImg.constant = 300;
         self.bannerCollectionView.hidden = NO;
     }
-    
+    self.imgIcon.layer.cornerRadius  =self.imgIcon.mj_h / 2;
+    self.imgIcon.layer.masksToBounds = YES;
     self.bannerCollectionView.delegate = self;
     self.bannerCollectionView.dataSource = self;
      [self.bannerCollectionView reloadData];
         self.labBannerNum.text = [NSString stringWithFormat:@"1/%ld",commDetail.getImgArray.count];
 
-    [self.labComm setTitle:[NSString stringWithFormat:@"评论%@",model.commentnum] forState:0];
+    [self.labComm setTitle:[NSString stringWithFormat:@"评论  %@",model.commentnum] forState:0];
     self.labGood .selected = [model.ispraise boolValue];
-    [self.labGood setTitle:[NSString stringWithFormat:@"点赞%@",model.praisenum] forState:0];
-    [self.labShare setTitle:[NSString stringWithFormat:@"分享%@",model.forwardnum] forState:0];
+    [self.labGood setTitle:[NSString stringWithFormat:@"点赞  %@",model.praisenum] forState:0];
+    [self.labShare setTitle:[NSString stringWithFormat:@"分享  %@",model.forwardnum] forState:0];
     
     [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
     self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;

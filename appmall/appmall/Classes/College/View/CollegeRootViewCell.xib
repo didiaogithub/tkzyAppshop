@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,9 +42,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-Iy-taX">
-                                <rect key="frame" x="69.5" y="0.0" width="200" height="43"/>
+                                <rect key="frame" x="15" y="0.0" width="0.0" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="2N9-Pu-eqS"/>
+                                    <constraint firstAttribute="height" constant="43" id="GfL-6T-vQ2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,12 +54,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bMA-Q9-YjE" secondAttribute="trailing" id="0vw-Nx-JUR"/>
-                            <constraint firstItem="ifx-Iy-taX" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="61r-DD-yyK"/>
                             <constraint firstAttribute="bottom" secondItem="bMA-Q9-YjE" secondAttribute="bottom" id="9YR-7m-h5u"/>
+                            <constraint firstItem="ifx-Iy-taX" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="DuO-lT-yb0"/>
                             <constraint firstItem="bMA-Q9-YjE" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="Fk6-l0-1xH"/>
+                            <constraint firstAttribute="bottom" secondItem="ifx-Iy-taX" secondAttribute="bottom" id="Mab-jt-4Wq"/>
+                            <constraint firstItem="ifx-Iy-taX" firstAttribute="leading" secondItem="wwB-97-Twi" secondAttribute="leading" constant="15" id="R2M-lf-2WQ"/>
                             <constraint firstAttribute="height" constant="43" id="WQw-6a-Ajk"/>
-                            <constraint firstAttribute="bottom" secondItem="ifx-Iy-taX" secondAttribute="bottom" id="hOG-aQ-7fD"/>
-                            <constraint firstItem="ifx-Iy-taX" firstAttribute="centerX" secondItem="wwB-97-Twi" secondAttribute="centerX" id="xJg-95-tlm"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-9d-Spa">

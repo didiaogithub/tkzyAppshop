@@ -121,6 +121,7 @@
 //        }
         cell.nameLab.text = nameArray[indexPath.row];
         cell.contentLab.hidden = NO;
+        cell.contentLab.text = self.model.content;
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
         paraStyle.lineSpacing = 0;
         

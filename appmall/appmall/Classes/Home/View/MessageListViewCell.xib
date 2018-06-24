@@ -79,6 +79,7 @@
                     <constraint firstItem="WgR-DJ-LTJ" firstAttribute="leading" secondItem="QuQ-kl-xXa" secondAttribute="trailing" constant="5" id="opO-Bm-Ggt"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="LabRed" destination="7tQ-8h-QEQ" id="H5I-5k-klW"/>
                 <outlet property="messIcon" destination="D1g-YV-x7g" id="We1-lC-WWA"/>

@@ -39,4 +39,14 @@
  */
 @property (nonatomic, copy) NSString *userange;
 
+/**
+ 满多少可用
+ */
+@property (nonatomic, copy) NSString *use_money;
+/**
+ 是否可用
+ */
+@property (nonatomic, assign) NSInteger can_use;
+
+
 @end

@@ -70,6 +70,7 @@
                     <constraint firstAttribute="trailing" secondItem="1l8-X8-GXM" secondAttribute="trailing" constant="15" id="yUc-t3-Pu1"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="haikLab" destination="Fb4-Rg-F4p" id="lc2-pE-hAa"/>
                 <outlet property="selectBtn" destination="lWb-jw-Pn9" id="s4x-3f-rcC"/>

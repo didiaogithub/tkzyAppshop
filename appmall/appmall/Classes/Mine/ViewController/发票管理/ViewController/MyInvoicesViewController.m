@@ -409,11 +409,14 @@
             }];
             
         }else{
+            [self.view addSubview:self.loadingView];
+            [self.loadingView startAnimation];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 __weak typeof(self) weakself = self;
                 if (weakself.selectMyInvoicesBlock) {
                     weakself.selectMyInvoicesBlock(model);
                 }
+                [self.loadingView stopAnimation];
                [self.navigationController popViewControllerAnimated:YES];
             });
         }

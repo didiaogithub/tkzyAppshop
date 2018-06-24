@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,6 +66,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="phc-Zw-mPX" secondAttribute="height" multiplier="1:1" id="aL9-Sz-8qu"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DUm-C9-toJ"/>
                                         </connections>
@@ -75,6 +76,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H15-Sp-mQK" secondAttribute="height" multiplier="1:1" id="NKU-jJ-1C6"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kRd-0I-zrd"/>
                                         </connections>
@@ -84,6 +86,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="feE-gn-Tmw" secondAttribute="height" multiplier="1:1" id="HIT-Jt-pxV"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DRJ-ps-4UF"/>
                                         </connections>
@@ -93,6 +96,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ctp-YX-13q" secondAttribute="height" multiplier="1:1" id="cwi-5M-ZFP"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAZ-oe-mn3">
                                         <rect key="frame" x="85" y="85.5" width="76" height="75.5"/>
@@ -270,6 +274,7 @@
         <image name="分享" width="25" height="21"/>
         <image name="点赞灰色" width="25" height="23"/>
         <image name="点赞选中" width="25" height="23"/>
+        <image name="社区讨论" width="95" height="96"/>
         <image name="评论2" width="28" height="23"/>
     </resources>
 </document>

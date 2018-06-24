@@ -21,6 +21,7 @@
 #import "CKShareManager.h"
 
 
+
 @interface AppDelegate ()<ADTimerDelegate,UITabBarControllerDelegate>
 
 @property (nonatomic, assign) BOOL isFirst;

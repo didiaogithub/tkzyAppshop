@@ -29,7 +29,7 @@ CommListModelItem * selfModel ;
     [self.btnComm setTitle:[NSString stringWithFormat:@"%@",model.commentnum] forState:0];
     [self.btnShare setTitle:[NSString stringWithFormat:@"%@",model.forwardnum] forState:0];
     self.btnDianzan.selected = [model.ispraise boolValue];
-    [self.imgCommIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [self.imgCommIcon sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     self.labCommName.text = model.name;
     self.labCommTime.text = [model.time substringWithRange:NSMakeRange(5, 11)];
     self.labCommContent.text = model.content;

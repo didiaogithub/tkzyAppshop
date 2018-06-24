@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UILabel *typeLabel;
 @property (nonatomic, strong) UILabel *validDate;
 @property (nonatomic, strong) UILabel *sendReasonL;
+/**  满多少可用*/
+@property (nonatomic, strong) UILabel *useMoneyLab;
 
 @property (nonatomic, strong) CKCouponModel *couponM;
 @end
@@ -62,6 +64,17 @@
         make.centerX.mas_equalTo(self.mas_centerX);
         make.height.mas_equalTo(30);
         make.bottom.mas_equalTo(self.moneyLable.mas_bottom);
+    }];
+    
+    self.useMoneyLab = [UILabel new];
+    self.useMoneyLab.text = @"";
+    self.useMoneyLab.backgroundColor = [UIColor clearColor];
+    self.useMoneyLab.textColor = [UIColor tt_monthLittleBlackColor];
+    self.useMoneyLab.font = [UIFont systemFontOfSize:15];
+    [self.contentView addSubview:self.useMoneyLab];
+    [self.useMoneyLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.nameLable.mas_bottom);
+        make.left.mas_offset(30);
     }];
     
     
@@ -143,6 +156,12 @@
     }
     self.nameLable.text = name;
     
+    NSString *use_money = [NSString stringWithFormat:@"%@", couponM.use_money];
+    if (IsNilOrNull(use_money)) {
+        use_money = @"";
+    }
+    self.useMoneyLab.text = [NSString stringWithFormat:@"满%@可用",use_money];
+    
     NSString *time = [NSString stringWithFormat:@"%@", couponM.time];
     if (IsNilOrNull(time)) {
         time = @"0000.00.00-0000.00.00";
@@ -154,6 +173,12 @@
         sendreason = @"";
     }
     self.sendReasonL.text = [NSString stringWithFormat:@"发放原因:%@", sendreason];
+    
+    if (couponM.can_use != 0) {
+        self.usecouponBtn.hidden = YES;
+    }else{
+       self.usecouponBtn.hidden = NO;
+    }
     
 }
 

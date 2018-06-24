@@ -18,16 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="102.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5w-qD-7XR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="ZWq-s8-Udo"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="微博" translatesAutoresizingMaskIntoConstraints="NO" id="Uwh-jZ-Wkd">
                         <rect key="frame" x="8" y="22" width="60" height="60"/>
                         <constraints>
@@ -62,16 +52,6 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-tD-h8L">
-                        <rect key="frame" x="0.0" y="101" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="EQc-40-DtF"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编号：5800；规格：40kg" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dom-v5-42v">
                         <rect key="frame" x="76" y="47" width="145" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -88,17 +68,11 @@
                     <constraint firstItem="dom-v5-42v" firstAttribute="top" secondItem="GVD-pi-XkI" secondAttribute="bottom" constant="9" id="KGc-8E-pHV"/>
                     <constraint firstAttribute="trailing" secondItem="UXk-UB-K5B" secondAttribute="trailing" constant="15" id="LDz-f5-89K"/>
                     <constraint firstItem="82C-cM-zIx" firstAttribute="leading" secondItem="Uwh-jZ-Wkd" secondAttribute="trailing" constant="8" id="NSH-Uw-PNX"/>
-                    <constraint firstItem="n5w-qD-7XR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nhk-sl-RnJ"/>
-                    <constraint firstAttribute="trailing" secondItem="n5w-qD-7XR" secondAttribute="trailing" id="PM9-0V-wwL"/>
                     <constraint firstItem="dom-v5-42v" firstAttribute="leading" secondItem="82C-cM-zIx" secondAttribute="leading" id="U2T-4H-QG6"/>
                     <constraint firstItem="dom-v5-42v" firstAttribute="trailing" secondItem="82C-cM-zIx" secondAttribute="trailing" id="Zid-lz-F7u"/>
-                    <constraint firstAttribute="trailing" secondItem="dEx-tD-h8L" secondAttribute="trailing" id="gBN-wd-7Kf"/>
-                    <constraint firstItem="dEx-tD-h8L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jcU-dA-EsU"/>
                     <constraint firstItem="Uwh-jZ-Wkd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="lZm-0V-PFf"/>
-                    <constraint firstAttribute="bottom" secondItem="dEx-tD-h8L" secondAttribute="bottom" id="mMP-bx-0dW"/>
                     <constraint firstItem="n8k-Wq-fUH" firstAttribute="top" secondItem="GVD-pi-XkI" secondAttribute="top" id="oCi-3z-FYC"/>
                     <constraint firstItem="GVD-pi-XkI" firstAttribute="leading" secondItem="Uwh-jZ-Wkd" secondAttribute="trailing" constant="8" id="uuv-Sx-1P5"/>
-                    <constraint firstItem="n5w-qD-7XR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="w6x-hx-xJM"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

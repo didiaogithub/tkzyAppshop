@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenInvoicesViewController">
             <connections>
+                <outlet property="ffyxTextField" destination="EOj-qR-urx" id="9hK-kT-ytM"/>
                 <outlet property="mTableView" destination="lI2-aS-0p1" id="NSt-TS-oQs"/>
                 <outlet property="orderNoLab" destination="PrC-km-wyU" id="v8C-lJ-SOD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,13 +44,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALf-bu-gHI">
-                    <rect key="frame" x="0.0" y="195" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="265" width="375" height="60"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票详情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Y-57-weq">
-                            <rect key="frame" x="15" y="20.5" width="100" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更换开票信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43Y-57-weq">
+                            <rect key="frame" x="15" y="20.5" width="92" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="R29-9z-6hq"/>
-                                <constraint firstAttribute="width" constant="100" id="gxb-Ti-Qw5"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,7 +97,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lI2-aS-0p1">
-                    <rect key="frame" x="0.0" y="255" width="375" height="412"/>
+                    <rect key="frame" x="0.0" y="325" width="375" height="342"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYi-iU-xtv">
@@ -125,6 +125,42 @@
                         <constraint firstAttribute="height" constant="54" id="zYQ-Wm-Zah"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-8s-o1q">
+                    <rect key="frame" x="0.0" y="194" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收票邮箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wex-xj-jHy">
+                            <rect key="frame" x="18.5" y="21" width="62" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="0pJ-73-w3F"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLm-mp-7pS">
+                            <rect key="frame" x="10" y="20" width="7.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用于接受电子发票" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOj-qR-urx">
+                            <rect key="frame" x="241.5" y="21.5" width="118.5" height="17"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mLm-mp-7pS" firstAttribute="leading" secondItem="Lfg-8s-o1q" secondAttribute="leading" constant="10" id="3yu-ie-5O5"/>
+                        <constraint firstAttribute="height" constant="60" id="CML-lp-Bhf"/>
+                        <constraint firstAttribute="trailing" secondItem="EOj-qR-urx" secondAttribute="trailing" constant="15" id="DH4-72-5wI"/>
+                        <constraint firstItem="wex-xj-jHy" firstAttribute="leading" secondItem="mLm-mp-7pS" secondAttribute="trailing" constant="1" id="H3A-vv-H65"/>
+                        <constraint firstItem="mLm-mp-7pS" firstAttribute="centerY" secondItem="Lfg-8s-o1q" secondAttribute="centerY" id="Ki9-fI-Ia1"/>
+                        <constraint firstItem="EOj-qR-urx" firstAttribute="centerY" secondItem="Lfg-8s-o1q" secondAttribute="centerY" id="dft-FC-Ke0"/>
+                        <constraint firstItem="wex-xj-jHy" firstAttribute="centerY" secondItem="Lfg-8s-o1q" secondAttribute="centerY" id="kk2-G5-wob"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -133,12 +169,15 @@
                 <constraint firstItem="iYi-iU-xtv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5oM-rK-vwK"/>
                 <constraint firstItem="TAg-HF-d1y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BfN-rd-4A1"/>
                 <constraint firstItem="lI2-aS-0p1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BnK-vO-kxQ"/>
+                <constraint firstItem="Lfg-8s-o1q" firstAttribute="top" secondItem="iYi-iU-xtv" secondAttribute="bottom" constant="10" id="Jts-L3-Im1"/>
+                <constraint firstAttribute="trailing" secondItem="Lfg-8s-o1q" secondAttribute="trailing" id="NTD-MK-PJa"/>
                 <constraint firstAttribute="trailing" secondItem="iYi-iU-xtv" secondAttribute="trailing" id="O70-Ho-Rxz"/>
                 <constraint firstItem="ALf-bu-gHI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pmf-5a-s4m"/>
                 <constraint firstItem="lI2-aS-0p1" firstAttribute="top" secondItem="ALf-bu-gHI" secondAttribute="bottom" id="Ppu-sN-jWk"/>
                 <constraint firstItem="TAg-HF-d1y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="YRB-kL-BIO"/>
                 <constraint firstAttribute="trailing" secondItem="lI2-aS-0p1" secondAttribute="trailing" id="dKd-aD-c7A"/>
-                <constraint firstItem="ALf-bu-gHI" firstAttribute="top" secondItem="TAg-HF-d1y" secondAttribute="bottom" constant="75" id="eJ2-pR-WLc"/>
+                <constraint firstItem="ALf-bu-gHI" firstAttribute="top" secondItem="TAg-HF-d1y" secondAttribute="bottom" constant="145" id="eJ2-pR-WLc"/>
+                <constraint firstItem="Lfg-8s-o1q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lzo-4g-Jiv"/>
                 <constraint firstAttribute="trailing" secondItem="ALf-bu-gHI" secondAttribute="trailing" id="tnA-ER-uZN"/>
                 <constraint firstAttribute="bottom" secondItem="lI2-aS-0p1" secondAttribute="bottom" id="vrv-fE-6zx"/>
             </constraints>

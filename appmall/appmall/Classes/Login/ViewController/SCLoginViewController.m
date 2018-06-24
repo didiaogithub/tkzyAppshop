@@ -55,7 +55,7 @@
     [_welcomeImg setUserInteractionEnabled:YES];
     [self.view addSubview:_welcomeImg];
     
-    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 110  , 100)];
+    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 100, 100)];
     _loginIcon.center = CGPointMake(SCREEN_WIDTH/ 2, _loginIcon.centerY);
     _loginIcon.image = [UIImage imageNamed:@"logo-商城"];
 //    _loginIcon.backgroundColor = [UIColor redColor];
@@ -102,7 +102,12 @@
     _btnSendCheckCode.titleLabel.font = [UIFont systemFontOfSize:14];
     [_btnSendCheckCode addTarget:self action:@selector(startTimer) forControlEvents:UIControlEventTouchUpInside];
     _tfPhone =   [self createTfText:@"手机号码" andFrame:CGRectMake(30, 265, SCREEN_WIDTH - 60, 57)];
+    _tfPhone.keyboardType = UIKeyboardTypeNumberPad;
+    [_tfPhone addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
     _tfCheckCode =  [self createTfText:@"验证码" andFrame:CGRectMake(30, 335, SCREEN_WIDTH - 60, 57)];
+    _tfCheckCode.keyboardType = UIKeyboardTypeNumberPad;
+    [_tfCheckCode addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     _btnSendCheckCode.frame = CGRectMake(0, 0, 100, 33);
 
     [_tfCheckCode setRightView:_btnSendCheckCode];
@@ -420,6 +425,23 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+// 限制手机号码只能输入11位 (这个不是textField的代理方法)
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    if (textField == _tfPhone) {
+        if (textField.text.length > 11) {
+            textField.text = [textField.text substringToIndex:11];
+        }
+    }
+    
+    if (textField == _tfCheckCode) {
+        if (textField.text.length > 6) {
+            textField.text = [textField.text substringToIndex:6];
+        }
+    }
 }
 
 

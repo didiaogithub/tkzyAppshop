@@ -40,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavtion];
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
 //        self.navigationItem.title = @"绑定手机号";
     }else{
@@ -51,7 +52,7 @@
     [_welcomeImg setUserInteractionEnabled:YES];
     [self.view addSubview:_welcomeImg];
     
-    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 110  , 100)];
+    _loginIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 123, 100  , 100)];
     _loginIcon.center = CGPointMake(SCREEN_WIDTH/ 2, _loginIcon.centerY);
     _loginIcon.image = [UIImage imageNamed:@"logo-商城"];
     //    _loginIcon.backgroundColor = [UIColor redColor];
@@ -272,6 +273,21 @@
 //        }
 //    }];
 //}
+
+- (void)setNavtion {
+    self.navigationController.navigationBar.translucent=YES;
+    UIColor *color=[UIColor clearColor];
+    CGRect rect =CGRectMake(0,0,self.view.frame.size.width,64);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:(UIBarMetricsDefault)];
+    self.navigationController.navigationBar.clipsToBounds=YES;
+}
 
 -(void)phoneLogin {
     if (IsNilOrNull(_phoneTF.text)){

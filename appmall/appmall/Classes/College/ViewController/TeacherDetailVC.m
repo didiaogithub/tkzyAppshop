@@ -196,6 +196,9 @@
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.classList.count == 0) {
+        return;
+    }
     WebDetailViewController *webDetailVC = [[WebDetailViewController alloc]init];
     webDetailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classList[indexPath.row].courseId];
     [self.navigationController pushViewController:webDetailVC animated:YES];

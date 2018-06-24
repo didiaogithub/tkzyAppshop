@@ -44,6 +44,7 @@
                     <constraint firstAttribute="trailing" secondItem="T1n-rZ-zYm" secondAttribute="trailing" id="x5I-WL-UTS"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="conView" destination="T1n-rZ-zYm" id="joZ-gK-Q39"/>
                 <outlet property="nameLab" destination="TpT-Ad-mLf" id="BO9-a8-Qas"/>

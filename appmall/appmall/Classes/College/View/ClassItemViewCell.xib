@@ -53,7 +53,7 @@
                     <constraint firstItem="OTB-eo-WNO" firstAttribute="leading" secondItem="7Mz-uM-Kbf" secondAttribute="trailing" constant="15" id="rUy-en-IF8"/>
                 </constraints>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="classDesc" destination="OTB-eo-WNO" id="YyR-68-0jm"/>
                 <outlet property="classTitle" destination="QSC-gF-VxT" id="hQi-hQ-jBD"/>

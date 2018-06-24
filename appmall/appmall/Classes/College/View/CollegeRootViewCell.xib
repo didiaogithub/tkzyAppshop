@@ -86,6 +86,7 @@
                     <constraint firstAttribute="trailing" secondItem="DnJ-9d-Spa" secondAttribute="trailing" id="tDl-b3-XGJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="btnMore" destination="bMA-Q9-YjE" id="FUw-qU-4Yi"/>
                 <outlet property="collectionViewItem" destination="DnJ-9d-Spa" id="QdJ-V3-F65"/>

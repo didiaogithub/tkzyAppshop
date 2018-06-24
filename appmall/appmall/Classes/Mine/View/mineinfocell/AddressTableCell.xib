@@ -46,6 +46,7 @@
                     <constraint firstItem="0MI-nA-xdR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vVV-76-bzt"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="nameLab" destination="0MI-nA-xdR" id="WGz-1L-6re"/>
                 <outlet property="selectLab" destination="YEW-OD-Ugo" id="Ek1-8B-qrf"/>

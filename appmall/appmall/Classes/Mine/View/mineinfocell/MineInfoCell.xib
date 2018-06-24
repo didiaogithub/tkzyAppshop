@@ -46,6 +46,7 @@
                     <constraint firstItem="ur0-T5-0of" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fWU-mR-qaA"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="contentTextField" destination="ur0-T5-0of" id="0Le-mb-faD"/>
                 <outlet property="nameLab" destination="PFW-R8-ug1" id="4uJ-6q-Wc1"/>

@@ -185,6 +185,7 @@
         });
         return YES;
     }
+    
     if (textField.text.length + string.length > 30) {
         [self showNoticeView:@"标题不能超过30个字符"];
         return NO;

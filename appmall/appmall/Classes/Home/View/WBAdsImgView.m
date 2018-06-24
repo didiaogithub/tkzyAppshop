@@ -120,6 +120,7 @@
         
         for (int i = 0; i < 3; i ++ ) {
             UIButton *itemImg = [[UIButton alloc]initWithFrame:CGRectMake(KscreenWidth * i, 0, self.mj_w, scrContentView.mj_h)];
+            [itemImg setImage:[UIImage imageNamed:@"天康学院banner"] forState:0];
             itemImg.imageView.contentMode = UIViewContentModeScaleToFill;
             [scrContentView addSubview:itemImg];
             itemImg.adjustsImageWhenHighlighted = NO;

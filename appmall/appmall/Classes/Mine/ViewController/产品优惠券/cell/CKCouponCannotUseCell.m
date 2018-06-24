@@ -174,7 +174,7 @@
     }
     self.sendReasonL.text = [NSString stringWithFormat:@"发放原因:%@", sendreason];
     
-    if (couponM.can_use != 0) {
+    if (couponM.can_use != 1) {
         self.usecouponBtn.hidden = YES;
     }else{
        self.usecouponBtn.hidden = NO;

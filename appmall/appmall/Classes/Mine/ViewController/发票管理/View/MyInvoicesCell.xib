@@ -86,6 +86,7 @@
                     <constraint firstItem="Y8v-pD-Hcs" firstAttribute="top" secondItem="814-Yk-LOU" secondAttribute="top" id="ycN-B5-dK3"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="fpttLab" destination="814-Yk-LOU" id="Tto-5V-Z7L"/>
                 <outlet property="selectBtn" destination="2yb-DE-514" id="i9e-UD-rep"/>

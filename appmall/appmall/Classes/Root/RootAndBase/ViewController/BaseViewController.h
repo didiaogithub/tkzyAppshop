@@ -22,7 +22,8 @@
 - (void)showNoticeView:(NSString*)title;
 - (void)setRightButton:(NSString *)btnName;
 - (void)setRightImageButton:(NSString *)btnName;
-- (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor isTJXHX:(BOOL)isTJXHX;
+- (void)setRightButton:(NSString *)btnName BtnFrame:(CGRect )frame titleColor:(UIColor *)titleColor
+               isTJXHX:(BOOL)isTJXHX;
 - (void)rightBtnPressed;
 - (void)showAddShoppingNoticeViewIsSuccess:(BOOL) success andTitle:(NSString *)title;
 @end

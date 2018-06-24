@@ -56,7 +56,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="tpD-Sn-Eta" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="71Z-EV-9Gk"/>
                 <constraint firstAttribute="bottom" secondItem="tpD-Sn-Eta" secondAttribute="bottom" constant="10" id="bXX-8B-pRq"/>
@@ -69,7 +69,7 @@
                 <outlet property="orderTimeLab" destination="6uP-bw-wp8" id="eje-9S-vLs"/>
                 <outlet property="rightBtn" destination="DiO-n4-tGb" id="k8f-BU-Z3C"/>
             </connections>
-            <point key="canvasLocation" x="-204" y="-207"/>
+            <point key="canvasLocation" x="-318" y="-238"/>
         </view>
     </objects>
 </document>

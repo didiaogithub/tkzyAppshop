@@ -96,7 +96,7 @@
     }
     _descriptionLable.text = name;
     _descriptionLable.numberOfLines = 1;
-    _descriptionLable.adjustsFontSizeToFitWidth = YES;
+//    _descriptionLable.adjustsFontSizeToFitWidth = YES;
     [_descriptionLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_goodsImageView.mas_top).offset(10);
         make.left.equalTo(_goodsImageView.mas_right).offset(5);

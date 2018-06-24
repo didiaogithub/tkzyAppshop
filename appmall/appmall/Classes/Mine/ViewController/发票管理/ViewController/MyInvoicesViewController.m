@@ -57,7 +57,7 @@
     _page = 1;
     [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
-    [self setRightButton:@"模板下载" titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
+    [self setRightButton:@"模板下载" BtnFrame:CGRectMake(0, 0, 80, 40)  titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
 }
 
 - (UIImage *)xy_noDataViewImage{
@@ -70,6 +70,7 @@
     NSString *str = @"暂无我的发票哦";
     return str;
 }
+
 
 
 - (void)rightBtnPressed{
@@ -294,7 +295,7 @@
    
     UIView *view = [UIView new];
     view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 45);
-    view.backgroundColor = [UIColor tt_lineBgColor];
+    view.backgroundColor = [UIColor clearColor];
     UILabel *type = [UILabel new];
     type.frame = CGRectMake(15,10, SCREEN_WIDTH, 14);
     type.font = [UIFont systemFontOfSize:14];
@@ -315,7 +316,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view = [UIView new];
     view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 10);
-    view.backgroundColor = [UIColor tt_lineBgColor];
+    view.backgroundColor = [UIColor clearColor];
     return view;
 }
 
@@ -330,7 +331,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     if (_yjjDataArray.count == 0) {
-        if (section == 2 || section == 0) {
+        if (section == 1 || section == 0 || section == 2) {
             return 0;
         }else{
             return 45;
@@ -354,9 +355,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0 || section == 1) {
-           return 10;
+    if (_yjjDataArray.count > 0) {
+        if (section == 0 || section == 1) {
+            return 10;
+        }
+    }else if (_wclDataArray.count > 0){
+        if (section == 0) {
+            return 10;
+        }
     }
+   
     return 0;
 }
 - (void)didReceiveMemoryWarning {

@@ -121,7 +121,7 @@
     self.tabClassListView.delegate = self;
     self.tabClassListView.dataSource = self;
     [self.tabClassListView registerNib:[UINib nibWithNibName:KTeacherInfoViewCell bundle:nil] forCellReuseIdentifier:KTeacherInfoViewCell];
-    tabDisTop.constant = 0;
+    tabDisTop.constant = -2;
     tabDisBottom .constant = BOTTOM_BAR_HEIGHT ;
     [self.tabClassListView registerNib:[UINib nibWithNibName:KClassItemViewCell bundle:nil] forCellReuseIdentifier:KClassItemViewCell];
     [self.tabClassListView reloadData];

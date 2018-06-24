@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NodataLableView *nodataLableView;
 @property(nonatomic,strong)NSMutableArray <MessagModel *> *messageList;
+@property(nonatomic,assign)NSInteger page;
 @end
 @implementation MessageViewController
 
@@ -38,8 +39,32 @@
     }
     
     [self setTableView];
+    
+     [UITableView refreshHelperWithScrollView:self.messageListIView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
 }
 
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"商品分类默认"];
+    return image;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂无此类提醒哦";
+    return str;
+}
+
+
+-(void)loadNewData{
+    _page =  1;
+    [self requestData];
+}
+
+-(void)loadMoreData{
+    _page ++;
+    [self requestData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.automaticallyAdjustsScrollViewInsets = NO;
@@ -66,6 +91,7 @@
     self.messageListIView.dataSource = self;
     [self.messageListIView registerNib:[UINib nibWithNibName:KMessageListViewCell bundle:nil] forCellReuseIdentifier:KMessageListViewCell];
     [self .messageListIView reloadData];
+    self.messageListIView.backgroundColor = [UIColor tt_grayBgColor];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -108,6 +134,9 @@
             return ;
         }
         
+        if (_page == 1) {
+            [self.messageList removeAllObjects];
+        }
         NSLog(@"%@", dic);
         if (dic == nil) {
             

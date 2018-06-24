@@ -36,6 +36,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - HXWeiboPhotoPicker (~> 2.0.9)
   - IQKeyboardManager
+  - IQKeyboardManager (~> 5.0.7)
   - JGProgressHUD
   - JPush
   - Masonry (~> 1.1.0)
@@ -74,6 +75,6 @@ SPEC CHECKSUMS:
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SobotKit: 09bdd69653356c3cbe687e1455a65424de3b6287
 
-PODFILE CHECKSUM: 17c5d5566607a62919520aa6c3e88d2f39dce46d
+PODFILE CHECKSUM: e7fbef3e762b6eda42801b52e20b2e80866e6003
 
 COCOAPODS: 1.5.0

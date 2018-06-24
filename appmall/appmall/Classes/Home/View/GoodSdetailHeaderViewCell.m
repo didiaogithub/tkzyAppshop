@@ -71,7 +71,7 @@
 {
     ImageCollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KImageCollViewCell forIndexPath:indexPath];
     NSDictionary *imgDic = selfmodel.banner[indexPath.row];
-    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:imgDic[@"picpath"]]];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:imgDic[@"picpath"]] placeholderImage:[UIImage imageNamed:@"产品详情"]];
     return cell;
 }
 

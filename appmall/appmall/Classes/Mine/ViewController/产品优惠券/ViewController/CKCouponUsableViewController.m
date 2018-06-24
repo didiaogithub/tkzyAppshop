@@ -33,7 +33,7 @@
 #pragma mark - 获取创客的充值抵用券列表
 -(void)resquestCouponData:(NSString*)lineNumber {
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"Goods/getCouponList"];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, @"/Goods/getCouponsByOrder"];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     
     if ([self.ordermoney containsString:@"合计:¥"]) {
@@ -41,7 +41,7 @@
     }else{
         self.ordermoney =  [self.ordermoney componentsSeparatedByString:@"¥"].lastObject;
     }
-    [pramaDic setObject:self.couponType forKey:@"type"];
+//    [pramaDic setObject:self.couponType forKey:@"type"];
     [pramaDic setObject:self.ordermoney forKey:@"ordermoney"];
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -158,13 +158,19 @@
     if (self.cannotUseArray == nil) {
         return;
     }
+    
+    
     // 这里处理点击优惠券带回金额
     CKCouponModel *couponM = self.cannotUseArray[indexPath.section];
-    if (_couponBlock) {
-        _couponBlock(couponM.money, couponM.couponId);
+    
+    if (couponM.can_use == 1 ) {
+        if (_couponBlock) {
+            _couponBlock(couponM.money, couponM.couponId);
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
-
-    [self.navigationController popViewControllerAnimated:YES];
+    
         
 }
 

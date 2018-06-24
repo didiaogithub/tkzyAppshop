@@ -54,7 +54,7 @@
     self.labPinglun.hidden = YES;
     self.viewContent.backgroundColor = self.viewBottom.backgroundColor;
     
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     self.labName.text = model.name;
     self.labContent.text = model.content;
     self.labTime.text = [model.time substringWithRange:NSMakeRange(5, 11)];
@@ -84,7 +84,7 @@
     self.labGood.hidden =NO;
     self.labPinglun.hidden = NO;
     self.viewContent.backgroundColor = [UIColor whiteColor];
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     self.labName.text = model.name;
     self.labContent.text = model.content;
     self.labTime.text = [model.time substringWithRange:NSMakeRange(5, 11)];

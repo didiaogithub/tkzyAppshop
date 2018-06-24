@@ -305,6 +305,7 @@
     [self.view endEditing:YES];
     if (comm .length == 0) {
         [self showNoticeView:@"评论不能为空"];
+        return;
         
     }
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];

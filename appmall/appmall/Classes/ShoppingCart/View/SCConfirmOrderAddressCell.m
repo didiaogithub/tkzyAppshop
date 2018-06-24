@@ -112,7 +112,7 @@
     [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_addressNameLable.mas_bottom);
         make.right.mas_offset(-15);
-        make.size.mas_offset(CGSizeMake(16, 26));
+        make.size.mas_offset(CGSizeMake(13, 15));
     }];
     //详细地址
     _addressDetailLable.numberOfLines = 0;

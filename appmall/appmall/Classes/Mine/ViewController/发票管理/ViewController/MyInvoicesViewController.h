@@ -12,5 +12,7 @@ typedef void(^SelectMyInvoicesBlock)(MyInvoicesModel *model);
 
 
 @interface MyInvoicesViewController : BaseViewController
+/**  是否是开票信息按钮进入*/
+@property (nonatomic, assign) BOOL isOpenPXXBtn;
 @property (nonatomic,copy) SelectMyInvoicesBlock selectMyInvoicesBlock;
 @end

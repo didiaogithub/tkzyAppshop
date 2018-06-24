@@ -74,6 +74,7 @@
 
 - (void)rightBtnPressed{
      MyInvoicesViewController *my = [[MyInvoicesViewController alloc]init];
+    my.isOpenPXXBtn = YES;
     [self.navigationController pushViewController:my animated:YES];
     
 }

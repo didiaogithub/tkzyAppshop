@@ -19,16 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnb-YJ-BZE">
-                        <rect key="frame" x="15" y="23" width="37.5" height="21"/>
+                        <rect key="frame" x="15" y="23" width="75" height="21"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="75" id="SjU-dc-pVY"/>
                             <constraint firstAttribute="height" constant="21" id="cK4-VD-IHU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dfasfasfasf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-IH-t52">
-                        <rect key="frame" x="233.5" y="23" width="76.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dfasfasfasf" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-IH-t52">
+                        <rect key="frame" x="91" y="23" width="219" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1iX-x2-naw"/>
                         </constraints>
@@ -39,6 +40,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="lnb-YJ-BZE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="21u-ka-mSQ"/>
+                    <constraint firstItem="SCc-IH-t52" firstAttribute="leading" secondItem="lnb-YJ-BZE" secondAttribute="trailing" constant="1" id="Kje-Z5-4BV"/>
                     <constraint firstItem="SCc-IH-t52" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lf3-Hv-Y87"/>
                     <constraint firstAttribute="trailing" secondItem="SCc-IH-t52" secondAttribute="trailing" constant="10" id="WQU-tN-SZA"/>
                     <constraint firstItem="lnb-YJ-BZE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ygX-F1-SPV"/>

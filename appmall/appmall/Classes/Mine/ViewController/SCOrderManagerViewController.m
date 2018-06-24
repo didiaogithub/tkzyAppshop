@@ -48,7 +48,7 @@
     
     // 初始化
     _scrollPageView = [[ZJScrollPageView alloc] initWithFrame:CGRectMake(0, 65+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT - 65-NaviAddHeight-BOTTOM_BAR_HEIGHT) segmentStyle:_style titles:list parentViewController:self delegate:self];
-    [_scrollPageView setBackgroundColor:[UIColor tt_grayBgColor]];
+//    [_scrollPageView setBackgroundColor:[UIColor tt_grayBgColor]];
     
     [_scrollPageView setSelectedIndex:self.selectedIndex animated:YES];
     

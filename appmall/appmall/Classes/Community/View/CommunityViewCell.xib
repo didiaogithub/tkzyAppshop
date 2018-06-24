@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="323" height="283.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-jD-atD">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-jD-atD">
                         <rect key="frame" x="15" y="15" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="28b-tO-GfZ"/>
@@ -66,6 +66,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="phc-Zw-mPX" secondAttribute="height" multiplier="1:1" id="aL9-Sz-8qu"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DUm-C9-toJ"/>
                                         </connections>
@@ -75,6 +76,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H15-Sp-mQK" secondAttribute="height" multiplier="1:1" id="NKU-jJ-1C6"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kRd-0I-zrd"/>
                                         </connections>
@@ -84,6 +86,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="feE-gn-Tmw" secondAttribute="height" multiplier="1:1" id="HIT-Jt-pxV"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                         <connections>
                                             <action selector="showBigImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DRJ-ps-4UF"/>
                                         </connections>
@@ -93,6 +96,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ctp-YX-13q" secondAttribute="height" multiplier="1:1" id="cwi-5M-ZFP"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="社区讨论"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAZ-oe-mn3">
                                         <rect key="frame" x="85" y="85.5" width="76" height="75.5"/>
@@ -249,6 +253,7 @@
                     <constraint firstItem="4HF-jD-atD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zZC-xy-sx6"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="btnComm" destination="XhI-Nz-Sao" id="ecv-Do-pOM"/>
                 <outlet property="btnDianzan" destination="w7c-a3-gfd" id="C9C-PJ-lEv"/>
@@ -270,6 +275,8 @@
         <image name="分享" width="25" height="21"/>
         <image name="点赞灰色" width="25" height="23"/>
         <image name="点赞选中" width="25" height="23"/>
+        <image name="社区讨论" width="95" height="96"/>
         <image name="评论2" width="28" height="23"/>
+        <image name="默认头像" width="90" height="90"/>
     </resources>
 </document>

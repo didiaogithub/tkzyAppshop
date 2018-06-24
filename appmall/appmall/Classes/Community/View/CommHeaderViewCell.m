@@ -56,7 +56,7 @@
     [self.labGood setTitle:[NSString stringWithFormat:@"点赞  %@",model.praisenum] forState:0];
     [self.labShare setTitle:[NSString stringWithFormat:@"分享  %@",model.forwardnum] forState:0];
     
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
     self.imgIcon.layer.cornerRadius = self.imgIcon.mj_h / 2;
     self.labContent.text = model.content;
@@ -83,7 +83,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KImageCollViewCell forIndexPath:indexPath];
-    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:commDetail.getImgArray[indexPath.row]]];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:commDetail.getImgArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"产品详情"]];
     return cell;
 }
 

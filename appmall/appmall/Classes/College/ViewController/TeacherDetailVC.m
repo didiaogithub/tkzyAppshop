@@ -17,7 +17,7 @@
 #import "TeacherListItemModel.h"
 #import "ClassListModel.h"
 
-@interface TeacherDetailVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface TeacherDetailVC ()<UITableViewDataSource,UITableViewDelegate,XYTableViewDelegate>
 {
     __weak IBOutlet NSLayoutConstraint *tabDisBottom;
     __weak IBOutlet NSLayoutConstraint *tabDisTop;
@@ -37,6 +37,24 @@
     self.classList = [NSMutableArray arrayWithCapacity:0];
     [UITableView refreshHelperWithScrollView:self.tabClassListView target:self loadNewData:@selector(loadData) loadMoreData:nil isBeginRefresh:NO];
     [self loadData];
+}
+
+- (UIImage *)xy_noDataViewImage{
+    
+    UIImage *image= [UIImage imageNamed:@"媒体报道无"];
+    return image;
+}
+
+-(BOOL)havData{
+    return NO;
+}
+
+- (NSString *)xy_noDataViewMessage{
+    NSString *str = @"暂时还没有课程哦";
+    return str;
+}
+- (NSNumber *)xy_noDataViewCenterYOffset{
+    return @150;
 }
 
 -(void)loadData{

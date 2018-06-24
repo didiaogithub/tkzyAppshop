@@ -31,7 +31,7 @@
     self.imgItemIcon.layer.cornerRadius = self.imgItemIcon.mj_h/2;
     self.imgItemIcon.layer.masksToBounds = YES;
     self.labItemTitle.text = model.sortname;
-    [self.imgItemIcon sd_setImageWithURL:[NSURL URLWithString:model.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+    [self.imgItemIcon sd_setImageWithURL:[NSURL URLWithString:model.imgpath] placeholderImage:[UIImage imageNamed:@"首页菜单icon"]];
 }
 - (IBAction)itemClick:(UIButton *)sender {
     [self.delegate itemClick:self.model];

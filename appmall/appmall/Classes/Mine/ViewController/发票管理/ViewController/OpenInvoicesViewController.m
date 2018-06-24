@@ -15,7 +15,7 @@
     NSArray *nameArray;
 }
 /**  发票邮箱*/
-@property (nonatomic, strong) UITextField *ffyxTextField;
+@property (nonatomic, strong)IBOutlet UITextField *ffyxTextField;
 - (IBAction)showinvoicesDetail:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (weak, nonatomic) IBOutlet UILabel *orderNoLab;
@@ -37,7 +37,7 @@
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.mTableView registerNib:[UINib nibWithNibName:@"OpenInvoicesCell" bundle:nil] forCellReuseIdentifier:@"OpenInvoicesCell"];
-    nameArray = @[@"抬头类型",@"发票抬头",@"税号",@"开户行",@"账号",@"地址",@"电话",@"发票内容",@"收票邮箱",@"发票金额"];
+    
     self.mTableView.tableFooterView = [UIView new];
     
     [self setUpRightItem];
@@ -74,7 +74,12 @@
         }
         NSDictionary *dic = dict[@"data"];
         self.model = [[OpenInvoiceModel alloc]initWithDictionary:dic];
+        if ([self.model.invoiceheadtype isEqualToString:@"2"]) { // 企业单位
+             nameArray = @[@"抬头类型",@"发票抬头",@"税号",@"开户行",@"账号",@"地址",@"电话",@"产品清单",@"发票金额"];
+        }else{ // 个人/非企业单位
+             nameArray = @[@"抬头类型",@"发票抬头",@"产品清单",@"发票金额"];
         
+        }
         [self.mTableView reloadData];
         
     } failure:^(NSError *error) {
@@ -89,12 +94,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    if (indexPath.row == nameArray.count - 2) {
+        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+        paraStyle.lineSpacing = 6;
+        NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
+        CGSize size = [self.model.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+        return AdaptedHeight(size.height);
+        
+    }else{
+        return 60;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OpenInvoicesCell *cell;
     if (indexPath.row == nameArray.count - 2) {
+        
         static NSString *identifier = @"OpenInvoicesCell";//这个identifier跟xib设置的一样
          cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
@@ -103,17 +119,17 @@
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"OpenInvoicesCell" owner:self options:nil]  lastObject];
 //        }
-        cell.contentLab.hidden = YES;
-        self.ffyxTextField = [[UITextField  alloc]init];
-        [cell addSubview:self.ffyxTextField];
-        NSLog(@"self.ffyxTextField==========");
-        [self.ffyxTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_offset(-10);
-            make.top.bottom.mas_equalTo(cell);
-        }];
         cell.nameLab.text = nameArray[indexPath.row];
-        self.ffyxTextField.placeholder = @"用于接受电子发票";
-        self.ffyxTextField.font = [UIFont systemFontOfSize:15];
+        cell.contentLab.hidden = NO;
+        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+        paraStyle.lineSpacing = 6;
+        
+        NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
+        CGSize size = [cell.contentLab.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+        [cell.contentLab mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_offset(AdaptedHeight(size.height));
+        }];
+       
         
     }else{
         static NSString *identifier = @"OpenInvoicesCell";//这个identifier跟xib设置的一样
@@ -139,16 +155,14 @@
         }else if (indexPath.row == 3){
             cell.contentLab.text = self.model.bankname;
         }else if (indexPath.row == 4){
-            
-        }else if (indexPath.row == 5){
             cell.contentLab.text = self.model.cardno;
-        }else if (indexPath.row == 6){
+        }else if (indexPath.row == 5){
             cell.contentLab.text = self.model.address;
-        }else if (indexPath.row == 7){
+        }else if (indexPath.row == 6){
             cell.contentLab.text = self.model.mobile;
-        }else if (indexPath.row == 8){
+        }else if (indexPath.row == 7){
             cell.contentLab.text = self.model.content;
-        }else if (indexPath.row == 9){
+        }else if (indexPath.row == 8){
             cell.contentLab.text = self.model.allprice;
         }
         
@@ -248,9 +262,17 @@
         if([dict[@"code"] integerValue] != 200){
             [self showNoticeView:dict[@"message"]];
         }
+        
+       
         NSDictionary *dic = dict[@"data"];
         self.model = [[OpenInvoiceModel alloc]initWithDictionary:dic];
         
+        if ([self.model.invoiceheadtype isEqualToString:@"2"]) { // 企业单位
+            nameArray = @[@"抬头类型",@"发票抬头",@"税号",@"开户行",@"账号",@"地址",@"电话",@"产品清单",@"发票金额"];
+        }else{ // 个人/非企业单位
+            nameArray = @[@"抬头类型",@"发票抬头",@"产品清单",@"发票金额"];
+            
+        }
         [self.mTableView reloadData];
         
     } failure:^(NSError *error) {

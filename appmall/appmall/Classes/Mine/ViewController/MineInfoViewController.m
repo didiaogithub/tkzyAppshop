@@ -67,7 +67,7 @@
     self.iconImage.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
     [self.iconImage addGestureRecognizer:singleTap];
-    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@""]];
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
     [self setRightButton:@"保存" titleColor:[UIColor colorWithHexString:@"#333333"] isTJXHX:NO];
 }
 
@@ -336,6 +336,11 @@
 //UpdateMeInfoUrl
 - (void)rightBtnPressed{
     NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    if (IsNilOrNull(self.model.head) && IsNilOrNull(path)) {
+        [self.loadingView showNoticeView:@"您还没有自己的头像，请选择一个头像上传在保存吧"];
+        return;
+    }
     if (path) {
 //        NSString *urls = [NSString stringWithFormat:@"%@%@",WebServiceAPI,url];
          [para setObject:path forKey:@"head"];

@@ -395,6 +395,7 @@
 		F203A3E420D35A2F00E2E102 /* XLImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3DF20D35A2F00E2E102 /* XLImageContainer.m */; };
 		F203A3E520D35A2F00E2E102 /* XLImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3E120D35A2F00E2E102 /* XLImageLoading.m */; };
 		F203A3E620D35A2F00E2E102 /* XLImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = F203A3E320D35A2F00E2E102 /* XLImageViewer.m */; };
+		F203F41C20DE2B8400C375D8 /* morentu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F203F41B20DE2B8400C375D8 /* morentu.xcassets */; };
 		F2070CC720CCE0130049590E /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2070CC620CCE0130049590E /* HyperlinksButton.m */; };
 		F20F5CD820C65CDF00DBEC82 /* OpenInvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F5CD720C65CDF00DBEC82 /* OpenInvoiceModel.m */; };
 		F2113A8A20B581BB00C01DA4 /* InvoicesManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2113A8820B581BB00C01DA4 /* InvoicesManagerCell.m */; };
@@ -1233,6 +1234,7 @@
 		F203A3E120D35A2F00E2E102 /* XLImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageLoading.m; sourceTree = "<group>"; };
 		F203A3E220D35A2F00E2E102 /* XLImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLImageViewer.h; sourceTree = "<group>"; };
 		F203A3E320D35A2F00E2E102 /* XLImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLImageViewer.m; sourceTree = "<group>"; };
+		F203F41B20DE2B8400C375D8 /* morentu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = morentu.xcassets; sourceTree = "<group>"; };
 		F2070CC520CCE0130049590E /* HyperlinksButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperlinksButton.h; sourceTree = "<group>"; };
 		F2070CC620CCE0130049590E /* HyperlinksButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperlinksButton.m; sourceTree = "<group>"; };
 		F20F5CD620C65CDE00DBEC82 /* OpenInvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInvoiceModel.h; sourceTree = "<group>"; };
@@ -1518,6 +1520,7 @@
 				2D20DD9E20860F9F00095032 /* images.xcassets */,
 				2D83E25C20BD93D700F2D375 /* teacherBack.png */,
 				2D83E25E20BD9E4200F2D375 /* orderdetailline.png */,
+				F203F41B20DE2B8400C375D8 /* morentu.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -3387,6 +3390,7 @@
 				F2FA14DC20B556940066B153 /* SexTableCell.xib in Resources */,
 				2D0726B22083924B0030996F /* MedieaDetailViewController.xib in Resources */,
 				2D0726C620839EE50030996F /* MessageViewController.xib in Resources */,
+				F203F41C20DE2B8400C375D8 /* morentu.xcassets in Resources */,
 				2D791C7120905C4900E455F5 /* ClassListVC.xib in Resources */,
 				F23E655020B686D900EB6720 /* MyinvoicesCheckingCell.xib in Resources */,
 				2D07267E208311CB0030996F /* HistorySearchCell.xib in Resources */,

@@ -129,6 +129,8 @@
     self.collectionViewItem.delegate = self;
     [self.collectionViewItem registerNib:[UINib nibWithNibName:KRecommendCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KRecommendCollectionViewCell];
     [self.collectionViewItem registerNib:[UINib nibWithNibName:KMenuCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KMenuCollectionViewCell];
+    self.collectionViewItem.showsVerticalScrollIndicator = NO;
+    self.collectionViewItem.showsHorizontalScrollIndicator = NO;
     if(index== 1){
      
         [self getLayoutMenu];
@@ -144,7 +146,7 @@
       
         [self getLayoutMidea];
     
-        self.labTitle.text = @"媒x体报道";
+        self.labTitle.text = @"媒体报道";
         @try {
 
             [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];

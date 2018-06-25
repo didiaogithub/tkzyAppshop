@@ -111,6 +111,8 @@
     _collectionViewItem.delegate = self;
     [_collectionViewItem registerNib:[UINib nibWithNibName:KCollegeCollectionViewCell bundle:nil] forCellWithReuseIdentifier:KCollegeCollectionViewCell];
     [_collectionViewItem registerNib:[UINib nibWithNibName:KTeachItemViewCell bundle:nil] forCellWithReuseIdentifier:KTeachItemViewCell];
+    _collectionViewItem.showsHorizontalScrollIndicator = NO;
+    _collectionViewItem.showsVerticalScrollIndicator = NO;
     [_collectionViewItem reloadData];
 }
 

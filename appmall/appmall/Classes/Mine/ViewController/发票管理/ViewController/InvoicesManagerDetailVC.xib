@@ -85,7 +85,7 @@
                         <constraint firstAttribute="height" constant="48" id="hCm-BO-HFV"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="下载支票"/>
+                    <state key="normal" title="下载发票"/>
                     <connections>
                         <action selector="downloadBtnAction:" destination="-1" eventType="touchUpInside" id="mC0-gM-LZg"/>
                     </connections>

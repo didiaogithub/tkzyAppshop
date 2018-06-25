@@ -327,7 +327,7 @@
     _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_shoppingCarTableView.frame), SCREEN_WIDTH, 50);
     
     _editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _editBtn.frame = CGRectMake(0, 0, 80, 45);
+    _editBtn.frame = CGRectMake(0, 0, 40, 40);
     _editBtn.titleLabel.font=[UIFont systemFontOfSize:15.0f];
     _editBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];

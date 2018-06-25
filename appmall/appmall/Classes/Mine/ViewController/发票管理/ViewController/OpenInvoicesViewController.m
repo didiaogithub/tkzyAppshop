@@ -224,7 +224,7 @@
     
     XWAlterVeiw *alertView = [[XWAlterVeiw alloc] init];
     alertView.delegate = self;
-    alertView.titleLable.text = @"请确保您的邮箱是正确的";
+    alertView.titleLable.text = @"提交后不可修改，确认提交吗？";
     [alertView show];
     
     

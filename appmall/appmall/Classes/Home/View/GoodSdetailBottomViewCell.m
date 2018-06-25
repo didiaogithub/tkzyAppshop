@@ -15,6 +15,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.webContent.scrollView.bounces = NO;
+    
     // Initialization code
 }
 

@@ -30,8 +30,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tabTopDis.constant = NaviHeight;
     self.dataList = [NSMutableArray arrayWithCapacity:0];
-    [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
-
+    [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    [self loadNewData];
     [self setTableView];
     self.title = @"媒体报道";
     self.automaticallyAdjustsScrollViewInsets = NO;

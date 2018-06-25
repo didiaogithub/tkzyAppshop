@@ -30,8 +30,9 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     self.tabTopDis.constant = NaviHeight;
     self.dataList = [NSMutableArray arrayWithCapacity:0];
-    [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
+    [UITableView refreshHelperWithScrollView:_honourDetailList target:self loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self setTableView];
+    [self loadNewData];
     self.title = @"企业荣誉";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];

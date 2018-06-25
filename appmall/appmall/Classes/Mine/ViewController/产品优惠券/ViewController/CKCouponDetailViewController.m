@@ -40,7 +40,7 @@
 //    self.navigationItem.title = @"产品券";
      [self initComponents];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:YES];
+    [UITableView refreshHelperWithScrollView:self.couponTable target:self loadNewData:@selector(loadNewData) loadMoreData:nil isBeginRefresh:NO];
      [self resquestCouponData:self.couponType];
 
     NSArray *couponListArray = [[XNArchiverManager shareInstance] xnUnarchiverObject:[NSString stringWithFormat:@"MJCouponCache_%@", self.couponType]];

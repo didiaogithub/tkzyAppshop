@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -85,21 +85,21 @@
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </webView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHZ-rg-wfC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="261.5"/>
+                        <rect key="frame" x="0.0" y="52" width="320" height="210"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Slv-N5-SVa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3Gh-h7-HUw"/>
                     <constraint firstAttribute="trailing" secondItem="Slv-N5-SVa" secondAttribute="trailing" id="9gS-C0-mgQ"/>
-                    <constraint firstAttribute="bottom" secondItem="AHZ-rg-wfC" secondAttribute="bottom" id="AXA-Ne-bSJ"/>
                     <constraint firstItem="9ic-Yx-3to" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="EqN-KG-EqK"/>
-                    <constraint firstAttribute="trailing" secondItem="AHZ-rg-wfC" secondAttribute="trailing" id="Fwz-OE-dv2"/>
                     <constraint firstItem="9ic-Yx-3to" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gpx-ns-lji"/>
+                    <constraint firstAttribute="bottom" secondItem="AHZ-rg-wfC" secondAttribute="bottom" constant="-0.5" id="HSZ-LX-IeX"/>
                     <constraint firstItem="Slv-N5-SVa" firstAttribute="top" secondItem="9ic-Yx-3to" secondAttribute="bottom" id="TpV-cq-lao"/>
                     <constraint firstAttribute="trailing" secondItem="9ic-Yx-3to" secondAttribute="trailing" id="UIP-zr-BbQ"/>
-                    <constraint firstItem="AHZ-rg-wfC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a13-PN-uSf"/>
-                    <constraint firstItem="AHZ-rg-wfC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aaz-GX-kq0"/>
+                    <constraint firstItem="AHZ-rg-wfC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YF0-e1-NOp"/>
+                    <constraint firstAttribute="trailing" secondItem="AHZ-rg-wfC" secondAttribute="trailing" id="bbn-XI-6pC"/>
                     <constraint firstAttribute="bottom" secondItem="Slv-N5-SVa" secondAttribute="bottom" id="cHv-mG-fGg"/>
+                    <constraint firstItem="AHZ-rg-wfC" firstAttribute="top" secondItem="9ic-Yx-3to" secondAttribute="bottom" constant="8" id="xyl-eg-Wkz"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

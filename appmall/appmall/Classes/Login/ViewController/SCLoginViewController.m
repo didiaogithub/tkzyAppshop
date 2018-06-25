@@ -80,7 +80,7 @@
     
     [textF setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
     textF.attributedPlaceholder = firstPart;
-    textF.tintColor = [UIColor whiteColor];
+//    textF.tintColor = [UIColor whiteColor];
     textF.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 25, 0)];
     //设置显示模式为永远显示(默认不显示 必须设置 否则没有效果)
     textF.leftViewMode = UITextFieldViewModeAlways;
@@ -225,8 +225,13 @@
             NSDictionary *dic = json;
             if ([dic[@"code"] integerValue] != 200) {
                 [self.loadingView showNoticeView:dic[@"message"]];
+                // 301 跳转注册页面
+                if ([dic[@"code"] integerValue] == 301) {
+                    [self weixinLogin];
+                }
                 return;
             }
+            
             
             NSString * dealerId =  dic[@"data"][@"dealerId"];
             NSString * customerId =  dic[@"data"][@"customerId"];

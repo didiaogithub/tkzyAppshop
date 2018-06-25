@@ -10,7 +10,8 @@
 #import "OpenInvoicesCell.h"
 #import "MyInvoicesViewController.h"
 #import "OpenInvoiceModel.h"
-@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
+#import "XWAlterVeiw.h"
+@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,XWAlterVeiwDelegate>
 {
     NSArray *nameArray;
 }
@@ -33,6 +34,7 @@
     self.title = @"开发票";
     
     [self.ffyxTextField becomeFirstResponder];
+    self.ffyxTextField.keyboardType = UIKeyboardTypeEmailAddress;
     self.orderNoLab.text = [NSString stringWithFormat:@"订单号:%@",self.orderno];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -220,36 +222,12 @@
     }
     
     
+    XWAlterVeiw *alertView = [[XWAlterVeiw alloc] init];
+    alertView.delegate = self;
+    alertView.titleLable.text = @"请确保您的邮箱是正确的";
+    [alertView show];
     
     
-    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
-    
-    [paraDic setObject:self.orderid forKey:@"orderid"];
-    [paraDic setObject:self.model.tempid forKey:@"tempid"];
-    [paraDic setObject:self.ffyxTextField.text forKey:@"email"];
-    
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyInvoiceApi];
-    [self.view addSubview:self.loadingView];
-    [self.loadingView startAnimation];
-    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
-        [self.loadingView stopAnimation];
-         NSDictionary *dict = json;
-        if ([dict[@"code"] intValue] != 200) {
-            [self.loadingView showNoticeView:dict[@"message"]];
-            return ;
-        }else{
-            [self.loadingView showNoticeView:@"提交成功"];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        
-    } failure:^(NSError *error) {
-         [self.loadingView stopAnimation];
-        if (error.code == -1009) {
-            [self showNoticeView:NetWorkNotReachable];
-        }else{
-            [self showNoticeView:NetWorkTimeout];
-        }
-    }];
     
 }
 
@@ -299,6 +277,38 @@
             
         }
         [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+    
+}
+
+- (void)subuttonClicked{
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [paraDic setObject:self.orderid forKey:@"orderid"];
+    [paraDic setObject:self.model.tempid forKey:@"tempid"];
+    [paraDic setObject:self.ffyxTextField.text forKey:@"email"];
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyInvoiceApi];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        if ([dict[@"code"] intValue] != 200) {
+            [self.loadingView showNoticeView:dict[@"message"]];
+            return ;
+        }else{
+            [self.loadingView showNoticeView:@"提交成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

@@ -108,7 +108,6 @@
 		2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE352086151E00095032 /* CKCUpdateAlertView.m */; };
 		2D20DE442086186000095032 /* NSString+Chatacters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE3B2086185C00095032 /* NSString+Chatacters.m */; };
 		2D20DE452086186000095032 /* TTAttibuteLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE3C2086185D00095032 /* TTAttibuteLabel.m */; };
-		2D20DE472086186000095032 /* XWAlterVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE412086185F00095032 /* XWAlterVeiw.m */; };
 		2D20DE482086186000095032 /* InvitationAlterVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE422086185F00095032 /* InvitationAlterVeiw.m */; };
 		2D20DE5D2086187200095032 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE4C2086186C00095032 /* NSDate+Common.m */; };
 		2D20DE5E2086187200095032 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DE4D2086186D00095032 /* UIColor+Extension.m */; };
@@ -402,6 +401,7 @@
 		F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2113A8920B581BB00C01DA4 /* InvoicesManagerCell.xib */; };
 		F228DC1620D3E8500092C952 /* arrearsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F228DC1320D3E8500092C952 /* arrearsModel.m */; };
 		F228DC1720D3E8500092C952 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F228DC1520D3E8500092C952 /* Item.m */; };
+		F22DA66220E0EB9A0053F106 /* XWAlterVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = F22DA66120E0EB9A0053F106 /* XWAlterVeiw.m */; };
 		F236AE3A20BF87C8004B9A03 /* CKJPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3720BF87C8004B9A03 /* CKJPushManager.m */; };
 		F236AE3B20BF87C8004B9A03 /* MessageAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3920BF87C8004B9A03 /* MessageAlert.m */; };
 		F236AE4120BF8DBE004B9A03 /* SQQKTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F236AE3F20BF8DBE004B9A03 /* SQQKTableCell.m */; };
@@ -716,8 +716,6 @@
 		2D20DE3C2086185D00095032 /* TTAttibuteLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAttibuteLabel.m; sourceTree = "<group>"; };
 		2D20DE3D2086185D00095032 /* InvitationAlterVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationAlterVeiw.h; sourceTree = "<group>"; };
 		2D20DE3F2086185E00095032 /* TTAttibuteLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAttibuteLabel.h; sourceTree = "<group>"; };
-		2D20DE402086185E00095032 /* XWAlterVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAlterVeiw.h; sourceTree = "<group>"; };
-		2D20DE412086185F00095032 /* XWAlterVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlterVeiw.m; sourceTree = "<group>"; };
 		2D20DE422086185F00095032 /* InvitationAlterVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationAlterVeiw.m; sourceTree = "<group>"; };
 		2D20DE492086186B00095032 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		2D20DE4A2086186B00095032 /* NSDecimalNumber+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+Addtion.h"; sourceTree = "<group>"; };
@@ -1246,6 +1244,8 @@
 		F228DC1320D3E8500092C952 /* arrearsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrearsModel.m; sourceTree = "<group>"; };
 		F228DC1420D3E8500092C952 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		F228DC1520D3E8500092C952 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F22DA66020E0EB9A0053F106 /* XWAlterVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAlterVeiw.h; sourceTree = "<group>"; };
+		F22DA66120E0EB9A0053F106 /* XWAlterVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlterVeiw.m; sourceTree = "<group>"; };
 		F236AE3620BF87C8004B9A03 /* CKJPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKJPushManager.h; sourceTree = "<group>"; };
 		F236AE3720BF87C8004B9A03 /* CKJPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKJPushManager.m; sourceTree = "<group>"; };
 		F236AE3820BF87C8004B9A03 /* MessageAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageAlert.h; sourceTree = "<group>"; };
@@ -2257,8 +2257,6 @@
 				2D20DE3B2086185C00095032 /* NSString+Chatacters.m */,
 				2D20DE3F2086185E00095032 /* TTAttibuteLabel.h */,
 				2D20DE3C2086185D00095032 /* TTAttibuteLabel.m */,
-				2D20DE402086185E00095032 /* XWAlterVeiw.h */,
-				2D20DE412086185F00095032 /* XWAlterVeiw.m */,
 				2D20DDF22086147100095032 /* FFPopTool.h */,
 				2D20DDF72086147200095032 /* FFPopTool.m */,
 				2D20DDF82086147200095032 /* getUUID.h */,
@@ -2360,6 +2358,8 @@
 		2D20DE302086151000095032 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				F22DA66020E0EB9A0053F106 /* XWAlterVeiw.h */,
+				F22DA66120E0EB9A0053F106 /* XWAlterVeiw.m */,
 				2D20DE362086151E00095032 /* CKCUpdateAlertView.h */,
 				2D20DE352086151E00095032 /* CKCUpdateAlertView.m */,
 				2D20DE332086151D00095032 /* FFAlertView.h */,
@@ -3574,6 +3574,7 @@
 				2D20DF4E2088D48500095032 /* FFTipAlertView.m in Sources */,
 				2D20DEFD2088CD2600095032 /* SCPayMoneyTableCell.m in Sources */,
 				2D20DE6A20861B2D00095032 /* UIView+MJExtension.m in Sources */,
+				F22DA66220E0EB9A0053F106 /* XWAlterVeiw.m in Sources */,
 				2D0723ED2082FED20030996F /* ShoppingCartViewController.m in Sources */,
 				2D0726B12083924B0030996F /* MedieaDetailViewController.m in Sources */,
 				2D4D60F120B3F1F500280033 /* ClassListModel.m in Sources */,
@@ -3710,7 +3711,6 @@
 				2D20DEF02088CC8C00095032 /* AddAddressViewController.m in Sources */,
 				F20F5CD820C65CDF00DBEC82 /* OpenInvoiceModel.m in Sources */,
 				2D6F9270208F5061007DFD0B /* TeacherInfoViewCell.m in Sources */,
-				2D20DE472086186000095032 /* XWAlterVeiw.m in Sources */,
 				2D20DEAC2088C82600095032 /* SCCategoryChildVC.m in Sources */,
 				2D20DDE82086142000095032 /* RequestManager+CK.m in Sources */,
 				2D808E8820BC2C2E002FADA8 /* ODGoodInfoViewCell.m in Sources */,

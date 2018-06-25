@@ -188,7 +188,13 @@
         
         [KUserdefaults removeObjectForKey:@"CKYS_RefreshCar"];
         
-        NSArray *itemArr = itemDic[@"data"][@"cartList"];
+        NSDictionary *itemDics = itemDic[@"data"][@"cartList"];
+        NSArray *itemArr;
+        if ([itemDic isMemberOfClass:[NSDictionary class]]) {
+            itemArr = [itemDics allValues];
+        }else{
+            itemArr = itemDics;
+        }
         if ([itemArr isKindOfClass:[NSArray class]]) {
             if (itemArr.count == 0) {
                 [self.shoppingCarDataArray removeAllObjects];

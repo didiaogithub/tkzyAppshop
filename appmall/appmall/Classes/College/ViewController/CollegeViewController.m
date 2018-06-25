@@ -34,6 +34,7 @@
     self.view.backgroundColor = [UIColor tt_grayBgColor];
     [self creatSearchUI];
     [self setTableView];
+    self.automaticallyAdjustsScrollViewInsets = NO; 
     [UITableView refreshHelperWithScrollView:self.tabTKXYRooView target:self  loadNewData:@selector(loadData) loadMoreData:nil isBeginRefresh:NO];
     [self loadData];
     [CKCNotificationCenter addObserver:self selector:@selector(defaultTableViewFrame) name:@"HasNetNotification" object:nil];

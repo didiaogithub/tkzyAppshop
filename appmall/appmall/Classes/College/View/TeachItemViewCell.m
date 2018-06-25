@@ -15,8 +15,13 @@
     self.teacherIcon.layer.cornerRadius = self.teacherIcon.mj_h/ 2;
     self.teacherIcon.layer.masksToBounds = YES;
     self.viewContent.layer .cornerRadius = 4;
-    self.viewContent.layer.borderColor = RGBCOLOR(200, 200, 200).CGColor;
+    self.viewContent.layer.borderColor = [UIColor colorWithHexString:@"#d9d9d9"] .CGColor;
     self.viewContent.layer.borderWidth = 1;
+    self.viewContent.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.viewContent.layer.shadowColor = [UIColor colorWithHexString:@"#d9d9d9"] .CGColor;
+    self.viewContent.layer.shadowOffset = CGSizeMake(0, 0);
+    self.viewContent.layer.shadowOpacity = 0.9f;
+    self.viewContent.layer.cornerRadius = 8;
 }
 
 -(void)loadData:(TeacherListModel *)model{

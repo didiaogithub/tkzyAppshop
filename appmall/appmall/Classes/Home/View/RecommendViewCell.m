@@ -144,7 +144,7 @@
       
         [self getLayoutMidea];
     
-        self.labTitle.text = @"媒体报道";
+        self.labTitle.text = @"媒x体报道";
         @try {
 
             [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];

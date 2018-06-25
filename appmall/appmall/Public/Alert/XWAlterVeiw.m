@@ -3,6 +3,8 @@
 //  XWAleratView
 
 #import "XWAlterVeiw.h"
+#import "UILabel+configure.h"
+
 @interface XWAlterVeiw ()
 
 @end
@@ -21,20 +23,20 @@
         _bigView.layer.cornerRadius = 5;
         _bigView.backgroundColor = [UIColor whiteColor];
         [_bigView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_offset(SCREEN_HEIGHT/2-AdaptedHeight(65));
-            make.left.mas_offset(AdaptedWidth(50));
-            make.width.mas_offset(SCREEN_WIDTH - AdaptedWidth(100));
-            make.height.mas_offset(AdaptedHeight(130));
+            make.top.mas_offset(SCREEN_HEIGHT/2-65);
+            make.left.mas_offset(50);
+            make.width.mas_offset( SCREEN_WIDTH - 100);
+            make.height.mas_offset(130);
         }];
     
         //中间的信息
-        _titleLable = [UILabel configureLabelWithTextColor:TitleColor textAlignment:NSTextAlignmentCenter font:[UIFont systemFontOfSize:14.0f]];
+        _titleLable = [UILabel configureLabelWithTextColor:[UIColor colorWithHexString:@"#333333"] textAlignment:NSTextAlignmentCenter font:[UIFont systemFontOfSize:14.0f]];
         [_bigView addSubview:_titleLable];
         _titleLable.numberOfLines = 0;
         [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_offset(AdaptedHeight(20));
-            make.left.mas_offset(AdaptedWidth(15));
-            make.right.mas_offset(-AdaptedWidth(15));
+            make.top.mas_offset(20);
+            make.left.mas_offset(15);
+            make.right.mas_offset(-15);
         }];
 
         
@@ -48,15 +50,14 @@
         
         _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_bigView addSubview:_cancelBtn];
-        [_cancelBtn setTitleColor:SubTitleColor forState:UIControlStateNormal];
+        [_cancelBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-        _cancelBtn.titleLabel.font = MAIN_TITLE_FONT;
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(horizalLable.mas_bottom);
             make.left.mas_offset(0);
             make.bottom.mas_offset(0);
-            make.height.mas_offset(AdaptedHeight(45));
-            make.width.mas_offset((SCREEN_WIDTH-AdaptedWidth(100))/2);
+            make.height.mas_offset(45);
+            make.width.mas_offset((SCREEN_WIDTH-100)/2);
         }];
         [_cancelBtn addTarget:self action:@selector(clickCancelButton) forControlEvents:UIControlEventTouchUpInside];
         _cancelBtn.tag = 0;
@@ -73,7 +74,6 @@
         [_bigView addSubview:_sureBut];
         [_sureBut setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
         [_sureBut setTitle:@"确定" forState:UIControlStateNormal];
-        _sureBut.titleLabel.font = MAIN_TITLE_FONT;
         [_sureBut mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.width.height.bottom.equalTo(_cancelBtn);
             make.left.equalTo(verticalLable.mas_right);

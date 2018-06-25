@@ -48,7 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     self.automaticallyAdjustsScrollViewInsets = NO;
     [[UIApplication sharedApplication].keyWindow addSubview:viewNewUser];
     viewNewUser.frame = [UIScreen mainScreen].bounds;
         MJWeakSelf;
@@ -208,6 +208,7 @@
     tabHomeList.dataSource = self;
     [tabHomeList registerNib:[UINib nibWithNibName:KRecommendViewCell bundle:nil] forCellReuseIdentifier:KRecommendViewCell];
     [tabHomeList registerClass:[HomeTabTopAdsViewCell class] forCellReuseIdentifier:KHomeTabTopAdsViewCell   ];
+    tabHomeList.showsVerticalScrollIndicator = NO;
     [tabHomeList reloadData];
 }
 
@@ -266,7 +267,7 @@
 }
 
 -(void)creatRightItem{
-    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 50, 40)];
     numMsg = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 13, 13)];
     numMsg.hidden = YES;
     numMsg.textAlignment = NSTextAlignmentCenter;

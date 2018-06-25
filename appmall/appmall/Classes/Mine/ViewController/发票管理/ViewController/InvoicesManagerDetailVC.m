@@ -7,7 +7,7 @@
 //
 
 #import "InvoicesManagerDetailVC.h"
-
+#import "XLImageViewer.h"
 @interface InvoicesManagerDetailVC ()
 @property (weak, nonatomic) IBOutlet UILabel *orderno;
 @property (weak, nonatomic) IBOutlet UILabel *invoicetype;
@@ -29,10 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"发票详情";
-    self.invoiceImage.contentMode =  UIViewContentModeScaleAspectFill;
+    self.invoiceImage.contentMode =  UIViewContentModeScaleToFill;
     self.downloadBtn.layer.masksToBounds = YES;
     self.downloadBtn.layer.cornerRadius = 3;
+    
+   
+    
     [self getData];
+}
+
+- (void)singleTap{
+     [[XLImageViewer shareInstanse]showNetImages:@[self.path] index:0 from:self.view];
 }
 
 - (void)getData{
@@ -50,13 +57,11 @@
             }else{
                 self.invoicetype.text = @"发票类型：电子专用发票";
             }
-            
-           
-            
-            
             self.invoicehead.text = [NSString stringWithFormat:@"发票抬头：%@",dict[@"issuingoffice"]];
             self.path = dict[@"path"];
-            
+            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+            self.invoiceImage.userInteractionEnabled = YES;
+            [self.invoiceImage addGestureRecognizer:singleTap];
             
             [self.invoiceImage sd_setImageWithURL:[NSURL URLWithString:self.path] placeholderImage:[UIImage imageNamed:@"首页媒体报道"]];
             self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];

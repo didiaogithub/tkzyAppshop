@@ -16,6 +16,7 @@
     _LabRed.hidden = YES;
     _LabRed.layer.masksToBounds = YES;
     _LabRed.layer.cornerRadius = 13 * 0.5;
+    [self.imageView addSubview:_LabRed];
     // Initialization code
 }
 

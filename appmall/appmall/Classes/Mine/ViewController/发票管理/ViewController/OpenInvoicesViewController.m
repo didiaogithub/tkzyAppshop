@@ -10,7 +10,8 @@
 #import "OpenInvoicesCell.h"
 #import "MyInvoicesViewController.h"
 #import "OpenInvoiceModel.h"
-@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate>
+#import "XWAlterVeiw.h"
+@interface OpenInvoicesViewController ()<UITableViewDelegate,UITableViewDataSource,XYTableViewDelegate,XWAlterVeiwDelegate>
 {
     NSArray *nameArray;
 }
@@ -32,7 +33,8 @@
     [super viewDidLoad];
     self.title = @"开发票";
     
-   
+    [self.ffyxTextField becomeFirstResponder];
+    self.ffyxTextField.keyboardType = UIKeyboardTypeEmailAddress;
     self.orderNoLab.text = [NSString stringWithFormat:@"订单号:%@",self.orderno];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -189,43 +191,43 @@
     }
 }
 
+// 验证邮箱是否是合法邮箱
+- (BOOL )validationEmail:(NSString *)email {
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if( [emailTest evaluateWithObject:email]){
+        return YES;
+    }else{
+        [self showNoticeView:@"请输入合法的邮箱"];
+        return NO;
+    }
+    return NO;
+}
 
 - (void)submitData{
     
     if (IsNilOrNull(self.ffyxTextField.text)) {
         [self showNoticeView:@"请输入发票邮箱"];
         return;
+    }else{
+        
+        if ([self validationEmail:self.ffyxTextField.text] == YES) {
+            
+        }else{
+            return;
+        }
+        
+        
     }
     
     
-    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    XWAlterVeiw *alertView = [[XWAlterVeiw alloc] init];
+    alertView.delegate = self;
+    alertView.titleLable.text = @"请确保您的邮箱是正确的";
+    [alertView show];
     
-    [paraDic setObject:self.orderid forKey:@"orderid"];
-    [paraDic setObject:self.model.tempid forKey:@"tempid"];
-    [paraDic setObject:self.ffyxTextField.text forKey:@"email"];
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyInvoiceApi];
-    [self.view addSubview:self.loadingView];
-    [self.loadingView startAnimation];
-    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
-        [self.loadingView stopAnimation];
-         NSDictionary *dict = json;
-        if ([dict[@"code"] intValue] != 200) {
-            [self.loadingView showNoticeView:dict[@"message"]];
-            return ;
-        }else{
-            [self.loadingView showNoticeView:@"提交成功"];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        
-    } failure:^(NSError *error) {
-         [self.loadingView stopAnimation];
-        if (error.code == -1009) {
-            [self showNoticeView:NetWorkNotReachable];
-        }else{
-            [self showNoticeView:NetWorkTimeout];
-        }
-    }];
     
 }
 
@@ -275,6 +277,38 @@
             
         }
         [self.mTableView reloadData];
+        
+    } failure:^(NSError *error) {
+        [self.loadingView stopAnimation];
+        if (error.code == -1009) {
+            [self showNoticeView:NetWorkNotReachable];
+        }else{
+            [self showNoticeView:NetWorkTimeout];
+        }
+    }];
+    
+}
+
+- (void)subuttonClicked{
+    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    
+    [paraDic setObject:self.orderid forKey:@"orderid"];
+    [paraDic setObject:self.model.tempid forKey:@"tempid"];
+    [paraDic setObject:self.ffyxTextField.text forKey:@"email"];
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,applyInvoiceApi];
+    [self.view addSubview:self.loadingView];
+    [self.loadingView startAnimation];
+    [HttpTool postWithUrl:requestUrl params:paraDic success:^(id json) {
+        [self.loadingView stopAnimation];
+        NSDictionary *dict = json;
+        if ([dict[@"code"] intValue] != 200) {
+            [self.loadingView showNoticeView:dict[@"message"]];
+            return ;
+        }else{
+            [self.loadingView showNoticeView:@"提交成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

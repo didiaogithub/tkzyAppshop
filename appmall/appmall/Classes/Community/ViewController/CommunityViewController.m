@@ -73,7 +73,7 @@
 
     UIButton *itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [itemBtn addTarget:self action:@selector(actionToPostComm) forControlEvents:UIControlEventTouchUpInside];
-    itemBtn.frame = CGRectMake(0, 0, 33, 33);
+    itemBtn.frame = CGRectMake(0, 0, 70, 33);
     [itemBtn setImage:[UIImage imageNamed:@"组添加"] forState:0];
     [itemBtn setTitleColor:[UIColor redColor] forState:0];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:itemBtn];
@@ -83,6 +83,7 @@
     self.tabCommunityList .delegate = self;
     self.tabCommunityList.dataSource = self;
     [self.tabCommunityList registerNib:[UINib nibWithNibName:KCommunityViewCell bundle:nil] forCellReuseIdentifier:KCommunityViewCell];
+    self.tabCommunityList.showsVerticalScrollIndicator = NO;
     self.tabCommunityList.tableFooterView = [UIView new];
 }
 

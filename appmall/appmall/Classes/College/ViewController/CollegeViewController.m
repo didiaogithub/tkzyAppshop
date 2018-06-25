@@ -66,6 +66,7 @@
     self.tabTKXYRooView.dataSource = self;
     [self .tabTKXYRooView registerClass:[TabTopAdsViewCell class] forCellReuseIdentifier:KTabTopAdsViewCell];
     [self .tabTKXYRooView registerNib:[UINib nibWithNibName:KCollegeRootViewCell bundle:nil] forCellReuseIdentifier:KCollegeRootViewCell];
+    self.tabTKXYRooView.showsVerticalScrollIndicator = NO;
     [self.tabTKXYRooView reloadData];
 }
 

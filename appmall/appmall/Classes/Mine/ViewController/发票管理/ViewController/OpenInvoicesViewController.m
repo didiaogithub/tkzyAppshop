@@ -32,7 +32,7 @@
     [super viewDidLoad];
     self.title = @"开发票";
     
-   
+    [self.ffyxTextField becomeFirstResponder];
     self.orderNoLab.text = [NSString stringWithFormat:@"订单号:%@",self.orderno];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
@@ -189,13 +189,37 @@
     }
 }
 
+// 验证邮箱是否是合法邮箱
+- (BOOL )validationEmail:(NSString *)email {
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if( [emailTest evaluateWithObject:email]){
+        return YES;
+    }else{
+        [self showNoticeView:@"请输入合法的邮箱"];
+        return NO;
+    }
+    return NO;
+}
 
 - (void)submitData{
     
     if (IsNilOrNull(self.ffyxTextField.text)) {
         [self showNoticeView:@"请输入发票邮箱"];
         return;
+    }else{
+        
+        if ([self validationEmail:self.ffyxTextField.text] == YES) {
+            
+        }else{
+            return;
+        }
+        
+        
     }
+    
+    
     
     
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];

@@ -26,6 +26,9 @@
 @end
 
 @implementation InvoicesMListViewController
+- (void)viewWillAppear:(BOOL)animated{
+    [self loadNewData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

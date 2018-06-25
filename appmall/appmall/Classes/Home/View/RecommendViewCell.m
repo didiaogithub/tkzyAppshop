@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMore;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property(assign,nonatomic)NSInteger selectIndex;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionViewItem;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionTopViewHeight;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutRecom;
@@ -73,8 +73,9 @@
     self.customLayoutMedia = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutMedia.minimumLineSpacing = 0;
     self.customLayoutMedia.minimumInteritemSpacing = 0;
-    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth - 2 ) , AdaptedHeight(221 - 50) ) ;
+    self.customLayoutMedia.itemSize = CGSizeMake((KscreenWidth ) , AdaptedHeight(221 - 50) ) ;
 }
+
 
 -(CGFloat)getCollectionHeight:(NSInteger)index{
     switch (index) {
@@ -145,6 +146,7 @@
     
         self.labTitle.text = @"媒x体报道";
         @try {
+
             [self.collectionViewItem setCollectionViewLayout:self.customLayoutMedia];
         } @catch (NSException *e) {
             NSLog(@"++++++++++++++++++++++++++++=haha");
@@ -161,7 +163,9 @@
     [self.collectionViewItem reloadData];
 }
 
-
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 //

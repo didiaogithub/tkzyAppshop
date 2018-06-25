@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "549423193.586508"
+            timestampString = "551617250.024246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-getshoppingCarData"
             landmarkType = "7">
          </BreakpointContent>
@@ -201,7 +201,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "707"
             endingLineNumber = "707"
-            landmarkName = "-confirmReceiveGoods:"
+            landmarkName = "-deleteOrder"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,8 +217,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
             endingLineNumber = "203"
-            landmarkName = "SCConfirmOrderVC"
-            landmarkType = "3">
+            landmarkName = "-topTipView:closeTip:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderDetailVC.m"
-            timestampString = "551600802.089305"
+            timestampString = "551605514.637404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
@@ -483,13 +483,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Mine/ViewController/SCOrderDetailVC.m"
-            timestampString = "551600802.089928"
+            filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
+            timestampString = "551617250.024792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            startingLineNumber = "672"
+            endingLineNumber = "672"
+            landmarkName = "-deleteShoppingCarGoods:indexArr:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SCShoppingCarViewController deleteShoppingCarGoods:indexArr:]"
+                  moduleName = "appmall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
+                  timestampString = "551616854.096891"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "668"
+                  endingLineNumber = "668"
+                  offsetFromSymbolStart = "622">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[SCShoppingCarViewController deleteShoppingCarGoods:indexArr:]_block_invoke"
+                  moduleName = "appmall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
+                  timestampString = "551616854.099216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "669"
+                  endingLineNumber = "669"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.553"
+                  moduleName = "appmall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
+                  timestampString = "551616854.101187"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "668"
+                  endingLineNumber = "668"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
+            timestampString = "551617250.025019"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "-getshoppingCarData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

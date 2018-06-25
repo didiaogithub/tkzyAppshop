@@ -144,6 +144,10 @@
     [self createTableView];
 }
 
+//-(BOOL)havData{
+//    return NO;
+//}
+
 - (UIImage *)xy_noDataViewImage{
     
     UIImage *image= [UIImage imageNamed:@"购物车默认"];

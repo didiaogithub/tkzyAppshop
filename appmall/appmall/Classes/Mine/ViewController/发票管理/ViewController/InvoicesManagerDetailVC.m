@@ -64,13 +64,17 @@
             [self.invoiceImage addGestureRecognizer:singleTap];
             
             [self.invoiceImage sd_setImageWithURL:[NSURL URLWithString:self.path] placeholderImage:[UIImage imageNamed:@"首页媒体报道"]];
-            self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
+            
+            NSString *content = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
+            
+            content = [content stringByReplacingOccurrencesOfString:@"," withString:@"\n                   "];
+            self.invoicecotent.text = content;
             NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
             paraStyle.lineSpacing = 0;
             NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
             CGSize size = [ self.invoicecotent.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
             
-            self.contentH.constant = AdaptedHeight(size.height + 30);
+            self.contentH.constant = AdaptedHeight(size.height + 8);
           
             
         }

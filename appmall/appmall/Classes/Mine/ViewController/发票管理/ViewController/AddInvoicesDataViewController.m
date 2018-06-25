@@ -84,7 +84,7 @@
     }
     self.isQY = YES;
     [self initCompontments];
-    [self setRightButton:@"模板下载" titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
+    [self setRightButton:@"模板下载" BtnFrame:CGRectMake(0, 0, 80, 40)  titleColor:[UIColor colorWithHexString:@"#666666"] isTJXHX:YES];
 }
 
 - (void)rightBtnPressed{

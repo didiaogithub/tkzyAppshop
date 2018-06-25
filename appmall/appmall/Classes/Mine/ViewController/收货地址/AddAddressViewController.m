@@ -192,7 +192,7 @@
 
 -(void)createOtherViews{
     
-    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+10+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(240 + 40))];
+    _bankView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, AdaptedHeight(250))];
     [_bankView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_bankView];
     float h = 0;
@@ -238,13 +238,13 @@
             case 0:
             {
                 _nameTextFiedld = contentTf;
-                _nameTextFiedld.placeholder = @"未填写";
+                _nameTextFiedld.placeholder = @"请填写收件人";
             }
                 break;
             case 1:
             {
                 _telePhoneFiedld = contentTf;
-                _telePhoneFiedld.placeholder = @"未填写";
+                _telePhoneFiedld.placeholder = @"请填写手机号码";
             }
                 break;
             case 2:
@@ -258,7 +258,7 @@
             case 3:
             {
                 _detailedAddressFiedld = contentTf;
-                _detailedAddressFiedld.placeholder = @"未填写";
+                _detailedAddressFiedld.placeholder = @"请填写详细地址";
             }
                
                 break;
@@ -273,7 +273,7 @@
     [_defaultBtn setImage:[UIImage imageNamed:@"selectedred"] forState:UIControlStateSelected];
     [_bankView addSubview:_defaultBtn];
     [_defaultBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_detailedAddressFiedld.mas_bottom);
+        make.top.equalTo(_detailedAddressFiedld.mas_bottom).mas_offset(5);
         make.left.mas_offset(AdaptedWidth(10));
         make.height.width.mas_equalTo(AdaptedWidth(35));
     }];
@@ -284,7 +284,7 @@
     label.text = @"设为默认";
     [_bankView addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_detailedAddressFiedld.mas_bottom);
+        make.top.equalTo(_detailedAddressFiedld.mas_bottom).mas_offset(5);
         make.left.equalTo(_defaultBtn.mas_right);
         make.right.mas_offset(-AdaptedWidth(35));
         make.height.mas_offset(AdaptedHeight(40));
@@ -310,7 +310,7 @@
 //
 //    [_addAddressButton addTarget:self action:@selector(clickAddressButton) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setRightButton:@"完成" titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
+    [self setRightButton:@"完成" BtnFrame:CGRectMake(0, 0, 40, 40) titleColor:[UIColor tt_monthLittleBlackColor] isTJXHX:NO];
 
 }
 

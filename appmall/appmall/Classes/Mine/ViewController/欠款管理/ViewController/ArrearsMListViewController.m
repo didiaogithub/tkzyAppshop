@@ -67,7 +67,7 @@
 - (void)initComponments{
     
     self.mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0,10, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 45 - 10) style:UITableViewStyleGrouped];
+    self.mTableView = [[UITableView alloc]initWithFrame:CGRectMake( 0,0, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 45 ) style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     [self.view addSubview:self.mTableView];

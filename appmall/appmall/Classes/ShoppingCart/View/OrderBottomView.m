@@ -116,7 +116,7 @@
     }];
     _deleteButton.hidden = YES;
     
-    _collectedButton = [UIButton configureButtonWithTitle:@"移动到收藏夹" titleColor:[UIColor whiteColor] bankGroundColor:CKYS_Color(231, 182, 47) cornerRadius:0 font:MAIN_TITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(clickBottomButton:)];
+    _collectedButton = [UIButton configureButtonWithTitle:@"移到收藏夹" titleColor:[UIColor whiteColor] bankGroundColor:[UIColor lightGrayColor] cornerRadius:0 font:MAIN_TITLE_FONT borderWidth:0 borderColor:[UIColor clearColor] target:self action:@selector(clickBottomButton:)];
     [_bgView addSubview:_collectedButton];
     _collectedButton.tag = 791;
     [_collectedButton mas_makeConstraints:^(MASConstraintMaker *make) {

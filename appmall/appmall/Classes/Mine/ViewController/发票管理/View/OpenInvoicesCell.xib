@@ -28,11 +28,8 @@
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dfasfasfasf" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-IH-t52">
-                        <rect key="frame" x="91" y="23" width="219" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="1iX-x2-naw"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-IH-t52">
+                        <rect key="frame" x="91" y="33.5" width="219" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,6 +43,7 @@
                     <constraint firstItem="lnb-YJ-BZE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ygX-F1-SPV"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="contentLab" destination="SCc-IH-t52" id="xQX-df-oL2"/>
                 <outlet property="nameLab" destination="lnb-YJ-BZE" id="5m3-e5-ACZ"/>

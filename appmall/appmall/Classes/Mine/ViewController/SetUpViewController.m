@@ -104,7 +104,7 @@
 -(void)createViews{
     
     //logo图  及版本号
-    _topView = [[UIView alloc] initWithFrame:CGRectMake(0,AdaptedHeight(10)+64+NaviAddHeight, SCREEN_WIDTH,AdaptedHeight(260))];
+    _topView = [[UIView alloc] initWithFrame:CGRectMake(0,64+NaviAddHeight, SCREEN_WIDTH,AdaptedHeight(260))];
     [self.view addSubview:_topView];
     _topView.backgroundColor = [UIColor whiteColor];
     

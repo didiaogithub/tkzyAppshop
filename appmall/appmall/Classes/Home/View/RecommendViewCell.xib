@@ -42,9 +42,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-Iy-taX">
-                                <rect key="frame" x="69.5" y="0.0" width="200" height="43"/>
+                                <rect key="frame" x="15" y="0.0" width="0.0" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="2N9-Pu-eqS"/>
+                                    <constraint firstAttribute="height" constant="43" id="xAj-ML-v8l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,12 +54,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bMA-Q9-YjE" secondAttribute="trailing" id="0vw-Nx-JUR"/>
-                            <constraint firstItem="ifx-Iy-taX" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="61r-DD-yyK"/>
                             <constraint firstAttribute="bottom" secondItem="bMA-Q9-YjE" secondAttribute="bottom" id="9YR-7m-h5u"/>
+                            <constraint firstItem="ifx-Iy-taX" firstAttribute="leading" secondItem="wwB-97-Twi" secondAttribute="leading" constant="15" id="CTT-S9-2ca"/>
                             <constraint firstItem="bMA-Q9-YjE" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="Fk6-l0-1xH"/>
+                            <constraint firstItem="ifx-Iy-taX" firstAttribute="top" secondItem="wwB-97-Twi" secondAttribute="top" id="KjQ-0l-anc"/>
                             <constraint firstAttribute="height" constant="43" id="WQw-6a-Ajk"/>
-                            <constraint firstAttribute="bottom" secondItem="ifx-Iy-taX" secondAttribute="bottom" id="hOG-aQ-7fD"/>
-                            <constraint firstItem="ifx-Iy-taX" firstAttribute="centerX" secondItem="wwB-97-Twi" secondAttribute="centerX" id="xJg-95-tlm"/>
+                            <constraint firstAttribute="bottom" secondItem="ifx-Iy-taX" secondAttribute="bottom" id="he6-xG-npw"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-9d-Spa">
@@ -95,7 +95,7 @@
                 <outlet property="topMarginViewHeight" destination="m8C-Gm-3Sm" id="RWw-iE-O06"/>
                 <outlet property="topView" destination="wwB-97-Twi" id="ZFc-Ek-cEN"/>
             </connections>
-            <point key="canvasLocation" x="43.5" y="126"/>
+            <point key="canvasLocation" x="7" y="37"/>
         </tableViewCell>
     </objects>
 </document>

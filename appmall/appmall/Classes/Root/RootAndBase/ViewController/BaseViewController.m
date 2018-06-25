@@ -145,11 +145,11 @@
     self.navigationItem.rightBarButtonItems = @[negativeSpacer,right];
    
 }
-- (void)setRightButton:(NSString *)btnName titleColor:(UIColor *)titleColor
+- (void)setRightButton:(NSString *)btnName BtnFrame:(CGRect)frame titleColor:(UIColor *)titleColor
  isTJXHX:(BOOL)isTJXHX{
     
     HyperlinksButton *button = [HyperlinksButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 80, 40);
+    button.frame = frame;
     [button setTitle:btnName forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
@@ -163,7 +163,7 @@
     
     negativeSpacer.width = -5;
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
-    self.navigationItem.rightBarButtonItems = @[negativeSpacer,right];
+    self.navigationItem.rightBarButtonItems = @[right];
     
 }
 

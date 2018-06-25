@@ -96,10 +96,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == nameArray.count - 2) {
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-        paraStyle.lineSpacing = 6;
+        paraStyle.lineSpacing = 0;
         NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
         CGSize size = [self.model.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
-        return AdaptedHeight(size.height);
+        return AdaptedHeight(size.height + 30);
         
     }else{
         return 60;
@@ -121,13 +121,14 @@
 //        }
         cell.nameLab.text = nameArray[indexPath.row];
         cell.contentLab.hidden = NO;
+        cell.contentLab.text = self.model.content;
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-        paraStyle.lineSpacing = 6;
+        paraStyle.lineSpacing = 0;
         
         NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
         CGSize size = [cell.contentLab.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
         [cell.contentLab mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(AdaptedHeight(size.height));
+            make.height.mas_offset(AdaptedHeight(size.height + 30));
         }];
        
         

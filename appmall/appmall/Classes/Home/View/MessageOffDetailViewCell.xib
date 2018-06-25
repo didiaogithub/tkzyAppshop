@@ -101,6 +101,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Bf0-nq-1Ua" firstAttribute="centerY" secondItem="k7s-Js-3Pk" secondAttribute="centerY" id="2XY-uw-odb"/>
                     <constraint firstAttribute="trailing" secondItem="ogy-Y6-mHq" secondAttribute="trailing" constant="10" id="5Mv-lW-2iw"/>
@@ -116,6 +117,7 @@
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="Cview" destination="ogy-Y6-mHq" id="R7Z-g9-KAQ"/>
                 <outlet property="imgIcon" destination="dyD-dx-TOD" id="dz0-dS-5np"/>
                 <outlet property="labContent" destination="sfV-JO-B1A" id="BEN-X9-Fss"/>
                 <outlet property="labTime" destination="Bf0-nq-1Ua" id="Dmr-Wb-hVs"/>

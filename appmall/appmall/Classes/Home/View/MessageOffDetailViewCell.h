@@ -10,6 +10,7 @@
 #import "MessagModel.h"
 
 @interface MessageOffDetailViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *Cview;
 @property (weak, nonatomic) IBOutlet UILabel *labTime;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;

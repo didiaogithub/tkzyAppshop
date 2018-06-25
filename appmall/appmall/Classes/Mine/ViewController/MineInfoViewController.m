@@ -68,7 +68,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
     [self.iconImage addGestureRecognizer:singleTap];
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.model.head] placeholderImage:[UIImage imageNamed:@"名师推荐头像"]];
-    [self setRightButton:@"保存" titleColor:[UIColor colorWithHexString:@"#333333"] isTJXHX:NO];
+    [self setRightButton:@"保存" BtnFrame:CGRectMake(0, 0, 40, 40) titleColor:[UIColor colorWithHexString:@"#333333"] isTJXHX:NO];
 }
 
 - (void)singleTap{

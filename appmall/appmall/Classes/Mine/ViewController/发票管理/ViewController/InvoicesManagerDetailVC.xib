@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvoicesManagerDetailVC">
             <connections>
+                <outlet property="contentH" destination="84G-q6-vda" id="e9p-kr-DqY"/>
                 <outlet property="downloadBtn" destination="xV5-tm-CgE" id="aav-5R-oAx"/>
                 <outlet property="invoiceImage" destination="2CT-1I-HcU" id="4gb-AF-1s3"/>
                 <outlet property="invoicecotent" destination="9sH-o0-qdV" id="rp1-g3-zJF"/>
@@ -53,11 +54,10 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票内容：商品明细" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sH-o0-qdV">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票内容：商品明细" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sH-o0-qdV">
                     <rect key="frame" x="16" y="158" width="359" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="GSM-D4-b6y"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="nSQ-GC-XLv"/>
+                        <constraint firstAttribute="height" constant="21" id="84G-q6-vda"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>

@@ -74,7 +74,7 @@
             _nickNameTextfield.font = MAIN_TITLE_FONT;
             _nickNameTextfield.textAlignment = NSTextAlignmentRight;
             [_bankView addSubview:_nickNameTextfield];
-            _nickNameTextfield.placeholder = @"未填写";
+            _nickNameTextfield.placeholder = @"请填写昵称";
             NSString *smallName = [NSString stringWithFormat:@"%@", self.userInfoM.nickname];
             if (!IsNilOrNull(smallName)) {
                 _nickNameTextfield.text = smallName;
@@ -88,7 +88,7 @@
             _nameTextfield.font = MAIN_TITLE_FONT;
             _nameTextfield.textAlignment = NSTextAlignmentRight;
             [_bankView addSubview:_nameTextfield];
-            _nickNameTextfield.placeholder = @"未填写";
+            _nameTextfield.placeholder = @"请填写姓名";
             NSString *realname = [NSString stringWithFormat:@"%@", self.userInfoM.realname];
             if (!IsNilOrNull(realname)) {
                 _nameTextfield.text = realname;
@@ -101,7 +101,7 @@
             _phoneTextfield.font = MAIN_TITLE_FONT;
             _phoneTextfield.textAlignment = NSTextAlignmentRight;
             [_bankView addSubview:_phoneTextfield];
-            _phoneTextfield.placeholder = @"未填写";
+            _phoneTextfield.placeholder = @"请填写手机号码";
             NSString *mobile = [NSString stringWithFormat:@"%@", self.userInfoM.phone];
             if (!IsNilOrNull(mobile)) {
                 _phoneTextfield.text = mobile;

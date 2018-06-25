@@ -86,6 +86,7 @@
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="Cview" destination="ogy-Y6-mHq" id="4Jf-0E-IyQ"/>
                 <outlet property="labContent" destination="sfV-JO-B1A" id="BEN-X9-Fss"/>
                 <outlet property="labTime" destination="Bf0-nq-1Ua" id="Dmr-Wb-hVs"/>
                 <outlet property="labTitle" destination="udp-zj-c4N" id="OXX-Q2-Z8w"/>

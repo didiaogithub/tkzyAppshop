@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderno;
 @property (weak, nonatomic) IBOutlet UILabel *invoicetype;
 @property (weak, nonatomic) IBOutlet UILabel *invoicecotent;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentH;
 @property (weak, nonatomic) IBOutlet UILabel *invoicehead;
 @property (weak, nonatomic) IBOutlet UIImageView *invoiceImage;
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
@@ -28,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"发票详情";
-    
+    self.invoiceImage.contentMode =  UIViewContentModeScaleAspectFill;
     self.downloadBtn.layer.masksToBounds = YES;
     self.downloadBtn.layer.cornerRadius = 3;
     [self getData];
@@ -50,9 +51,22 @@
                 self.invoicetype.text = @"发票类型：电子专用发票";
             }
             
-            self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
+           
+            
+            
             self.invoicehead.text = [NSString stringWithFormat:@"发票抬头：%@",dict[@"issuingoffice"]];
             self.path = dict[@"path"];
+            
+            
+            [self.invoiceImage sd_setImageWithURL:[NSURL URLWithString:self.path] placeholderImage:[UIImage imageNamed:@"首页媒体报道"]];
+            self.invoicecotent.text = [NSString stringWithFormat:@"发票内容：%@",dict[@"content"]];
+            NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+            paraStyle.lineSpacing = 0;
+            NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
+            CGSize size = [ self.invoicecotent.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+            
+            self.contentH.constant = AdaptedHeight(size.height + 30);
+          
             
         }
         

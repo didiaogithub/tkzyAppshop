@@ -30,6 +30,8 @@ RLM_ARRAY_TYPE(BannerModel)
 @property NSString *activityid ;
 @property NSString *auth_msg ;
 @property NSString *auth ;
+@property NSString *no ;
+@property NSString *specname ;
 
 @end
 RLM_ARRAY_TYPE(TopicModel)

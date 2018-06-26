@@ -61,6 +61,12 @@
     self.labGoodInfo.text = [NSString stringWithFormat:@"编号：%@\n规格：%@",model.itemno,model.specification];
     self.labPrice.text = [NSString stringWithFormat:@"￥%.2f",[model.price doubleValue]];
     self.labNum.text = [NSString stringWithFormat:@"X%@",model.number];
+    
+    // 隐藏商品详情去反馈按钮
+    bool ordercommentStatus = [KUserdefaults objectForKey:KordercommentStatus];
+    if (ordercommentStatus == NO) {
+        self.btnBack.hidden = YES;
+    }
 }
 - (IBAction)actionRebuy:(UIButton *)sender {
     GoodsDetailViewController *detailVc = [[GoodsDetailViewController alloc] init];
@@ -80,6 +86,9 @@
     commentM.price = [NSString stringWithFormat:@"%@", selfmodel.price];
     releaseComment.goodsM = commentM;
     [[self getCurrentVC].navigationController pushViewController:releaseComment animated:YES];
+    
+   
+    
 }
 
 @end

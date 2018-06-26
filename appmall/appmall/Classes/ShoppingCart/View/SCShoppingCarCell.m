@@ -80,7 +80,7 @@
     //规格
     
     textLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    textLable.text = @"产品编号：";
+    textLable.text = @"编号：";
     [self.contentView addSubview:textLable];
 
     [textLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,11 +99,11 @@
     //规格
     
     text1Lable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    text1Lable.text = @"产品规格：";
+    text1Lable.text = @"规格：";
     [self.contentView addSubview:text1Lable];
     
     [text1Lable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(textLable.mas_bottom);
+        make.top.equalTo(textLable.mas_bottom).offset(5);
         make.left.equalTo(textLable.mas_left);
     }];
     

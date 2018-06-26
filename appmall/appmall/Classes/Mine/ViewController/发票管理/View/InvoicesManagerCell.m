@@ -32,11 +32,11 @@
 
 - (void)refreshData:(Ordersheet *)model{
     
-    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@""]];
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:model.imgurl] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
     self.nameLab.text = model.name;
     self.moneyLab.text = [NSString stringWithFormat:@"¥%@",model.price];
-    self.labNo.text = [NSString stringWithFormat:@"产品编号：%@",model.itemno];
-    self.labGG.text = [NSString stringWithFormat:@"产品规格：%@",model.itemspec];
+    self.labNo.text = [NSString stringWithFormat:@"编号：%@",model.itemno];
+    self.labGG.text = [NSString stringWithFormat:@"规格：%@",model.itemspec];
     self.numLab.text = [NSString stringWithFormat:@"X%@",model.count];
 }
 @end

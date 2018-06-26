@@ -36,6 +36,13 @@
     
     [self creataToolBar];
      [self loadNewData];
+
+    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    if (postcommentStatus == NO) {
+        self.sendBtn.hidden = YES;
+        self.height.constant = 0;
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -47,7 +54,14 @@
     self.tabCommunityList.dataSource = self;
 
     [self.tabCommunityList registerNib:[UINib nibWithNibName:KCommPingLunViewCell bundle:nil] forCellReuseIdentifier:KCommPingLunViewCell];
-    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+//    gestureRecognizer.numberOfTapsRequired = 1;
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.tabCommunityList addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)hideKeyboard{
+    [self.view endEditing:YES];
 }
 
 -(void)creataToolBar{
@@ -290,7 +304,6 @@
     self.commInput.delegate = self;
     self.commId =model._id;
 }
-
 
 
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GoodDetailModel.h"
-
+#import "SCCommentModel.h"
 @interface GoodsDetailHeader : UIView
 @property (nonatomic,strong)GoodDetailModel *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *actionHaoping;
 @property (weak, nonatomic) IBOutlet UIButton *actionFanKui;
+@property (nonatomic,strong)SCCommentModel *commentM;
 -(void)loadData;
 @end

@@ -115,7 +115,7 @@
     
     //定位图片
     [_addressImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_addressNameLable.mas_bottom).offset(15);
+        make.top.equalTo(_addressNameLable.mas_bottom).offset(8);
         make.left.mas_offset(20*SCREEN_WIDTH_SCALE);
         make.size.mas_offset(CGSizeMake(17, 20));
     }];
@@ -124,7 +124,7 @@
     CGSize addressSize = [_addressDetailLable.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-90, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size;
     _addressDetailLable.numberOfLines = 0;
     [_addressDetailLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_addressNameLable.mas_bottom).offset(15);
+        make.top.equalTo(_addressNameLable.mas_bottom).offset(8);
         make.left.equalTo(_addressNameLable.mas_left);
         make.right.mas_offset(-20);
         make.height.mas_offset(addressSize.height+5);

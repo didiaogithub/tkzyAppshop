@@ -433,6 +433,13 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor tt_redMoneyColor] range:range];
             _footerView.priceLable.attributedText = hintString;
         }
+        
+        if ([self.type isEqualToString:@"4"]) {
+            bool   ordercommentStatus = [KUserdefaults objectForKey:KordercommentStatus];
+            if (ordercommentStatus == YES) {
+                _footerView.rightButton.hidden = NO;
+            }
+        }
 
         return _footerView;
     }

@@ -32,7 +32,7 @@
     self.dataArray = [NSMutableArray array];
     _page = 1;
     [self initComponments];
-    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:YES];
+    [UITableView refreshHelperWithScrollView:self.mTableView target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     [self loadNewData];
 }
 - (UIImage *)xy_noDataViewImage{

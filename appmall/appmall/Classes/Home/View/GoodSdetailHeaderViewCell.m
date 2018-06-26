@@ -44,6 +44,11 @@
         model.spec = @"";
     }
     self.labTime.text = [NSString stringWithFormat:@"规格：%@kg",model.spec];
+    
+    if (IsNilOrNull(model.no)) {
+        model.no = @"";
+    }
+    self.labNo.text = [NSString stringWithFormat:@"编号：%@",model.no];
     self.labGoodName.text = model.goodname;
     if (IsNilOrNull(model.price)) {
         model.price = @"";

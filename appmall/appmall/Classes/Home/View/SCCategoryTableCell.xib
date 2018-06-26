@@ -26,29 +26,29 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55y-ET-d3H">
-                        <rect key="frame" x="123" y="11" width="191" height="18"/>
+                        <rect key="frame" x="123" y="11" width="191" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="JzV-22-M4W"/>
+                            <constraint firstAttribute="height" constant="25" id="JzV-22-M4W"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvq-oY-VKS">
-                        <rect key="frame" x="122.5" y="34" width="191.5" height="13"/>
+                        <rect key="frame" x="122.5" y="41" width="191.5" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="13" id="vMH-0S-2FB"/>
+                            <constraint firstAttribute="height" constant="25" id="vMH-0S-2FB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPW-YM-Az8">
-                        <rect key="frame" x="122.5" y="52" width="191.5" height="13"/>
+                        <rect key="frame" x="122.5" y="71" width="191.5" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="13" id="Op1-Zc-XmB"/>
+                            <constraint firstAttribute="height" constant="25" id="Op1-Zc-XmB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -109,7 +109,7 @@
                 <outlet property="shoppingCar" destination="s4s-Hb-VHp" id="l6U-QE-Ncy"/>
                 <outlet property="weightLabel" destination="CPW-YM-Az8" id="LbF-AB-eto"/>
             </connections>
-            <point key="canvasLocation" x="38.5" y="97.5"/>
+            <point key="canvasLocation" x="-146" y="15"/>
         </tableViewCell>
     </objects>
     <resources>

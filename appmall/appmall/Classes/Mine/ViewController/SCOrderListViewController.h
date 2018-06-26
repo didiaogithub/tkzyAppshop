@@ -11,5 +11,7 @@
 @interface SCOrderListViewController : BaseViewController<ZJScrollPageViewChildVcDelegate>
 
 @property (nonatomic, copy) NSString *statusString;
+/** 类型 */
+@property (nonatomic, copy) NSString *type;
 
 @end

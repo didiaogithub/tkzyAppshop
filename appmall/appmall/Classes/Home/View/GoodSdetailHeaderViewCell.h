@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labGoodName;
 @property (weak, nonatomic) IBOutlet UILabel *labTime;
 @property (weak, nonatomic) IBOutlet UILabel *labPrice;
+@property (weak, nonatomic) IBOutlet UILabel *labNo;
 @property (weak, nonatomic) IBOutlet UIButton *labCollect;
 
 @end

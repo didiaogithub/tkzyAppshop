@@ -240,6 +240,7 @@
     self.shView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.shView];
        [self.shView.rightTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    self.shView.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.shView.rightLabel.hidden = YES;
     self.shView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*税号"];
     self.shView.rightTextField.delegate = self;
@@ -285,6 +286,7 @@
     self.zhView.rightTextField.delegate = self;
     self.zhView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.zhView];
+    self.zhView.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
     [self.zhView.rightTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.zhView.rightLabel.hidden = YES;
     self.zhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*账号"];
@@ -335,6 +337,7 @@
     self.dhView = [[LeftLabelRightTextFieldView alloc] init];
     self.dhView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.dhView];
+    self.dhView.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.dhView.rightLabel.hidden = YES;
     self.dhView.rightTextField.delegate = self;
     self.dhView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*电话"];

@@ -211,6 +211,14 @@
     }
 //    [KUserdefaults setObject:@"" forKey:@"YDSC_WxLogin_Click"];
 //    [KUserdefaults setObject:@"clickPhoneBtn" forKey:@"YDSC_PhoneLogin_Click"];
+    
+    RLMResults *result = [GoodModel allObjectsInRealm:self.realm];
+    //删除订单购物车缓存
+    if (result.count > 0) {
+        [self.realm beginWriteTransaction];
+        [self.realm deleteObjects:result];
+        [self.realm commitWriteTransaction];
+    }
     NSDictionary *pramaDic= @{@"mobile":_tfPhone.text,@"validatecode":_tfCheckCode.text};
         //请求数据
         NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Login_By_Phone];
@@ -357,15 +365,16 @@
             [KUserdefaults removeObjectForKey:@"CouponCacheDate"];
             [[XNArchiverManager shareInstance] xnDeleteObject:KMyCouponList];
             [KUserdefaults synchronize];
+            
+            
+            RLMResults *result = [GoodModel allObjectsInRealm:self.realm];
             //删除订单购物车缓存
-//            RLMResults *result = [GoodModel allObjects];
-//            RLMRealm *realm = [RLMRealm defaultRealm];
-//            if (result.count > 0) {
-//                [realm beginWriteTransaction];
-//                [realm deleteObjects:result];
-//                [realm commitWriteTransaction];
-//            }
-//            RLMResults *result1 = [SCMyOrderModel allObjects];
+            if (result.count > 0) {
+                [self.realm beginWriteTransaction];
+                [self.realm deleteObjects:result];
+                [self.realm commitWriteTransaction];
+            }
+//            RLMResults *result1 = [SCMyOrderModel allObjectsInRealm:self.realm];
 //            if (result1.count > 0) {
 //                [realm beginWriteTransaction];
 //                [realm deleteObjects:result1];

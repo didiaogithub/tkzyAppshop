@@ -144,6 +144,10 @@
     [self createTableView];
 }
 
+//-(BOOL)havData{
+//    return NO;
+//}
+
 - (UIImage *)xy_noDataViewImage{
     
     UIImage *image= [UIImage imageNamed:@"购物车默认"];
@@ -325,7 +329,7 @@
     _bottomView.frame = CGRectMake(0, CGRectGetMaxY(_shoppingCarTableView.frame), SCREEN_WIDTH, 50);
     
     _editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _editBtn.frame = CGRectMake(0, 0, 80, 45);
+    _editBtn.frame = CGRectMake(0, 0, 40, 40);
     _editBtn.titleLabel.font=[UIFont systemFontOfSize:15.0f];
     _editBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
@@ -400,7 +404,8 @@
         NSLog(@"加减号传过来的名字:%@数量:%@ ",model.name, model.num);
         [weakSelf numPrice:self.shoppingCarDataArray[row] andtype:@"0"];
         //加减号操作，删除操作，移动到收藏夹操作，立即购买操作，离开页面后要更新购物车数据。
-//        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
+//        [self updateShoppingCarData];
+        [KUserdefaults setObject:@"YES" forKey:@"ifNeedUpdateShoppingCar"];
     }];
     return cell;
 }
@@ -779,7 +784,7 @@
     [pramaDic setObject:itemsStr forKey:@"items"];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateShoppingCarInfoUrl];
     
-    [HttpTool getWithUrl:requestUrl params:pramaDic success:^(id json) {
+    [HttpTool postWithUrl:requestUrl params:pramaDic success:^(id json) {
     } failure:^(NSError *error) {
     }];
 }

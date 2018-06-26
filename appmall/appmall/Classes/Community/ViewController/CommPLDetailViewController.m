@@ -33,7 +33,17 @@
     [self creataToolBar];
     [self setTableView];
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+//    gestureRecognizer.numberOfTapsRequired = 1;
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.tabCommunityList addGestureRecognizer:gestureRecognizer];
   
+}
+
+- (void)hideKeyboard{
+    [self.view endEditing:YES];
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -282,5 +292,10 @@
     
     return YES;
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 
 @end

@@ -48,6 +48,7 @@
     self.yclDataArray = [NSMutableArray array];
     self.mTableView.dataSource = self;
     self.mTableView.delegate = self;
+    self.mTableView.backgroundColor = [UIColor tt_lineBgColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyInvoicesCell" bundle:nil] forCellReuseIdentifier:@"MyInvoicesCell"];
     [self.mTableView registerNib:[UINib nibWithNibName:@"MyinvoicesCheckingCell" bundle:nil] forCellReuseIdentifier:@"MyinvoicesCheckingCell"];
@@ -286,8 +287,8 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.yjjDataArray.count + self.yclDataArray.count +self.wclDataArray.count;
-
+//    return self.yjjDataArray.count + self.yclDataArray.count +self.wclDataArray.count;
+    return 3;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -329,43 +330,49 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+   
     
-    if (_yjjDataArray.count == 0) {
-        if (section == 1 || section == 0 || section == 2) {
-            return 0;
-        }else{
-            return 45;
+    if (_yjjDataArray.count > 0) {
+        if (section == 2) {
+          return 40;
         }
-    }else if (_wclDataArray.count == 0){
-        if (section == 1 || section == 0) {
-            return 0;
-        }else{
-            return 45;
+    }else if (_wclDataArray.count > 0){
+        if (section == 1) {
+            return 40;
         }
-    }
-    else{
+    }else{
         if (section == 0) {
             return 0;
-        }else{
-            return 45;
         }
-        
    }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (_yjjDataArray.count > 0) {
-        if (section == 0 || section == 1) {
-            return 10;
-        }
-    }else if (_wclDataArray.count > 0){
-        if (section == 0) {
-            return 10;
-        }
-    }
-   
-    return 0;
+    
+    
+//    if (_yjjDataArray.count > 0) {
+//        if (section == 0 || section == 1) {
+//            return 10;
+//        }
+//    }else if (_wclDataArray.count > 0){
+//        if (section == 0) {
+//            return 10;
+//        }
+//    }
+    
+//    if (_yjjDataArray.count > 0) {
+//        if (section == 2) {
+//            return 10;
+//        }
+//     }
+//    if (_wclDataArray.count > 0) {
+//        if (section == 1) {
+//            return 10;
+//        }
+//    }
+
+    return 5;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -122,6 +122,12 @@
     
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getSettingsApi];
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+         self.viewControllers = @[homeNavVC,collegeNavVC, shoppingNavVC,mineNavVC];
+    }else{
+         self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];
+    }
+    self.viewControllers = @[homeNavVC,collegeNavVC, shoppingNavVC,mineNavVC];
     [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
         NSDictionary *dic = json;
         if ([dic[@"code"] integerValue] != 200 ||  [[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {

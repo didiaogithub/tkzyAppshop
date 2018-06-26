@@ -199,11 +199,9 @@
             if (itemArr.count == 0) {
                 [self.shoppingCarDataArray removeAllObjects];
                 [self.shoppingCarTableView reloadData];
-                
                 _editBtn.enabled = NO;
                 
             }
-
             
             for (NSDictionary *goodDic in itemArr) {
                 GoodModel *model = [[GoodModel alloc]initWith:goodDic];

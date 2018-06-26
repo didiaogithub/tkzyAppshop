@@ -136,6 +136,21 @@
             }
         }
         
+        // 订单是否可以评论 0:关闭 1:开启（去反馈按钮显示）
+        if ([dic[@"data"][@"ordercomment_status"]  boolValue] == YES){
+            [KUserdefaults setBool:YES forKey:KordercommentStatus];
+        }else{
+            [KUserdefaults setBool:NO forKey:KordercommentStatus];
+        }
+        
+        // 帖子是否可以评论 0:关闭 1:开启
+        if ([dic[@"data"][@"postcomment_status"]  boolValue] == YES){
+            [KUserdefaults setBool:YES forKey:KpostcommentStatus];
+        }else{
+            [KUserdefaults setBool:NO forKey:KpostcommentStatus];
+        }
+        [KUserdefaults synchronize];
+        
     } failure:^(NSError *error) {
         
         self.viewControllers = @[homeNavVC,collegeNavVC,communityNavVC, shoppingNavVC,mineNavVC];

@@ -61,6 +61,13 @@
     self.viewBottom.hidden = YES;
     self.labPersonNum.text = @"";
     [self.btnComDetail setTitle:@"" forState:0];
+     // 隐藏评论按钮
+    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    if (postcommentStatus == NO) {
+        self.labPinglun.hidden = YES;
+    }
+    
+   
 }
 
 -(void)refreshData:(CommPingLunModel *)model IsneedCommView:(BOOL) isNeed{
@@ -94,8 +101,19 @@
         [self.btnComDetail setTitle:@"" forState:0];
     }else{
         self.viewBottom.hidden = NO;
-        self.labPersonNum.text = [NSString stringWithFormat:@"%@等人",[model.comments firstObject].name];
+        
+        NSString *name = [model.comments firstObject].name;
+        if (IsNilOrNull(name)) {
+            name = @"";
+        }
+        self.labPersonNum.text = [NSString stringWithFormat:@"%@等人",name];
         [self.btnComDetail setTitle:[NSString stringWithFormat:@"共%ld回复 >",model.comments.count] forState:0];
+        
+    }
+    // 隐藏评论按钮
+    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    if (postcommentStatus == NO) {
+        self.labPinglun.hidden = YES;
     }
 }
 - (IBAction)actionSubmitComm:(id)sender {

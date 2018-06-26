@@ -153,7 +153,7 @@
     if (IsNilOrNull(name)) {
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
-            make.bottom.equalTo(_goodsImageView.mas_bottom).offset(-10);
+            make.bottom.equalTo(_goodsImageView.mas_bottom).offset(-5);
         }];
         
     }else{
@@ -165,7 +165,7 @@
         [_textNumber1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(20));
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
-            make.top.equalTo(_descriptionLable.mas_bottom).offset(9);
+            make.top.equalTo(_descriptionLable.mas_bottom).offset(3);
         }];
     }
     

@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 
 @interface CommPingLunListViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
 @property (weak, nonatomic) IBOutlet UITableView *tabCommunityList;
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 @property(nonatomic,strong)NSString *notiID;
 @end

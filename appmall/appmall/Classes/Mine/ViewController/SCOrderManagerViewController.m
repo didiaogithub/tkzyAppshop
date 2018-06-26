@@ -86,6 +86,7 @@
         case 4:
             childVc = [SCOrderListViewController new];
             childVc.statusString = _statusArr[4];
+            childVc.type = @"4";
             break;
         default:
                 break;

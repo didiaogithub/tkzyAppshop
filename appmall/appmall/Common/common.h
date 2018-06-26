@@ -85,6 +85,10 @@
 
 #define KloginStatus @"loginSuccess"
 
+#define KordercommentStatus @"ordercomment_status"
+
+#define KpostcommentStatus @"postcomment_status"
+
 /**微信授权之后 跳转登录*/
 #define WeiXinAuthSuccess @"WeiXinAuthSuccess"
 /* 微信支付回调 */

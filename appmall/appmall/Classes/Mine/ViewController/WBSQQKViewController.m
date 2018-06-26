@@ -94,6 +94,7 @@
         self.sqPerson = cell.sqPerson;
         self.sqPhone = cell.sqPhone;
         self.sqRerson = cell.sqRerson;
+        [self.sqPhone addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         return cell;
     }else{
         static NSString *identifier = @"WBSelectFeQiItemViewCell";//这个identifier跟xib设置的一样
@@ -200,6 +201,7 @@
         [self showNoticeView:@"提交成功"];
         
         ArrearsManagerViewController *arrersM = [[ArrearsManagerViewController alloc]init];
+        arrersM.fromVC = @"PaySuccess";
         [self.navigationController pushViewController:arrersM animated:YES];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
@@ -213,6 +215,16 @@
     
     
     
+}
+// 限制手机号码只能输入11位 (这个不是textField的代理方法)
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    if (textField == self.sqPhone) {
+        if (textField.text.length > 11) {
+            textField.text = [textField.text substringToIndex:11];
+        }
+    }
+
 }
 
 

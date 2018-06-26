@@ -59,7 +59,7 @@
 
 - (UIImage *)xy_noDataViewImage{
     
-    UIImage *image= [UIImage imageNamed:@""];
+    UIImage *image= [UIImage imageNamed:@"商品分类默认"];
     return image;
 }
 

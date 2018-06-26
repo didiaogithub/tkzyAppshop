@@ -11,6 +11,7 @@
 @interface RecommendCollectionViewCell(){
     TKHomeDataModel *tkmodel;
 }
+@property (weak, nonatomic) IBOutlet UILabel *labGG;
 @property (weak, nonatomic) IBOutlet UIImageView *imgRecommend;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labPrice;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labermen;
 @property (weak, nonatomic) IBOutlet UIView *viewReMen;
 @property (weak, nonatomic) IBOutlet UILabel *labErmenDesc;
+@property (weak, nonatomic) IBOutlet UILabel *labNo;
 
 @property (weak, nonatomic) IBOutlet UILabel *labToutiaoDesc;
 @end
@@ -37,6 +39,8 @@
     self.labermen.layer.masksToBounds = YES;
     self.labToutiao.layer.cornerRadius = 5;
     self.labToutiao.layer.masksToBounds = YES;
+    self.labNo.hidden = YES;
+    self.labGG.hidden = YES;
     
 }
 
@@ -56,20 +60,24 @@
     if (section ==2) {
         self.viewReMen.hidden =YES;
         TopicModel *tModel = [model.topicList objectAtIndex:index.row];
-        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         self.labTitle.text = tModel.itemname;
         self.labPrice.text = [NSString stringWithFormat:@"￥%@",tModel.price];
         self.labWeight.text = tModel.spec;
         self.labPrice.hidden = NO;
         self.labWeight.hidden = NO;
-        self.labTitleDisBottom.constant  = 10;
+        self.labNo.hidden = NO;
+        self.labGG.hidden = NO;
+        self.labNo.text = [NSString stringWithFormat:@"编号：%@",tModel.no];
+        self.labGG.text = [NSString stringWithFormat:@"规格：%@",tModel.specname];
+        self.labTitleDisBottom.constant  = 40;
         
         
     }else if (section ==  3){
         MediaRepMortModel *tModel = [model.mediaList objectAtIndex:index.row];
         self.labTitle.text = tModel.title;
         self.viewReMen.hidden =NO;
-         [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+         [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         self.labPrice.hidden = YES;
         self.labWeight.hidden = YES;
         self.labTitleDisBottom.constant  = -15;
@@ -88,7 +96,7 @@
     }else if (section == 4){
         HonorModel * tModel = [model.honorList objectAtIndex:index.row];
         self.viewReMen.hidden =YES;
-        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@""]];
+        [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         self.labTitle.text = tModel.title;
         self.labPrice.hidden = YES;
         self.labWeight.hidden = YES;

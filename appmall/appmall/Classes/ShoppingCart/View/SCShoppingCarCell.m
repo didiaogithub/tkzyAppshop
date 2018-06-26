@@ -103,7 +103,7 @@
     [self.contentView addSubview:text1Lable];
     
     [text1Lable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(textLable.mas_bottom);
+        make.top.equalTo(textLable.mas_bottom).offset(5);
         make.left.equalTo(textLable.mas_left);
     }];
     

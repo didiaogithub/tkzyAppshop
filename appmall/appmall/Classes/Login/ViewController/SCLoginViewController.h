@@ -10,6 +10,6 @@
 #import "GoodModel.h"
 #import "SCMyOrderModel.h"
 
-@interface SCLoginViewController : UIViewController
+@interface SCLoginViewController : BaseViewController
 
 @end

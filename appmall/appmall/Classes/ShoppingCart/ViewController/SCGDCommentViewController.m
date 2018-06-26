@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"评价";
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self createTableView];
     
     [self requestCommentData];
@@ -84,11 +84,11 @@
 }
 /**创建tableView*/
 -(void)createTableView{
-    if (@available(iOS 11.0, *)) {
-       _commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT-50-64-NaviAddHeight-BOTTOM_BAR_HEIGHT) style:UITableViewStyleGrouped];
-    }else{
-       _commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
-    }
+//    if (@available(iOS 11.0, *)) {
+       _commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+NaviAddHeight, SCREEN_WIDTH, SCREEN_HEIGHT-64-NaviAddHeight-BOTTOM_BAR_HEIGHT) style:UITableViewStyleGrouped];
+//    }else{
+//       _commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+//    }
     
     _commentTableView.rowHeight = UITableViewAutomaticDimension;
     _commentTableView.estimatedRowHeight = 44;

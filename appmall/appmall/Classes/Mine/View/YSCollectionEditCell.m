@@ -62,10 +62,10 @@
     title.numberOfLines = 2;
     [self.contentView addSubview:_title = title];
     self.noLabel = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
-    self.noLabel.text = @"产品编号：";
+    self.noLabel.text = @"编号：";
     [_title addSubview:self.noLabel];
     self.specLabel = [UILabel configureLabelWithTextColor:[UIColor tt_monthGrayColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
-    self.specLabel.text = @"产品规格：";
+    self.specLabel.text = @"规格：";
     [self.contentView addSubview:self.specLabel];
     
     UILabel *price = [UILabel configureLabelWithTextColor:[UIColor tt_redMoneyColor] textAlignment:NSTextAlignmentLeft font:[UIFont systemFontOfSize:13]];
@@ -178,14 +178,14 @@
     
     NSString *spec = [NSString stringWithFormat:@"%@", collectionM.itemSpec];
     if (!IsNilOrNull(spec)) {
-        spec = [NSString stringWithFormat:@"产品规格:%@", collectionM.itemSpec];
+        spec = [NSString stringWithFormat:@"规格:%@", collectionM.itemSpec];
     }else{
         spec = @"";
     }
     _specLabel.text = spec;
     NSString *itemNo = [NSString stringWithFormat:@"%@", collectionM.itemNo];
     if (!IsNilOrNull(itemNo)) {
-        itemNo = [NSString stringWithFormat:@"产品编号:%@", collectionM.itemNo];
+        itemNo = [NSString stringWithFormat:@"编号:%@", collectionM.itemNo];
     }else{
         itemNo = @"";
     }

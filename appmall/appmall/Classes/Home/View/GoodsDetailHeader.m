@@ -29,11 +29,38 @@
     }
 }
 
+
+
 -(void)loadData{
-    [self.actionFanKui setTitle:[NSString stringWithFormat:@"反馈(%ld)",self.detailModel.commentList.count] forState:0];
-    
+   
+    [self requestCommentData];
     [self.actionHaoping setTitle:[NSString stringWithFormat:@"好评度%.0f%%", [self.detailModel.commentnum doubleValue] / 5 * 100] forState:0];
 //    [self.actionHaoping setTitle:@"" forState:0];
+}
+
+-(void)requestCommentData {
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    if (self.detailModel == nil) {
+        return;
+    }
+    [param setObject:self.detailModel.itemid forKey:@"itemid"];
+    
+    NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CommentListUrl];
+    [HttpTool getWithUrl:loveItemUrl params:param success:^(id json) {
+        NSDictionary *dic = json;
+        self .commentM = [[SCCommentModel alloc]initWith:dic[@"data"]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            ///
+             [self.actionFanKui setTitle:[NSString stringWithFormat:@"反馈(%ld)",self.commentM.list.count] forState:0];
+        });
+        
+        
+        
+        
+    } failure:^(NSError *error) {
+       
+       
+    }];
 }
 
 @end

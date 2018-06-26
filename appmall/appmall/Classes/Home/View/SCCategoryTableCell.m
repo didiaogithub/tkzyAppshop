@@ -47,8 +47,8 @@
     [self.shoppingCar addTarget:self  action:@selector(addToShoppingCar) forControlEvents:UIControlEventTouchUpInside];
     self.imageV.layer.cornerRadius = 4;
     self.imageV.layer.masksToBounds = YES;
-    self.numLable.text = [NSString stringWithFormat:@"产品编号：%@",goodsModel.itemNo];
-    self.weightLabel.text = [NSString stringWithFormat:@"产品规格：%@kg",goodsModel.itemSpec];
+    self.numLable.text = [NSString stringWithFormat:@"编号：%@",goodsModel.itemNo];
+    self.weightLabel.text = [NSString stringWithFormat:@"规格：%@kg",goodsModel.itemSpec];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@",goodsModel.price];
     self.nameLabel.text = goodsModel.name;
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:goodsModel.imgpath] placeholderImage:nil];

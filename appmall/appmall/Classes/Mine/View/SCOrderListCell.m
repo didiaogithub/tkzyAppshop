@@ -148,8 +148,8 @@
         specNo = [NSString stringWithFormat:@"%@", model.itemno];
     }
     
-    _textNumber.text = [NSString stringWithFormat:@"产品规格：%@",spec];
-    _textNumber1.text = [NSString stringWithFormat:@"产品编号：%@",specNo];
+    _textNumber.text = [NSString stringWithFormat:@"规格：%@",spec];
+    _textNumber1.text = [NSString stringWithFormat:@"编号：%@",specNo];
     if (IsNilOrNull(name)) {
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_goodsImageView.mas_right).offset(5);

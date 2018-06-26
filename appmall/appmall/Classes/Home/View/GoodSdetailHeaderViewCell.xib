@@ -83,7 +83,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJa-oj-xf4">
-                        <rect key="frame" x="8" y="399" width="296" height="15"/>
+                        <rect key="frame" x="8" y="395" width="296" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Nle-aG-Y4K"/>
                         </constraints>
@@ -92,7 +92,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-fc-07G">
-                        <rect key="frame" x="8" y="422" width="100" height="19"/>
+                        <rect key="frame" x="8" y="427" width="100" height="19"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="Ep4-Fz-4i8"/>
                             <constraint firstAttribute="height" constant="19" id="tAY-8a-chG"/>
@@ -101,8 +101,18 @@
                         <color key="textColor" red="0.94901960784313721" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FJ-B8-M9b">
+                        <rect key="frame" x="8" y="411" width="297" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="rwG-J8-Eao"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="0FJ-B8-M9b" firstAttribute="top" secondItem="yJa-oj-xf4" secondAttribute="bottom" constant="1" id="0Mm-Tb-2NB"/>
                     <constraint firstItem="fMO-Z9-Pl6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5iJ-Nd-5Oe"/>
                     <constraint firstItem="yJa-oj-xf4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6dE-4G-n6R"/>
                     <constraint firstAttribute="trailing" secondItem="Tq9-EW-JxD" secondAttribute="trailing" id="7iz-Li-4vj"/>
@@ -111,10 +121,12 @@
                     <constraint firstItem="pUc-uQ-zUS" firstAttribute="leading" secondItem="yJa-oj-xf4" secondAttribute="trailing" constant="8" id="KAx-Zm-d1C"/>
                     <constraint firstItem="pUc-uQ-zUS" firstAttribute="top" secondItem="Tq9-EW-JxD" secondAttribute="bottom" constant="10" id="KDl-BR-ecL"/>
                     <constraint firstAttribute="trailing" secondItem="dcF-BA-Ffp" secondAttribute="trailing" id="T3k-uM-ujZ"/>
-                    <constraint firstItem="3a6-fc-07G" firstAttribute="top" secondItem="yJa-oj-xf4" secondAttribute="bottom" constant="8" id="Ucx-vJ-lRa"/>
+                    <constraint firstAttribute="trailing" secondItem="0FJ-B8-M9b" secondAttribute="trailing" constant="70" id="VtA-tb-HL4"/>
                     <constraint firstItem="pUc-uQ-zUS" firstAttribute="leading" secondItem="fMO-Z9-Pl6" secondAttribute="trailing" constant="8" id="Xzu-aN-Lib"/>
-                    <constraint firstItem="yJa-oj-xf4" firstAttribute="top" secondItem="fMO-Z9-Pl6" secondAttribute="bottom" constant="5" id="YAz-GG-JZ7"/>
+                    <constraint firstItem="yJa-oj-xf4" firstAttribute="top" secondItem="fMO-Z9-Pl6" secondAttribute="bottom" constant="1" id="YAz-GG-JZ7"/>
+                    <constraint firstItem="3a6-fc-07G" firstAttribute="top" secondItem="0FJ-B8-M9b" secondAttribute="bottom" constant="1" id="aes-mR-VrT"/>
                     <constraint firstItem="Tq9-EW-JxD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b6u-D0-RBj"/>
+                    <constraint firstItem="0FJ-B8-M9b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="de4-3R-59m"/>
                     <constraint firstItem="dcF-BA-Ffp" firstAttribute="leading" secondItem="pUc-uQ-zUS" secondAttribute="trailing" id="eY8-81-zd6"/>
                     <constraint firstItem="Tq9-EW-JxD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="j6g-ky-FsF"/>
                     <constraint firstItem="fMO-Z9-Pl6" firstAttribute="top" secondItem="Tq9-EW-JxD" secondAttribute="bottom" constant="8" id="lDP-MN-42Q"/>
@@ -128,8 +140,9 @@
                 <outlet property="labBannerNum" destination="QHy-Ye-plU" id="3ai-2M-kvK"/>
                 <outlet property="labCollect" destination="dcF-BA-Ffp" id="9Yc-4g-aMM"/>
                 <outlet property="labGoodName" destination="fMO-Z9-Pl6" id="IpX-3K-rOq"/>
+                <outlet property="labNo" destination="yJa-oj-xf4" id="Gf1-pM-yTp"/>
                 <outlet property="labPrice" destination="3a6-fc-07G" id="YOR-c7-j6I"/>
-                <outlet property="labTime" destination="yJa-oj-xf4" id="r7x-8G-zDi"/>
+                <outlet property="labTime" destination="0FJ-B8-M9b" id="gmt-JN-Oko"/>
             </connections>
             <point key="canvasLocation" x="41.5" y="198.5"/>
         </tableViewCell>

@@ -247,7 +247,9 @@
             return ;
         }
         
+        
         [self requestOrderDetailData];
+        [CKCNotificationCenter postNotificationName:@"jumpFK" object:@"4"];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

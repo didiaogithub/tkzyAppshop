@@ -67,6 +67,13 @@
             }else{
                 [KUserdefaults setBool:NO forKey:KpostcommentStatus];
             }
+            
+            // 店铺赊销状态 0:关闭 1:开启
+            if ([dic[@"data"][@"loan_status"]  boolValue] == YES){
+                [KUserdefaults setBool:YES forKey:KloanStatus];
+            }else{
+                [KUserdefaults setBool:NO forKey:KloanStatus];
+            }
             [KUserdefaults synchronize];
         }
         
@@ -166,9 +173,19 @@
   
 //    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理", @"分期还款", @"发票管理",@"收货地址"]];
 //    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款", @"dkw_还款", @"发票",  @"地址(1)"]];
-    [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理",@"发票管理",@"银行卡管理",@"收货地址"]];
-    [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款",@"发票",  @"银行卡",@"地址(1)"]];
    
+   
+    // 后台控制是否隐藏欠款管理
+    bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+    if (loanStatus == NO) {
+        [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券",@"发票管理",@"银行卡管理",@"收货地址"]];
+        [imageArray addObjectsFromArray:@[@"收藏", @"产品券",@"发票",  @"银行卡",@"地址(1)"]];
+    }else{
+        [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券", @"欠款管理",@"发票管理",@"银行卡管理",@"收货地址"]];
+        [imageArray addObjectsFromArray:@[@"收藏", @"产品券", @"欠款",@"发票",  @"银行卡",@"地址(1)"]];
+    }
+    
+    
     for (NSInteger i = 0; i < titleArray.count; i++) {
         CellModel *functionM = [self createCellModel:[SCMineFunctionCell class] userInfo:@{@"title":titleArray[i], @"image": imageArray[i]} height:55];
         SectionModel *section2 = [self createSectionModel:@[functionM] headerHeight:0.1 footerHeight:0.1];
@@ -268,15 +285,26 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSMutableArray *vcNameArray =
+    NSMutableArray *vcNameArray;
+   
+
+    // 控制点击事件
+    bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+    if (loanStatus == NO) {
+        vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"CKCouponManagerViewController",
-                                         @"ArrearsManagerViewController",
-//                                         @"AmortizationLoanViewController",
+                                         //                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
-                                        @"BankManagerViewController", @"ChangeMyAddressViewController"]];
-
+                                         @"BankManagerViewController", @"ChangeMyAddressViewController"]];
+    }else{
+        vcNameArray =
+        [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
+                                         @"CKCouponManagerViewController",
+                                         //                                         @"AmortizationLoanViewController",
+                                         @"InvoicesManagerViewController",
+                                         @"BankManagerViewController", @"ChangeMyAddressViewController"]];
+    }
 
     if (indexPath.section > 1) {
 //        if(indexPath.section == vcNameArray.count-1){//问题帮助

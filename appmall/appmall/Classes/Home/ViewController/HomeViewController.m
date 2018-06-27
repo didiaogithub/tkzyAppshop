@@ -48,6 +48,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 这里是处理购物车刚登陆的时候不显示占位图的bug
+    [KUserdefaults setObject:@"ConfirmOrderRefreshShoppingCar" forKey:@"CKYS_RefreshCar"];
      self.automaticallyAdjustsScrollViewInsets = NO;
     [[UIApplication sharedApplication].keyWindow addSubview:viewNewUser];
     viewNewUser.frame = [UIScreen mainScreen].bounds;

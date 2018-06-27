@@ -16,7 +16,10 @@
 @property (nonatomic, strong) UILabel *nameLable;
 @property (nonatomic, strong) UILabel *numberLable;
 @property (nonatomic, strong) UILabel *priceLable;
+/**  编号*/
+@property (nonatomic, strong) UILabel *specNoLabel;
 @property (nonatomic, strong) UILabel *specLabel;
+
 //
 @property (nonatomic, strong) UILabel *leftLable;
 //
@@ -103,6 +106,14 @@
         make.height.equalTo(@(20));
     }];
     
+    _specNoLabel = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    _specNoLabel.text = @"";
+    [self.contentView addSubview:_specNoLabel];
+    [_specNoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(20));
+        make.left.equalTo(_iconImageView.mas_right).offset(5);
+        make.top.equalTo(_nameLable.mas_bottom).offset(5);
+    }];
     //规格
     _specLabel = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     _specLabel.text = @"规格：";
@@ -110,7 +121,7 @@
     [_specLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20));
         make.left.equalTo(_iconImageView.mas_right).offset(5);
-        make.bottom.equalTo(_iconImageView.mas_bottom);
+        make.top.equalTo(_specNoLabel.mas_bottom).offset(5);
     }];
     //数量
     _numberLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentRight font:MAIN_TITLE_FONT];
@@ -153,15 +164,17 @@
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"规格:%@",detailModel.specification];
+        spec = [NSString stringWithFormat:@"%@",detailModel.specification];
     }
+    
+    _specLabel.text = [NSString stringWithFormat:@"规格:%@",spec];
     NSString *specno = [NSString stringWithFormat:@"%@",detailModel.itemno];
-    if (IsNilOrNull(spec)) {
+    if (IsNilOrNull(specno)) {
         specno = @"";
     }else{
-        specno = [NSString stringWithFormat:@"规格:%@",detailModel.itemno];
+        specno = [NSString stringWithFormat:@"%@",detailModel.itemno];
     }
-    _specLabel.text = [NSString stringWithFormat:@"%@    %@",specno,spec];
+    _specNoLabel.text = [NSString stringWithFormat:@"编号:%@",specno];
     
     NSString *number = [NSString stringWithFormat:@"%@",detailModel.number];
     if (IsNilOrNull(number)) {

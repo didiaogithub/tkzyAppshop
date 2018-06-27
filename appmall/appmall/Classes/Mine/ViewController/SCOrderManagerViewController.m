@@ -36,6 +36,7 @@
 - (void)jumpFK:(NSNotification *)notifi{
     NSString *index = notifi.object;
     self.selectedIndex = [index integerValue];
+     [_scrollPageView setSelectedIndex:self.selectedIndex animated:YES];
 }
 
 

@@ -154,6 +154,9 @@ NSString *const RequestManagerReachabilityNotificationStatusItem = @"RequestMana
             endValue = itemValue;
         }
         if (isNeedUrlEncode) {
+            if (![endValue isMemberOfClass:[NSString class]]) {
+                endValue = [NSString stringWithFormat:@"%@",endValue];
+            }
             endValue = [endValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         }
         [keyValues addObject:[NSString stringWithFormat:@"%@=%@",endKey,endValue]];

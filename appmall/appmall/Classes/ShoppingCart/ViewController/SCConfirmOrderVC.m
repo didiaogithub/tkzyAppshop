@@ -128,8 +128,10 @@
         
 //        CKCouponModel *model = [cannotUseArray firstObject];
         NSString *couponCount = [NSString stringWithFormat:@"%lu",(unsigned long)list.count];
-        [curcell refreshCouponAndMoney:@"" usablecount:couponCount];
-        
+        if ([couponCount integerValue] == 0) {
+            self.coupontMoney = @"";
+        }
+        [curcell refreshCouponAndMoney:self.coupontMoney usablecount:couponCount];
     } failure:^(NSError *error) {
   
     }];

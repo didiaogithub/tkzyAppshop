@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Public/Network/RequestManager.m"
-            timestampString = "551789485.631057"
+            filePath = "appmall/Classes/Home/ViewController/SCGoodsDetailViewController.m"
+            timestampString = "551792250.155455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "+getSignNSDictionary:andNeedUrlEncode:andKeyToLower:"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
+            landmarkName = "-addToShoppingCar"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,23 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Public/Network/RequestManager.m"
-            timestampString = "551789485.631374"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "+getSignNSDictionary:andNeedUrlEncode:andKeyToLower:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Public/Network/RequestManager.m"
-            timestampString = "551789485.631433"
+            timestampString = "551792250.155735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"

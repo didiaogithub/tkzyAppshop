@@ -28,6 +28,7 @@
     
 }
 
+
 +(void)getWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     serializer.removesKeysWithNullValues = YES;
@@ -39,34 +40,34 @@
     
     NSString *uuid = IsNilOrNull(DeviceId_UUID_Value) ? @"" : DeviceId_UUID_Value;
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:params];
-    [paramDict setValue:uuid forKey:@"deviceid"];
-    [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:Apptype forKey:@"apptype"];
+//    [paramDict setValue:uuid forKey:@"deviceid"];
+//    [paramDict setValue:@"2" forKey:@"devtype"];
+//    [paramDict setValue:Apptype forKey:@"apptype"];
+//
     
-    
-    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
-    NSMutableString *verStr = [NSMutableString stringWithString:@""];
-    for (NSString *ver in verArray) {
-        [verStr appendString:ver];
-    }
-    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
+//    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
+//    NSMutableString *verStr = [NSMutableString stringWithString:@""];
+//    for (NSString *ver in verArray) {
+//        [verStr appendString:ver];
+//    }
+//    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
 
-    NSString *apiName = url.lastPathComponent;
-    NSString *md5ApiName = [apiName MD5String];
-    NSString *md5Openid = [USER_OPENID MD5String];
-    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
-    NSString *ak = [akString MD5String];
-    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
-    if (!IsNilOrNull(uk)) {
-        [paramDict setValue:uk forKey:@"uk"];
-    }
+//    NSString *apiName = url.lastPathComponent;
+//    NSString *md5ApiName = [apiName MD5String];
+//    NSString *md5Openid = [USER_OPENID MD5String];
+//    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
+//    NSString *ak = [akString MD5String];
+//    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
+//    if (!IsNilOrNull(uk)) {
+//        [paramDict setValue:uk forKey:@"uk"];
+//    }
     
-    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
-        [paramDict setValue:ak forKey:@"ak"];
-        [paramDict setValue:USER_OPENID forKey:@"openid"];
-    }
-    
+//    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
+//        [paramDict setValue:ak forKey:@"ak"];
+//        [paramDict setValue:USER_OPENID forKey:@"openid"];
+//    }
+//
     NSLog(@"params:%@\nparameters:%@\napi:%@", params, paramDict, url);
 
     [manager GET:url parameters:paramDict progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -107,32 +108,32 @@
     
     NSString *uuid = IsNilOrNull(DeviceId_UUID_Value) ? @"" : DeviceId_UUID_Value;
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:params];
-    [paramDict setValue:uuid forKey:@"deviceid"];
-    [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:Apptype forKey:@"apptype"];
+//    [paramDict setValue:uuid forKey:@"deviceid"];
+//    [paramDict setValue:@"2" forKey:@"devtype"];
+//    [paramDict setValue:Apptype forKey:@"apptype"];
     
-    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
-    NSMutableString *verStr = [NSMutableString stringWithString:@""];
-    for (NSString *ver in verArray) {
-        [verStr appendString:ver];
-    }
-    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
+//    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
+//    NSMutableString *verStr = [NSMutableString stringWithString:@""];
+//    for (NSString *ver in verArray) {
+//        [verStr appendString:ver];
+//    }
+//    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
     
-    NSString *apiName = url.lastPathComponent;
-    NSString *md5ApiName = [apiName MD5String];
-    NSString *md5Openid = [USER_OPENID MD5String];
-    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
-    NSString *ak = [akString MD5String];
-    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
-    if (!IsNilOrNull(uk)) {
-        [paramDict setValue:uk forKey:@"uk"];
-    }
-    
-    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
-        [paramDict setValue:ak forKey:@"ak"];
-        [paramDict setValue:USER_OPENID forKey:@"openid"];
-    }
+//    NSString *apiName = url.lastPathComponent;
+//    NSString *md5ApiName = [apiName MD5String];
+//    NSString *md5Openid = [USER_OPENID MD5String];
+//    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
+//    NSString *ak = [akString MD5String];
+//    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
+//    if (!IsNilOrNull(uk)) {
+//        [paramDict setValue:uk forKey:@"uk"];
+//    }
+//
+//    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
+//        [paramDict setValue:ak forKey:@"ak"];
+//        [paramDict setValue:USER_OPENID forKey:@"openid"];
+//    }
     
     NSLog(@"params:%@\nparameters:%@\napi:%@", params, paramDict, url);
     
@@ -175,33 +176,33 @@
     
     NSString *uuid = IsNilOrNull(DeviceId_UUID_Value) ? @"" : DeviceId_UUID_Value;
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithDictionary:paramaDic];
-    [paramDict setValue:uuid forKey:@"deviceid"];
-    [paramDict setValue:@"2" forKey:@"devtype"];
-    [paramDict setValue:Apptype forKey:@"apptype"];
+//    [paramDict setValue:uuid forKey:@"deviceid"];
+//    [paramDict setValue:@"2" forKey:@"devtype"];
+//    [paramDict setValue:Apptype forKey:@"apptype"];
+//    
+//
+//    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
+//    NSMutableString *verStr = [NSMutableString stringWithString:@""];
+//    for (NSString *ver in verArray) {
+//        [verStr appendString:ver];
+//    }
+//    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
     
-
-    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSArray *verArray = [currentVersion componentsSeparatedByString:@"."];
-    NSMutableString *verStr = [NSMutableString stringWithString:@""];
-    for (NSString *ver in verArray) {
-        [verStr appendString:ver];
-    }
-    [paramDict setValue:[NSString stringWithFormat:@"%@2", verStr] forKey:@"vk"];
-    
-    NSString *apiName = url.lastPathComponent;
-    NSString *md5ApiName = [apiName MD5String];
-    NSString *md5Openid = [USER_OPENID MD5String];
-    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
-    NSString *ak = [akString MD5String];
-    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
-    if (!IsNilOrNull(uk)) {
-        [paramDict setValue:uk forKey:@"uk"];
-    }
-    
-    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
-        [paramDict setValue:ak forKey:@"ak"];
-        [paramDict setValue:USER_OPENID forKey:@"openid"];
-    }
+//    NSString *apiName = url.lastPathComponent;
+//    NSString *md5ApiName = [apiName MD5String];
+//    NSString *md5Openid = [USER_OPENID MD5String];
+//    NSString *akString = [NSString stringWithFormat:@"%@%@", md5Openid, md5ApiName];
+//    NSString *ak = [akString MD5String];
+//    NSString *uk = [KUserdefaults objectForKey:@"YDSC_uk"];
+//    if (!IsNilOrNull(uk)) {
+//        [paramDict setValue:uk forKey:@"uk"];
+//    }
+//
+//    if (![apiName isEqualToString:@"userLogin"] && !IsNilOrNull(USER_OPENID)) {
+//        [paramDict setValue:ak forKey:@"ak"];
+//        [paramDict setValue:USER_OPENID forKey:@"openid"];
+//    }
     
     NSLog(@"params:%@\nparameters:%@\napi:%@", paramaDic, paramDict, url);
     

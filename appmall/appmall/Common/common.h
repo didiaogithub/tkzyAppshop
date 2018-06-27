@@ -84,11 +84,12 @@
 
 
 #define KloginStatus @"loginSuccess"
-
+// 订单评论状态
 #define KordercommentStatus @"ordercomment_status"
-
+// 社区评论状态
 #define KpostcommentStatus @"postcomment_status"
-
+// 店铺赊销状态 0:关闭 1:开启
+#define KloanStatus @"loan_status"
 /**微信授权之后 跳转登录*/
 #define WeiXinAuthSuccess @"WeiXinAuthSuccess"
 /* 微信支付回调 */

@@ -65,6 +65,8 @@
     bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
     if (postcommentStatus == NO) {
         self.labPinglun.hidden = YES;
+    }else{
+        self.labPinglun.hidden = NO;
     }
     
    
@@ -114,6 +116,8 @@
     bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
     if (postcommentStatus == NO) {
         self.labPinglun.hidden = YES;
+    }else{
+        self.labPinglun.hidden = NO;
     }
 }
 - (IBAction)actionSubmitComm:(id)sender {

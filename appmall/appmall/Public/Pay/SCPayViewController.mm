@@ -255,6 +255,16 @@
         }else{
             cell.sqqkBtn.hidden = NO;
         }
+        
+        // 后台控制是否隐藏申请欠款按钮
+        bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+        if (loanStatus == NO) {
+            cell.sqqkBtn.hidden = YES;
+        }else{
+           cell.sqqkBtn.hidden = NO;
+        }
+        
+        
         if (cell == nil) {
             cell= [[[NSBundle  mainBundle]
                     loadNibNamed:@"SQQKTableCell" owner:self options:nil]  lastObject];

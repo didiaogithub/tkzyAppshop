@@ -41,6 +41,9 @@
     if (postcommentStatus == NO) {
         self.sendBtn.hidden = YES;
         self.height.constant = 0;
+    }else{
+        self.sendBtn.hidden = NO;
+        self.height.constant = 44;
     }
     
 }

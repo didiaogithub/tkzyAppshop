@@ -155,6 +155,13 @@
         }else{
             [KUserdefaults setBool:NO forKey:KpostcommentStatus];
         }
+        
+        // 店铺赊销状态 0:关闭 1:开启
+        if ([dic[@"data"][@"loan_status"]  boolValue] == YES){
+            [KUserdefaults setBool:YES forKey:KloanStatus];
+        }else{
+            [KUserdefaults setBool:NO forKey:KloanStatus];
+        }
         [KUserdefaults synchronize];
         
     } failure:^(NSError *error) {

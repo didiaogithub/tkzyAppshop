@@ -26,9 +26,16 @@
     [super viewDidLoad];
     self.title = @"订单列表";
      _statusArr = @[@"99", @"1", @"2", @"4,5,7", @"3,6"];
+    
+    [CKCNotificationCenter addObserver:self selector:@selector(jumpFK:) name:@"jumpFK" object:nil];
     list = [NSMutableArray arrayWithArray:@[@"全部",@"待付款", @"待发货", @"待收货", @"使用反馈"]];
     [self initComponents];
     
+}
+
+- (void)jumpFK:(NSNotification *)notifi{
+    NSString *index = notifi.object;
+    self.selectedIndex = [index integerValue];
 }
 
 

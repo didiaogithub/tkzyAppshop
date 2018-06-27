@@ -149,6 +149,9 @@ NSString *const RequestManagerReachabilityNotificationStatusItem = @"RequestMana
         if (isNeedLower) {
             endKey = itemKey. lowercaseString;
             endValue = itemValue.lowercaseString;
+        }else{
+            endKey = itemKey;
+            endValue = itemValue;
         }
         if (isNeedUrlEncode) {
             endValue = [endValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

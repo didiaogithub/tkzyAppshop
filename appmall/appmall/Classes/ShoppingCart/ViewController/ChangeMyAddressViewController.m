@@ -409,8 +409,7 @@
                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
                                @"token":token,
                                @"isdefault":@"1",
-                               @"addressId":self.addressModel.addressid,
-                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"isdefault":@"1",@"addressId":self.addressModel.addressid} andNeedUrlEncode:YES andKeyToLower:YES]};
+                               @"addressId":self.addressModel.addressid};
     //如果是默认地址不请求
     if (![isdefault isEqualToString:@"1"]){
         [HttpTool postWithUrl:setDefaultUrl params:pramaDic success:^(id json) {
@@ -464,8 +463,7 @@
     NSDictionary * pramaDic = @{@"appid":Appid,
                                   @"tn":[NSString stringWithFormat:@"%.0f",TN],
                                   @"token":token,
-                                  @"addressId":_addressModel.addressid,
-                                @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"addressId":_addressModel.addressid} andNeedUrlEncode:YES andKeyToLower:YES]};
+                                  @"addressId":_addressModel.addressid};
     NSString *deleteMeAddressUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,DeleAddrUrl];
     [HttpTool postWithUrl:deleteMeAddressUrl params:pramaDic success:^(id json) {
         NSDictionary *dict = json;

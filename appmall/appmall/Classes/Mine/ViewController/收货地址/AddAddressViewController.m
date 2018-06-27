@@ -406,10 +406,7 @@
                     @"citycode":self.addressModel.citycode,
                     @"areacode":self.addressModel.areacode,
                     @"isdefault":isdefault,
-                    @"addressId":self.addressModel.addressid,
-                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"address":_detailedAddressFiedld.text,@"isdefault":isdefault, @"addressId":self.addressModel.addressid,@"provincecode":self.addressModel.provincecode,
-                                                                  @"citycode":self.addressModel.citycode,
-                                                                  @"areacode":self.addressModel.areacode} andNeedUrlEncode:YES andKeyToLower:YES]};
+                    @"addressId":self.addressModel.addressid};
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddAddrUrl];
         pramaDic= @{@"appid":Appid,
@@ -421,10 +418,7 @@
                     @"provincecode":aeraCodeArray[0],
                     @"citycode":aeraCodeArray[1],
                     @"areacode":aeraCodeArray[2],
-                    @"isdefault":isdefault,
-                    @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"name":_nameTextFiedld.text,@"mobile":_telePhoneFiedld.text,@"address":_detailedAddressFiedld.text, @"isdefault":isdefault,@"provincecode":aeraCodeArray[0],
-                                                                  @"citycode":aeraCodeArray[1],
-                                                                  @"areacode":aeraCodeArray[2]} andNeedUrlEncode:YES andKeyToLower:YES]};
+                    @"isdefault":isdefault};
     }
     
     [self.view addSubview:self.loadingView];

@@ -113,7 +113,11 @@
 
 -(void)loadHomeData:(BOOL)showLoading {
     
-    NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"",@"pageNo":@(_page),@"pageSize":@(KpageSize),@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@""} andNeedUrlEncode:YES andKeyToLower:YES]};
+
+    
+    NSMutableDictionary  *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
+    [pramaDic setObject:@"pageSize" forKey:@(KpageSize)];
+    [pramaDic setObject:@"pageNo" forKey:@(_page)];
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_HonorList_Url];
     

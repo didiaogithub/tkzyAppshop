@@ -87,8 +87,8 @@
                                             @"token":token,
                                             @"pageNo":@(_pageNo),
                                             @"pageSize":@(KpageSize),
-                                            @"sortid":self.categoryId,
-                                            @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES],@"sortid":self.categoryId};
+                                            @"sortid":self.categoryId
+                                            ,@"sortid":self.categoryId};
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, Get_Goods_ListBySortid];
     

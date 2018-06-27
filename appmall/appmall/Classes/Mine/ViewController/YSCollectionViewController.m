@@ -317,13 +317,7 @@
       @"appid":Appid,
       @"tn":[NSString stringWithFormat:@"%.0f",TN],
       @"token":token,
-      @"itemid": itemid,
-      @"sign":[RequestManager getSignNSDictionary:
-      @{@"appid":Appid,
-        @"tn":[NSString stringWithFormat:@"%.0f",TN],
-        @"token":token,
-        @"itemid": itemid,
-        } andNeedUrlEncode:YES andKeyToLower:YES]};
+      @"itemid": itemid};
     
     NSString *deloveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelCollectionUrl];
     [self.view addSubview:self.loadingView];
@@ -374,13 +368,7 @@
       @"appid":Appid,
       @"tn":[NSString stringWithFormat:@"%.0f",TN],
       @"token":token,
-      @"itemid": itemids,
-      @"sign":[RequestManager getSignNSDictionary:
-               @{@"appid":Appid,
-                 @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                 @"token":token,
-                 @"itemid": itemids,
-                 } andNeedUrlEncode:YES andKeyToLower:YES]};
+      @"itemid": itemids};
     NSString *deloveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CancelCollectionUrl];
         [self.view addSubview:self.loadingView];
         [self.loadingView startAnimation];
@@ -487,8 +475,8 @@
                                @"tn":[NSString stringWithFormat:@"%.0f",TN],
                                @"token":token,
                                @"pageNo":@(_pageNo),
-                               @"pageSize":@(KpageSize),
-                               @"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+                               @"pageSize":@(KpageSize)};
+    
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, GetCollecListUrl];
     
     [HttpTool getWithUrl:loveItemUrl params:pramaDic success:^(id json) {

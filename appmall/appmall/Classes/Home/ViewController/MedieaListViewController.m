@@ -112,8 +112,7 @@
 
 -(void)loadHomeData:(BOOL)showLoading {
     
-    NSDictionary *pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@"",@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":@""} andNeedUrlEncode:YES andKeyToLower:YES]};
-    //请求数据
+   NSDictionary *pramaDic = [HttpTool getCommonPara];
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_MediaLit_Url];
     
     if (showLoading) {

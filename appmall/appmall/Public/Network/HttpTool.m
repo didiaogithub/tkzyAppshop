@@ -19,9 +19,9 @@
     NSString *token = [UserModel getCurUserToken];
     NSDictionary *pramaDic;
     if (IsNilOrNull(token)) {
-          pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN]} andNeedUrlEncode:YES andKeyToLower:YES]};
+          pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN]};
     }else{
-            pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token,@"sign":[RequestManager getSignNSDictionary:@{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token} andNeedUrlEncode:YES andKeyToLower:YES]};
+        pramaDic= @{@"appid":Appid,@"tn":[NSString stringWithFormat:@"%.0f",TN],@"token":token};
     }
   
     return pramaDic;
@@ -29,6 +29,10 @@
 }
 
 +(void)getWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
+
+    NSMutableDictionary *mparams = [[NSMutableDictionary alloc]initWithDictionary:params];
+    [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+    params = mparams;
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     serializer.removesKeysWithNullValues = YES;
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
@@ -99,7 +103,9 @@
 }
 
 + (void)postWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
-    
+    NSMutableDictionary *mparams = [[NSMutableDictionary alloc]initWithDictionary:params];
+    [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+    params = mparams;
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];

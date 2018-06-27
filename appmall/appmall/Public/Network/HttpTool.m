@@ -105,7 +105,10 @@
 
 + (void)postWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
     NSMutableDictionary *mparams = [[NSMutableDictionary alloc]initWithDictionary:params];
-    [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+    if ([url rangeOfString:@"getValidCode"].length  == 0) {
+            [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+    }
+
     params = mparams;
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     

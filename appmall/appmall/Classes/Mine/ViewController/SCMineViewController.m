@@ -301,6 +301,7 @@
         vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"CKCouponManagerViewController",
+                                         @"ArrearsManagerViewController",
                                          //                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
                                          @"BankManagerViewController", @"ChangeMyAddressViewController"]];

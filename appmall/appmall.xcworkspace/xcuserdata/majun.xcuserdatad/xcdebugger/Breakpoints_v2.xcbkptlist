@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551684099.566677"
+            filePath = "appmall/Public/Network/RequestManager.m"
+            timestampString = "551788591.349413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "+getSignNSDictionary:andNeedUrlEncode:andKeyToLower:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Mine/ViewController/&#x6536;&#x8d27;&#x5730;&#x5740;/AddAddressViewController.m"
-            timestampString = "551780112.898613"
+            filePath = "appmall/Public/Network/RequestManager.m"
+            timestampString = "551788679.401027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
-            landmarkName = "-clickAddressButton"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "+getSignNSDictionary:andNeedUrlEncode:andKeyToLower:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Public/Network/RequestManager.m"
+            timestampString = "551788700.8660311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "+getSignNSDictionary:andNeedUrlEncode:andKeyToLower:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

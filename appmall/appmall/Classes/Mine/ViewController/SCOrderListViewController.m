@@ -834,7 +834,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self loadMyOrderData:_searchView.searchTextField.text];
         
         //  需要跳转到反馈列表
-        [CKCNotificationCenter postNotificationName:@"jumpFK" object:@"4"];
+        [CKCNotificationCenter postNotificationName:@"jumpFK" object:@""];
         
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {

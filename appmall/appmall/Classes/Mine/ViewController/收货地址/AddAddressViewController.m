@@ -392,7 +392,7 @@
     }
     NSDictionary *dic = [HttpTool getCommonPara];
     NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:dic];
-    _detailedAddressFiedld.text = [NSString stringWithFormat:@" %@",_detailedAddressFiedld.text];
+    _detailedAddressFiedld.text = [NSString stringWithFormat:@"%@",_detailedAddressFiedld.text];
     if (self.addressModel){ //修改
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateAddrUrl];
       

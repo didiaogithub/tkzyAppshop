@@ -116,7 +116,7 @@
     }];
     //规格
     _specLabel = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
-    _specLabel.text = @"规格：";
+    _specLabel.text = @"";
     [self.contentView addSubview:_specLabel];
     [_specLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20));

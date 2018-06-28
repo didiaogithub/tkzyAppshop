@@ -232,10 +232,12 @@
 
             NSDictionary *dic = json;
             if ([dic[@"code"] integerValue] != 200) {
-                [self.loadingView showNoticeView:dic[@"message"]];
+        
                 // 301 跳转注册页面
                 if ([dic[@"code"] integerValue] == 301) {
                     [self weixinLogin];
+                }else{
+                     [self.loadingView showNoticeView:dic[@"message"]];
                 }
                 return;
             }

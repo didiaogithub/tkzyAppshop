@@ -387,38 +387,33 @@
     }
     
     NSString *requestUrl = nil;
-    NSDictionary *pramaDic = nil;
     if (IsNilOrNull(self.addressModel.addressid)) {
         self.addressModel.addressid = @"";
     }
-    NSString *token = [UserModel getCurUserToken];
-    
-    _detailedAddressFiedld.text = [NSString stringWithFormat:@" %@",_detailedAddressFiedld.text];
+    NSDictionary *dic = [HttpTool getCommonPara];
+    NSMutableDictionary *pramaDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+    _detailedAddressFiedld.text = [NSString stringWithFormat:@"%@",_detailedAddressFiedld.text];
     if (self.addressModel){ //修改
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, UpdateAddrUrl];
-        pramaDic= @{@"appid":Appid,
-                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                    @"token":token,
-                    @"name":_nameTextFiedld.text,
-                    @"mobile":_telePhoneFiedld.text,
-                    @"address":_detailedAddressFiedld.text,
-                    @"provincecode":self.addressModel.provincecode,
-                    @"citycode":self.addressModel.citycode,
-                    @"areacode":self.addressModel.areacode,
-                    @"isdefault":isdefault,
-                    @"addressId":self.addressModel.addressid};
+      
+        [pramaDic setObject:_nameTextFiedld.text forKey:@"name"];
+        [pramaDic setObject:_telePhoneFiedld.text forKey:@"mobile"];
+        [pramaDic setObject:_detailedAddressFiedld.text forKey:@"address"];
+        [pramaDic setObject:self.addressModel.provincecode forKey:@"provincecode"];
+        [pramaDic setObject:self.addressModel.citycode forKey:@"citycode"];
+        [pramaDic setObject:self.addressModel.areacode forKey:@"areacode"];
+        [pramaDic setObject:isdefault forKey:@"isdefault"];
+        [pramaDic setObject:self.addressModel.addressid forKey:@"addressId"];
+        
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddAddrUrl];
-        pramaDic= @{@"appid":Appid,
-                    @"tn":[NSString stringWithFormat:@"%.0f",TN],
-                    @"token":token,
-                    @"name":_nameTextFiedld.text,
-                    @"mobile":_telePhoneFiedld.text,
-                    @"address":_detailedAddressFiedld.text,
-                    @"provincecode":aeraCodeArray[0],
-                    @"citycode":aeraCodeArray[1],
-                    @"areacode":aeraCodeArray[2],
-                    @"isdefault":isdefault};
+        [pramaDic setObject:_nameTextFiedld.text forKey:@"name"];
+        [pramaDic setObject:_telePhoneFiedld.text forKey:@"mobile"];
+        [pramaDic setObject:_detailedAddressFiedld.text forKey:@"address"];
+        [pramaDic setObject:aeraCodeArray[0] forKey:@"provincecode"];
+        [pramaDic setObject:aeraCodeArray[1] forKey:@"citycode"];
+        [pramaDic setObject:aeraCodeArray[2] forKey:@"areacode"];
+        [pramaDic setObject:isdefault forKey:@"isdefault"];
     }
     
     [self.view addSubview:self.loadingView];

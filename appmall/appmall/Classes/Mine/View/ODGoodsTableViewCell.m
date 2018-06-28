@@ -84,6 +84,7 @@
     commentM.name = [NSString stringWithFormat:@"%@", selfmodel.name];
     commentM.itemid = [NSString stringWithFormat:@"%@", selfmodel.itemid];
     commentM.price = [NSString stringWithFormat:@"%@", selfmodel.price];
+    commentM.itemno = [NSString stringWithFormat:@"%@",selfmodel.itemno];
     releaseComment.goodsM = commentM;
     [[self getCurrentVC].navigationController pushViewController:releaseComment animated:YES];
     

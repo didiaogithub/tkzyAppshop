@@ -32,7 +32,7 @@
 +(void)getWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
 
     NSMutableDictionary *mparams = [[NSMutableDictionary alloc]initWithDictionary:params];
-    [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+    [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:NO andKeyToLower:NO] forKey:@"sign"];
     params = mparams;
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     serializer.removesKeysWithNullValues = YES;
@@ -106,7 +106,7 @@
 + (void)postWithUrl:(NSString *)url params:(NSDictionary *)params success:(void(^)(id json))success failure:(void(^)(NSError *error))failure{
     NSMutableDictionary *mparams = [[NSMutableDictionary alloc]initWithDictionary:params];
     if ([url rangeOfString:@"getValidCode"].length  == 0) {
-            [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:YES andKeyToLower:NO] forKey:@"sign"];
+            [mparams setObject:[RequestManager getSignNSDictionary:params andNeedUrlEncode:NO andKeyToLower:NO] forKey:@"sign"];
     }
 
     params = mparams;

@@ -121,6 +121,7 @@
 
     if (IsNilOrNull(self.score)) {
         [self showNoticeView:@"请选择评分"];
+        return;
     }
 
     if (IsNilOrNull(self.content)) {
@@ -203,7 +204,8 @@
             [KUserdefaults setObject:self.goodsM.itemid forKey:@"ReleasedGoodsId"];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
-            [self.navigationController popToRootViewControllerAnimated:YES];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];

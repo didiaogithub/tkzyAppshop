@@ -37,6 +37,11 @@
 
 @implementation SCOrderDetailVC
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self requestOrderDetailData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";

@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "MedieaDetailViewController.h"
+#import "WebDetailViewController.h"
 #import "RootNavigationController.h"
 #import "DWQSearchController.h"
 #import "WBAdsImgView.h"
@@ -18,13 +19,15 @@
 #import "MedieaListViewController.h"
 #import "TKHomeDataModel.h"
 #import "HomeTabTopAdsViewCell.h"
+#import "RecommendMediaViewCell.h"
 #import "SCOrderDetailModel.h"
 #import "GoodsDetailViewController.h"
 #define KRecommendViewCell @"RecommendViewCell"
 #define KHomeTabTopAdsViewCell  @"HomeTabTopAdsViewCell"
+#define KRecommendMediaViewCell @"RecommendMediaViewCell"
 @interface HomeViewController ()<WBAdsImgViewDelegate,UITableViewDelegate,UITableViewDataSource,RecommendViewCellDelegate>
 {
-    TKHomeDataModel *model;
+    
     __weak IBOutlet UILabel *labNewUserTime;
     __weak IBOutlet NSLayoutConstraint *tabDisBottom;
     __weak IBOutlet NSLayoutConstraint *tabDisTop;
@@ -42,6 +45,7 @@
     UILabel *numMsg ;
     
 }
+@property(strong,nonatomic)TKHomeDataModel *model;
 @end
 
 @implementation HomeViewController
@@ -77,13 +81,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [tabHomeList scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
   
 }
 
 -(void)tabReloadData{
     RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
-    model = [result firstObject];
+    self.model = [result firstObject];
     [tabHomeList reloadData];
 }
 
@@ -189,7 +192,7 @@
             [self.realm commitWriteTransaction];
         }
         RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
-        model = [result firstObject];
+        self.model = [result firstObject];
         [tabHomeList reloadData];
 
     } failure:^(NSError *error) {
@@ -207,7 +210,9 @@
     tabHomeList.delegate = self;
     tabHomeList.dataSource = self;
     [tabHomeList registerNib:[UINib nibWithNibName:KRecommendViewCell bundle:nil] forCellReuseIdentifier:KRecommendViewCell];
-    [tabHomeList registerClass:[HomeTabTopAdsViewCell class] forCellReuseIdentifier:KHomeTabTopAdsViewCell   ];
+    [tabHomeList registerClass:[HomeTabTopAdsViewCell class] forCellReuseIdentifier:KHomeTabTopAdsViewCell];
+        [tabHomeList registerNib:[UINib nibWithNibName:KRecommendMediaViewCell bundle:nil] forCellReuseIdentifier:KRecommendMediaViewCell];
+
     tabHomeList.showsVerticalScrollIndicator = NO;
     [tabHomeList reloadData];
 }
@@ -225,12 +230,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==0) {
         HomeTabTopAdsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KHomeTabTopAdsViewCell];
-        [cell  loadData:model];
+        [cell  loadData:self.model];
         
+        return cell;
+    }else if(indexPath.section == 3){
+        RecommendMediaViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KRecommendMediaViewCell];
+        [cell  refreshData:self.model];
+        cell.selectionStyle =UITableViewCellSelectionStyleNone;
         return cell;
     }else{
         RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
-        [cell setCollection:indexPath.section andData:model];
+        [cell setCollection:indexPath.section andData:self.model];
         cell.delegate = self;
         
         cell.selectionStyle =UITableViewCellSelectionStyleNone;
@@ -297,8 +307,8 @@
 }
 #pragma HomeMenuItemViewDelegate
 -(void)itemClick:(SortModel *)index{
-    for (int i = 0; i < model.sortList.count ; i++) {
-        SortModel *itemmodel =  model.sortList[i];
+    for (int i = 0; i < self.model.sortList.count ; i++) {
+        SortModel *itemmodel = self. model.sortList[i];
         if ([itemmodel.sortname isEqualToString:index.sortname]) {
             [self actionGoto:i + 1];
             return;
@@ -416,7 +426,7 @@
     if(index == 3){
         
         MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-        medieaDetailVC.strUrl =[NSString stringWithFormat:@"%@%@",NewSDetail,model.mediaList[indexpath.row].itemid] ;
+        medieaDetailVC.strUrl =[NSString stringWithFormat:@"%@%@",NewSDetail,self.model.mediaList[indexpath.row].itemid] ;
         
         medieaDetailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:medieaDetailVC animated:YES];
@@ -426,17 +436,17 @@
     if (index == 2) {
         GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc] init];
         SCCategoryGoodsModel *modelItem = [[SCCategoryGoodsModel alloc]init];
-        modelItem.itemid = model.topicList[indexpath.row].itemid;
+        modelItem.itemid = self.model.topicList[indexpath.row].itemid;
         detailVC.goodsM  = modelItem;
-        if ([model.topicList[indexpath.row].auth boolValue] == YES) {
-            [self.loadingView showNoticeView:model.topicList[indexpath.row].auth_msg];
+        if ([self.model.topicList[indexpath.row].auth boolValue] == YES) {
+            [self.loadingView showNoticeView:self.model.topicList[indexpath.row].auth_msg];
             return;
         }
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     if (index == 4) {
         ImageDetailController *imageDetailVC = [[ImageDetailController alloc]init];
-        imageDetailVC.imgUrl = model.honorList[indexpath.row].imgpath;
+        imageDetailVC.imgUrl = self.model.honorList[indexpath.row].imgpath;
         [self presentViewController:imageDetailVC animated:NO completion:nil];
     }
 }
@@ -468,6 +478,13 @@
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 3) {
+        MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
+        medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@%@",NewSDetail,[self.model.mediaList firstObject].itemid];
+        [self.navigationController pushViewController:medieaDetailVC animated:YES];
+    }
+}
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];

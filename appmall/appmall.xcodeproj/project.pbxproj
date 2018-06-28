@@ -246,6 +246,8 @@
 		2D20DFFF20898CD900095032 /* WYBirthdayPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DFFD20898CD900095032 /* WYBirthdayPickerView.m */; };
 		2D20E00220898CFA00095032 /* YSMemberPointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20E00120898CF900095032 /* YSMemberPointCell.m */; };
 		2D2280FE20B53C2700F4C8B9 /* TKSchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2280FC20B53C2700F4C8B9 /* TKSchoolModel.m */; };
+		2D36E1E520E47F810001390A /* RecommendMediaViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D36E1E220E47F800001390A /* RecommendMediaViewCell.m */; };
+		2D36E1E620E47F810001390A /* RecommendMediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D36E1E320E47F800001390A /* RecommendMediaViewCell.xib */; };
 		2D3B0152209363FA007CF4E6 /* HomeJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D3B0151209363FA007CF4E6 /* HomeJson.json */; };
 		2D3B015520936423007CF4E6 /* TKHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B015420936423007CF4E6 /* TKHomeDataModel.m */; };
 		2D4D60E620B2EDF200280033 /* SCCategoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4D60E420B2EDF200280033 /* SCCategoryTableCell.xib */; };
@@ -993,6 +995,9 @@
 		2D20E00120898CF900095032 /* YSMemberPointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMemberPointCell.m; sourceTree = "<group>"; };
 		2D2280FC20B53C2700F4C8B9 /* TKSchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSchoolModel.m; sourceTree = "<group>"; };
 		2D2280FD20B53C2700F4C8B9 /* TKSchoolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSchoolModel.h; sourceTree = "<group>"; };
+		2D36E1E220E47F800001390A /* RecommendMediaViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendMediaViewCell.m; sourceTree = "<group>"; };
+		2D36E1E320E47F800001390A /* RecommendMediaViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendMediaViewCell.xib; sourceTree = "<group>"; };
+		2D36E1E420E47F810001390A /* RecommendMediaViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendMediaViewCell.h; sourceTree = "<group>"; };
 		2D3B0151209363FA007CF4E6 /* HomeJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeJson.json; sourceTree = "<group>"; };
 		2D3B015320936423007CF4E6 /* TKHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKHomeDataModel.h; sourceTree = "<group>"; };
 		2D3B015420936423007CF4E6 /* TKHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKHomeDataModel.m; sourceTree = "<group>"; };
@@ -1641,6 +1646,9 @@
 		2D0723C12082FAB20030996F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D36E1E420E47F810001390A /* RecommendMediaViewCell.h */,
+				2D36E1E220E47F800001390A /* RecommendMediaViewCell.m */,
+				2D36E1E320E47F800001390A /* RecommendMediaViewCell.xib */,
 				2D6F924E208E0731007DFD0B /* HomeTabTopAdsViewCell.h */,
 				2D6F924F208E0731007DFD0B /* HomeTabTopAdsViewCell.m */,
 				2D20DFDC20898AC700095032 /* SearchTopView.h */,
@@ -3338,6 +3346,7 @@
 				F236AE4220BF8DBE004B9A03 /* SQQKTableCell.xib in Resources */,
 				F2C1E78A20C1335D00ECCFFE /* ArrearsTableCell.xib in Resources */,
 				2DA0C38120B921540031AC47 /* GoodSdetailHeaderViewCell.xib in Resources */,
+				2D36E1E620E47F810001390A /* RecommendMediaViewCell.xib in Resources */,
 				2DA0C2FC20B7F8C80031AC47 /* CommPLDetailViewController.xib in Resources */,
 				F2113A8B20B581BB00C01DA4 /* InvoicesManagerCell.xib in Resources */,
 				2D808E8E20BC2C49002FADA8 /* ODOrderInfoViewCell.xib in Resources */,
@@ -3772,6 +3781,7 @@
 				2D20DEED2088CC7800095032 /* MoneyCountView.m in Sources */,
 				2D6F924D208E0285007DFD0B /* CollegeRootViewCell.m in Sources */,
 				F241F6D220D8A092001EC42B /* UIView+ViewController.m in Sources */,
+				2D36E1E520E47F810001390A /* RecommendMediaViewCell.m in Sources */,
 				2DA0C35620B867810031AC47 /* ELCAsset.m in Sources */,
 				2D20DF592088D4E600095032 /* SCCouponCanUseCell.m in Sources */,
 				2D0723F72082FEF10030996F /* HomeViewController.m in Sources */,

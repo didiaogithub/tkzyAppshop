@@ -32,7 +32,6 @@
     [super awakeFromNib];
     self.imgRecommend.layer.cornerRadius = 4;
     self.imgRecommend.layer.masksToBounds = YES;
-    
     self.viewReMen.layer.cornerRadius = 5;
     self.viewReMen.layer.masksToBounds = YES;
     self.labermen.layer.cornerRadius = 5;
@@ -123,5 +122,6 @@
     webDetail.hidesBottomBarWhenPushed = YES;
     [[self getCurrentVC].navigationController pushViewController:webDetail animated:YES];
 }
+
 
 @end

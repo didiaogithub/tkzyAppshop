@@ -31,7 +31,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-   
+   [self getLayoutMidea];
 }
 
 -(void )getLayoutRecommend{
@@ -67,9 +67,7 @@
 }
 
 -(void )getLayoutMidea{
-    if (self.customLayoutMedia  != nil) {
-        return;
-    }
+
     self.customLayoutMedia = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     self.customLayoutMedia.minimumLineSpacing = 0;
     self.customLayoutMedia.minimumInteritemSpacing = 0;
@@ -144,7 +142,7 @@
         [self isShowTopView:YES];
     }else if(index == 3){
       
-        [self getLayoutMidea];
+        
     
         self.labTitle.text = @"媒体报道";
         @try {

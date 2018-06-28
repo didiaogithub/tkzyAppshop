@@ -290,11 +290,12 @@
    
 
     // 控制点击事件
-    bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+    bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
     if (loanStatus == NO) {
         vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"CKCouponManagerViewController",
+                                         
                                          //                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
                                          @"BankManagerViewController", @"ChangeMyAddressViewController"]];

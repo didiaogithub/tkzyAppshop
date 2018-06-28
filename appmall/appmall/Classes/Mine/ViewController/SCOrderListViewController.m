@@ -323,7 +323,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         view.backgroundColor = [UIColor whiteColor];
         [bgview addSubview:view];
        
-        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
+        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.orderpaymoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
         }

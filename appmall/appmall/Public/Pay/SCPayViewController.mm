@@ -249,12 +249,7 @@
     }else if (indexPath.section == 2){
         static NSString *identifier = @"SQQKTableCell";//这个identifier跟xib设置的一样
         SQQKTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        // 欠款管理付款时隐藏申请欠款按钮
-        if (self.isqkglPage == YES) {
-            cell.sqqkBtn.hidden = YES;
-        }else{
-            cell.sqqkBtn.hidden = NO;
-        }
+        
         
         // 后台控制是否隐藏申请欠款按钮
         bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
@@ -264,6 +259,12 @@
            cell.sqqkBtn.hidden = NO;
         }
         
+        // 欠款管理付款时隐藏申请欠款按钮
+        if (self.isqkglPage == YES) {
+            cell.sqqkBtn.hidden = YES;
+        }else{
+            cell.sqqkBtn.hidden = NO;
+        }
         
         if (cell == nil) {
             cell= [[[NSBundle  mainBundle]

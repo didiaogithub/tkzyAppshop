@@ -36,6 +36,7 @@
     [super viewDidLoad];
     itemModel = [[CommListModel alloc]init];
     [self setTableView];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.shareItemView.layer.cornerRadius = 5;
     self.shareItemView.layer.masksToBounds = YES;
     self.btnCancel.layer.cornerRadius = 5;
@@ -50,11 +51,12 @@
     [UITableView refreshHelperWithScrollView:self.tabCommunityList target:self  loadNewData:@selector(loadNewData) loadMoreData:@selector(loadMoreData) isBeginRefresh:NO];
     
     [self creatRightItem];
+    [self loadNewData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super  viewWillAppear:animated];
-    [self loadNewData];
+    [self.tabCommunityList .mj_header beginRefreshing];
 }
 
 - (UIImage *)xy_noDataViewImage{
@@ -123,9 +125,8 @@
     NSMutableDictionary  *pramaDic= [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
     [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
     [pramaDic setObject:@(_page) forKey:@"pageNo"];
-    //请求数据
-    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetNoteList];
     
+    NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Note_GetNoteList];
     
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
@@ -149,10 +150,7 @@
             for (NSDictionary *itemDic in dic[@"data"][@"noteList"]) {
                 [itemModel.commList addObject:[[CommListModelItem alloc]initWith:itemDic]];
             }
-//            itemModel.commId = @"1";
-//            [self.realm beginWriteTransaction];
-//            [self.realm addOrUpdateObject:itemModel];
-//            [self.realm commitWriteTransaction];
+
         }else{
             [self.loadingView showNoticeView:@"无更多商品"];
         }
@@ -284,6 +282,7 @@
             [self.loadingView showNoticeView:dic[@"message"]];
             return;
         }
+        [self.tabCommunityList tableViewEndRefreshCurPageCount:0];
         model.forwardnum = [NSString stringWithFormat:@"%ld", [model.forwardnum integerValue]+1 ];
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
         [self.tabCommunityList reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];

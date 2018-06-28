@@ -68,12 +68,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551803600.344062"
+                  timestampString = "551865741.133049"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "4366">
+                  offsetFromSymbolStart = "4060">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -83,12 +83,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551803600.347916"
+                  timestampString = "551865741.136097"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "861">
+                  offsetFromSymbolStart = "876">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -98,12 +98,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551803600.352111"
+                  timestampString = "551865741.1394171"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "51">
+                  offsetFromSymbolStart = "64">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -113,12 +113,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551803600.355697"
+                  timestampString = "551865741.142414"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "29">
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -128,12 +128,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551803600.359633"
+                  timestampString = "551865741.145195"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -145,7 +145,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551803599.945875"
+            timestampString = "551867612.241891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "596"
@@ -161,12 +161,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551803599.945942"
+            timestampString = "551867612.24204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "647"
             endingLineNumber = "647"
             landmarkName = "-rightButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCMineViewController.m"
+            timestampString = "551867612.2421089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "-bindMineData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -435,7 +435,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
         if ([self.type isEqualToString:@"4"]) {
-            bool   ordercommentStatus = [KUserdefaults objectForKey:KordercommentStatus];
+            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
             if (ordercommentStatus == YES) {
                 _footerView.rightButton.hidden = NO;
             }

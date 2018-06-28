@@ -257,7 +257,7 @@
         }
         
         // 后台控制是否隐藏申请欠款按钮
-        bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+        bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
         if (loanStatus == NO) {
             cell.sqqkBtn.hidden = YES;
         }else{

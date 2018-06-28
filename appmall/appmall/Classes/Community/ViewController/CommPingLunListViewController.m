@@ -37,7 +37,7 @@
     [self creataToolBar];
      [self loadNewData];
 
-    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    bool postcommentStatus = [KUserdefaults boolForKey:KpostcommentStatus];
     if (postcommentStatus == NO) {
         self.sendBtn.hidden = YES;
         self.height.constant = 0;

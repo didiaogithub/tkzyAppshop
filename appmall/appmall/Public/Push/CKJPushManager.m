@@ -99,6 +99,7 @@ static BOOL isProduction = YES;
 
 -(void)networkDidReceiveMessage:(NSNotification *)notification{
     NSLog(@"方法名称:%s\n收到消息:%@", __func__, notification);
+    
     NSDictionary *userInfo = notification.userInfo;
     //应用外点击icon有extras，点击通知是aps
     NSDictionary *extras = [userInfo objectForKey:@"extras"];

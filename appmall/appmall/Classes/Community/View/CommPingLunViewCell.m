@@ -62,7 +62,7 @@
     self.labPersonNum.text = @"";
     [self.btnComDetail setTitle:@"" forState:0];
      // 隐藏评论按钮
-    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    bool postcommentStatus = [KUserdefaults boolForKey:KpostcommentStatus];
     if (postcommentStatus == NO) {
         self.labPinglun.hidden = YES;
     }else{
@@ -113,7 +113,7 @@
         
     }
     // 隐藏评论按钮
-    bool postcommentStatus = [KUserdefaults objectForKey:KpostcommentStatus];
+    bool postcommentStatus = [KUserdefaults boolForKey:KpostcommentStatus];
     if (postcommentStatus == NO) {
         self.labPinglun.hidden = YES;
     }else{

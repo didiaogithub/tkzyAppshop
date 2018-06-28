@@ -63,7 +63,7 @@
     self.labNum.text = [NSString stringWithFormat:@"X%@",model.number];
     
     // 隐藏商品详情去反馈按钮
-    bool ordercommentStatus = [KUserdefaults objectForKey:KordercommentStatus];
+    bool ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
     if (ordercommentStatus == NO) {
         self.btnBack.hidden = YES;
     }

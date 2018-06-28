@@ -685,6 +685,7 @@
 - (void)zjcpayClick{
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,getCpcnPayInfoApi];
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:[HttpTool getCommonPara]];
+    [paraDic setObject:self.orderid forKey:@"orderid"];
     [HttpTool getWithUrl:requestUrl params:paraDic success:^(id json) {
            NSDictionary *dict = json;
         if ([[dict objectForKey:@"code"] integerValue] == 200) {

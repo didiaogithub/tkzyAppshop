@@ -68,12 +68,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551865741.133049"
+                  timestampString = "551868488.160265"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "4060">
+                  offsetFromSymbolStart = "4366">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -83,12 +83,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551865741.136097"
+                  timestampString = "551868488.1627899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "876">
+                  offsetFromSymbolStart = "861">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -98,12 +98,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551865741.1394171"
+                  timestampString = "551868488.165905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "51">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -113,12 +113,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551865741.142414"
+                  timestampString = "551868488.169057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "29">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -128,12 +128,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551865741.145195"
+                  timestampString = "551868488.172161"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -145,7 +145,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551867612.241891"
+            timestampString = "551869083.622278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "596"
@@ -161,7 +161,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551867612.24204"
+            timestampString = "551869083.622341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "647"
@@ -177,12 +177,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCMineViewController.m"
-            timestampString = "551867612.2421089"
+            timestampString = "551869083.622388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
             endingLineNumber = "180"
             landmarkName = "-bindMineData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
+            timestampString = "551869083.622437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
+            landmarkName = "-payOrder:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

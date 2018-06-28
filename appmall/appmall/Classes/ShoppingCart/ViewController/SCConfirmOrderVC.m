@@ -53,11 +53,11 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.exitPay) {
-        self.coupontMoney = @"";
-        self.coupontId = @"";
-        [self refreshAllPayMoney];
-    }
+//    if (self.exitPay) {
+//        self.coupontMoney = @"";
+//        self.coupontId = @"";
+//        [self refreshAllPayMoney];
+//    }
 }
 
 - (void)viewDidLoad {
@@ -585,7 +585,7 @@
         [wSelf.sureOrderTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
 
-//    self.exitPay = NO;
+    self.exitPay = NO;
 
     //将当前请求的优惠券数据传到列表页面，如果没有则请求
     useCoupon.ordermoney = ordermoney;

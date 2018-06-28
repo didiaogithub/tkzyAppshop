@@ -607,7 +607,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 170];
     _orderModel = orderM;
     
-    if ([btn.titleLabel.text isEqualToString:@"立即付款"]) {
+    if ([btn.titleLabel.text isEqualToString:@"去付款"]) {
         [self payOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"再次购买"]) {
         [self buyAgain:orderM];//再次购买

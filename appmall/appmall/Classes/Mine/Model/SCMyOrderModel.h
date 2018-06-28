@@ -44,7 +44,7 @@
 @property (nonatomic, copy) NSString *itemno;
 /** 金额*/
 @property (nonatomic, copy) NSString *price;
-@property (nonatomic, copy) NSString *feedback;
+@property (nonatomic, assign) NSInteger feedback;
 
 @end
 
@@ -77,7 +77,7 @@
 /** 订单类型（1 正常订单 2赊欠订单 3分期订单 4担保订单）*/
 @property (nonatomic, copy) NSString *order_type;
 
-@property (nonatomic, copy) NSString *feedback;
+@property (nonatomic, assign) NSInteger feedback;
 
 @property(nonatomic,strong)NSMutableArray <SCMyOrderGoodsModel *> *ordersheet;
 

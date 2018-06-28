@@ -292,6 +292,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         qian.backgroundColor = [UIColor redColor];
         if ([orderModel.ordertypelabel containsString:@"欠"]) {
+            
             [headerView addSubview:qian];
         }else if([orderModel.ordertypelabel containsString:@"保"]){
             qian.text = @"保";
@@ -394,7 +395,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         _footerView = [[OrderFooterView alloc] initWithFrame:CGRectZero andType:statustr andHasTop:YES type:@"SCOrderListViewController"];
         _footerView.delegate = self;
-        NSString *iscomment = [NSString stringWithFormat:@"%@", orderModel.feedback];
+        NSString *iscomment = [NSString stringWithFormat:@"%ld", (long)orderModel.feedback];
         _footerView.statustring = orderModel.orderstatuslabel;
         _footerView.iscomment = iscomment;
         [_footerView refreshButton:iscomment];
@@ -469,6 +470,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     checkOrder.orderModel = orderM;
     checkOrder.orderstatusString = orderM.orderstatus;
     checkOrder.orderid = orderM.orderId;
+    if ([orderM.ordertypelabel containsString:@"欠"]) {
+        checkOrder.isqkdd = YES;
+    }
     [self.navigationController pushViewController:checkOrder animated:YES];
 }
 

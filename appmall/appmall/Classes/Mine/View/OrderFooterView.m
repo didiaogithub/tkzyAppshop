@@ -149,9 +149,11 @@
             [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
             [_rightButton setTitle:@"确认收货" forState:UIControlStateNormal];
         }else if ([statustr isEqualToString:@"已收货"]) {
-            if ([_iscomment isEqualToString:@"1"] || [_iscomment isEqualToString:@"true"]) {
+            if ([self.iscomment isEqualToString:@"1"] || [self.iscomment isEqualToString:@"true"]) {
                 _leftButton.hidden = YES;
-                [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
+                _rightButton.hidden = YES;
+                _left0Button.hidden = YES;
+//                [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
             }else{
                 [_leftButton setTitle:@"查看物流" forState:UIControlStateNormal];
                 [_rightButton setTitle:@"去反馈" forState:UIControlStateNormal];
@@ -256,7 +258,6 @@
 
 
 -(void)refreshButton:(NSString*)iscomment {
-    _iscomment = iscomment;
     if ([_statustring isEqualToString:@"未付款"]) {
         _left0Button.hidden = YES;
         [_leftButton setTitle:@"取消订单" forState:UIControlStateNormal];
@@ -272,13 +273,13 @@
         [_rightButton setTitle:@"确认收货" forState:UIControlStateNormal];
         [_rightButton setTitleColor:[UIColor tt_redMoneyColor] forState:UIControlStateNormal];
     }else if ([_statustring isEqualToString:@"已收货"]) {
-        if ([_iscomment isEqualToString:@"1"] || [_iscomment isEqualToString:@"true"]) {
+        if ([iscomment isEqualToString:@"1"] || [iscomment isEqualToString:@"true"]) {
             _left0Button.hidden = YES;
             _leftButton.hidden = YES;
             _rightButton.hidden = YES;
-            [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
-            [_rightButton setTitleColor:[UIColor tt_bodyTitleColor] forState:UIControlStateNormal];
-            _rightButton.backgroundColor = [UIColor whiteColor];
+//            [_rightButton setTitle:@"查看物流" forState:UIControlStateNormal];
+//            [_rightButton setTitleColor:[UIColor tt_bodyTitleColor] forState:UIControlStateNormal];
+//            _rightButton.backgroundColor = [UIColor whiteColor];
         }else{
             _left0Button.hidden = YES;
             _leftButton.hidden = YES;

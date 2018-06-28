@@ -340,7 +340,8 @@
 
 @property (nonatomic, strong) UIImageView *leftImageView;
 @property (nonatomic, strong) UILabel *minefunctionLable;
-
+/**右箭头*/
+@property (nonatomic, strong) UIImageView *rightImageView;
 @end
 
 @implementation SCMineFunctionCell
@@ -364,7 +365,17 @@
     }];
     _minefunctionLable = [UILabel configureLabelWithTextColor:[UIColor colorWithHexString:@"#454545"] textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
     [self.contentView addSubview:_minefunctionLable];
-    
+ 
+    //右箭头
+    _rightImageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:_rightImageView];
+    _rightImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_rightImageView setImage:[UIImage imageNamed:@"查看全部"]];
+    [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.mas_offset(-10);
+        make.size.mas_offset(CGSizeMake(10, 15));
+    }];
     
     [_minefunctionLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_leftImageView.mas_right).offset(15);

@@ -118,6 +118,12 @@
         [self.btnItem3 removeTarget:self  action:@selector(confirmReceiveAlert) forControlEvents:UIControlEventTouchUpInside];
         [self.btnItem3 addTarget:self action:@selector(deleteOrderAlert) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    if (self.isqkdd == YES) { // 当是欠款订单的时候，隐藏按钮s
+        self.btnItem1.hidden = YES;
+        self.btnItem2.hidden = YES;
+        self.btnItem3.hidden = YES;
+    }
 }
 
 -(void)cancelOrder {

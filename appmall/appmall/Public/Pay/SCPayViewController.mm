@@ -251,19 +251,19 @@
         SQQKTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         
-        // 后台控制是否隐藏申请欠款按钮
-        bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
-        if (loanStatus == NO) {
-            cell.sqqkBtn.hidden = YES;
-        }else{
-           cell.sqqkBtn.hidden = NO;
-        }
+      
         
         // 欠款管理付款时隐藏申请欠款按钮
         if (self.isqkglPage == YES) {
             cell.sqqkBtn.hidden = YES;
         }else{
-            cell.sqqkBtn.hidden = NO;
+            // 后台控制是否隐藏申请欠款按钮
+            bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
+            if (loanStatus == NO) {
+                cell.sqqkBtn.hidden = YES;
+            }else{
+                cell.sqqkBtn.hidden = NO;
+            }
         }
         
         if (cell == nil) {

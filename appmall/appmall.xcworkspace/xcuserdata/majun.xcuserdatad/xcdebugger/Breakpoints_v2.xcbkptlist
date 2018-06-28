@@ -68,7 +68,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551872642.3926409"
+                  timestampString = "551879813.417228"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -83,7 +83,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551872642.3958271"
+                  timestampString = "551879813.418991"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -98,7 +98,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551872642.3986109"
+                  timestampString = "551879813.4207079"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -113,7 +113,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551872642.400898"
+                  timestampString = "551879813.422459"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -128,7 +128,7 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/tkzyAppshopnew/appmall/appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
-                  timestampString = "551872642.404147"
+                  timestampString = "551879813.4250129"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -145,11 +145,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551872734.076358"
+            timestampString = "551879787.98072"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "596"
-            endingLineNumber = "596"
+            startingLineNumber = "600"
+            endingLineNumber = "600"
             landmarkName = "-leftButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -161,11 +161,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551872734.076472"
+            timestampString = "551879787.980886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "647"
-            endingLineNumber = "647"
+            startingLineNumber = "651"
+            endingLineNumber = "651"
             landmarkName = "-rightButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -193,7 +193,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Public/Push/CKJPushManager.m"
-            timestampString = "551872734.076722"
+            timestampString = "551879787.981114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
@@ -209,7 +209,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCConfirmOrderVC.m"
-            timestampString = "551872734.076822"
+            timestampString = "551879787.981222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "382"
@@ -257,12 +257,236 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCConfirmOrderVC.m"
-            timestampString = "551872734.077384"
+            timestampString = "551879787.981477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "364"
             endingLineNumber = "364"
             landmarkName = "-moneyCountViewButtonClicked"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.9815969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-createUIWithStatus:andHasTop:type:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.981758"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-createUIWithStatus:andHasTop:type:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.981903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.9820369"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.9822119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.982344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.9824851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCCommentOrderViewController.m"
+            timestampString = "551877288.036356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-commitComment"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.9827321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "-refreshButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.98289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-createUIWithStatus:andHasTop:type:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551879787.983017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "-createUIWithStatus:andHasTop:type:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
+            timestampString = "551879787.983144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
+            timestampString = "551879787.9832799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
+            timestampString = "551879787.9834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "-tableView:viewForFooterInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

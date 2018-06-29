@@ -381,13 +381,14 @@
         make.left.equalTo(_leftImageView.mas_right).offset(15);
         make.centerY.equalTo(_leftImageView.mas_centerY);
     }];
-    UILabel *lineLabale = [UILabel creatLineLable];
-    [self.contentView addSubview:lineLabale];
-    [lineLabale mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_minefunctionLable.mas_bottom);
-        make.left.mas_offset(15);
-        make.bottom.mas_offset(0);
-    }];
+//    UILabel *lineLabale = [UILabel creatLineLable];
+//    [self.contentView addSubview:lineLabale];
+//    [lineLabale mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_offset(0);
+//        make.right.mas_offset(0);
+//        make.height.mas_offset(1);
+//        make.bottom.mas_offset(0);
+//    }];
 }
 
 -(void)fillData:(id)data {

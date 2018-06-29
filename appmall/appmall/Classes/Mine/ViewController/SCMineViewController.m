@@ -188,8 +188,8 @@
     
     
     for (NSInteger i = 0; i < titleArray.count; i++) {
-        CellModel *functionM = [self createCellModel:[SCMineFunctionCell class] userInfo:@{@"title":titleArray[i], @"image": imageArray[i]} height:55];
-        SectionModel *section2 = [self createSectionModel:@[functionM] headerHeight:0.1 footerHeight:0.1];
+        CellModel *functionM = [self createCellModel:[SCMineFunctionCell class] userInfo:@{@"title":titleArray[i], @"image": imageArray[i]} height:50];
+        SectionModel *section2 = [self createSectionModel:@[functionM] headerHeight:0.1 footerHeight:1];
         [self.dataArray addObject:section2];
     }
     

@@ -468,7 +468,7 @@
     [parameters setObject:itemlistStr forKey:@"itemlist"];
     [parameters setObject:addressId forKey:@"addressid"];
     if (!IsNilOrNull(self.coupontId)) {
-        [parameters setObject:self.coupontId forKey:@"couponsid"];//优惠券id
+        [parameters setObject:self.coupontId forKey:@"couponid"];//优惠券id
     }
     
     NSString *itemCarOrderUrl =  [NSString stringWithFormat:@"%@%@", WebServiceAPI, ShoppingCarAddOrderUrl];

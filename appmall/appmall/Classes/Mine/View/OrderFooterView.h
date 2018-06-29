@@ -33,7 +33,7 @@
 
 @property (nonatomic, strong)UIButton *left0Button;
 
-@property (nonatomic, copy) NSString *iscomment;
+@property (nonatomic, strong) NSString *iscomment;
 
 
 -(instancetype)initWithFrame:(CGRect)frame andType:(NSString *)statusString andHasTop:(BOOL)hasTop type:(NSString*)fromVC;

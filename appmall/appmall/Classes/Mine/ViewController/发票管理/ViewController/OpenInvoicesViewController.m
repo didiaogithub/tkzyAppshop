@@ -100,6 +100,7 @@
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
         paraStyle.lineSpacing = 0;
         NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
+        self.model.content = [self.model.content stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
         CGSize size = [self.model.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
         return AdaptedHeight(size.height + 30);
         
@@ -123,6 +124,7 @@
 //        }
         cell.nameLab.text = nameArray[indexPath.row];
         cell.contentLab.hidden = NO;
+         self.model.content = [self.model.content stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
         cell.contentLab.text = self.model.content;
         NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
         paraStyle.lineSpacing = 0;

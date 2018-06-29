@@ -13,4 +13,6 @@
 @property (nonatomic, copy)   NSString *orderstatusString;
 @property (nonatomic, copy)   NSString *orderid;
 @property (nonatomic, copy)   NSString *fromVC;
+/**  是否是欠款订单*/
+@property (nonatomic, assign)  BOOL isqkdd;
 @end

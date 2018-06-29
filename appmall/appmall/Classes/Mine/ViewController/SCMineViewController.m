@@ -75,10 +75,11 @@
                 [KUserdefaults setBool:NO forKey:KloanStatus];
             }
             [KUserdefaults synchronize];
+            [self bindMineData];
         }
         
     } failure:^(NSError *error) {
-        
+        [self bindMineData];
     }];
 }
 
@@ -112,7 +113,7 @@
     _mineTableView.backgroundColor = [UIColor tt_grayBgColor];
     [self.view addSubview:_mineTableView];
 
-    [self bindMineData];
+//    [self bindMineData];
     
 }
 
@@ -176,7 +177,7 @@
    
    
     // 后台控制是否隐藏欠款管理
-    bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+    bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
     if (loanStatus == NO) {
         [titleArray addObjectsFromArray:@[@"我的收藏", @"产品券",@"发票管理",@"银行卡管理",@"收货地址"]];
         [imageArray addObjectsFromArray:@[@"收藏", @"产品券",@"发票",  @"银行卡",@"地址(1)"]];
@@ -289,11 +290,12 @@
    
 
     // 控制点击事件
-    bool loanStatus = [KUserdefaults objectForKey:KloanStatus];
+    bool loanStatus = [KUserdefaults boolForKey:KloanStatus];
     if (loanStatus == NO) {
         vcNameArray =
         [NSMutableArray arrayWithArray:@[@"YSCollectionViewController",
                                          @"CKCouponManagerViewController",
+                                         
                                          //                                         @"AmortizationLoanViewController",
                                          @"InvoicesManagerViewController",
                                          @"BankManagerViewController", @"ChangeMyAddressViewController"]];

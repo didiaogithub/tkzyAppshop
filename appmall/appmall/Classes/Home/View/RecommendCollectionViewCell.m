@@ -99,6 +99,8 @@
         self.labTitle.text = tModel.title;
         self.labPrice.hidden = YES;
         self.labWeight.hidden = YES;
+        self.labNo.hidden = NO;
+        self.labGG.hidden = NO;
         self.labTitleDisBottom.constant  = -15;
     }
 

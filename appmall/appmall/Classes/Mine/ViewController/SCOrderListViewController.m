@@ -292,6 +292,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         qian.backgroundColor = [UIColor redColor];
         if ([orderModel.ordertypelabel containsString:@"欠"]) {
+            
             [headerView addSubview:qian];
         }else if([orderModel.ordertypelabel containsString:@"保"]){
             qian.text = @"保";
@@ -323,7 +324,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         view.backgroundColor = [UIColor whiteColor];
         [bgview addSubview:view];
        
-        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.ordermoney];
+        NSString *allMoney = [NSString stringWithFormat:@"%@", orderModel.orderpaymoney];
         if (IsNilOrNull(allMoney)) {
             allMoney = @"0.00";
         }
@@ -394,7 +395,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         
         _footerView = [[OrderFooterView alloc] initWithFrame:CGRectZero andType:statustr andHasTop:YES type:@"SCOrderListViewController"];
         _footerView.delegate = self;
-        NSString *iscomment = [NSString stringWithFormat:@"%@", orderModel.feedback];
+        NSString *iscomment = [NSString stringWithFormat:@"%ld", (long)orderModel.feedback];
         _footerView.statustring = orderModel.orderstatuslabel;
         _footerView.iscomment = iscomment;
         [_footerView refreshButton:iscomment];
@@ -435,7 +436,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         }
         
         if ([self.type isEqualToString:@"4"]) {
-            bool   ordercommentStatus = [KUserdefaults objectForKey:KordercommentStatus];
+            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
             if (ordercommentStatus == YES) {
                 _footerView.rightButton.hidden = NO;
             }
@@ -469,6 +470,9 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     checkOrder.orderModel = orderM;
     checkOrder.orderstatusString = orderM.orderstatus;
     checkOrder.orderid = orderM.orderId;
+    if ([orderM.ordertypelabel containsString:@"欠"]) {
+        checkOrder.isqkdd = YES;
+    }
     [self.navigationController pushViewController:checkOrder animated:YES];
 }
 
@@ -609,7 +613,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 170];
     _orderModel = orderM;
     
-    if ([btn.titleLabel.text isEqualToString:@"立即付款"]) {
+    if ([btn.titleLabel.text isEqualToString:@"去付款"]) {
         [self payOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"再次购买"]) {
         [self buyAgain:orderM];//再次购买

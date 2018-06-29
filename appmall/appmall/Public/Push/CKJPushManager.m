@@ -99,6 +99,7 @@ static BOOL isProduction = YES;
 
 -(void)networkDidReceiveMessage:(NSNotification *)notification{
     NSLog(@"方法名称:%s\n收到消息:%@", __func__, notification);
+    
     NSDictionary *userInfo = notification.userInfo;
     //应用外点击icon有extras，点击通知是aps
     NSDictionary *extras = [userInfo objectForKey:@"extras"];
@@ -222,7 +223,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     [CKCNotificationCenter postNotificationName:@"showWhiteLab" object:nil];
     [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
      // 1官方提醒 2物流提醒 3订单提醒 4付款提醒 5发票提醒
-
+//  消息类型 0：发票提醒 1：订单提醒 2：财务提醒 3：物流提醒 4：其他
 //    如果是系统消息 就有 type参数，代表的是系统消息分类，如果是官方通知就有viewid  代表的是官方通知的文章编号
     
     UIViewController *currentVC = [self currentVC];
@@ -243,16 +244,16 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
             }];
         }
     }else{
-        if ([type isEqualToString:@"1"]) {
+        if ([type isEqualToString:@"3"]) {
             _wlMessageConut++;
         }
-        if ([type isEqualToString:@"2"]) {
+        if ([type isEqualToString:@"1"]) {
             _ddMessageCount++;
         }
-        if ([type isEqualToString:@"3"]) {
+        if ([type isEqualToString:@"2"]) {
             _fqMessageCount++;
         }
-        if ([type isEqualToString:@"4"]) {
+        if ([type isEqualToString:@"0"]) {
             _fpMessageCount++;
         }
     }
@@ -264,7 +265,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
         UIApplication *application = [UIApplication sharedApplication];
         MessageDetailViewController *detail = [[MessageDetailViewController alloc]init];
         if (application.applicationState == UIApplicationStateActive){//在应用内时收到推送
-            if ([type isEqualToString:@"1"]){
+            if ([type isEqualToString:@"3"]){
                 [messageByPushAler hiddenCancelBtn:NO];
                 [messageByPushAler showAlert:title content:content btnClick:^{
         
@@ -274,7 +275,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
                 }];
-            }else if([type isEqualToString:@"2"] ){
+            }else if([type isEqualToString:@"1"] ){
            
                 [messageByPushAler hiddenCancelBtn:NO];
                 [messageByPushAler showAlert:title content:content btnClick:^{
@@ -285,7 +286,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
                 }];
-            }else if ([type isEqualToString:@"3"]){
+            }else if ([type isEqualToString:@"2"]){
             
                 [messageByPushAler hiddenCancelBtn:NO];
                 [messageByPushAler showAlert:title content:content btnClick:^{
@@ -295,7 +296,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
                 }];
-            }else if ([type isEqualToString:@"4"]){
+            }else if ([type isEqualToString:@"0"]){
                 [messageByPushAler hiddenCancelBtn:NO];
                 [messageByPushAler showAlert:title content:content btnClick:^{
                     detail.messageType = @"4";
@@ -347,6 +348,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
     [CKCNotificationCenter postNotificationName:@"refreshMessageCount" object:nil];
     // 1官方提醒 2物流提醒 3订单提醒 4付款提醒 5发票提醒
     //    如果是系统消息 就有 type参数，代表的是系统消息分类，如果是官方通知就有viewid  代表的是官方通知的文章编号
+//    消息类型 0：发票提醒 1：订单提醒 2：财务提醒 3：物流提醒 4：其他
     UIViewController *currentVC = [self currentVC];
     if (!IsNilOrNull(viewId)) {
         _gfMessageCount ++;
@@ -359,16 +361,16 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
             [currentVC.navigationController pushViewController:detail animated:YES];
         }
     }else{
-        if ([type isEqualToString:@"1"]) {
+        if ([type isEqualToString:@"3"]) {
             _wlMessageConut++;
         }
-        if ([type isEqualToString:@"2"]) {
+        if ([type isEqualToString:@"1"]) {
             _ddMessageCount++;
         }
-        if ([type isEqualToString:@"3"]) {
+        if ([type isEqualToString:@"2"]) {
             _fqMessageCount++;
         }
-        if ([type isEqualToString:@"4"]) {
+        if ([type isEqualToString:@"0"]) {
             _fpMessageCount++;
         }
     }
@@ -379,27 +381,27 @@ didReceiveLocalNotification:(UILocalNotification *)notification{
         //7：订单支付通知（代理）9：订单支付通知（公司） 11：提交订单通知（代理）10：提交订单通知（公司）
         
         MessageDetailViewController *detail = [[MessageDetailViewController alloc]init];
-            if ([type isEqualToString:@"1"]){
+            if ([type isEqualToString:@"3"]){
                     detail.messageType = @"1";
                     detail.titleStr = title;
                     _wlMessageConut = 0;
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
-            }else if([type isEqualToString:@"2"] ){
+            }else if([type isEqualToString:@"1"] ){
                 
                     _ddMessageCount = 0;
                     detail.messageType = @"2";
                     detail.titleStr = title;
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
-            }else if ([type isEqualToString:@"3"]){
+            }else if ([type isEqualToString:@"2"]){
                 
                     detail.messageType = @"3";
                     _fqMessageCount = 0;
                     detail.titleStr = title;
                     [self totalcount];
                     [currentVC.navigationController pushViewController:detail animated:YES];
-            }else if ([type isEqualToString:@"4"]){
+            }else if ([type isEqualToString:@"0"]){
                     detail.messageType = @"4";
                     detail.titleStr = title;
                     _fpMessageCount = 0;

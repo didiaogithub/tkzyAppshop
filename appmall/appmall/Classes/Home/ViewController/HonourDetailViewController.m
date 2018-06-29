@@ -116,8 +116,8 @@
 
     
     NSMutableDictionary  *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    [pramaDic setObject:@"pageSize" forKey:@(KpageSize)];
-    [pramaDic setObject:@"pageNo" forKey:@(_page)];
+    [pramaDic setObject:@(KpageSize) forKey:@"pageSize"];
+    [pramaDic setObject:@(_page) forKey:@"pageNo"];
     //请求数据
     NSString *homeInfoUrl = [NSString stringWithFormat:@"%@%@",WebServiceAPI,Home_HonorList_Url];
     

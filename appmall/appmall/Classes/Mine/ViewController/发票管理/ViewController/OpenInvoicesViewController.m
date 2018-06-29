@@ -102,7 +102,7 @@
         NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
         self.model.content = [self.model.content stringByReplacingOccurrencesOfString:@"," withString:@"\n"];
         CGSize size = [self.model.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
-        return AdaptedHeight(size.height + 20);
+        return AdaptedHeight(size.height + 30);
         
     }else{
         return 60;
@@ -132,7 +132,7 @@
         NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle};
         CGSize size = [cell.contentLab.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 100, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
         [cell.contentLab mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(AdaptedHeight(size.height + 20));
+            make.height.mas_offset(AdaptedHeight(size.height + 30));
         }];
        
         

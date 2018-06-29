@@ -435,12 +435,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             _footerView.priceLable.attributedText = hintString;
         }
         
-        if ([self.type isEqualToString:@"4"]) {
-            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
-            if (ordercommentStatus == YES) {
-                _footerView.rightButton.hidden = NO;
-            }
-        }
+//        if ([self.type isEqualToString:@"4"]) {
+//            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
+//            if (ordercommentStatus == YES) {
+////                _footerView.rightButton.hidden = NO;
+//            }
+//        }
 
         return _footerView;
     }

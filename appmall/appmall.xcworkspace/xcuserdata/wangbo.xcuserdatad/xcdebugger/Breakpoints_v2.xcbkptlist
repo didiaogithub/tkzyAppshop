@@ -180,12 +180,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/ViewController/SCOrderListViewController.m"
-            timestampString = "551948542.093303"
+            timestampString = "551955336.317282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "709"
             endingLineNumber = "709"
-            landmarkName = "-confirmCancelOrder:"
+            landmarkName = "-payOrder:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -448,7 +448,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551948542.094136"
+            timestampString = "551955336.318217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "672"
@@ -464,12 +464,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-                  timestampString = "551948544.207865"
+                  timestampString = "551955339.41784"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "672"
                   endingLineNumber = "672"
-                  offsetFromSymbolStart = "622">
+                  offsetFromSymbolStart = "656">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -479,12 +479,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-                  timestampString = "551948544.211184"
+                  timestampString = "551955339.421185"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "673"
                   endingLineNumber = "673"
-                  offsetFromSymbolStart = "79">
+                  offsetFromSymbolStart = "84">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -494,12 +494,12 @@
                   moduleName = "appmall"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangbo/tkzyAppshop/appmall/appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-                  timestampString = "551948544.214182"
+                  timestampString = "551955339.423804"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "672"
                   endingLineNumber = "672"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -511,7 +511,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551948542.094705"
+            timestampString = "551955336.318805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
@@ -527,7 +527,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551948542.0951411"
+            timestampString = "551955336.319257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
@@ -543,7 +543,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551948542.095565"
+            timestampString = "551955336.3196959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "249"
@@ -559,7 +559,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/ShoppingCart/ViewController/SCShoppingCarViewController.m"
-            timestampString = "551948542.096004"
+            timestampString = "551955336.320152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
@@ -575,27 +575,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
-            timestampString = "551948542.0964659"
+            timestampString = "551955336.320603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "-refreshButton:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
-            timestampString = "551948542.09684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-createUIWithStatus:andHasTop:type:"
             landmarkType = "7">
          </BreakpointContent>
@@ -607,12 +591,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
-            timestampString = "551948542.097154"
+            timestampString = "551955336.320948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
             landmarkName = "-createUIWithStatus:andHasTop:type:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appmall/Classes/Mine/View/OrderFooterView.m"
+            timestampString = "551955336.321285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "-refreshButton:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

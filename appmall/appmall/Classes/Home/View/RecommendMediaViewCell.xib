@@ -41,8 +41,8 @@
                                     <action selector="actionMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QYb-uH-Yke"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="媒体推荐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-Iy-taX">
-                                <rect key="frame" x="15" y="0.0" width="61.5" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="媒体报道" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifx-Iy-taX">
+                                <rect key="frame" x="15" y="0.0" width="62" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="xAj-ML-v8l"/>
                                 </constraints>

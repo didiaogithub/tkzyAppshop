@@ -600,6 +600,8 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
 //        wuluVC.orderid = orderM.orderId;
 //        [self.navigationController pushViewController:wuluVC animated:YES];
+    }else if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
+        [self jumpOpenInvoice];
     }
 }
 

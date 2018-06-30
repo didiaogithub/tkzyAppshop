@@ -74,6 +74,8 @@
 @property (nonatomic, strong) NSString *ordertime;
 /** 手续费*/
 @property (nonatomic, strong) NSString *service_charge;
+@property (nonatomic, strong) NSString *isinvoice;
+
 /** 订单类型（1 正常订单 2赊欠订单 3分期订单 4担保订单）*/
 @property (nonatomic, copy) NSString *order_type;
 

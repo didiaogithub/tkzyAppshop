@@ -10,8 +10,6 @@
 
 @protocol OrderFooterViewDelegate <NSObject>
 
--(void)left0ButtonClick:(UIButton*)btn;
-
 -(void)leftButtonClick:(UIButton*)btn;
 
 -(void)rightButtonClick:(UIButton*)btn;
@@ -31,13 +29,11 @@
 
 @property (nonatomic, strong)UIButton *leftButton;
 
-@property (nonatomic, strong)UIButton *left0Button;
-
 @property (nonatomic, strong) NSString *iscomment;
 
 
 -(instancetype)initWithFrame:(CGRect)frame andType:(NSString *)statusString andHasTop:(BOOL)hasTop type:(NSString*)fromVC;
 
--(void)refreshButton:(NSString*)iscomment;
+-(void)refreshButton:(NSString*)iscomment isinvoice:(NSString *)isinvoice;
 
 @end

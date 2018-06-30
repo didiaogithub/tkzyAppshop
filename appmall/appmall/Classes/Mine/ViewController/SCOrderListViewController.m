@@ -394,22 +394,25 @@ static NSString *cellIdentifier = @"SCOrderListCell";
     }else{
         
         _footerView = [[OrderFooterView alloc] initWithFrame:CGRectZero andType:statustr andHasTop:YES type:@"SCOrderListViewController"];
+        if ([self.type isEqualToString:@"4"]) {
+            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
+            if (ordercommentStatus == YES) {
+                _footerView.rightButton.hidden = NO;
+            }
+        }
         _footerView.delegate = self;
         NSString *iscomment = [NSString stringWithFormat:@"%ld", (long)orderModel.feedback];
-        _footerView.statustring = orderModel.orderstatuslabel;
+        _footerView.statustring = orderModel.orderstatus;
         _footerView.iscomment = iscomment;
-        [_footerView refreshButton:iscomment];
+        [_footerView refreshButton:iscomment isinvoice:orderModel.isinvoice];
         
         _footerView.rightButton.tag = section + 170;
         _footerView.leftButton.tag = section + 160;
-        _footerView.left0Button.tag = section + 150;
         if ([statustr isEqualToString:@"待发货"]) {
-            _footerView.left0Button.hidden = YES;
             _footerView.leftButton.hidden = YES;
             _footerView.rightButton.hidden = YES;
         }else if([statustr isEqualToString:@"未付款"]){
             if ([orderModel.ordertypelabel containsString:@"欠"] || [orderModel.ordertypelabel containsString:@"保"]) {
-                _footerView.left0Button.hidden = YES;
                 _footerView.leftButton.hidden = YES;
                 _footerView.rightButton.hidden = YES;
             }
@@ -435,12 +438,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
             _footerView.priceLable.attributedText = hintString;
         }
         
-//        if ([self.type isEqualToString:@"4"]) {
-//            bool   ordercommentStatus = [KUserdefaults boolForKey:KordercommentStatus];
-//            if (ordercommentStatus == YES) {
-////                _footerView.rightButton.hidden = NO;
-//            }
-//        }
+        
 
         return _footerView;
     }
@@ -580,11 +578,7 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 #pragma mark - FooterViewDelegate
 -(void)left0ButtonClick:(UIButton *)btn {
     
-    SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 150];
-    _orderModel = orderM;
-    if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
-        [self jumpOpenInvoice];
-    }
+   
 }
 
 
@@ -604,8 +598,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
 //        WBWuliuInfoVC *wuluVC = [[WBWuliuInfoVC alloc]init];
 //        wuluVC.orderid = orderM.orderId;
 //        [self.navigationController pushViewController:wuluVC animated:YES];
-    }else if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
-        [self jumpOpenInvoice];
+    }else if ([btn.titleLabel.text isEqualToString:@"开发票"]){
+        SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 160];
+        _orderModel = orderM;
+        if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
+            [self jumpOpenInvoice];
+        }
     }
 }
 
@@ -669,6 +667,12 @@ static NSString *cellIdentifier = @"SCOrderListCell";
         [self payOrder:orderM];
     }else if ([btn.titleLabel.text isEqualToString:@"删除"]) {
         [self confirmCancelOrder:orderM];
+    }else if ([btn.titleLabel.text isEqualToString:@"开发票"]){
+        SCMyOrderModel *orderM = self.orderDataArr[btn.tag - 170];
+        _orderModel = orderM;
+        if ([btn.titleLabel.text isEqualToString:@"开发票"]) {
+            [self jumpOpenInvoice];
+        }
     }
 }
 #pragma mark - 取消订单

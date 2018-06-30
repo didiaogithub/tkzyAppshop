@@ -204,7 +204,6 @@
 		2D20DF7A2088D87900095032 /* SCOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF792088D87900095032 /* SCOrderDetailViewController.m */; };
 		2D20DF7D2088D89800095032 /* SCMyOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF7C2088D89700095032 /* SCMyOrderModel.m */; };
 		2D20DF802088D8BB00095032 /* DetailLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF7E2088D8BB00095032 /* DetailLogisticsViewController.m */; };
-		2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF822088D8E300095032 /* OrderFooterView.m */; };
 		2D20DF862088D90700095032 /* LogistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF842088D90700095032 /* LogistModel.m */; };
 		2D20DF892088D91B00095032 /* DetailLogistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */; };
 		2D20DF8C2088D92800095032 /* LogistFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D20DF8A2088D92800095032 /* LogistFirstTableViewCell.m */; };
@@ -257,6 +256,8 @@
 		2D4D60F120B3F1F500280033 /* ClassListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60F020B3F1F500280033 /* ClassListModel.m */; };
 		2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60F620B3F7B700280033 /* TeacherListItemModel.m */; };
 		2D4D60FD20B449D700280033 /* UIView+GetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D60FC20B449D700280033 /* UIView+GetVC.m */; };
+		2D676A7D20E7635F0026BA05 /* OrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D676A7C20E7635F0026BA05 /* OrderFooterView.m */; };
+		2D676A8020E764740026BA05 /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D676A7E20E764730026BA05 /* SCOrderListViewController.m */; };
 		2D6F923E208DFC7F007DFD0B /* TabTopAdsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F923D208DFC7F007DFD0B /* TabTopAdsViewCell.m */; };
 		2D6F924A208E0285007DFD0B /* CollegeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6F9244208E0285007DFD0B /* CollegeCollectionViewCell.xib */; };
 		2D6F924B208E0285007DFD0B /* CollegeRootViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6F9247208E0285007DFD0B /* CollegeRootViewCell.xib */; };
@@ -456,7 +457,6 @@
 		F241F70620D910A8001EC42B /* AddInvoicesDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F6FC20D910A8001EC42B /* AddInvoicesDataViewController.m */; };
 		F241F70B20D910DC001EC42B /* ArrearsMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F70820D910DC001EC42B /* ArrearsMListViewController.m */; };
 		F241F70C20D910DC001EC42B /* ArrearsManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F70A20D910DC001EC42B /* ArrearsManagerViewController.m */; };
-		F241F71120D9111B001EC42B /* SCOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F70D20D9111A001EC42B /* SCOrderListViewController.m */; };
 		F241F71220D9111B001EC42B /* SCOrderManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F71020D9111B001EC42B /* SCOrderManagerViewController.m */; };
 		F241F71520D9114B001EC42B /* SCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F241F71420D9114A001EC42B /* SCMineViewController.m */; };
 		F2487F3120AE730B0005F624 /* SobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2487F3020AE730B0005F624 /* SobotManager.m */; };
@@ -911,8 +911,6 @@
 		2D20DF7C2088D89700095032 /* SCMyOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMyOrderModel.m; sourceTree = "<group>"; };
 		2D20DF7E2088D8BB00095032 /* DetailLogisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLogisticsViewController.m; sourceTree = "<group>"; };
 		2D20DF7F2088D8BB00095032 /* DetailLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLogisticsViewController.h; sourceTree = "<group>"; };
-		2D20DF812088D8E300095032 /* OrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderFooterView.h; sourceTree = "<group>"; };
-		2D20DF822088D8E300095032 /* OrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFooterView.m; sourceTree = "<group>"; };
 		2D20DF842088D90700095032 /* LogistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogistModel.m; sourceTree = "<group>"; };
 		2D20DF852088D90700095032 /* LogistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogistModel.h; sourceTree = "<group>"; };
 		2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLogistTableViewCell.m; sourceTree = "<group>"; };
@@ -1013,6 +1011,10 @@
 		2D4D60F620B3F7B700280033 /* TeacherListItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListItemModel.m; sourceTree = "<group>"; };
 		2D4D60FB20B449D700280033 /* UIView+GetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GetVC.h"; sourceTree = "<group>"; };
 		2D4D60FC20B449D700280033 /* UIView+GetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GetVC.m"; sourceTree = "<group>"; };
+		2D676A7B20E7635F0026BA05 /* OrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderFooterView.h; sourceTree = "<group>"; };
+		2D676A7C20E7635F0026BA05 /* OrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFooterView.m; sourceTree = "<group>"; };
+		2D676A7E20E764730026BA05 /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
+		2D676A7F20E764730026BA05 /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
 		2D6F923C208DFC7F007DFD0B /* TabTopAdsViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabTopAdsViewCell.h; sourceTree = "<group>"; };
 		2D6F923D208DFC7F007DFD0B /* TabTopAdsViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabTopAdsViewCell.m; sourceTree = "<group>"; };
 		2D6F9244208E0285007DFD0B /* CollegeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollegeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1337,9 +1339,7 @@
 		F241F70820D910DC001EC42B /* ArrearsMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsMListViewController.m; sourceTree = "<group>"; };
 		F241F70920D910DC001EC42B /* ArrearsMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrearsMListViewController.h; sourceTree = "<group>"; };
 		F241F70A20D910DC001EC42B /* ArrearsManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrearsManagerViewController.m; sourceTree = "<group>"; };
-		F241F70D20D9111A001EC42B /* SCOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderListViewController.m; sourceTree = "<group>"; };
 		F241F70E20D9111A001EC42B /* SCOrderManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderManagerViewController.h; sourceTree = "<group>"; };
-		F241F70F20D9111B001EC42B /* SCOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCOrderListViewController.h; sourceTree = "<group>"; };
 		F241F71020D9111B001EC42B /* SCOrderManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCOrderManagerViewController.m; sourceTree = "<group>"; };
 		F241F71320D9114A001EC42B /* SCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMineViewController.h; sourceTree = "<group>"; };
 		F241F71420D9114A001EC42B /* SCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMineViewController.m; sourceTree = "<group>"; };
@@ -1832,8 +1832,8 @@
 				F2C1E77020C1335D00ECCFFE /* 欠款管理 */,
 				F241F70E20D9111A001EC42B /* SCOrderManagerViewController.h */,
 				F241F71020D9111B001EC42B /* SCOrderManagerViewController.m */,
-				F241F70F20D9111B001EC42B /* SCOrderListViewController.h */,
-				F241F70D20D9111A001EC42B /* SCOrderListViewController.m */,
+				2D676A7F20E764730026BA05 /* SCOrderListViewController.h */,
+				2D676A7E20E764730026BA05 /* SCOrderListViewController.m */,
 				F2FA14DE20B556A90066B153 /* MineInfoViewController.h */,
 				F2FA14DF20B556A90066B153 /* MineInfoViewController.m */,
 				F2FA14DD20B556A90066B153 /* MineInfoViewController.xib */,
@@ -1926,12 +1926,12 @@
 				2D20DF8A2088D92800095032 /* LogistFirstTableViewCell.m */,
 				2D20DF882088D91A00095032 /* DetailLogistTableViewCell.h */,
 				2D20DF872088D91A00095032 /* DetailLogistTableViewCell.m */,
-				2D20DF812088D8E300095032 /* OrderFooterView.h */,
-				2D20DF822088D8E300095032 /* OrderFooterView.m */,
 				2D20DF762088D84800095032 /* PaySuccessView.h */,
 				2D20DF752088D84800095032 /* PaySuccessView.m */,
 				2D20DF662088D5DB00095032 /* DashLineView.h */,
 				2D20DF672088D5DC00095032 /* DashLineView.m */,
+				2D676A7B20E7635F0026BA05 /* OrderFooterView.h */,
+				2D676A7C20E7635F0026BA05 /* OrderFooterView.m */,
 				2D20DF632088D5C300095032 /* SCCouponCannotUseCell.h */,
 				2D20DF642088D5C300095032 /* SCCouponCannotUseCell.m */,
 				2D20DF5E2088D56500095032 /* MyAddressTableViewCell.h */,
@@ -3560,7 +3560,6 @@
 				2DA0C37B20B920A60031AC47 /* GoodsDetailViewController.m in Sources */,
 				2D20DEFB2088CD2600095032 /* SCPayViewController.mm in Sources */,
 				F2FC5A3F20C171940040369E /* MGLabel.m in Sources */,
-				2D20DF832088D8E400095032 /* OrderFooterView.m in Sources */,
 				2D1AA3D520DB33EF00BDBD21 /* NSObject+Center.m in Sources */,
 				F241F70C20D910DC001EC42B /* ArrearsManagerViewController.m in Sources */,
 				2D20DEA62088C80D00095032 /* ZJScrollSegmentView.m in Sources */,
@@ -3618,6 +3617,7 @@
 				2D20DFFC20898CC900095032 /* WYGenderPickerView.m in Sources */,
 				2D20DE0F2086149300095032 /* MJGearHeader.m in Sources */,
 				2D20DE392086151E00095032 /* CKCUpdateAlertView.m in Sources */,
+				2D676A8020E764740026BA05 /* SCOrderListViewController.m in Sources */,
 				2DA0C35B20B867810031AC47 /* PictureCollectionViewCell.m in Sources */,
 				2D20DDB22086130B00095032 /* BaseViewController.m in Sources */,
 				2D20DF652088D5C300095032 /* SCCouponCannotUseCell.m in Sources */,
@@ -3744,7 +3744,6 @@
 				2D4D60F720B3F7B700280033 /* TeacherListItemModel.m in Sources */,
 				2D20DE73208629D300095032 /* SDCollectionViewCell.m in Sources */,
 				2D20DF552088D4B800095032 /* TTTAttributedLabel.m in Sources */,
-				F241F71120D9111B001EC42B /* SCOrderListViewController.m in Sources */,
 				F2F3434920BBE71E00004E90 /* Goods.m in Sources */,
 				2D07265F208310810030996F /* DWQSearchController.m in Sources */,
 				2D83E27520BED8B100F2D375 /* WBSQQKInfoViewCell.m in Sources */,
@@ -3871,6 +3870,7 @@
 				2D791C7020905C4900E455F5 /* ClassListVC.m in Sources */,
 				2D20DFCC20898A1A00095032 /* SCMineInfoViewController.m in Sources */,
 				2D4D60FD20B449D700280033 /* UIView+GetVC.m in Sources */,
+				2D676A7D20E7635F0026BA05 /* OrderFooterView.m in Sources */,
 				2D20DF8F2088D94800095032 /* SCOrderDetailModel.m in Sources */,
 				2D0726BB2083928A0030996F /* MedieaListViewCell.m in Sources */,
 				F23F1A4A20B7903A00F01D01 /* InvoicesManCellFooterView.m in Sources */,

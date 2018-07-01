@@ -459,14 +459,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // 去掉点击事件跟安卓保持一致，秦总点击会闪退
-//    if([self.shoppingCarDataArray count]){
-//        if (indexPath.row < self.shoppingCarDataArray.count) {
-//            _goodModel = self.shoppingCarDataArray[indexPath.row];
-//        }
-//    }
-//    GoodsDetailViewController *detailVc = [[GoodsDetailViewController alloc] init];
-//    detailVc.goodsId = _goodModel.itemid;
-//    [self.navigationController pushViewController:detailVc animated:YES];
+    if([self.shoppingCarDataArray count]){
+        if (indexPath.row < self.shoppingCarDataArray.count) {
+            _goodModel = self.shoppingCarDataArray[indexPath.row];
+        }
+    }
+    GoodsDetailViewController *detailVc = [[GoodsDetailViewController alloc] init];
+    detailVc.goodsId = _goodModel.itemid;
+    [self.navigationController pushViewController:detailVc animated:YES];
     
 }
 

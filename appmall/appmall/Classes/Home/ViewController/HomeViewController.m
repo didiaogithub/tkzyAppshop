@@ -409,7 +409,12 @@
                 [category.categoryIdArr addObject:itemDic[@"styleid"]];
                 category.selectedIndex = index;
             }
-          [self.navigationController pushViewController:category animated:YES];
+            if (categoryList.count >= index) {
+                [self.navigationController pushViewController:category animated:YES];
+            }else{
+              [self.loadingView showNoticeView:@"暂无此类商品"];
+            }
+          
         }else{
             [self.loadingView showNoticeView:@"无更多商品"];
         }

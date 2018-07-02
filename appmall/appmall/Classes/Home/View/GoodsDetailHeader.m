@@ -40,11 +40,11 @@
 
 -(void)requestCommentData {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-    if (self.detailModel == nil) {
+    if (self.detailModel.itemid != nil) {
+      [param setObject:self.detailModel.itemid forKey:@"itemid"];
+    }else{
         return;
     }
-    [param setObject:self.detailModel.itemid forKey:@"itemid"];
-    
     NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, CommentListUrl];
     [HttpTool getWithUrl:loveItemUrl params:param success:^(id json) {
         NSDictionary *dic = json;

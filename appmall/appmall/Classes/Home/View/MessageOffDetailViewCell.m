@@ -26,7 +26,13 @@
     self.labTime.text = model.time;
     self.labTitle.text = model.title;
     self.labContent.text = model.content;
-    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    if (model.img .length > 0) {
+        
+        [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:model.img]];
+        self.imgWidth.constant = 55;
+    }else{
+        self.imgWidth.constant = 0;
+    }
 }
 
 @end

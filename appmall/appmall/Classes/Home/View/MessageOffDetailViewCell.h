@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *Cview;
 @property (weak, nonatomic) IBOutlet UILabel *labTime;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
 @property (weak, nonatomic) IBOutlet UILabel *labContent;
 -(void)loadData:(MessagDetailOffModel *)model;

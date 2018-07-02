@@ -356,10 +356,10 @@
 
 -(void)actionGoto:(NSInteger )index{
    
-    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
-        [self goWelcom];
-        return;
-    }
+//    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+//        [self goWelcom];
+//        return;
+//    }
 
     NSDictionary *pramaDic = [HttpTool getCommonPara];
     //请求数据
@@ -467,6 +467,10 @@
 //    [tabHomeList reloadData];
 //}
 -(void)actionToMessage{
+    if ([[KUserdefaults objectForKey:KloginStatus] boolValue] == NO) {
+        [self goWelcom];
+        return;
+    }
     MessageViewController *messageVC = [[MessageViewController alloc]init];
     messageVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:messageVC animated:YES];

@@ -191,10 +191,15 @@
             homeData.modelId = @"1";
             [self.realm beginWriteTransaction];
             [self.realm addOrUpdateObject:homeData];
+            RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
+            self.model = [result firstObject];
+            
+            
             [self.realm commitWriteTransaction];
         }
         RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
         self.model = [result firstObject];
+       
         [tabHomeList reloadData];
 
     } failure:^(NSError *error) {
@@ -253,6 +258,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         RecommendViewCell * cell = [tableView dequeueReusableCellWithIdentifier:KRecommendViewCell];
+    cell.model = self.model;
     return [cell getCollectionHeight:indexPath.section];
     
 }
@@ -414,7 +420,6 @@
             }else{
               [self.loadingView showNoticeView:@"暂无此类商品"];
             }
-          
         }else{
             [self.loadingView showNoticeView:@"无更多商品"];
         }

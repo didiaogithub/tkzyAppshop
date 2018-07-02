@@ -17,6 +17,7 @@
 @interface RecommendViewCell : UITableViewCell
 
 @property(weak,nonatomic)id <RecommendViewCellDelegate>delegate;
+@property(strong,nonatomic)TKHomeDataModel  * model;
 -(void)setCollection:(NSInteger )index andData:(TKHomeDataModel *)model;
 -(CGFloat)getCollectionHeight:(NSInteger)index ;
 

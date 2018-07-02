@@ -24,7 +24,7 @@
 @property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMedia;
 @property(nonatomic,strong) UICollectionViewFlowLayout *customLayoutMenu;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMarginViewHeight;
-@property(strong,nonatomic)TKHomeDataModel  * model;
+
 
 @end
 @implementation RecommendViewCell
@@ -63,7 +63,9 @@
     self.customLayoutMenu.minimumLineSpacing = 0;
     self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.customLayoutMenu.minimumInteritemSpacing = 0;
-    self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
+    if (self.model.sortList.count >= 3) {
+        self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /self.model.sortList.count , 96) ;
+    }
 }
 
 -(void )getLayoutMidea{
@@ -81,9 +83,14 @@
             return 187.0 / 375.0 * KscreenWidth;
             break;
         case 1:
-            return 96;
+            if (self.model.sortList.count >= 3) {
+                return 96;
+            }else{
+                return 0;
+            }
             break;
         case 2:
+           
             return AdaptedHeight(225) * 2 + 53;
             break;
         case 3:
@@ -130,10 +137,12 @@
     self.collectionViewItem.showsVerticalScrollIndicator = NO;
     self.collectionViewItem.showsHorizontalScrollIndicator = NO;
     if(index== 1){
-     
-        [self getLayoutMenu];
-        [self.collectionViewItem setCollectionViewLayout:self.customLayoutMenu];
-        [self isShowTopView:NO];
+        if (self.model.sortList.count >= 3) {
+            [self getLayoutMenu];
+            [self.collectionViewItem setCollectionViewLayout:self.customLayoutMenu];
+            [self isShowTopView:NO];
+        }
+           [self isShowTopView:NO];
     }else if(index == 2){
     
         [self getLayoutRecommend];
@@ -170,6 +179,11 @@
 {
 //
     if (self.selectIndex == 1) {
+        if (self.model.sortList.count>= 3) {
+            return self.model.sortList.count;
+        }else{
+            return 1;
+        }
         return [self getArrayCount:self.model.sortList];
         
     }else    if (self.selectIndex ==2) {

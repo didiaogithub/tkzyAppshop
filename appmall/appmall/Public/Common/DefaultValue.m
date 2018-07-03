@@ -87,8 +87,8 @@
         //存储根数据
         NSMutableDictionary *rootDic = [[NSMutableDictionary alloc ] init];
         
-        NSString *domainName = (AppEnvironment == 0)? @"http://tkappmall.klboo.com/": @"http://tkappmall.klboo.com/";
-        NSString *domainNameRes =  (AppEnvironment == 0)? @"http://tkre.klboo.com/":@"http://tkre.klboo.com/";
+        NSString *domainName = (AppEnvironment == 0)? @"http://tkappmall.klboo.com/": @"http://tkappmall.tcsw.com.cn/";
+        NSString *domainNameRes =  (AppEnvironment == 0)? @"http://tkre.klboo.com/":@"http://tkre.tcsw.com.cn/";
         
         [rootDic setObject:domainName forKey:@"domainName"];
         [rootDic setObject:domainNameRes forKey:@"domainNameRes"];
@@ -175,12 +175,12 @@
 
 -(void)resetDefaultDomain {
     
-    NSString *domainName = (AppEnvironment == 0)? @"http://testofflineappmall.ckc8.com/": @"http://appmall.ckc8.com/";
-    NSString *domainNamePay = (AppEnvironment == 0)? @"http://testofflineckyspb.ckc8.com/":@"http://ckyspb.ckc8.com/";
-    NSString *domainNameRes = (AppEnvironment == 0)?@"http://testofflineckysre.ckc8.com/ckc3/":@"http://ckysre.ckc8.com/ckc3/";
+    NSString *domainName = (AppEnvironment == 0)? @"http://testofflineappmall.ckc8.com/": @"http://tkre.tcsw.com.cn/";
+    NSString *domainNamePay = (AppEnvironment == 0)? @"http://testofflineckyspb.ckc8.com/":@"http://tkre.tcsw.com.cn/";
+    NSString *domainNameRes = (AppEnvironment == 0)?@"http://testofflineckysre.ckc8.com/ckc3/":@"http://tkre.tcsw.com.cn/";
 //    NSString *baseImagestr = (AppEnvironment == 0)?@"http://testofflineckysre.ckc8.com/ckc3/Uploads/":@"http://ckysre.ckc8.com/ckc3/Uploads/";
-    NSString *domainSmsMessage = (AppEnvironment == 0)?@"http://testofflineckysmsg.ckc8.com/":@"http://ckysmsg.ckc8.com/";
-    NSString *domainNameUnionPay = (AppEnvironment == 0)?@"http://testofflineckyspb.ckc8.com/":@"http://ckyspb.ckc8.com/";
+    NSString *domainSmsMessage = (AppEnvironment == 0)?@"http://testofflineckysmsg.ckc8.com/":@"http://tkre.tcsw.com.cn/";
+    NSString *domainNameUnionPay = (AppEnvironment == 0)?@"http://testofflineckyspb.ckc8.com/":@"http://tkre.tcsw.com.cn/";
     
     [self setDefaultValue:domainName forKey:@"domainName"];
     [self setDefaultValue:domainNamePay forKey:@"domainNamePay"];

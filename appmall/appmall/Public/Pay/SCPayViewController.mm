@@ -517,7 +517,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingView startAnimation];
     
-    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@",@"http://tkre.klboo.com/", payForJoinByWX_Url];
+    NSString *WeixinUrl = [NSString stringWithFormat:@"%@%@",@"http://tkre.tcsw.com.cn/", payForJoinByWX_Url];
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app版本
@@ -727,7 +727,7 @@
                            @"oid":self.orderid
                            };
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:para];
-    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.klboo.com/payhtml/orderpay.html?"];
+    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.tcsw.com.cn/payhtml/orderpay.html?"];
     ZJPayWebViewController *pay = [[ZJPayWebViewController alloc]init];
     pay.requestUrl = requestUrl;
     pay.isqkglPage = self.isqkglPage;

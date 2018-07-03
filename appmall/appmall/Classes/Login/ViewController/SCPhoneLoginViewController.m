@@ -111,10 +111,10 @@
     [login setTitle:@"已有账号，去登录" forState:0];
     login.titleLabel .font = [UIFont systemFontOfSize:15];
     [login addTarget:self  action:@selector(loginGo) forControlEvents:UIControlEventTouchUpInside];
-    [self.welcomeImg addSubview:login];
+//    [self.welcomeImg addSubview:login];
     
     if ([self.bindString isEqualToString:@"needBindPhone"]) {
-        [loginBtn setTitle:@"绑定手机号" forState:UIControlStateNormal];
+        [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
         [loginBtn addTarget:self action:@selector(loginWithPhoneAndOpenid) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
@@ -132,6 +132,7 @@
 -(void)getVertifyCodeWithButton{
     if (IsNilOrNull(_phoneTF.text)){
         [self showNoticeView:@"请输入手机号码"];
+        checkSec = 0;
         return;
     }
     
@@ -139,6 +140,7 @@
         //1开头的默认为大陆号码，增加验证
         if(![NSString isMobile:_phoneTF.text]){
             [self showNoticeView:@"请输入正确的手机号码"];
+            checkSec = 0;
             return;
         }
     }
@@ -292,6 +294,7 @@
 -(void)phoneLogin {
     if (IsNilOrNull(_phoneTF.text)){
         [self showNoticeView:@"请输入手机号码"];
+        checkSec = 0;
         return;
     }
     
@@ -299,6 +302,7 @@
         //1开头的默认为大陆号码，增加验证
         if(![NSString isMobile:_phoneTF.text]){
             [self showNoticeView:@"请输入正确的手机号码"];
+            checkSec = 0;
             return;
         }
     }

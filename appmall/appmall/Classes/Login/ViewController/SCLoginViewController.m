@@ -149,8 +149,9 @@
 }
 
 -(void)startTimer{
-    [_btnSendCheckCode setEnabled:NO];
+    
     [self getCheckCodeByPhone];
+    [_btnSendCheckCode setEnabled:NO];
     [_btnSendCheckCode setTitle:[NSString stringWithFormat:@"重新发送(%lds)",checkSec] forState:UIControlStateDisabled];
     
     if (@available(iOS 10.0, *)) {
@@ -175,6 +176,7 @@
 -(void)getCheckCodeByPhone{
     if(_tfPhone.text .length != 11){
         [self showNoticeView:@"请输入正确的手机号"];
+        checkSec = 0;
         return;
     }
     NSDictionary *pramaDic= @{@"apptype":Apptype,@"devtype":Devtype,@"telNo":_tfPhone.text};
@@ -235,7 +237,8 @@
         
                 // 301 跳转注册页面
                 if ([dic[@"code"] integerValue] == 301) {
-                    [self weixinLogin];
+//                    [self weixinLogin];
+                    // 该手机号不存在，调起微信，成功回调后，用刚输入的手机号调用注册接口，完成之后进去首页
                 }else{
                      [self.loadingView showNoticeView:dic[@"message"]];
                 }

@@ -15,9 +15,13 @@
 @end
 
 @implementation ZJPayWebViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self cleanCacheAndCookie];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"中金快捷支付";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.myWebView.delegate = self;

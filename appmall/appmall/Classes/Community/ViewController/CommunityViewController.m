@@ -327,7 +327,7 @@
         [message setThumbImage:[UIImage imageNamed:@""]];
         req.message = message;
         WXAppExtendObject *ext = [WXAppExtendObject object];
-        ext.url = [NSString stringWithFormat:@"http://tkappmall.klboo.com/h5/html/community.html?id=%@",shareModel._id];
+        ext.url = [NSString stringWithFormat:@"http://tkappmall.tcsw.com.cn/h5/html/community.html?id=%@",shareModel._id];
         message.mediaObject = ext;
         //默认是Session分享给朋友,Timeline是朋友圈,Favorite是收藏
         req.scene = type;

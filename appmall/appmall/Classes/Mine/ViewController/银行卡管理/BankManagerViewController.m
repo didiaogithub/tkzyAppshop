@@ -13,7 +13,10 @@
 @end
 
 @implementation BankManagerViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self cleanCacheAndCookie];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"银行卡管理";
@@ -25,13 +28,41 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:para];
-    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.klboo.com/payhtml/banklist.html?"];
+    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.tcsw.com.cn/payhtml/banklist.html?"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestUrl]]];
     });
 }
+/**清除缓存和cookie*/
 
+- (void)cleanCacheAndCookie{
+    
+    //清除cookies
+    
+    NSHTTPCookie *cookie;
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    
+    for (cookie in [storage cookies]){
+        
+        [storage deleteCookie:cookie];
+        
+    }
+    
+    //清除UIWebView的缓存
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    
+    [cache removeAllCachedResponses];
+    
+    [cache setDiskCapacity:0];
+    
+    [cache setMemoryCapacity:0];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

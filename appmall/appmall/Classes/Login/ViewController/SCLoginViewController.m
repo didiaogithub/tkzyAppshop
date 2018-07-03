@@ -350,7 +350,12 @@
         
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
-            
+            NSString *phone = dict[@"data"][@"userinfo"][@"phone"];
+            if(![phone isEqualToString:_tfPhone.text]){
+                [self.loadingView stopAnimation];
+                [self showNoticeView:@"当前微信号已经注册，请用注册信息进行登录"];
+                return ;
+            }
             NSString *uk = [NSString stringWithFormat:@"%@",dict[@"uk"]];
             if (!IsNilOrNull(uk)) {
                 [KUserdefaults setObject:uk forKey:@"YDSC_uk"];

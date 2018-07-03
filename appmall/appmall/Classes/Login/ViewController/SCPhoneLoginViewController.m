@@ -503,7 +503,12 @@
                 [self toWeiXinAuth];
             }
         }else{
-            [self showNoticeView:dict[@"message"]];
+            if([dict[@"message"] isEqualToString:@"该手机号码已存在"]){
+                [self showNoticeView:@"手机号已关联其他微信"];
+            }else{
+                [self showNoticeView:dict[@"message"]];
+            }
+            
         }
         [self.loadingView stopAnimation];
     } failure:^(NSError *error) {

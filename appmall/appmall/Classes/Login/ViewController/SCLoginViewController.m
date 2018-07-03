@@ -9,12 +9,14 @@
 #import "SCLoginViewController.h"
 #import "WXApi.h"
 #import "SCPhoneLoginViewController.h"
+
 #define KCheckSec 60
 
 @interface SCLoginViewController ()
 {
     NSTimer *timer;
     NSInteger checkSec;
+    NSInteger loginState;
 }
 
 @property (nonatomic, strong) UIButton *wxLoginBtn;
@@ -39,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    loginState = 0;
     [CKCNotificationCenter addObserver:self selector:@selector(loginByWeChat) name:@"YDSC_WxLogin_Click" object:nil];
     checkSec = KCheckSec;
    
@@ -133,7 +135,7 @@
     [_welcomeImg addSubview:_wxLoginBtn];
     _wxLoginBtn.titleLabel .font = [UIFont systemFontOfSize:14];
     _wxLoginBtn.frame = CGRectMake(SCREEN_WIDTH / 2 - 100,470,80, 40);
-    [_wxLoginBtn addTarget:self action:@selector(weixinLogin) forControlEvents:UIControlEventTouchUpInside];
+    [_wxLoginBtn addTarget:self action:@selector(weixinLogin:) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / 2, 480, 1, 20)];
     lab.backgroundColor = [UIColor whiteColor];
@@ -145,7 +147,7 @@
     _wxRegister.titleLabel .font = [UIFont systemFontOfSize:14];
     [_welcomeImg addSubview:_wxRegister];
     _wxRegister.frame = CGRectMake(SCREEN_WIDTH / 2 + 20,470,80, 40);
-    [_wxRegister addTarget:self action:@selector(weixinLogin) forControlEvents:UIControlEventTouchUpInside];
+    [_wxRegister addTarget:self action:@selector(weixinLogin:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)startTimer{
@@ -213,7 +215,6 @@
     }
 //    [KUserdefaults setObject:@"" forKey:@"YDSC_WxLogin_Click"];
 //    [KUserdefaults setObject:@"clickPhoneBtn" forKey:@"YDSC_PhoneLogin_Click"];
-    
     RLMResults *result = [GoodModel allObjectsInRealm:self.realm];
     //删除订单购物车缓存
     if (result.count > 0) {
@@ -237,8 +238,8 @@
         
                 // 301 跳转注册页面
                 if ([dic[@"code"] integerValue] == 301) {
-//                    [self weixinLogin];
-                    // 该手机号不存在，调起微信，成功回调后，用刚输入的手机号调用注册接口，完成之后进去首页
+                    [self weixinLogin:_wxRegister];
+       
                 }else{
                      [self.loadingView showNoticeView:dic[@"message"]];
                 }
@@ -299,10 +300,14 @@
         }];
 }
 
--(void)weixinLogin {
+-(void)weixinLogin:(UIButton *)sender {
     [KUserdefaults setObject:@"" forKey:@"YDSC_PhoneLogin_Click"];
     [KUserdefaults setObject:@"clickWechatBtn" forKey:@"YDSC_WxLogin_Click"];
-    
+    if(sender == _wxLoginBtn){
+        loginState = 1;  // 登录
+    }else{
+        loginState = 2; // 注册
+    }
     [self toWeiXinAuth];
 }
 
@@ -462,6 +467,4 @@
         }
     }
 }
-
-
 @end

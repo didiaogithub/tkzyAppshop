@@ -351,7 +351,8 @@
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
             NSString *phone = dict[@"data"][@"userinfo"][@"phone"];
-            if(![phone isEqualToString:_tfPhone.text]){
+            
+            if(![phone isEqualToString:_tfPhone.text]&&_tfPhone.text.length != 0){
                 [self.loadingView stopAnimation];
                 [self showNoticeView:@"当前微信号已经注册，请用注册信息进行登录"];
                 return ;

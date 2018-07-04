@@ -15,7 +15,7 @@
 @property (nonatomic, assign) NSInteger paymentType;
 @property (assign, nonatomic) CGFloat headButtonSize;
 @property(nonatomic,assign)BOOL isNewUser;
-
+@property(nonatomic,strong)NSString *loginState;
 + (AppDelegate* )shareAppDelegate;
 
 @end

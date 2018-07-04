@@ -16,7 +16,7 @@
 {
     NSTimer *timer;
     NSInteger checkSec;
-    NSInteger loginState;
+
 }
 
 @property (nonatomic, strong) UIButton *wxLoginBtn;
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) UIImageView *loginIcon;
 @property (nonatomic, strong) UITextField *tfPhone;
 @property (nonatomic, strong) UITextField *tfCheckCode;
-
+@property (nonatomic,strong)AppDelegate *appdelegate;
 @end
 
 @implementation SCLoginViewController
@@ -41,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    loginState = 0;
+_appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     [CKCNotificationCenter addObserver:self selector:@selector(loginByWeChat) name:@"YDSC_WxLogin_Click" object:nil];
     checkSec = KCheckSec;
    
@@ -304,9 +305,9 @@
     [KUserdefaults setObject:@"" forKey:@"YDSC_PhoneLogin_Click"];
     [KUserdefaults setObject:@"clickWechatBtn" forKey:@"YDSC_WxLogin_Click"];
     if(sender == _wxLoginBtn){
-        loginState = 1;  // 登录
+        _appdelegate.loginState = @"1";  // 登录
     }else{
-        loginState = 2; // 注册
+        _appdelegate.loginState = @"2"; // 注册
     }
     [self toWeiXinAuth];
 }
@@ -337,7 +338,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(void)loginByWeChat {
+-(void)loginByWeChat{
     NSString *codeUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PhoneLoginUrl];
     NSString *openid = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:KopenID]];
     NSString *unionid = [NSString stringWithFormat:@"%@", [KUserdefaults objectForKey:Kunionid]];
@@ -350,8 +351,15 @@
         
         NSDictionary *dict = json;
         if ([dict[@"code"] integerValue] == 200) {
+         
             NSString *phone = dict[@"data"][@"userinfo"][@"phone"];
-            
+            if([_appdelegate.loginState isEqualToString:@"2"]){
+                if(phone .length >0){
+                    [self.loadingView stopAnimation];
+                    [self showNoticeView:@"微信已关联其他手机号"];
+                    return ;
+                }
+            }
             if(![phone isEqualToString:_tfPhone.text]&&_tfPhone.text.length != 0){
                 [self.loadingView stopAnimation];
                 [self showNoticeView:@"当前微信号已经注册，请用注册信息进行登录"];

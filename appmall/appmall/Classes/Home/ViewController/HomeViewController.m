@@ -128,7 +128,16 @@
         }
         dic = dic[@"data"][@"coupons"];
         if (dic != nil) {  //请求到数据
-            viewNewUser.hidden = NO;
+            NSString *flag = [KUserdefaults objectForKey:@"viewNewUser"];
+            if (flag == nil) {
+                viewNewUser.hidden = NO;
+                [KUserdefaults setObject:@"1" forKey:@"viewNewUser"];
+            }else{
+                viewNewUser.hidden = YES;
+                
+                return;
+            }
+            
             labNewUserCost.text  = [NSString stringWithFormat:@"%.0f",[dic[@"money"] doubleValue]];
             newUserInfo.text = [NSString stringWithFormat:@"%@",dic[@"rule_name"]];
             newUserInfo.adjustsFontSizeToFitWidth = YES;
@@ -193,8 +202,6 @@
             [self.realm addOrUpdateObject:homeData];
             RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
             self.model = [result firstObject];
-            
-            
             [self.realm commitWriteTransaction];
         }
         RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];

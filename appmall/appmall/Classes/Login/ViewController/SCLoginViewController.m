@@ -440,7 +440,8 @@ _appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 -(void)canCelLogin{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self goFirstPage];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)goFirstPage {

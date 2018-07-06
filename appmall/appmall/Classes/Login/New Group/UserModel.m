@@ -74,7 +74,11 @@
     if(model.token == nil){
         return @"";
     }else{
-        return model.token;
+        if ( [[KUserdefaults objectForKey:KloginStatus] boolValue] == YES) {
+            return model.token;
+        }else{
+            return @"";
+        }
     }
 }
 

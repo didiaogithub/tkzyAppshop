@@ -90,8 +90,14 @@
             }
             break;
         case 2:
-           
-            return AdaptedHeight(225) * 2 + 53;
+            if (self.model.topicList.count == 0) {
+                return 0;
+            }else if (self.model.topicList.count <=2){
+                return AdaptedHeight(225) * 1 + 53;
+            }else if (self.model.topicList.count > 2){
+                return AdaptedHeight(225) * 2 + 53;
+            }
+             return AdaptedHeight(225) * 2 + 53;
             break;
         case 3:
              return AdaptedHeight(235) ;
@@ -146,6 +152,10 @@
     }else if(index == 2){
     
         [self getLayoutRecommend];
+        if (self.model.topicList.count == 0) {
+            [self isShowTopView:NO];
+            return;
+        }
         self.labTitle.text = @"为你推荐";
         [self.collectionViewItem setCollectionViewLayout:self.customLayoutRecom];
         [self isShowTopView:YES];
@@ -212,11 +222,15 @@
 {
     if (self.selectIndex == 1) {
          MenuCollectionViewCell* cell= [collectionView dequeueReusableCellWithReuseIdentifier:KMenuCollectionViewCell forIndexPath:indexPath];
-        [cell setItemIcom:self.model.sortList[indexPath.row]];
-        cell.delegate = self.delegate;
+        if (self.model.sortList.count > indexPath.row) {
+            [cell setItemIcom:self.model.sortList[indexPath.row]];
+            cell.delegate = self.delegate;
+        }
+        
         return cell;
     }else{
         RecommendCollectionViewCell * cell= [collectionView dequeueReusableCellWithReuseIdentifier:KRecommendCollectionViewCell forIndexPath:indexPath];
+     
         [cell loadDataModel:self.model andIndex:indexPath andSuperSection:self.selectIndex];
         return cell;
     }

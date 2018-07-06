@@ -58,6 +58,9 @@
     tkmodel = model;
     if (section ==2) {
         self.viewReMen.hidden =YES;
+        if (model.topicList.count == 0) {
+            return;
+        }
         TopicModel *tModel = [model.topicList objectAtIndex:index.row];
         [self.imgRecommend sd_setImageWithURL:[NSURL URLWithString:tModel.imgpath] placeholderImage:[UIImage imageNamed:@"我的订单页面产品图"]];
         self.labTitle.text = tModel.itemname;

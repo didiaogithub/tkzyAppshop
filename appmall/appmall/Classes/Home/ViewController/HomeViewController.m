@@ -80,10 +80,9 @@
 }
 
 
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  
+   [tabHomeList.mj_header beginRefreshing];
 }
 
 -(void)tabReloadData{
@@ -445,7 +444,7 @@
     if(index == 3){
         
         MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-        medieaDetailVC.strUrl =[NSString stringWithFormat:@"%@%@",NewSDetail,self.model.mediaList[indexpath.row].itemid] ;
+        medieaDetailVC.strUrl =[NSString stringWithFormat:@"%@h5/html/mediareports.html?id=%@",WebServiceAPI,self.model.mediaList[indexpath.row].itemid] ;
         
         medieaDetailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:medieaDetailVC animated:YES];
@@ -504,7 +503,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 3) {
         MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-        medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@%@",NewSDetail,[self.model.mediaList firstObject].itemid];
+        medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@h5/html/mediareports.html?id=%@",WebServiceAPI,[self.model.mediaList firstObject].itemid];
         [self.navigationController pushViewController:medieaDetailVC animated:YES];
     }
 }

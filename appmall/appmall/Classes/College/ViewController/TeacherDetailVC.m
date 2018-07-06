@@ -201,7 +201,7 @@
         return;
     }
     WebDetailViewController *webDetailVC = [[WebDetailViewController alloc]init];
-    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classList[indexPath.row].courseId];
+    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@h5/html/course.html?id=%@",WebServiceAPI,self.classList[indexPath.row].courseId];
     [self.navigationController pushViewController:webDetailVC animated:YES];
 }
 @end

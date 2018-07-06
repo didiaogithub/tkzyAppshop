@@ -133,7 +133,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WebDetailViewController *webDetailVC = [[WebDetailViewController alloc]init];
-    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
+    webDetailVC.detailUrl = [NSString stringWithFormat:@"%@h5/html/course.html?id=%@",WebServiceAPI,self.classArray[indexPath.row].courseId];
     [self.navVC.navigationController pushViewController:webDetailVC animated:YES];
 }
 

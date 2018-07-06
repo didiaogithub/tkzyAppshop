@@ -167,11 +167,11 @@
        [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }else if(self.selectIndex == 1){
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-        detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,_model.courseList [indexPath.row].courseId];
+        detailVC.detailUrl = [NSString stringWithFormat:@"%@h5/html/course.html?id=%@",WebServiceAPI,_model.courseList [indexPath.row].courseId];
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }else if(self.selectIndex == 3){
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-        detailVC.detailUrl =  [NSString stringWithFormat:@"%@%@",CollectionDetail,_model.lookList [indexPath.row].courseId];;
+        detailVC.detailUrl =  [NSString stringWithFormat:@"%@h5/html/course.html?id=%@",WebServiceAPI,_model.lookList [indexPath.row].courseId];;
         [[self getCurrentVC].navigationController pushViewController:detailVC animated:YES];
     }
 }

@@ -83,7 +83,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MedieaDetailViewController *medieaDetailVC = [[MedieaDetailViewController alloc]init];
-    medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@%@",NewSDetail,self.dataList[indexPath.row].itemid]; 
+    medieaDetailVC.strUrl = [NSString stringWithFormat:@"%@h5/html/mediareports.html?id=%@",WebServiceAPI,self.dataList[indexPath.row].itemid]; 
     [self.navigationController pushViewController:medieaDetailVC animated:YES];
 }
 

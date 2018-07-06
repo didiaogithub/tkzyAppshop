@@ -8,8 +8,9 @@
 #define common_h
 
 /* 网络环境0：测试，1：生产 */
-#define AppEnvironment 0
+#define AppEnvironment 1
 /* 银联与银联Apple Pay环境："00" 表示线上环境"01"表示测试环境 */
+
 #define UnionPayEnvironment @"00"
 /* 两次刷新的时间间隔 */
 #define Interval 5
@@ -210,9 +211,7 @@
 #define  Note_DeleteCommunity                          @"Note/deleteCommunity"  //删除评论
 #define  Note_GetCommunity                            @"Note/getCommunity"  //评论详情
 #define Note_getNoteById                                @"Note/getNoteById"
-#define NewSDetail @"http://tkappmall.tcsw.com.cn/h5/html/mediareports.html?id="
-#define CollectionDetail @"http://tkappmall.tcsw.com.cn/h5/html/course.html?id="
-#define CommShareUrl @"http://tkappmall.tcsw.com.cn/h5/html/community.html?id="
+
 /**生成活动订单*/
 #define AddActiveOrderUrl @"Order/submitOrder"
 
@@ -335,7 +334,7 @@
 #define UpdateMeInfoUrl @"Customer/modifyCustomerInfo"
 /**上传评价图片*/
 #define UploadImageUrl @"Resource/CkApp/uploadPhoto"
-/**手机验证码*/
+/**微信认证登录*/
 #define PhoneLoginUrl @"Login/wxAuthorityLogin" //@"Wxmall/Login/userLoginNew"
 /**获取省  市  区  列表*/
 #define GetAreaUrl @"Address/getAreaList"

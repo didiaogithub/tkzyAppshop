@@ -27,8 +27,9 @@
                            };
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithDictionary:para];
-    NSString *requestUrl = [NSString connectUrl:paraDic url:@"http://tkre.tcsw.com.cn/payhtml/banklist.html?"];
+    NSString *requestUrl = [NSString connectUrl:paraDic url:[NSString stringWithFormat:@"%@%@",CommentResAPI,@"payhtml/banklist.html?"]];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestUrl]]];

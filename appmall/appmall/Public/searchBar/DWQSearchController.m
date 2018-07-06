@@ -594,7 +594,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             return;
         }
         WebDetailViewController *detailVC = [[WebDetailViewController alloc]init];
-        detailVC.detailUrl = [NSString stringWithFormat:@"%@%@",CollectionDetail,self.classArray[indexPath.row].courseId];
+        detailVC.detailUrl = [NSString stringWithFormat:@"%@h5/html/course.html?id=%@",WebServiceAPI,self.classArray[indexPath.row].courseId];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }

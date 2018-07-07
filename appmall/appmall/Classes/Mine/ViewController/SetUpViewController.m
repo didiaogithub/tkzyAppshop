@@ -356,7 +356,7 @@
     NSString *filePath = [path stringByAppendingPathComponent:USER_DefaultAddress];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager removeItemAtPath:filePath error:nil];
- [self enterFirstPage];
+ [self goWelcom];
 
 }
 -(void)enterFirstPage {
@@ -380,13 +380,13 @@
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];
     RootNavigationController *welcomeNav = [[RootNavigationController alloc] initWithRootViewController:welcome];
-    [self presentViewController:welcomeNav animated:YES completion:nil];
-    
+//    [self presentViewController:welcomeNav animated:YES completion];
+        AppDelegate *app = [AppDelegate shareAppDelegate];
+        app.window.rootViewController = welcomeNav;
+        [app.window makeKeyAndVisible];
 //    [UIApplication sharedApplication].keyWindow.rootViewController = welcomeNav;
 //    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
-//    AppDelegate *app = [AppDelegate shareAppDelegate];
-//    app.window.rootViewController = welcomeNav;
-//    [app.window makeKeyAndVisible];
+
 }
 
 

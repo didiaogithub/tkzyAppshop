@@ -82,7 +82,14 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSInteger num = scrollView.contentOffset.x / KscreenWidth + 1;
-    self.labBannerNum.text = [NSString stringWithFormat:@"%ld/3",num];
+    
+    NSInteger total = [[[self.labBannerNum.text componentsSeparatedByString:@"/"] lastObject] integerValue];
+    if (total >0 ) {
+        if (num <=0) {
+            num = 1;
+        }
+    }
+    self.labBannerNum.text = [NSString stringWithFormat:@"%ld/%ld",num,total];
 }
 -(void)goWelcom{
     SCLoginViewController *welcome =[[SCLoginViewController alloc] init];

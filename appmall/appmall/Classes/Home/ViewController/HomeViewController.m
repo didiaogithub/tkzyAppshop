@@ -82,7 +82,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   [tabHomeList.mj_header beginRefreshing];
+//   [tabHomeList.mj_header beginRefreshing];
+    [self requestDataWithoutCache];
 }
 
 -(void)tabReloadData{

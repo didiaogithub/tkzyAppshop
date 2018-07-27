@@ -198,15 +198,19 @@
         if (dic != nil) {  //请求到数据
             TKHomeDataModel * homeData = [[TKHomeDataModel alloc]initWith:dic[@"data"]];
             homeData.modelId = @"1";
+           
             [self.realm beginWriteTransaction];
             [self.realm addOrUpdateObject:homeData];
             RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
             self.model = [result firstObject];
+            [self.model.sortList addObject:[self.model.sortList firstObject]];
+            [self.model.sortList addObject:[self.model.sortList firstObject]];
+            [self.model.sortList addObject:[self.model.sortList firstObject]];
             [self.realm commitWriteTransaction];
         }
         RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
         self.model = [result firstObject];
-       
+        
         [tabHomeList reloadData];
 
     } failure:^(NSError *error) {

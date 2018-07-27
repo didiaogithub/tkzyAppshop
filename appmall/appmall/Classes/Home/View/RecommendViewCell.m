@@ -64,7 +64,12 @@
     self.customLayoutMenu.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.customLayoutMenu.minimumInteritemSpacing = 0;
     if (self.model.sortList.count >= 3) {
-        self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /self.model.sortList.count , 96) ;
+        if (self.model.sortList.count >= 4) {
+             self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /4 , 96) ;
+        }else{
+             self.customLayoutMenu.itemSize = CGSizeMake(KscreenWidth /self.model.sortList.count , 96) ;
+        }
+       
     }
 }
 

@@ -32,6 +32,9 @@
 @property (nonatomic, assign) BOOL isLogOut;
 @property (nonatomic, strong) XWAlterVeiw *alertView;
 
+/**  检查版本更新*/
+@property (nonatomic, strong) NSDictionary *checkVersionDic;
+
 @end
 
 @implementation SetUpViewController
@@ -58,7 +61,7 @@
         if([dic[@"code"] integerValue] != 200){
             return;
         }
-        
+        self.checkVersionDic = dic[@"data"];
         
     } failure:^(NSError *error) {
         

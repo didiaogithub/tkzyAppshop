@@ -156,6 +156,7 @@
             [KUserdefaults setBool:NO forKey:KpostcommentStatus];
         }
         
+//        dic[@"data"][@"loan_status"] = @"0";
         // 店铺赊销状态 0:关闭 1:开启
         if ([dic[@"data"][@"loan_status"]  boolValue] == YES){
             [KUserdefaults setBool:YES forKey:KloanStatus];

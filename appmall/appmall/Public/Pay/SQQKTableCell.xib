@@ -38,6 +38,7 @@
             <connections>
                 <outlet property="sqqkBtn" destination="TwY-Y6-B0z" id="Y7q-Rk-mga"/>
             </connections>
+            <point key="canvasLocation" x="-609" y="114"/>
         </tableViewCell>
     </objects>
 </document>

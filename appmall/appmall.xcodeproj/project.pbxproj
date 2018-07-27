@@ -4046,7 +4046,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4066,8 +4066,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b17db9cd-1c11-4035-8ca2-7ab3482632c3";
-				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
+				PROVISIONING_PROFILE = "a4620178-6811-4a84-aabd-b24ea2e0fd20";
+				PROVISIONING_PROFILE_SPECIFIER = adhocydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4080,7 +4080,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4100,8 +4100,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59612eda-b253-4a85-a9b5-5e5ada535627";
-				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
+				PROVISIONING_PROFILE = "a4620178-6811-4a84-aabd-b24ea2e0fd20";
+				PROVISIONING_PROFILE_SPECIFIER = adhocydappmall;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

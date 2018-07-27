@@ -203,9 +203,6 @@
             [self.realm addOrUpdateObject:homeData];
             RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];
             self.model = [result firstObject];
-            [self.model.sortList addObject:[self.model.sortList firstObject]];
-            [self.model.sortList addObject:[self.model.sortList firstObject]];
-            [self.model.sortList addObject:[self.model.sortList firstObject]];
             [self.realm commitWriteTransaction];
         }
         RLMResults *result = [TKHomeDataModel allObjectsInRealm:self.realm];

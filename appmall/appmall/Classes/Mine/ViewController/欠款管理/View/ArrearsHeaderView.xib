@@ -72,7 +72,7 @@
                 <outlet property="orderNo" destination="vrG-7P-nPB" id="jHH-Xp-C4g"/>
                 <outlet property="orderStates" destination="bXS-6C-vei" id="bBT-XA-ZNK"/>
             </connections>
-            <point key="canvasLocation" x="-435.5" y="110.5"/>
+            <point key="canvasLocation" x="32" y="72"/>
         </view>
     </objects>
 </document>

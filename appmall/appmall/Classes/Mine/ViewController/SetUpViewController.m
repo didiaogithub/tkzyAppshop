@@ -191,6 +191,8 @@
 /**点击检查版本更新*/
 -(void)clickVersionButton:(UIButton *)button{
     
+    
+//    [self getData];
     button.userInteractionEnabled = NO;
     _isCheckVersion = YES;
     _isLogOut = NO;
@@ -200,7 +202,7 @@
     [UpdateAlertView shareInstance].isDealInBlock = YES;
    
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, PayMethodUrl];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, checkVersionApi];
     
     [HttpTool getWithUrl:requestUrl params:nil success:^(id json) {
         button.userInteractionEnabled = YES;
@@ -209,67 +211,28 @@
         if (![code isEqualToString:@"200"]) {
             return ;
         }
-        [self updateDomain:dict];
-        
-        
-        //是否显示消息中心
-        NSString *appmallmsg = [dict objectForKey:@"appmallmsg"];
-        if (!IsNilOrNull(appmallmsg)) {
-            [KUserdefaults setObject:appmallmsg forKey:@"YDSC_msgShow"];
-        }
-        
-        NSString *coupontime = [NSString stringWithFormat:@"%@", dict[@"coupontime"]];
-        if (IsNilOrNull(coupontime)) {
-            coupontime = @"600";
-        }
-        [KUserdefaults setObject:coupontime forKey:@"YDSC_coupontime"];
-        
-        NSString *couponbgurl = [NSString stringWithFormat:@"%@", dict[@"couponbgurl"]];
-        if (IsNilOrNull(couponbgurl)) {
-            couponbgurl = @"";
-        }
-        [KUserdefaults setObject:couponbgurl forKey:@"YDSC_couponbgurl"];
-        
-        
-        
-        
-        NSString *payalertmsg = [NSString stringWithFormat:@"%@", dict[@"payalertmsg"]];
-        if (IsNilOrNull(payalertmsg)) {
-            payalertmsg = @"";
-        }
-        [KUserdefaults setObject:payalertmsg forKey:@"payalertmsg"];
-        
-        NSString *appmallverinfo = [dict objectForKey:@"appmallverinfo"];
+        NSDictionary *dic = dict[@"data"];
+        NSString *appmallverinfo = [dic objectForKey:@"log"];
         if (!IsNilOrNull(appmallverinfo)) {
             [KUserdefaults setObject:appmallverinfo forKey:@"YDSC_updateInfo"];
         }
         
-        //是否显示积分商城
-        NSString *mallintegralshow = [dict objectForKey:@"mallintegralshow"];
-        if (!IsNilOrNull(mallintegralshow)) {
-            [KUserdefaults setObject:mallintegralshow forKey:MallintegralShowOrNot];
-        }
-        
-        NSString *ckappdownloadmsg = [dict objectForKey:@"ckappdownloadmsg"];
-        if (!IsNilOrNull(ckappdownloadmsg)) {
-            [KUserdefaults setObject:ckappdownloadmsg forKey:@"BecomeCKMsg"];
-        }
         
         NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         _localBuildStr = currentVersion;
-        _severVersionStr = [NSString stringWithFormat:@"%@", [dict objectForKey:@"malliosversion"]];
+        _severVersionStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"code"]];
         
-        NSString *ckappiosver = [dict objectForKey:@"malliosversion"];
+        NSString *ckappiosver = [dic objectForKey:@"code"];
         if (!IsNilOrNull(ckappiosver)) {
             [KUserdefaults setObject:ckappiosver forKey:ServerVersion];
         }
         
-        NSString *ckappiosforce = [dict objectForKey:@"malliosforce"];
+        NSString *ckappiosforce = [dic objectForKey:@"isUpdate"];
         if (!IsNilOrNull(ckappiosforce)) {
             [KUserdefaults setObject:ckappiosforce forKey:Forceupdate];
         }
         
-        NSString *downLoadUrl = [NSString stringWithFormat:@"%@",dict[@"malldownloadurl"]];
+        NSString *downLoadUrl = [NSString stringWithFormat:@"%@",dic[@"url"]];
         if (IsNilOrNull(downLoadUrl)) {
             downLoadUrl = @"https://itunes.apple.com/cn/app/id1164737320";
         }

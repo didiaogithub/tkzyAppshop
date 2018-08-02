@@ -89,7 +89,7 @@
                 <outlet property="nameLab" destination="09z-e7-DQB" id="wEw-sc-7YF"/>
                 <outlet property="num" destination="0y6-iW-tnF" id="jj7-2a-dNI"/>
             </connections>
-            <point key="canvasLocation" x="-164.5" y="175.5"/>
+            <point key="canvasLocation" x="98" y="135"/>
         </tableViewCell>
     </objects>
 </document>

@@ -109,7 +109,7 @@
                 <outlet property="rightBtn" destination="K7e-bM-wc8" id="4SO-FI-yn6"/>
                 <outlet property="rwitdh" destination="Bl8-2n-gIs" id="6Hd-Pc-i0m"/>
             </connections>
-            <point key="canvasLocation" x="-385" y="-136"/>
+            <point key="canvasLocation" x="-155" y="-135"/>
         </view>
     </objects>
 </document>

@@ -11,10 +11,12 @@
 @implementation BaseModelRoot
 
 -(id)initWith:(NSDictionary*)dic{
-    
-    if (self = [super init]) {
-        [self setValuesForKeysWithDictionary:dic];
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        if (self = [super init]) {
+            [self setValuesForKeysWithDictionary:dic];
+        }
     }
+   
     
     return self;
 }

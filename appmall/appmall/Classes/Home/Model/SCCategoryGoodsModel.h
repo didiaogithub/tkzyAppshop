@@ -20,4 +20,5 @@
 @property(nonatomic,copy)NSString * price;
 @property(nonatomic,copy)NSString * name;
 @property(nonatomic,copy)NSString * imgpath;
+@property(nonatomic,copy)NSString * purchaseMultiple;
 @end

@@ -614,7 +614,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
         NSLog(@"加入购物车");
         
         NSMutableDictionary *pramaDic = [[NSMutableDictionary alloc]initWithDictionary:[HttpTool getCommonPara]];
-        NSString* itemsStr  = [@[@{@"itemid":cateM.itemid,@"num":@"1"}] mj_JSONString];
+        NSString* itemsStr  = [@[@{@"itemid":cateM.itemid,@"num":cateM.purchaseMultiple}] mj_JSONString];
         [pramaDic setObject:itemsStr forKey:@"items"];
         NSString *loveItemUrl = [NSString stringWithFormat:@"%@%@", WebServiceAPI, AddToShoppingCarUrl];
         

@@ -231,7 +231,7 @@
 
 /**判断ios是否在审核中*/
 #define CheckSuccessCode @"200"
-#define IsIosCheck_Url @"Wxmall/Login/isAppMaill3Check"
+#define IsIosCheck_Url @"Sys/iosMallcheck"
 
 #define GetLoginType @"Wxmall/Login/getAppMallLoginType"
 

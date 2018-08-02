@@ -143,11 +143,12 @@
 
 -(void)showUpdateAlert:(NSString*)content forceUpdate:(BOOL)force {
     
+    
     self.closeBtn.hidden = force;
     
     CGSize s = [content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*(Padding+10), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     self.contentScrollView.contentSize = CGSizeMake(0, s.height);
-    self.contentLabel.text = content;    
+    self.contentLabel.text = content;
     
     [self.bigView layoutIfNeeded];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -157,7 +158,7 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         _bigView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-
+        
     }];
 }
 

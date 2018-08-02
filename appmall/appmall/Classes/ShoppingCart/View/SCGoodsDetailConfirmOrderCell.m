@@ -227,8 +227,8 @@
             }
         }
         
-        if (self.chooseCount + pur > 100) {
-            self.chooseCount  = 100;
+        if (self.chooseCount + pur > 1000000) {
+            self.chooseCount  = 1000000;
         }else{
             self.chooseCount  = self.chooseCount +pur;
         }

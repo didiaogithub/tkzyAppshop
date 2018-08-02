@@ -223,8 +223,8 @@
             self.chooseCount  = self.chooseCount -[self.goodModel.purchaseMultiple integerValue];
         }
     }else{
-        if (self.chooseCount  +[self.goodModel.purchaseMultiple integerValue] > 100) {
-            self.chooseCount  = 100;
+        if (self.chooseCount  +[self.goodModel.purchaseMultiple integerValue] > 1000000) {
+            self.chooseCount  = 1000000;
         }else{
             self.chooseCount  = self.chooseCount +[self.goodModel.purchaseMultiple integerValue];
         }

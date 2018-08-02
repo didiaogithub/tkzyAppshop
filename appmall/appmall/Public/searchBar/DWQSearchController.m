@@ -222,7 +222,7 @@ static NSString *const HistoryCellID = @"HistoryCellID";
             }
         }
        
-          [self createUI];
+        [self createUI];
     } failure:^(NSError *error) {
         [self.loadingView stopAnimation];
         if (error.code == -1009) {

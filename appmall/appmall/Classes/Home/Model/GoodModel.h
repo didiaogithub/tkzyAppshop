@@ -23,6 +23,7 @@
 /**加入时间*/
 @property NSString *chose;
 /**购买数量*/
+@property(nonatomic,strong)NSString *purchaseMultiple;
 @property NSString *num;
 @property NSString *no;
 @property BOOL isSelect;

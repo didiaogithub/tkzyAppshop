@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SCGoodsDetailConfirmOrderCell : UITableViewCell
-
+@property (nonatomic, strong) NSDictionary *goodsDict;
 -(void)refreshCellWithGoodsDict:(NSDictionary *)goodsDict limitnum:(NSString*)limitnum;
 
 @end

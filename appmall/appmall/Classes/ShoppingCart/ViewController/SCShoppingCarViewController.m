@@ -217,6 +217,8 @@
                 model.chose = [NSString stringWithFormat:@"%@",goodDic[@"chose"]];
                 model.num = [NSString stringWithFormat:@"%@",goodDic[@"num"]];
                 model.no = [NSString stringWithFormat:@"%@",goodDic[@"no"]];
+                model.purchaseMultiple = [NSString stringWithFormat:@"%@",goodDic[@"purchaseMultiple"]];
+
                 model.isSelect = NO;
                 [self.shoppingCarDataArray addObject:model];
             }
@@ -511,7 +513,7 @@
         
             GoodModel *classM = [[GoodModel alloc] init];
             classM.itemid = _goodModel.itemid;
-    
+            classM.purchaseMultiple = _goodModel.purchaseMultiple;
             classM.price = _goodModel.price;
             classM.num = _goodModel.num;
             classM.spec = _goodModel.spec;

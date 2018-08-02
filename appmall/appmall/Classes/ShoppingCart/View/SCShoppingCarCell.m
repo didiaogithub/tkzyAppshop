@@ -217,16 +217,16 @@
 #pragma mark-点击减号 和   加号 按钮
 -(void)clickCountButton:(UIButton *)button{
     if (button.tag == 1111) { //减号
-        if ((self.chooseCount - 1) <= 0 || self.chooseCount == 0) {
-            self.chooseCount = 1;
+        if ((self.chooseCount - [self.goodModel.purchaseMultiple integerValue]) <= 0 || self.chooseCount == 0) {
+            self.chooseCount = [self.goodModel.purchaseMultiple integerValue];
         }else{
-            self.chooseCount  = self.chooseCount -1;
+            self.chooseCount  = self.chooseCount -[self.goodModel.purchaseMultiple integerValue];
         }
     }else{
-        if (self.chooseCount  > 100 || self.chooseCount == 100) {
-            self.chooseCount  = 99;
+        if (self.chooseCount  +[self.goodModel.purchaseMultiple integerValue] > 100) {
+            self.chooseCount  = 100;
         }else{
-            self.chooseCount  = self.chooseCount +1;
+            self.chooseCount  = self.chooseCount +[self.goodModel.purchaseMultiple integerValue];
         }
     }
     
@@ -242,7 +242,7 @@
     classM.name = _goodModel.name;
     classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
-
+    classM.purchaseMultiple = _goodModel.purchaseMultiple;
     BaseViewController *itemVC =(BaseViewController *) [self getCurrentVC];
     [itemVC.realm beginWriteTransaction];
     [GoodModel createOrUpdateInRealm:itemVC.realm withValue:classM];
@@ -267,7 +267,7 @@
     classM.name = _goodModel.name;
     classM.no =_goodModel.no;
     classM.isSelect = _selectedButton.selected;
-    
+    classM.purchaseMultiple = _goodModel.purchaseMultiple;
 
     BaseViewController *itemVC =(BaseViewController *) [self getCurrentVC];
     [itemVC.realm beginWriteTransaction];

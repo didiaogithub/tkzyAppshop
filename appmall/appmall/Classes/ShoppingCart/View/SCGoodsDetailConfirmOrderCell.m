@@ -206,15 +206,16 @@
 
 #pragma mark-点击减号 和加号 按钮
 -(void)clickCountButton:(UIButton *)button{
+    NSInteger pur = [self.goodsDict[@"purchaseMultiple"] integerValue];
     if (self.chooseCount == 0) {
-        self.chooseCount = 1;
+        self.chooseCount = pur;
 
     }
     if (button.tag == 1111) { //减号
-        if ((self.chooseCount - 1) <= 0 || self.chooseCount == 0) {
-            self.chooseCount = 1;
+        if ((self.chooseCount - pur) <= 0 || self.chooseCount == 0) {
+            self.chooseCount = pur;
         }else{
-            self.chooseCount  = self.chooseCount -1;
+            self.chooseCount  = self.chooseCount -pur;
         }
     }else{
         
@@ -226,10 +227,10 @@
             }
         }
         
-        if (self.chooseCount  > 100 || self.chooseCount == 100) {
-            self.chooseCount  = 99;
+        if (self.chooseCount + pur > 100) {
+            self.chooseCount  = 100;
         }else{
-            self.chooseCount  = self.chooseCount +1;
+            self.chooseCount  = self.chooseCount +pur;
         }
     }
     _countLable.text = [NSString stringWithFormat:@"%zd", self.chooseCount];
@@ -238,7 +239,7 @@
 }
 
 -(void)refreshCellWithGoodsDict:(NSDictionary *)goodsDict limitnum:(NSString*)limitnum {
-    
+    self.goodsDict = goodsDict;
     _limitnum = limitnum;
     
     if (!IsNilOrNull(_limitnum) && ([_limitnum integerValue] == 1)) {
@@ -335,6 +336,7 @@
         spec = [NSString stringWithFormat:@"编号:%@;规格:%@kg",no,goodsDict[@"spec"]];
     }
     _standardLable.text = spec;
+    [self clickCountButton:_reduceButton];
 }
 
 - (void)showNoticeView:(NSString*)title {
@@ -343,6 +345,7 @@
         [self.viewNetError showInView:[UIApplication sharedApplication].keyWindow];
         [self.viewNetError dismissAfterDelay:1.0f];
     }
+    
 }
 
 - (void)awakeFromNib {

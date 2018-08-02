@@ -29,6 +29,7 @@
 @property(nonatomic,strong)NSString *satisfactionRate;
 @property(nonatomic,strong)NSString *spec;
 @property(nonatomic,strong)NSString *no;
+@property(nonatomic,strong)NSString *purchaseMultiple;
 @property(nonatomic,strong)NSString *supplierid;
 @property(nonatomic,strong)NSArray<GoodCommentModel *> *commentList;
 -(CGFloat)getWebDetail;

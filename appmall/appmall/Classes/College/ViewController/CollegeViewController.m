@@ -54,8 +54,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         self.tabDisTop.constant = NaviHeight + 44;
     });
-    
-    
 }
 
 -(void)requestDataWithoutCache {
@@ -130,21 +128,34 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:
+            
             height = 190 * KscreenWidth / 375.0;;
             break;
         case 1:
-            height = 210* KscreenWidth / 375;
+            if (model.courseList.count == 0) {
+                height = 0;
+            }else{
+                height = 210* KscreenWidth / 375;
+            }
             break;
         case 2:
-            if (KscreenWidth == 320) {
-                height = 222;
+            if (model.teacherList.count == 0) {
+                height = 0;
             }else{
-                height = 222* KscreenWidth / 375;
+                if (KscreenWidth == 320) {
+                    height = 222;
+                }else{
+                    height = 222* KscreenWidth / 375;
+                }
             }
-            
             break;
         case 3:
-            height = 258 * KscreenWidth / 375;
+            if (model.lookList.count == 0) {
+                height = 0;
+            }else{
+                height = 258 * KscreenWidth / 375;
+            }
+
             break;
         default:
             height  =0;

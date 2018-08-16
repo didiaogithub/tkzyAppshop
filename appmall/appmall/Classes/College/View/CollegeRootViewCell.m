@@ -65,7 +65,7 @@
 -(CGFloat)getCollectionHeight:(NSInteger)index{
     switch (index) {
         case 0:
-            return AdaptedHeight( 196 );
+            return AdaptedHeight(196);
             break;
         case 1:
             if (KscreenWidth == 320) {
@@ -125,11 +125,32 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (self.selectIndex == 1) {
-        return _model.courseList.count == 0 ?1:_model.courseList.count;
+        if (_model.courseList.count == 0) {
+            self.labTitle.hidden = YES;
+            self.btnMore.hidden = YES;
+        }else{
+            self.labTitle.hidden = NO;
+            self.btnMore.hidden = NO;
+        }
+        return _model.courseList.count;
     }else if (self.selectIndex == 2){
-        return _model.teacherList.count== 0 ?1:_model.teacherList.count;
+        if (_model.teacherList.count == 0) {
+            self.labTitle.hidden = YES;
+            self.btnMore.hidden = YES;
+        }else{
+            self.labTitle.hidden = NO;
+            self.btnMore.hidden = NO;
+        }
+        return _model.teacherList.count;
     }else if (self.selectIndex == 3){
-        return _model.lookList.count== 0 ?1:_model.lookList.count;;
+        if (_model.lookList.count == 0) {
+            self.labTitle.hidden = YES;
+            self.btnMore.hidden = YES;
+        }else{
+            self.labTitle.hidden = NO;
+            self.btnMore.hidden = NO;
+        }
+        return _model.lookList.count;
     }
     return 0;
 }

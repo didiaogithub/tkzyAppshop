@@ -213,7 +213,6 @@
     
             NSSet *setTags = [NSSet setWithObject:@"appmall"];
         }
-        
         if (dic != nil) {
             model = [[TKSchoolModel alloc]initWith:dic[@"data"]];
             model.modelId = @"1";

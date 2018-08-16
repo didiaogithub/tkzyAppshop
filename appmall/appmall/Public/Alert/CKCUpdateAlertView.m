@@ -70,6 +70,7 @@
     self.confirmBtn.layer.masksToBounds = YES;
     self.confirmBtn.backgroundColor = [UIColor redColor];
     [self.confirmBtn addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
+    self.confirmBtn.hidden = YES;
     [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.bgImgView.mas_bottom).offset(-10);
         make.right.equalTo(self.bgImgView.mas_right).offset(-20);

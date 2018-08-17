@@ -97,7 +97,7 @@
     [self.tabTeaCherListView registerNib:[UINib nibWithNibName:KTeacherItemViewCell bundle:nil ] forCellReuseIdentifier:KTeacherItemViewCell];
     self.tabTeaCherListView.rowHeight = 136;
     [self .tabTeaCherListView reloadData];
-    
+    self.tabTeaCherListView.tableFooterView = [UIView new];
     tabDisTop.constant = NaviHeight;
     tabDisBottom .constant = BOTTOM_BAR_HEIGHT ;
 }

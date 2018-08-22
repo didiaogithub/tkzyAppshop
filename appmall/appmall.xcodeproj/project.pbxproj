@@ -3271,7 +3271,7 @@
 				TargetAttributes = {
 					F2FED0592081A1ED00DFBD77 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -4046,11 +4046,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4066,12 +4064,10 @@
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lottery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
 				PROVISIONING_PROFILE = "434b5d49-2594-4244-a3ce-5f94cd86f1f1";
 				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
-
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4084,11 +4080,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = appmall/appmall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 455K53L395;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/appmall/Public/AlipaySDK",
@@ -4104,12 +4098,10 @@
 					"$(PROJECT_DIR)/appmall/Public/京东支付授权SDK-iOS",
 					"$(PROJECT_DIR)/appmall/Public/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lottery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tk.TkPlatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
 				PROVISIONING_PROFILE = "434b5d49-2594-4244-a3ce-5f94cd86f1f1";
 				PROVISIONING_PROFILE_SPECIFIER = devydappmall;
-
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

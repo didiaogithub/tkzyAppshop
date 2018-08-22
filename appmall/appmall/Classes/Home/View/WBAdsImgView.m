@@ -53,7 +53,7 @@
         }
     }
     
-    if (imgUrls == nil) {//网络状态不好  或者数据未回来  预先加载本地banner图
+    if (imgUrls == nil || imgUrls.count == 0) {//网络状态不好  或者数据未回来  预先加载本地banner图
         scrContentView.contentSize = CGSizeMake(KscreenWidth * 3, scrContentView.mj_h);
         
         pageCtl.numberOfPages = 3;
@@ -117,7 +117,7 @@
         }
     }
     
-    if (imgUrls == nil) {//网络状态不好  或者数据未回来  预先加载本地banner图
+    if (imgUrls == nil || imgUrls.count == 0) {//网络状态不好  或者数据未回来  预先加载本地banner图
         scrContentView.contentSize = CGSizeMake(KscreenWidth * 3, scrContentView.mj_h);
         
         pageCtl.numberOfPages = 3;

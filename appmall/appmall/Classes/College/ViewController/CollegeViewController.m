@@ -113,6 +113,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         TabTopAdsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KTabTopAdsViewCell];
+        if (model.bannerList.count == 0) {
+            return [UITableViewCell new];
+        }
+
         [cell loadData:model];
         return cell;
     }else{
@@ -128,8 +132,12 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:
-            
-            height = 190 * KscreenWidth / 375.0;;
+            if (model.bannerList.count == 0) {
+                height =  0;
+            }else{
+                height = 190 * KscreenWidth / 375.0;
+            }
+        
             break;
         case 1:
             if (model.courseList.count == 0) {

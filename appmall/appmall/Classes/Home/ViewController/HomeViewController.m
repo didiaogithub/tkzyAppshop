@@ -244,7 +244,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==0) {
+        
         HomeTabTopAdsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KHomeTabTopAdsViewCell];
+        if (self.model.bannerList.count == 0) {
+            return [UITableViewCell new];
+        }
         [cell  loadData:self.model];
         
         return cell;

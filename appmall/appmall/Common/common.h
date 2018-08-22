@@ -8,7 +8,7 @@
 #define common_h
 
 /* 网络环境0：测试，1：生产 */
-#define AppEnvironment 1
+#define AppEnvironment 0
 /* 银联与银联Apple Pay环境："00" 表示线上环境"01"表示测试环境 */
 
 #define UnionPayEnvironment @"00"

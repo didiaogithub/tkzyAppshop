@@ -85,6 +85,9 @@
 -(CGFloat)getCollectionHeight:(NSInteger)index{
     switch (index) {
         case 0:
+            if (self.model.bannerList.count == 0) {
+                return 0;
+            }
             return 187.0 / 375.0 * KscreenWidth;
             break;
         case 1:

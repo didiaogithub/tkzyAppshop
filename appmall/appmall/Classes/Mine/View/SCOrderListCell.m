@@ -95,7 +95,7 @@
         name = @"";
     }
     _descriptionLable.text = name;
-    _descriptionLable.numberOfLines = 1;
+    _descriptionLable.numberOfLines = 2;
 //    _descriptionLable.adjustsFontSizeToFitWidth = YES;
     [_descriptionLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_goodsImageView.mas_top).offset(10);
@@ -150,17 +150,22 @@
     
     _textNumber.text = [NSString stringWithFormat:@"规格：%@",spec];
     _textNumber1.text = [NSString stringWithFormat:@"编号：%@",specNo];
+    [_textNumber1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(20));
+        make.left.equalTo(_goodsImageView.mas_right).offset(5);
+        make.top.equalTo(_descriptionLable.mas_bottom).offset(3);
+    }];
     if (IsNilOrNull(name)) {
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
-            make.bottom.equalTo(_goodsImageView.mas_bottom).offset(-5);
+            make.top.equalTo(_textNumber1.mas_bottom).offset(0);
         }];
         
     }else{
         [_textNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(20));
             make.left.equalTo(_goodsImageView.mas_right).offset(5);
-            make.bottom.equalTo(_goodsImageView.mas_bottom).offset(-10);
+            make.top.equalTo(_textNumber1.mas_bottom).offset(0);
         }];
         [_textNumber1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(20));

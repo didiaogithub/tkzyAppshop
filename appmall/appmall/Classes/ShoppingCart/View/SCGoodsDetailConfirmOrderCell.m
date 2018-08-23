@@ -102,10 +102,11 @@
 
     //规格内容
     _standardLable = [UILabel configureLabelWithTextColor:SubTitleColor textAlignment:NSTextAlignmentLeft font:MAIN_TITLE_FONT];
+    _standardLable.numberOfLines = 2;
     [self.contentView addSubview:_standardLable];
     _standardLable.text = @"规格";
     [_standardLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(20));
+//        make.height.equalTo(@(20));
         make.left.equalTo(_iconImageView.mas_right).offset(5);
         make.top.equalTo(_nameLable.mas_bottom);
         
@@ -333,7 +334,7 @@
     if (IsNilOrNull(spec)) {
         spec = @"";
     }else{
-        spec = [NSString stringWithFormat:@"编号:%@;规格:%@kg",no,goodsDict[@"spec"]];
+        spec = [NSString stringWithFormat:@"编号:%@\n规格:%@kg",no,goodsDict[@"spec"]];
     }
     _standardLable.text = spec;
     [self clickCountButton:_reduceButton];

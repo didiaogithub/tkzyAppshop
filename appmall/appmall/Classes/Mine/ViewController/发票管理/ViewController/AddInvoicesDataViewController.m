@@ -240,7 +240,7 @@
     self.shView.backgroundColor = [UIColor whiteColor];
     [self.contView addSubview:self.shView];
        [self.shView.rightTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    self.shView.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    self.shView.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.shView.rightLabel.hidden = YES;
     self.shView.leftLabel.attributedText = [NSString attributedStarWthStr:@"*税号"];
     self.shView.rightTextField.delegate = self;
@@ -669,7 +669,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     if (textField == self.shView.rightTextField || textField == self.zhView.rightTextField) {
-        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"] invertedSet];
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"] invertedSet];
         NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
         return [string isEqualToString:filtered];
     }else if (textField == self.dhView.rightTextField){
